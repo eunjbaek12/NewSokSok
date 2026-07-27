@@ -1,3 +1,13 @@
+/**
+ * 내 단어 검색 · 골라서 학습 — 화면 하나를 두 진입점이 공유한다.
+ *
+ * `mode=pick`으로 들어오면(홈 카드) 입력창 자리에 제목이 오고 텍스트 검색이
+ * 없다. 조건으로 고르러 온 자리이기 때문이다. 그 외에는(단어장 탭 검색)
+ * 입력창이 자동 포커스되는 찾기 자세로 연다. 칩·목록·학습 바는 완전히 같다.
+ *
+ * 스크롤되는 건 목록뿐이다 — 칩 영역·결과 줄·학습 바는 고정이다. 패널 전체를
+ * ScrollView로 감싸면 FlatList 가상화 경고와 제스처 충돌이 난다.
+ */
 import React, { useState, useMemo, useDeferredValue, useCallback, useEffect } from 'react';
 import {
     View,
@@ -13,15 +23,38 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/features/theme';
-import { useLists, selectWordsForList } from '@/features/vocab';
-import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult, type StatusFilter } from '@/lib/search';
-import { displayTag } from '@/lib/tag-display';
-import { POS_ALL, POS_OTHER, matchesPosFilter, presentPosCategories, type PosFilter } from '@/lib/pos';
 import * as Haptics from 'expo-haptics';
+import { useTheme } from '@/features/theme';
+import { useLists } from '@/features/vocab';
+import { useSettings } from '@/features/settings';
+import { getTopTags, type SearchResult } from '@/lib/search';
+import { displayTag } from '@/lib/tag-display';
+import { POS_ALL, POS_OTHER, presentPosCategories, type PosFilter } from '@/lib/pos';
+import { getRelativeTime } from '@/components/ListCard';
+import ListDayPicker from '@/components/ListDayPicker';
+import { setStudySelection } from '@/features/study';
+import {
+    collectScopeItems,
+    selectPickResults,
+    countActiveFilters,
+    summarizeScope,
+    scopeStillExists,
+    scopeLabel,
+    conditionLabel,
+    wordFilterLabel,
+    resultsToWords,
+    shuffleWords,
+    usePickStore,
+    PRESET_LIMIT,
+    type WordFilter,
+} from '@/features/study/pick';
+
+/** 상태 줄 칩 순서 — 쓰는 빈도순. 별표는 독립 토글이라 이 목록에 없다. */
+const STATUS_KEYS: WordFilter[] = ['all', 'learning', 'memorized'];
+const PRESET_KEYS: WordFilter[] = ['wrongCount', 'recent'];
 
 export default function SearchModalScreen() {
     const { t } = useTranslation();
@@ -29,85 +62,119 @@ export default function SearchModalScreen() {
     const { colors, isDark } = useTheme();
     const insets = useSafeAreaInsets();
     const lists = useLists();
-    const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
+    const { mode } = useLocalSearchParams<{ mode?: string }>();
+    const isPick = mode === 'pick';
+
+    const { customStudySettings, updateCustomStudySettings, studySettings } = useSettings();
+    const filters = usePickStore(s => s.filters);
+    const setFilters = usePickStore(s => s.setFilters);
+    const applyFilters = usePickStore(s => s.applyFilters);
+    const resetFilters = usePickStore(s => s.resetFilters);
+    const recents = usePickStore(s => s.recents);
+    const hydrateRecents = usePickStore(s => s.hydrateRecents);
+    const rememberCondition = usePickStore(s => s.rememberCondition);
 
     const [query, setQuery] = useState('');
-    const [selectedListId, setSelectedListId] = useState<string | null>(null);
-    const [starredOnly, setStarredOnly] = useState(false);
-    const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
-    const [selectedTag, setSelectedTag] = useState<string | null>(null);
-    const [posFilter, setPosFilter] = useState<PosFilter>(POS_ALL);
+    const [showListPicker, setShowListPicker] = useState(false);
 
     // 키입력은 즉시 반응, 무거운 필터 연산은 낮은 우선순위로 처리
     const deferredQuery = useDeferredValue(query);
 
-    // 보이는 단어장 목록
+    useEffect(() => { hydrateRecents(); }, [hydrateRecents]);
+
     const visibleLists = useMemo(() => lists.filter(l => l.isVisible), [lists]);
 
-    // 보이는 단어장의 단어만 수집
-    const allData = useMemo<AllDataItem[]>(() => {
-        const data: AllDataItem[] = [];
-        visibleLists.forEach(list => {
-            getWordsForList(list.id).forEach(w => {
-                data.push({ word: w, listName: list.title, listId: list.id });
-            });
-        });
-        return data;
-    }, [visibleLists, getWordsForList]);
+    // 범위(단어장·Day)까지만 적용한 풀. 품사 칩·태그 칩의 후보도 여기서 뽑는다 —
+    // 전체가 아니라 지금 범위에 실제로 있는 것만 보여야 고를 수 있는 칩이 된다.
+    const scopeItems = useMemo(() => collectScopeItems(visibleLists, filters), [visibleLists, filters]);
 
-    // 자주 쓰는 태그 top 5
-    const topTags = useMemo(() => getTopTags(allData), [allData]);
-
-    // 현재 보이는 단어들에 실제로 존재하는 품사만 칩으로 노출. 2종 미만이면 숨김.
-    const posOptions = useMemo(() => presentPosCategories(allData.map(d => d.word)), [allData]);
+    const topTags = useMemo(() => getTopTags(scopeItems), [scopeItems]);
+    const posOptions = useMemo(() => presentPosCategories(scopeItems.map(d => d.word)), [scopeItems]);
     const showPosFilter = posOptions.keys.length + (posOptions.hasOther ? 1 : 0) >= 2;
-    const posActive = showPosFilter && posFilter !== POS_ALL;
 
-    // 필터 + 단일 패스 매칭 + 관련도 정렬. 품사 칩이 켜져 있으면 빈 질의도
-    // 브라우징 모드(browse)로 — 후처리 필터가 걸 전체 목록을 받아야 한다.
-    const searchResults = useMemo(
-        () => filterAndRankResults(allData, deferredQuery, selectedListId, starredOnly, { status: statusFilter, tag: selectedTag, browse: posActive }),
-        [deferredQuery, allData, selectedListId, starredOnly, statusFilter, selectedTag, posActive],
-    );
+    const activeFilterCount = countActiveFilters(filters);
 
-    // 랭킹 로직(filterAndRankResults)은 건드리지 않고 결과를 품사로 후처리.
+    // 조건으로 고르러 온 자세는 아무것도 안 걸린 상태에서도 전체를 보여준다.
+    // 찾기 자세는 질의나 필터가 있을 때만 — 빈 화면이 지난번 조건의 자리다.
+    const browse = isPick || activeFilterCount > 0;
+    const showResults = browse || !!query.trim();
+
     const results = useMemo(
-        () => posActive ? searchResults.filter(r => matchesPosFilter(r.word.pos, posFilter)) : searchResults,
-        [searchResults, posActive, posFilter],
+        () => (showResults ? selectPickResults(scopeItems, deferredQuery, filters, browse) : []),
+        [showResults, scopeItems, deferredQuery, filters, browse],
     );
 
-    // 질의가 없어도 활성 필터(별표·단어장·상태·태그·품사)가 하나라도 있으면 결과를 보여준다(브라우징).
-    const showResults = !!query.trim() || starredOnly || posActive
-        || selectedListId !== null || statusFilter !== 'all' || selectedTag !== null;
-
-    // 단어 구성이 바뀌어 선택했던 품사가 사라지면 자동으로 '전체'로 되돌린다.
+    // 범위가 바뀌어 선택했던 품사가 사라지면 자동으로 '전체'로 되돌린다.
     useEffect(() => {
-        if (posFilter === POS_ALL) return;
-        const available = posFilter === POS_OTHER
+        if (filters.posFilter === POS_ALL) return;
+        const available = filters.posFilter === POS_OTHER
             ? posOptions.hasOther
-            : (posOptions.keys as string[]).includes(posFilter);
-        if (!available) setPosFilter(POS_ALL);
-    }, [posOptions, posFilter]);
+            : (posOptions.keys as string[]).includes(filters.posFilter);
+        if (!available) setFilters({ posFilter: POS_ALL });
+    }, [posOptions, filters.posFilter, setFilters]);
 
     // 단어 구성이 바뀌어 선택했던 태그가 사라지면 자동 해제.
     useEffect(() => {
-        if (selectedTag && !topTags.includes(selectedTag)) setSelectedTag(null);
-    }, [topTags, selectedTag]);
+        if (filters.tag && !topTags.includes(filters.tag)) setFilters({ tag: null });
+    }, [topTags, filters.tag, setFilters]);
 
-    const posChips = useMemo(() => {
-        const chips: { key: PosFilter; label: string }[] = [{ key: POS_ALL, label: t('pos.all') }];
-        for (const k of posOptions.keys) chips.push({ key: k, label: t(`pos.${k}`) });
-        if (posOptions.hasOther) chips.push({ key: POS_OTHER, label: t('pos.other') });
-        return chips;
-    }, [posOptions, t]);
+    // 삭제된 단어장 ID 자동 정리 — 남겨두면 "고른 단어장이 있는데 0개"가 된다.
+    useEffect(() => {
+        if (filters.useAllLists || filters.selectedListIds.length === 0) return;
+        const validIds = filters.selectedListIds.filter(id => visibleLists.some(l => l.id === id));
+        if (validIds.length !== filters.selectedListIds.length) {
+            setFilters(validIds.length === 0
+                ? { useAllLists: true, selectedListIds: [], selectedDaysByList: {} }
+                : { selectedListIds: validIds });
+        }
+    }, [visibleLists, filters.useAllLists, filters.selectedListIds, setFilters]);
 
-    const statusChips = useMemo<{ key: StatusFilter; label: string }[]>(() => [
-        { key: 'all', label: t('search.filterAll') },
-        { key: 'learning', label: t('search.filterLearning') },
-        { key: 'memorized', label: t('search.filterMemorized') },
-    ], [t]);
+    // 가리키던 단어장이 지워진 줄은 버린다 — 눌렀더니 0개가 나오는 일이 없어야 한다.
+    const visibleRecents = useMemo(
+        () => recents.filter(r => scopeStillExists(visibleLists, r.filters)),
+        [recents, visibleLists],
+    );
+    // 이미 조건을 만들고 있는 사람에게 지난 조건은 방해다.
+    const showRecents = activeFilterCount === 0 && !query.trim() && visibleRecents.length > 0;
 
-    const renderResult = ({ item }: { item: SearchResult }) => {
+    const scopeText = useMemo(
+        () => scopeLabel(summarizeScope(visibleLists, filters), t),
+        [visibleLists, filters, t],
+    );
+
+    const batchSize = studySettings.studyBatchSize;
+    const countText = useMemo(() => {
+        const n = results.length.toLocaleString();
+        const base = activeFilterCount > 0
+            ? t('search.countWithFilters', { n, filters: activeFilterCount })
+            : t('search.countOnly', { n });
+        return typeof batchSize === 'number' && results.length > batchSize
+            ? `${base} · ${t('search.batchHint', { count: batchSize })}`
+            : base;
+    }, [results.length, activeFilterCount, batchSize, t]);
+
+    const tap = useCallback(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light), []);
+
+    const handleStart = useCallback(() => {
+        if (results.length === 0) return;
+        Keyboard.dismiss();
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        // 저장 시점은 학습을 시작할 때 하나뿐이다. 칩을 누를 때마다 저장하면
+        // 만들다 만 중간 상태가 지난번 조건에 쌓인다.
+        rememberCondition(filters, results.length);
+        const sel = setStudySelection(shuffleWords(resultsToWords(results)).map(w => w.id));
+        const params = { id: '__custom__', sel };
+        // replace로 가는 이유: 학습 화면은 결과로 넘어갈 때 스스로 replace한다.
+        // 이 화면을 스택에 남기면 결과에서 뒤로 눌렀을 때 방금 외운 단어가 빠진
+        // 목록으로 돌아오고, 홈까지 두 번 눌러야 한다.
+        if (customStudySettings.studyMode === 'quiz') {
+            router.replace({ pathname: '/quiz/[id]', params });
+        } else {
+            router.replace({ pathname: '/flashcards/[id]', params });
+        }
+    }, [results, filters, rememberCondition, customStudySettings.studyMode, router]);
+
+    const renderResult = useCallback(({ item }: { item: SearchResult }) => {
         const trimmed = deferredQuery.trim().toLowerCase();
         const matchingTags = item.isTagMatch
             ? item.word.tags?.filter(tag => tag.toLowerCase().includes(trimmed)) ?? []
@@ -135,7 +202,6 @@ export default function SearchModalScreen() {
                     <View style={styles.resultHeaderRight}>
                         {item.word.isStarred && <Ionicons name="star" size={14} color={colors.warning} />}
                         <View style={[styles.listBadge, { backgroundColor: colors.primaryLight }]}>
-                            {item.word.tags?.length === 0 && null}
                             <Ionicons name="folder-outline" size={11} color={colors.primary} />
                             <Text style={[styles.listBadgeText, { color: colors.primary }]} numberOfLines={1}>
                                 {item.listName}
@@ -181,7 +247,45 @@ export default function SearchModalScreen() {
                 )}
             </Pressable>
         );
+    }, [deferredQuery, colors, isDark, router, t]);
+
+    /** 지난번 조건 한 줄. 빈 화면에서는 세 줄, 목록 위에서는 맨 위 하나만 쓴다. */
+    const renderRecent = (recent: typeof visibleRecents[number], inline: boolean) => {
+        const condition = conditionLabel(recent.filters, visibleLists, t);
+        return (
+            <Pressable
+                key={recent.savedAt}
+                onPress={() => {
+                    tap();
+                    applyFilters(recent.filters);
+                    setQuery('');
+                }}
+                style={({ pressed }) => [
+                    styles.recentRow,
+                    { backgroundColor: colors.surface, borderColor: colors.borderLight },
+                    pressed && { opacity: 0.75 },
+                ]}
+            >
+                <Ionicons name="arrow-undo-outline" size={14} color={colors.primary} />
+                <View style={styles.recentBody}>
+                    <Text style={[styles.recentCondition, { color: colors.text }]} numberOfLines={1}>
+                        {inline ? t('search.recentInline', { condition }) : condition}
+                    </Text>
+                    <Text style={[styles.recentMeta, { color: colors.textTertiary }]} numberOfLines={1}>
+                        {t('search.recentMeta', { when: getRelativeTime(recent.savedAt, t), count: recent.count })}
+                    </Text>
+                </View>
+            </Pressable>
+        );
     };
+
+    const chipStyle = (active: boolean) => [
+        styles.filterChip,
+        active
+            ? { backgroundColor: colors.primary, borderColor: colors.primary }
+            : { backgroundColor: colors.surface, borderColor: colors.border },
+    ];
+    const chipTextColor = (active: boolean) => (active ? colors.onPrimary : colors.textSecondary);
 
     return (
         <KeyboardAvoidingView
@@ -191,278 +295,310 @@ export default function SearchModalScreen() {
             {/* 헤더 */}
             <View style={[styles.header, { paddingTop: Math.max(insets.top, 20), borderBottomColor: colors.borderLight }]}>
 
-                {/* 검색창 */}
-                <View style={styles.headerTopRow}>
-                    <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-                        <Ionicons name="search" size={18} color={colors.textTertiary} />
-                        <TextInput
-                            style={[styles.searchInput, { color: colors.text }]}
-                            placeholder={t('search.placeholder')}
-                            placeholderTextColor={colors.textTertiary}
-                            value={query}
-                            onChangeText={setQuery}
-                            onSubmitEditing={() => Keyboard.dismiss()}
-                            autoFocus
-                            autoCapitalize="none"
-                            returnKeyType="search"
-                        />
-                        {query.length > 0 && (
-                            <Pressable onPress={() => setQuery('')} hitSlop={10}>
-                                <Ionicons name="close-circle" size={17} color={colors.textTertiary} />
-                            </Pressable>
-                        )}
-                    </View>
-                    <Pressable onPress={() => router.back()} hitSlop={10}>
-                        <Text style={[styles.cancelText, { color: colors.primary }]}>{t('common.cancel')}</Text>
-                    </Pressable>
-                </View>
-
-                {/* 1줄: 암기 상태(전체·미암기·암기, 단일 선택) + 별표(독립 토글) */}
-                <View style={styles.filterScrollerWrap}>
-                    <ScrollView
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={styles.filterContent}
-                    >
-                        {statusChips.map(chip => {
-                            const isActive = statusFilter === chip.key;
-                            return (
-                                <Pressable
-                                    key={chip.key}
-                                    onPress={() => {
-                                        setStatusFilter(chip.key);
-                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                    }}
-                                    style={[
-                                        styles.filterChip,
-                                        isActive
-                                            ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                            : { backgroundColor: colors.surface, borderColor: colors.border },
-                                    ]}
-                                >
-                                    <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
-                                        {chip.label}
-                                    </Text>
-                                </Pressable>
-                            );
-                        })}
-
-                        <View style={[styles.filterDivider, { backgroundColor: colors.borderLight }]} />
-
-                        {/* 별표 필터 (독립 토글) */}
-                        <Pressable
-                            onPress={() => {
-                                setStarredOnly(!starredOnly);
-                                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                            }}
-                            style={[
-                                styles.filterChip,
-                                starredOnly
-                                    ? { backgroundColor: colors.warningLight, borderColor: colors.warning }
-                                    : { backgroundColor: colors.surface, borderColor: colors.border },
-                            ]}
-                        >
-                            <Ionicons
-                                name={starredOnly ? 'star' : 'star-outline'}
-                                size={13}
-                                color={starredOnly ? colors.warning : colors.textSecondary}
-                            />
-                            <Text style={[styles.filterChipText, { color: starredOnly ? colors.warning : colors.textSecondary }]}>
-                                {t('search.starred')}
-                            </Text>
+                {isPick ? (
+                    <View style={styles.titleRow}>
+                        <Text style={[styles.screenTitle, { color: colors.text }]}>{t('search.pickTitle')}</Text>
+                        <Pressable onPress={() => router.back()} hitSlop={10}>
+                            <Ionicons name="close" size={22} color={colors.textSecondary} />
                         </Pressable>
-                    </ScrollView>
-                </View>
+                    </View>
+                ) : (
+                    <View style={styles.headerTopRow}>
+                        <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+                            <Ionicons name="search" size={18} color={colors.textTertiary} />
+                            <TextInput
+                                style={[styles.searchInput, { color: colors.text }]}
+                                placeholder={t('search.placeholder')}
+                                placeholderTextColor={colors.textTertiary}
+                                value={query}
+                                onChangeText={setQuery}
+                                onSubmitEditing={() => Keyboard.dismiss()}
+                                autoFocus
+                                autoCapitalize="none"
+                                returnKeyType="search"
+                            />
+                            {query.length > 0 && (
+                                <Pressable onPress={() => setQuery('')} hitSlop={10}>
+                                    <Ionicons name="close-circle" size={17} color={colors.textTertiary} />
+                                </Pressable>
+                            )}
+                        </View>
+                        <Pressable onPress={() => router.back()} hitSlop={10}>
+                            <Text style={[styles.cancelText, { color: colors.primary }]}>{t('common.cancel')}</Text>
+                        </Pressable>
+                    </View>
+                )}
 
-                {/* 2줄: 품사 필터 — 품사 2종 이상일 때만. */}
-                {showPosFilter && (
+                {/* 1줄: 암기 상태(단일 선택) + 별표(독립 토글) + 상한이 붙은 프리셋 둘 */}
+                <View style={styles.filterRow}>
+                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowStatus')}</Text>
                     <View style={styles.filterScrollerWrap}>
                         <ScrollView
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             contentContainerStyle={styles.filterContent}
+                            keyboardShouldPersistTaps="handled"
                         >
-                            {posChips.map(chip => {
-                                const isActive = posFilter === chip.key;
+                            {STATUS_KEYS.map(key => {
+                                const isActive = filters.wordFilter === key;
                                 return (
                                     <Pressable
-                                        key={chip.key}
-                                        onPress={() => {
-                                            setPosFilter(chip.key);
-                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                        }}
-                                        style={[
-                                            styles.filterChip,
-                                            isActive
-                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                                : { backgroundColor: colors.surface, borderColor: colors.border },
-                                        ]}
+                                        key={key}
+                                        onPress={() => { tap(); setFilters({ wordFilter: key }); }}
+                                        style={chipStyle(isActive)}
                                     >
-                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
-                                            {chip.label}
+                                        <Text style={[styles.filterChipText, { color: chipTextColor(isActive) }]}>
+                                            {wordFilterLabel(key, t)}
                                         </Text>
                                     </Pressable>
                                 );
                             })}
-                        </ScrollView>
-                    </View>
-                )}
 
-                {/* 3줄: 단어장 필터 — 단어장 2개 이상일 때만(1개면 전체와 동일해 무의미). */}
-                {visibleLists.length >= 2 && (
-                    <View style={styles.filterScrollerWrap}>
-                        <ScrollView
-                            horizontal
-                            showsHorizontalScrollIndicator={false}
-                            contentContainerStyle={styles.filterContent}
-                        >
-                            {/* 전체 */}
+                            <View style={[styles.filterDivider, { backgroundColor: colors.borderLight }]} />
+
                             <Pressable
-                                onPress={() => {
-                                    setSelectedListId(null);
-                                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                }}
+                                onPress={() => { tap(); setFilters({ starredOnly: !filters.starredOnly }); }}
                                 style={[
                                     styles.filterChip,
-                                    selectedListId === null
-                                        ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                    filters.starredOnly
+                                        ? { backgroundColor: colors.warningLight, borderColor: colors.warning }
                                         : { backgroundColor: colors.surface, borderColor: colors.border },
                                 ]}
                             >
                                 <Ionicons
-                                    name="folder-outline"
-                                    size={12}
-                                    color={selectedListId === null ? colors.onPrimary : colors.textSecondary}
+                                    name={filters.starredOnly ? 'star' : 'star-outline'}
+                                    size={13}
+                                    color={filters.starredOnly ? colors.warning : colors.textSecondary}
                                 />
-                                <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.onPrimary : colors.textSecondary }]}>
-                                    {t('search.allLists')}
+                                <Text style={[styles.filterChipText, { color: filters.starredOnly ? colors.warning : colors.textSecondary }]}>
+                                    {t('search.starredChip')}
                                 </Text>
                             </Pressable>
 
-                            {/* 단어장 칩 */}
-                            {visibleLists.map(item => {
-                                const isActive = selectedListId === item.id;
+                            <View style={[styles.filterDivider, { backgroundColor: colors.borderLight }]} />
+
+                            {/* 프리셋 둘만 상한이 있다. 숨기지 않고 라벨에 숫자를 박아 드러낸다. */}
+                            {PRESET_KEYS.map(key => {
+                                const isActive = filters.wordFilter === key;
                                 return (
                                     <Pressable
-                                        key={item.id}
-                                        onPress={() => {
-                                            setSelectedListId(item.id);
-                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                        }}
-                                        style={[
-                                            styles.filterChip,
-                                            isActive
-                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                                : { backgroundColor: colors.surface, borderColor: colors.border },
-                                        ]}
+                                        key={key}
+                                        onPress={() => { tap(); setFilters({ wordFilter: isActive ? 'all' : key }); }}
+                                        style={chipStyle(isActive)}
                                     >
-                                        {item.icon ? (
-                                            <Text style={{ fontSize: 12, lineHeight: 16 }}>{item.icon}</Text>
-                                        ) : null}
-                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
-                                            {item.title}
+                                        <Text style={[styles.filterChipText, { color: chipTextColor(isActive) }]}>
+                                            {key === 'wrongCount' ? t('search.presetWrong') : t('search.presetRecent')}
+                                        </Text>
+                                        <Text style={[styles.filterChipCap, { color: chipTextColor(isActive) }]}>
+                                            {PRESET_LIMIT}
                                         </Text>
                                     </Pressable>
                                 );
                             })}
                         </ScrollView>
+                    </View>
+                </View>
 
-                        {/* 우측 스크롤 힌트 */}
-                        <LinearGradient
-                            colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 1, y: 0 }}
-                            style={styles.filterFadeRight}
-                            pointerEvents="none"
-                        />
+                {/* 2줄: 품사 — 지금 범위에 품사가 2종 이상일 때만 */}
+                {showPosFilter && (
+                    <View style={styles.filterRow}>
+                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowPos')}</Text>
+                        <View style={styles.filterScrollerWrap}>
+                            <ScrollView
+                                horizontal
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={styles.filterContent}
+                                keyboardShouldPersistTaps="handled"
+                            >
+                                {([POS_ALL, ...posOptions.keys, ...(posOptions.hasOther ? [POS_OTHER] : [])] as PosFilter[]).map(key => {
+                                    const isActive = filters.posFilter === key;
+                                    return (
+                                        <Pressable
+                                            key={key}
+                                            onPress={() => { tap(); setFilters({ posFilter: key }); }}
+                                            style={chipStyle(isActive)}
+                                        >
+                                            <Text style={[styles.filterChipText, { color: chipTextColor(isActive) }]}>
+                                                {t(`pos.${key}`)}
+                                            </Text>
+                                        </Pressable>
+                                    );
+                                })}
+                            </ScrollView>
+                        </View>
                     </View>
                 )}
 
-                {/* 4줄: 태그 필터 — 태그가 하나라도 있을 때만. 단일 선택(다시 누르면 해제). */}
-                {topTags.length > 0 && (
-                    <View style={styles.filterScrollerWrap}>
-                        <ScrollView
-                            horizontal
-                            showsHorizontalScrollIndicator={false}
-                            contentContainerStyle={styles.filterContent}
+                {/* 3줄: 범위 — 유일한 드롭다운. Day는 단어장마다 다른 2차원 선택이라 칩으로 못 접는다. */}
+                <View style={styles.filterRow}>
+                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowScope')}</Text>
+                    <View style={styles.scopeChipWrap}>
+                        <Pressable
+                            onPress={() => { tap(); setShowListPicker(true); }}
+                            style={[styles.filterChip, styles.scopeChip, { backgroundColor: colors.primary, borderColor: colors.primary }]}
                         >
-                            {topTags.map(tag => {
-                                const isActive = selectedTag === tag;
-                                return (
-                                    <Pressable
-                                        key={tag}
-                                        onPress={() => {
-                                            setSelectedTag(isActive ? null : tag);
-                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                        }}
-                                        style={[
-                                            styles.filterChip,
-                                            isActive
-                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                                : { backgroundColor: colors.surface, borderColor: colors.border },
-                                        ]}
-                                    >
-                                        <Ionicons
-                                            name="pricetag"
-                                            size={12}
-                                            color={isActive ? colors.onPrimary : colors.textSecondary}
-                                        />
-                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
-                                            {displayTag(tag, t)}
-                                        </Text>
-                                    </Pressable>
-                                );
-                            })}
-                        </ScrollView>
+                            <Text style={[styles.filterChipText, styles.scopeChipText, { color: colors.onPrimary }]} numberOfLines={1}>
+                                {scopeText}
+                            </Text>
+                            <Ionicons name="chevron-down" size={12} color={colors.onPrimary} />
+                        </Pressable>
+                    </View>
+                </View>
 
-                        {/* 우측 스크롤 힌트 */}
-                        <LinearGradient
-                            colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 1, y: 0 }}
-                            style={styles.filterFadeRight}
-                            pointerEvents="none"
-                        />
+                {/* 4줄: 태그 — 태그가 있을 때만. 다시 누르면 해제. */}
+                {topTags.length > 0 && (
+                    <View style={styles.filterRow}>
+                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowTag')}</Text>
+                        <View style={styles.filterScrollerWrap}>
+                            <ScrollView
+                                horizontal
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={styles.filterContent}
+                                keyboardShouldPersistTaps="handled"
+                            >
+                                {topTags.map(tag => {
+                                    const isActive = filters.tag === tag;
+                                    return (
+                                        <Pressable
+                                            key={tag}
+                                            onPress={() => { tap(); setFilters({ tag: isActive ? null : tag }); }}
+                                            style={chipStyle(isActive)}
+                                        >
+                                            <Ionicons name="pricetag" size={12} color={chipTextColor(isActive)} />
+                                            <Text style={[styles.filterChipText, { color: chipTextColor(isActive) }]}>
+                                                {displayTag(tag, t)}
+                                            </Text>
+                                        </Pressable>
+                                    );
+                                })}
+                            </ScrollView>
+
+                            {/* 우측 스크롤 힌트 */}
+                            <LinearGradient
+                                colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 0 }}
+                                style={styles.filterFadeRight}
+                                pointerEvents="none"
+                            />
+                        </View>
                     </View>
                 )}
             </View>
 
-            {/* 결과 개수 바 */}
-            {showResults && results.length > 0 && (
+            {/* 결과 줄 — 칩 영역에 붙어 고정된다. 목록 안에 두면 스크롤한 순간
+                초기화 버튼이 사라진다(정작 목록이 길어 필요한 상황에서). */}
+            {showResults && (
                 <View style={[styles.resultCountBar, { borderBottomColor: colors.borderLight }]}>
-                    <Text style={[styles.resultCountText, { color: colors.textTertiary }]}>
-                        {t('search.resultCount', { count: results.length })}
+                    <Text style={[styles.resultCountText, { color: colors.textTertiary }]} numberOfLines={1}>
+                        {countText}
                     </Text>
+                    {activeFilterCount > 0 && (
+                        <Pressable
+                            onPress={() => { tap(); resetFilters(); }}
+                            hitSlop={8}
+                            style={[styles.resetBtn, { borderColor: colors.primary }]}
+                        >
+                            <Ionicons name="refresh" size={11} color={colors.primary} />
+                            <Text style={[styles.resetText, { color: colors.primary }]}>{t('search.reset')}</Text>
+                        </Pressable>
+                    )}
                 </View>
             )}
 
-            {/* 본문 — 인기 태그는 헤더 태그 칩으로 상시 노출되므로 빈 화면은 힌트만. */}
+            {/* 본문 */}
             {!showResults ? (
-                <View style={styles.emptyStateContainer}>
-                    <View style={styles.emptyHintBox}>
-                        <Ionicons name="search-outline" size={48} color={colors.border} />
-                        <Text style={[styles.emptyHintText, { color: colors.textTertiary }]}>
-                            {t('search.enterQuery')}
-                        </Text>
-                    </View>
-                </View>
+                <ScrollView
+                    style={styles.emptyScroll}
+                    contentContainerStyle={styles.emptyContent}
+                    keyboardShouldPersistTaps="handled"
+                >
+                    <Ionicons name="search-outline" size={44} color={colors.border} />
+                    <Text style={[styles.emptyTitle, { color: colors.textSecondary }]}>{t('search.emptyTitle')}</Text>
+                    <Text style={[styles.emptySubtitle, { color: colors.textTertiary }]}>{t('search.emptySubtitle')}</Text>
+
+                    {showRecents && (
+                        <View style={styles.recentSection}>
+                            <Text style={[styles.recentHeader, { color: colors.textTertiary }]}>{t('search.recentHeader')}</Text>
+                            {visibleRecents.map(r => renderRecent(r, false))}
+                        </View>
+                    )}
+                </ScrollView>
             ) : (
                 <FlatList
                     data={results}
                     keyExtractor={item => item.word.id}
                     renderItem={renderResult}
-                    contentContainerStyle={[styles.resultsContent, { paddingBottom: insets.bottom + 20 }]}
+                    contentContainerStyle={styles.resultsContent}
+                    keyboardShouldPersistTaps="handled"
+                    keyboardDismissMode="on-drag"
+                    ListHeaderComponent={
+                        // 목록이 주인공인 화면에서 세 줄은 과하다 — 맨 위 하나만.
+                        showRecents ? <View style={styles.inlineRecent}>{renderRecent(visibleRecents[0], true)}</View> : null
+                    }
                     ListEmptyComponent={
-                        <View style={styles.emptyHintBox}>
+                        <View style={styles.noResultBox}>
                             <Ionicons name="search-outline" size={40} color={colors.border} />
-                            <Text style={[styles.emptyHintText, { color: colors.textTertiary }]}>
-                                {t('search.noResults')}
-                            </Text>
+                            <Text style={[styles.emptySubtitle, { color: colors.textTertiary }]}>{t('search.noResults')}</Text>
                         </View>
                     }
-                    keyboardShouldPersistTaps="handled"
                 />
             )}
+
+            {/* 학습 바 — 출력 형식은 필터가 아니므로 칩 줄에 섞지 않고 출발 버튼 옆에 둔다. */}
+            <View style={[
+                styles.studyBar,
+                { backgroundColor: colors.surface, borderTopColor: colors.borderLight, paddingBottom: Math.max(insets.bottom, 10) },
+            ]}>
+                <View style={[styles.segmented, { backgroundColor: colors.surfaceSecondary }]}>
+                    {(['flashcard', 'quiz'] as const).map(m => {
+                        const isActive = customStudySettings.studyMode === m;
+                        return (
+                            <Pressable
+                                key={m}
+                                onPress={() => { tap(); updateCustomStudySettings({ studyMode: m }); }}
+                                style={[styles.segmentedTab, isActive && { backgroundColor: colors.surface, shadowColor: colors.shadow }]}
+                            >
+                                <Text style={[styles.segmentedText, { color: isActive ? colors.primary : colors.textSecondary }]}>
+                                    {m === 'flashcard' ? t('search.modeFlashcard') : t('search.modeQuiz')}
+                                </Text>
+                            </Pressable>
+                        );
+                    })}
+                </View>
+
+                <Pressable
+                    onPress={handleStart}
+                    disabled={results.length === 0}
+                    style={[styles.startBtn, { backgroundColor: results.length > 0 ? colors.primaryButton : colors.borderLight }]}
+                >
+                    <Text style={[styles.startBtnText, { color: results.length > 0 ? colors.onPrimary : colors.textTertiary }]}>
+                        {results.length > 0
+                            ? t('search.startWithCount', { n: results.length.toLocaleString() })
+                            : t('search.startEmpty')}
+                    </Text>
+                    {results.length > 0 && <Ionicons name="arrow-forward" size={15} color={colors.onPrimary} />}
+                </Pressable>
+            </View>
+
+            <ListDayPicker
+                visible={showListPicker}
+                onClose={() => setShowListPicker(false)}
+                lists={visibleLists}
+                selectedListIds={filters.useAllLists ? visibleLists.map(l => l.id) : filters.selectedListIds}
+                selectedDaysByList={filters.selectedDaysByList}
+                onApply={(listIds, daysByList) => {
+                    // 전부 선택 + 모든 Day 전체면 "전체 단어장"으로 되돌린다 —
+                    // 나중에 만든 단어장도 자동으로 포함되게 하기 위해서.
+                    const isAll = listIds.length === visibleLists.length &&
+                        listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
+                    setFilters({
+                        useAllLists: isAll,
+                        selectedListIds: isAll ? [] : listIds,
+                        selectedDaysByList: daysByList,
+                    });
+                }}
+            />
         </KeyboardAvoidingView>
     );
 }
@@ -473,14 +609,25 @@ const styles = StyleSheet.create({
     // 헤더
     header: {
         paddingHorizontal: 16,
-        paddingBottom: 8,
+        paddingBottom: 6,
         borderBottomWidth: StyleSheet.hairlineWidth,
     },
     headerTopRow: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 12,
-        marginBottom: 10,
+        marginBottom: 6,
+    },
+    titleRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: 44,
+        marginBottom: 2,
+    },
+    screenTitle: {
+        fontSize: 18,
+        fontFamily: 'Pretendard_700Bold',
     },
     searchBox: {
         flex: 1,
@@ -503,13 +650,24 @@ const styles = StyleSheet.create({
     },
 
     // 필터 칩
+    filterRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+    },
+    rowLabel: {
+        width: 26,
+        fontSize: 10,
+        fontFamily: 'Pretendard_600SemiBold',
+    },
     filterScrollerWrap: {
-        marginHorizontal: -16,
-        height: 48,
+        flex: 1,
+        marginRight: -16,
+        height: 42,
     },
     filterContent: {
-        paddingHorizontal: 16,
-        paddingVertical: 6,
+        paddingRight: 16,
+        paddingVertical: 5,
         gap: 6,
         alignItems: 'center',
     },
@@ -526,6 +684,12 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontFamily: 'Pretendard_500Medium',
     },
+    filterChipCap: {
+        fontSize: 10,
+        fontFamily: 'Pretendard_700Bold',
+        opacity: 0.7,
+        marginLeft: -2,
+    },
     filterDivider: {
         width: 1,
         height: 20,
@@ -538,21 +702,52 @@ const styles = StyleSheet.create({
         bottom: 0,
         width: 40,
     },
+    scopeChipWrap: {
+        flex: 1,
+        paddingVertical: 5,
+        flexDirection: 'row',
+    },
+    scopeChip: {
+        maxWidth: '100%',
+        flexShrink: 1,
+    },
+    scopeChipText: {
+        flexShrink: 1,
+    },
 
-    // 결과 개수
+    // 결과 줄
     resultCountBar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 8,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderBottomWidth: StyleSheet.hairlineWidth,
     },
     resultCountText: {
+        flexShrink: 1,
         fontSize: 12,
         fontFamily: 'Pretendard_500Medium',
+    },
+    resetBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 3,
+        borderWidth: 1,
+        borderRadius: 20,
+        paddingHorizontal: 9,
+        paddingVertical: 3,
+    },
+    resetText: {
+        fontSize: 11,
+        fontFamily: 'Pretendard_700Bold',
     },
 
     // 결과 리스트
     resultsContent: {
         padding: 16,
+        paddingBottom: 24,
         gap: 10,
     },
     resultCard: {
@@ -635,19 +830,103 @@ const styles = StyleSheet.create({
         borderLeftWidth: 2,
     },
 
-    // 빈 상태
-    emptyStateContainer: {
-        flex: 1,
-        padding: 20,
-    },
-    emptyHintBox: {
+    // 빈 화면
+    emptyScroll: { flex: 1 },
+    emptyContent: {
+        paddingTop: 44,
+        paddingHorizontal: 20,
+        paddingBottom: 24,
         alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 100,
+    },
+    emptyTitle: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_600SemiBold',
+        marginTop: 12,
+    },
+    emptySubtitle: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_400Regular',
+        marginTop: 4,
+        textAlign: 'center',
+    },
+    noResultBox: {
+        alignItems: 'center',
+        marginTop: 80,
         gap: 12,
     },
-    emptyHintText: {
-        fontSize: 15,
+
+    // 지난번 조건
+    recentSection: {
+        width: '100%',
+        marginTop: 30,
+    },
+    recentHeader: {
+        fontSize: 11,
+        fontFamily: 'Pretendard_700Bold',
+        marginBottom: 7,
+        marginLeft: 2,
+    },
+    inlineRecent: {
+        marginBottom: 4,
+    },
+    recentRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 9,
+        borderWidth: 1,
+        borderRadius: 12,
+        paddingHorizontal: 12,
+        paddingVertical: 9,
+        marginBottom: 7,
+    },
+    recentBody: { flex: 1, minWidth: 0 },
+    recentCondition: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_600SemiBold',
+    },
+    recentMeta: {
+        fontSize: 11,
         fontFamily: 'Pretendard_400Regular',
+        marginTop: 1,
+    },
+
+    // 학습 바
+    studyBar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        paddingHorizontal: 16,
+        paddingTop: 10,
+        borderTopWidth: StyleSheet.hairlineWidth,
+    },
+    segmented: {
+        flexDirection: 'row',
+        borderRadius: 9,
+        padding: 2,
+    },
+    segmentedTab: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 7,
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+    },
+    segmentedText: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_600SemiBold',
+    },
+    startBtn: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 6,
+        borderRadius: 10,
+        paddingVertical: 11,
+    },
+    startBtnText: {
+        fontSize: 14,
+        fontFamily: 'Pretendard_700Bold',
     },
 });

@@ -29,7 +29,6 @@ import { setStudySelection } from '@/features/study';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
 import { selectReviewWords } from '@/features/study/review/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
-import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ReviewBanner from '@/features/study/review/ReviewBanner';
 import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
 import { useReviewSoftAsk } from '@/features/study/review/use-review-notifications';
@@ -80,7 +79,6 @@ export default function DashboardScreen() {
   const { dashboardFilterMode: filterMode, updateDashboardFilter, profileSettings } = useSettings();
   const { user } = useAuth();
   const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
-  const [showCustomStudy, setShowCustomStudy] = useState(false);
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const scrollRef = useRef(null);
   useScrollToTop(scrollRef);
@@ -172,9 +170,12 @@ export default function DashboardScreen() {
     router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
   }, [reviewWords]);
 
+  // 옆의 오답·별표 카드는 앱이 알아서 고르고, 이 카드만 사용자가 조건을 고른다.
+  // 팝업이던 것을 전체화면으로 옮긴 이유는 목록 때문이다 — 팝업에서는 고른
+  // 조건에 무슨 단어가 걸리는지 보이지 않았고, 검색과 필터도 각자 갖고 있었다.
   const handleCustomStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setShowCustomStudy(true);
+    router.push({ pathname: '/search-modal', params: { mode: 'pick' } });
   }, []);
 
   const handleWrongWordStudy = useCallback(() => {
@@ -819,11 +820,6 @@ export default function DashboardScreen() {
           );
         })()}
       </Modal>
-
-      <CustomStudyModal
-        visible={showCustomStudy}
-        onClose={() => setShowCustomStudy(false)}
-      />
 
       {/* 첫 복습이 준비된 날에만 한 번. "나중에"를 누르면 다시 묻지 않는다(§8.4). */}
       <ReviewNotifySoftAsk visible={softAskVisible} onDecided={handleSoftAskDecided} />

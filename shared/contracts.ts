@@ -141,6 +141,38 @@ export const CustomStudySettingsSchema = z.object({
 });
 export type CustomStudySettings = z.infer<typeof CustomStudySettingsSchema>;
 
+/**
+ * 골라서 학습 · 내 단어 검색이 공유하는 필터 한 벌.
+ *
+ * CustomStudySettings와 필드가 겹치지만 저장 수명이 정반대다 — 이 값은 앱을
+ * 켤 때마다 기본값에서 시작한다(비영속 스토어). 사흘 전에 걸어둔 조건이 앱을
+ * 다시 켰을 때 그대로 걸려 있으면 도움이 아니라 수수께끼가 되기 때문이다.
+ * 디스크에 남는 것은 아래 RecentPick — 사용자가 눌러야 적용되는 사본이다.
+ *
+ * `starred`가 wordFilter에서 빠진 이유: 별표는 다른 값과 조합되는 독립
+ * 토글이라 단일 선택군에 섞으면 "미암기 중 별표"를 만들 수 없다.
+ */
+export const PickFiltersSchema = z.object({
+  wordFilter: z.enum(['all', 'learning', 'memorized', 'wrongCount', 'recent']).default('all'),
+  starredOnly: z.boolean().default(false),
+  posFilter: z.enum(['all', 'noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']).default('all'),
+  tag: z.string().nullable().default(null),
+  useAllLists: z.boolean().default(true),
+  selectedListIds: z.array(z.string()).default([]),
+  selectedDaysByList: z.record(z.string(), z.union([z.array(z.number().int()), z.literal('all')])).default({}),
+});
+export type PickFilters = z.infer<typeof PickFiltersSchema>;
+
+/** 학습을 시작한 순간의 조건. 칩을 누를 때마다 저장하면 만들다 만 중간 상태가 쌓인다. */
+export const RecentPickSchema = z.object({
+  savedAt: z.number(),
+  count: z.number().int().nonnegative(),
+  filters: PickFiltersSchema,
+});
+export type RecentPick = z.infer<typeof RecentPickSchema>;
+
+export const RecentPicksSchema = z.array(RecentPickSchema).default([]);
+
 export const DashboardFilterSchema = z.enum(['all', 'studying', 'completed', 'finished']);
 export type DashboardFilter = z.infer<typeof DashboardFilterSchema>;
 

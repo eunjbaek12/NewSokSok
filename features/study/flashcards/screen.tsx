@@ -26,7 +26,7 @@ import {
   saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
@@ -179,7 +179,9 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
 }
 
 export default function FlashcardsScreen() {
-  const { id, filter, isStarred: initialIsStarred, ids, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string; planDay?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string; planDay?: string }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
@@ -240,7 +242,7 @@ export default function FlashcardsScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const SWIPE_THRESHOLD = 100;
 
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -259,12 +261,8 @@ export default function FlashcardsScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      // Sort to match the order in ids parameter if possible, or just keep original
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       // Apply Star filter
       if (settings.isStarred) {
@@ -286,7 +284,7 @@ export default function FlashcardsScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
       // Apply Shuffle only when core settings change or on initial load
@@ -298,7 +296,7 @@ export default function FlashcardsScreen() {
       results.current = [];
       lastHandledIndex.current = -1;
       rotation.value = 0;
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -528,7 +526,7 @@ export default function FlashcardsScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
-          hideTargetFilter={!!ids}
+          hideTargetFilter={!!selectedIds}
         />
       </View>
     );
@@ -675,7 +673,7 @@ export default function FlashcardsScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
-        hideTargetFilter={!!ids}
+        hideTargetFilter={!!selectedIds}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}

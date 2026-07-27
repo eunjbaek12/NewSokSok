@@ -13,7 +13,7 @@ import {
   saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
@@ -26,14 +26,16 @@ import { useTranslation } from 'react-i18next';
 import { buildChoices, shuffleArray } from '../choices';
 
 export default function QuizScreen() {
-  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids, planDay } = useLocalSearchParams<{
+  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, sel, planDay } = useLocalSearchParams<{
     id: string;
     filter?: string;
     isStarred?: string;
     quizType?: string;
-    ids?: string;
+    sel?: string;
     planDay?: string;
   }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { t } = useTranslation();
@@ -76,7 +78,7 @@ export default function QuizScreen() {
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, sel });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -98,12 +100,8 @@ export default function QuizScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      // Re-sort according to the ids string if it's there
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       if (settings.isStarred) {
         all = all.filter(w => w.isStarred);
@@ -123,11 +121,12 @@ export default function QuizScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.quizType !== settings.quizType ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
-      // Shuffle only when core settings change or initial load, AND NOT when repeating a specific snapshot ids
-      if (!ids) {
+      // Shuffle only when core settings change or initial load, AND NOT when the
+      // caller handed us an explicit word order.
+      if (!selectedIds) {
         all = shuffleArray(all);
       }
       setCurrentIndex(0);
@@ -135,7 +134,7 @@ export default function QuizScreen() {
       setAnswers({});
       choicesMapRef.current = {};
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, sel };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -274,7 +273,7 @@ export default function QuizScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
-          hideTargetFilter={!!ids}
+          hideTargetFilter={!!selectedIds}
         />
       </View>
     );
@@ -438,7 +437,7 @@ export default function QuizScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
-        hideTargetFilter={!!ids}
+        hideTargetFilter={!!selectedIds}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}

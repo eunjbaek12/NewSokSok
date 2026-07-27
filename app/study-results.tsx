@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, setStudySelection } from '@/features/study';
 import {
   recordStudySession,
   getStatsSummary,
@@ -126,18 +126,18 @@ export default function StudyResultsScreen() {
   );
 
   const handleRetryAll = () => {
-    const sessionIds = studyResults.map(r => r.word.id).join(',');
+    const sel = setStudySelection(studyResults.map(r => r.word.id));
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { isStarred, filter: sessionFilter, quizType, ids: sessionIds }
+      params: { isStarred, filter: sessionFilter, quizType, sel }
     });
   };
 
   const handleRetryUnmemorized = () => {
-    const failedIds = reviewResults.map(r => r.word.id).join(',');
+    const sel = setStudySelection(reviewResults.map(r => r.word.id));
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { isStarred, quizType, ids: failedIds }
+      params: { isStarred, quizType, sel }
     });
   };
 

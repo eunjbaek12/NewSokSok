@@ -25,6 +25,7 @@ import { useTheme } from '@/features/theme';
 import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useAuth } from '@/features/auth';
+import { setStudySelection } from '@/features/study';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
 import { selectReviewWords } from '@/features/study/review/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
@@ -164,11 +165,11 @@ export default function DashboardScreen() {
 
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;
-    const ids = reviewWords.map(w => w.id).join(',');
+    const sel = setStudySelection(reviewWords.map(w => w.id));
     // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 맞춤·오답·별표와 달리
     // studyMode 설정을 따르지 않는 이유: "외웠어요/다시 볼게요" 스와이프가 간격 사다리의
     // 입력 그 자체라, 퀴즈로 열면 복습의 성공/실패 신호가 사라진다.
-    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', ids } });
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
   }, [reviewWords]);
 
   const handleCustomStudy = useCallback(() => {
@@ -185,9 +186,9 @@ export default function DashboardScreen() {
       .sort((a, b) => (b.wrongCount ?? 0) - (a.wrongCount ?? 0))
       .slice(0, 50);
     if (words.length === 0) return;
-    const ids = words.map(w => w.id).join(',');
+    const sel = setStudySelection(words.map(w => w.id));
     const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
+    router.push({ pathname: pathname as any, params: { id: '__custom__', sel } });
   }, [lists, customStudySettings.studyMode]);
 
   const handleStarredWordStudy = useCallback(() => {
@@ -197,9 +198,9 @@ export default function DashboardScreen() {
       .flatMap(l => l.words)
       .filter(w => w.isStarred);
     if (words.length === 0) return;
-    const ids = words.map(w => w.id).join(',');
+    const sel = setStudySelection(words.map(w => w.id));
     const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
+    router.push({ pathname: pathname as any, params: { id: '__custom__', sel } });
   }, [lists, customStudySettings.studyMode]);
 
   const handlePlanPress = useCallback((listId: string) => {

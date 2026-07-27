@@ -13,7 +13,7 @@ import {
   updateWord,
   saveLastResult,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
@@ -80,7 +80,9 @@ const ADVANCE_DELAY_CORRECT_MS = 1000;
 const ADVANCE_DELAY_WRONG_MS = 3000;
 
 export default function ExamplesScreen() {
-  const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
@@ -144,7 +146,7 @@ export default function ExamplesScreen() {
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel });
 
   // 누락된 예문을 백그라운드에서 sliding-window 동시성으로 채운다.
   // - 완성될 때마다 studyWords에 append → 진행 중 다음 batch부터 자동 등장
@@ -239,11 +241,8 @@ export default function ExamplesScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       if (settings.isStarred) {
         all = all.filter(w => w.isStarred);
@@ -263,7 +262,7 @@ export default function ExamplesScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
       if (settings.shuffle) {
@@ -276,7 +275,7 @@ export default function ExamplesScreen() {
       setBatchAnswers({});
       setIsNewAnswer(false);
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel };
       isInitialLoad.current = false;
 
       const missing = all.filter(w => !w.exampleEn);

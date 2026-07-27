@@ -17,6 +17,7 @@ import { Word } from '@/lib/types';
 import { POS_ALL, POS_OTHER, matchesPosFilter, presentPosCategories, type PosFilter } from '@/lib/pos';
 import ListDayPicker from '@/components/ListDayPicker';
 import ModalOverlay from '@/components/ui/ModalOverlay';
+import { setStudySelection } from '../store';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -137,12 +138,12 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
     if (wordCount === 0) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     const shuffled = shuffleArray(filteredWords);
-    const ids = shuffled.map(w => w.id).join(',');
+    const sel = setStudySelection(shuffled.map(w => w.id));
     const pathname = settings.studyMode === 'flashcard'
       ? '/flashcards/[id]'
       : '/quiz/[id]';
     onClose();
-    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
+    router.push({ pathname: pathname as any, params: { id: '__custom__', sel } });
   }, [wordCount, filteredWords, settings.studyMode, onClose]);
 
   // 학습 범위 요약 텍스트

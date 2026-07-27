@@ -23,6 +23,7 @@ import {
   computePlanStatus,
   suggestWordsPerDay,
 } from '@/features/study/plan/engine';
+import { setStudySelection } from '../store';
 
 // ─── Status Banner ────────────────────────────────────────────────────────────
 
@@ -353,11 +354,11 @@ export default function PlanScreen() {
     const unmemorizedWords = viewingWords.filter(w => !w.isMemorized);
     const studyWords = (planFilter === 'all' || unmemorizedWords.length === 0) ? viewingWords : unmemorizedWords;
     const studyFilter = planFilter === 'all' ? 'all' : (unmemorizedWords.length > 0 ? 'learning' : 'all');
-    const targetIds = studyWords.map(w => w.id).join(',');
     const destination = selectedMode;
 
     if (studyWords.length > 0) {
-      router.push({ pathname: destination as any, params: { id, filter: studyFilter, ids: targetIds, planDay: String(viewingDay) } });
+      const sel = setStudySelection(studyWords.map(w => w.id));
+      router.push({ pathname: destination as any, params: { id, filter: studyFilter, sel, planDay: String(viewingDay) } });
     } else {
       router.push({ pathname: destination as any, params: { id, filter: studyFilter, planDay: String(viewingDay) } });
     }

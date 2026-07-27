@@ -1053,7 +1053,7 @@
     "resultCount": "{{count}} words",
     "pickTitle": "Pick & Study",
     "rowStatus": "Status",
-    "rowPos": "Part",
+    "rowPos": "Type",
     "rowScope": "Scope",
     "rowTag": "Tags",
     "starredChip": "Starred",

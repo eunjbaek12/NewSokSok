@@ -347,7 +347,7 @@ export default function SearchModalScreen() {
 
                 {/* 1줄: 암기 상태(단일 선택) + 별표(독립 토글) + 상한이 붙은 프리셋 둘 */}
                 <View style={styles.filterRow}>
-                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowStatus')}</Text>
+                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]} numberOfLines={1}>{t('search.rowStatus')}</Text>
                     <View style={styles.filterScrollerWrap}>
                         <ScrollView
                             horizontal
@@ -418,7 +418,7 @@ export default function SearchModalScreen() {
                 {/* 2줄: 품사 — 지금 범위에 품사가 2종 이상일 때만 */}
                 {showPosFilter && (
                     <View style={styles.filterRow}>
-                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowPos')}</Text>
+                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]} numberOfLines={1}>{t('search.rowPos')}</Text>
                         <View style={styles.filterScrollerWrap}>
                             <ScrollView
                                 horizontal
@@ -447,7 +447,7 @@ export default function SearchModalScreen() {
 
                 {/* 3줄: 범위 — 유일한 드롭다운. Day는 단어장마다 다른 2차원 선택이라 칩으로 못 접는다. */}
                 <View style={styles.filterRow}>
-                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowScope')}</Text>
+                    <Text style={[styles.rowLabel, { color: colors.textTertiary }]} numberOfLines={1}>{t('search.rowScope')}</Text>
                     <View style={styles.scopeChipWrap}>
                         <Pressable
                             onPress={() => { tap(); setShowListPicker(true); }}
@@ -464,7 +464,7 @@ export default function SearchModalScreen() {
                 {/* 4줄: 태그 — 태그가 있을 때만. 다시 누르면 해제. */}
                 {topTags.length > 0 && (
                     <View style={styles.filterRow}>
-                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]}>{t('search.rowTag')}</Text>
+                        <Text style={[styles.rowLabel, { color: colors.textTertiary }]} numberOfLines={1}>{t('search.rowTag')}</Text>
                         <View style={styles.filterScrollerWrap}>
                             <ScrollView
                                 horizontal
@@ -668,6 +668,11 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 16,
         fontFamily: 'Pretendard_400Regular',
+        // 안드로이드 TextInput은 EditText 기본 내부 패딩(위아래 비대칭)을 갖고 있다.
+        // 상자는 height 44 안에서 가운데 오지만 글자는 그 패딩만큼 밀려 올라가 보인다
+        // (한글은 글자가 사각형을 채워 가려지고 영문에서 드러난다).
+        // 큐레이션 검색창도 같은 이유로 padding 0을 명시한다.
+        padding: 0,
     },
     cancelText: {
         fontSize: 15,
@@ -680,8 +685,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 6,
     },
+    // 폭은 가장 긴 번역("Status" ≈ 34px)에 맞춘다. 26이면 영어에서 Stat/us로 접혔다.
+    // 한국어 레이블은 2글자라 남는 자리가 생기지만, 칩은 가로 스크롤이라 손해가 없고
+    // 네 줄의 칩 시작선이 계속 맞는다. numberOfLines는 시스템 글자 크기를 키운
+    // 사용자에게서 다시 접히는 것까지 막는다(호출부 4곳).
     rowLabel: {
-        width: 26,
+        width: 40,
         fontSize: 10,
         fontFamily: 'Pretendard_600SemiBold',
     },

@@ -207,20 +207,25 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
 
   clearAccountScopedSettings: async () => {
     // Nickname is account identity; clearing it stops A's name from showing
-    // up under B's session on the same device. customStudySettings holds
-    // list IDs from A's local DB which become stale once we clear SQLite on
-    // logout, so wipe it too. apiKey (BYOK Gemini) is also account-scoped:
-    // billing/quota is on the key owner, so A's key leaking into B's session
-    // would charge A for B's usage. saveApiKey('') routes through
-    // deleteSecureString.
+    // up under B's session on the same device. apiKey (BYOK Gemini) is also
+    // account-scoped: billing/quota is on the key owner, so A's key leaking
+    // into B's session would charge A for B's usage. saveApiKey('') routes
+    // through deleteSecureString.
+    //
+    // The list IDs that used to live in customStudySettings moved to the pick
+    // store, which is cleared below. What's left here (studyMode) is a device
+    // preference and stays — same treatment as typing/study/autoplay defaults.
+    //
+    // 동적 import는 settings ↔ study 순환참조 회피용(auth의 로그아웃 경로와
+    // 동일 패턴). 계정 전환 경로가 넷이라 각 호출부에 흩어놓지 않고 여기 모은다.
+    const { usePickStore } = await import('@/features/study/pick/store');
     await Promise.all([
       profileStore.remove(),
-      customStore.remove(),
       saveApiKey(''),
+      usePickStore.getState().clearAll(),
     ]);
     set({
       profileSettings: DEFAULT_PROFILE_SETTINGS,
-      customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
       apiKey: '',
     });
   },

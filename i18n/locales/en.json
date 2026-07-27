@@ -1208,28 +1208,6 @@
     "phrase": "Phrase",
     "other": "Other"
   },
-  "customStudy": {
-    "title": "Custom Study",
-    "noLists": "No vocab lists available.",
-    "studyMode": "Study Mode",
-    "flashcards": "Flashcards",
-    "quiz": "Multiple Choice Quiz",
-    "studyScope": "Study Scope",
-    "wordFilter": "Word Filter",
-    "posFilter": "Part of Speech",
-    "filterAll": "All",
-    "filterUnmemorized": "Not Memorized",
-    "filterMemorized": "Memorized",
-    "filterWrong": "Most Wrong",
-    "filterRecent": "Recently Added",
-    "filterStarred": "Starred",
-    "allLists": "All Vocab Lists",
-    "noneSelected": "None Selected",
-    "selectedLists": "{{first}} +{{rest}} more",
-    "wordCount": "{{count}} words",
-    "noMatchingWords": "No words match the criteria",
-    "startStudy": "Start Study"
-  },
   "wordDetail": {
     "saveError": "An error occurred while saving the word.",
     "addWord": "Add New Word",

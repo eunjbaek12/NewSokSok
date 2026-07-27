@@ -131,12 +131,17 @@ export const ProfileSettingsSchema = z.object({
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 
+/**
+ * 골라서 학습의 학습 모드. 한때 범위·상태·품사도 여기 있었지만 전부 PickFilters로
+ * 옮겼다 — 필터는 앱을 켤 때마다 기본값에서 시작해야 해서 디스크에 남으면 안 된다.
+ *
+ * 학습 모드만 남긴 이유는 이것이 필터가 아니라 취향이기 때문이다. 게다가 학습 바에
+ * 늘 보이므로, 지난번에 고른 값이 그대로 있어도 수수께끼가 되지 않는다.
+ *
+ * 저장 키(`@soksok_custom_study_settings`)와 이름은 그대로 둔다. 사라진 필드는
+ * Zod가 로드할 때 조용히 걷어내므로 따로 마이그레이션할 것이 없다.
+ */
 export const CustomStudySettingsSchema = z.object({
-  useAllLists: z.boolean().default(true),
-  selectedListIds: z.array(z.string()).default([]),
-  selectedDaysByList: z.record(z.string(), z.union([z.array(z.number().int()), z.literal('all')])).default({}),
-  wordFilter: z.enum(['all', 'learning', 'memorized', 'wrongCount', 'recent', 'starred']).default('all'),
-  posFilter: z.enum(['all', 'noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']).default('all'),
   studyMode: z.enum(['flashcard', 'quiz']).default('flashcard'),
 });
 export type CustomStudySettings = z.infer<typeof CustomStudySettingsSchema>;

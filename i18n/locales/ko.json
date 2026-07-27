@@ -1208,28 +1208,6 @@
     "phrase": "구·표현",
     "other": "기타"
   },
-  "customStudy": {
-    "title": "맞춤 학습",
-    "noLists": "단어장이 없습니다.",
-    "studyMode": "학습 모드",
-    "flashcards": "카드 학습",
-    "quiz": "객관식 퀴즈",
-    "studyScope": "학습 범위",
-    "wordFilter": "단어 필터",
-    "posFilter": "품사",
-    "filterAll": "전체",
-    "filterUnmemorized": "미암기",
-    "filterMemorized": "암기",
-    "filterWrong": "오답 위주",
-    "filterRecent": "최근 추가",
-    "filterStarred": "별표",
-    "allLists": "전체 단어장",
-    "noneSelected": "선택 단어장 없음",
-    "selectedLists": "{{first}} 외 {{rest}}개",
-    "wordCount": "{{count}}개 단어",
-    "noMatchingWords": "해당 조건의 단어가 없습니다",
-    "startStudy": "학습 시작"
-  },
   "wordDetail": {
     "saveError": "단어를 저장하는 중 문제가 발생했습니다.",
     "addWord": "새 단어 추가",

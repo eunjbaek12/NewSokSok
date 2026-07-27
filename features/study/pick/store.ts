@@ -29,6 +29,12 @@ interface PickState {
   hydrateRecents: () => Promise<void>;
   rememberCondition: (filters: PickFilters, count: number) => void;
   dropRecent: (savedAt: number) => void;
+
+  /**
+   * 계정이 바뀔 때 호출된다. 조건은 단어장 id를 담고 그 id는 로그아웃 때 지워지는
+   * 로컬 DB의 것이라, 남겨두면 다음 계정의 화면에 이전 계정의 조건이 뜬다.
+   */
+  clearAll: () => Promise<void>;
 }
 
 export const usePickStore = create<PickState>((set, get) => ({
@@ -61,6 +67,11 @@ export const usePickStore = create<PickState>((set, get) => ({
     const recents = get().recents.filter(r => r.savedAt !== savedAt);
     set({ recents });
     recentEntry.save(recents).catch(() => {});
+  },
+
+  clearAll: async () => {
+    set({ filters: DEFAULT_PICK_FILTERS, recents: [], hydrated: true });
+    await recentEntry.remove();
   },
 }));
 

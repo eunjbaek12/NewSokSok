@@ -251,27 +251,9 @@ export default function DashboardScreen() {
         </View>
       </View>
 
-      {/* Fixed Search Bar */}
-      <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
-        <Pressable
-          onPress={() => router.push('/search-modal')}
-          style={({ pressed }) => [
-            styles.searchTrigger,
-            {
-              backgroundColor: colors.surface,
-              borderColor: colors.borderLight,
-              shadowColor: colors.shadow,
-            },
-            pressed && { opacity: 0.7 },
-          ]}
-        >
-          <Ionicons name="search" size={20} color={colors.textTertiary} />
-          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>
-            {t('home.searchPlaceholder')}
-          </Text>
-        </Pressable>
-      </View>
-
+      {/* 검색창은 단어장 탭에 하나만 둔다. 검색 대상(내가 저장한 단어)이 사는 곳이
+          거기이고, 홈은 "무엇을 할까"를 묻는 자리다. 여기 있을 때는 위치 때문에
+          앱 전체 검색으로 읽혔는데 실제로는 개인 단어장만 뒤졌다. */}
       <ScrollView
         ref={scrollRef}
         showsVerticalScrollIndicator={false}
@@ -857,27 +839,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
-  },
-  searchBarWrapper: {
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-  },
-  searchTrigger: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderRadius: Radius.lg,
-    borderWidth: 1,
-    gap: 10,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  searchTriggerText: {
-    fontSize: 15,
-    fontFamily: 'Pretendard_400Regular',
   },
   content: {
     paddingHorizontal: 20,

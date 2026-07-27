@@ -86,8 +86,7 @@
       "설정에서 복습 알림을 켜면 잊을 때쯤 살짝 알려드려요",
       "A Voca Do! 오늘도 한 걸음만 더"
     ],
-    "searchPlaceholder": "단어, 뜻, 태그로 검색...",
-    "customStudy": "맞춤 학습",
+    "customStudy": "골라서 학습",
     "wrongWords": "오답 정복",
     "wrongWordsLimit": "상위 50개",
     "starredWords": "별표 학습",
@@ -139,7 +138,7 @@
   },
   "vocabLists": {
     "title": "나의 단어장",
-    "searchPlaceholder": "단어, 뜻, 태그로 검색...",
+    "searchPlaceholder": "내 단어 검색",
     "myLists": "나의 단어장",
     "emptyTitle": "단어장이 없습니다",
     "emptySubtitle": "나만의 단어장을 만들거나\n모음집에서 단어를 가져와보세요",

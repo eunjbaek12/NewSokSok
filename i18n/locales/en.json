@@ -86,8 +86,7 @@
       "Turn on review reminders in Settings for a gentle nudge",
       "A Voca Do! Just one more step today"
     ],
-    "searchPlaceholder": "Search words, meanings, tags...",
-    "customStudy": "Custom Study",
+    "customStudy": "Pick & Study",
     "wrongWords": "Wrong Words",
     "wrongWordsLimit": "Top 50",
     "starredWords": "Starred Words",
@@ -139,7 +138,7 @@
   },
   "vocabLists": {
     "title": "My Vocab Lists",
-    "searchPlaceholder": "Search words, meanings, tags...",
+    "searchPlaceholder": "Search my words",
     "myLists": "My Vocab Lists",
     "emptyTitle": "No vocab lists yet",
     "emptySubtitle": "Create your own vocab list or\nbrowse collections to import words",

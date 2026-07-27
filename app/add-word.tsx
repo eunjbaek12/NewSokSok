@@ -977,8 +977,18 @@ export default function AddWordScreen() {
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                 >
-                    {/* 단어장 고르기는 저장 버튼 왼쪽 칩으로 내려갔다(하단 fabContainer 참조).
-                        맨 위에 있으면 스크롤과 함께 사라져 어디에 저장되는지 모른 채 저장하게 된다. */}
+                    {!isEditing && (
+                        <Pressable
+                            onPress={handleOpenListPicker}
+                            style={[styles.listSelector, { backgroundColor: colors.surface, borderColor: selectedListId ? colors.border : colors.error }]}
+                        >
+                            <Ionicons name="folder-outline" size={18} color={selectedListId ? colors.textSecondary : colors.error} />
+                            <Text style={[styles.listSelectorText, { color: selectedListId ? colors.text : colors.textTertiary }]} numberOfLines={1}>
+                                {selectedListTitle}
+                            </Text>
+                            <Ionicons name="chevron-down" size={16} color={colors.textTertiary} />
+                        </Pressable>
+                    )}
 
                     {(true) && (
                         <>
@@ -1347,42 +1357,6 @@ export default function AddWordScreen() {
                             animatedFabStyle,
                             { bottom: currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20 }
                         ]}>
-                            {/* 단어장 칩 — 폭을 고정한다. 이름 길이에 따라 늘었다 줄었다 하면
-                                단어장을 바꿀 때마다 저장 버튼이 좌우로 움직인다. 편집 모드에는
-                                단어장을 고르는 개념이 없어(이미 그 단어장의 단어다) 띄우지 않는다. */}
-                            {!isEditing && (
-                                <Pressable
-                                    onPress={handleOpenListPicker}
-                                    style={({ pressed }) => [
-                                        styles.listChip,
-                                        {
-                                            width: currentMode === 'popup' ? 104 : 118,
-                                            backgroundColor: saveBlocked ? colors.errorLight : colors.surface,
-                                            borderColor: saveBlocked ? colors.error : (selectedListId ? colors.border : colors.error),
-                                            shadowColor: colors.shadow,
-                                            opacity: pressed ? 0.7 : 1,
-                                        },
-                                    ]}
-                                >
-                                    <Ionicons
-                                        name="folder-outline"
-                                        size={13}
-                                        color={saveBlocked ? colors.error : colors.textSecondary}
-                                    />
-                                    <Text
-                                        style={[styles.listChipText, { color: saveBlocked ? colors.error : colors.textSecondary }]}
-                                        numberOfLines={1}
-                                    >
-                                        {selectedListTitle}
-                                    </Text>
-                                    <Ionicons
-                                        name="chevron-down"
-                                        size={12}
-                                        color={saveBlocked ? colors.error : colors.textTertiary}
-                                    />
-                                </Pressable>
-                            )}
-
                             {/* 중복이면 흐리게만 하고 누를 수는 있게 둔다 — 완전히 막으면 기존 팝업의
                                 "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다. */}
                             <Pressable
@@ -1736,6 +1710,8 @@ const styles = StyleSheet.create({
     placeholderTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
     placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
     scrollContent: { padding: 20, paddingBottom: 40 },
+    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
+    listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
@@ -1903,30 +1879,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
         zIndex: 100,
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-    },
-    // 단어장 칩 — 글자는 저장(16px/Bold)보다 작고 연하게 두되(중요도 조절), 높이는 44를
-    // 유지한다. 글자 크기를 줄인다고 여백까지 줄이면 터치 영역이 최소 기준(iOS 44) 아래로
-    // 떨어진다. 폭은 호출부에서 고정값으로 준다(전체 118 / 팝업 104).
-    listChip: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        height: 44,
-        paddingHorizontal: 11,
-        borderRadius: 22,
-        borderWidth: 1,
-        gap: 5,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.12,
-        shadowRadius: 6,
-        elevation: 3,
-    },
-    listChipText: {
-        flex: 1,
-        fontSize: 11,
-        fontFamily: 'Pretendard_500Medium',
     },
     // 중복 안내 줄 — 입력창 바로 아래.
     dupHintRow: {

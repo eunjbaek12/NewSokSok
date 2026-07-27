@@ -77,7 +77,7 @@ export default function DashboardScreen() {
   const lists = useLists();
   const loading = useBootstrapLoading();
   const { t } = useTranslation();
-  const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings, profileSettings } = useSettings();
+  const { dashboardFilterMode: filterMode, updateDashboardFilter, profileSettings } = useSettings();
   const { user } = useAuth();
   const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
   const [showCustomStudy, setShowCustomStudy] = useState(false);
@@ -166,9 +166,9 @@ export default function DashboardScreen() {
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;
     const sel = setStudySelection(reviewWords.map(w => w.id));
-    // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 맞춤·오답·별표와 달리
-    // studyMode 설정을 따르지 않는 이유: "외웠어요/다시 볼게요" 스와이프가 간격 사다리의
-    // 입력 그 자체라, 퀴즈로 열면 복습의 성공/실패 신호가 사라진다.
+    // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 홈의 원탭이 전부
+    // 카드학습이라는 규칙에 더해 복습만의 이유가 하나 더 있다: "외웠어요/다시 볼게요"
+    // 스와이프가 간격 사다리의 입력 그 자체라, 퀴즈로 열면 성공/실패 신호가 사라진다.
     router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
   }, [reviewWords]);
 
@@ -187,9 +187,13 @@ export default function DashboardScreen() {
       .slice(0, 50);
     if (words.length === 0) return;
     const sel = setStudySelection(words.map(w => w.id));
-    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', sel } });
-  }, [lists, customStudySettings.studyMode]);
+    // 홈의 원탭은 전부 카드학습으로 고정한다. 누르면 곧바로 시작하는 버튼인데
+    // 다른 화면에 숨은 studyMode 설정 때문에 어떤 날은 카드로, 어떤 날은 퀴즈로
+    // 열리면 같은 버튼을 신뢰할 수 없다. 퀴즈는 모드를 고르는 화면에서만 고른다
+    // — 단어장 상세·플랜·골라서 학습. customStudySettings.studyMode는 이제
+    // 골라서 학습 전용 값이다.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
+  }, [lists]);
 
   const handleStarredWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -199,9 +203,9 @@ export default function DashboardScreen() {
       .filter(w => w.isStarred);
     if (words.length === 0) return;
     const sel = setStudySelection(words.map(w => w.id));
-    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', sel } });
-  }, [lists, customStudySettings.studyMode]);
+    // 오답 정복과 같은 이유로 카드학습 고정 — handleWrongWordStudy의 주석 참고.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
+  }, [lists]);
 
   const handlePlanPress = useCallback((listId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);

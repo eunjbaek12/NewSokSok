@@ -7,13 +7,13 @@ import {
 } from '@/features/billing/pricing';
 
 const krwMonthly: PriceDetail = { display: '₩3,900', amount: 3900, currency: 'KRW' };
-const krwYearly: PriceDetail = { display: '₩35,900', amount: 35900, currency: 'KRW' };
+const krwYearly: PriceDetail = { display: '₩36,000', amount: 36000, currency: 'KRW' };
 const usdMonthly: PriceDetail = { display: '$2.99', amount: 2.99, currency: 'USD' };
 const usdYearly: PriceDetail = { display: '$27.99', amount: 27.99, currency: 'USD' };
 
 describe('savingsPercent', () => {
   it('KRW 연간이 월×12 대비 약 23% 절약', () => {
-    // 1 - 35900/(3900*12) = 1 - 35900/46800 = 0.2329 → 23
+    // 1 - 36000/(3900*12) = 1 - 36000/46800 = 0.2308 → 23
     expect(savingsPercent(krwMonthly, krwYearly)).toBe(23);
   });
 
@@ -36,10 +36,10 @@ describe('savingsPercent', () => {
 });
 
 describe('monthlyEquivalent', () => {
-  it('KRW는 소수점 없이 정수로 환산 (35900/12 ≈ 2992)', () => {
+  it('KRW는 소수점 없이 정수로 환산 (36000/12 = 3000)', () => {
     // Intl KRW는 fraction 0자리 → 반올림 정수. 통화기호 ₩ 포함.
     const s = monthlyEquivalent(krwYearly);
-    expect(s).toContain('2,992');
+    expect(s).toContain('3,000');
     expect(s).toMatch(/₩|KRW/);
   });
 

@@ -131,4 +131,4 @@ v1.2 — Review right before you forget.
 | Contact email | mtgirltreeguy@gmail.com |
 | Website | (optional, leave blank if none) |
 
-> Note on price display: USD figures shown here are approximate for App Store reference. Korean Play Store displays KRW (₩3,900 / ₩35,900). Apple App Store auto-converts via local tier pricing — set price tier in App Store Connect to match KRW figure for each market.
+> Note on price display: USD figures shown here are approximate for App Store reference. Korean Play Store displays KRW (₩3,900 / ₩36,000). Apple App Store auto-converts via local tier pricing — set price tier in App Store Connect to match KRW figure for each market.

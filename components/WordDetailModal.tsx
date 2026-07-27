@@ -393,8 +393,10 @@ export default function WordDetailModal({
                                                 </Pressable>
                                             )
                                         ) : (
-                                            <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave}>
-                                                <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>
+                                            /* AI 분석 중에는 저장을 막는다 — 곧 채워질 필드가 빠진 채로
+                                               저장되고 모달이 닫혀 결과가 갈 곳이 사라진다(add-word 화면과 동일). */
+                                            <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave || isPendingFill}>
+                                                <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave || isPendingFill ? 0.5 : 1 }]}>
                                                     {t('common.save')}
                                                 </Text>
                                             </Pressable>

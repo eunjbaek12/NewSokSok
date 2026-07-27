@@ -12,6 +12,7 @@ import {
     TextInput,
     ActivityIndicator,
     Modal,
+    Keyboard,
 } from 'react-native';
 import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -328,6 +329,7 @@ export default function AddWordScreen() {
         handleAutoFillWithTerm,
         handleSaveWord,
         isPendingFill,
+        pendingFillTerm,
         isPendingSave,
         aiQuotaHitAt,
         autoFillFailedAt,
@@ -345,6 +347,8 @@ export default function AddWordScreen() {
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
+    // 자동완성 후보를 가져오는 중(디바운스 300ms 이후 ~ 응답 도착). 후보 목록 자리에 안내 한 줄.
+    const [suggestLoading, setSuggestLoading] = useState(false);
     const [inputWrapperHeight, setInputWrapperHeight] = useState(50);
     const autocompleteTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
     const suppressBlurRef = React.useRef(false);
@@ -716,12 +720,39 @@ export default function AddWordScreen() {
     };
 
 
+    // 검색을 시작하면 키보드를 내린다 — 채워질 뜻·예문·정의를 키보드가 가리지 않도록.
+    // Keyboard.dismiss()가 아니라 blur()인 이유: dismiss는 TextInput의 포커스 상태를
+    // 그대로 남기고 키보드만 내리는데, 그러면 저장 후 focus()가 "이미 포커스됨"으로
+    // no-op이 돼 키보드가 다시 올라오지 않는다.
+    const blurTermInput = () => {
+        // 돋보기 버튼의 onPressIn이 켜둔 blur 무시 플래그는 여기선 무의미하다 —
+        // 의도한 blur이므로 테두리 강조도 함께 끈다.
+        termInputRef.current?.blur();
+        setIsTermFocused(false);
+    };
+
+    // 저장 후 다음 단어를 바로 칠 수 있게 입력창으로 돌아온다(포커스 + 키보드).
+    const focusTermInput = () => {
+        const input = termInputRef.current;
+        if (!input) return;
+        if (!input.isFocused()) { input.focus(); return; }
+        // 포커스는 쥔 채 키보드만 내려가 있는 상태(안드로이드 뒤로가기 등)에서는 focus()가
+        // "이미 포커스됨" no-op이라 키보드가 안 올라온다 — 그때만 상태를 한 번 떨궜다
+        // 다시 잡는다. 이미 키보드가 떠 있으면 아무것도 하지 않는다(공연히 튀지 않도록).
+        if (!Keyboard.isVisible()) {
+            input.blur();
+            setTimeout(() => termInputRef.current?.focus(), 50);
+        }
+    };
+
     // Use handleAutoFill from useAddWord hook instead of re-implementing it localy
     const handleSearch = () => {
         if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
         suggestionsDismissedRef.current = true;
         setSuggestions([]);
         setShowSuggestions(false);
+        setSuggestLoading(false);
+        blurTermInput();
         handleAutoFill();
     };
 
@@ -773,10 +804,8 @@ export default function AddWordScreen() {
                     setToastVisible(true);
                     setTimeout(() => setToastVisible(false), 1200);
 
-                    // 저장 후 단어 입력창에 다시 포커스 (필드 리셋 완료 후)
-                    setTimeout(() => {
-                        termInputRef.current?.focus();
-                    }, 300);
+                    // 저장 후 단어 입력창에 다시 포커스 + 키보드 (필드 리셋 완료 후)
+                    setTimeout(focusTermInput, 300);
                 }
             },
             (reason) => {
@@ -853,6 +882,9 @@ export default function AddWordScreen() {
     }, [isEditing, debouncedTerm, lists, selectedListId, sourceLang, targetLang]);
 
     const saveBlocked = duplicateInfo?.kind === 'here';
+    // 자동완성 드롭다운이 떠 있는가(후보 목록 또는 "찾는 중" 한 줄). 드롭다운은 절대 위치라
+    // 입력창 아래 안내들과 자리가 겹치므로, 겹침 판정을 한 곳에서 계산해 돌려쓴다.
+    const suggestionsOpen = (showSuggestions && suggestions.length > 0) || suggestLoading;
 
     const pickerOptions: PickerOption[] = lists.map(l => ({
         id: l.id,
@@ -1021,7 +1053,7 @@ export default function AddWordScreen() {
                                                         </>
                                                     )}
                                                 </View>
-                                                <View style={{ zIndex: showSuggestions ? 1000 : 1 }}>
+                                                <View style={{ zIndex: suggestionsOpen ? 1000 : 1 }}>
                                                 <View
                                                     style={styles.wordInputWrapper}
                                                     onLayout={(e) => setInputWrapperHeight(e.nativeEvent.layout.height)}
@@ -1046,16 +1078,26 @@ export default function AddWordScreen() {
                                                             if (!inputSettings.enableAutocomplete || text.trim().length < 2) {
                                                                 setSuggestions([]);
                                                                 setShowSuggestions(false);
+                                                                setSuggestLoading(false);
                                                                 return;
                                                             }
                                                             autocompleteTimerRef.current = setTimeout(async () => {
-                                                                const results = sourceLang === 'en'
-                                                                    ? await fetchDatamuseAutocomplete(text.trim())
-                                                                    : [];
-                                                                // 검색/선택으로 닫힌 뒤 늦게 도착한 응답이면 무시
-                                                                if (suggestionsDismissedRef.current) return;
-                                                                setSuggestions(results);
-                                                                setShowSuggestions(results.length > 0);
+                                                                if (sourceLang !== 'en') {
+                                                                    // Datamuse는 영어 전용 — 다른 출발어면 후보 없음
+                                                                    setSuggestions([]);
+                                                                    setShowSuggestions(false);
+                                                                    return;
+                                                                }
+                                                                setSuggestLoading(true);
+                                                                try {
+                                                                    const results = await fetchDatamuseAutocomplete(text.trim());
+                                                                    // 검색/선택으로 닫힌 뒤 늦게 도착한 응답이면 무시
+                                                                    if (suggestionsDismissedRef.current) return;
+                                                                    setSuggestions(results);
+                                                                    setShowSuggestions(results.length > 0);
+                                                                } finally {
+                                                                    setSuggestLoading(false);
+                                                                }
                                                             }, 300);
                                                         }}
                                                         autoFocus={!isEditing}
@@ -1074,18 +1116,25 @@ export default function AddWordScreen() {
                                                             disabled={!term.trim()}
                                                             style={styles.searchIconButton}
                                                         />
+                                                        {/* 검색 중에는 같은 자리에서 스피너가 돈다 — 사용자의 시선이 이미
+                                                            방금 누른 이 지점에 있다. 아이콘(22)과 인디케이터의 실제 폭이
+                                                            달라 옆 버튼이 밀리므로 슬롯 크기를 고정한다. */}
                                                         <Pressable
                                                             onPressIn={() => { suppressBlurRef.current = true; }}
                                                             onPress={handleSearch}
                                                             onPressOut={() => { suppressBlurRef.current = false; }}
                                                             disabled={!term.trim() || isPendingFill}
-                                                            style={styles.searchIconButton}
+                                                            style={styles.searchIconSlot}
                                                         >
-                                                            <Ionicons
-                                                                name="search-outline"
-                                                                size={22}
-                                                                color={!term.trim() ? colors.textTertiary : isPendingFill ? colors.primary + '60' : colors.primary}
-                                                            />
+                                                            {isPendingFill ? (
+                                                                <ActivityIndicator size="small" color={colors.primary} />
+                                                            ) : (
+                                                                <Ionicons
+                                                                    name="search-outline"
+                                                                    size={22}
+                                                                    color={!term.trim() ? colors.textTertiary : colors.primary}
+                                                                />
+                                                            )}
                                                         </Pressable>
                                                         <Pressable
                                                             onPress={() => {
@@ -1100,13 +1149,23 @@ export default function AddWordScreen() {
                                                         </Pressable>
                                                     </View>
                                                 </View>
-                                                {showSuggestions && suggestions.length > 0 && (
+                                                {suggestionsOpen && (
                                                     <View style={[styles.suggestionDropdown, {
                                                         top: inputWrapperHeight + 2,
                                                         backgroundColor: colors.surface,
                                                         borderColor: colors.border,
                                                         shadowColor: colors.shadow,
                                                     }]}>
+                                                        {/* 아직 후보가 없는 첫 조회 중이면 안내 한 줄. 이미 이전 후보가 있으면
+                                                            깜빡임 없이 그대로 두고 결과가 오면 교체된다. */}
+                                                        {suggestLoading && suggestions.length === 0 && (
+                                                            <View style={styles.suggestionItem}>
+                                                                <ActivityIndicator size="small" color={colors.textTertiary} />
+                                                                <Text style={[styles.suggestionText, { color: colors.textTertiary }]}>
+                                                                    {t('addWord.suggestLoading')}
+                                                                </Text>
+                                                            </View>
+                                                        )}
                                                         {suggestions.map((s) => (
                                                             <Pressable
                                                                 key={s}
@@ -1116,7 +1175,10 @@ export default function AddWordScreen() {
                                                                     setTerm(s);
                                                                     setSuggestions([]);
                                                                     setShowSuggestions(false);
+                                                                    setSuggestLoading(false);
                                                                     Haptics.selectionAsync();
+                                                                    // 후보 탭도 검색이다 — 돋보기와 같이 키보드를 내린다.
+                                                                    blurTermInput();
                                                                     handleAutoFillWithTerm(s);
                                                                 }}
                                                                 style={({ pressed }) => [styles.suggestionItem, { backgroundColor: pressed ? colors.surfaceSecondary : 'transparent' }]}
@@ -1128,8 +1190,11 @@ export default function AddWordScreen() {
                                                         <Pressable
                                                             onPress={() => {
                                                                 updateInputSettings({ enableAutocomplete: false });
+                                                                if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                                suggestionsDismissedRef.current = true;
                                                                 setSuggestions([]);
                                                                 setShowSuggestions(false);
+                                                                setSuggestLoading(false);
                                                                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                                                             }}
                                                             style={[styles.suggestionDisableBtn, { borderTopColor: colors.borderLight }]}
@@ -1141,9 +1206,21 @@ export default function AddWordScreen() {
                                                 )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
+                                                {/* 검색 진행 안내. 돋보기 자리의 스피너가 "돌아가는 중"을, 이 줄이 "무엇을
+                                                    하는 중"을 맡는다(그래서 여기엔 스피너를 겹치지 않는다). 표제어를 함께
+                                                    보여주므로, 검색 중 단어를 고쳐 결과가 버려져도 무슨 일인지 읽힌다. */}
+                                                {isPendingFill && (
+                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.searchingRow}>
+                                                        <Ionicons name="sparkles-outline" size={14} color={colors.primary} />
+                                                        <Text style={[styles.searchingText, { color: colors.textSecondary }]} numberOfLines={1}>
+                                                            {t('addWord.searchingFill', { term: pendingFillTerm })}
+                                                        </Text>
+                                                    </Animated.View>
+                                                )}
                                                 {/* 이미 있는 단어 안내. 자동완성 후보 목록이 입력창 바로 아래에 겹쳐 뜨므로
-                                                    (suggestionDropdown, 절대 위치) 후보가 열려 있는 동안에는 숨긴다. */}
-                                                {!!duplicateInfo && !(showSuggestions && suggestions.length > 0) && (
+                                                    (suggestionDropdown, 절대 위치) 후보가 열려 있는 동안에는 숨긴다.
+                                                    검색 중에는 위 진행 안내에 자리를 내준다 — 둘 다 뜨면 시끄럽다. */}
+                                                {!!duplicateInfo && !suggestionsOpen && !isPendingFill && (
                                                     <View style={styles.dupHintRow}>
                                                         <Ionicons
                                                             name={duplicateInfo.kind === 'here' ? 'alert-circle' : 'information-circle'}
@@ -1162,7 +1239,9 @@ export default function AddWordScreen() {
                                                         </Text>
                                                     </View>
                                                 )}
-                                                {!!notFoundTerm && (
+                                                {/* 같은 단어를 다시 검색하면 지난 "못 찾음" 배너가 남은 채로 새 검색이 도는데,
+                                                    그러면 진행 안내와 실패 안내가 동시에 보인다 — 검색 중에는 숨긴다. */}
+                                                {!!notFoundTerm && !isPendingFill && (
                                                     <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
                                                         <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
                                                         <Text style={[styles.notFoundBannerText, { color: colors.warning }]}>
@@ -1358,15 +1437,17 @@ export default function AddWordScreen() {
                             { bottom: currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20 }
                         ]}>
                             {/* 중복이면 흐리게만 하고 누를 수는 있게 둔다 — 완전히 막으면 기존 팝업의
-                                "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다. */}
+                                "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다.
+                                반면 검색 중에는 아예 막는다 — 지금 누르면 곧 채워질 뜻·예문이 빠진
+                                반쪽짜리 단어가 저장되고, 폼이 초기화돼 결과가 갈 곳도 사라진다. */}
                             <Pressable
                                 onPress={onSave}
-                                disabled={isPendingSave}
+                                disabled={isPendingSave || isPendingFill}
                                 style={({ pressed }) => [
                                     styles.fabButton,
                                     {
                                         backgroundColor: saveBlocked ? colors.borderLight : colors.primaryButton,
-                                        opacity: isPendingSave || pressed ? 0.8 : 1,
+                                        opacity: isPendingSave || pressed ? 0.8 : isPendingFill ? 0.5 : 1,
                                         shadowColor: saveBlocked ? 'transparent' : colors.primaryButton,
                                     }
                                 ]}
@@ -1718,6 +1799,9 @@ const styles = StyleSheet.create({
     wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
     searchIconButton: { padding: 8 },
+    // 돋보기 ↔ 스피너가 번갈아 들어가는 자리. padding 방식(22+8*2)과 같은 38로 맞춰
+    // 두 상태의 폭이 같고, 옆 N 버튼도 밀리지 않는다.
+    searchIconSlot: { width: 38, height: 38, alignItems: 'center', justifyContent: 'center' },
     naverIconText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', lineHeight: 22 },
     fieldsContainer: { gap: 10, marginTop: 4 },
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
@@ -1729,8 +1813,9 @@ const styles = StyleSheet.create({
     senseChip: { flexDirection: 'row', alignItems: 'center', gap: 4, borderRadius: 999, borderWidth: 1.5, paddingVertical: 7, paddingHorizontal: 12, maxWidth: '100%' },
     senseChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold', flexShrink: 1 },
     senseHintText: { fontSize: 11.5, fontFamily: 'Pretendard_500Medium' },
-    loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
-    loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
+    // 검색 진행 안내 줄 — 중복 안내(dupHintRow)와 같은 자리·같은 리듬.
+    searchingRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    searchingText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', lineHeight: 17 },
     tagsContainer: { marginTop: 0, gap: 6 },
     tagsLabel: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     tagInputRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 },

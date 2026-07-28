@@ -233,6 +233,13 @@ function AppStack() {
       <Stack.Screen name="terms" options={{ headerShown: false }} />
       <Stack.Screen name="licenses" options={{ headerShown: false }} />
       <Stack.Screen name="advanced-settings" options={{ headerShown: false }} />
+      {/*
+        아래 두 화면은 자기 헤더를 직접 그린다. 여기 등록을 빠뜨리면 expo-router가
+        기본 네이티브 헤더에 라우트 이름("Contact", "Whats-new")을 얹어 헤더가 두 개로
+        보인다 — 새 화면을 추가할 때마다 이 목록에 함께 넣을 것.
+      */}
+      <Stack.Screen name="contact" options={{ headerShown: false }} />
+      <Stack.Screen name="whats-new" options={{ headerShown: false }} />
     </Stack>
   );
 }

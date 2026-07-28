@@ -71,6 +71,20 @@ import {
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 사진 스캔 가능.
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
+// 플로팅 저장 버튼(FAB)이 본문 위를 덮는 높이. 스크롤 하단 여백을 이만큼 확보해야
+// 마지막 줄이 버튼 뒤에 깔리지 않는다. paddingVertical 12*2 + 아이콘/글자 한 줄 ≈ 46,
+// 여기에 버튼과 본문이 닿아 보이지 않을 만큼의 간격을 더한 값.
+// 런타임 측정(onLayout)을 쓰지 않는 건 의도적 — 측정값이 늦게 도착하면 첫 프레임에서
+// 여백이 튄다. 버튼 크기는 스타일 상수라 계산으로 충분하다.
+const FAB_HEIGHT = 48;
+const FAB_GAP = 16;
+
+// 저장 버튼을 화면 바닥에서 이만큼 띄운다. 실기에서 바닥에 붙이면 누르기 불편하다고
+// 확인된 값 — 손가락이 편하게 닿는 높이다. 이 띄움만큼 본문 여백(fabReserve)도
+// 함께 늘어나야 하므로, 값은 반드시 `bottom` 쪽에 둔다. 예전처럼 translateY에
+// 숨겨두면 여백 계산에서 빠져 마지막 줄이 버튼 뒤에 깔린다.
+const FAB_LIFT = 100;
+
 
 // 드래그 가능한 필드 항목 컴포넌트
 const DraggableFieldItem = ({
@@ -374,12 +388,14 @@ export default function AddWordScreen() {
 
     const keyboard = useAnimatedKeyboard();
 
+    // 평상시 자리는 `bottom`(= 기본 여백 + FAB_LIFT)이 정하므로, 여기서는 키보드가
+    // 그 자리를 침범할 때만 그 초과분을 밀어 올린다. 키보드가 FAB_LIFT보다 낮으면
+    // 이미 버튼이 그 위에 있어 움직일 필요가 없다.
     const animatedFabStyle = useAnimatedStyle(() => {
         return {
             transform: [{
-                translateY: -Math.max(keyboard.height.value, 100),
+                translateY: -Math.max(keyboard.height.value - FAB_LIFT, 0),
             }],
-            opacity: 1,
         };
     });
 
@@ -934,6 +950,12 @@ export default function AddWordScreen() {
 
     const currentMode = fieldSettingsOpen ? tempSettings.addWordMode : inputSettings.addWordMode;
 
+    // FAB의 자리와 본문이 비워둬야 할 하단 여백은 같은 값에서 나와야 한다.
+    // 둘이 어긋나면 마지막 줄이 버튼 뒤에 깔린다(예전 여백은 40이라 항상 어긋났다).
+    // 화면 진입 시 확정되는 값이라 키보드를 여닫아도 본문이 밀리지 않는다.
+    const fabBottom = (currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20) + FAB_LIFT;
+    const fabReserve = fabBottom + FAB_HEIGHT + FAB_GAP;
+
     return (
         <View style={[
             styles.container,
@@ -1005,7 +1027,7 @@ export default function AddWordScreen() {
 
                 <ScrollView
                     style={{ flex: 1 }}
-                    contentContainerStyle={styles.scrollContent}
+                    contentContainerStyle={[styles.scrollContent, { paddingBottom: fabReserve }]}
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                 >
@@ -1429,41 +1451,39 @@ export default function AddWordScreen() {
 
                 </ScrollView>
 
-                {
-                    (true) && (
-                        <Animated.View style={[
-                            styles.fabContainer,
-                            animatedFabStyle,
-                            { bottom: currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20 }
-                        ]}>
-                            {/* 중복이면 흐리게만 하고 누를 수는 있게 둔다 — 완전히 막으면 기존 팝업의
-                                "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다.
-                                반면 검색 중에는 아예 막는다 — 지금 누르면 곧 채워질 뜻·예문이 빠진
-                                반쪽짜리 단어가 저장되고, 폼이 초기화돼 결과가 갈 곳도 사라진다. */}
-                            <Pressable
-                                onPress={onSave}
-                                disabled={isPendingSave || isPendingFill}
-                                style={({ pressed }) => [
-                                    styles.fabButton,
-                                    {
-                                        backgroundColor: saveBlocked ? colors.borderLight : colors.primaryButton,
-                                        opacity: isPendingSave || pressed ? 0.8 : isPendingFill ? 0.5 : 1,
-                                        shadowColor: saveBlocked ? 'transparent' : colors.primaryButton,
-                                    }
-                                ]}
-                            >
-                                {isPendingSave ? (
-                                    <ActivityIndicator color={colors.onPrimary} size="small" />
-                                ) : (
-                                    <>
-                                        <Ionicons name="checkmark" size={20} color={saveBlocked ? colors.textTertiary : colors.onPrimary} />
-                                        <Text style={[styles.fabText, { color: saveBlocked ? colors.textTertiary : colors.onPrimary }]}>{t('common.save')}</Text>
-                                    </>
-                                )}
-                            </Pressable>
-                        </Animated.View>
-                    )
-                }
+                <Animated.View style={[
+                    styles.fabContainer,
+                    animatedFabStyle,
+                    { bottom: fabBottom }
+                ]}>
+                    {/* 중복이면 흐리게만 하고 누를 수는 있게 둔다 — 완전히 막으면 기존 팝업의
+                        "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다.
+                        반면 검색 중에는 아예 막는다 — 지금 누르면 곧 채워질 뜻·예문이 빠진
+                        반쪽짜리 단어가 저장되고, 폼이 초기화돼 결과가 갈 곳도 사라진다. */}
+                    <Pressable
+                        onPress={onSave}
+                        disabled={isPendingSave || isPendingFill}
+                        style={({ pressed }) => [
+                            styles.fabButton,
+                            {
+                                // 배경에만 알파를 준다(94%). View 전체 `opacity`로 낮추면 체크 아이콘과
+                                // "저장" 글자까지 같이 흐려져, 정작 읽어야 할 라벨이 먼저 뭉갠다.
+                                backgroundColor: (saveBlocked ? colors.borderLight : colors.primaryButton) + 'F0',
+                                opacity: isPendingSave || pressed ? 0.8 : isPendingFill ? 0.5 : 1,
+                                shadowColor: saveBlocked ? 'transparent' : colors.primaryButton,
+                            }
+                        ]}
+                    >
+                        {isPendingSave ? (
+                            <ActivityIndicator color={colors.onPrimary} size="small" />
+                        ) : (
+                            <>
+                                <Ionicons name="checkmark" size={20} color={saveBlocked ? colors.textTertiary : colors.onPrimary} />
+                                <Text style={[styles.fabText, { color: saveBlocked ? colors.textTertiary : colors.onPrimary }]}>{t('common.save')}</Text>
+                            </>
+                        )}
+                    </Pressable>
+                </Animated.View>
             </Animated.View>
 
             <Snackbar
@@ -1790,7 +1810,8 @@ const styles = StyleSheet.create({
     placeholderIconContainer: { width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center', marginBottom: 8 },
     placeholderTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
     placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
-    scrollContent: { padding: 20, paddingBottom: 40 },
+    // 하단 여백은 FAB이 덮는 높이에 맞춰 호출부에서 `fabReserve`로 덮어쓴다.
+    scrollContent: { padding: 20 },
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
@@ -1985,6 +2006,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 12,
         borderRadius: 24,
+        // backgroundColor + borderRadius 조합은 Android(Fabric)에서 모서리가 각지게
+        // 그려질 수 있다. overflow: 'hidden'이 배경을 둥글게 잘라낸다.
+        overflow: 'hidden',
         gap: 6,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.3,

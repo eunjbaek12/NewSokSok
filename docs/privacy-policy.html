@@ -162,13 +162,18 @@
           </tr>
           <tr>
             <td>Pro 구독 정보</td>
-            <td>Google Play 구매 토큰, 구독 상품 ID, 구독 만료일</td>
+            <td>구매 토큰(Android · Google Play) 또는 거래 식별자(iOS · App Store), 구독 상품 ID, 구독 만료일</td>
             <td>Pro 구독 결제 시</td>
           </tr>
           <tr>
             <td>광고 ID (Android Advertising ID)</td>
             <td>Google AdMob 광고 표시 목적. 다른 식별자와 결합하지 않음</td>
             <td>Free 사용자가 광고 노출되는 동안</td>
+          </tr>
+          <tr>
+            <td>고객 문의</td>
+            <td>문의 내용, 회신용 이메일 주소(입력하지 않아도 문의할 수 있으며, 이 경우 답장은 앱에서만 확인합니다), 진단 정보(앱 버전·기기 OS·언어 설정·요금제·보유 단어장/단어 수 — 보내기 전에 끌 수 있습니다), 중복 문의 방지용 기기 식별자</td>
+            <td>앱의 설정 → 개발자에게 메시지로 문의를 보낼 때</td>
           </tr>
           <tr>
             <td>게스트 모드</td>
@@ -186,8 +191,9 @@
         <li>여러 기기 간 학습 데이터 클라우드 동기화</li>
         <li>AI 기반 단어·예문 생성 서비스 제공 (Google Gemini / Vertex AI)</li>
         <li>AI 일일 한도 관리 및 보상형 광고 시청 보너스 누적</li>
-        <li>Pro 구독 상태 확인 및 결제 영수증 검증 (Google Play Developer API)</li>
+        <li>Pro 구독 상태 확인 및 결제 영수증 검증 (Google Play Developer API · Apple App Store Server API)</li>
         <li>광고 표시 (Free 사용자 한정, Google AdMob)</li>
+        <li>고객 문의 접수 및 답변 (앱 내 답장, 이메일을 남긴 경우 메일 회신)</li>
         <li>서비스 오류 분석 및 품질 개선</li>
       </ul>
     </section>
@@ -198,6 +204,7 @@
         <li><strong>보유 기간:</strong> 회원 탈퇴 또는 서비스 이용 종료 시까지</li>
         <li><strong>파기 방법:</strong> 탈퇴 즉시 데이터베이스에서 완전 삭제</li>
         <li><strong>법령 의무 보관:</strong> 관련 법령에서 보존 기간을 정한 경우 해당 기간 동안 보관 후 삭제</li>
+        <li><strong>고객 문의:</strong> 문의 내용과 답장은 접수일로부터 1년간 보관 후 삭제합니다. 탈퇴하면 문의와 계정의 연결(사용자 식별자)은 끊어지지만, 결제·환불 분쟁에 대비해 문의 내용 자체는 위 기간 동안 남습니다.</li>
         <li><strong>예외 (체험 재취득 방지):</strong> 7일 Pro 무료 체험의 반복 재취득을 막기 위해, 가입 이메일을 복원 불가능한 일방향 해시(SHA-256)로 변환한 값만 탈퇴 후에도 보관합니다. 원본 이메일은 보관하지 않으며, 이 해시로는 개인을 식별할 수 없고 체험 중복 부여 차단 용도로만 사용됩니다.</li>
       </ul>
     </section>
@@ -225,20 +232,30 @@
             <td>광고 ID (Android Advertising ID), 기기 정보</td>
           </tr>
           <tr>
-            <td>Google Play Billing / Developer API</td>
+            <td>Google Play Billing / Developer API (Android)</td>
             <td>Pro 구독 결제 및 영수증 검증</td>
             <td>구매 토큰, 구독 상품 ID</td>
           </tr>
           <tr>
+            <td>Apple App Store / App Store Server API (iOS)</td>
+            <td>Pro 구독 결제 및 영수증 검증</td>
+            <td>거래 식별자(transaction ID), 구독 상품 ID</td>
+          </tr>
+          <tr>
             <td>Supabase (AWS)</td>
             <td>클라우드 데이터베이스 저장, Edge Function 실행</td>
-            <td>학습 데이터, 계정 정보, AI 사용량 통계, 구독 상태</td>
+            <td>학습 데이터, 계정 정보, AI 사용량 통계, 구독 상태, 문의 내용</td>
+          </tr>
+          <tr>
+            <td>Resend (Resend, Inc.)</td>
+            <td>문의 알림 및 답장 이메일 발송</td>
+            <td>문의 내용, 회신용 이메일 주소(입력한 경우), 진단 정보</td>
           </tr>
         </tbody>
       </table>
       <p style="margin-top:10px; font-size:0.85rem; color:#666;">
         위 업체들은 서비스 제공에 필요한 최소한의 정보만 처리하며, 수탁 목적 외 이용을 금지합니다.
-        결제 수단 정보(카드 번호 등)는 Google Play가 전적으로 처리하며 본 앱 또는 우리 서버에 저장되지 않습니다.
+        결제 수단 정보(카드 번호 등)는 각 스토어(Google Play·App Store)가 전적으로 처리하며 본 앱 또는 우리 서버에 저장되지 않습니다.
       </p>
     </section>
 
@@ -255,10 +272,10 @@
     <section>
       <h2>5-1. Pro 구독 결제 및 환불</h2>
       <ul>
-        <li><strong>결제 처리:</strong> Pro 구독 결제는 전적으로 Google Play를 통해 진행되며, 카드 정보 등 결제 수단은 Google Play가 처리합니다.</li>
-        <li><strong>저장 항목:</strong> 본 앱은 구독 활성화에 필요한 구매 토큰(purchase token)과 상품 ID, 만료일만 저장합니다.</li>
-        <li><strong>해지:</strong> Google Play 앱 → 메뉴 → 결제 및 정기 결제 → 정기 결제에서 언제든 해지할 수 있습니다.</li>
-        <li><strong>환불:</strong> Google Play 환불 정책을 따르며, 환불 요청은 Google Play를 통해 진행됩니다.</li>
+        <li><strong>결제 처리:</strong> Pro 구독 결제는 전적으로 앱을 설치한 스토어(Android는 Google Play, iOS는 App Store)를 통해 진행되며, 카드 정보 등 결제 수단은 각 스토어가 처리합니다.</li>
+        <li><strong>저장 항목:</strong> 본 앱은 구독 활성화에 필요한 구매 토큰(Android) 또는 거래 식별자(iOS)와 상품 ID, 만료일만 저장합니다.</li>
+        <li><strong>해지:</strong> <em>Android</em> — Google Play 앱 → 메뉴 → 결제 및 정기 결제 → 정기 결제. <em>iOS</em> — 설정 앱 → 사용자 이름 → 구독. 어느 쪽이든 언제든 해지할 수 있습니다.</li>
+        <li><strong>환불:</strong> 결제한 스토어(Google Play 또는 App Store)의 환불 정책을 따르며, 환불 요청도 해당 스토어를 통해 진행됩니다.</li>
         <li><strong>해지 후 데이터:</strong> 구독 해지·만료 후에도 단어장·학습 데이터는 그대로 유지됩니다 (Free 한도로 자동 전환).</li>
       </ul>
     </section>
@@ -282,7 +299,7 @@
       </p>
       <p style="margin-top:8px;">
         만 14세 미만 아동이 가입한 사실을 인지할 경우 즉시 계정 및 관련 정보를
-        삭제하며, 의심 신고는 앱 내 피드백 기능을 통해 접수합니다.
+        삭제하며, 의심 신고는 앱의 설정 → 개발자에게 메시지를 통해 접수합니다.
       </p>
     </section>
 
@@ -301,7 +318,7 @@
       <h2>9. 개인정보 보호책임자</h2>
       <div class="contact-box">
         <p><strong>서비스명:</strong> 아보카도 (Avocado)</p>
-        <p><strong>문의:</strong> 앱 내 피드백 기능 또는 Google Play 개발자 페이지를 통해 연락해 주세요.</p>
+        <p><strong>문의:</strong> 앱의 <strong>설정 → 개발자에게 메시지</strong>로 보내주시면 앱에서 답장을 확인하실 수 있습니다. 스토어의 개발자 페이지를 통해서도 연락하실 수 있습니다.</p>
       </div>
     </section>
 
@@ -313,7 +330,7 @@
     </section>
 
     <footer>
-      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 6월 2일</p>
+      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 7월 28일</p>
     </footer>
     </div>
 
@@ -321,7 +338,7 @@
     <div data-lang="en">
     <header>
       <h1>Privacy Policy</h1>
-      <p>Avocado &nbsp;·&nbsp; Effective: May 18, 2026 &nbsp;·&nbsp; Last updated: June 2, 2026</p>
+      <p>Avocado &nbsp;·&nbsp; Effective: May 18, 2026 &nbsp;·&nbsp; Last updated: July 28, 2026</p>
     </header>
 
     <section>
@@ -358,13 +375,18 @@
           </tr>
           <tr>
             <td>Pro subscription</td>
-            <td>Google Play purchase token, product ID, expiry date</td>
+            <td>Purchase token (Android · Google Play) or transaction identifier (iOS · App Store), product ID, expiry date</td>
             <td>When you purchase a Pro subscription</td>
           </tr>
           <tr>
             <td>Advertising ID (Android Advertising ID)</td>
             <td>Used only for Google AdMob ad delivery. Not combined with other identifiers.</td>
             <td>While ads are shown to Free users</td>
+          </tr>
+          <tr>
+            <td>Support enquiries</td>
+            <td>Your message, a reply email address (optional — you can send without one, in which case replies appear only in the App), diagnostic details (app version, device OS, language setting, plan, number of lists/words you have — you can turn this off before sending), and a device identifier used to prevent duplicate submissions</td>
+            <td>When you send a message via Settings → Message the developer</td>
           </tr>
           <tr>
             <td>Guest mode</td>
@@ -382,8 +404,9 @@
         <li>Cloud sync of learning data across devices</li>
         <li>Providing AI-based word and example generation (Google Gemini / Vertex AI)</li>
         <li>Managing daily AI quotas and accruing rewarded-ad bonuses</li>
-        <li>Verifying Pro subscription status and payment receipts (Google Play Developer API)</li>
+        <li>Verifying Pro subscription status and payment receipts (Google Play Developer API · Apple App Store Server API)</li>
         <li>Showing advertising (Free users only, Google AdMob)</li>
+        <li>Receiving and answering support enquiries (in-app replies, plus email replies if you provide an address)</li>
         <li>Diagnosing service errors and improving quality</li>
       </ul>
     </section>
@@ -394,6 +417,7 @@
         <li><strong>Retention period:</strong> Until you delete your account or stop using the service.</li>
         <li><strong>Deletion method:</strong> Complete removal from the database immediately upon account deletion.</li>
         <li><strong>Legal retention:</strong> Where applicable laws require longer retention, we retain only for the period required and then delete.</li>
+        <li><strong>Support enquiries:</strong> Messages and replies are kept for one year from the date received, then deleted. If you delete your account, the link between the enquiry and your account (user identifier) is severed, but the message itself remains for that period in case of a billing or refund dispute.</li>
         <li><strong>Exception (trial-abuse prevention):</strong> To prevent repeated re-claiming of the 7-day Pro free trial, we retain only an irreversible one-way hash (SHA-256) of the sign-up email after account deletion. The original email is not retained; the hash cannot identify you and is used solely to block duplicate trial grants.</li>
       </ul>
     </section>
@@ -421,20 +445,30 @@
             <td>Advertising ID, device information</td>
           </tr>
           <tr>
-            <td>Google Play Billing / Developer API</td>
+            <td>Google Play Billing / Developer API (Android)</td>
             <td>Pro subscription payment and receipt verification</td>
             <td>Purchase token, subscription product ID</td>
           </tr>
           <tr>
+            <td>Apple App Store / App Store Server API (iOS)</td>
+            <td>Pro subscription payment and receipt verification</td>
+            <td>Transaction identifier, subscription product ID</td>
+          </tr>
+          <tr>
             <td>Supabase (AWS)</td>
             <td>Cloud database storage, Edge Function execution</td>
-            <td>Learning data, account info, AI usage stats, subscription state</td>
+            <td>Learning data, account info, AI usage stats, subscription state, support messages</td>
+          </tr>
+          <tr>
+            <td>Resend (Resend, Inc.)</td>
+            <td>Sending support notification and reply emails</td>
+            <td>Message content, reply email address (if provided), diagnostic details</td>
           </tr>
         </tbody>
       </table>
       <p style="margin-top:10px; font-size:0.85rem; color:#666;">
         These providers process only the minimum data necessary to deliver the service and are prohibited from using it for other purposes.
-        Payment instrument details (such as card numbers) are handled solely by Google Play and are never stored by the App or our servers.
+        Payment instrument details (such as card numbers) are handled solely by the app stores (Google Play, App Store) and are never stored by the App or our servers.
       </p>
     </section>
 
@@ -451,10 +485,10 @@
     <section>
       <h2>5-1. Pro Subscription Billing and Refunds</h2>
       <ul>
-        <li><strong>Payment processing:</strong> Pro subscriptions are billed exclusively through Google Play. Payment instruments (cards, etc.) are handled by Google Play.</li>
-        <li><strong>What we store:</strong> Only the purchase token, product ID, and expiry date needed to activate your subscription.</li>
-        <li><strong>Cancellation:</strong> Cancel anytime via Google Play app → Menu → Payments &amp; subscriptions → Subscriptions.</li>
-        <li><strong>Refunds:</strong> Refunds follow Google Play's policy and are requested through Google Play.</li>
+        <li><strong>Payment processing:</strong> Pro subscriptions are billed exclusively through the store you installed from (Google Play on Android, the App Store on iOS). Payment instruments (cards, etc.) are handled by that store.</li>
+        <li><strong>What we store:</strong> Only the purchase token (Android) or transaction identifier (iOS), the product ID, and the expiry date needed to activate your subscription.</li>
+        <li><strong>Cancellation:</strong> <em>Android</em> — Google Play app → Menu → Payments &amp; subscriptions → Subscriptions. <em>iOS</em> — Settings app → your name → Subscriptions. You can cancel at any time.</li>
+        <li><strong>Refunds:</strong> Refunds follow the policy of the store you purchased from (Google Play or the App Store) and are requested through that store.</li>
         <li><strong>After cancellation:</strong> Your vocabulary lists and study data remain intact (automatically reverting to Free tier limits).</li>
       </ul>
     </section>
@@ -482,7 +516,7 @@
       <p style="margin-top:8px;">
         If we learn that a child under 14 has created an account, we will delete
         that account and related information promptly. You can report suspected
-        cases through the in-app feedback feature.
+        cases via Settings → Message the developer in the App.
       </p>
     </section>
 
@@ -503,7 +537,7 @@
       <h2>9. Privacy Contact</h2>
       <div class="contact-box">
         <p><strong>Service:</strong> Avocado</p>
-        <p><strong>Contact:</strong> Please reach us through the in-app feedback feature or the Google Play developer page.</p>
+        <p><strong>Contact:</strong> Use <strong>Settings → Message the developer</strong> in the App and you can read our reply there. You can also reach us through the store's developer page.</p>
       </div>
     </section>
 
@@ -516,7 +550,7 @@
     </section>
 
     <footer>
-      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: June 2, 2026</p>
+      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: July 28, 2026</p>
     </footer>
     </div>
   </div>

@@ -23,7 +23,7 @@ jest.mock('@react-native-async-storage/async-storage', () => {
 });
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CustomStudySettingsSchema, RecentPicksSchema, type PickFilters } from '@shared/contracts';
+import { RecentPicksSchema, type PickFilters } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
 import { usePickStore } from '@/features/study/pick/store';
 import { DEFAULT_PICK_FILTERS } from '@/features/study/pick/filter';
@@ -35,7 +35,6 @@ const Mock = AsyncStorage as unknown as {
 };
 
 const RECENT_KEY = '@soksok_pick_recent';
-const CUSTOM_KEY = '@soksok_custom_study_settings';
 
 const filters = (over: Partial<PickFilters> = {}): PickFilters => ({ ...DEFAULT_PICK_FILTERS, ...over });
 
@@ -63,7 +62,6 @@ describe('필터는 실행 중에만 산다', () => {
     usePickStore.getState().setFilters({ wordFilter: 'memorized', posFilter: 'verb' });
     await Promise.resolve();
     expect(Mock.__getRaw(RECENT_KEY)).toBeNull();
-    expect(Mock.__getRaw(CUSTOM_KEY)).toBeNull();
   });
 
   test('초기화는 다섯 가지를 한 번에 되돌린다', () => {
@@ -216,40 +214,5 @@ describe('계정이 바뀌면', () => {
     await usePickStore.getState().clearAll();
     await usePickStore.getState().hydrateRecents();
     expect(usePickStore.getState().recents).toEqual([]);
-  });
-});
-
-// ─── 설정 축소 마이그레이션 ───────────────────────────────────────────────────
-
-describe('맞춤학습 설정에서 필터를 걷어낸 뒤', () => {
-  const DEFAULTS = CustomStudySettingsSchema.parse({});
-  const entry = () => persisted(CUSTOM_KEY, CustomStudySettingsSchema, DEFAULTS);
-
-  test('구버전이 저장해둔 필터 필드는 조용히 사라진다', async () => {
-    Mock.__setRaw(CUSTOM_KEY, JSON.stringify({
-      useAllLists: false,
-      selectedListIds: ['old-list'],
-      selectedDaysByList: { 'old-list': [1, 2, 3] },
-      wordFilter: 'starred',
-      posFilter: 'verb',
-      studyMode: 'quiz',
-    }));
-
-    const loaded = await entry().load();
-    expect(loaded).toEqual({ studyMode: 'quiz' });
-  });
-
-  test('사용자가 골라둔 학습 모드는 보존된다 — 취향이라 남기기로 한 값', async () => {
-    Mock.__setRaw(CUSTOM_KEY, JSON.stringify({ wordFilter: 'recent', studyMode: 'quiz' }));
-    expect((await entry().load()).studyMode).toBe('quiz');
-  });
-
-  test('저장된 적 없으면 카드학습', async () => {
-    expect((await entry().load()).studyMode).toBe('flashcard');
-  });
-
-  test('학습 모드가 깨져 있으면 기본값으로 — 옛 필터만 있던 파일도 마찬가지', async () => {
-    Mock.__setRaw(CUSTOM_KEY, JSON.stringify({ studyMode: 'examples' }));
-    expect((await entry().load()).studyMode).toBe('flashcard');
   });
 });

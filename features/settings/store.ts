@@ -3,7 +3,6 @@ import {
   InputSettingsSchema,
   StudySettingsSchema,
   AutoPlaySettingsSchema,
-  CustomStudySettingsSchema,
   ProfileSettingsSchema,
   DashboardFilterSchema,
   NicknameSchema,
@@ -12,7 +11,6 @@ import {
   type InputSettings,
   type StudySettings,
   type AutoPlaySettings,
-  type CustomStudySettings,
   type ProfileSettings,
   type DashboardFilter,
   type AiCurationSettings,
@@ -42,7 +40,6 @@ async function backupNicknameToCloud(nickname: string): Promise<void> {
 const DEFAULT_INPUT_SETTINGS: InputSettings = InputSettingsSchema.parse({}) as InputSettings;
 const DEFAULT_STUDY_SETTINGS: StudySettings = StudySettingsSchema.parse({}) as StudySettings;
 const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = AutoPlaySettingsSchema.parse({}) as AutoPlaySettings;
-const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = CustomStudySettingsSchema.parse({}) as CustomStudySettings;
 const DEFAULT_PROFILE_SETTINGS: ProfileSettings = ProfileSettingsSchema.parse({}) as ProfileSettings;
 const DEFAULT_AI_CURATION_SETTINGS: AiCurationSettings = AiCurationSettingsSchema.parse({}) as AiCurationSettings;
 const DEFAULT_REVIEW_NOTIFICATION_SETTINGS: ReviewNotificationSettings = ReviewNotificationSettingsSchema.parse({}) as ReviewNotificationSettings;
@@ -51,7 +48,6 @@ const DEFAULT_DASHBOARD_FILTER: DashboardFilter = 'all';
 const inputStore    = persisted('@soksok_user_input_settings',    InputSettingsSchema,       DEFAULT_INPUT_SETTINGS);
 const studyStore    = persisted('@soksok_user_study_settings',    StudySettingsSchema,       DEFAULT_STUDY_SETTINGS);
 const autoplayStore = persisted('@soksok_user_autoplay_settings', AutoPlaySettingsSchema,    DEFAULT_AUTOPLAY_SETTINGS);
-const customStore   = persisted('@soksok_custom_study_settings',  CustomStudySettingsSchema, DEFAULT_CUSTOM_STUDY_SETTINGS);
 const aiCurationStore = persisted('@soksok_ai_curation_settings', AiCurationSettingsSchema, DEFAULT_AI_CURATION_SETTINGS);
 // 기기 설정(알림 시각·권한 의사)이라 계정 전환 시 지우지 않는다 — clearAccountScopedSettings 참조.
 const reviewNotifStore = persisted('@soksok_review_notification_settings', ReviewNotificationSettingsSchema, DEFAULT_REVIEW_NOTIFICATION_SETTINGS);
@@ -85,7 +81,6 @@ interface SettingsState {
   inputSettings: InputSettings;
   studySettings: StudySettings;
   autoPlaySettings: AutoPlaySettings;
-  customStudySettings: CustomStudySettings;
   profileSettings: ProfileSettings;
   aiCurationSettings: AiCurationSettings;
   reviewNotificationSettings: ReviewNotificationSettings;
@@ -97,7 +92,6 @@ interface SettingsState {
   updateInputSettings: (updates: Partial<InputSettings>) => Promise<void>;
   updateStudySettings: (updates: Partial<StudySettings>) => Promise<void>;
   updateAutoPlaySettings: (updates: Partial<AutoPlaySettings>) => Promise<void>;
-  updateCustomStudySettings: (updates: Partial<CustomStudySettings>) => Promise<void>;
   updateProfileSettings: (updates: Partial<ProfileSettings>) => Promise<void>;
   updateAiCurationSettings: (updates: Partial<AiCurationSettings>) => Promise<void>;
   updateReviewNotificationSettings: (updates: Partial<ReviewNotificationSettings>) => Promise<void>;
@@ -116,7 +110,6 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   inputSettings: DEFAULT_INPUT_SETTINGS,
   studySettings: DEFAULT_STUDY_SETTINGS,
   autoPlaySettings: DEFAULT_AUTOPLAY_SETTINGS,
-  customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
   profileSettings: DEFAULT_PROFILE_SETTINGS,
   aiCurationSettings: DEFAULT_AI_CURATION_SETTINGS,
   reviewNotificationSettings: DEFAULT_REVIEW_NOTIFICATION_SETTINGS,
@@ -125,12 +118,11 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   isLoading: true,
 
   hydrate: async () => {
-    const [inputSettings, studySettings, autoPlaySettings, customStudySettings, profileSettings, aiCurationSettings, reviewNotificationSettings, dashboardFilterMode, apiKey] =
+    const [inputSettings, studySettings, autoPlaySettings, profileSettings, aiCurationSettings, reviewNotificationSettings, dashboardFilterMode, apiKey] =
       await Promise.all([
         inputStore.load(),
         studyStore.load(),
         autoplayStore.load(),
-        customStore.load(),
         profileStore.load(),
         aiCurationStore.load(),
         reviewNotifStore.load(),
@@ -141,7 +133,6 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       inputSettings,
       studySettings,
       autoPlaySettings,
-      customStudySettings,
       profileSettings,
       aiCurationSettings,
       reviewNotificationSettings,
@@ -167,12 +158,6 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     const next = { ...get().autoPlaySettings, ...updates };
     set({ autoPlaySettings: next });
     await autoplayStore.save(next);
-  },
-
-  updateCustomStudySettings: async (updates) => {
-    const next = { ...get().customStudySettings, ...updates };
-    set({ customStudySettings: next });
-    await customStore.save(next);
   },
 
   updateProfileSettings: async (updates) => {
@@ -212,9 +197,8 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     // into B's session would charge A for B's usage. saveApiKey('') routes
     // through deleteSecureString.
     //
-    // The list IDs that used to live in customStudySettings moved to the pick
-    // store, which is cleared below. What's left here (studyMode) is a device
-    // preference and stays — same treatment as typing/study/autoplay defaults.
+    // The list IDs that used to live in the custom-study store moved to the pick
+    // store, which is cleared below; the store itself is gone (see contracts.ts).
     //
     // 동적 import는 settings ↔ study 순환참조 회피용(auth의 로그아웃 경로와
     // 동일 패턴). 계정 전환 경로가 넷이라 각 호출부에 흩어놓지 않고 여기 모은다.

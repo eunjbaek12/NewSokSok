@@ -301,32 +301,39 @@ colors.error + '33'       // 20%
 
 스펙 확정(2026-07-28) 시점에 알려진 이탈. 새 코드는 처음부터 스펙을 따르고, 아래는 별도로 흡수한다.
 
+> 골라서 학습(`app/search-modal.tsx`)은 **전부 적용됐다**. 다만 실기 검증은 아직이다 —
+> 화면 전체가 바뀌는 변경이라 `preview` 프로필(릴리스 APK)에서 눈으로 확인해야 한다.
+
 ### 헤더
-- [ ] `app/search-modal.tsx` — 제목 왼쪽 + 우측 `close` → **콘텐츠 계열**(좌 `close` 26 · 우 40 스페이서 · `topPadding + 8`)
+- [x] `app/search-modal.tsx` — 제목 왼쪽 + 우측 `close` → **콘텐츠 계열**
 - [ ] `app/whats-new.tsx` · `app/contact.tsx` — `paddingHorizontal: 8` → `12`
 - [ ] `app/stats.tsx` — `headerTitle`에 `letterSpacing: -0.3` 누락
 - [ ] `app/list/[id].tsx` — `chevron-back` 28 → 24
 
 ### 필터
-- [ ] `app/search-modal.tsx` — 라벨 거터 폐기, 4줄 → 2줄 하이브리드(품사를 `▾` 칩으로)
+- [x] `app/search-modal.tsx` — 라벨 거터 폐기, 4줄 → 2줄 하이브리드(품사를 `▾` 칩으로)
 - [ ] `app/(tabs)/index.tsx` — 칩 채움형 → 테두리형
 
 ### 학습 시작
-- [ ] `app/search-modal.tsx` — 세그먼트 + 시작 버튼 → 아이콘 + 제목 버튼 행
-- [ ] `shared/contracts.ts` · `features/settings/store.ts` — `CustomStudySettings`(필드가
-      `studyMode` 하나뿐, 소비처도 `search-modal` 하나뿐)와 `@soksok_custom_study_settings`
-      스토어 제거
+- [x] `app/search-modal.tsx` — 세그먼트 + 시작 버튼 → 아이콘 + 제목 버튼 행
+- [x] `shared/contracts.ts` · `features/settings/store.ts` — `CustomStudySettings`와
+      `@soksok_custom_study_settings` 스토어 제거
+- [ ] `features/study/autoplay/screen.tsx` — `sel` 미지원. 붙이면 학습 시작 버튼이 넷이 된다
 
 ### 단어 행
-- [ ] `app/search-modal.tsx` — `resultCard`(제3의 카드) → **인터랙티브 행**
+- [x] `app/search-modal.tsx` — `resultCard`(제3의 카드) → **인터랙티브 행**
+- [ ] 읽기 전용 행 3종(통계 시트 · 큐레이션 미리보기 · CSV 미리보기) 통일
 
 ### 터치 타겟
 - [ ] `hitSlop={6}` 7곳 · `hitSlop={10}` 6곳 — 박스 유무 확인 후 40×40 + 12로
 
 ### 반경
-- [ ] `constants/tokens.ts` — `smd: 10` · `pillSm: 20` 추가
+- [x] `constants/tokens.ts` — `smd: 10` · `pillSm: 20` 추가
 - [ ] 산발값 48곳(`9` · `14` · `15` · `18` · `28` 등) 흡수
 
 ### 세그먼트
-- [ ] `app/search-modal.tsx` — r9/7 → r8/6, 텍스트 13 Medium → 활성 SemiBold
-      *(학습 시작 항목을 먼저 적용하면 이 세그먼트 자체가 사라진다)*
+- [x] `app/search-modal.tsx` — r9/7이 세그먼트째 사라졌다(학습 시작 항목에 흡수)
+
+### 색
+- [ ] 검정·흰색 스크림 20여 곳을 토큰(`colors.overlay` 등)으로 보낼지 결정.
+      정해지면 HEX_GUARD에 `rgba(` 금지를 추가할 수 있다

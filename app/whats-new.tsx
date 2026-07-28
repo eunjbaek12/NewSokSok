@@ -49,10 +49,10 @@ export default function WhatsNewScreen() {
               <Text style={[styles.version, { color: colors.text }]}>{a.version}</Text>
               <Text style={[styles.date, { color: colors.textTertiary }]}>{formatDate(a.date)}</Text>
             </View>
-            {a.items.map(key => (
-              <View key={key} style={styles.item}>
+            {a.items.map(item => (
+              <View key={item.key} style={styles.item}>
                 <Text style={[styles.bullet, { color: colors.primary }]}>·</Text>
-                <Text style={[styles.itemText, { color: colors.textSecondary }]}>{t(key)}</Text>
+                <Text style={[styles.itemText, { color: colors.textSecondary }]}>{t(item.key)}</Text>
               </View>
             ))}
           </View>

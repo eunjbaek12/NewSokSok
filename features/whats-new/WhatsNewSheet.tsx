@@ -40,21 +40,28 @@ export default function WhatsNewSheet({
       <View style={styles.body}>
         <View style={[styles.grab, { backgroundColor: colors.border }]} />
 
-        <View style={[styles.versionPill, { backgroundColor: colors.primaryLight }]}>
-          <Text style={[styles.versionText, { color: colors.primary }]}>
-            {announcement?.version ?? ''}
-          </Text>
+        {/*
+          버전 칩과 제목을 한 줄에 둔다 — 항목이 세 줄뿐인 시트에서 큰 제목을 따로
+          쌓으면 위가 무겁고, 칩 옆이 비어 버전 숫자만 덩그러니 남는다.
+        */}
+        <View style={styles.head}>
+          <View style={[styles.versionPill, { backgroundColor: colors.primaryLight }]}>
+            <Text style={[styles.versionText, { color: colors.primary }]}>
+              {announcement?.version ?? ''}
+            </Text>
+          </View>
+          {/* numberOfLines를 걸지 않는다 — 좁은 화면·긴 로케일에서 제목이 잘리느니
+              두 줄로 접히는 편이 낫다(영어 "What's new in Avocado"가 경계에 가깝다). */}
+          <Text style={[styles.title, { color: colors.text }]}>{t('whatsNew.title')}</Text>
         </View>
 
-        <Text style={[styles.title, { color: colors.text }]}>{t('whatsNew.title')}</Text>
-
         <View style={styles.items}>
-          {(announcement?.items ?? []).map(key => (
-            <View key={key} style={styles.item}>
+          {(announcement?.items ?? []).map(item => (
+            <View key={item.key} style={styles.item}>
               <View style={[styles.bullet, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="sparkles" size={13} color={colors.primary} />
+                <Ionicons name={item.icon} size={13} color={colors.primary} />
               </View>
-              <Text style={[styles.itemText, { color: colors.text }]}>{t(key)}</Text>
+              <Text style={[styles.itemText, { color: colors.text }]}>{t(item.key)}</Text>
             </View>
           ))}
         </View>
@@ -80,7 +87,9 @@ const styles = StyleSheet.create({
   body: {
     paddingHorizontal: PopupTokens.padding.container,
     paddingTop: 10,
-    paddingBottom: 34,
+    // 시스템 바만큼의 여백은 ModalOverlay(bottomSheet)가 더해 준다 — 여기서 34 같은
+    // 숫자를 직접 쓰면 iOS 홈 인디케이터에만 맞고 Android 3버튼 바(48dp)엔 모자란다.
+    paddingBottom: 16,
   },
   grab: {
     width: 40,
@@ -89,23 +98,29 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 16,
   },
+  head: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+    marginBottom: 14,
+  },
   versionPill: {
-    alignSelf: 'flex-start',
     height: 24,
     paddingHorizontal: 11,
     borderRadius: 999,
     justifyContent: 'center',
+    // 배경색 + borderRadius는 Android(Fabric)에서 사각으로 그려질 수 있다.
+    overflow: 'hidden',
   },
   versionText: {
     fontSize: 12,
     fontFamily: 'Pretendard_700Bold',
   },
   title: {
-    fontSize: 21,
+    flex: 1,
+    fontSize: 17,
     fontFamily: 'Pretendard_700Bold',
-    letterSpacing: -0.5,
-    marginTop: 10,
-    marginBottom: 6,
+    letterSpacing: -0.4,
   },
   items: {
     gap: 2,

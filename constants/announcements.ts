@@ -14,13 +14,25 @@
 // 배열은 최근 10개 정도만 남긴다 — 번들에 들어가는 문자열이고, 2년 전 버전의
 // "달라진 점"을 읽는 사람은 없다.
 
+import type { Ionicons } from '@expo/vector-icons';
+
+export interface AnnouncementItem {
+  /** i18n 키. 점 대신 밑줄을 쓴다 — i18n이 점을 중첩 경로로 해석하기 때문. */
+  key: string;
+  /**
+   * 항목이 가리키는 기능의 아이콘. 세 줄에 전부 같은 아이콘을 쓰면 한 덩어리로 읽혀
+   * 무엇이 달라졌는지 훑을 수가 없다. 그 기능이 앱 안에서 이미 쓰는 아이콘을 그대로
+   * 가져온다(예: 문의는 설정 화면과 같은 chatbubble).
+   */
+  icon: keyof typeof Ionicons.glyphMap;
+}
+
 export interface Announcement {
   /** app.json의 version과 정확히 같아야 시트가 뜬다. */
   version: string;
   /** 표시용 날짜(YYYY-MM-DD). 목록 화면에서 로케일 형식으로 그린다. */
   date: string;
-  /** i18n 키. 점 대신 밑줄을 쓴다 — i18n이 점을 중첩 경로로 해석하기 때문. */
-  items: string[];
+  items: AnnouncementItem[];
 }
 
 // ⚠️ 릴리스 직전에 version과 date를 실제 값으로 맞출 것. version이 app.json과
@@ -30,7 +42,11 @@ export const ANNOUNCEMENTS: Announcement[] = [
   {
     version: '1.3.0',
     date: '2026-07-30',
-    items: ['whatsNew.v130_1', 'whatsNew.v130_2', 'whatsNew.v130_3'],
+    items: [
+      { key: 'whatsNew.v130_1', icon: 'refresh' },
+      { key: 'whatsNew.v130_2', icon: 'search' },
+      { key: 'whatsNew.v130_3', icon: 'chatbubble-ellipses' },
+    ],
   },
 ];
 

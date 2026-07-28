@@ -546,7 +546,7 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: May 18, 2026",
+    "lastUpdated": "Last updated: July 28, 2026",
     "manageViaApple": "Settings app → Apple Account → Subscriptions",
     "manageViaGoogle": "Google Play app → Menu → Payments and subscriptions → Subscriptions",
     "sections": [
@@ -572,7 +572,7 @@
       },
       {
         "title": "Pro Subscription & Billing",
-        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen. A 7-day free trial is granted automatically at signup, with no auto-charge — you only pay if you subscribe explicitly.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
+        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen.\n\nFree trial: Any free trial is an offer from {{store}}, applied when you start a Pro subscription from the Plans screen. Whether it is offered, and for how long, is shown at store checkout. Cancel during the trial and you won't be charged; if you don't cancel, the first payment is taken when the trial ends.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
       },
       {
         "title": "Advertising",

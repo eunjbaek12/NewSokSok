@@ -105,6 +105,12 @@ export default function SearchModalScreen() {
 
     const activeFilterCount = countActiveFilters(filters);
 
+    // 칩이 켜져 보이는 조건은 countActiveFilters가 세는 조건과 같아야 한다. 범위는
+    // "전체 단어장"이 기본값이라 필터로 세지 않는다(filter.ts의 !useAllLists). 이 칩만
+    // 늘 켠 색으로 그리면, 아무것도 고르지 않은 첫 화면이 "칩으로 조건을 골라보세요"라고
+    // 말하면서 동시에 이미 하나 골라진 것처럼 보인다.
+    const scopeActive = !filters.useAllLists;
+
     // 질의나 필터가 있을 때만 목록을 띄운다 — 두 자세가 같다. 고르러 온 자세도
     // 첫 화면은 "무엇으로 좁힐까"를 묻는 자리이고, 그 빈 자리가 지난번 조건의
     // 자리다. 필터를 하나라도 걸면 그때부터 단어가 나온다.
@@ -227,11 +233,16 @@ export default function SearchModalScreen() {
                     {item.word.meaningKr}
                 </Text>
 
-                {/* 매칭된 태그 강조 표시 */}
+                {/* 매칭된 태그 강조 표시.
+                    테두리는 두 테마 모두 primary에서 끌어오고 알파만 다르다 — 어두운 배경에서
+                    테두리가 읽히려면 조금 더 진해야 해서 다크가 25%, 라이트가 20%다. 라이트
+                    쪽엔 옛 파란 primary(#3182F6)가 rgba로 박혀 있었는데, 지금 primary는
+                    청록이라 청록빛 알약에 파란 테두리를 두르고 있었다. rgba 문자열은 HEX 린트가
+                    못 잡아서(선택자가 #RRGGBB만 본다) 웜 크림 전환 때 살아남았다. */}
                 {matchingTags.length > 0 && (
                     <View style={styles.tagsRow}>
                         {matchingTags.map((tag, idx) => (
-                            <View key={idx} style={[styles.matchedTag, { backgroundColor: colors.primaryLight, borderColor: isDark ? colors.primary + '40' : 'rgba(49,130,246,0.2)' }]}>
+                            <View key={idx} style={[styles.matchedTag, { backgroundColor: colors.primaryLight, borderColor: colors.primary + (isDark ? '40' : '33') }]}>
                                 <Ionicons name="pricetag" size={11} color={colors.primary} />
                                 <Text style={[styles.matchedTagText, { color: colors.primary }]}>#{displayTag(tag, t)}</Text>
                             </View>
@@ -303,6 +314,27 @@ export default function SearchModalScreen() {
     ];
     const chipTextColor = (active: boolean) => (active ? colors.onPrimary : colors.textSecondary);
 
+    /**
+     * 오른쪽 스크롤 힌트 — "칩이 더 있는데 잘렸다"는 신호다. 가로 스크롤인 세 줄
+     * (상태·품사·태그)에 모두 붙인다. 넘치지 않는 줄에서는 배경 위에 같은 배경을
+     * 덮는 셈이라 보이지 않으므로, 넘칠 때만 켜려고 폭을 재지 않아도 된다.
+     *
+     * 예전엔 태그 줄에만 있었고 끝 색이 팔레트 밖 값으로 박혀 있었다. 배경이 웜 크림인
+     * 지금은 그 차가운 흰색이 파르스름한 자국으로 보였고, 스킨이 넷이라 isDark 둘로는
+     * y2k·lab을 맞출 수도 없었다. colors.background에서 끌어오면 네 스킨이 한 번에 맞는다.
+     * 시작 색을 'transparent'가 아니라 같은 색의 알파 0으로 두는 것은, transparent가
+     * rgba(0,0,0,0)이라 밝은 배경에서 중간이 탁하게 지나가기 때문이다.
+     */
+    const scrollFade = (
+        <LinearGradient
+            colors={[colors.background + '00', colors.background]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.filterFadeRight}
+            pointerEvents="none"
+        />
+    );
+
     return (
         <KeyboardAvoidingView
             style={[styles.container, { backgroundColor: colors.background }]}
@@ -314,7 +346,10 @@ export default function SearchModalScreen() {
                 {isPick ? (
                     <View style={styles.titleRow}>
                         <Text style={[styles.screenTitle, { color: colors.text }]}>{t('search.pickTitle')}</Text>
-                        <Pressable onPress={() => router.back()} hitSlop={10}>
+                        {/* hitSlop 12 — 아이콘 22에 더해 46이라 최소 터치 타겟 44를 넘긴다.
+                            10이면 42로 모자랐고, 다른 화면의 헤더 버튼은 모두 46~52다
+                            (import-csv:93 · flashcards:549 · list/[id].tsx:750). */}
+                        <Pressable onPress={() => router.back()} hitSlop={12}>
                             <Ionicons name="close" size={22} color={colors.textSecondary} />
                         </Pressable>
                     </View>
@@ -339,7 +374,8 @@ export default function SearchModalScreen() {
                                 </Pressable>
                             )}
                         </View>
-                        <Pressable onPress={() => router.back()} hitSlop={10}>
+                        {/* 같은 헤더 자리의 같은 동작이라 위 닫기 버튼과 같은 hitSlop을 쓴다. */}
+                        <Pressable onPress={() => router.back()} hitSlop={12}>
                             <Text style={[styles.cancelText, { color: colors.primary }]}>{t('common.cancel')}</Text>
                         </Pressable>
                     </View>
@@ -412,6 +448,8 @@ export default function SearchModalScreen() {
                                 );
                             })}
                         </ScrollView>
+
+                        {scrollFade}
                     </View>
                 </View>
 
@@ -441,6 +479,8 @@ export default function SearchModalScreen() {
                                     );
                                 })}
                             </ScrollView>
+
+                            {scrollFade}
                         </View>
                     </View>
                 )}
@@ -451,12 +491,12 @@ export default function SearchModalScreen() {
                     <View style={styles.scopeChipWrap}>
                         <Pressable
                             onPress={() => { tap(); setShowListPicker(true); }}
-                            style={[styles.filterChip, styles.scopeChip, { backgroundColor: colors.primary, borderColor: colors.primary }]}
+                            style={[chipStyle(scopeActive), styles.scopeChip]}
                         >
-                            <Text style={[styles.filterChipText, styles.scopeChipText, { color: colors.onPrimary }]} numberOfLines={1}>
+                            <Text style={[styles.filterChipText, styles.scopeChipText, { color: chipTextColor(scopeActive) }]} numberOfLines={1}>
                                 {scopeText}
                             </Text>
-                            <Ionicons name="chevron-down" size={12} color={colors.onPrimary} />
+                            <Ionicons name="chevron-down" size={12} color={chipTextColor(scopeActive)} />
                         </Pressable>
                     </View>
                 </View>
@@ -489,14 +529,7 @@ export default function SearchModalScreen() {
                                 })}
                             </ScrollView>
 
-                            {/* 우측 스크롤 힌트 */}
-                            <LinearGradient
-                                colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 1, y: 0 }}
-                                style={styles.filterFadeRight}
-                                pointerEvents="none"
-                            />
+                            {scrollFade}
                         </View>
                     </View>
                 )}

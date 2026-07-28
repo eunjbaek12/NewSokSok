@@ -132,7 +132,7 @@ async function loadParent(parentId: string): Promise<SupportRow | null> {
 
 async function handleNewMessage(row: SupportRow): Promise<SendResult> {
   const label = CATEGORY_LABEL[row.category] ?? '기타';
-  const parts = [`쏙쏙보카·${label}`];
+  const parts = [`아보카도·${label}`];
   if (row.parent_id) parts.push('이어서');
   if (!row.reply_email) parts.push('회신불가');
   const subject = `[${parts.join('·')}] ${summarize(row.body)}`;
@@ -191,15 +191,15 @@ async function handleReply(row: SupportRow): Promise<SendResult> {
     '[보내주신 내용]',
     row.body,
     '',
-    '앱의 설정 › 개발자에게 메시지에서도 같은 답장을 보실 수 있고,',
+    '앱의 설정 › 문의하기에서도 같은 답장을 보실 수 있고,',
     '이어서 하실 말씀이 있으면 거기서 바로 보내주시면 됩니다.',
     '',
-    '쏙쏙 보카',
+    '아보카도',
   ];
 
   return await sendEmail({
     to: row.reply_email,
-    subject: '쏙쏙 보카 — 문의하신 내용에 답장드려요',
+    subject: '아보카도 — 문의하신 내용에 답장드려요',
     text: lines.join('\n'),
     replyTo: NOTIFY_TO,
   });

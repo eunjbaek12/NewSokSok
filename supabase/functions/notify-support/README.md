@@ -80,7 +80,7 @@ curl -X POST https://<project>.supabase.co/functions/v1/notify-support \
        "diagnostics":null,"reply_body":null,"created_at":"2026-07-28T00:00:00Z"}}'
 ```
 
-`{"ok":true,"sent":true}`가 오고 운영자 메일함에 `[쏙쏙보카·버그·회신불가]`로 시작하는
+`{"ok":true,"sent":true}`가 오고 운영자 메일함에 `[아보카도·버그·회신불가]`로 시작하는
 메일이 도착하면 정상이다. 실패는 Edge Logs에 `[notify-support]`로 남는다.
 
 ## 운영

@@ -333,8 +333,8 @@
     "rateAppDesc": "Support us with a rating",
     "faq": "FAQ",
     "faqDesc": "Find answers to common questions",
-    "contact": "Message the developer",
-    "contactDesc": "Bugs, ideas, anything at all",
+    "contact": "Contact us",
+    "contactDesc": "Bugs, ideas, anything — we'll reply",
     "contactReplyDesc": "You have a reply",
     "whatsNew": "What's new",
     "whatsNewDesc": "What changed in this update",
@@ -346,7 +346,7 @@
     "licensesDesc": "External data and open-source libraries used"
   },
   "contact": {
-    "title": "Message the developer",
+    "title": "Contact us",
     "categoryLabel": "What's this about?",
     "moreLabel": "Anything else?",
     "category": {
@@ -385,20 +385,20 @@
     "failMessage": "Check your connection. Your message is still here.",
     "failMailto": "Send by email",
     "failRetry": "Try again",
-    "mailSubject": "SokSok Voca support",
+    "mailSubject": "Avocado support",
     "mailUnavailableTitle": "Please write to this address",
     "dailyLimitTitle": "That's all for today",
     "dailyLimitMessage": "You can send 5 messages a day. Please try again tomorrow.",
-    "replyHeader": "Reply from the developer",
+    "replyHeader": "Reply",
     "waitingHeader": "We'll read it and reply",
     "myMessageLabel": "Your message from {{date}}"
   },
   "whatsNew": {
-    "title": "What's new",
+    "title": "What's new in Avocado",
     "confirm": "Got it",
     "v130_1": "Review brings words back right before you'd forget them",
     "v130_2": "Search and Pick to study are now one screen",
-    "v130_3": "You can message the developer straight from Settings"
+    "v130_3": "You can reach us from Settings and read the reply in the app"
   },
   "licenses": {
     "title": "Open Source & Data Sources",
@@ -597,7 +597,7 @@
     "headerSubtitle": "Frequently asked questions",
     "noAnswerTitle": "Didn't find your answer?",
     "noAnswerDesc": "Ask directly and we'll look into it and reply.",
-    "askDeveloper": "Ask the developer",
+    "askDeveloper": "Ask us directly",
     "categories": [
       {
         "title": "Getting Started",
@@ -707,7 +707,7 @@
           },
           {
             "q": "I'm not getting review reminders.",
-            "a": "1. Check that Settings → Review reminders is on.\n2. No reminder is sent on days with nothing to review — that's normal.\n3. Notifications for SokSok Voca may be off in your device settings, or Focus / Do Not Disturb may be on."
+            "a": "1. Check that Settings → Review reminders is on.\n2. No reminder is sent on days with nothing to review — that's normal.\n3. Notifications for Avocado may be off in your device settings, or Focus / Do Not Disturb may be on."
           }
         ]
       },
@@ -901,11 +901,11 @@
             "a": "No. Only lists you explicitly share to Curation are visible to others."
           },
           {
-            "q": "If I message the developer, where does the reply show up?",
-            "a": "Settings → Message the developer lets you send bug reports, feature ideas, billing questions, and anything else. Guests can send too.\n\nReplies arrive in the app: when one is waiting, the \"Message the developer\" row in Settings is marked, and opening it shows the reply below the message you sent. Add your email and you'll get a copy by mail as well — leave it blank and the in-app reply still works.\n\nYour app version, device, language, and list counts are sent along to help track the problem down; you can switch that off before sending. Up to 5 messages a day, and a reply may take a few days."
+            "q": "If I send a message, where does the reply show up?",
+            "a": "Settings → Contact us lets you send bug reports, feature ideas, billing questions, and anything else. Guests can send too.\n\nReplies arrive in the app: when one is waiting, the \"Contact us\" row in Settings is marked, and opening it shows the reply below the message you sent. Add your email and you'll get a copy by mail as well — leave it blank and the in-app reply still works.\n\nYour app version, device, language, and list counts are sent along to help track the problem down; you can switch that off before sending. Up to 5 messages a day, and a reply may take a few days."
           },
           {
-            "q": "What is the \"What's new\" sheet after an update?",
+            "q": "What is the \"What's new in Avocado\" sheet after an update?",
             "a": "The first time you open the app after updating, it shows what changed — once only. Tap OK and it won't come back.\n\nPast updates are always available under Settings → What's new."
           }
         ]
@@ -1527,7 +1527,7 @@
     "softAskAccept": "Get reminders",
     "softAskLater": "Not now",
     "blockedTitle": "Notifications are off",
-    "blockedBody": "Turn on SokSok Voca notifications in your device settings.",
+    "blockedBody": "Turn on Avocado notifications in your device settings.",
     "blockedOpen": "Open Settings",
     "cancel": "Cancel"
   }

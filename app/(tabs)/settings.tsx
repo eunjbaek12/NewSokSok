@@ -58,7 +58,7 @@ export default function SettingsScreen() {
   // 디바운스를 기다리지 않고, 설정 변경을 바로 반영하기 위한 명시적 재예약에 쓴다.
   const lists = useLists();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
-  // 답장 배지 — 벨도 알림함도 만들지 않는다. 아래 "개발자에게 메시지" 행이
+  // 답장 배지 — 벨도 알림함도 만들지 않는다. 아래 "문의하기" 행이
   // 답장이 있을 때만 모습을 바꾼다.
   const hasUnreadReply = useSupportStore(s => s.hasUnreadReply);
   const [isDeleting, setIsDeleting] = useState(false);

@@ -95,8 +95,13 @@ App Store Connect 쪽은 [`app-privacy-asc.md`](./app-privacy-asc.md).
 **음성 또는 사운드 녹음 (Voice or sound recordings)**
 - 수집 ✅ · 공유 ❌ · **선택**(음성 입력을 쓸 때만) · **임시처리 ✅**
 - 목적: 앱 기능 (음성→텍스트 단어 입력)
-- OS/기기의 음성 인식(`expo-speech-recognition`)을 쓰고 인식된 텍스트만 사용합니다.
-  오디오는 저장·전송하지 않습니다.
+- OS의 음성 인식(`expo-speech-recognition`)에 넘기고 **인식된 텍스트만** 받습니다.
+  앱은 오디오를 저장하지도, 우리 서버로 보내지도 않습니다.
+- ⚖️ `app/add-word.tsx:556`의 `start({ lang, interimResults: true })`는
+  `requiresOnDeviceRecognition`을 켜지 않으므로, **기기 기본 인식기(보통 Google)가
+  오디오를 자기 서버로 보낼 수 있습니다.** 그래도 공유됨은 "아니요"로 답합니다 —
+  전송 주체가 앱이 아니라 OS 서비스이고, Play는 시스템 API가 처리하는 데이터를
+  앱의 수집·공유로 보지 않습니다. 오디오를 앱이 직접 다루게 되면 이 답이 바뀝니다.
 
 ### 🆕 메시지 (Messages)
 

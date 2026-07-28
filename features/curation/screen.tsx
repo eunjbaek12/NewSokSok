@@ -1128,7 +1128,7 @@ export default function CurationScreen() {
                             const showLangPair = languageFilter === 'all' && !!theme.sourceLanguage;
 
                             return (
-                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
+                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.primary + '1A', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
                                     <View style={{ flex: 1 }}>
                                         <View style={styles.cardHeader}>
                                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>

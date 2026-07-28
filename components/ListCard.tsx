@@ -113,7 +113,10 @@ export default function ListCard({
         styles.card,
         {
           backgroundColor: colors.surface,
-          borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)',
+          // 라이트는 브랜드색 10%의 옅은 테두리, 다크는 중립 border. 옛 값은 당시
+          // primary였던 파란색이 rgba로 박혀 있어 웜 팔레트 전환 때 함께 넘어오지
+          // 못했다(HEX 린트가 #만 본다). 알파는 그대로 두고 색만 토큰에서 끌어온다.
+          borderColor: isDark ? colors.border : colors.primary + '1A',
           shadowColor: colors.cardShadow,
           opacity: pressed ? 0.92 : 1,
         },

@@ -303,7 +303,7 @@ export default function DashboardScreen() {
                     ? colors.errorLight
                     : colors.surface,
                   borderColor: wrongWordCount > 0
-                    ? (isDark ? 'rgba(248,81,73,0.3)' : 'rgba(239,68,68,0.15)')
+                    ? colors.error + (isDark ? '4D' : '26')
                     : (isDark ? colors.border : colors.borderLight),
                   opacity: pressed && wrongWordCount > 0 ? 0.85 : (wrongWordCount === 0 ? 0.5 : 1),
                 },
@@ -334,7 +334,7 @@ export default function DashboardScreen() {
                     ? colors.warningLight
                     : colors.surface,
                   borderColor: starredWordCount > 0
-                    ? (isDark ? 'rgba(245,158,11,0.3)' : 'rgba(245,158,11,0.15)')
+                    ? colors.warning + (isDark ? '4D' : '26')
                     : (isDark ? colors.border : colors.borderLight),
                   opacity: pressed && starredWordCount > 0 ? 0.85 : (starredWordCount === 0 ? 0.5 : 1),
                 },
@@ -431,7 +431,7 @@ export default function DashboardScreen() {
                         styles.planCard,
                         {
                           backgroundColor: colors.surface,
-                          borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)',
+                          borderColor: colors.success + (isDark ? '40' : '33'),
                           shadowColor: colors.cardShadow,
                         },
                       ]}
@@ -444,7 +444,7 @@ export default function DashboardScreen() {
                           </Text>
                         </View>
                         <View style={styles.planCardChips}>
-                          <View style={[styles.statusChip, { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)' }]}>
+                          <View style={[styles.statusChip, { backgroundColor: colors.success + (isDark ? '33' : '26') }]}>
                             <Text style={[styles.statusChipText, { color: colors.success }]}>
                               {t('home.planCompleted')}
                             </Text>
@@ -511,8 +511,8 @@ export default function DashboardScreen() {
                   const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
                   const staleColor = status === 'overdue' ? colors.error : colors.warning;
                   const staleBorder = status === 'overdue'
-                    ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.15)')
-                    : (isDark ? 'rgba(210,153,34,0.2)' : 'rgba(245,158,11,0.15)');
+                    ? colors.error + (isDark ? '33' : '26')
+                    : colors.warning + (isDark ? '33' : '26');
                   return (
                     <View
                       key={list.id}
@@ -606,8 +606,11 @@ export default function DashboardScreen() {
                       {
                         backgroundColor: colors.surface,
                         borderColor: dayStatus.state === 'completed'
-                          ? (isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)')
-                          : (isDark ? colors.border : 'rgba(49,130,246,0.08)'),
+                          ? colors.success + (isDark ? '33' : '26')
+                          // 라이트의 평상시 테두리는 borderLight가 아니라 브랜드색 8%다 —
+                          // 옛 값이 primary(당시 파란색) 8%였고, 무게를 그대로 두려는 것이다.
+                          // borderLight는 불투명이라 카드가 훨씬 무거워진다.
+                          : (isDark ? colors.border : colors.primary + '14'),
                         shadowColor: colors.cardShadow,
                         opacity: pressed ? 0.92 : 1,
                       },
@@ -718,7 +721,7 @@ export default function DashboardScreen() {
                 <View style={[styles.emptyPlans, {
                   backgroundColor: filterMode === 'studying' ? colors.successLight : colors.surface,
                   borderColor: filterMode === 'studying'
-                    ? (isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)')
+                    ? colors.success + (isDark ? '40' : '33')
                     : (isDark ? colors.border : colors.borderLight),
                 }]}>
                   {filterMode === 'studying' ? (

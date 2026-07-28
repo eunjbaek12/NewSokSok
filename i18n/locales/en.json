@@ -603,8 +603,8 @@
         "title": "Getting Started",
         "items": [
           {
-            "q": "What's the difference between Guest mode and Google sign-in?",
-            "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nGoogle sign-in stores your data in the cloud, keeping it safe across devices and syncing automatically."
+            "q": "What's the difference between Guest mode and signing in?",
+            "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nSigning in with Google or Apple stores your data in the cloud, keeping it safe across devices and syncing automatically."
           },
           {
             "q": "Can I sign in with Apple instead of Google?",
@@ -633,7 +633,7 @@
           },
           {
             "q": "Can I build vocab lists in languages other than Korean?",
-            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, and Chinese (e.g., English → Korean, Japanese → Korean, Korean → Chinese).\n\nAI auto-complete and photo scan work in all four languages."
+            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, Chinese, Vietnamese, and Spanish (e.g., English → Korean, Japanese → Korean, Korean → Vietnamese).\n\nAI auto-complete and photo scan work in all six languages, and the Curation tab has lists for each language too."
           },
           {
             "q": "How does AI auto-complete work?",
@@ -654,6 +654,10 @@
           {
             "q": "Can I add words by voice?",
             "a": "Yes — tap the mic icon and say the word. You'll need to grant microphone permission the first time."
+          },
+          {
+            "q": "What happens if I edit the word while auto-complete is running?",
+            "a": "The search in progress is cancelled right away and restarts for the word you just typed. While it runs, the word being looked up is shown under the input field.\n\nSaving is blocked until the result arrives — otherwise you'd save a half-filled word with no meaning or example.\n\nNote that cancelling doesn't refund quota already spent: the server may have started working on it already."
           }
         ]
       },
@@ -670,11 +674,11 @@
           },
           {
             "q": "Can I study a subset of words?",
-            "a": "Yes. Open a list and use the top filter to narrow to \"Starred\" or \"Unmemorized\", then study only those. For multi-list combinations or finer control, use Custom Study from the Home tab."
+            "a": "Yes. Open a list and use the top filter to narrow to \"Starred\" or \"Unmemorized\", then study only those.\n\nFor multi-list combinations or finer control, use Pick & Study on the Home tab."
           },
           {
-            "q": "What is Custom Study?",
-            "a": "Combine multiple lists into one session, narrow the scope with filters (All / Unmemorized / Memorized / Wrong / Recent / Starred), and pick a mode (Flashcards or Quiz). Great for mixed review."
+            "q": "What is Pick & Study?",
+            "a": "It's a screen for gathering exactly the words you want across several lists. Open it from the Pick & Study card on Home.\n\nNarrow things down with chips — status (unmemorized, memorized, missed, starred), part of speech, scope (lists and Days), and tags. There are ready-made presets too, like Most missed and Recently added. As soon as one condition is set, the matching words and their count appear, and you start from the study bar below by choosing Flashcards or Quiz.\n\nWhatever you started with is kept as \"Last used\", so you can re-apply it with one tap next time. The conditions themselves reset when you restart the app.\n\nOne more thing: the one-tap buttons on Home (review, most missed, starred) always open as Flashcards. To use Quiz, choose it in Pick & Study or in a list's detail screen."
           },
           {
             "q": "Is my progress saved if I stop mid-session?",
@@ -750,11 +754,11 @@
         "items": [
           {
             "q": "Will my words disappear if I switch from Guest to Google?",
-            "a": "If this is your first Google sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
+            "a": "If this is your first sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
           },
           {
             "q": "Will my lists follow me to a new device?",
-            "a": "Google users: yes — sign in on the new device and they download automatically. Guest users: no."
+            "a": "Signed-in users: yes — sign in on the new device and they download automatically. Guest users: no."
           },
           {
             "q": "When does sync happen?",
@@ -767,6 +771,10 @@
           {
             "q": "What if I edit the same word on two devices at once?",
             "a": "The most recent save wins. Avoid editing the same word simultaneously on multiple devices."
+          },
+          {
+            "q": "Can I back up a list to a file or move it elsewhere?",
+            "a": "Yes. On the Lists tab, tap the ⋯ button on a list card (or long-press it) and choose \"Export CSV\" — the word, meaning, pronunciation, part of speech, definition, example, and tags all go into one file you can open in Excel or another app.\n\n\"Import CSV\" does the reverse, adding exactly what the file says. No AI is called, so it doesn't touch your daily quota.\n\nIf instead you have a bare list of words and want AI to fill in the meanings and examples, use Excel Upload."
           }
         ]
       },
@@ -816,7 +824,7 @@
           },
           {
             "q": "How do I subscribe to or cancel Pro?",
-            "a": "Billing runs through the Google Play Store. Start a Pro subscription from Settings → Plans.\n\nCancel anytime from Google Play's \"My Subscriptions\". Pro features stay active until the next renewal date. Refunds follow Google Play's policy."
+            "a": "Start a Pro subscription from Settings → Plans. Billing runs through the store you installed the app from.\n\nWhere you cancel depends on the store:\n• Android — Google Play app → Menu → Payments & subscriptions → Subscriptions\n• iPhone/iPad — Settings app → Apple Account → Subscriptions\n\nPro features stay active until the period you already paid for ends. Refunds follow each store's policy and are requested through that store."
           },
           {
             "q": "How are ads shown?",
@@ -837,7 +845,7 @@
           },
           {
             "q": "Can I share my list to Curation?",
-            "a": "Only Google-signed-in users can share. Guests can import only."
+            "a": "Only signed-in users (Google or Apple) can share. Guests can import only."
           },
           {
             "q": "Does editing an imported list affect the original?",
@@ -849,7 +857,7 @@
           },
           {
             "q": "How do I report an objectionable shared list?",
-            "a": "Open a list shared by another user in the Curation tab and tap the report (flag) icon at the top. Pick a reason — inappropriate content, copyright infringement, spam, misinformation, or other — and optionally add up to 500 characters of detail.\n\nReporting requires Google sign-in, and you can report the same list only once. Submitted reports are reviewed and acted on. (The report button doesn't appear on lists you shared yourself.)"
+            "a": "Open a list shared by another user in the Curation tab and tap the report (flag) icon at the top. Pick a reason — inappropriate content, copyright infringement, spam, misinformation, or other — and optionally add up to 500 characters of detail.\n\nReporting requires signing in, and you can report the same list only once. Submitted reports are reviewed and acted on. (The report button doesn't appear on lists you shared yourself.)"
           },
           {
             "q": "Where do the built-in word lists come from?",
@@ -870,11 +878,11 @@
           },
           {
             "q": "How do I change my nickname?",
-            "a": "Settings → Account → Nickname. Up to 10 characters. Google-signed-in users get their Google display name as the default."
+            "a": "Settings → Account → Nickname. Up to 10 characters. If your account has a name attached, signed-in users get it as the initial default."
           },
           {
             "q": "How can I quickly find a word?",
-            "a": "Use the search at the top of the Lists tab, or the search inside any list, to find words by term, meaning, or tag. Frequently used tags are shown too."
+            "a": "Tap \"Search my words\" at the top of the Lists tab to search everything you've saved by term, meaning, definition, or tag.\n\nYou can also start studying straight from the results — pick Flashcards or Quiz in the study bar below and the session opens with exactly the words on screen. Chips let you narrow further; it's the same screen as Pick & Study.\n\nWords in hidden lists aren't searched."
           },
           {
             "q": "Can I use my own Gemini API key? (Advanced)",
@@ -882,7 +890,7 @@
           },
           {
             "q": "What happens to my lists if I sign out?",
-            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same Google account."
+            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same account."
           },
           {
             "q": "How do I delete my account permanently?",
@@ -891,6 +899,14 @@
           {
             "q": "Can other people see my lists?",
             "a": "No. Only lists you explicitly share to Curation are visible to others."
+          },
+          {
+            "q": "If I message the developer, where does the reply show up?",
+            "a": "Settings → Message the developer lets you send bug reports, feature ideas, billing questions, and anything else. Guests can send too.\n\nReplies arrive in the app: when one is waiting, the \"Message the developer\" row in Settings is marked, and opening it shows the reply below the message you sent. Add your email and you'll get a copy by mail as well — leave it blank and the in-app reply still works.\n\nYour app version, device, language, and list counts are sent along to help track the problem down; you can switch that off before sending. Up to 5 messages a day, and a reply may take a few days."
+          },
+          {
+            "q": "What is the \"What's new\" sheet after an update?",
+            "a": "The first time you open the app after updating, it shows what changed — once only. Tap OK and it won't come back.\n\nPast updates are always available under Settings → What's new."
           }
         ]
       },
@@ -903,7 +919,7 @@
           },
           {
             "q": "My lists are missing.",
-            "a": "Google users: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
+            "a": "If you were signed in: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
           },
           {
             "q": "AI calls keep failing.",

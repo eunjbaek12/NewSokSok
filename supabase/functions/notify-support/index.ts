@@ -18,10 +18,10 @@
 //    내 답장이 정본이다(메일은 덤). 반송을 실패로 취급하지 않는다.
 //
 // 응답:
-//   200 { ok: true, sent: boolean }
+//   200 { ok: true, sent: boolean }   sent=false는 보낼 대상이 없었다는 뜻(실패 아님)
 //   204 (보낼 필요 없는 이벤트 — 답장 없는 update 등)
 //   401 { ok: false, error: 'unauthorized' }  웹훅 시크릿 불일치
-//   500 { ok: false, error: 'send_failed' }
+//   500 { ok: false, error: 'send_failed', detail }  detail = Resend가 준 거절 사유
 //
 // 필요한 Secret:
 //   RESEND_API_KEY           Resend API 키
@@ -83,12 +83,18 @@ function formatDiagnostics(d: Record<string, unknown> | null): string {
   ].join('\n');
 }
 
+// 'skip' = 보낼 대상이 없어 안 보낸 것(정상). 실패와 구분해야 웹훅이 재시도하지 않는다.
+type SendResult =
+  | { status: 'sent' }
+  | { status: 'skip' }
+  | { status: 'failed'; detail: string };
+
 async function sendEmail(input: {
   to: string;
   subject: string;
   text: string;
   replyTo?: string;
-}): Promise<boolean> {
+}): Promise<SendResult> {
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -104,10 +110,13 @@ async function sendEmail(input: {
     }),
   });
   if (!res.ok) {
-    console.error('[notify-support] resend failed', res.status, await res.text());
-    return false;
+    // Resend가 거절한 이유(키 무효·미인증 발신자·수신자 제한)는 여기서만 알 수 있다.
+    // 로그와 응답 양쪽에 남긴다 — 웹훅 호출 기록만 보고도 원인을 알 수 있어야 한다.
+    const detail = `${res.status} ${(await res.text()).slice(0, 400)}`;
+    console.error('[notify-support] resend failed', detail);
+    return { status: 'failed', detail };
   }
-  return true;
+  return { status: 'sent' };
 }
 
 /** 이어서 보낸 메시지면 이전 문답을 함께 인용한다. */
@@ -121,7 +130,7 @@ async function loadParent(parentId: string): Promise<SupportRow | null> {
   return (data as SupportRow) ?? null;
 }
 
-async function handleNewMessage(row: SupportRow): Promise<boolean> {
+async function handleNewMessage(row: SupportRow): Promise<SendResult> {
   const label = CATEGORY_LABEL[row.category] ?? '기타';
   const parts = [`쏙쏙보카·${label}`];
   if (row.parent_id) parts.push('이어서');
@@ -167,9 +176,10 @@ async function handleNewMessage(row: SupportRow): Promise<boolean> {
   });
 }
 
-async function handleReply(row: SupportRow): Promise<boolean> {
+async function handleReply(row: SupportRow): Promise<SendResult> {
   // 이메일을 안 적은 사용자에게는 앱이 유일한 경로다 — 메일은 건너뛴다.
-  if (!row.reply_email) return false;
+  // 실패가 아니라 정상 경로이므로 skip이다(failed로 두면 웹훅이 재시도한다).
+  if (!row.reply_email) return { status: 'skip' };
 
   const lines = [
     '보내주신 메시지에 답장을 드립니다.',
@@ -220,16 +230,16 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    let sent = false;
+    let result: SendResult;
 
     if (payload.type === 'INSERT') {
-      sent = await handleNewMessage(payload.record);
+      result = await handleNewMessage(payload.record);
     } else if (payload.type === 'UPDATE') {
       // 답장이 "새로" 채워졌을 때만. 상태만 바꾸는 update로 메일이 또 나가면 안 된다.
       const before = payload.old_record?.reply_body ?? '';
       const after = payload.record.reply_body ?? '';
       if (after && after !== before) {
-        sent = await handleReply(payload.record);
+        result = await handleReply(payload.record);
       } else {
         return new Response(null, { status: 204 });
       }
@@ -237,14 +247,14 @@ Deno.serve(async (req: Request) => {
       return new Response(null, { status: 204 });
     }
 
-    if (!sent) {
+    if (result.status === 'failed') {
       // 메일이 안 나가도 문의 자체는 저장됐다. 웹훅에 실패를 알려 로그에 남긴다.
-      return new Response(JSON.stringify({ ok: false, error: 'send_failed' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({ ok: false, error: 'send_failed', detail: result.detail }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } },
+      );
     }
-    return new Response(JSON.stringify({ ok: true, sent }), {
+    return new Response(JSON.stringify({ ok: true, sent: result.status === 'sent' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

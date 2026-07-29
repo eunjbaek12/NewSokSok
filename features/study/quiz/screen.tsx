@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useMemo, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, Dimensions } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -320,16 +320,7 @@ export default function QuizScreen() {
         </View>
       </View>
 
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{
-          flexGrow: 1,
-          paddingTop: 16,
-          paddingBottom: 16,
-          justifyContent: 'space-evenly'
-        }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.body}>
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
@@ -408,7 +399,7 @@ export default function QuizScreen() {
           })}
         </View>
 
-      </ScrollView>
+      </View>
 
       <View style={[styles.navFooter, { paddingBottom: insets.bottom + (adsBottomInset || 36) }]}>
           <Pressable
@@ -467,10 +458,27 @@ export default function QuizScreen() {
   );
 }
 
+// 카드 최소 높이 — 선택지가 하단 버튼에 가려지지 않도록 카드가 먼저 줄어든다.
+//
+// 실측(2026-07-29, 1080×2340 3버튼 내비게이션 기기): 세로 780dp 중 헤더 101 +
+// 이전/다음 47 + 하단 예약 124(내비바 58 + 광고 66)를 빼면 본문 가용은 496dp뿐이다.
+// 그런데 카드가 minHeight 250을 무조건 가져가는 바람에 선택지 4개(1줄 215 · 2줄 245)가
+// 밀려 D가 잘렸다. 정작 카드 안은 절반이 빈 공간이었다 — 내용은 100dp도 안 된다.
+// 화면 비례 상한을 함께 두어 더 작은 기기에서는 카드가 더 줄어들게 한다.
+// (Dimensions는 모듈 로드 시 1회 — 앱이 portrait 고정이라 회전 대응은 불필요하고,
+//  onLayout 같은 런타임 측정은 Android에서 0을 보고한 전력이 있어 쓰지 않는다.)
+const CARD_MIN_HEIGHT = Math.min(140, Math.round(Dimensions.get('window').height * 0.18));
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     overflow: 'hidden',
+  },
+  body: {
+    flex: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    justifyContent: 'space-evenly',
   },
   header: {
     paddingHorizontal: 16,
@@ -528,7 +536,9 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     gap: 12,
-    minHeight: 250,
+    minHeight: CARD_MIN_HEIGHT,
+    // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
+    flexShrink: 1,
   },
   starBtn: {
     position: 'absolute',
@@ -574,6 +584,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     gap: 8,
     marginTop: 12,
+    // 선택지가 자리를 먼저 확보한다 — 밀려서 잘리던 것이 이 화면의 회귀였다.
+    flexShrink: 0,
   },
   choiceBtn: {
     flexDirection: 'row',

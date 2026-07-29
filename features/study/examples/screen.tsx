@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -512,16 +512,7 @@ export default function ExamplesScreen() {
         )}
       </View>
 
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{
-          flexGrow: 1,
-          paddingTop: 16,
-          paddingBottom: 16,
-          justifyContent: 'space-evenly'
-        }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.body}>
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
@@ -615,7 +606,7 @@ export default function ExamplesScreen() {
           })}
         </View>
 
-      </ScrollView>
+      </View>
 
       <View style={[styles.navFooter, { paddingBottom: insets.bottom + (adsBottomInset || 36) }]}>
           <Pressable
@@ -694,10 +685,20 @@ export default function ExamplesScreen() {
   );
 }
 
+// 카드 최소 높이 — 근거는 퀴즈 화면(features/study/quiz/screen.tsx)의 같은 상수 주석 참조.
+// 두 화면은 카드 + 선택지 4개 + 하단 이전/다음이라는 세로 구성이 같아 값을 함께 쓴다.
+const CARD_MIN_HEIGHT = Math.min(140, Math.round(Dimensions.get('window').height * 0.18));
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     overflow: 'hidden',
+  },
+  body: {
+    flex: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    justifyContent: 'space-evenly',
   },
   header: {
     paddingHorizontal: 16,
@@ -771,7 +772,9 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     gap: 12,
-    minHeight: 250,
+    minHeight: CARD_MIN_HEIGHT,
+    // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
+    flexShrink: 1,
   },
   starBtn: {
     position: 'absolute',
@@ -826,6 +829,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     gap: 8,
     marginTop: 12,
+    // 선택지가 자리를 먼저 확보한다 — 밀려서 잘리던 것이 이 화면의 회귀였다.
+    flexShrink: 0,
   },
   choiceBtn: {
     flexDirection: 'row',

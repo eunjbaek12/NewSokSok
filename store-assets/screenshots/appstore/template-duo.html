@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1290px;height:2796px;overflow:hidden;}
+  body{
+    background:#F2E8D5;
+    font-family:'Pretendard',-apple-system,sans-serif;
+    color:#3C3526;
+    position:relative;
+  }
+  .accent{
+    position:absolute;top:230px;left:50%;transform:translateX(-50%);
+    width:100px;height:10px;border-radius:6px;background:#2A7B78;
+  }
+  .caption-zone{
+    position:absolute;left:0;right:0;top:293px;
+    padding:0 96px;text-align:center;
+  }
+  .caption{
+    font-family:'Jua','Pretendard',sans-serif;
+    font-size:94px;line-height:1.2;letter-spacing:-2px;color:#3C3526;
+  }
+  .caption.en{
+    font-family:'Pretendard',sans-serif;font-weight:800;
+    font-size:86px;letter-spacing:-3px;
+  }
+  .sub{
+    margin-top:34px;font-size:52px;line-height:1.38;
+    color:#6B6358;font-weight:500;letter-spacing:-0.3px;
+  }
+  /* 두 스킨 겹침 목업 존 */
+  .phone-zone{
+    position:absolute;left:0;right:0;bottom:0;height:2050px;
+  }
+  .phone{
+    position:absolute;
+    width:660px;
+    border:14px solid #2B2B2E;
+    border-radius:78px;
+    overflow:hidden;
+    background:#000;
+  }
+  /* 뒤 스킨 — 살짝 왼쪽 위, 반시계 기울임 */
+  .phone.back{
+    left:82px;top:44px;
+    transform:rotate(-6deg);
+    z-index:1;
+    box-shadow:0 24px 46px rgba(60,53,38,0.24), 0 8px 16px rgba(60,53,38,0.14);
+  }
+  /* 앞 스킨 — 오른쪽 아래, 시계 기울임, 크림 테두리로 분리감 */
+  .phone.front{
+    left:548px;top:262px;
+    transform:rotate(5deg);
+    z-index:2;
+    box-shadow:0 -6px 0 8px #F2E8D5, 0 40px 72px rgba(60,53,38,0.34), 0 14px 26px rgba(60,53,38,0.20);
+  }
+  .screen{position:relative;width:100%;line-height:0;}
+  .screen img{display:block;width:100%;height:auto;}
+  .statusbar{
+    position:absolute;top:0;left:0;right:0;height:104px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 56px 0 64px;
+    background:#FFFFFF;line-height:1;
+  }
+  .statusbar .time{
+    font-family:'Pretendard',sans-serif;
+    font-size:34px;font-weight:600;color:#1c1c1e;letter-spacing:0.5px;
+  }
+  .statusbar .icons{display:flex;align-items:center;gap:12px;}
+  .statusbar .icons svg{display:block;}
+</style></head>
+<body>
+  <div class="accent"></div>
+  <div class="caption-zone">
+    <div class="caption" id="caption">{{CAPTION}}</div>
+    <div class="sub" id="sub">{{SUB}}</div>
+  </div>
+  <div class="phone-zone">
+    <div class="phone back">
+      <div class="screen">
+        <img id="shot-a" src="{{SHOT_A}}" alt="">
+        <div class="statusbar">
+          <span class="time">9:41</span>
+          <span class="icons">
+            <svg width="38" height="26" viewBox="0 0 38 26" fill="currentColor"><rect x="0" y="17" width="6" height="9" rx="1.5"/><rect x="10" y="12" width="6" height="14" rx="1.5"/><rect x="20" y="6" width="6" height="20" rx="1.5"/><rect x="30" y="0" width="6" height="26" rx="1.5"/></svg>
+            <svg width="34" height="26" viewBox="0 0 34 26" fill="currentColor"><path d="M17 4C23 4 28.4 6.4 32 10.2l-4 4C25.3 11.4 21.4 9.6 17 9.6S8.7 11.4 6 14.2l-4-4C5.6 6.4 11 4 17 4Z"/><path d="M17 13.2c2.9 0 5.5 1.2 7.4 3.1l-4 4c-.9-.9-2.1-1.5-3.4-1.5s-2.5.6-3.4 1.5l-4-4c1.9-1.9 4.5-3.1 7.4-3.1Z"/><circle cx="17" cy="23" r="3"/></svg>
+            <svg width="50" height="26" viewBox="0 0 50 26" fill="none"><rect x="1" y="2" width="42" height="22" rx="6" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><rect x="4" y="5" width="36" height="16" rx="3" fill="currentColor"/><rect x="46" y="9" width="3.5" height="8" rx="1.75" fill="currentColor" opacity="0.5"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="phone front">
+      <div class="screen">
+        <img id="shot-b" src="{{SHOT_B}}" alt="">
+        <div class="statusbar">
+          <span class="time">9:41</span>
+          <span class="icons">
+            <svg width="38" height="26" viewBox="0 0 38 26" fill="currentColor"><rect x="0" y="17" width="6" height="9" rx="1.5"/><rect x="10" y="12" width="6" height="14" rx="1.5"/><rect x="20" y="6" width="6" height="20" rx="1.5"/><rect x="30" y="0" width="6" height="26" rx="1.5"/></svg>
+            <svg width="34" height="26" viewBox="0 0 34 26" fill="currentColor"><path d="M17 4C23 4 28.4 6.4 32 10.2l-4 4C25.3 11.4 21.4 9.6 17 9.6S8.7 11.4 6 14.2l-4-4C5.6 6.4 11 4 17 4Z"/><path d="M17 13.2c2.9 0 5.5 1.2 7.4 3.1l-4 4c-.9-.9-2.1-1.5-3.4-1.5s-2.5.6-3.4 1.5l-4-4c1.9-1.9 4.5-3.1 7.4-3.1Z"/><circle cx="17" cy="23" r="3"/></svg>
+            <svg width="50" height="26" viewBox="0 0 50 26" fill="none"><rect x="1" y="2" width="42" height="22" rx="6" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><rect x="4" y="5" width="36" height="16" rx="3" fill="currentColor"/><rect x="46" y="9" width="3.5" height="8" rx="1.75" fill="currentColor" opacity="0.5"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

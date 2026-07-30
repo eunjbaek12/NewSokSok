@@ -1,32 +1,3 @@
-# Google Play Console 등록 텍스트 — 베트남어 (vi)
-
-대상: **한국어를 배우는 베트남 사용자** (K-POP·한류·취업·유학).
-적용: Play Console → 스토어 설정 → **기본 스토어 등록정보 → 언어 추가(Tiếng Việt)** → 붙여넣기.
-
-> ⚠️ Play는 전체 설명문을 검색 인덱싱 → "tiếng Hàn·học tiếng Hàn·từ vựng·TOPIK"을 설명문에 자연스럽게 반복. Diacritics(성조) 반드시 유지.
-> 베트남은 한국어 학습 수요가 매우 큰 시장 — 가성비 높음.
-
----
-
-## 앱 이름 (최대 30자)
-
-```
-Học tiếng Hàn: Avocado từ vựng
-```
-
-> 30자(한도 30자). 구분자를 ` - `→`: `로 바꿔 1자 축소(기존 31자 초과 수정). 검색 핵심어 `Học tiếng Hàn`(한국어 배우기)을 맨 앞에 유지.
-
-## 짧은 설명 (최대 80자, 검색 가중치 높음)
-
-```
-Sổ từ vựng tiếng Hàn do AI tạo. Học TOPIK, K-POP, thêm nhanh từ ảnh & Excel.
-```
-
-> 76자. 핵심어(tiếng Hàn·từ vựng·TOPIK·K-POP·AI) 집중.
-
-## 전체 설명 (최대 4000자 — 키워드를 자연스럽게 반복)
-
-```
 Học từ vựng tiếng Hàn, chỉ với một ứng dụng.
 Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự tạo bộ thẻ và ghi nhớ dễ dàng. Từ tiếng Hàn sơ cấp đến từ vựng TOPIK, K-POP, Hallyu, đều ghi nhớ hiệu quả cùng AI.
 
@@ -74,6 +45,3 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 Học từ vựng tiếng Hàn theo cách đơn giản và tinh tế nhất.
 
 Chính sách bảo mật: https://eunjbaek12.github.io/NewSokSok/privacy-policy
-```
-
-> Từ khóa "tiếng Hàn", "học tiếng Hàn", "từ vựng", "TOPIK", "K-POP", "flashcard" được lặp lại tự nhiên trong mô tả.

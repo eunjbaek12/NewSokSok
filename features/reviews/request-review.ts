@@ -3,36 +3,57 @@ import * as StoreReview from 'expo-store-review';
 import { loadReviewState, recordReviewAsked } from './review-storage';
 import { shouldAsk } from './should-ask';
 
-// iOS App Store ID(App Store Connect Apple ID, eas.json ascAppId)·Android 패키지 —
-// 네이티브 리뷰가 불가능한 기기에서만 쓰는 스토어 리스팅 폴백용.
+// iOS App Store ID(App Store Connect Apple ID, eas.json ascAppId)·Android 패키지.
 const IOS_APP_ID = '6776714408';
 const ANDROID_PACKAGE = 'com.soksokvoca';
 
-function storeListingUrl(): string {
+/**
+ * 수동 버튼이 열 스토어 URL 후보 — 앞에서부터 시도하고 실패하면 다음으로 넘어간다.
+ *
+ * iOS는 `action=write-review`로 리뷰 작성 화면까지 바로 열 수 있다(Apple이 상시 버튼에
+ * 권장하는 형식). `itms-apps:` 를 먼저 쓰는 이유는 App Store 앱을 확실히 띄우기 위함이고,
+ * https 후보는 그 스킴을 못 여는 환경(시뮬레이터 등) 대비다.
+ *
+ * Android에는 리뷰 작성 딥링크가 없어 앱 페이지가 최선이다. `market:` 은 Play 스토어 앱을
+ * 직접 띄우고, 스토어 앱이 없는 기기에서만 https(브라우저)로 떨어진다.
+ *
+ * canOpenURL로 미리 검사하지 않는다 — Android 11+ 는 매니페스트 `<queries>` 선언 없이는
+ * 열 수 있는 스킴도 false로 답한다. 그냥 openURL을 던지고 실패하면 다음 후보로 간다.
+ */
+function reviewUrls(): string[] {
   return Platform.OS === 'ios'
-    ? `https://apps.apple.com/app/id${IOS_APP_ID}`
-    : `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
+    ? [
+        `itms-apps://apps.apple.com/app/apple-store/id${IOS_APP_ID}?action=write-review`,
+        `https://apps.apple.com/app/apple-store/id${IOS_APP_ID}?action=write-review`,
+      ]
+    : [
+        `market://details?id=${ANDROID_PACKAGE}`,
+        `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`,
+      ];
 }
 
 /**
- * 수동 "앱 평가하기" 버튼용. 사용자가 직접 눌렀으므로 우리 쿨다운/상한(shouldAsk)과
- * 무관하게 매번 시도하되, 자동 넛지 예산(recordReviewAsked)은 소모하지 않는다.
+ * 수동 "앱 평가하기" 버튼용 — 네이티브 인앱 리뷰 팝업을 쓰지 않고 스토어 리뷰 화면을
+ * 직접 연다. 사용자가 직접 눌렀으므로 우리 쿨다운/상한(shouldAsk)과 무관하게 매번
+ * 동작하고, 자동 넛지 예산(recordReviewAsked)도 소모하지 않는다.
  *
- * 가능하면 네이티브 인앱 리뷰 팝업(별점+리뷰 제출까지 앱 안에서 완결·"다음에" 버튼
- * 내장)을 띄운다. 표시 여부는 OS가 통제하며(최근 표시·연 한도) 실제로 안 뜰 수 있으나
- * 우리에게 알려주지 않는다 — 표시 성공을 가정하지 않는다. 네이티브 리뷰 자체가
- * 불가능한 기기(예: Play 스토어 없음)에서만 스토어 리스팅 페이지로 폴백한다.
+ * 인앱 팝업을 쓰지 않는 이유: 표시 여부를 OS가 통제하면서 우리에게 알려주지 않는다.
+ * 이미 평가한 사용자나 노출 쿼터에 걸린 사용자에게는 호출이 "성공"으로 끝나면서 아무것도
+ * 뜨지 않아, 버튼이 고장난 것처럼 보인다(실제로 그렇게 보였다 — Android 정식 설치 기기).
+ * 그래서 양 플랫폼 모두 상시 버튼에는 인앱 팝업이 아니라 스토어 링크를 쓰라고 안내한다:
+ * Play In-App Review 가이드는 버튼 트리거를 "깨진 경험"이라 명시하고, Apple HIG는 피드백
+ * 요청에 버튼을 쓰지 말고 write-review 링크를 두라고 한다.
+ *
+ * 자동 넛지(maybeRequestReview)는 반대다 — 조용히 넘어가도 되는 자리이므로 인앱 팝업을
+ * 그대로 쓴다.
  */
 export async function requestManualReview(): Promise<void> {
-  try {
-    if (await StoreReview.isAvailableAsync()) {
-      await StoreReview.requestReview();
+  for (const url of reviewUrls()) {
+    try {
+      await Linking.openURL(url);
       return;
-    }
-  } catch {}
-  try {
-    await Linking.openURL(storeListingUrl());
-  } catch {}
+    } catch {}
+  }
 }
 
 // 이번 세션에는 자동 넛지를 쉰다. 업데이트 소식 시트가 뜬 세션이 그 경우다 —

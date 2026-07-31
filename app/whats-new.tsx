@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLocale } from '@/features/locale';
+import { localeTag } from '@/i18n';
 import { ANNOUNCEMENTS } from '@/constants/announcements';
 
 export default function WhatsNewScreen() {
@@ -22,7 +23,7 @@ export default function WhatsNewScreen() {
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const formatDate = (iso: string) =>
-    new Date(iso).toLocaleDateString(locale === 'en' ? 'en-US' : 'ko-KR', {
+    new Date(iso).toLocaleDateString(localeTag(locale), {
       year: 'numeric', month: 'long', day: 'numeric',
     });
 

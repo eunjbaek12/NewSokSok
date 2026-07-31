@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "병원",
+    "pos": "noun",
+    "meaningEn": "hospital; clinic",
+    "romaja": "byeongwon",
+    "exampleKo": "어느 병원에 오셨어요?",
+    "exampleEn": "Which clinic have you come to?",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 2,
+    "term": "내과",
+    "pos": "noun",
+    "meaningEn": "internal medicine clinic",
+    "romaja": "naegwa",
+    "exampleKo": "감기 때문에 내과에 왔어요.",
+    "exampleEn": "I came to the internal medicine clinic because of a cold.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 3,
+    "term": "이비인후과",
+    "pos": "noun",
+    "meaningEn": "ENT clinic (ear, nose, and throat)",
+    "romaja": "ibiinhugwa",
+    "exampleKo": "목이 아파서 이비인후과에 왔습니다.",
+    "exampleEn": "I came to the ENT clinic because my throat hurts.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 4,
+    "term": "접수",
+    "pos": "noun",
+    "meaningEn": "check-in; registration",
+    "romaja": "jeopsu",
+    "exampleKo": "접수 도와드리겠습니다.",
+    "exampleEn": "I will help you check in.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 5,
+    "term": "접수처",
+    "pos": "noun",
+    "meaningEn": "reception desk; front desk",
+    "romaja": "jeopsucheo",
+    "exampleKo": "접수처에서 먼저 등록해 주세요.",
+    "exampleEn": "Please register at the reception desk first.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 6,
+    "term": "신분증",
+    "pos": "noun",
+    "meaningEn": "photo ID card",
+    "romaja": "sinbunjeung",
+    "exampleKo": "신분증 좀 보여주시겠어요?",
+    "exampleEn": "Could you please show me your ID?",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 7,
+    "term": "건강보험증",
+    "pos": "noun",
+    "meaningEn": "national health insurance card",
+    "romaja": "geongangboheomjeung",
+    "exampleKo": "건강보험증 있으세요?",
+    "exampleEn": "Do you have your health insurance card?",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 8,
+    "term": "대기실",
+    "pos": "noun",
+    "meaningEn": "waiting room",
+    "romaja": "daegisil",
+    "exampleKo": "대기실에서 잠시 기다려 주세요.",
+    "exampleEn": "Please wait a moment in the waiting room.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 9,
+    "term": "진료",
+    "pos": "noun",
+    "meaningEn": "medical examination; consultation",
+    "romaja": "jillyo",
+    "exampleKo": "어떤 진료를 받으러 오셨나요?",
+    "exampleEn": "What kind of medical care have you come for?",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 10,
+    "term": "진료비",
+    "pos": "noun",
+    "meaningEn": "consultation fee; medical bill",
+    "romaja": "jillyobi",
+    "exampleKo": "진료비는 여기서 결제하시면 됩니다.",
+    "exampleEn": "You can pay the consultation fee here.",
+    "category": "접수·진료"
+  },
+  {
+    "rank": 11,
+    "term": "증상",
+    "pos": "noun",
+    "meaningEn": "symptom",
+    "romaja": "jeungsang",
+    "exampleKo": "어떤 증상이 있으세요?",
+    "exampleEn": "What symptoms do you have?",
+    "category": "증상"
+  },
+  {
+    "rank": 12,
+    "term": "감기",
+    "pos": "noun",
+    "meaningEn": "a cold (illness)",
+    "romaja": "gamgi",
+    "exampleKo": "감기에 걸려서 병원에 왔어요.",
+    "exampleEn": "I came to the clinic because I caught a cold.",
+    "category": "증상"
+  },
+  {
+    "rank": 13,
+    "term": "독감",
+    "pos": "noun",
+    "meaningEn": "the flu; influenza",
+    "romaja": "dokgam",
+    "exampleKo": "독감 예방 주사 맞으셨어요?",
+    "exampleEn": "Did you get a flu shot?",
+    "category": "증상"
+  },
+  {
+    "rank": 14,
+    "term": "몸살",
+    "pos": "noun",
+    "meaningEn": "body aches from fatigue; muscle aches",
+    "romaja": "momsal",
+    "exampleKo": "몸살 기운이 있어서 힘들어요.",
+    "exampleEn": "I feel run down with body aches, so I'm tired.",
+    "category": "증상"
+  },
+  {
+    "rank": 15,
+    "term": "열이 나다",
+    "pos": "phrase",
+    "meaningEn": "to run a fever",
+    "romaja": "yeori nada",
+    "exampleKo": "어제부터 열이 나기 시작했어요.",
+    "exampleEn": "I started running a fever yesterday.",
+    "category": "증상"
+  },
+  {
+    "rank": 16,
+    "term": "미열",
+    "pos": "noun",
+    "meaningEn": "a slight fever; low-grade fever",
+    "romaja": "miyeol",
+    "exampleKo": "지금은 미열만 좀 있습니다.",
+    "exampleEn": "I only have a slight fever right now.",
+    "category": "증상"
+  },
+  {
+    "rank": 17,
+    "term": "오한",
+    "pos": "noun",
+    "meaningEn": "chills; shivers",
+    "romaja": "ohan",
+    "exampleKo": "몸에 오한이 들고 춥습니다.",
+    "exampleEn": "I have chills and feel cold.",
+    "category": "증상"
+  },
+  {
+    "rank": 18,
+    "term": "기침",
+    "pos": "noun",
+    "meaningEn": "a cough",
+    "romaja": "gichim",
+    "exampleKo": "기침이 계속 나오고 목이 아파요.",
+    "exampleEn": "I keep coughing and my throat hurts.",
+    "category": "증상"
+  },
+  {
+    "rank": 19,
+    "term": "가래",
+    "pos": "noun",
+    "meaningEn": "phlegm; sputum",
+    "romaja": "garae",
+    "exampleKo": "가래가 계속 나와서 답답해요.",
+    "exampleEn": "I keep having phlegm, and it's annoying.",
+    "category": "증상"
+  },
+  {
+    "rank": 20,
+    "term": "콧물",
+    "pos": "noun",
+    "meaningEn": "runny nose; nasal discharge",
+    "romaja": "konmul",
+    "exampleKo": "콧물이 계속 흘러서 불편합니다.",
+    "exampleEn": "My nose keeps running, and it's uncomfortable.",
+    "category": "증상"
+  },
+  {
+    "rank": 21,
+    "term": "코막힘",
+    "pos": "noun",
+    "meaningEn": "stuffy nose; nasal congestion",
+    "romaja": "komakhim",
+    "exampleKo": "코막힘이 심해서 숨쉬기 어려워요.",
+    "exampleEn": "My nose is very stuffy, so it's hard to breathe.",
+    "category": "증상"
+  },
+  {
+    "rank": 22,
+    "term": "재채기",
+    "pos": "noun",
+    "meaningEn": "a sneeze",
+    "romaja": "jaechaegi",
+    "exampleKo": "자꾸 재채기가 나와서 괴롭습니다.",
+    "exampleEn": "I keep sneezing, and it's bothering me.",
+    "category": "증상"
+  },
+  {
+    "rank": 23,
+    "term": "목이 아프다",
+    "pos": "phrase",
+    "meaningEn": "to have a sore throat",
+    "romaja": "mogi apeuda",
+    "exampleKo": "목이 아파서 침 삼키기가 힘들어요.",
+    "exampleEn": "My throat hurts, so it's hard to swallow.",
+    "category": "증상"
+  },
+  {
+    "rank": 24,
+    "term": "두통",
+    "pos": "noun",
+    "meaningEn": "a headache",
+    "romaja": "dutong",
+    "exampleKo": "머리가 아프고 두통이 심해요.",
+    "exampleEn": "My head hurts and I have a bad headache.",
+    "category": "증상"
+  },
+  {
+    "rank": 25,
+    "term": "어지럽다",
+    "pos": "adjective",
+    "meaningEn": "to feel dizzy; to be light-headed",
+    "romaja": "eojireopda",
+    "exampleKo": "몸이 좀 어지럽고 힘이 없어요.",
+    "exampleEn": "I feel a bit dizzy and weak.",
+    "category": "증상"
+  },
+  {
+    "rank": 26,
+    "term": "기운이 없다",
+    "pos": "phrase",
+    "meaningEn": "to have no energy; to feel weak",
+    "romaja": "giuni eopda",
+    "exampleKo": "요즘 기운이 없어서 병원에 왔어요.",
+    "exampleEn": "I've had no energy lately, so I came to the clinic.",
+    "category": "증상"
+  },
+  {
+    "rank": 27,
+    "term": "입맛이 없다",
+    "pos": "phrase",
+    "meaningEn": "to have no appetite",
+    "romaja": "immasi eopda",
+    "exampleKo": "며칠째 입맛이 없어서 걱정이에요.",
+    "exampleEn": "I haven't had an appetite for days, so I'm worried.",
+    "category": "증상"
+  },
+  {
+    "rank": 28,
+    "term": "진찰",
+    "pos": "noun",
+    "meaningEn": "doctor's examination",
+    "romaja": "jinchal",
+    "exampleKo": "진찰은 저쪽 방에서 받으시면 됩니다.",
+    "exampleEn": "You can receive the examination in that room.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 29,
+    "term": "체온",
+    "pos": "noun",
+    "meaningEn": "body temperature",
+    "romaja": "che-on",
+    "exampleKo": "먼저 체온을 재고 기다려 주세요.",
+    "exampleEn": "Please take your temperature first and wait.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 30,
+    "term": "열을 재다",
+    "pos": "phrase",
+    "meaningEn": "to take one's temperature",
+    "romaja": "yeoreul jaeda",
+    "exampleKo": "간호사님이 제 열을 재 주셨어요.",
+    "exampleEn": "The nurse took my temperature.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 31,
+    "term": "청진기",
+    "pos": "noun",
+    "meaningEn": "stethoscope",
+    "romaja": "cheongjingi",
+    "exampleKo": "의사 선생님이 청진기로 진찰하셨어요.",
+    "exampleEn": "The doctor examined me with a stethoscope.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 32,
+    "term": "아 해보세요",
+    "pos": "phrase",
+    "meaningEn": "\"Say ahh\" (doctor's instruction)",
+    "romaja": "a haeboseyo",
+    "exampleKo": "목을 보려면 아 해보세요.",
+    "exampleEn": "To see your throat, please say ahh.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 33,
+    "term": "검사",
+    "pos": "noun",
+    "meaningEn": "a medical test; an examination",
+    "romaja": "geomsa",
+    "exampleKo": "독감 검사를 받아야 할 것 같아요.",
+    "exampleEn": "I think I need to get a flu test.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 34,
+    "term": "주사",
+    "pos": "noun",
+    "meaningEn": "a shot; an injection",
+    "romaja": "jusa",
+    "exampleKo": "주사를 맞으면 좀 나아질 거예요.",
+    "exampleEn": "You'll feel a bit better if you get a shot.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 35,
+    "term": "링거",
+    "pos": "noun",
+    "meaningEn": "an IV drip (infusion)",
+    "romaja": "ringgeo",
+    "exampleKo": "몸이 안 좋아서 링거를 맞았어요.",
+    "exampleEn": "My body wasn't well, so I got an IV drip.",
+    "category": "진찰·검사"
+  },
+  {
+    "rank": 36,
+    "term": "처방전",
+    "pos": "noun",
+    "meaningEn": "a prescription slip",
+    "romaja": "cheobangjeon",
+    "exampleKo": "여기 처방전 가지고 약국에 가세요.",
+    "exampleEn": "Please take this prescription to the pharmacy.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 37,
+    "term": "약국",
+    "pos": "noun",
+    "meaningEn": "a pharmacy",
+    "romaja": "yakguk",
+    "exampleKo": "병원 옆 약국에서 약을 받으세요.",
+    "exampleEn": "Get your medicine at the pharmacy next to the clinic.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 38,
+    "term": "약사",
+    "pos": "noun",
+    "meaningEn": "a pharmacist",
+    "romaja": "yaksa",
+    "exampleKo": "약사님께 약 복용법을 물어보세요.",
+    "exampleEn": "Ask the pharmacist how to take the medicine.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 39,
+    "term": "감기약",
+    "pos": "noun",
+    "meaningEn": "cold medicine",
+    "romaja": "gamgiyak",
+    "exampleKo": "감기약을 먹었는데도 열이 안 내려요.",
+    "exampleEn": "I took cold medicine, but my fever isn't going down.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 40,
+    "term": "해열제",
+    "pos": "noun",
+    "meaningEn": "a fever reducer",
+    "romaja": "haeyeolje",
+    "exampleKo": "열이 너무 높아서 해열제를 먹었어요.",
+    "exampleEn": "My fever was too high, so I took a fever reducer.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 41,
+    "term": "진통제",
+    "pos": "noun",
+    "meaningEn": "a painkiller",
+    "romaja": "jintongje",
+    "exampleKo": "머리가 아파서 진통제를 찾아요.",
+    "exampleEn": "My head hurts, so I'm looking for a painkiller.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 42,
+    "term": "항생제",
+    "pos": "noun",
+    "meaningEn": "an antibiotic",
+    "romaja": "hangsaengje",
+    "exampleKo": "이 약은 항생제니까 꼭 다 드세요.",
+    "exampleEn": "This medicine is an antibiotic, so please take it all.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 43,
+    "term": "알약",
+    "pos": "noun",
+    "meaningEn": "a pill; a tablet",
+    "romaja": "allyak",
+    "exampleKo": "알약을 삼키기 어려운데 괜찮을까요?",
+    "exampleEn": "I have trouble swallowing pills, is that okay?",
+    "category": "약국·약"
+  },
+  {
+    "rank": 44,
+    "term": "가루약",
+    "pos": "noun",
+    "meaningEn": "powdered medicine",
+    "romaja": "garuyak",
+    "exampleKo": "아이는 가루약을 물에 타서 먹이세요.",
+    "exampleEn": "For the child, mix the powdered medicine with water.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 45,
+    "term": "물약",
+    "pos": "noun",
+    "meaningEn": "liquid medicine; syrup",
+    "romaja": "mullyak",
+    "exampleKo": "이 물약은 하루에 세 번 드세요.",
+    "exampleEn": "Take this liquid medicine three times a day.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 46,
+    "term": "식후 30분",
+    "pos": "phrase",
+    "meaningEn": "30 minutes after meals",
+    "romaja": "sikhu samsippun",
+    "exampleKo": "약은 식후 30분에 드시면 됩니다.",
+    "exampleEn": "You should take the medicine 30 minutes after meals.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 47,
+    "term": "하루 세 번",
+    "pos": "phrase",
+    "meaningEn": "three times a day",
+    "romaja": "haru se beon",
+    "exampleKo": "이 약은 하루 세 번 드셔야 해요.",
+    "exampleEn": "You need to take this medicine three times a day.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 48,
+    "term": "부작용",
+    "pos": "noun",
+    "meaningEn": "a side effect",
+    "romaja": "bujagyong",
+    "exampleKo": "약을 먹고 부작용이 생기면 연락 주세요.",
+    "exampleEn": "If you experience side effects from the medicine, please contact us.",
+    "category": "약국·약"
+  },
+  {
+    "rank": 49,
+    "term": "푹 쉬세요",
+    "pos": "phrase",
+    "meaningEn": "\"Get plenty of rest\"",
+    "romaja": "puk swiseyo",
+    "exampleKo": "푹 쉬시고 약 잘 챙겨 드세요.",
+    "exampleEn": "Get plenty of rest and make sure to take your medicine.",
+    "category": "회복·마무리"
+  },
+  {
+    "rank": 50,
+    "term": "낫다",
+    "pos": "verb",
+    "meaningEn": "to get better; to recover",
+    "romaja": "natda",
+    "exampleKo": "약 먹고 빨리 낫고 싶어요.",
+    "exampleEn": "I want to take the medicine and get better quickly.",
+    "category": "회복·마무리"
+  }
+]

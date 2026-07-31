@@ -1,0 +1,13 @@
+{
+  // scripts/*.ts 를 ts-node 로 실행할 때만 쓰는 설정.
+  // 메인 tsconfig 는 앱(ESM) 기준이라 ts-node 가 그대로 따르면 상대 import 를
+  // 확장자 없이 해석하지 못해 ERR_MODULE_NOT_FOUND 로 죽는다
+  // (예: scripts/diagnose-example-quality.ts 가 ../lib/example-blank 를 import).
+  // 실행에만 CommonJS 를 강제한다 — 앱 번들·타입체크에는 영향이 없다.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react"
+  }
+}

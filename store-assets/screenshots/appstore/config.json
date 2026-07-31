@@ -1,5 +1,5 @@
 {
-  "target": "iOS App Store 6.9\" (1290x2796). 6.5\"(1284x2778)는 후처리로 자동 축소.",
+  "target": "iOS App Store 6.9\" (1290x2796). 6.5\"(1284x2778)는 후처리로 자동 축소. 라인업 9장(한도 10, 한 장 여유는 복습 화면 자리) = 히어로 2장 + 6장 + 테마 duo 1장. 05-home은 히어로 2장에 들어가 중복이므로 제외(raw는 히어로가 씀).",
   "viewport": {
     "width": 1290,
     "height": 2796
@@ -9,14 +9,51 @@
     "height": 2778
   },
   "captureStatusBarPx": 132,
-  "captureDevice": "iPhone 13 mini 실기 (1080x2340). 상단 상태바는 합성 시 9:41 더미로 자동 교체.",
+  "captureDevice": "실기 캡처 1125x2436 (raw 실측값. 옛 표기 'iPhone 13 mini 1080x2340'은 실물과 달랐다). captureStatusBarPx는 이 폭 기준 → 다른 해상도로 다시 찍으면 이 값도 맞춰야 한다. 상단 상태바는 합성 시 9:41 더미로 자동 교체.",
   "palette": {
     "cream": "#F2E8D5",
     "ink": "#3C3526",
     "sub": "#6B6358",
     "teal": "#2A7B78"
   },
+  "hero": {
+    "dir": "../hero",
+    "note": "hero/hero.png(1984x2144)를 두 장에 걸쳐 파노라마로 깐다. 배율은 캔버스 폭 2장분(2580)/1984 = 1.3004 고정이고 x 오프셋만 0 / -1290으로 갈린다 — 두 장을 나란히 놓으면 캐릭터의 뻗은 팔이 이어져 폰에 닿는다. 좌표 근거는 hero/README.md.",
+    "cream": "#F4E5CA",
+    "screen": { "x": 1557.9, "y": 870.0, "width": 784.1, "height": 1671.0, "radius": 60 },
+    "notch": { "x": 166.5, "width": 449.9 }
+  },
   "screenshots": [
+    {
+      "id": "00-hero-a",
+      "type": "hero",
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": 0, "y": 0 },
+      "phone": null,
+      "screen": "히어로 1장 — 캐릭터. raw 캡처 불필요. x=0은 원본의 왼쪽 절반(0~992)을 담는다. 얼굴은 온전히 들어오고 몸통 오른쪽과 뻗은 팔이 경계에서 잘리는데, 그 잘린 자리를 2장이 x=-1290으로 이어받는다.",
+      "ko": {
+        "caption": "단어장 만들기,<br>이제 3초",
+        "sub": "주제만 말하면 단어·뜻·예문까지 한 번에"
+      },
+      "en": {
+        "caption": "A word list<br>in 3 seconds",
+        "sub": "Name a topic — words, meanings, examples"
+      }
+    },
+    {
+      "id": "00-hero-b",
+      "type": "hero",
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": -1290, "y": 0 },
+      "phone": "05-home",
+      "screen": "히어로 2장 — 폰 안은 홈 탭 실제 캡처(raw/{lang}/05-home.png). x=-1290은 1장이 담은 왼쪽 절반의 바로 다음이라 캐릭터가 이어진다. 두 장의 배율이 어긋나면 같은 캐릭터가 다른 크기로 두 번 보이므로 bg 값은 1장과 함께 고칠 것.",
+      "ko": {
+        "caption": "만드는 건 AI,<br>외우는 건 나",
+        "sub": "카드·퀴즈·예문·섀도잉으로 진짜 외운다"
+      },
+      "en": {
+        "caption": "AI builds it.<br>You learn it.",
+        "sub": "Cards, quizzes, examples, shadowing"
+      }
+    },
     {
       "id": "01-generate",
       "screen": "AI 단어 생성 — features/curation/screen.tsx",
@@ -70,19 +107,6 @@
       }
     },
     {
-      "id": "05-home",
-      "screen": "홈 탭 — app/(tabs)/index.tsx",
-      "captureHint": "단어장 2~3개가 진행 중이고 오늘 진척/달성이 보이는 상태. 라이트 테마. 빈 화면 금지. (복습 배너는 due 단어가 있어야 떠서 촬영 부담 큼 → 홈은 평범 상태로, 복습은 설명 텍스트로 홍보.)",
-      "ko": {
-        "caption": "내 단어 공부, 한눈에",
-        "sub": "단어장·진척·오늘 할 일까지"
-      },
-      "en": {
-        "caption": "Your vocabulary, at a glance",
-        "sub": "Word lists, progress, and today's to-dos"
-      }
-    },
-    {
       "id": "06-autocomplete",
       "screen": "단어 추가 — app/add-word.tsx",
       "captureHint": "단어 하나를 입력해 뜻·예문·발음·품사가 모두 자동완성으로 채워진 상태. 빈 칸 없이 다 뜬 순간 캡처.",
@@ -109,9 +133,10 @@
       }
     },
     {
-      "id": "08-theme1",
-      "screen": "스킨 적용 화면 1 — 설정 → 표시 → 스킨",
-      "captureHint": "특정 스킨(예: 다크 고요)이 적용된 실제 홈/학습 화면. 일반 화면과 톤이 확 다르게. 상태바 더미는 자동 색 보정됨.",
+      "id": "08-theme",
+      "shots": ["08-theme1", "09-theme2"],
+      "screen": "스킨 두 개를 한 장에 겹쳐 보여준다 (template-duo.html) — 찍는 화면은 설정이 아니라 홈 탭이다(스킨을 바꾼 뒤 홈으로 나와 촬영)",
+      "captureHint": "스킨을 바꾼 홈 탭. 08-theme1.png = 다크 고요(뒤) · 09-theme2.png = Y2K(앞) — ko·en 모두 이 순서로 통일한다(밝은 쪽이 앞이라야 크림 배경과 이어진다). 뒤 폰은 왼쪽 절반쯤만 보인다. 진행 중 단어장 2개·오답/별표 배지 > 0, 복습 배너 유무는 4장 통일. 상태바 더미는 각 폰마다 자동 색 보정됨.",
       "ko": {
         "caption": "분위기를 바꿔 외우는 재미",
         "sub": "클래식 · 다크 고요 · Y2K · 실험실"
@@ -119,19 +144,6 @@
       "en": {
         "caption": "Switch the mood,<br>keep the streak",
         "sub": "Classic · Dark Calm · Y2K · Lab"
-      }
-    },
-    {
-      "id": "09-theme2",
-      "screen": "스킨 적용 화면 2 — 다른 스킨",
-      "captureHint": "theme1과 다른 스킨(예: Y2K)이 적용된 화면. 두 장이 서로 대비되게.",
-      "ko": {
-        "caption": "취향대로 고르는 학습 테마",
-        "sub": "스킨 하나로 분위기가 확"
-      },
-      "en": {
-        "caption": "Pick your vibe",
-        "sub": "One skin, a whole new feel"
       }
     }
   ]

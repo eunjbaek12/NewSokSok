@@ -1,12 +1,13 @@
--- 보상형 보너스 cap + 7일 체험 재취득 방지(어뷰징 가드) 테스트
+-- 보상형 보너스 cap + 가입 정책(체험 폐지 / 신규 24시간 부스트) 테스트
 --
 -- 실행: supabase test db   (로컬 Postgres = Docker 필요)
 -- 마이그레이션: 20260518000000_ai_quota.sql,
 --             20260519000000_quota_status_client_grant.sql (amount>100 가드, auth.uid 검증),
---             20260523000000_trial_reacquisition_guard.sql (email_hash / trial_history)
+--             20260523000000_trial_reacquisition_guard.sql (email_hash / trial_history — 현재 미사용, 보존만),
+--             20260727000000_signup_boost_replaces_trial.sql (가입 체험 폐지 + 첫 24시간 한도 300)
 
 begin;
-select plan(11);
+select plan(12);
 
 -- ── grant_rewarded_bonus: 일 cap 200 ───────────────────────────────────────────
 insert into auth.users (id, email)
@@ -44,56 +45,68 @@ select throws_ok(
   'rejects a non-positive amount'
 );
 
--- ── trial 재취득 방지 ────────────────────────────────────────────────────────────
--- 첫 가입: trial 부여 + 정규화된 이메일 해시를 trial_history 에 영구 기록
+-- ── 가입 정책: 체험 없음 + 첫 24시간 부스트 ──────────────────────────────────────
+-- 무료 체험은 스토어 오퍼(결제 플로우)가 담당한다. 서버는 더 이상 체험을 주지 않는다.
 insert into auth.users (id, email)
-values ('55555555-5555-5555-5555-555555555555', 'Recur@Test.dev');
+values ('55555555-5555-5555-5555-555555555555', 'fresh@test.dev');
 
-select isnt(
+select is(
   (select trial_ends_at from public.user_subscriptions
      where user_id = '55555555-5555-5555-5555-555555555555'),
   null::timestamptz,
-  'first-ever signup receives a trial'
+  'a new signup no longer receives a server-side trial'
 );
--- 해시는 lower(trim(email)) 정규화 후 SHA-256
-select ok(
-  exists (select 1 from public.trial_history
-            where email_hash = public.email_hash('recur@test.dev')),
-  'trial_history stores the normalized (lower+trim) email hash'
-);
-
--- 계정 삭제: user_subscriptions 는 on delete cascade 로 사라지고, trial_history 는 남는다
-delete from auth.users where id = '55555555-5555-5555-5555-555555555555';
-
-select ok(
-  not exists (select 1 from public.user_subscriptions
-                where user_id = '55555555-5555-5555-5555-555555555555'),
-  'deleting the account cascades away the subscription row'
-);
-select ok(
-  exists (select 1 from public.trial_history
-            where email_hash = public.email_hash('recur@test.dev')),
-  'trial_history survives account deletion (no auth FK on it)'
-);
-
--- 같은 이메일을 대문자/공백 변형으로 재가입 → 정규화 해시 일치 → 체험 없이 Free 시작
-insert into auth.users (id, email)
-values ('66666666-6666-6666-6666-666666666666', '  RECUR@test.dev ');
 select is(
-  (select trial_ends_at from public.user_subscriptions
-     where user_id = '66666666-6666-6666-6666-666666666666'),
-  null::timestamptz,
-  'a re-registered email (case/space variant) starts on free with no new trial'
+  (select tier from public.ai_effective_plan('55555555-5555-5555-5555-555555555555')),
+  'free',
+  'a new signup is on the free tier (the boost widens the limit, not the tier)'
+);
+-- 신규 부스트: 가입 후 24시간 이내는 300
+select is(
+  (select day_limit from public.ai_effective_plan('55555555-5555-5555-5555-555555555555')),
+  300,
+  'a signup within the last 24h gets the 300-word new-user boost'
 );
 
--- 무관한 새 이메일은 정상적으로 체험 부여
-insert into auth.users (id, email)
-values ('77777777-7777-7777-7777-777777777777', 'brandnew@test.dev');
-select isnt(
-  (select trial_ends_at from public.user_subscriptions
-     where user_id = '77777777-7777-7777-7777-777777777777'),
-  null::timestamptz,
-  'an unrelated new email still gets a trial'
+-- 25시간 전 가입자 → 부스트 만료, 평시 Free 한도 100
+insert into auth.users (id, email, created_at)
+values ('66666666-6666-6666-6666-666666666666', 'yesterday@test.dev', now() - interval '25 hours');
+select is(
+  (select day_limit from public.ai_effective_plan('66666666-6666-6666-6666-666666666666')),
+  100,
+  'the boost expires 24h after signup, falling back to the 100-word free limit'
+);
+
+-- ⚠️ 폐지 이전에 받은 잔여 체험은 만료일까지 그대로 Pro로 계산돼야 한다.
+--    (앱 업데이트로 남은 체험이 깎이지 않는다는 보장.)
+insert into auth.users (id, email, created_at)
+values ('77777777-7777-7777-7777-777777777777', 'legacytrial@test.dev', now() - interval '3 days');
+update public.user_subscriptions
+   set trial_ends_at = now() + interval '4 days'
+ where user_id = '77777777-7777-7777-7777-777777777777';
+
+select is(
+  (select tier from public.ai_effective_plan('77777777-7777-7777-7777-777777777777')),
+  'pro',
+  'a trial granted before the policy change still resolves to pro until it expires'
+);
+select is(
+  (select day_limit from public.ai_effective_plan('77777777-7777-7777-7777-777777777777')),
+  1000,
+  'that leftover trial keeps the full 1,000-word pro limit'
+);
+
+-- 유료 구독자는 종전과 동일
+insert into auth.users (id, email, created_at)
+values ('88888888-8888-8888-8888-888888888888', 'paid@test.dev', now() - interval '30 days');
+update public.user_subscriptions
+   set tier = 'pro', pro_until = now() + interval '20 days'
+ where user_id = '88888888-8888-8888-8888-888888888888';
+
+select is(
+  (select day_limit from public.ai_effective_plan('88888888-8888-8888-8888-888888888888')),
+  1000,
+  'a paid subscriber keeps the 1,000-word pro limit'
 );
 
 select * from finish();

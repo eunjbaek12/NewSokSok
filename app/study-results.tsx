@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback, useState } from 'react';
+import React, { useEffect, useMemo, useCallback, useState, useRef } from 'react';
 import { View, Text, Pressable, Platform, StyleSheet, ScrollView, BackHandler } from 'react-native';
 import { router, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, setStudySelection } from '@/features/study';
 import {
   recordStudySession,
   getStatsSummary,
@@ -16,7 +16,13 @@ import {
   MilestoneCelebration,
   type StreakMilestone,
 } from '@/features/stats';
-import { maybeRequestReview, MEMORIZED_THRESHOLD } from '@/features/reviews';
+import { maybeRequestReview, isGoodMoment } from '@/features/reviews';
+
+// 마일스톤 없는 세션에서 리뷰 팝업을 띄우기까지의 대기(ms). 사용자가 자기 정답률·
+// 외운 단어 수를 먼저 읽어야 "뿌듯한 순간"이 된다 — 진입 즉시 띄우면 결과를 시스템
+// 시트가 덮어 그냥 닫히고, 아까운 요청 기회(OS 연 3회)만 소모된다. 마일스톤 경로가
+// 축하 모달을 600ms 늦추는 것과 같은 이유이며, 읽을 내용이 더 많아 조금 더 길다.
+const REVIEW_PROMPT_DELAY_MS = 1500;
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
@@ -42,6 +48,8 @@ export default function StudyResultsScreen() {
     memorized: number;
   } | null>(null);
   const [milestoneVisible, setMilestoneVisible] = useState(false);
+  // 지연 리뷰 요청 타이머 — 화면을 떠난 뒤 시스템 시트가 뒤늦게 뜨는 걸 막으려 정리한다.
+  const reviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const gotItResults = useMemo(() => studyResults.filter(r => r.gotIt), [studyResults]);
   const reviewResults = useMemo(() => studyResults.filter(r => !r.gotIt), [studyResults]);
@@ -77,9 +85,12 @@ export default function StudyResultsScreen() {
           const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
           const m = pickMilestone(summary.currentStreak, maxCelebrated);
           if (!m) {
-            // 마일스톤이 없는 세션 — 충분히 몰입한 사용자(누적 암기 임계 이상)에게만
-            // 리뷰 요청 시도. 스트릭 없이 한 번에 몰아 외운 열정 신규 사용자를 커버한다.
-            if (summary.totalMemorized >= MEMORIZED_THRESHOLD) maybeRequestReview();
+            // 마일스톤이 없는 세션 — 충분히 몰입했고(누적 암기 임계 이상) 이번 세션도
+            // 잘 풀린 사용자에게만 리뷰 요청 시도. 스트릭 없이 한 번에 몰아 외운 열정
+            // 신규 사용자를 커버하되, 많이 틀린 직후는 물어볼 순간이 아니다(isGoodMoment).
+            if (isGoodMoment(accuracy, summary.totalMemorized)) {
+              reviewTimerRef.current = setTimeout(maybeRequestReview, REVIEW_PROMPT_DELAY_MS);
+            }
             return;
           }
           // 표시 전에 마킹 — 도중 종료 시 재축하보다 1회 누락이 낫다(반복 방지 우선).
@@ -98,6 +109,7 @@ export default function StudyResultsScreen() {
 
   useEffect(() => {
     return () => {
+      if (reviewTimerRef.current) clearTimeout(reviewTimerRef.current);
       clearStudyResults();
     };
   }, []);
@@ -114,18 +126,18 @@ export default function StudyResultsScreen() {
   );
 
   const handleRetryAll = () => {
-    const sessionIds = studyResults.map(r => r.word.id).join(',');
+    const sel = setStudySelection(studyResults.map(r => r.word.id));
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { isStarred, filter: sessionFilter, quizType, ids: sessionIds }
+      params: { isStarred, filter: sessionFilter, quizType, sel }
     });
   };
 
   const handleRetryUnmemorized = () => {
-    const failedIds = reviewResults.map(r => r.word.id).join(',');
+    const sel = setStudySelection(reviewResults.map(r => r.word.id));
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { isStarred, quizType, ids: failedIds }
+      params: { isStarred, quizType, sel }
     });
   };
 

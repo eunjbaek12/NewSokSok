@@ -131,15 +131,48 @@ export const ProfileSettingsSchema = z.object({
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 
-export const CustomStudySettingsSchema = z.object({
+/*
+ * CustomStudySettings는 제거됐다(필드가 `studyMode` 하나뿐이었다).
+ *
+ * 골라서 학습이 세그먼트로 모드를 고르고 시작 버튼을 누르는 2단계를 버리면서, 그 값을
+ * 기억할 이유가 사라졌다 — 지금은 학습 시작 버튼을 누르는 순간이 곧 모드 선택이다
+ * (DESIGN.md §3). 소비처가 그 화면 하나뿐이었으므로 스키마·스토어·저장 키가 함께 죽었다.
+ *
+ * 기존 기기의 `@soksok_custom_study_settings` 키는 그냥 남는다. 읽는 코드가 없으니
+ * 동작에 영향이 없고, 지우자고 마이그레이션을 도는 편이 위험이 크다.
+ */
+
+/**
+ * 골라서 학습 · 내 단어 검색이 공유하는 필터 한 벌.
+ *
+ * CustomStudySettings와 필드가 겹치지만 저장 수명이 정반대다 — 이 값은 앱을
+ * 켤 때마다 기본값에서 시작한다(비영속 스토어). 사흘 전에 걸어둔 조건이 앱을
+ * 다시 켰을 때 그대로 걸려 있으면 도움이 아니라 수수께끼가 되기 때문이다.
+ * 디스크에 남는 것은 아래 RecentPick — 사용자가 눌러야 적용되는 사본이다.
+ *
+ * `starred`가 wordFilter에서 빠진 이유: 별표는 다른 값과 조합되는 독립
+ * 토글이라 단일 선택군에 섞으면 "미암기 중 별표"를 만들 수 없다.
+ */
+export const PickFiltersSchema = z.object({
+  wordFilter: z.enum(['all', 'learning', 'memorized', 'wrongCount', 'recent']).default('all'),
+  starredOnly: z.boolean().default(false),
+  posFilter: z.enum(['all', 'noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']).default('all'),
+  tag: z.string().nullable().default(null),
   useAllLists: z.boolean().default(true),
   selectedListIds: z.array(z.string()).default([]),
   selectedDaysByList: z.record(z.string(), z.union([z.array(z.number().int()), z.literal('all')])).default({}),
-  wordFilter: z.enum(['all', 'learning', 'memorized', 'wrongCount', 'recent', 'starred']).default('all'),
-  posFilter: z.enum(['all', 'noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']).default('all'),
-  studyMode: z.enum(['flashcard', 'quiz']).default('flashcard'),
 });
-export type CustomStudySettings = z.infer<typeof CustomStudySettingsSchema>;
+export type PickFilters = z.infer<typeof PickFiltersSchema>;
+
+/** 학습을 시작한 순간의 조건. 칩을 누를 때마다 저장하면 만들다 만 중간 상태가 쌓인다. */
+export const RecentPickSchema = z.object({
+  savedAt: z.number(),
+  count: z.number().int().nonnegative(),
+  filters: PickFiltersSchema,
+});
+export type RecentPick = z.infer<typeof RecentPickSchema>;
+
+export const RecentPicksSchema = z.array(RecentPickSchema).default([]);
 
 export const DashboardFilterSchema = z.enum(['all', 'studying', 'completed', 'finished']);
 export type DashboardFilter = z.infer<typeof DashboardFilterSchema>;
@@ -184,6 +217,14 @@ export const WordSchema = z.object({
 export type Word = z.infer<typeof WordSchema>;
 
 export const PlanFilterSchema = z.enum(['all', 'unmemorized', 'memorized']);
+
+/**
+ * 단어장 이름 입력 상한. VocaListSchema는 타입 추론에만 쓰이고 어디서도 parse되지 않으므로
+ * 아래 title에 .max()를 걸어도 런타임에는 아무것도 검사하지 않는다 — 실제 강제는 이름을
+ * 입력받는 모든 화면에서 이 값으로 한다. 공유 경로에서 검증되는 CurationShareSchema.title(80)
+ * 보다 짧게 잡아, 이름이 길어서 커뮤니티 공유가 실패하는 일이 생기지 않게 한다.
+ */
+export const LIST_TITLE_MAX = 40;
 
 export const VocaListSchema = z.object({
   id: z.string(),

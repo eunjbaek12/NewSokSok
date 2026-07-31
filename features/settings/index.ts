@@ -3,7 +3,6 @@ export type {
   InputSettings,
   StudySettings,
   AutoPlaySettings,
-  CustomStudySettings,
   ProfileSettings,
   DashboardFilter as DashboardFilterMode,
   StartupTab,

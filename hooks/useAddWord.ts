@@ -34,6 +34,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
 
     const [isPendingFill, setIsPendingFill] = useState(false);
     const isPendingFillRef = useRef(false);
+    // 검색 중인 표제어 — 진행 안내("'apple' 뜻을 찾고 있어요")에 쓴다. 검색이 끝나면 빈 문자열.
+    const [pendingFillTerm, setPendingFillTerm] = useState('');
     const [isPendingSave, setIsPendingSave] = useState(false);
     const [aiQuotaHitAt, setAiQuotaHitAt] = useState(0);
     const [autoFillFailedAt, setAutoFillFailedAt] = useState(0);
@@ -51,6 +53,27 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setSenseState(null);
         }
     }, [term, senseState]);
+
+    // 검색 결과가 도착했을 때의 "현재 표제어". 응답은 렌더 커밋보다 한참 뒤(수 초)에 오므로
+    // effect 동기화로 충분하다. runAutoFill의 낡은 결과 판정에 쓴다.
+    const termRef = useRef(term);
+    // 진행 중인 검색의 표제어와 그 취소 핸들.
+    const fillTermRef = useRef('');
+    const abortRef = useRef<AbortController | null>(null);
+
+    // 표제어가 바뀌면 진행 중인 검색을 즉시 끊는다. 결과는 어차피 버려질 것이라(아래 낡은
+    // 결과 판정) 응답을 기다릴 이유가 없는데, 그동안 스피너가 돌고 검색·저장 버튼이 잠겨
+    // 최대 12초(enrichWord 타임아웃) 화면이 묶인다.
+    // ⚠️ 취소해도 AI 한도 차감은 되돌아오지 않는다 — 서버는 이미 처리를 시작했을 수 있다.
+    useEffect(() => {
+        termRef.current = term;
+        if (isPendingFillRef.current && term.trim() !== fillTermRef.current) {
+            abortRef.current?.abort();
+        }
+    }, [term]);
+
+    // 화면을 떠날 때도 끊는다 — 남은 요청과 그 뒤의 상태 갱신은 갈 곳이 없다.
+    useEffect(() => () => abortRef.current?.abort(), []);
 
     const applyFill = useCallback((fill: SenseFill) => {
         setMeaningKr(fill.meaningKr);
@@ -84,6 +107,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isPendingFillRef.current = true;
         setIsPendingFill(true);
         const trimmed = searchTerm.trim();
+        fillTermRef.current = trimmed;
+        setPendingFillTerm(trimmed);
+        const controller = new AbortController();
+        abortRef.current = controller;
         let quotaHit = false;
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -92,9 +119,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setSenseDismissed(false);
 
             const result = await enrichWord(
-                trimmed, sourceLang, targetLang, apiKey, undefined, 'autocomplete',
+                trimmed, sourceLang, targetLang, apiKey, controller.signal, 'autocomplete',
                 () => { quotaHit = true; setAiQuotaHitAt(Date.now()); },
-            ).catch(() => null);
+            ).catch(() => null); // 취소(AbortError)도 여기서 null이 된다
+            // 취소됐거나, 기다리는 동안 사용자가 표제어를 고쳤다면 이 결과는 낡은 것 —
+            // 폼을 덮어쓰지도, 실패/못찾음 안내를 띄우지도 않는다. 표제어 판정은 취소가
+            // 놓친 경합(응답이 이미 도착 중)의 backstop이다. (한도 초과 안내는 응답 전에
+            // 콜백으로 이미 전달되므로 이 분기와 무관하게 뜬다.)
+            if (controller.signal.aborted || termRef.current.trim() !== trimmed) return;
             const hasAny = !!result && !!(
                 result.definition || result.meaningKr || result.exampleEn || result.phonetic || result.pos
             );
@@ -129,8 +161,12 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         } catch {
             if (!quotaHit) setAutoFillFailedAt(Date.now());
         } finally {
+            // 뒤이어 시작된 검색의 핸들을 지우지 않도록 내 것일 때만 정리.
+            if (abortRef.current === controller) abortRef.current = null;
             isPendingFillRef.current = false;
+            fillTermRef.current = '';
             setIsPendingFill(false);
+            setPendingFillTerm('');
         }
     }, [sourceLang, targetLang, apiKey]);
 
@@ -258,6 +294,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         handleAutoFillWithTerm,
         handleSaveWord,
         isPendingFill,
+        pendingFillTerm,
         isPendingSave,
         aiQuotaHitAt,
         autoFillFailedAt,

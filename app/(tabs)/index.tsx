@@ -25,16 +25,17 @@ import { useTheme } from '@/features/theme';
 import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useAuth } from '@/features/auth';
+import { setStudySelection } from '@/features/study';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
 import { selectReviewWords } from '@/features/study/review/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
-import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ReviewBanner from '@/features/study/review/ReviewBanner';
 import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
 import { useReviewSoftAsk } from '@/features/study/review/use-review-notifications';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
+import { useWhatsNew, WhatsNewSheet } from '@/features/whats-new';
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
   const size = 148;
@@ -76,10 +77,9 @@ export default function DashboardScreen() {
   const lists = useLists();
   const loading = useBootstrapLoading();
   const { t } = useTranslation();
-  const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings, profileSettings } = useSettings();
+  const { dashboardFilterMode: filterMode, updateDashboardFilter, profileSettings } = useSettings();
   const { user } = useAuth();
   const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
-  const [showCustomStudy, setShowCustomStudy] = useState(false);
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const scrollRef = useRef(null);
   useScrollToTop(scrollRef);
@@ -162,18 +162,24 @@ export default function DashboardScreen() {
   // ReviewNotificationScheduler가 상시 담당한다 — 홈 마운트와 무관하게 돌게 하기 위해서.
   const { softAskVisible, handleSoftAskDecided } = useReviewSoftAsk(reviewWords.length);
 
+  // 버전이 올라간 첫 실행에만 값이 들어온다(신규 설치·같은 버전은 null).
+  const { announcement: whatsNew, dismiss: dismissWhatsNew } = useWhatsNew();
+
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;
-    const ids = reviewWords.map(w => w.id).join(',');
-    // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 맞춤·오답·별표와 달리
-    // studyMode 설정을 따르지 않는 이유: "외웠어요/다시 볼게요" 스와이프가 간격 사다리의
-    // 입력 그 자체라, 퀴즈로 열면 복습의 성공/실패 신호가 사라진다.
-    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', ids } });
+    const sel = setStudySelection(reviewWords.map(w => w.id));
+    // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 홈의 원탭이 전부
+    // 카드학습이라는 규칙에 더해 복습만의 이유가 하나 더 있다: "외웠어요/다시 볼게요"
+    // 스와이프가 간격 사다리의 입력 그 자체라, 퀴즈로 열면 성공/실패 신호가 사라진다.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
   }, [reviewWords]);
 
+  // 옆의 오답·별표 카드는 앱이 알아서 고르고, 이 카드만 사용자가 조건을 고른다.
+  // 팝업이던 것을 전체화면으로 옮긴 이유는 목록 때문이다 — 팝업에서는 고른
+  // 조건에 무슨 단어가 걸리는지 보이지 않았고, 검색과 필터도 각자 갖고 있었다.
   const handleCustomStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setShowCustomStudy(true);
+    router.push({ pathname: '/search-modal', params: { mode: 'pick' } });
   }, []);
 
   const handleWrongWordStudy = useCallback(() => {
@@ -185,10 +191,14 @@ export default function DashboardScreen() {
       .sort((a, b) => (b.wrongCount ?? 0) - (a.wrongCount ?? 0))
       .slice(0, 50);
     if (words.length === 0) return;
-    const ids = words.map(w => w.id).join(',');
-    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
-  }, [lists, customStudySettings.studyMode]);
+    const sel = setStudySelection(words.map(w => w.id));
+    // 홈의 원탭은 전부 카드학습으로 고정한다. 누르면 곧바로 시작하는 버튼인데
+    // 다른 화면에 숨은 studyMode 설정 때문에 어떤 날은 카드로, 어떤 날은 퀴즈로
+    // 열리면 같은 버튼을 신뢰할 수 없다. 퀴즈는 모드를 고르는 화면에서만 고른다
+    // — 단어장 상세·플랜·골라서 학습. customStudySettings.studyMode는 이제
+    // 골라서 학습 전용 값이다.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
+  }, [lists]);
 
   const handleStarredWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -197,10 +207,10 @@ export default function DashboardScreen() {
       .flatMap(l => l.words)
       .filter(w => w.isStarred);
     if (words.length === 0) return;
-    const ids = words.map(w => w.id).join(',');
-    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
-    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
-  }, [lists, customStudySettings.studyMode]);
+    const sel = setStudySelection(words.map(w => w.id));
+    // 오답 정복과 같은 이유로 카드학습 고정 — handleWrongWordStudy의 주석 참고.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', sel } });
+  }, [lists]);
 
   const handlePlanPress = useCallback((listId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -245,27 +255,9 @@ export default function DashboardScreen() {
         </View>
       </View>
 
-      {/* Fixed Search Bar */}
-      <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
-        <Pressable
-          onPress={() => router.push('/search-modal')}
-          style={({ pressed }) => [
-            styles.searchTrigger,
-            {
-              backgroundColor: colors.surface,
-              borderColor: colors.borderLight,
-              shadowColor: colors.shadow,
-            },
-            pressed && { opacity: 0.7 },
-          ]}
-        >
-          <Ionicons name="search" size={20} color={colors.textTertiary} />
-          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>
-            {t('home.searchPlaceholder')}
-          </Text>
-        </Pressable>
-      </View>
-
+      {/* 검색창은 단어장 탭에 하나만 둔다. 검색 대상(내가 저장한 단어)이 사는 곳이
+          거기이고, 홈은 "무엇을 할까"를 묻는 자리다. 여기 있을 때는 위치 때문에
+          앱 전체 검색으로 읽혔는데 실제로는 개인 단어장만 뒤졌다. */}
       <ScrollView
         ref={scrollRef}
         showsVerticalScrollIndicator={false}
@@ -311,7 +303,7 @@ export default function DashboardScreen() {
                     ? colors.errorLight
                     : colors.surface,
                   borderColor: wrongWordCount > 0
-                    ? (isDark ? 'rgba(248,81,73,0.3)' : 'rgba(239,68,68,0.15)')
+                    ? colors.error + (isDark ? '4D' : '26')
                     : (isDark ? colors.border : colors.borderLight),
                   opacity: pressed && wrongWordCount > 0 ? 0.85 : (wrongWordCount === 0 ? 0.5 : 1),
                 },
@@ -342,7 +334,7 @@ export default function DashboardScreen() {
                     ? colors.warningLight
                     : colors.surface,
                   borderColor: starredWordCount > 0
-                    ? (isDark ? 'rgba(245,158,11,0.3)' : 'rgba(245,158,11,0.15)')
+                    ? colors.warning + (isDark ? '4D' : '26')
                     : (isDark ? colors.border : colors.borderLight),
                   opacity: pressed && starredWordCount > 0 ? 0.85 : (starredWordCount === 0 ? 0.5 : 1),
                 },
@@ -439,7 +431,7 @@ export default function DashboardScreen() {
                         styles.planCard,
                         {
                           backgroundColor: colors.surface,
-                          borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)',
+                          borderColor: colors.success + (isDark ? '40' : '33'),
                           shadowColor: colors.cardShadow,
                         },
                       ]}
@@ -452,7 +444,7 @@ export default function DashboardScreen() {
                           </Text>
                         </View>
                         <View style={styles.planCardChips}>
-                          <View style={[styles.statusChip, { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)' }]}>
+                          <View style={[styles.statusChip, { backgroundColor: colors.success + (isDark ? '33' : '26') }]}>
                             <Text style={[styles.statusChipText, { color: colors.success }]}>
                               {t('home.planCompleted')}
                             </Text>
@@ -519,8 +511,8 @@ export default function DashboardScreen() {
                   const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
                   const staleColor = status === 'overdue' ? colors.error : colors.warning;
                   const staleBorder = status === 'overdue'
-                    ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.15)')
-                    : (isDark ? 'rgba(210,153,34,0.2)' : 'rgba(245,158,11,0.15)');
+                    ? colors.error + (isDark ? '33' : '26')
+                    : colors.warning + (isDark ? '33' : '26');
                   return (
                     <View
                       key={list.id}
@@ -614,8 +606,11 @@ export default function DashboardScreen() {
                       {
                         backgroundColor: colors.surface,
                         borderColor: dayStatus.state === 'completed'
-                          ? (isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)')
-                          : (isDark ? colors.border : 'rgba(49,130,246,0.08)'),
+                          ? colors.success + (isDark ? '33' : '26')
+                          // 라이트의 평상시 테두리는 borderLight가 아니라 브랜드색 8%다 —
+                          // 옛 값이 primary(당시 파란색) 8%였고, 무게를 그대로 두려는 것이다.
+                          // borderLight는 불투명이라 카드가 훨씬 무거워진다.
+                          : (isDark ? colors.border : colors.primary + '14'),
                         shadowColor: colors.cardShadow,
                         opacity: pressed ? 0.92 : 1,
                       },
@@ -726,7 +721,7 @@ export default function DashboardScreen() {
                 <View style={[styles.emptyPlans, {
                   backgroundColor: filterMode === 'studying' ? colors.successLight : colors.surface,
                   borderColor: filterMode === 'studying'
-                    ? (isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)')
+                    ? colors.success + (isDark ? '40' : '33')
                     : (isDark ? colors.border : colors.borderLight),
                 }]}>
                   {filterMode === 'studying' ? (
@@ -815,13 +810,15 @@ export default function DashboardScreen() {
         })()}
       </Modal>
 
-      <CustomStudyModal
-        visible={showCustomStudy}
-        onClose={() => setShowCustomStudy(false)}
-      />
-
       {/* 첫 복습이 준비된 날에만 한 번. "나중에"를 누르면 다시 묻지 않는다(§8.4). */}
       <ReviewNotifySoftAsk visible={softAskVisible} onDecided={handleSoftAskDecided} />
+
+      {/*
+        업데이트 직후 첫 홈 진입에 한 번. 앱 시작 지점이 아니라 여기에 두는 이유는,
+        복습 알림을 눌러 들어온 사람은 목적이 있어서 온 것이고 시작 탭이 단어장인
+        사용자도 있기 때문이다.
+      */}
+      <WhatsNewSheet announcement={whatsNew} onDismiss={dismissWhatsNew} />
 
       <AppBannerAd mode="tab-anchor" />
     </View>
@@ -856,27 +853,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
-  },
-  searchBarWrapper: {
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-  },
-  searchTrigger: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderRadius: Radius.lg,
-    borderWidth: 1,
-    gap: 10,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  searchTriggerText: {
-    fontSize: 15,
-    fontFamily: 'Pretendard_400Regular',
   },
   content: {
     paddingHorizontal: 20,

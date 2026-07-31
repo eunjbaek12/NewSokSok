@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "등산",
+    "pos": "noun",
+    "meaningEn": "hiking; mountain climbing",
+    "romaja": "deungsan",
+    "exampleKo": "주말에 같이 등산 갈까요?",
+    "exampleEn": "Shall we go hiking together this weekend?",
+    "category": "산·지형"
+  },
+  {
+    "rank": 2,
+    "term": "산",
+    "pos": "noun",
+    "meaningEn": "a mountain",
+    "romaja": "san",
+    "exampleKo": "이 산은 경치가 참 좋네요.",
+    "exampleEn": "The view from this mountain is really nice.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 3,
+    "term": "정상",
+    "pos": "noun",
+    "meaningEn": "the summit; the peak",
+    "romaja": "jeongsang",
+    "exampleKo": "정상까지 얼마나 더 가야 해요?",
+    "exampleEn": "How much further do we have to go to the summit?",
+    "category": "산·지형"
+  },
+  {
+    "rank": 4,
+    "term": "봉우리",
+    "pos": "noun",
+    "meaningEn": "a mountain peak",
+    "romaja": "bong-uri",
+    "exampleKo": "저기 보이는 봉우리가 제일 높아요.",
+    "exampleEn": "That peak over there is the highest one.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 5,
+    "term": "능선",
+    "pos": "noun",
+    "meaningEn": "a ridge line",
+    "romaja": "neungseon",
+    "exampleKo": "능선 따라 걷는 길이 정말 멋져요.",
+    "exampleEn": "The path walking along the ridge is truly wonderful.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 6,
+    "term": "계곡",
+    "pos": "noun",
+    "meaningEn": "a valley with a stream",
+    "romaja": "gyegok",
+    "exampleKo": "여름에는 계곡에서 발 담그면 시원해요.",
+    "exampleEn": "In summer, it's cool to dip your feet in the valley stream.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 7,
+    "term": "약수터",
+    "pos": "noun",
+    "meaningEn": "a natural spring spot on a trail",
+    "romaja": "yaksuteo",
+    "exampleKo": "약수터에서 물 한잔 마시고 갈까요?",
+    "exampleEn": "Shall we drink a glass of water at the spring and go?",
+    "category": "산·지형"
+  },
+  {
+    "rank": 8,
+    "term": "전망대",
+    "pos": "noun",
+    "meaningEn": "an observation deck",
+    "romaja": "jeonmangdae",
+    "exampleKo": "전망대에서 잠시 쉬면서 경치 봐요.",
+    "exampleEn": "Let's rest a bit at the observation deck and enjoy the view.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 9,
+    "term": "쉼터",
+    "pos": "noun",
+    "meaningEn": "a rest stop; a resting place",
+    "romaja": "swimteo",
+    "exampleKo": "저기 쉼터에서 좀 쉬었다 갈까요?",
+    "exampleEn": "Shall we rest a bit at that rest stop over there?",
+    "category": "산·지형"
+  },
+  {
+    "rank": 10,
+    "term": "국립공원",
+    "pos": "noun",
+    "meaningEn": "a national park",
+    "romaja": "gungnipgongwon",
+    "exampleKo": "설악산은 정말 아름다운 국립공원이에요.",
+    "exampleEn": "Seoraksan is a truly beautiful national park.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 11,
+    "term": "단풍",
+    "pos": "noun",
+    "meaningEn": "autumn foliage; fall colors",
+    "romaja": "danpung",
+    "exampleKo": "가을 단풍이 정말 예쁘게 물들었어요.",
+    "exampleEn": "The autumn foliage has turned really beautifully.",
+    "category": "산·지형"
+  },
+  {
+    "rank": 12,
+    "term": "등산로",
+    "pos": "noun",
+    "meaningEn": "a hiking trail",
+    "romaja": "deungsallo",
+    "exampleKo": "등산로가 잘 정비되어 있어서 걷기 편해요.",
+    "exampleEn": "The hiking trail is well-maintained, so it's easy to walk.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 13,
+    "term": "산길",
+    "pos": "noun",
+    "meaningEn": "a mountain path",
+    "romaja": "sangil",
+    "exampleKo": "이 산길은 좀 미끄러우니 조심하세요.",
+    "exampleEn": "This mountain path is a bit slippery, so be careful.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 14,
+    "term": "둘레길",
+    "pos": "noun",
+    "meaningEn": "a gentle loop trail around a mountain",
+    "romaja": "dullegil",
+    "exampleKo": "오늘은 힘들어서 둘레길만 걸었어요.",
+    "exampleEn": "I was tired today, so I only walked the loop trail.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 15,
+    "term": "오르막",
+    "pos": "noun",
+    "meaningEn": "an uphill path; an ascent",
+    "romaja": "oreumak",
+    "exampleKo": "계속 오르막이라 다리가 좀 아프네요.",
+    "exampleEn": "It's all uphill, so my legs are a bit sore.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 16,
+    "term": "내리막",
+    "pos": "noun",
+    "meaningEn": "a downhill path; a descent",
+    "romaja": "naerimak",
+    "exampleKo": "이제 내리막이니 조심해서 내려가요.",
+    "exampleEn": "It's downhill now, so let's go down carefully.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 17,
+    "term": "갈림길",
+    "pos": "noun",
+    "meaningEn": "a fork in the road/trail",
+    "romaja": "gallimgil",
+    "exampleKo": "여기서 갈림길인데, 어느 쪽으로 갈까요?",
+    "exampleEn": "It's a fork in the trail here, which way shall we go?",
+    "category": "길·코스"
+  },
+  {
+    "rank": 18,
+    "term": "이정표",
+    "pos": "noun",
+    "meaningEn": "a trail signpost",
+    "romaja": "ijeongpyo",
+    "exampleKo": "저기 이정표에 정상까지 2km 남았대요.",
+    "exampleEn": "That signpost says 2km left to the summit.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 19,
+    "term": "돌계단",
+    "pos": "noun",
+    "meaningEn": "stone steps on a trail",
+    "romaja": "dolgyedan",
+    "exampleKo": "돌계단이 많아서 무릎이 좀 아프네요.",
+    "exampleEn": "There are a lot of stone steps, so my knees hurt a bit.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 20,
+    "term": "데크길",
+    "pos": "noun",
+    "meaningEn": "a wooden boardwalk trail",
+    "romaja": "dekeugil",
+    "exampleKo": "데크길이라 걷기 정말 편하고 좋네요.",
+    "exampleEn": "It's a boardwalk trail, so it's really comfortable and nice to walk.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 21,
+    "term": "코스",
+    "pos": "noun",
+    "meaningEn": "a route; a course",
+    "romaja": "koseu",
+    "exampleKo": "우리는 초보자 코스로 등산했어요.",
+    "exampleEn": "We hiked on the beginner's course.",
+    "category": "길·코스"
+  },
+  {
+    "rank": 22,
+    "term": "배낭",
+    "pos": "noun",
+    "meaningEn": "a backpack; a rucksack",
+    "romaja": "baenang",
+    "exampleKo": "배낭이 너무 무거워서 어깨가 아파요.",
+    "exampleEn": "My backpack is too heavy, so my shoulders hurt.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 23,
+    "term": "등산화",
+    "pos": "noun",
+    "meaningEn": "hiking boots",
+    "romaja": "deungsanhwa",
+    "exampleKo": "등산화가 편해야 오래 걸을 수 있어요.",
+    "exampleEn": "Hiking boots need to be comfortable to walk for a long time.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 24,
+    "term": "등산복",
+    "pos": "noun",
+    "meaningEn": "hiking clothes; hiking gear",
+    "romaja": "deungsanbok",
+    "exampleKo": "등산복이 알록달록해서 예쁘네요.",
+    "exampleEn": "Your hiking clothes are colorful and pretty.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 25,
+    "term": "등산 스틱",
+    "pos": "noun",
+    "meaningEn": "trekking poles",
+    "romaja": "deungsan seutik",
+    "exampleKo": "등산 스틱이 있으면 무릎에 좋아요.",
+    "exampleEn": "Trekking poles are good for your knees.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 26,
+    "term": "아이젠",
+    "pos": "noun",
+    "meaningEn": "crampons for icy trails",
+    "romaja": "aijen",
+    "exampleKo": "겨울 등산에는 아이젠이 필수예요.",
+    "exampleEn": "Crampons are essential for winter hiking.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 27,
+    "term": "헤드랜턴",
+    "pos": "noun",
+    "meaningEn": "a headlamp",
+    "romaja": "hedeuraenteon",
+    "exampleKo": "일출 보려면 헤드랜턴 꼭 챙겨야 해요.",
+    "exampleEn": "If you want to see the sunrise, you must bring a headlamp.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 28,
+    "term": "보온병",
+    "pos": "noun",
+    "meaningEn": "a thermos",
+    "romaja": "bo-onbyeong",
+    "exampleKo": "따뜻한 물 담아온 보온병이 최고예요.",
+    "exampleEn": "A thermos with hot water is the best.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 29,
+    "term": "도시락",
+    "pos": "noun",
+    "meaningEn": "a packed lunch box",
+    "romaja": "dosirak",
+    "exampleKo": "정상에서 먹는 도시락이 제일 맛있어요.",
+    "exampleEn": "The lunch box eaten at the summit is the most delicious.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 30,
+    "term": "김밥",
+    "pos": "noun",
+    "meaningEn": "Gimbap; Korean seaweed rice rolls",
+    "romaja": "gimbap",
+    "exampleKo": "등산 도시락으로는 역시 김밥이죠!",
+    "exampleEn": "For a hiking lunch, gimbap is the best, right?",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 31,
+    "term": "우비",
+    "pos": "noun",
+    "meaningEn": "a rain poncho; rain gear",
+    "romaja": "ubi",
+    "exampleKo": "비 올 것 같아서 우비 챙겼어요.",
+    "exampleEn": "It looks like it's going to rain, so I brought a poncho.",
+    "category": "장비·준비물"
+  },
+  {
+    "rank": 32,
+    "term": "산행",
+    "pos": "noun",
+    "meaningEn": "a mountain trek; a hike",
+    "romaja": "sanhaeng",
+    "exampleKo": "오늘 산행 코스는 좀 힘드네요.",
+    "exampleEn": "Today's hiking course is a bit tough.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 33,
+    "term": "등반",
+    "pos": "noun",
+    "meaningEn": "climbing (technical mountaineering)",
+    "romaja": "deungban",
+    "exampleKo": "저 바위는 등반 장비가 있어야 해요.",
+    "exampleEn": "You need climbing gear for that rock.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 34,
+    "term": "하산",
+    "pos": "noun",
+    "meaningEn": "descending the mountain; going down",
+    "romaja": "hasan",
+    "exampleKo": "이제 슬슬 하산 준비할까요?",
+    "exampleEn": "Shall we start preparing to descend now?",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 35,
+    "term": "완주",
+    "pos": "noun",
+    "meaningEn": "finishing the full course",
+    "romaja": "wanju",
+    "exampleKo": "오늘 코스 완주 정말 뿌듯해요!",
+    "exampleEn": "Finishing today's course feels really rewarding!",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 36,
+    "term": "숨차다",
+    "pos": "adjective",
+    "meaningEn": "to be out of breath; winded",
+    "romaja": "sumchada",
+    "exampleKo": "오르막길이라서 너무 숨차요.",
+    "exampleEn": "It's an uphill path, so I'm so out of breath.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 37,
+    "term": "다리가 풀리다",
+    "pos": "phrase",
+    "meaningEn": "one's legs go weak from exhaustion",
+    "romaja": "dariga pullida",
+    "exampleKo": "너무 힘들어서 다리가 풀리는 것 같아요.",
+    "exampleEn": "I'm so tired my legs feel like they're giving out.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 38,
+    "term": "미끄럽다",
+    "pos": "adjective",
+    "meaningEn": "slippery",
+    "romaja": "mikkeureopda",
+    "exampleKo": "낙엽 때문에 길이 좀 미끄러워요.",
+    "exampleEn": "The path is a bit slippery because of the fallen leaves.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 39,
+    "term": "발을 헛디디다",
+    "pos": "phrase",
+    "meaningEn": "to lose one's footing; to misstep",
+    "romaja": "bareul heotdidida",
+    "exampleKo": "돌부리에 걸려 발을 헛디딜 뻔했어요.",
+    "exampleEn": "I almost lost my footing on a rock.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 40,
+    "term": "준비운동",
+    "pos": "noun",
+    "meaningEn": "warm-up exercises",
+    "romaja": "junbiundong",
+    "exampleKo": "산행 전에는 준비운동 꼭 해야죠.",
+    "exampleEn": "You definitely have to warm up before hiking.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 41,
+    "term": "쉬어 가다",
+    "pos": "verb",
+    "meaningEn": "to take a break along the way",
+    "romaja": "swieo gada",
+    "exampleKo": "잠시 쉬어 갈까요? 물 한잔 해요.",
+    "exampleEn": "Shall we take a short break? Let's have some water.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 42,
+    "term": "야호",
+    "pos": "interjection",
+    "meaningEn": "Yahoo! (a shout on a mountain)",
+    "romaja": "yaho",
+    "exampleKo": "정상이다! 야호!",
+    "exampleEn": "We're at the summit! Yahoo!",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 43,
+    "term": "화이팅",
+    "pos": "interjection",
+    "meaningEn": "You got this! Go for it!",
+    "romaja": "hwaiting",
+    "exampleKo": "조금만 더! 화이팅!",
+    "exampleEn": "Just a little more! You got this!",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 44,
+    "term": "수고하셨습니다",
+    "pos": "phrase",
+    "meaningEn": "Nice work; you worked hard (greeting)",
+    "romaja": "sugohasyeosseumnida",
+    "exampleKo": "정상까지 수고하셨습니다!",
+    "exampleEn": "Nice work getting to the summit!",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 45,
+    "term": "막걸리",
+    "pos": "noun",
+    "meaningEn": "Makgeolli rice wine",
+    "romaja": "makgeolli",
+    "exampleKo": "하산 후에는 막걸리 한잔 해야죠!",
+    "exampleEn": "After descending, we should definitely have a glass of makgeolli!",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 46,
+    "term": "일출",
+    "pos": "noun",
+    "meaningEn": "sunrise",
+    "romaja": "ilchul",
+    "exampleKo": "새해 일출 보러 새벽 등산 왔어요.",
+    "exampleEn": "We came for a dawn hike to see the New Year's sunrise.",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 47,
+    "term": "입산 통제",
+    "pos": "noun",
+    "meaningEn": "trail closure; restricted mountain entry",
+    "romaja": "ipsan tongje",
+    "exampleKo": "산불 때문에 입산 통제 기간이네요.",
+    "exampleEn": "It's a trail closure period due to a forest fire.",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 48,
+    "term": "산불 조심",
+    "pos": "phrase",
+    "meaningEn": "beware of forest fires",
+    "romaja": "sanbul josim",
+    "exampleKo": "입구에 산불 조심 팻말이 있네요.",
+    "exampleEn": "There's a \"beware of forest fires\" sign at the entrance.",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 49,
+    "term": "조난",
+    "pos": "noun",
+    "meaningEn": "getting stranded or lost in the mountains",
+    "romaja": "jonan",
+    "exampleKo": "날씨가 안 좋으면 조난당할 수 있어요.",
+    "exampleEn": "If the weather is bad, you could get stranded.",
+    "category": "문화·안전"
+  },
+  {
+    "rank": 50,
+    "term": "구조 요청",
+    "pos": "noun",
+    "meaningEn": "calling for rescue when in trouble",
+    "romaja": "gujo yocheong",
+    "exampleKo": "길을 잃으면 구조 요청해야 해요.",
+    "exampleEn": "If you get lost, you need to call for rescue.",
+    "category": "문화·안전"
+  }
+]

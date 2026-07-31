@@ -299,12 +299,57 @@ export default function FaqScreen() {
             </View>
           );
         })}
+
+        {/*
+          여기까지 스크롤한 사람만 본다 — 문의의 상당수는 위 목록에 이미 답이 있고,
+          그렇게 걸러진 질문만 들어오는 게 서로에게 낫다. 채워진 버튼이 아니라
+          primaryLight 톤인 것도 같은 이유다(FAQ의 주인공은 문의 버튼이 아니다).
+        */}
+        <View style={[styles.askCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Text style={[styles.askTitle, { color: colors.text }]}>{t('faq.noAnswerTitle')}</Text>
+          <Text style={[styles.askDesc, { color: colors.textTertiary }]}>{t('faq.noAnswerDesc')}</Text>
+          <Pressable
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/contact');
+            }}
+            accessibilityRole="button"
+            style={({ pressed }) => [
+              styles.askBtn,
+              { backgroundColor: colors.primaryLight, opacity: pressed ? 0.85 : 1 },
+            ]}
+          >
+            <Ionicons name="chatbubble-ellipses-outline" size={17} color={colors.primary} />
+            <Text style={[styles.askBtnText, { color: colors.primary }]}>{t('faq.askDeveloper')}</Text>
+          </Pressable>
+        </View>
       </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  askCard: {
+    borderWidth: 1,
+    borderRadius: 18,
+    paddingHorizontal: 16,
+    paddingVertical: 18,
+    alignItems: 'center',
+    marginTop: 26,
+  },
+  askTitle: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
+  askDesc: { fontSize: 12.5, lineHeight: 19, fontFamily: 'Pretendard_400Regular', marginTop: 4, textAlign: 'center' },
+  askBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    alignSelf: 'stretch',
+    height: 46,
+    borderRadius: 12,
+    marginTop: 14,
+  },
+  askBtnText: { fontSize: 14.5, fontFamily: 'Pretendard_700Bold' },
   container: {
     flex: 1,
   },

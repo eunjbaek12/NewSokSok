@@ -35,7 +35,7 @@ import {
   copyWords,
   moveWords,
 } from '@/features/vocab';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
 import { Word } from '@/lib/types';
 import { computePlanStatus } from '@/features/study/plan/engine';
@@ -44,6 +44,7 @@ import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
 import FastScrollHandle from '@/components/ui/FastScrollHandle';
+import { LIST_TITLE_MAX } from '@shared/contracts';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za';
@@ -74,7 +75,6 @@ export default function ListDetailScreen() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
 
 
   // Modal State
@@ -174,29 +174,21 @@ export default function ListDetailScreen() {
     setRefreshing(false);
   }, []);
 
-  const handleSpeak = useCallback(async (word: Word) => {
-    setSpeakingWordId(word.id);
-    const src = getStudySourceLang(word, list);
-    await speak(getSpeakableText(word.term, word.phonetic, src), getTtsLang(src));
-    setSpeakingWordId(null);
-  }, [list?.sourceLanguage]);
-
+  // OS 다이얼로그(Alert.prompt)·웹 prompt는 입력 길이를 제한할 수 없어, 받은 값을 여기서 자른다.
+  // 다른 이름 입력 화면들은 TextInput의 maxLength로 같은 상한을 건다.
   const handleEditTitle = useCallback(() => {
     if (!list) return;
+    const commit = (newName?: string | null) => {
+      const trimmed = newName?.trim().slice(0, LIST_TITLE_MAX);
+      if (trimmed) renameList(list.id, trimmed);
+    };
     if (Platform.OS === 'web') {
-      const newName = prompt(t('list.renameTitle'), list.title);
-      if (newName && newName.trim()) {
-        renameList(list.id, newName.trim());
-      }
+      commit(prompt(t('list.renameTitle'), list.title));
     } else {
       Alert.prompt(
         t('list.renameTitle'),
         '',
-        (newName) => {
-          if (newName && newName.trim()) {
-            renameList(list.id, newName.trim());
-          }
-        },
+        commit,
         'plain-text',
         list.title
       );
@@ -397,7 +389,6 @@ export default function ListDetailScreen() {
 
 
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
-    const isSpeaking = speakingWordId === item.id;
     const isSelected = editMode && selectedIds.has(item.id);
     const borderColor = item.isStarred ? colors.starGold : (item.isMemorized ? colors.border : colors.primary);
     const cardBg = isSelected ? colors.primaryLight : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
@@ -465,20 +456,15 @@ export default function ListDetailScreen() {
           <View style={styles.cardActions}>
 
             {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
-            <Pressable
-              onPress={(e) => {
-                e.stopPropagation();
-                handleSpeak(item);
-              }}
+            <SpeakerButton
+              text={getSpeakableText(item.term, item.phonetic, getStudySourceLang(item, list))}
+              language={getTtsLang(getStudySourceLang(item, list))}
+              size={22}
+              color={colors.textSecondary}
               hitSlop={8}
+              stopPropagation
               style={styles.speakerBtn}
-            >
-              <Ionicons
-                name="volume-medium-outline"
-                size={22}
-                color={isSpeaking ? colors.primary : colors.textSecondary}
-              />
-            </Pressable>
+            />
 
             {/* 4. 학습 상태 (가장 우측) */}
             <TouchableOpacity
@@ -501,7 +487,7 @@ export default function ListDetailScreen() {
         </View>
       </Pressable>
     );
-  }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
+  }, [colors, editMode, selectedIds, handleCardPress, handleCardLongPress, toggleMemorized, toggleStarred, id, list]);
 
   const renderFilterHeader = () => {
     if (editMode) {

@@ -130,8 +130,19 @@ in code review and only show up on a device.
   modal's `children`.
 - **Colors come from tokens.** Inline hex is blocked by lint (`no-restricted-syntax`);
   use `colors.X` from `@/features/theme`.
-- **Circles and squares need explicit px.** `'50%'` or `onLayout`-measured sizing has
-  rendered as a rectangle on Android here. Use an explicit `Dimensions`-derived value.
+- **A View with `backgroundColor` + `borderRadius` can still render square on Android (New
+  Arch/Fabric).** The style is correct — printed on-device with `console.log(StyleSheet.flatten(...))`
+  the value was `borderRadius: 19, w=h=38, bg set`, yet Android drew a square. **`borderWidth`
+  does NOT fix it** (1px and 2px both stayed square — an earlier "fix" that claimed a same-color
+  border switches Android to a rounded path was wrong). The fix is **`overflow: 'hidden'`**,
+  which forces rounded clipping of the background. A same-View border with *no* background
+  (e.g. today's ring) is unaffected — it draws round without help, which is exactly why the
+  two cases diverged. *(The calendar's memorized-day markers were "fixed" FIVE times — `999`
+  → `'50%'` → `onLayout` → explicit `Dimensions` px → `borderWidth` — each confidently wrong,
+  because none of them printed the value; every attempt only changed how the size was
+  computed. The sixth fix landed only after a `flatten` log proved `borderRadius` was already
+  19 and the bug was one layer down in the native renderer. **Before changing a value, print
+  the value.** Check what the value *is* before theorizing about why it's wrong.)*
 - **SVG copied from a design tool needs its leading zeros restored.** Illustrator/Figma
   export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
   value**. It is not just console noise — 27 gradient stops were being dropped on the
@@ -152,9 +163,9 @@ fixing the default over adding a rule here.
 
 | Tier | Price | Ads | AI quota (per day) | Key |
 |---|---|---|---|---|
-| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300) | Operator (Vertex AI) |
+| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300). **First 24h after signup: 300** | Operator (Vertex AI) |
 | BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
-| Pro | ₩3,900/month or ₩35,900/year (~23% off vs 12× monthly) | None | 1,000 단어 | Operator (Vertex AI) |
+| Pro | ₩3,900/month · yearly ₩36,000 (Play) / ₩35,900 (App Store) — ~23% off vs 12× monthly | None | 1,000 단어 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
 **Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged):
@@ -162,7 +173,18 @@ fixing the default over adding a rule here.
 - AI word generation = 1 단어 per generated word, charged by requested count (`generate-words`, e.g. 20-word set = 20)
 - Photo scan = 5 단어 extraction overhead per image (`scan-image`) + 1 단어 per enriched word (`enrich-word` mode `photo`, cache hits free)
 
-**Free trial:** 7-day Pro trial on signup, auto-converts to Free (no auto-charge).
+**Free trial:** store offer only (Play/ASC), applied at checkout — **not** granted on signup.
+The server-side 7-day signup trial was removed 2026-07-27
+(`supabase/migrations/20260727000000_signup_boost_replaces_trial.sql`) because it ran on top of the
+store offer (up to 14 free days) and produced 0 paid conversions out of 48 trials. New users instead
+get a **300-word quota for their first 24 hours** — this exists solely to stop first-session photo
+scans from hitting the 100-word wall, which is the one thing the signup trial was actually doing.
+
+Trials granted before that date are untouched and keep Pro until `trial_ends_at` passes; the UI still
+distinguishes trial from paid via `getProMode` (`features/quota/store.ts`). `trial_history` /
+`email_hash()` are retained (unused) so a server trial could be reintroduced without losing the
+re-acquisition guard. **Trial length is never hardcoded in the app** — `trialDaysFor`
+(`features/billing/usePurchaseFlow.ts`) reads it from the store product, so no offer = no trial copy.
 
 **Age/ads policy:** App is targeted at ages 14+ and does not collect age. Ads (banner + rewarded) are shown to all non-Pro users — there is no per-user under-14 ad gating. `initAdMob` deliberately omits `tagForChildDirectedTreatment` / `tagForUnderAgeOfConsent` and sets `maxAdContentRating: PG` (`lib/ads/admob.ts`).
 

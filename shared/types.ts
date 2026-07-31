@@ -6,7 +6,6 @@ export type {
   StudySettings,
   AutoPlaySettings,
   ProfileSettings,
-  CustomStudySettings,
   StartupTab,
   DashboardFilter,
   ThemeMode,

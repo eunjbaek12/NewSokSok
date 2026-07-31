@@ -16,6 +16,7 @@ import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { SkinSelector } from '@/components/SkinSelector';
@@ -38,6 +39,8 @@ import {
 } from '@/features/study/review/notify-time';
 import { hasNotificationPermission, requestNotificationPermission, syncReviewNotifications } from '@/features/study/review/notifications';
 import { useLists } from '@/features/vocab';
+import { useSupportStore } from '@/features/support';
+import { resetWhatsNewSeen } from '@/features/whats-new';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
@@ -55,6 +58,9 @@ export default function SettingsScreen() {
   // 디바운스를 기다리지 않고, 설정 변경을 바로 반영하기 위한 명시적 재예약에 쓴다.
   const lists = useLists();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
+  // 답장 배지 — 벨도 알림함도 만들지 않는다. 아래 "문의하기" 행이
+  // 답장이 있을 때만 모습을 바꾼다.
+  const hasUnreadReply = useSupportStore(s => s.hasUnreadReply);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
@@ -517,6 +523,66 @@ export default function SettingsScreen() {
             </View>
             <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
           </Pressable>
+          {/*
+            답장이 오면 이 행 하나가 모습을 바꾼다 — 아이콘 원이 warningLight로,
+            부제가 "답장이 도착했어요"로, 오른쪽에 점 하나. 답장이 없으면 아무것도
+            늘어나지 않는다(벨·알림함을 만들지 않은 이유).
+          */}
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/contact');
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: hasUnreadReply ? colors.warningLight : colors.primaryLight }]}>
+                <Ionicons
+                  name="chatbubble-ellipses-outline"
+                  size={18}
+                  color={hasUnreadReply ? colors.warning : colors.primary}
+                />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.contact')}</Text>
+                <Text
+                  style={[
+                    styles.rowSubtitle,
+                    hasUnreadReply
+                      ? { color: colors.warning, fontFamily: 'Pretendard_600SemiBold' }
+                      : { color: colors.textTertiary },
+                  ]}
+                  numberOfLines={1}
+                >
+                  {hasUnreadReply ? t('settings.contactReplyDesc') : t('settings.contactDesc')}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.rowRight}>
+              {hasUnreadReply && <View style={[styles.replyDot, { backgroundColor: colors.warning }]} />}
+              <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+            </View>
+          </Pressable>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/whats-new');
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="sparkles-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.whatsNew')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.whatsNewDesc')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
           <Pressable
             style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
             onPress={() => {
@@ -593,7 +659,7 @@ export default function SettingsScreen() {
               </View>
               <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.version')}</Text>
             </View>
-            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>1.0.0</Text>
+            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>{Constants.expoConfig?.version ?? '—'}</Text>
           </View>
         </View>
 
@@ -601,7 +667,10 @@ export default function SettingsScreen() {
           <>
             <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>개발자</Text>
             <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-              <Pressable style={styles.row} onPress={handleResetOnboarding}>
+              <Pressable
+                style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+                onPress={handleResetOnboarding}
+              >
                 <View style={styles.rowLeft}>
                   <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
                     <Ionicons name="refresh-outline" size={18} color={colors.warning} />
@@ -609,6 +678,29 @@ export default function SettingsScreen() {
                   <View style={{ flex: 1 }}>
                     <Text style={[styles.rowTitle, { color: colors.text }]}>온보딩 다시 보기</Text>
                     <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>초기화 후 앱 재시작 시 온보딩 표시</Text>
+                  </View>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+              </Pressable>
+              {/*
+                소식 시트는 "마지막으로 본 버전 ≠ 지금 버전"일 때만 뜬다. 개발 중에는
+                버전이 그대로라 영영 안 뜨므로, 기록을 지워 다음 홈 진입에 다시 보게 한다.
+              */}
+              <Pressable
+                style={styles.row}
+                onPress={async () => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                  await resetWhatsNewSeen();
+                  Alert.alert('새로운 소식 초기화', '홈으로 돌아가면 소식 시트가 다시 뜹니다.');
+                }}
+              >
+                <View style={styles.rowLeft}>
+                  <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
+                    <Ionicons name="sparkles-outline" size={18} color={colors.warning} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.rowTitle, { color: colors.text }]}>새로운 소식 다시 보기</Text>
+                    <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>마지막으로 본 버전 기록 삭제</Text>
                   </View>
                 </View>
                 <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
@@ -786,6 +878,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
     flex: 1,
+  },
+  rowRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+  },
+  // 색만으로 상태를 알리지 않는다 — 부제 문구가 함께 바뀌므로 점은 보조 신호다.
+  replyDot: {
+    width: 9,
+    height: 9,
+    borderRadius: 999,
+    overflow: 'hidden',
   },
   iconCircle: {
     width: 34,

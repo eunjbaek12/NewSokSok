@@ -1,136 +1,196 @@
-# Data Safety 폼 답변지
+# Play Data Safety 답변지
 
-Play Console → 앱 콘텐츠 → **Data Safety** 설문에 그대로 답변하면 됩니다.
+Play Console → **앱 콘텐츠 → 데이터 보안**에 그대로 옮겨 적으면 됩니다.
+App Store Connect 쪽은 [`app-privacy-asc.md`](./app-privacy-asc.md).
 
-근거: `features/auth/store.ts`, `features/sync/engine.ts`, `lib/db/migrations/`, `components/PhotoImportWorkflow.tsx`, `app.json` 권한.
+**최종 갱신: 2026-07-28 (앱 1.3.0 — 문의 기능 추가 반영)**
 
----
+> ⚠️ 이 파일은 한 번 크게 뒤처진 적이 있습니다. 2026-07-28 이전 판은 출시 **전**
+> 코드로 쓰여 "인앱 결제 없음 / 광고 SDK 없음"이라고 적혀 있었고, 그 뒤 구독과
+> AdMob이 들어갔는데도 갱신되지 않았습니다. **결제·광고·수집 항목을 건드리는 PR은
+> 이 파일도 같이 고칠 것.**
 
-## 1. 데이터 수집 및 공유
-
-### Q. 이 앱이 사용자 데이터를 수집하거나 공유하나요?
-**예 (Yes)** — Google 로그인 사용자의 계정 정보와 사용자가 입력한 학습 콘텐츠를 Supabase 클라우드에 저장.
-
-(게스트 모드 사용자는 기기 내 로컬 저장만 — 그 경우 데이터 수집 없음. 하지만 Play의 Data Safety는 *앱이 수집할 가능성이 있는 모든 데이터*를 신고해야 하므로 "수집함" 으로 답변.)
-
-### Q. 모든 데이터 수집과 공유가 [Play 정책](https://support.google.com/googleplay/android-developer/answer/10787469)을 준수하나요?
-**예 (Yes)**
-
-### Q. 사용자가 데이터 삭제를 요청할 수 있나요?
-**예, 앱 내에서 계정 삭제 기능 제공 (Yes, in-app account deletion)**
-- 위치: 설정 → 계정 → 탈퇴
-- 구현: `features/auth/store.ts` `deleteAccount()` 함수
-
-### Q. 전송 중 데이터가 암호화되나요?
-**예 (Yes)** — Supabase API 호출은 HTTPS/TLS, Google 로그인은 OAuth 표준.
+근거 코드: `features/auth/store.ts`, `features/sync/engine.ts`, `features/support/api.ts`,
+`features/billing/`, `lib/ads/admob.ts`, `components/PhotoImportWorkflow.tsx`,
+`supabase/migrations/20260728000000_support_messages.sql`, `app.json`.
+사용자 대상 문구의 정본은 `docs/privacy-policy.html`입니다 — 답변이 그것과 어긋나면 안 됩니다.
 
 ---
 
-## 2. 수집·공유 데이터 카테고리
+## 1. 기본 문항
 
-각 카테고리에 대해 다음을 답합니다:
-- **Collected**: 수집 여부
-- **Shared**: 제3자와 공유 여부
-- **Optional / Required**: 사용자가 선택할 수 있는지
-- **Processed ephemerally**: 임시 처리만 하고 저장 안 하는지
-- **Purpose**: 사용 목적 (앱 기능 / 계정 관리 / 분석 / 광고 / 개인화 등)
+| 문항 | 답변 |
+|---|---|
+| 사용자 데이터를 수집·공유하나요? | **예** |
+| 모든 수집·공유가 Play 정책을 준수하나요? | **예** |
+| 사용자가 데이터 삭제를 요청할 수 있나요? | **예 — 앱 내 계정 삭제** (설정 → 계정 → 탈퇴, `features/auth/store.ts` `deleteAccount()`) |
+| 전송 중 암호화되나요? | **예** (Supabase HTTPS/TLS, OAuth) |
+| 독립 보안 검토를 받았나요? | 아니요 (표준 관행 준수) |
 
-### 📧 개인 정보 (Personal info)
+게스트 모드는 로컬 저장뿐이지만, Play는 *앱이 수집할 수 있는 모든 데이터*를 신고하게
+하므로 "수집함"으로 답합니다.
 
-**이메일 주소 (Email address)**
-- Collected: ✅ Yes
-- Shared: ❌ No (Supabase는 서비스 운영을 위한 데이터 처리자, 광고·마케팅 목적 외부 공유 아님)
-- Optional: ❌ Required (Google 로그인 사용 시)
-- Purpose: **Account management** (계정 식별/로그인)
+---
+
+## 2. 데이터 유형별 답변
+
+각 항목은 **수집 / 공유 / 필수·선택 / 임시처리 / 목적** 순입니다.
+🆕 = 1.3.0(문의 기능)에서 새로 추가된 항목.
+
+> ⚠️ **Play의 "목적"은 7개로 고정돼 있고 "고객 지원"은 없다.** 선택지는
+> 앱 기능 / 애널리틱스 / 개발자 커뮤니케이션 / 광고 또는 마케팅 /
+> 사기 예방·보안·규정 준수 / 맞춤설정 / 계정 관리 뿐이다. 문의 관련은
+> **앱 기능**(접수·답장 표시)과 **개발자 커뮤니케이션**(답장 메일 발송)으로 나눠 담는다.
+>
+> ⚠️ **"필수"는 게스트 모드 때문에 거의 해당이 없다.** Play가 묻는 건 "사용자가 수집을
+> 중지할 수 있는가"이고, 로그인 없이 앱을 쓸 수 있으므로 계정·결제 관련도 **선택**이다.
+> 예외는 광고 ID뿐 — Free 사용자는 끌 수 없다.
+
+### 개인 정보 (Personal info)
 
 **이름 (Name)**
-- Collected: ✅ Yes (Google 계정의 full_name)
-- Shared: ❌ No
-- Optional: ❌ Required (Google 로그인 시 자동 제공)
-- Purpose: **Account management, App functionality** (앱 내 표시·큐레이션 공유자명)
+- 수집 ✅ · 공유 ❌ · **선택**(게스트로 쓸 수 있음) · 임시처리 ❌
+- 목적: 앱 기능(큐레이션 공유자명 표시), 계정 관리
+
+**이메일 주소 (Email address)**
+- 수집 ✅ · 공유 ❌ · **선택** · 임시처리 ❌
+- 목적: 앱 기능, 계정 관리, **개발자 커뮤니케이션**(문의 답장 메일)
+- 두 경로가 있습니다:
+  1. Google/Apple 로그인 이메일 — 로그인하는 경우 필수
+  2. 🆕 문의 회신용 이메일 — **선택**. 적지 않아도 문의가 되고, 그 경우 답장은 앱에서만 봅니다
+- 답장 메일 발송에 **Resend**를 쓰지만 처리자(processor)이므로 Play 기준 "공유"가 아닙니다
 
 **사용자 ID (User IDs)**
-- Collected: ✅ Yes (Supabase auth.uid())
-- Shared: ❌ No
-- Optional: ❌ Required
-- Purpose: **Account management**
+- 수집 ✅ · 공유 ❌ · **선택** · 임시처리 ❌ · 목적: 앱 기능, 계정 관리
+- Supabase `auth.uid()`, 🆕 문의 조회용 `ticket_key`(앱이 만든 난수, SecureStore 보관)
 
-> ❌ 수집 안 함: 주소, 전화번호, 인종/민족, 정치적·종교적 신념, 성적 지향, 기타 개인정보
+> ❌ 수집 안 함: 주소, 전화번호, 인종·민족, 정치·종교적 신념, 성적 지향, 기타 개인정보
 
-### 📸 사진 및 동영상 (Photos and videos)
+### 재무 정보 (Financial info)
+
+**구매 내역 (Purchase history)**
+- 수집 ✅ · 공유 ❌ · **선택**(구독하지 않으면 없음) · 임시처리 ❌
+- 목적: 앱 기능, 계정 관리
+- Pro 구독 상태와 스토어 구매 토큰을 `verify-purchase` Edge에서 검증해 저장합니다.
+  **카드번호 등 결제 수단 정보는 스토어가 처리하며 앱은 받지 않습니다.**
+
+> ❌ 신용 점수, 급여 등 그 외 재무 정보는 수집 안 함
+
+### 사진 및 동영상 (Photos and videos)
 
 **사진 (Photos)**
-- Collected: ✅ Yes (사진 스캔 기능 사용 시)
-- Shared: ✅ Yes — **Google (Gemini API)**
-- Optional: ✅ Optional (사용자가 사진 스캔 기능을 사용할 때만)
-- Processed ephemerally: ✅ Yes — 사진은 사용자의 본인 Gemini API 키로 직접 전송, 우리 서버를 거치지 않고 OCR 결과만 받음. 사진 자체는 우리 시스템에 저장 안 됨.
-- Purpose: **App functionality** (OCR로 단어 추출)
+- 수집 ✅ · **공유 ❌** · **선택**(사진 스캔을 쓸 때만) · **임시처리 ✅**
+- 목적: 앱 기능 (OCR 단어 추출)
+- 두 경로 모두 Play의 공유 예외에 걸칩니다:
+  - 운영자 키 → Supabase Edge(`scan-image`) → **Vertex AI는 우리 위탁 처리자**
+  - BYOK → 사용자가 자기 Gemini 키를 직접 등록해 개시한 전송(사용자가 예상하는 공유)
+- 🔑 **결정적 근거는 단어와의 정합성이다.** AI 보강으로 나가는 단어도 같은 Edge →
+  Vertex AI 경로를 타는데, 그건 `기타 사용자 제작 콘텐츠`에서 공유 ❌로 신고한다.
+  같은 목적지인데 사진만 공유라고 하면 앞뒤가 맞지 않는다.
+  *(한때 "확신이 없으면 예가 안전"이라며 ✅로 적어 뒀는데, 안전이 아니라 부정확이었다.
+  스토어 등록정보에 "사진을 다른 회사와 공유"가 뜨는 건 사실이 아니고 설치를 막는다.)*
+- 두 경로 모두 사진을 저장하지 않고 결과만 받습니다:
+  - BYOK: 사용자 본인 Gemini 키로 Google에 직접 전송
+  - 운영자 키: Supabase Edge(`scan-image`) 경유 → Google Vertex AI
 
-> ❌ 동영상: 수집 안 함
+> ❌ 동영상 수집 안 함
 
-### 🎤 오디오 파일 (Audio files)
+### 오디오 (Audio files)
 
 **음성 또는 사운드 녹음 (Voice or sound recordings)**
-- Collected: ⚠️ Yes — 음성 입력 기능 (마이크 권한)
-- Shared: ❌ No (기기 내 음성 인식 또는 OS의 Speech Recognition 사용)
-- Optional: ✅ Optional (사용자가 음성 입력 기능 사용 시)
-- Processed ephemerally: ✅ Yes — 인식된 텍스트만 사용, 오디오 데이터 자체는 저장 안 함
-- Purpose: **App functionality** (음성을 텍스트로 변환해 단어 입력)
+- 수집 ✅ · 공유 ❌ · **선택**(음성 입력을 쓸 때만) · **임시처리 ✅**
+- 목적: 앱 기능 (음성→텍스트 단어 입력)
+- OS의 음성 인식(`expo-speech-recognition`)에 넘기고 **인식된 텍스트만** 받습니다.
+  앱은 오디오를 저장하지도, 우리 서버로 보내지도 않습니다.
+- ⚖️ `app/add-word.tsx:556`의 `start({ lang, interimResults: true })`는
+  `requiresOnDeviceRecognition`을 켜지 않으므로, **기기 기본 인식기(보통 Google)가
+  오디오를 자기 서버로 보낼 수 있습니다.** 그래도 공유됨은 "아니요"로 답합니다 —
+  전송 주체가 앱이 아니라 OS 서비스이고, Play는 시스템 API가 처리하는 데이터를
+  앱의 수집·공유로 보지 않습니다. 오디오를 앱이 직접 다루게 되면 이 답이 바뀝니다.
 
-### 📚 앱 활동 (App activity)
+### 🆕 메시지 (Messages)
+
+**기타 인앱 메시지 (Other in-app messages)**
+- 수집 ✅ · 공유 ❌ · **선택**(사용자가 문의를 보낼 때만) · 임시처리 ❌
+- 목적: **앱 기능**(문의 접수·앱 내 답장 표시), **개발자 커뮤니케이션**(답장 발송)
+- 문의 본문(5~2000자)과 운영자 답장. 보관 1년(`docs/privacy-policy.html` 참조).
+  탈퇴하면 계정 연결(`user_id`)만 끊고 내용은 남깁니다 — 결제 분쟁 대비.
+
+> ❌ 이메일 본문, SMS는 수집 안 함
+
+### 앱 활동 (App activity)
 
 **앱 내 검색 기록 (In-app search history)**
-- Collected: ✅ Yes (단어장 검색)
-- Shared: ❌ No (로컬 저장만, 클라우드 동기화에도 포함 안 됨)
-- Purpose: **App functionality**
+- 수집 ✅ · 공유 ❌ · **선택** · 임시처리 ❌ · 목적: 앱 기능
+- 검색어 **이력을 저장하는 코드는 없습니다**(`@soksok_pick_recent`은 학습 조건이지 검색어가
+  아님). 다만 단어 추가 화면에 입력한 낱말이 자동완성·AI 보강을 위해 서버로 나가고
+  결과가 캐시되므로, **체크해 두는 쪽으로 답합니다.** 과다 신고는 위반이 아니고
+  누락이 위반입니다.
 
-**사용자가 생성한 콘텐츠 (User-generated content)**
-- Collected: ✅ Yes — 단어, 단어장, 학습 결과
-- Shared: ⚠️ 조건부 — 큐레이션 공유 기능 사용 시 **다른 사용자에게 공개**
-- Optional: ✅ Optional for sharing (공유는 사용자가 선택)
-- Purpose: **App functionality, Personalization** (학습 데이터 클라우드 동기화 + 선택적 공유)
+**사용자 생성 콘텐츠 (Other user-generated content)**
+- 수집 ✅ · **공유 ❌** · **선택** · 임시처리 ❌ · 목적: 앱 기능, 맞춤설정
+- 단어·단어장·학습 결과·통계. 큐레이션 공유로 다른 사용자에게 공개되지만, Play는
+  **사용자가 직접 개시한 공유를 "공유됨"에서 제외**합니다(타사 이전이 아니라 사용자의 행위).
 
-**기타 사용자 활동 (Other user-generated content)**
-- 학습률·암기율 통계, 별표·즐겨찾기, 학습 일정
-- Same handling as above
+### 🆕 앱 정보 및 성능 (App info and performance)
 
-### 🚫 수집/공유 안 하는 카테고리 (명시적으로 "No" 답변)
+**기타 앱 성능 데이터 (Other app performance data)**
+- 수집 ✅ · 공유 ❌ · **선택** · 임시처리 ❌
+- 목적: **앱 기능**, **애널리틱스**
+  (Play가 애널리틱스를 "버그 진단 및 수정"까지 포함해 정의한다 — 진단 정보의 용도가 정확히 그것)
+- 문의에 붙는 진단 정보: 앱 버전, 플랫폼(ios/android), OS 버전, 언어 설정,
+  요금제 등급, 보유 단어장 수, 보유 단어 수 (`features/support/api.ts:collectDiagnostics`)
+- **보내기 전 화면에 그대로 보여주고 사용자가 끄면 전송하지 않습니다.**
+  숨기고 보내면 신고하지 않은 수집이 되므로 이 계약은 깨지 않습니다.
 
-- **재무 정보** (결제·신용카드·구매내역): 인앱 결제 없음
-- **위치 정보**: 사용 안 함 (`expo-location` 의존성 제거 — 위치 권한 미요청)
-- **건강·피트니스**
-- **메시지** (SMS, 채팅)
-- **연락처**
-- **달력**
-- **기기/기타 ID** (Advertising ID 등 — 사용 안 함)
-- **분석/광고 데이터**: Firebase Analytics·Crashlytics·Sentry 등 트래킹 SDK 미설치
+> ❌ 크래시 로그: 수집 안 함 (Crashlytics·Sentry 미설치)
+
+### 기기 또는 기타 ID (Device or other IDs)
+
+**기기 또는 기타 ID**
+- 수집 ✅ · **공유 ✅ (Google)** · **필수**(Free 사용자는 광고를 끌 수 없음) · 임시처리 ❌
+- 목적: **광고 또는 마케팅**, **사기 예방·보안·규정 준수**(문의 남용 방지)
+- 두 가지입니다:
+  1. **광고 ID (AAID)** — AdMob 배너·보상형 광고. Google과 공유. Pro 구독자에게는 광고를 띄우지 않습니다
+  2. 🆕 **문의 남용 방지용 식별자** — 앱이 만든 UUID를 SecureStore에 보관(`device_id`).
+     하드웨어 ID가 아니며 하루 5건 제한을 세는 데만 씁니다. 공유 ❌
+
+### 수집·공유하지 않는 카테고리 ("아니요"로 답변)
+
+위치(정확·대략), 건강·피트니스, 연락처, 달력, 웹 검색 기록,
+분석(Analytics) 데이터 — 트래킹·분석 SDK를 설치하지 않았습니다(AdMob 제외).
 
 ---
 
-## 3. 보안 관행 (Security practices)
+## 3. ⚠️ 미리보기로 검증하지 말 것
 
-### 데이터가 전송 중 암호화되나요?
-✅ Yes (HTTPS/TLS via Supabase SDK + Google OAuth)
+**임시 처리 = 예로 답한 데이터는 스토어 등록정보 미리보기에 나오지 않는다.** 폼에 그렇게
+적혀 있다("이 방식으로 수집된 데이터도 공개 대상이기는 하지만 스토어 등록정보에서
+사용자에게 표시되지는 않습니다"). 이 앱에서는 **사진**과 **음성 녹음본**이 해당된다.
 
-### 데이터 삭제 메커니즘이 있나요?
-✅ Yes — 앱 내 계정 삭제 기능 제공
+2026-07-28에 이걸 몰라서, 정상 저장된 두 항목을 "저장이 안 됐다"고 두 번 잘못 판단하고
+같은 작업을 반복시켰다. **체크 여부는 `데이터 유형` 화면의 선택 개수로 확인한다** —
+사진 및 동영상 `2개 중 1개`, 오디오 파일 `3개 중 1개`.
 
-### 보안 검토를 받았나요?
-- 독립 보안 검토는 받지 않음 (개인/소규모 앱)
-- 답변: **No, but follow standard practices** 또는 해당 항목 비워둠
+## 4. 제출된 상태 (2026-07-28)
 
----
-
-## 4. 종합 답변 요약표
-
-Play Console에 입력할 때 빠르게 참고:
-
-| 항목 | 답변 |
+| | 값 |
 |---|---|
-| 데이터 수집 여부 | Yes |
-| 데이터 공유 여부 | Yes (사용자 선택 시: 사진→Gemini, 콘텐츠→커뮤니티) |
-| 사용자 데이터 삭제 가능 | Yes (in-app) |
-| 전송 중 암호화 | Yes |
-| 광고 ID 사용 | No |
-| 트래킹/분석 SDK | No |
-| 인앱 결제 | No |
+| 공유되는 데이터 | **기기 또는 기타 ID 하나뿐** |
+| 수집되는 데이터 | 이름 · 이메일 · 사용자 ID · 구매 내역 · 기타 인앱 메시지 · 기타 앱 성능 데이터 · 앱 상호작용 · 기타 사용자 제작 콘텐츠 · 기기 ID · (사진 · 음성 녹음본 — 임시라 미표시) |
+| 삭제 URL | `account-deletion.html` (계정 삭제 + 앱 데이터 관리 양쪽) |
+
+`앱 상호작용`은 이 답변지에 없던 항목인데 이미 신고돼 있었다. 해가 없어 그대로 뒀다.
+
+## 5. 코드와 답변 대조표
+
+| 답변 | 코드 위치 |
+|---|---|
+| 이메일·이름 수집 | `features/auth/store.ts` |
+| 앱 내 계정 삭제 | `features/auth/store.ts` `deleteAccount()` |
+| 인앱 결제 있음 | `package.json` `expo-iap`, `features/billing/` |
+| 광고 ID 사용 | `package.json` `react-native-google-mobile-ads`, `lib/ads/admob.ts` |
+| 문의 메시지·진단·기기 ID | `features/support/api.ts`, `supabase/migrations/20260728000000_support_messages.sql` |
+| 사진 → Google | `components/PhotoImportWorkflow.tsx`, `supabase/functions/scan-image/` |
+| 음성 → 기기 내 인식 | `package.json` `expo-speech-recognition` |
+| 크래시·분석 SDK 없음 | `package.json`에 Firebase·Sentry·AppsFlyer 부재 |

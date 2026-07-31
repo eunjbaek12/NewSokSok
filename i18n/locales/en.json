@@ -86,8 +86,7 @@
       "Turn on review reminders in Settings for a gentle nudge",
       "A Voca Do! Just one more step today"
     ],
-    "searchPlaceholder": "Search words, meanings, tags...",
-    "customStudy": "Custom Study",
+    "customStudy": "Pick & Study",
     "wrongWords": "Wrong Words",
     "wrongWordsLimit": "Top 50",
     "starredWords": "Starred Words",
@@ -139,7 +138,7 @@
   },
   "vocabLists": {
     "title": "My Vocab Lists",
-    "searchPlaceholder": "Search words, meanings, tags...",
+    "searchPlaceholder": "Search my words",
     "myLists": "My Vocab Lists",
     "emptyTitle": "No vocab lists yet",
     "emptySubtitle": "Create your own vocab list or\nbrowse collections to import words",
@@ -334,12 +333,72 @@
     "rateAppDesc": "Support us with a rating",
     "faq": "FAQ",
     "faqDesc": "Find answers to common questions",
+    "contact": "Contact us",
+    "contactDesc": "Bugs, ideas, anything — we'll reply",
+    "contactReplyDesc": "You have a reply",
+    "whatsNew": "What's new",
+    "whatsNewDesc": "What changed in this update",
     "terms": "Terms of Service",
     "termsDesc": "Read our terms and conditions",
     "privacy": "Privacy Policy",
     "privacyDesc": "How we collect, use, and store your data",
     "licenses": "Open Source & Data Sources",
     "licensesDesc": "External data and open-source libraries used"
+  },
+  "contact": {
+    "title": "Contact us",
+    "categoryLabel": "What's this about?",
+    "moreLabel": "Anything else?",
+    "category": {
+      "bug": "Bug report",
+      "idea": "Feature idea",
+      "billing": "Billing",
+      "content": "Word or translation",
+      "account": "Account",
+      "other": "Something else"
+    },
+    "bodyLabel": "Message",
+    "bodyPlaceholder": "Tell us what happened. Mentioning when it happened and which screen you were on helps us find it much faster.",
+    "emailLabel": "Email for the reply",
+    "optional": "optional",
+    "emailHintAuthed": "You'll see the reply in the app. Leave this to get it by email too.",
+    "emailHintGuest": "You'll see the reply in the app either way. Add an email to get it there too.",
+    "diagnosticsLabel": "Info sent along",
+    "diagnosticsHint": "Used only to track the problem down. Turn it off to send without this.",
+    "diagApp": "App version",
+    "diagDevice": "Device",
+    "diagLocale": "Language",
+    "diagAccount": "Account",
+    "diagWords": "Word lists",
+    "diagWordsValue": "{{lists}} lists · {{words}} words",
+    "tier": {
+      "guest": "Guest",
+      "free": "Signed in · Free",
+      "pro": "Signed in · Pro",
+      "byok": "Own API key"
+    },
+    "submit": "Send",
+    "submitting": "Sending…",
+    "successTitle": "Sent",
+    "successMessage": "We'll read it and reply if it needs one. It may take a few days.",
+    "failTitle": "Can't send right now",
+    "failMessage": "Check your connection. Your message is still here.",
+    "failMailto": "Send by email",
+    "failRetry": "Try again",
+    "mailSubject": "Avocado support",
+    "mailUnavailableTitle": "Please write to this address",
+    "dailyLimitTitle": "That's all for today",
+    "dailyLimitMessage": "You can send 5 messages a day. Please try again tomorrow.",
+    "replyHeader": "Reply",
+    "waitingHeader": "We'll read it and reply",
+    "myMessageLabel": "Your message from {{date}}"
+  },
+  "whatsNew": {
+    "title": "What's new in Avocado",
+    "confirm": "Got it",
+    "v130_1": "Review brings words back right before you'd forget them",
+    "v130_2": "Search and Pick to study are now one screen",
+    "v130_3": "You can reach us from Settings and read the reply in the app"
   },
   "licenses": {
     "title": "Open Source & Data Sources",
@@ -412,9 +471,9 @@
     "planCardCurrent": "Current plan",
     "planCardTrial": "Trial · D-{{daysLeft}}",
     "recommendedBadge": "Recommended",
-    "trialBannerTitle": "New here?",
-    "trialBannerBody": "Start now and get 7 days free",
-    "trialBannerNote": "Auto-converts to Free after trial · no auto-charge",
+    "trialBannerTitle": "Try Pro first",
+    "trialBannerBody": "Start with a {{days}}-day free trial",
+    "trialBannerNote": "Cancel during the trial and you won't be charged · manage in the store",
     "freeTitle": "Free",
     "freePrice": "₩0",
     "freeFeat1": "AI auto-complete, generate, photo scan",
@@ -487,7 +546,7 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: May 18, 2026",
+    "lastUpdated": "Last updated: July 28, 2026",
     "manageViaApple": "Settings app → Apple Account → Subscriptions",
     "manageViaGoogle": "Google Play app → Menu → Payments and subscriptions → Subscriptions",
     "sections": [
@@ -513,7 +572,7 @@
       },
       {
         "title": "Pro Subscription & Billing",
-        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen. A 7-day free trial is granted automatically at signup, with no auto-charge — you only pay if you subscribe explicitly.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
+        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen.\n\nFree trial: Any free trial is an offer from {{store}}, applied when you start a Pro subscription from the Plans screen. Whether it is offered, and for how long, is shown at store checkout. Cancel during the trial and you won't be charged; if you don't cancel, the first payment is taken when the trial ends.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
       },
       {
         "title": "Advertising",
@@ -536,13 +595,16 @@
   "faq": {
     "title": "FAQ",
     "headerSubtitle": "Frequently asked questions",
+    "noAnswerTitle": "Didn't find your answer?",
+    "noAnswerDesc": "Ask directly and we'll look into it and reply.",
+    "askDeveloper": "Ask us directly",
     "categories": [
       {
         "title": "Getting Started",
         "items": [
           {
-            "q": "What's the difference between Guest mode and Google sign-in?",
-            "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nGoogle sign-in stores your data in the cloud, keeping it safe across devices and syncing automatically."
+            "q": "What's the difference between Guest mode and signing in?",
+            "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nSigning in with Google or Apple stores your data in the cloud, keeping it safe across devices and syncing automatically."
           },
           {
             "q": "Can I sign in with Apple instead of Google?",
@@ -571,7 +633,7 @@
           },
           {
             "q": "Can I build vocab lists in languages other than Korean?",
-            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, and Chinese (e.g., English → Korean, Japanese → Korean, Korean → Chinese).\n\nAI auto-complete and photo scan work in all four languages."
+            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, Chinese, Vietnamese, and Spanish (e.g., English → Korean, Japanese → Korean, Korean → Vietnamese).\n\nAI auto-complete and photo scan work in all six languages, and the Curation tab has lists for each language too."
           },
           {
             "q": "How does AI auto-complete work?",
@@ -592,6 +654,10 @@
           {
             "q": "Can I add words by voice?",
             "a": "Yes — tap the mic icon and say the word. You'll need to grant microphone permission the first time."
+          },
+          {
+            "q": "What happens if I edit the word while auto-complete is running?",
+            "a": "The search in progress is cancelled right away and restarts for the word you just typed. While it runs, the word being looked up is shown under the input field.\n\nSaving is blocked until the result arrives — otherwise you'd save a half-filled word with no meaning or example.\n\nNote that cancelling doesn't refund quota already spent: the server may have started working on it already."
           }
         ]
       },
@@ -608,11 +674,11 @@
           },
           {
             "q": "Can I study a subset of words?",
-            "a": "Yes. Open a list and use the top filter to narrow to \"Starred\" or \"Unmemorized\", then study only those. For multi-list combinations or finer control, use Custom Study from the Home tab."
+            "a": "Yes. Open a list and use the top filter to narrow to \"Starred\" or \"Unmemorized\", then study only those.\n\nFor multi-list combinations or finer control, use Pick & Study on the Home tab."
           },
           {
-            "q": "What is Custom Study?",
-            "a": "Combine multiple lists into one session, narrow the scope with filters (All / Unmemorized / Memorized / Wrong / Recent / Starred), and pick a mode (Flashcards or Quiz). Great for mixed review."
+            "q": "What is Pick & Study?",
+            "a": "It's a screen for gathering exactly the words you want across several lists. Open it from the Pick & Study card on Home.\n\nNarrow things down with chips — status (unmemorized, memorized, missed, starred), part of speech, scope (lists and Days), and tags. There are ready-made presets too, like Most missed and Recently added. As soon as one condition is set, the matching words and their count appear, and you start from the study bar below by choosing Flashcards or Quiz.\n\nWhatever you started with is kept as \"Last used\", so you can re-apply it with one tap next time. The conditions themselves reset when you restart the app.\n\nOne more thing: the one-tap buttons on Home (review, most missed, starred) always open as Flashcards. To use Quiz, choose it in Pick & Study or in a list's detail screen."
           },
           {
             "q": "Is my progress saved if I stop mid-session?",
@@ -641,7 +707,7 @@
           },
           {
             "q": "I'm not getting review reminders.",
-            "a": "1. Check that Settings → Review reminders is on.\n2. No reminder is sent on days with nothing to review — that's normal.\n3. Notifications for SokSok Voca may be off in your device settings, or Focus / Do Not Disturb may be on."
+            "a": "1. Check that Settings → Review reminders is on.\n2. No reminder is sent on days with nothing to review — that's normal.\n3. Notifications for Avocado may be off in your device settings, or Focus / Do Not Disturb may be on."
           }
         ]
       },
@@ -688,11 +754,11 @@
         "items": [
           {
             "q": "Will my words disappear if I switch from Guest to Google?",
-            "a": "If this is your first Google sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
+            "a": "If this is your first sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
           },
           {
             "q": "Will my lists follow me to a new device?",
-            "a": "Google users: yes — sign in on the new device and they download automatically. Guest users: no."
+            "a": "Signed-in users: yes — sign in on the new device and they download automatically. Guest users: no."
           },
           {
             "q": "When does sync happen?",
@@ -705,6 +771,10 @@
           {
             "q": "What if I edit the same word on two devices at once?",
             "a": "The most recent save wins. Avoid editing the same word simultaneously on multiple devices."
+          },
+          {
+            "q": "Can I back up a list to a file or move it elsewhere?",
+            "a": "Yes. On the Lists tab, tap the ⋯ button on a list card (or long-press it) and choose \"Export CSV\" — the word, meaning, pronunciation, part of speech, definition, example, and tags all go into one file you can open in Excel or another app.\n\n\"Import CSV\" does the reverse, adding exactly what the file says. No AI is called, so it doesn't touch your daily quota.\n\nIf instead you have a bare list of words and want AI to fill in the meanings and examples, use Excel Upload."
           }
         ]
       },
@@ -738,7 +808,7 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
+            "a": "• Free — all study and management features. AI daily quota: 100 words (300 for your first 24 hours after signing up). A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
           },
           {
             "q": "How is the \"word count\" measured?",
@@ -750,19 +820,19 @@
           },
           {
             "q": "How does the Pro free trial work?",
-            "a": "New sign-ups get a 7-day Pro trial — no ads, Pro daily quota — automatically. When the trial ends, your account drops back to Free.\n\nThere's no auto-charge, so a credit card isn't required."
+            "a": "The store applies the free trial when you start a Pro subscription from the Plans screen. Whether it's offered, and for how long, is shown at checkout. During the trial there are no ads and your daily quota is the Pro one.\n\nCancel during the trial and you won't be charged. If you don't cancel, the first payment is taken when the trial ends.\n\nSeparately from any trial, your first 24 hours after signing up come with a larger 300-word AI quota."
           },
           {
             "q": "How do I subscribe to or cancel Pro?",
-            "a": "Billing runs through the Google Play Store. Start a Pro subscription from Settings → Plans.\n\nCancel anytime from Google Play's \"My Subscriptions\". Pro features stay active until the next renewal date. Refunds follow Google Play's policy."
+            "a": "Start a Pro subscription from Settings → Plans. Billing runs through the store you installed the app from.\n\nWhere you cancel depends on the store:\n• Android — Google Play app → Menu → Payments & subscriptions → Subscriptions\n• iPhone/iPad — Settings app → Apple Account → Subscriptions\n\nPro features stay active until the period you already paid for ends. Refunds follow each store's policy and are requested through that store."
           },
           {
             "q": "How are ads shown?",
             "a": "On the Free tier, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your daily quota, you can opt in to watch a rewarded video ad on demand."
           },
           {
-            "q": "I just signed up and I don't see any ads. Is that normal?",
-            "a": "Yes — new accounts are ad-free for the first 7 days. After that, Free-tier users see a banner ad. Upgrade to Pro to remove ads entirely."
+            "q": "Are there ads during the trial?",
+            "a": "No — a free trial is ad-free, exactly like Pro. Once the trial ends and you're back on Free, the banner ad returns. Staying on Pro removes ads entirely."
           }
         ]
       },
@@ -775,7 +845,7 @@
           },
           {
             "q": "Can I share my list to Curation?",
-            "a": "Only Google-signed-in users can share. Guests can import only."
+            "a": "Only signed-in users (Google or Apple) can share. Guests can import only."
           },
           {
             "q": "Does editing an imported list affect the original?",
@@ -787,7 +857,7 @@
           },
           {
             "q": "How do I report an objectionable shared list?",
-            "a": "Open a list shared by another user in the Curation tab and tap the report (flag) icon at the top. Pick a reason — inappropriate content, copyright infringement, spam, misinformation, or other — and optionally add up to 500 characters of detail.\n\nReporting requires Google sign-in, and you can report the same list only once. Submitted reports are reviewed and acted on. (The report button doesn't appear on lists you shared yourself.)"
+            "a": "Open a list shared by another user in the Curation tab and tap the report (flag) icon at the top. Pick a reason — inappropriate content, copyright infringement, spam, misinformation, or other — and optionally add up to 500 characters of detail.\n\nReporting requires signing in, and you can report the same list only once. Submitted reports are reviewed and acted on. (The report button doesn't appear on lists you shared yourself.)"
           },
           {
             "q": "Where do the built-in word lists come from?",
@@ -808,11 +878,11 @@
           },
           {
             "q": "How do I change my nickname?",
-            "a": "Settings → Account → Nickname. Up to 10 characters. Google-signed-in users get their Google display name as the default."
+            "a": "Settings → Account → Nickname. Up to 10 characters. If your account has a name attached, signed-in users get it as the initial default."
           },
           {
             "q": "How can I quickly find a word?",
-            "a": "Use the search at the top of the Lists tab, or the search inside any list, to find words by term, meaning, or tag. Frequently used tags are shown too."
+            "a": "Tap \"Search my words\" at the top of the Lists tab to search everything you've saved by term, meaning, definition, or tag.\n\nYou can also start studying straight from the results — pick Flashcards or Quiz in the study bar below and the session opens with exactly the words on screen. Chips let you narrow further; it's the same screen as Pick & Study.\n\nWords in hidden lists aren't searched."
           },
           {
             "q": "Can I use my own Gemini API key? (Advanced)",
@@ -820,7 +890,7 @@
           },
           {
             "q": "What happens to my lists if I sign out?",
-            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same Google account."
+            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same account."
           },
           {
             "q": "How do I delete my account permanently?",
@@ -829,6 +899,14 @@
           {
             "q": "Can other people see my lists?",
             "a": "No. Only lists you explicitly share to Curation are visible to others."
+          },
+          {
+            "q": "If I send a message, where does the reply show up?",
+            "a": "Settings → Contact us lets you send bug reports, feature ideas, billing questions, and anything else. Guests can send too.\n\nReplies arrive in the app: when one is waiting, the \"Contact us\" row in Settings is marked, and opening it shows the reply below the message you sent. Add your email and you'll get a copy by mail as well — leave it blank and the in-app reply still works.\n\nYour app version, device, language, and list counts are sent along to help track the problem down; you can switch that off before sending. Up to 5 messages a day, and a reply may take a few days."
+          },
+          {
+            "q": "What is the \"What's new in Avocado\" sheet after an update?",
+            "a": "The first time you open the app after updating, it shows what changed — once only. Tap OK and it won't come back.\n\nPast updates are always available under Settings → What's new."
           }
         ]
       },
@@ -841,7 +919,7 @@
           },
           {
             "q": "My lists are missing.",
-            "a": "Google users: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
+            "a": "If you were signed in: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
           },
           {
             "q": "AI calls keep failing.",
@@ -965,10 +1043,15 @@
     "duplicateNameMessage": "A list named \"{{name}}\" already exists. Please choose a different name.",
     "duplicateWord": "Word already exists",
     "duplicateWordMessage": "\"{{term}}\" is already in this list with the same target language ({{lang}}). Pick a different target language to add it.",
+    "dupInThisList": "Already in this list",
+    "dupInOther": "Also in '{{list}}'",
+    "dupInOtherMore": "Also in '{{list}}' and {{count}} more",
     "aiQuotaTitle": "Daily AI limit reached",
     "aiQuotaMessage": "Your Gemini API key has hit its free daily limit. The limit resets each day; enabling billing on the key's Google Cloud project raises it. (For now, only English dictionary info is auto-filled.)",
     "autoFillFailed": "Couldn't load auto-fill. Please try again in a moment.",
     "autoFillNotFound": "Couldn't find \"{{term}}\" in the dictionary. Check the spelling or enter it manually.",
+    "searchingFill": "Looking up '{{term}}'…",
+    "suggestLoading": "Finding suggestions…",
     "langChangeResetTitle": "Change language",
     "langChangeResetMessage": "Changing the language will clear the filled-in fields. Continue? (The word itself is kept)",
     "selectList": "Choose a List",
@@ -1046,7 +1129,37 @@
     "filterMemorized": "Memorized",
     "enterQuery": "Enter a search term.",
     "noResults": "No results found.",
-    "resultCount": "{{count}} words"
+    "resultCount": "{{count}} words",
+    "pickTitle": "Pick & Study",
+    "rowStatus": "Status",
+    "rowPos": "Type",
+    "rowScope": "Scope",
+    "rowTag": "Tags",
+    "starredChip": "Starred",
+    "presetWrong": "Most missed",
+    "presetRecent": "Recently added",
+    "scopeAllLists": "All lists",
+    "scopeNone": "No list selected",
+    "scopeDayOne": "{{name}} · Day {{day}}",
+    "scopeDayRange": "{{name}} · Day {{from}}–{{to}}",
+    "scopeDayCount": "{{name}} · {{count}} days",
+    "scopeMulti": "{{name}} +{{rest}}",
+    "scopeMultiPartialDays": "{{name}} +{{rest}} · some days",
+    "countOnly": "{{n}} words",
+    "countWithFilters": "{{n}} words · {{filters}} filters",
+    "batchHint": "{{count}} per batch",
+    "reset": "Reset",
+    "modeFlashcard": "Cards",
+    "modeQuiz": "Quiz",
+    "startWithCount": "Study {{n}}",
+    "startEmpty": "No words to study",
+    "emptyTitle": "Type a word or meaning",
+    "emptySubtitle": "Or narrow it down with the chips above",
+    "pickEmptyTitle": "Pick a condition with the chips above",
+    "pickEmptySubtitle": "Narrow by status, part of speech, scope, or tag",
+    "recentHeader": "Last used",
+    "recentInline": "Last used — {{condition}}",
+    "recentMeta": "{{when}} · {{count}} words"
   },
   "stats": {
     "title": "My Learning",
@@ -1176,28 +1289,6 @@
     "adverb": "Adverb",
     "phrase": "Phrase",
     "other": "Other"
-  },
-  "customStudy": {
-    "title": "Custom Study",
-    "noLists": "No vocab lists available.",
-    "studyMode": "Study Mode",
-    "flashcards": "Flashcards",
-    "quiz": "Multiple Choice Quiz",
-    "studyScope": "Study Scope",
-    "wordFilter": "Word Filter",
-    "posFilter": "Part of Speech",
-    "filterAll": "All",
-    "filterUnmemorized": "Not Memorized",
-    "filterMemorized": "Memorized",
-    "filterWrong": "Most Wrong",
-    "filterRecent": "Recently Added",
-    "filterStarred": "Starred",
-    "allLists": "All Vocab Lists",
-    "noneSelected": "None Selected",
-    "selectedLists": "{{first}} +{{rest}} more",
-    "wordCount": "{{count}} words",
-    "noMatchingWords": "No words match the criteria",
-    "startStudy": "Start Study"
   },
   "wordDetail": {
     "saveError": "An error occurred while saving the word.",
@@ -1436,7 +1527,7 @@
     "softAskAccept": "Get reminders",
     "softAskLater": "Not now",
     "blockedTitle": "Notifications are off",
-    "blockedBody": "Turn on SokSok Voca notifications in your device settings.",
+    "blockedBody": "Turn on Avocado notifications in your device settings.",
     "blockedOpen": "Open Settings",
     "cancel": "Cancel"
   }

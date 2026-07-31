@@ -18,6 +18,7 @@ import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
 import { reconcileSubscriptionOnLaunch } from "@/features/billing";
+import { useSupportStore } from "@/features/support";
 import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
@@ -96,6 +97,10 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
       ]);
       await initAdMob();
     })();
+    // 개발자 답장 확인 — 세션 1회. 게스트도 조회하므로(ticket_key 기반) 로그인
+    // 여부와 무관하게 여기서 한 번 돈다. 실패는 조용히 삼킨다(배지가 안 뜰 뿐이고,
+    // 문의 화면에 들어가면 다시 조회한다).
+    void useSupportStore.getState().refresh();
   }, []);
 
   // 로그인 직후 / 토큰 갱신 직후에 quota 1회 새로고침.
@@ -228,6 +233,13 @@ function AppStack() {
       <Stack.Screen name="terms" options={{ headerShown: false }} />
       <Stack.Screen name="licenses" options={{ headerShown: false }} />
       <Stack.Screen name="advanced-settings" options={{ headerShown: false }} />
+      {/*
+        아래 두 화면은 자기 헤더를 직접 그린다. 여기 등록을 빠뜨리면 expo-router가
+        기본 네이티브 헤더에 라우트 이름("Contact", "Whats-new")을 얹어 헤더가 두 개로
+        보인다 — 새 화면을 추가할 때마다 이 목록에 함께 넣을 것.
+      */}
+      <Stack.Screen name="contact" options={{ headerShown: false }} />
+      <Stack.Screen name="whats-new" options={{ headerShown: false }} />
     </Stack>
   );
 }

@@ -63,7 +63,12 @@ export function useReviewSoftAsk(dueCount: number) {
     if (isLoading) return;
     if (dueCount <= 0) return;
     if (settings.softAsked || settings.enabled) return;
-    setSoftAskVisible(true);
+    // 홈 진입 즉시 띄우지 않는다 — 복습 배너("복습 N개")를 눈으로 읽은 뒤에 물어야
+    // 이 화면이 표방하는 "가치를 보여준 뒤 묻기"가 성립한다. 즉시 덮으면 맥락 없는
+    // 권한 요청이 되어 그냥 닫히고, 이 시트는 평생 한 번뿐이라 그 한 번이 알림 기능
+    // 전체의 도달률이 된다(거절하면 softAsked=true로 다시 묻지 않는다).
+    const t = setTimeout(() => setSoftAskVisible(true), 1500);
+    return () => clearTimeout(t);
   }, [isLoading, dueCount, settings.softAsked, settings.enabled]);
 
   const handleSoftAskDecided = useCallback(

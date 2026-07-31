@@ -1,0 +1,70 @@
+<ko-KR>
+✨ 복습이 생겼어요
+외운 단어를 잊을 때쯤 다시 꺼내드려요. 하루 한 번, 부담 없는 분량으로요.
+
+🔍 검색과 골라서 학습이 한 화면으로
+찾은 단어를 그 자리에서 바로 학습할 수 있어요.
+
+💬 문의하기
+설정에서 바로 문의하고, 답장도 앱에서 받아보세요.
+
+그 밖에
+• 퀴즈·예문에서 선택지가 아래 버튼에 가려지던 문제 수정
+• 자주 묻는 질문 보강
+</ko-KR>
+<en-US>
+✨ Review is here
+Words come back right before you'd forget them — one gentle batch a day.
+
+🔍 Search and Pick to Study are now one screen
+Find a word and start studying it on the spot.
+
+💬 Contact us in the app
+Reach us from Settings and read the reply right here.
+
+Also
+• Fixed answer choices being hidden behind the bottom buttons in Quiz and Examples
+• Expanded the FAQ
+</en-US>
+<ja-JP>
+✨ 復習機能が登場
+覚えた単語を忘れそうなタイミングでもう一度出題します。1日1回、無理のない量で。
+
+🔍 検索と「選んで学習」が1画面に
+見つけた単語をその場で学習できます。
+
+💬 アプリから問い合わせ
+設定から問い合わせて、返信もアプリで受け取れます。
+
+その他
+• クイズ・例文で選択肢が下のボタンに隠れる問題を修正
+• よくある質問を追加
+</ja-JP>
+<vi>
+✨ Đã có tính năng Ôn tập
+Từ vựng quay lại đúng lúc bạn sắp quên — mỗi ngày một lượng vừa phải.
+
+🔍 Tìm kiếm và Chọn để học nay ở cùng một màn hình
+Tìm từ và bắt đầu học ngay tại đó.
+
+💬 Liên hệ ngay trong ứng dụng
+Gửi câu hỏi từ Cài đặt và nhận phản hồi ngay trong ứng dụng.
+
+Khác
+• Sửa lỗi phương án trả lời bị nút dưới cùng che trong Trắc nghiệm và Ví dụ
+• Bổ sung Câu hỏi thường gặp
+</vi>
+<zh-CN>
+✨ 新增复习功能
+在你快要忘记的时候，把学过的单词再拿出来。每天一次，分量刚好。
+
+🔍 搜索与"挑选学习"合并为一个页面
+找到单词后可以立即开始学习。
+
+💬 在应用内联系我们
+在设置中直接提问，回复也能在应用里查看。
+
+其他
+• 修复测验和例句中选项被底部按钮遮挡的问题
+• 补充常见问题
+</zh-CN>

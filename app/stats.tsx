@@ -43,8 +43,10 @@ export default function StatsScreen() {
   const [month, setMonth] = useState(currentMonth);
   // 달력 날짜 원형 크기(px) — 측정 없이 화면 폭에서 결정적으로 계산한다.
   // 그리드 폭 = 화면폭 − 스크롤 좌우패딩(16*2) − 카드 좌우패딩(10*2). 7등분 후 셀 패딩(3*2) 제외.
-  // 명시적 width===height + borderRadius=절반 → Android에서도 항상 완전한 원.
-  // ('50%' 문자열도 onLayout 실측도 실기기서 네모로 깨졌던 회귀를 이 방식으로 종결.)
+  // 명시적 width===height + borderRadius=절반.
+  // 이 값은 처음부터 정상이었다(실측 38.0×38.0 = 계산값). 원형이 세 번 깨진 진짜 원인은
+  // 계산이 아니라 아래 렌더 코드의 borderWidth 누락이다 — '50%'→onLayout→Dimensions로
+  // 계산법만 바꾼 세 번의 수정이 전부 빗나간 이유.
   const dayCircle = Math.max(26, Math.min(46, Math.floor((Dimensions.get('window').width - 52) / 7) - 6));
 
   // 날짜 탭 상세 시트. dayReqRef는 늦게 도착한 이전 날짜 응답이 시트를 덮는 경합 방지.
@@ -235,16 +237,42 @@ export default function StatsScreen() {
                     <View
                       style={[
                         styles.calDay,
-                        { width: dayCircle, height: dayCircle, borderRadius: dayCircle / 2 },
-                        on && { backgroundColor: colors.primary },
-                        isToday && { borderWidth: 2, borderColor: colors.warning },
+                        // ⚠️ 배경색이 있는 칸(on)은 아래 overflow:'hidden'이 없으면 Android에서
+                        // 네모로 그려진다. borderRadius는 스타일에 정상으로 살아있는데도(실측:
+                        // StyleSheet.flatten 결과 borderRadius=19·w=h=38·bg 적용됨) Android(New
+                        // Arch/Fabric)가 배경 View의 borderRadius를 렌더링에서 무시하기 때문이다.
+                        // borderWidth로는 못 고친다(1px·2px 둘 다 네모였다) — overflow:'hidden'이
+                        // 원형 클리핑을 강제한다. 배경 없는 isToday 칸(테두리만)은 이 버그가 없다.
+                        //
+                        // 조건부 스타일은 배열 원소(`[base, cond && {...}]`)가 아니라 이 객체 안
+                        // 스프레드(`...(cond && {...})`)로 둔다 — 배열 조건부는 Android 릴리스+React
+                        // Compiler에서 앞 원소가 유실되는 별개 회귀가 있다(DialogModal 3faf4f1 참조).
+                        {
+                          width: dayCircle,
+                          height: dayCircle,
+                          borderRadius: dayCircle / 2,
+                          overflow: 'hidden' as const, // 배경 View의 borderRadius 렌더 버그 우회(위 주석). 지우면 학습한 날이 네모로 되돌아간다.
+                          ...(on && {
+                            backgroundColor: colors.primary,
+                            borderWidth: 1,
+                            borderColor: colors.primary,
+                          }),
+                          ...(isToday && { borderWidth: 2, borderColor: colors.warning }),
+                        },
                       ]}
                     >
                       <Text
                         style={[
                           styles.calDayNum,
-                          { color: on ? colors.onPrimary : isFuture ? colors.borderLight : colors.textSecondary },
-                          isToday && !on && { color: colors.warning },
+                          {
+                            color: on
+                              ? colors.onPrimary
+                              : isToday
+                                ? colors.warning
+                                : isFuture
+                                  ? colors.borderLight
+                                  : colors.textSecondary,
+                          },
                         ]}
                       >
                         {Number(date.slice(8))}

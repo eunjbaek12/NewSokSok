@@ -1,5 +1,5 @@
 {
-  "target": "Google Play 폰 스크린샷 (1290x2580, 정확히 2:1). Play는 비율 최대 2:1까지만 허용 → iOS 2796 그대로 못 써서 세로만 줄임. Play 라인업은 iOS 9장에서 테마 2장(08/09)을 제외한 7장. 캡션은 appstore/와 동일.",
+  "target": "Google Play 폰 스크린샷 (1290x2580, 정확히 2:1). Play는 비율 최대 2:1까지만 허용 → iOS 2796 그대로 못 써서 세로만 줄임. Play 라인업 8장(한도 8) = 히어로 2장 + 6장. iOS에서 테마(08)를 뺀 구성. 05-home은 히어로 2장에 들어가 중복이므로 제외(raw는 히어로가 씀). 캡션은 appstore/와 동일.",
   "viewport": {
     "width": 1290,
     "height": 2580
@@ -12,7 +12,45 @@
     "sub": "#6B6358",
     "teal": "#2A7B78"
   },
+  "hero": {
+    "dir": "../hero",
+    "note": "hero/hero.png(1984x2144)를 두 장에 걸쳐 파노라마로 깐다. 배율은 캔버스 폭 2장분(2580)/1984 = 1.3004로 appstore와 같고, 오프셋 y만 다르다 — Play 캔버스는 2580이라 세로가 208px 넘쳐 y=-52로 내려야 캐릭터 발(원본 2024)과 폰 하단(2022)이 안 잘린다. 좌표 근거는 hero/README.md.",
+    "cream": "#F4E5CA",
+    "statusBarPx": 132,
+    "screen": { "x": 1557.9, "y": 870.0, "width": 784.1, "height": 1671.0, "radius": 60 },
+    "notch": { "x": 166.5, "width": 449.9 }
+  },
   "screenshots": [
+    {
+      "id": "00-hero-a",
+      "type": "hero",
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": 0, "y": -52 },
+      "phone": null,
+      "screen": "히어로 1장 — 캐릭터. raw 캡처 불필요. 2장과 같은 배율(1.3004)로 깔고 x=0(원본 왼쪽 절반) — 2장이 x=-1290으로 이어받아 두 장이 파노라마로 연결된다.",
+      "ko": {
+        "caption": "단어장 만들기,<br>이제 3초",
+        "sub": "주제만 말하면 단어·뜻·예문까지 한 번에"
+      },
+      "en": {
+        "caption": "A word list<br>in 3 seconds",
+        "sub": "Name a topic — words, meanings, examples"
+      }
+    },
+    {
+      "id": "00-hero-b",
+      "type": "hero",
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": -1290, "y": -52 },
+      "phone": "05-home",
+      "screen": "히어로 2장 — 폰 안은 홈 탭 실제 캡처(raw/{lang}/05-home.png). x=-1290은 1장이 담은 왼쪽 절반의 바로 다음 — 캐릭터의 뻗은 팔이 1장에서 이어져 폰으로 닿는다.",
+      "ko": {
+        "caption": "만드는 건 AI,<br>외우는 건 나",
+        "sub": "카드·퀴즈·예문·섀도잉으로 진짜 외운다"
+      },
+      "en": {
+        "caption": "AI builds it.<br>You learn it.",
+        "sub": "Cards, quizzes, examples, shadowing"
+      }
+    },
     {
       "id": "01-generate",
       "screen": "AI 단어 생성 — features/curation/screen.tsx",
@@ -63,19 +101,6 @@
       "en": {
         "caption": "Watch the days<br>add up",
         "sub": "Streaks, words learned, and a calendar at a glance"
-      }
-    },
-    {
-      "id": "05-home",
-      "screen": "홈 탭 — app/(tabs)/index.tsx",
-      "captureHint": "단어장 2~3개가 진행 중이고 오늘 진척/달성이 보이는 상태. 라이트 테마. 빈 화면 금지. (복습 배너는 due 단어가 있어야 떠서 촬영 부담 큼 → 홈은 평범 상태로, 복습은 설명 텍스트로 홍보.)",
-      "ko": {
-        "caption": "내 단어 공부, 한눈에",
-        "sub": "단어장·진척·오늘 할 일까지"
-      },
-      "en": {
-        "caption": "Your vocabulary, at a glance",
-        "sub": "Word lists, progress, and today's to-dos"
       }
     },
     {

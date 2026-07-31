@@ -9,6 +9,7 @@
     "lint:fix": "expo lint --fix",
     "test": "jest",
     "check:curation": "node scripts/curation-checks/ai_curation_parse.js && node scripts/curation-checks/ai_curation_prompt.js && node scripts/curation-checks/ai_curation_import.js && node scripts/curation-checks/ai_curation_badge.js && node scripts/curation-checks/ai_curation_regen.js",
+    "diagnose:examples": "ts-node -P tsconfig.scripts.json scripts/diagnose-example-quality.ts",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },

@@ -19,8 +19,15 @@ const { withAndroidManifest } = require('expo/config-plugins');
  *     app.json의 android.permissions에서 직접 선언한다. **절대 건드리지 말 것.**
  *   - expo-audio = iOS 전용. 여기서 서비스만 제거한다.
  *
- * 권한(FOREGROUND_SERVICE 등)은 일부러 남긴다. FOREGROUND_SERVICE는 expo-notifications도
- * 요구할 수 있어 제거하면 알림이 조용히 깨질 수 있고, 서비스가 없으면 그 권한은 무해하다.
+ * ⚠️ 권한은 여기서 지우지 않는다 — `app.json`의 `android.blockedPermissions`에 있다
+ * (`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MEDIA_PLAYBACK`). 처음에는 "서비스가 없으면
+ * 권한은 무해하고, FOREGROUND_SERVICE는 expo-notifications도 요구할 수 있다"고 보고 남겼는데
+ * **둘 다 틀렸다**(2026-07-28):
+ *   - Play는 서비스가 아니라 **권한**을 보고 "포그라운드 서비스 권한" 선언을 요구한다.
+ *     안 쓰는 권한이라 적을 용도가 없고, 선언 기한이 지나면 업데이트 출시가 막힌다.
+ *   - `node_modules` 전체를 훑어보니 FOREGROUND_SERVICE 계열을 선언하는 라이브러리는
+ *     expo-audio 하나뿐이다. expo-notifications는 RECEIVE_BOOT_COMPLETED와
+ *     POST_NOTIFICATIONS만 요구한다. 추측으로 남겨 둔 한 줄이 선언 요구를 불렀다.
  *
  * 플러그인 순서는 무관하다. expo-audio는 config plugin이 아니라 라이브러리 매니페스트로
  * 서비스를 넣고, 실제 병합·제거는 Gradle manifest merger가 빌드 시점에 수행한다. 여기서는

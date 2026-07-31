@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "시장",
+    "pos": "noun",
+    "meaningEn": "a market; a traditional open-air market",
+    "romaja": "sijang",
+    "exampleKo": "이 시장은 물건이 정말 싸네요.",
+    "exampleEn": "Things are really cheap at this market.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 2,
+    "term": "재래시장",
+    "pos": "noun",
+    "meaningEn": "a traditional market; an old-style local market",
+    "romaja": "jaeraesijang",
+    "exampleKo": "저는 재래시장에서 장 보는 걸 좋아해요.",
+    "exampleEn": "I like shopping at traditional markets.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 3,
+    "term": "오일장",
+    "pos": "noun",
+    "meaningEn": "a five-day market that opens every 5 days",
+    "romaja": "oiljang",
+    "exampleKo": "다음 오일장은 언제 열려요?",
+    "exampleEn": "When does the next five-day market open?",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 4,
+    "term": "새벽시장",
+    "pos": "noun",
+    "meaningEn": "a dawn market that opens before sunrise",
+    "romaja": "saebyeoksijang",
+    "exampleKo": "새벽시장에 가면 신선한 해산물이 많아요.",
+    "exampleEn": "If you go to the dawn market, there's lots of fresh seafood.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 5,
+    "term": "노점",
+    "pos": "noun",
+    "meaningEn": "a street stall; a vendor's stand set up on the street",
+    "romaja": "nojeom",
+    "exampleKo": "저 노점에서 떡볶이 먹을까요?",
+    "exampleEn": "Shall we eat tteokbokki at that street stall?",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 6,
+    "term": "포장마차",
+    "pos": "noun",
+    "meaningEn": "a tented street food cart with seating, for snacks and drinks",
+    "romaja": "pojangmacha",
+    "exampleKo": "퇴근하고 포장마차에서 한잔할까요?",
+    "exampleEn": "Shall we have a drink at a pojangmacha after work?",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 7,
+    "term": "정육점",
+    "pos": "noun",
+    "meaningEn": "a butcher shop",
+    "romaja": "jeongnyukjeom",
+    "exampleKo": "오늘 정육점에서 고기 좀 사야겠어요.",
+    "exampleEn": "I should buy some meat at the butcher shop today.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 8,
+    "term": "생선가게",
+    "pos": "noun",
+    "meaningEn": "a fish shop; a fishmonger's stall",
+    "romaja": "saengseongage",
+    "exampleKo": "이 생선가게 생선은 싱싱해요.",
+    "exampleEn": "The fish at this fish shop is fresh.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 9,
+    "term": "야채가게",
+    "pos": "noun",
+    "meaningEn": "a vegetable shop; a greengrocer",
+    "romaja": "yachaegage",
+    "exampleKo": "야채가게에서 신선한 채소 샀어요.",
+    "exampleEn": "I bought fresh vegetables at the greengrocer.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 10,
+    "term": "반찬가게",
+    "pos": "noun",
+    "meaningEn": "a shop selling ready-made Korean side dishes (banchan)",
+    "romaja": "banchangage",
+    "exampleKo": "오늘 저녁은 반찬가게에서 사갈까요?",
+    "exampleEn": "Shall we buy dinner from the banchan shop today?",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 11,
+    "term": "방앗간",
+    "pos": "noun",
+    "meaningEn": "a mill shop that presses sesame oil and pounds rice cakes",
+    "romaja": "bangatgan",
+    "exampleKo": "방앗간에서 떡볶이 떡 좀 뽑아 주세요.",
+    "exampleEn": "Please pound some tteokbokki rice cakes at the mill.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 12,
+    "term": "상인",
+    "pos": "noun",
+    "meaningEn": "a merchant; a market vendor",
+    "romaja": "sangin",
+    "exampleKo": "이 시장 상인들은 다 친절해요.",
+    "exampleEn": "All the vendors in this market are kind.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 13,
+    "term": "사장님",
+    "pos": "noun",
+    "meaningEn": "boss; the standard polite way to address any shop owner",
+    "romaja": "sajangnim",
+    "exampleKo": "사장님, 이거 얼마예요?",
+    "exampleEn": "Boss, how much is this?",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 14,
+    "term": "이모",
+    "pos": "noun",
+    "meaningEn": "aunt; a friendly way to call a middle-aged female vendor",
+    "romaja": "imo",
+    "exampleKo": "이모, 여기 김치찌개 하나 주세요!",
+    "exampleEn": "Auntie, please give me one kimchi stew here!",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 15,
+    "term": "단골",
+    "pos": "noun",
+    "meaningEn": "a regular customer; one's usual go-to shop",
+    "romaja": "dangol",
+    "exampleKo": "저는 이 가게 단골이라 서비스 많이 받아요.",
+    "exampleEn": "I'm a regular here, so I get lots of freebies.",
+    "category": "시장·가게"
+  },
+  {
+    "rank": 16,
+    "term": "얼마예요",
+    "pos": "phrase",
+    "meaningEn": "How much is it?",
+    "romaja": "eolmayeyo",
+    "exampleKo": "이 사과 한 봉지에 얼마예요?",
+    "exampleEn": "How much is one bag of these apples?",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 17,
+    "term": "깎다",
+    "pos": "verb",
+    "meaningEn": "to knock the price down; to take something off the price",
+    "romaja": "kkakda",
+    "exampleKo": "좀 깎아 주시면 안 될까요?",
+    "exampleEn": "Couldn't you knock the price down a bit?",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 18,
+    "term": "깎아 주세요",
+    "pos": "phrase",
+    "meaningEn": "Could you give me a discount?",
+    "romaja": "kkakka juseyo",
+    "exampleKo": "사장님, 좀 깎아 주세요!",
+    "exampleEn": "Boss, please give me a discount!",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 19,
+    "term": "흥정하다",
+    "pos": "verb",
+    "meaningEn": "to haggle; to bargain back and forth over a price",
+    "romaja": "heungjeonghada",
+    "exampleKo": "이 시장에서는 흥정하는 재미가 있어요.",
+    "exampleEn": "It's fun to haggle at this market.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 20,
+    "term": "에누리",
+    "pos": "noun",
+    "meaningEn": "a discount off the asking price; wiggle room in the price",
+    "romaja": "enuri",
+    "exampleKo": "에누리 없이 그냥 이 가격인가요?",
+    "exampleEn": "Is this price fixed, with no wiggle room?",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 21,
+    "term": "덤",
+    "pos": "noun",
+    "meaningEn": "a little extra thrown in for free on top of what you bought",
+    "romaja": "deom",
+    "exampleKo": "사장님, 덤으로 좀 더 주세요!",
+    "exampleEn": "Boss, please give me a little extra as a bonus!",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 22,
+    "term": "서비스",
+    "pos": "noun",
+    "meaningEn": "something given free of charge; on the house",
+    "romaja": "seobiseu",
+    "exampleKo": "이건 서비스로 드리는 거예요.",
+    "exampleEn": "This is something I'm giving you for free.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 23,
+    "term": "떨이",
+    "pos": "noun",
+    "meaningEn": "an end-of-the-day clearance sale; leftovers sold cheap",
+    "romaja": "tteori",
+    "exampleKo": "지금 떨이라서 싸게 팔아요.",
+    "exampleEn": "It's an end-of-day sale now, so I'm selling it cheap.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 24,
+    "term": "바가지",
+    "pos": "noun",
+    "meaningEn": "a rip-off; being badly overcharged",
+    "romaja": "bagaji",
+    "exampleKo": "관광객한테 바가지 씌우지 마세요.",
+    "exampleEn": "Don't rip off tourists.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 25,
+    "term": "싸다",
+    "pos": "adjective",
+    "meaningEn": "cheap; inexpensive",
+    "romaja": "ssada",
+    "exampleKo": "여기는 다른 곳보다 물건이 싸요.",
+    "exampleEn": "Things are cheaper here than elsewhere.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 26,
+    "term": "비싸다",
+    "pos": "adjective",
+    "meaningEn": "expensive; pricey",
+    "romaja": "bissada",
+    "exampleKo": "너무 비싸요. 좀 깎아 주세요.",
+    "exampleEn": "It's too expensive. Please give me a discount.",
+    "category": "흥정·가격"
+  },
+  {
+    "rank": 27,
+    "term": "한 근",
+    "pos": "phrase",
+    "meaningEn": "one geun (traditional weight unit, ~600g)",
+    "romaja": "han geun",
+    "exampleKo": "돼지고기 한 근 주세요.",
+    "exampleEn": "Please give me one geun of pork.",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 28,
+    "term": "한 되",
+    "pos": "phrase",
+    "meaningEn": "one doe (traditional volume unit, ~1.8L)",
+    "romaja": "han doe",
+    "exampleKo": "콩 한 되에 얼마예요?",
+    "exampleEn": "How much is one doe of beans?",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 29,
+    "term": "한 판",
+    "pos": "phrase",
+    "meaningEn": "one tray (e.g., 30 eggs)",
+    "romaja": "han pan",
+    "exampleKo": "달걀 한 판 주세요.",
+    "exampleEn": "Please give me one tray of eggs.",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 30,
+    "term": "한 묶음",
+    "pos": "phrase",
+    "meaningEn": "one bundle; a set tied together",
+    "romaja": "han mukkeum",
+    "exampleKo": "이 채소 한 묶음에 얼마예요?",
+    "exampleEn": "How much is one bundle of these vegetables?",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 31,
+    "term": "한 다발",
+    "pos": "phrase",
+    "meaningEn": "one bunch (of greens, flowers)",
+    "romaja": "han dabal",
+    "exampleKo": "대파 한 다발 주세요.",
+    "exampleEn": "Please give me one bunch of green onions.",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 32,
+    "term": "낱개",
+    "pos": "noun",
+    "meaningEn": "individual pieces (sold singly)",
+    "romaja": "natgae",
+    "exampleKo": "낱개로도 살 수 있나요?",
+    "exampleEn": "Can I buy them individually?",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 33,
+    "term": "봉지",
+    "pos": "noun",
+    "meaningEn": "a bag; a bagful",
+    "romaja": "bongji",
+    "exampleKo": "떡볶이 한 봉지 주세요.",
+    "exampleEn": "Please give me one bag of tteokbokki.",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 34,
+    "term": "통째로",
+    "pos": "adverb",
+    "meaningEn": "whole; in one piece",
+    "romaja": "tongjjaero",
+    "exampleKo": "생선은 통째로 주세요.",
+    "exampleEn": "Please give me the fish whole.",
+    "category": "수량·단위"
+  },
+  {
+    "rank": 35,
+    "term": "신선하다",
+    "pos": "adjective",
+    "meaningEn": "fresh",
+    "romaja": "sinseonhada",
+    "exampleKo": "채소가 정말 신선하네요!",
+    "exampleEn": "The vegetables are really fresh!",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 36,
+    "term": "싱싱하다",
+    "pos": "adjective",
+    "meaningEn": "fresh and lively-looking (produce, seafood)",
+    "romaja": "singsinghada",
+    "exampleKo": "이 생선은 싱싱해 보여요.",
+    "exampleEn": "This fish looks fresh.",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 37,
+    "term": "국산",
+    "pos": "noun",
+    "meaningEn": "domestically produced; made in Korea",
+    "romaja": "guksan",
+    "exampleKo": "이거 국산 맞아요?",
+    "exampleEn": "Is this domestically produced?",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 38,
+    "term": "수입산",
+    "pos": "noun",
+    "meaningEn": "imported; from abroad",
+    "romaja": "suipsan",
+    "exampleKo": "이건 수입산이에요.",
+    "exampleEn": "This is imported.",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 39,
+    "term": "원산지",
+    "pos": "noun",
+    "meaningEn": "place of origin",
+    "romaja": "wonsanji",
+    "exampleKo": "고기 원산지가 어디예요?",
+    "exampleEn": "Where is the origin of this meat?",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 40,
+    "term": "유통기한",
+    "pos": "noun",
+    "meaningEn": "sell-by / expiration date",
+    "romaja": "yutonggihan",
+    "exampleKo": "유통기한 언제까지예요?",
+    "exampleEn": "When is the expiration date?",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 41,
+    "term": "제철",
+    "pos": "noun",
+    "meaningEn": "in season",
+    "romaja": "jecheol",
+    "exampleKo": "지금 딸기가 제철이에요.",
+    "exampleEn": "Strawberries are in season now.",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 42,
+    "term": "품절",
+    "pos": "noun",
+    "meaningEn": "sold out; out of stock",
+    "romaja": "pumjeol",
+    "exampleKo": "죄송하지만, 그건 품절이에요.",
+    "exampleEn": "Sorry, that's sold out.",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 43,
+    "term": "시식",
+    "pos": "noun",
+    "meaningEn": "a free taste; a sample",
+    "romaja": "sisik",
+    "exampleKo": "시식 한번 해보세요!",
+    "exampleEn": "Please try a sample!",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 44,
+    "term": "골라 담다",
+    "pos": "verb",
+    "meaningEn": "to pick out and fill (your own bag/basket)",
+    "romaja": "golla damda",
+    "exampleKo": "직접 골라 담으시면 돼요.",
+    "exampleEn": "You can pick them out yourself.",
+    "category": "상품·품질"
+  },
+  {
+    "rank": 45,
+    "term": "현금",
+    "pos": "noun",
+    "meaningEn": "cash",
+    "romaja": "hyeongeum",
+    "exampleKo": "현금으로 계산할게요.",
+    "exampleEn": "I'll pay with cash.",
+    "category": "결제·마무리"
+  },
+  {
+    "rank": 46,
+    "term": "카드 되나요",
+    "pos": "phrase",
+    "meaningEn": "do you take cards?",
+    "romaja": "kadeu doenayo",
+    "exampleKo": "혹시 카드 되나요?",
+    "exampleEn": "Do you happen to take cards?",
+    "category": "결제·마무리"
+  },
+  {
+    "rank": 47,
+    "term": "계좌이체",
+    "pos": "noun",
+    "meaningEn": "a bank transfer",
+    "romaja": "gyejwaiche",
+    "exampleKo": "계좌이체로 보내 드릴게요.",
+    "exampleEn": "I'll send it via bank transfer.",
+    "category": "결제·마무리"
+  },
+  {
+    "rank": 48,
+    "term": "거스름돈",
+    "pos": "noun",
+    "meaningEn": "change (money)",
+    "romaja": "geoseureumdon",
+    "exampleKo": "거스름돈 여기 있습니다.",
+    "exampleEn": "Here's your change.",
+    "category": "결제·마무리"
+  },
+  {
+    "rank": 49,
+    "term": "장바구니",
+    "pos": "noun",
+    "meaningEn": "a shopping basket; reusable bag",
+    "romaja": "jangbaguni",
+    "exampleKo": "장바구니 가져오셨어요?",
+    "exampleEn": "Did you bring your shopping bag?",
+    "category": "결제·마무리"
+  },
+  {
+    "rank": 50,
+    "term": "장 보다",
+    "pos": "verb",
+    "meaningEn": "to do grocery shopping",
+    "romaja": "jang boda",
+    "exampleKo": "오늘 시장에서 장 봤어요.",
+    "exampleEn": "I did my grocery shopping at the market today.",
+    "category": "결제·마무리"
+  }
+]

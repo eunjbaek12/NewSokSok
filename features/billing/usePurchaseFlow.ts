@@ -24,9 +24,10 @@ import {
 } from 'expo-iap';
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
-import { PRO_SKUS, type ProSku } from '@/lib/billing/skus';
+import { PRO_SKUS, basePlanIdFor, type ProSku } from '@/lib/billing/skus';
 import { mapPurchaseError, readEdgeErrorBody, isDefinitiveVerifyRejection, type MappedPurchaseError } from './error-mapping';
-import type { PriceDetail } from './pricing';
+import { isoPeriodToDays, type PriceDetail } from './pricing';
+import { pickAndroidOffer } from './offers';
 
 // Module-level flag: auto-reconcile runs at most once per app session, not
 // once per plans-screen mount. Re-runs on app restart (which is when we'd
@@ -52,6 +53,14 @@ export interface PurchaseFlow {
   priceFor: (sku: ProSku) => string | null;
   /** SKU별 가격 상세 (숫자 금액·통화코드 — 월 환산/절약률 계산용. 없으면 null) */
   priceDetailFor: (sku: ProSku) => PriceDetail | null;
+  /**
+   * 스토어 오퍼에 걸린 무료 체험 일수. 오퍼가 없으면 null.
+   *
+   * 서버 가입 체험을 폐지한 뒤(20260727000000_signup_boost_replaces_trial.sql) 체험은
+   * 스토어 오퍼가 유일한 경로다. 앱이 "7일 무료 체험"을 자체 판단으로 광고하면
+   * 오퍼가 없거나 길이가 다를 때 그대로 거짓말이 되므로, 상품 정보에서 읽는다.
+   */
+  trialDaysFor: (sku: ProSku) => number | null;
   /** 구매 시도 */
   buy: (sku: ProSku) => Promise<void>;
   /** 기존 구매 복원 (재설치/기기 변경 시) */
@@ -261,19 +270,42 @@ export function usePurchaseFlow(): PurchaseFlow {
     return () => { cancelled = true; };
   }, [connected, getAvailablePurchases, finishTransaction]);
 
-  // Android 구독의 base(반복결제) phase를 찾는다. recurrenceMode===1(무한 반복)
-  // 또는 가격이 0이 아닌 첫 phase = 무료체험/할인 phase를 건너뛴 실제 정기결제가.
-  const androidBasePhase = useCallback((sub: ProductSubscription) => {
-    const phases = (sub as ProductSubscriptionAndroid)
-      .subscriptionOfferDetailsAndroid?.[0]?.pricingPhases?.pricingPhaseList;
-    return phases?.find((p) => p.recurrenceMode === 1 || p.priceAmountMicros !== '0') ?? null;
+  // Android 오퍼 선택 — 반드시 basePlanId로 명시한다(선택 규칙은 ./offers.ts).
+  // 일치하는 요금제가 없으면 null이고, 그때는 결제도 가격 표시도 하지 않는다.
+  const androidOffer = useCallback((sub: ProductSubscription, sku: ProSku) => {
+    const offers = (sub as ProductSubscriptionAndroid).subscriptionOfferDetailsAndroid;
+    const wanted = basePlanIdFor(sku);
+    const picked = pickAndroidOffer(offers, wanted);
+    if (!picked && offers?.length) {
+      // 스토어 설정과 앱 상수가 어긋난 상태. 조용히 폴백하면 잘못된 요금제로
+      // 결제되므로, 진단할 수 있도록 실제 내려온 요금제 목록을 남긴다.
+      console.warn(
+        `[billing] no offer for basePlanId="${wanted}" (sku=${sku}). ` +
+        `available: ${offers.map((o) => o.basePlanId).join(', ')}`,
+      );
+    }
+    return picked;
   }, []);
+
+  // 선택된 오퍼의 pricing phase 목록. 무료체험/할인 phase가 앞에, 실제 정기결제
+  // phase가 뒤에 온다. 가격과 체험 기간이 모두 여기서 나온다.
+  const androidPhases = useCallback((sub: ProductSubscription, sku: ProSku) =>
+    androidOffer(sub, sku)?.pricingPhases?.pricingPhaseList ?? null,
+  [androidOffer]);
+
+  // base(반복결제) phase를 찾는다. recurrenceMode===1(무한 반복)
+  // 또는 가격이 0이 아닌 첫 phase = 무료체험/할인 phase를 건너뛴 실제 정기결제가.
+  const androidBasePhase = useCallback((sub: ProductSubscription, sku: ProSku) =>
+    androidPhases(sub, sku)?.find((p) => p.recurrenceMode === 1 || p.priceAmountMicros !== '0') ?? null,
+  [androidPhases]);
 
   const priceFor = useCallback((sku: ProSku): string | null => {
     const sub = subscriptions.find((s) => s.id === sku);
     if (!sub) return null;
     if (Platform.OS === 'android') {
-      return androidBasePhase(sub)?.formattedPrice ?? sub.displayPrice ?? null;
+      // displayPrice 폴백을 두지 않는다 — 요금제를 못 고른 상황에서 상품 대표
+      // 가격을 보여주면 실제 결제와 다른 금액이 화면에 남는다.
+      return androidBasePhase(sub, sku)?.formattedPrice ?? null;
     }
     return sub.displayPrice ?? null;
   }, [subscriptions, androidBasePhase]);
@@ -282,10 +314,10 @@ export function usePurchaseFlow(): PurchaseFlow {
     const sub = subscriptions.find((s) => s.id === sku);
     if (!sub) return null;
     if (Platform.OS === 'android') {
-      const base = androidBasePhase(sub);
+      const base = androidBasePhase(sub, sku);
       if (!base) return null;
       return {
-        display: base.formattedPrice ?? sub.displayPrice ?? '',
+        display: base.formattedPrice ?? '',
         amount: Number(base.priceAmountMicros) / 1_000_000,
         currency: base.priceCurrencyCode ?? sub.currency ?? '',
       };
@@ -299,6 +331,29 @@ export function usePurchaseFlow(): PurchaseFlow {
     };
   }, [subscriptions, androidBasePhase]);
 
+  // 무료 체험 오퍼 감지 — Android는 가격 0인 pricing phase, iOS는 도입가 결제 모드가
+  // 'free-trial'인 경우. 기간 표기가 서로 달라(ISO 8601 vs unit+count) 각각 일수로 환산한다.
+  const trialDaysFor = useCallback((sku: ProSku): number | null => {
+    const sub = subscriptions.find((s) => s.id === sku);
+    if (!sub) return null;
+
+    if (Platform.OS === 'android') {
+      const free = androidPhases(sub, sku)?.find((p) => p.priceAmountMicros === '0');
+      if (!free) return null;
+      const days = isoPeriodToDays(free.billingPeriod);
+      return days == null ? null : days * Math.max(1, free.billingCycleCount || 1);
+    }
+
+    const ios = sub as ProductSubscriptionIOS;
+    if (ios.introductoryPricePaymentModeIOS !== 'free-trial') return null;
+    const unitDays: Record<string, number> = { day: 1, week: 7, month: 30, year: 365 };
+    const unit = ios.introductoryPriceSubscriptionPeriodIOS;
+    const perUnit = unit ? unitDays[unit] : undefined;
+    if (!perUnit) return null;
+    const periods = Number(ios.introductoryPriceNumberOfPeriodsIOS ?? '1');
+    return perUnit * (Number.isFinite(periods) && periods > 0 ? periods : 1);
+  }, [subscriptions, androidPhases]);
+
   const buy = useCallback(async (sku: ProSku) => {
     setError(null);
     setStage('purchasing');
@@ -310,8 +365,11 @@ export function usePurchaseFlow(): PurchaseFlow {
           type: 'subs',
         });
       } else {
-        const sub = subscriptions.find((s) => s.id === sku) as ProductSubscriptionAndroid | undefined;
-        const offerToken = sub?.subscriptionOfferDetailsAndroid?.[0]?.offerToken;
+        // basePlanId로 고른 오퍼만 쓴다. 못 고르면 결제를 진행하지 않는다 —
+        // 상품에 다른 기본 요금제가 남아 있을 때 [0]을 집으면 화면과 다른
+        // 주기·금액으로 결제될 수 있다(pro_yearly 월 청구 요금제 사례).
+        const sub = subscriptions.find((s) => s.id === sku);
+        const offerToken = sub ? androidOffer(sub, sku)?.offerToken : undefined;
         if (!offerToken) {
           throw new Error('no_offer_token');
         }
@@ -329,7 +387,7 @@ export function usePurchaseFlow(): PurchaseFlow {
       handleError(e);
     }
     // 성공 콜백은 onPurchaseSuccess에서 처리됨.
-  }, [subscriptions, requestPurchase, handleError]);
+  }, [subscriptions, requestPurchase, handleError, androidOffer]);
 
   const restore = useCallback(async () => {
     setError(null);
@@ -377,8 +435,9 @@ export function usePurchaseFlow(): PurchaseFlow {
     error,
     priceFor,
     priceDetailFor,
+    trialDaysFor,
     buy,
     restore,
     resetStage,
-  }), [connected, subscriptions, stage, error, priceFor, priceDetailFor, buy, restore, resetStage]);
+  }), [connected, subscriptions, stage, error, priceFor, priceDetailFor, trialDaysFor, buy, restore, resetStage]);
 }

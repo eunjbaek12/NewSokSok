@@ -56,6 +56,18 @@ export default function DialogModal({
     ? { showsVerticalScrollIndicator: false, keyboardShouldPersistTaps: 'handled' as const }
     : {};
 
+  // 본문 스타일은 배열이 아니라 flatten한 단일 객체로 넘긴다.
+  //
+  // scrollable={false}면 Body가 View가 되는데, 그때 `[styles.body, cond && styles.bodyPadded]`
+  // 형태의 배열 조건부 스타일이 Android 릴리스 빌드에서만 조건부 항목을 잃어 좌우 패딩이
+  // 0으로 새는 회귀가 있었다(복습 시트 6e98e3d에서 처음, ListContextMenu의 Merge 시트에서
+  // 재발). Body가 ScrollView인 경우(대다수 모달)는 멀쩡했다 — 차이는 배열을 View에 직접
+  // 넘기는 것뿐이었다. 근본 원인(minify/Hermes 조합 추정)은 미확정이지만, flatten으로
+  // 네이티브에 단일 객체만 전달하면 원인과 무관하게 배열 처리 경로를 타지 않는다. header가
+  // 단일 스타일 참조(styles.header)로 늘 정상이던 것과 같은 경로다.
+  // ⚠️ 이 우회의 실제 효과는 preview(릴리스) 빌드 실측으로 확정해야 한다.
+  const bodyStyle = StyleSheet.flatten([styles.body, bodyPadding && styles.bodyPadded]);
+
   return (
     <ModalOverlay
       visible={visible}
@@ -82,7 +94,7 @@ export default function DialogModal({
       </View>
 
       {/* Body */}
-      <Body style={[styles.body, bodyPadding && styles.bodyPadded]} {...bodyProps}>
+      <Body style={bodyStyle} {...bodyProps}>
         {children}
       </Body>
 

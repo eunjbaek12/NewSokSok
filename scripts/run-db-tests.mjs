@@ -47,6 +47,7 @@ const REQUIRED_MIGRATIONS = [
   '20260518000000_ai_quota.sql',
   '20260519000000_quota_status_client_grant.sql',
   '20260523000000_trial_reacquisition_guard.sql',
+  '20260727000000_signup_boost_replaces_trial.sql',
 ];
 
 // ── dollar-quote 를 인식하는 SQL statement splitter ──────────────────────────

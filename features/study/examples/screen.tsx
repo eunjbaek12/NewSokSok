@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,13 +13,15 @@ import {
   updateWord,
   saveLastResult,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
+import { segmentExample, canBlankExample } from '@/lib/example-blank';
+import { buildChoices } from '../choices';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -27,61 +29,60 @@ import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
 
-function shuffleArray<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
 function HighlightedSentence({ sentence, term, meaning, primaryColor, textColor, showTerm = true, showHint = false, onPressBlank, isDark, colors }: { sentence: string; term: string; meaning: string; primaryColor: string; textColor: string; showTerm?: boolean; showHint?: boolean; onPressBlank?: () => void; isDark: boolean; colors: any }) {
-  const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-  const parts = sentence.split(regex);
+  // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
+  const segments = React.useMemo(() => segmentExample(sentence, term), [sentence, term]);
+
+  // 빈칸을 못 만드는 예문은 출제 목록에서 이미 걸러진다(canBlankExample). 그래도 남았다면
+  // 문장을 그대로 띄우는 건 곧 정답 공개이므로, 정답 공개 단계에서만 보여준다.
+  if (!segments) {
+    if (!showTerm) return null;
+    return <Text style={[styles.exampleText, { color: textColor }]}>{sentence}</Text>;
+  }
 
   return (
     <Text style={[styles.exampleText, { color: textColor }]}>
-      {parts.map((part, i) =>
-        regex.test(part) ? (
-          showTerm ? (
-            <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{part}</Text>
-          ) : (
-            (() => {
-              const child = (
-                <View key={i} style={[
-                  styles.blankBox,
-                  {
-                    backgroundColor: showHint ? colors.hintBg : colors.surfaceSecondary,
-                    borderColor: showHint ? colors.hintBorder : colors.border,
-                    minWidth: showHint ? 60 : 40,
-                  }
-                ]}>
-                  <Text style={[styles.blankText, { color: showHint ? colors.hintText : colors.textTertiary }]}>
-                    {showHint ? meaning : '?'}
-                  </Text>
-                </View>
-              );
-              if (onPressBlank) {
-                return (
-                  <Pressable key={i} onPress={onPressBlank} hitSlop={8}>
-                    {child}
-                  </Pressable>
-                );
-              }
-              return child;
-            })()
-          )
+      {segments.map((seg, i) => {
+        if (!seg.isBlank) return <Text key={i}>{seg.text}</Text>;
+        if (showTerm) {
+          return <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{seg.text}</Text>;
+        }
+        // key는 바깥 요소에만 준다 — Text 안의 인라인 View를 한 겹 더 감싸면 정렬이 틀어진다.
+        const box = (key?: number) => (
+          <View key={key} style={[
+            styles.blankBox,
+            {
+              backgroundColor: showHint ? colors.hintBg : colors.surfaceSecondary,
+              borderColor: showHint ? colors.hintBorder : colors.border,
+              minWidth: showHint ? 60 : 40,
+            }
+          ]}>
+            <Text style={[styles.blankText, { color: showHint ? colors.hintText : colors.textTertiary }]}>
+              {showHint ? meaning : '?'}
+            </Text>
+          </View>
+        );
+        return onPressBlank ? (
+          <Pressable key={i} onPress={onPressBlank} hitSlop={8}>{box()}</Pressable>
         ) : (
-          <Text key={i}>{part}</Text>
-        )
-      )}
+          box(i)
+        );
+      })}
     </Text>
   );
 }
 
+// 답을 고른 뒤 다음 카드로 자동 전진하기까지의 시간.
+// 오답이 더 긴 이유: 답을 고른 직후에야 예문 번역이 나타나는데(이 모드에만 있는 동작),
+// 틀렸을 때 그걸 읽을 시간이 없으면 왜 틀렸는지 확인할 방법이 없다.
+// 기다리기 싫으면 하단 "다음"을 누르면 즉시 넘어간다(타이머는 인덱스 변화를 감지해 스스로 무효화된다).
+const ADVANCE_DELAY_CORRECT_MS = 1000;
+const ADVANCE_DELAY_WRONG_MS = 3000;
+
 export default function ExamplesScreen() {
-  const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
@@ -145,7 +146,7 @@ export default function ExamplesScreen() {
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel });
 
   // 누락된 예문을 백그라운드에서 sliding-window 동시성으로 채운다.
   // - 완성될 때마다 studyWords에 append → 진행 중 다음 batch부터 자동 등장
@@ -196,7 +197,9 @@ export default function ExamplesScreen() {
           try {
             await updateWord(id!, word.id, updates);
           } catch { /* DB write 실패는 무시 — 다음 진입 시 재시도 */ }
-          if (!ctrl.signal.aborted) {
+          // 예문 자체는 저장한다(플래시카드 등 다른 모드에서 쓰인다). 다만 빈칸을
+          // 만들 수 없는 예문이면 이 화면의 출제 목록에는 넣지 않는다.
+          if (!ctrl.signal.aborted && canBlankExample(enriched.exampleEn, word.term)) {
             const enrichedWord = { ...word, ...updates };
             setStudyWords(prev => prev.some(w => w.id === word.id) ? prev : [...prev, enrichedWord]);
           }
@@ -238,11 +241,8 @@ export default function ExamplesScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       if (settings.isStarred) {
         all = all.filter(w => w.isStarred);
@@ -262,7 +262,7 @@ export default function ExamplesScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
       if (settings.shuffle) {
@@ -275,11 +275,13 @@ export default function ExamplesScreen() {
       setBatchAnswers({});
       setIsNewAnswer(false);
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel };
       isInitialLoad.current = false;
 
       const missing = all.filter(w => !w.exampleEn);
-      const ready = all.filter(w => !!w.exampleEn);
+      // 예문이 있어도 표제어 자리를 찾지 못하면 빈칸을 만들 수 없다. 그대로 출제하면
+      // 문장이 통째로 보여 정답이 공개되므로 출제 목록에서 뺀다.
+      const ready = all.filter(w => !!w.exampleEn && canBlankExample(w.exampleEn, w.term));
       setStudyWords(ready);
 
       if (missing.length > 0) {
@@ -319,8 +321,8 @@ export default function ExamplesScreen() {
       return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
     }
     const allListWords = getWordsForList(id!);
-    const distractors = shuffleArray(allListWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
-    const newChoices = shuffleArray([currentWord, ...distractors]);
+    // 선택지는 화면에 보이는 라벨(여기서는 표제어) 기준으로 중복을 걸러야 한다 — features/study/choices.ts
+    const newChoices = buildChoices(allListWords, currentWord, w => w.term);
     choicesMapRef.current[currentWord.id] = newChoices;
     return newChoices;
   }, [currentIndex, currentWord?.id, id, getWordsForList]);
@@ -362,13 +364,26 @@ export default function ExamplesScreen() {
           setIsNewAnswer(false);
         }
       }
-    }, 1000);
+    }, isCorrect ? ADVANCE_DELAY_CORRECT_MS : ADVANCE_DELAY_WRONG_MS);
     return () => clearTimeout(timer);
-  }, [selectedAnswer, isNewAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers]);
+    // isCorrect가 지연 시간을 정하므로 의존성에 있어야 한다 — 빠지면 이전 카드의 정오답으로 타이머가 잡힌다.
+  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers]);
 
   useEffect(() => {
     setShowHint(false);
   }, [currentIndex, currentBatchIndex]);
+
+  // 학습 중 목록이 줄면(필터 변경·동기화 삭제) 현재 인덱스가 범위를 벗어날 수 있다.
+  // 아래 렌더 가드만 두면 빈 화면에 갇히므로 여기서 첫 카드로 되돌린다.
+  useEffect(() => {
+    if (studyWords.length === 0) return;
+    if (currentBatchWords.length === 0) {
+      setCurrentBatchIndex(0);
+      setCurrentIndex(0);
+    } else if (currentIndex >= currentBatchWords.length) {
+      setCurrentIndex(0);
+    }
+  }, [studyWords.length, currentBatchWords.length, currentIndex]);
 
   const finishSession = async () => {
     // 완주 — 복습 기록은 결과 화면 몫. replace 언마운트 전에 반드시 먼저 세운다.
@@ -395,12 +410,6 @@ export default function ExamplesScreen() {
     await commitSession();
     router.back();
   }, [commitSession]);
-
-  const handleSpeak = useCallback(() => {
-    if (currentWord?.exampleEn) {
-      speak(stripSenseMarkers(currentWord.exampleEn), getTtsLang(getStudySourceLang(currentWord, list)));
-    }
-  }, [currentWord, list]);
 
   // 모두 예문 없음 + 백그라운드 enrich 진행 중 → 풀스크린 진행 상태.
   // 첫 단어가 완성되면 studyWords.length > 0이 되어 자동으로 학습 화면으로 전환됨.
@@ -453,6 +462,10 @@ export default function ExamplesScreen() {
     );
   }
 
+  // 인덱스 복구 effect가 도는 한 프레임 동안 카드가 비어 있을 수 있다 —
+  // 가드가 없으면 아래 currentWord.exampleEn 접근에서 화면이 죽는다.
+  if (!currentWord) return null;
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
@@ -499,16 +512,7 @@ export default function ExamplesScreen() {
         )}
       </View>
 
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{
-          flexGrow: 1,
-          paddingTop: 16,
-          paddingBottom: 16,
-          justifyContent: 'space-evenly'
-        }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.body}>
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
@@ -534,11 +538,11 @@ export default function ExamplesScreen() {
                   <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
                 )}
 
-                <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>
-                  {({ pressed }) => (
-                    <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-                  )}
-                </Pressable>
+                <SpeakerButton
+                  text={stripSenseMarkers(currentWord.exampleEn)}
+                  language={getTtsLang(getStudySourceLang(currentWord, list))}
+                  style={styles.speakerBtn}
+                />
               </View>
             ) : (
               <Text style={[styles.noExample, { color: colors.textTertiary }]}>{t('examples.noExample')}</Text>
@@ -602,7 +606,7 @@ export default function ExamplesScreen() {
           })}
         </View>
 
-      </ScrollView>
+      </View>
 
       <View style={[styles.navFooter, { paddingBottom: insets.bottom + (adsBottomInset || 36) }]}>
           <Pressable
@@ -681,10 +685,20 @@ export default function ExamplesScreen() {
   );
 }
 
+// 카드 최소 높이 — 근거는 퀴즈 화면(features/study/quiz/screen.tsx)의 같은 상수 주석 참조.
+// 두 화면은 카드 + 선택지 4개 + 하단 이전/다음이라는 세로 구성이 같아 값을 함께 쓴다.
+const CARD_MIN_HEIGHT = Math.min(140, Math.round(Dimensions.get('window').height * 0.18));
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     overflow: 'hidden',
+  },
+  body: {
+    flex: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    justifyContent: 'space-evenly',
   },
   header: {
     paddingHorizontal: 16,
@@ -758,7 +772,9 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     gap: 12,
-    minHeight: 250,
+    minHeight: CARD_MIN_HEIGHT,
+    // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
+    flexShrink: 1,
   },
   starBtn: {
     position: 'absolute',
@@ -813,6 +829,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     gap: 8,
     marginTop: 12,
+    // 선택지가 자리를 먼저 확보한다 — 밀려서 잘리던 것이 이 화면의 회귀였다.
+    flexShrink: 0,
   },
   choiceBtn: {
     flexDirection: 'row',

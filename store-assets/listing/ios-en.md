@@ -109,7 +109,8 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
 - Pro: ad-free, 1,000 words per day — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
-- 7-day Pro free trial on signup, no auto-charge
+- A larger 300-word quota for your first 24 hours after signing up
+- 7-day free trial when you start Pro (cancel during the trial and you won't be charged)
 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)
@@ -150,10 +151,12 @@ v1.2 — Review right before you forget.
 | Product ID | Type | KR Price | Tier | Notes |
 |---|---|---|---|---|
 | `pro_monthly` | Auto-Renewable Subscription | ₩3,900 | **USD $2.99** (base price point) | 7-day free trial |
-| `pro_yearly` | Auto-Renewable Subscription | ₩35,900 | **USD $27.99** (base price point) | 7-day free trial |
+| `pro_yearly` | Auto-Renewable Subscription | ₩35,900 | **USD $27.99** (base price point) | Intro offer: first week free (7 days) |
 
 > ⚠️ **Product IDs must be exactly `pro_monthly` / `pro_yearly`** — code matches on this. Mismatch → verify-purchase returns 402 product_mismatch.
-> Both products belong to the same Subscription Group: **"SokSok Voca Pro"**.
+> Both products belong to the same Subscription Group: **"아보카도 Pro"**.
+> Apple scopes introductory-offer eligibility to the **subscription group** — using the trial on
+> monthly means it can't be claimed again on yearly. Unlike Play, no eligibility rule to configure.
 > Apple's current pricing has 900 price points (not legacy tiers) — set the base country to USD and pick $2.99 / $27.99; Apple auto-fills other regions including ₩3,900 / ₩35,900. Verify the KRW row matches. Check at App Store Connect → IAP → Pricing.
 > ⚠️ Keep these prices in sync with: the KO listing (`ios-ko.md`), the in-app paywall (fetches live store price — should match), and this English Description text.
 
@@ -199,8 +202,9 @@ No separate demo account is required.
 [In-App Subscription Testing]
 - Works in Sandbox environment automatically.
 - Product IDs: pro_monthly (₩3,900 / $2.99 per month), pro_yearly (₩35,900 / $27.99 per year)
-- 7-day free trial then auto-renew (Sandbox uses accelerated time)
-- Subscription Group: "SokSok Voca Pro"
+- Intro offer "first week free" (7 days) then auto-renew (Sandbox uses accelerated time).
+  Live since 2026-06-05 across 175 regions.
+- Subscription Group: "아보카도 Pro"
 
 [AI Features]
 - Google Vertex AI (Gemini) calls are routed through our Supabase Edge Function backend.

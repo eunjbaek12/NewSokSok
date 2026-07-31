@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useMemo, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, Dimensions } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,35 +13,29 @@ import {
   saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
-import { speak } from '@/lib/tts';
 import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
-
-function shuffleArray<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+import { buildChoices, shuffleArray } from '../choices';
 
 export default function QuizScreen() {
-  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids, planDay } = useLocalSearchParams<{
+  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, sel, planDay } = useLocalSearchParams<{
     id: string;
     filter?: string;
     isStarred?: string;
     quizType?: string;
-    ids?: string;
+    sel?: string;
     planDay?: string;
   }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { t } = useTranslation();
@@ -84,7 +78,7 @@ export default function QuizScreen() {
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, sel });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -106,12 +100,8 @@ export default function QuizScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      // Re-sort according to the ids string if it's there
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       if (settings.isStarred) {
         all = all.filter(w => w.isStarred);
@@ -131,11 +121,12 @@ export default function QuizScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.quizType !== settings.quizType ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
-      // Shuffle only when core settings change or initial load, AND NOT when repeating a specific snapshot ids
-      if (!ids) {
+      // Shuffle only when core settings change or initial load, AND NOT when the
+      // caller handed us an explicit word order.
+      if (!selectedIds) {
         all = shuffleArray(all);
       }
       setCurrentIndex(0);
@@ -143,7 +134,7 @@ export default function QuizScreen() {
       setAnswers({});
       choicesMapRef.current = {};
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, sel };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -178,20 +169,22 @@ export default function QuizScreen() {
   const choices = useMemo(() => {
     if (!currentWord) return [];
 
-    // Check if we already generated stable distractors for this exact question ID
-    if (choicesMapRef.current[currentWord.id]) {
+    // 캐시 키에 방향(quizType)을 넣는다 — 선택지에 표시하는 값이 방향에 따라 달라지므로,
+    // 학습 중 방향을 바꾸면 이전 기준으로 만든 선택지를 그대로 쓰면 안 된다.
+    const cacheKey = `${settings.quizType}:${currentWord.id}`;
+    if (choicesMapRef.current[cacheKey]) {
       // Return cached choices, but substitute the currentWord to reflect any recent changes (like isStarred)
-      return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
+      return choicesMapRef.current[cacheKey].map(c => c.id === currentWord.id ? currentWord : c);
     }
 
-    // Generate new distractors
+    // 중복 판정은 화면에 실제로 보이는 라벨 기준 — features/study/choices.ts
+    const labelOf = (w: Word) => (settings.quizType === 'meaning-to-term' ? w.term : w.meaningKr ?? '');
     const allListWords = getWordsForList(id!);
-    const distractors = shuffleArray(allListWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
-    const newChoices = shuffleArray([currentWord, ...distractors]);
+    const newChoices = buildChoices(allListWords, currentWord, labelOf);
 
-    choicesMapRef.current[currentWord.id] = newChoices;
+    choicesMapRef.current[cacheKey] = newChoices;
     return newChoices;
-  }, [currentIndex, currentWord, id, getWordsForList]);
+  }, [currentIndex, currentWord, id, getWordsForList, settings.quizType]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (answers[currentIndex]) return;
@@ -280,7 +273,7 @@ export default function QuizScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
-          hideTargetFilter={!!ids}
+          hideTargetFilter={!!selectedIds}
         />
       </View>
     );
@@ -327,16 +320,7 @@ export default function QuizScreen() {
         </View>
       </View>
 
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{
-          flexGrow: 1,
-          paddingTop: 16,
-          paddingBottom: 16,
-          justifyContent: 'space-evenly'
-        }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.body}>
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
@@ -351,11 +335,11 @@ export default function QuizScreen() {
 
             <Text style={[styles.questionText, { color: colors.text }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.5}>{questionContent}</Text>
 
-            <Pressable onPress={() => speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-              {({ pressed }) => (
-                <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-              )}
-            </Pressable>
+            <SpeakerButton
+              text={getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang)}
+              language={ttsLang}
+              style={styles.speakerBtn}
+            />
           </View>
         </View>
 
@@ -415,7 +399,7 @@ export default function QuizScreen() {
           })}
         </View>
 
-      </ScrollView>
+      </View>
 
       <View style={[styles.navFooter, { paddingBottom: insets.bottom + (adsBottomInset || 36) }]}>
           <Pressable
@@ -444,7 +428,7 @@ export default function QuizScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
-        hideTargetFilter={!!ids}
+        hideTargetFilter={!!selectedIds}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}
@@ -474,10 +458,27 @@ export default function QuizScreen() {
   );
 }
 
+// 카드 최소 높이 — 선택지가 하단 버튼에 가려지지 않도록 카드가 먼저 줄어든다.
+//
+// 실측(2026-07-29, 1080×2340 3버튼 내비게이션 기기): 세로 780dp 중 헤더 101 +
+// 이전/다음 47 + 하단 예약 124(내비바 58 + 광고 66)를 빼면 본문 가용은 496dp뿐이다.
+// 그런데 카드가 minHeight 250을 무조건 가져가는 바람에 선택지 4개(1줄 215 · 2줄 245)가
+// 밀려 D가 잘렸다. 정작 카드 안은 절반이 빈 공간이었다 — 내용은 100dp도 안 된다.
+// 화면 비례 상한을 함께 두어 더 작은 기기에서는 카드가 더 줄어들게 한다.
+// (Dimensions는 모듈 로드 시 1회 — 앱이 portrait 고정이라 회전 대응은 불필요하고,
+//  onLayout 같은 런타임 측정은 Android에서 0을 보고한 전력이 있어 쓰지 않는다.)
+const CARD_MIN_HEIGHT = Math.min(140, Math.round(Dimensions.get('window').height * 0.18));
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     overflow: 'hidden',
+  },
+  body: {
+    flex: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    justifyContent: 'space-evenly',
   },
   header: {
     paddingHorizontal: 16,
@@ -535,7 +536,9 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     gap: 12,
-    minHeight: 250,
+    minHeight: CARD_MIN_HEIGHT,
+    // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
+    flexShrink: 1,
   },
   starBtn: {
     position: 'absolute',
@@ -581,6 +584,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     gap: 8,
     marginTop: 12,
+    // 선택지가 자리를 먼저 확보한다 — 밀려서 잘리던 것이 이 화면의 회귀였다.
+    flexShrink: 0,
   },
   choiceBtn: {
     flexDirection: 'row',

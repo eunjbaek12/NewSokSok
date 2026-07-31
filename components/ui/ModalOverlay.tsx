@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue, KeyboardAvoidingView, Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
 import { useTheme } from '@/features/theme';
 import { PopupTokens } from '@/constants/popup';
@@ -58,6 +59,7 @@ export default function ModalOverlay({
   avoidKeyboard = false,
 }: ModalOverlayProps) {
   const { colors, isDark } = useTheme();
+  const insets = useSafeAreaInsets();
   const cfg = VARIANT_DEFAULTS[variant];
 
   const resolvedMaxWidth = maxWidth ?? cfg.maxWidth;
@@ -86,6 +88,11 @@ export default function ModalOverlay({
 
   if (cfg.align === 'bottom') {
     containerStyle.push(styles.bottomSheetContainer);
+    // 바텀시트는 화면 맨 아래에 붙으므로 시스템 바와 겹친다 — Android는 edge-to-edge라
+    // Modal이 내비게이션 바 아래까지 그려지고, iOS는 홈 인디케이터가 올라온다.
+    // 호출부가 34 같은 숫자를 직접 쓰면 iOS 한 기종에만 맞고 Android 3버튼 바(48dp)엔
+    // 모자라므로, 인셋은 여기서 한 번만 흡수한다(본문 여백은 호출부 몫).
+    containerStyle.push({ paddingBottom: insets.bottom });
   }
 
   if (style) {

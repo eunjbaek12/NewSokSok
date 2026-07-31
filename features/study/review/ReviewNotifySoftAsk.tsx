@@ -4,6 +4,7 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { Radius } from '@/constants/tokens';
+import { PopupTokens } from '@/constants/popup';
 import DialogModal from '@/components/ui/DialogModal';
 import { requestNotificationPermission } from './notifications';
 
@@ -61,6 +62,20 @@ export default function ReviewNotifySoftAsk({
       compact
       scrollable={false}
       showCloseButton={false}
+      /*
+       * 본문 패딩을 기본값에 맡기지 않고 직접 든다.
+       *
+       * 2e68271이 이 시트의 bodyWrap을 걷어내고 DialogModal의 bodyPadding 기본값에
+       * 맡겼는데, vCode18(1.2.1) 실기에서 본문이 카드 가장자리에 붙어 나왔다 —
+       * 스크린샷 실측으로 제목 24.3dp · 버튼 24.0dp인데 본문만 1dp였다. 같은 빌드의
+       * 다른 모달(닉네임 24dp, 피커 24+8dp)은 정상이었고, 이 시트만 `compact`를
+       * 넘기는 유일한 호출부다.
+       *
+       * 기본값이 왜 이 조합에서만 새는지는 아직 못 밝혔다. 그래서 원인과 무관하게
+       * 값이 확정되도록 기본값을 끄고 아래 bodyWrap이 24를 준다 — 기본값이 먹든
+       * 안 먹든 결과는 정확히 24dp 하나다. 원인을 찾으면 이 두 줄을 되돌릴 것.
+       */
+      bodyPadding={false}
       footer={
         <View style={styles.footer}>
           <Pressable
@@ -90,20 +105,26 @@ export default function ReviewNotifySoftAsk({
         </View>
       }
     >
-      <Text style={[styles.body, { color: colors.text }]}>{t('reviewNotif.softAskBody')}</Text>
-      {/*
-        안심 문구는 지킬 수 있는 것만 말한다(§8.2). "밤엔 안 보내요"는 시간을 사용자가
-        고를 수 있게 된 순간 거짓말이 되므로 쓰지 않는다 — 대신 구체적 사실(저녁 8시)과
-        통제권(끄거나 시간을 바꿀 수 있음)만 약속한다.
-      */}
-      <Text style={[styles.reassure, { color: colors.textTertiary }]}>
-        {t('reviewNotif.softAskReassure')}
-      </Text>
+      <View style={styles.bodyWrap}>
+        <Text style={[styles.body, { color: colors.text }]}>{t('reviewNotif.softAskBody')}</Text>
+        {/*
+          안심 문구는 지킬 수 있는 것만 말한다(§8.2). "밤엔 안 보내요"는 시간을 사용자가
+          고를 수 있게 된 순간 거짓말이 되므로 쓰지 않는다 — 대신 구체적 사실(저녁 8시)과
+          통제권(끄거나 시간을 바꿀 수 있음)만 약속한다.
+        */}
+        <Text style={[styles.reassure, { color: colors.textTertiary }]}>
+          {t('reviewNotif.softAskReassure')}
+        </Text>
+      </View>
     </DialogModal>
   );
 }
 
 const styles = StyleSheet.create({
+  /** 헤더·푸터와 같은 세로 정렬선. bodyPadding={false}와 짝이다 — 위 주석 참조. */
+  bodyWrap: {
+    paddingHorizontal: PopupTokens.padding.container,
+  },
   body: {
     fontSize: 15,
     lineHeight: 22,

@@ -26,7 +26,7 @@ import {
   saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
-import { useStudyResultsStore } from '@/features/study';
+import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
@@ -34,6 +34,7 @@ import { speak } from '@/lib/tts';
 import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
@@ -79,11 +80,11 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
         </View>
       )}
 
-      <Pressable onPress={() => speak(getSpeakableText(word.term, word.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-        {({ pressed }) => (
-          <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-        )}
-      </Pressable>
+      <SpeakerButton
+        text={getSpeakableText(word.term, word.phonetic, sourceLang)}
+        language={ttsLang}
+        style={styles.speakerBtn}
+      />
 
       <Text style={[styles.hintText, { color: colors.textTertiary }]}>{t('flashcards.tapToReveal')}</Text>
     </Animated.View>
@@ -130,11 +131,11 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
           <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>/{word.phonetic}/</Text>
         )}
 
-        <Pressable onPress={() => speak(getSpeakableText(word.term, word.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-          {({ pressed }) => (
-            <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-          )}
-        </Pressable>
+        <SpeakerButton
+          text={getSpeakableText(word.term, word.phonetic, sourceLang)}
+          language={ttsLang}
+          style={styles.speakerBtn}
+        />
       </View>
 
       <LinearGradient
@@ -163,15 +164,14 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
               <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
             ) : null}
           </ScrollView>
-          <Pressable
-            onPress={() => speak(stripSenseMarkers(word.exampleEn), ttsLang)}
+          <SpeakerButton
+            text={stripSenseMarkers(word.exampleEn)}
+            language={ttsLang}
+            size={18}
+            color={colors.textSecondary}
             hitSlop={8}
             style={[styles.exampleSpeakerBtn, { backgroundColor: colors.surface + 'F2', borderColor: colors.borderLight }]}
-          >
-            {({ pressed }) => (
-              <Ionicons name="volume-medium-outline" size={18} color={pressed ? colors.primary : colors.textSecondary} />
-            )}
-          </Pressable>
+          />
         </View>
       ) : null}
     </Animated.View>
@@ -179,7 +179,9 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
 }
 
 export default function FlashcardsScreen() {
-  const { id, filter, isStarred: initialIsStarred, ids, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string; planDay?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string; planDay?: string }>();
+  // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
+  const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
@@ -240,7 +242,7 @@ export default function FlashcardsScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const SWIPE_THRESHOLD = 100;
 
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -259,12 +261,8 @@ export default function FlashcardsScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (ids) {
-      const idList = ids.split(',');
-      all = all.filter(w => idList.includes(w.id));
-      // Sort to match the order in ids parameter if possible, or just keep original
-      const idMap = new Map(idList.map((id, index) => [id, index]));
-      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    if (selectedIds) {
+      all = applyStudySelection(all, selectedIds);
     } else {
       // Apply Star filter
       if (settings.isStarred) {
@@ -286,7 +284,7 @@ export default function FlashcardsScreen() {
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
-      lastSettingsRef.current.ids !== ids;
+      lastSettingsRef.current.sel !== sel;
 
     if (coreFilterChanged || isInitialLoad.current) {
       // Apply Shuffle only when core settings change or on initial load
@@ -298,7 +296,7 @@ export default function FlashcardsScreen() {
       results.current = [];
       lastHandledIndex.current = -1;
       rotation.value = 0;
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -528,7 +526,7 @@ export default function FlashcardsScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
-          hideTargetFilter={!!ids}
+          hideTargetFilter={!!selectedIds}
         />
       </View>
     );
@@ -675,7 +673,7 @@ export default function FlashcardsScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
-        hideTargetFilter={!!ids}
+        hideTargetFilter={!!selectedIds}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}

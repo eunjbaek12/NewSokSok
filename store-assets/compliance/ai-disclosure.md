@@ -89,3 +89,42 @@ AI 기능은 다음 4가지입니다:
 Google Gemini 모델의 자체 안전 필터가 적용되며,
 사용자는 AI 결과를 검토·수정·거부할 수 있습니다.
 ```
+
+---
+
+# AI asset declaration (스토어 등록정보 자산)
+
+위 "생성형 AI" 신고와 **다른 항목이다.** 그쪽은 *앱이 AI를 쓰는가*를 묻고,
+이쪽은 *스토어에 올리는 이미지를 AI로 만들었는가*를 묻는다.
+Play Console에서 자산 업로드 시 뜨는 **AI asset declaration** 화면 답변이다.
+
+## 답: "Label assets as created or edited using AI"
+
+그다음 단계에서 **아래 자산만** 개별 표시한다.
+
+| 자산 | 라벨 | 근거 |
+|---|---|---|
+| `00-hero-a` · `00-hero-b` | ✅ | 배경 일러스트 `screenshots/hero/hero.png`가 **Gemini 생성** |
+| 앱 아이콘 (`icons/icon-512.png` 등) | ✅ | 3D 아보카도 씬이 AI 생성 |
+| 기능 그래픽 (`feature-graphic/feature-{ko,en}.png`) | ✅ | 좌측 3D 아보카도(`assets/images/Avocado-3D-clean.png`)가 AI 생성 |
+| `01-generate` `02-photo` `03-study` `04-stats` `06-autocomplete` `07-curation` `08-theme` | ❌ | 실제 앱 화면 캡처 + 직접 작성한 카피 + CSS 폰 목업 |
+
+→ App Store 9장 중 2장 · Play 8장 중 2장 (+ 아이콘 · 기능 그래픽)
+
+## 헷갈리는 자리 — 앱 화면 속 아보카도는 AI가 아니다
+
+`04-stats`(연속 학습 카드) · `07-curation`(헤더) · `08-theme`·`00-hero-b`의 폰 안(홈 헤더)에도
+아보카도가 보이지만, **이건 SVG 캐릭터**라 라벨 대상이 아니다. AI로 만든 것은
+**3D 렌더 계열**(`Avocado-3D*.png`, `hero.png`)뿐이다. 파일 형식으로 갈린다고 기억하면 쉽다:
+
+- **3D png = AI** → 아이콘 · 기능 그래픽 · 히어로 배경
+- **SVG = 라벨 불필요** → 앱 UI 안에 그려지는 캐릭터
+
+`00-hero-b`는 폰 안 캐릭터가 SVG여도 **배경판이 `hero.png`**라서 라벨 대상이다.
+
+## 라벨을 붙이는 쪽이 안전한 이유
+
+라벨 자체에는 불이익이 없다(노출·심사에 영향을 주지 않는다). 해당되는데 빠뜨렸을 때만
+정책 위반이 된다. 경계가 애매하면 붙이는 쪽으로.
+
+⚠️ **원본 그림을 교체하면 이 표도 갱신할 것.** `hero.png`는 README에 "교체 대상"으로 적혀 있다.

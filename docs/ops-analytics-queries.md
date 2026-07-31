@@ -1,4 +1,4 @@
-# 운영 분석 쿼리 — "오늘 누가 앱을 썼나"
+# 운영 분석 쿼리 — 누가 쓰고 있나 · 무엇을 공부하나 · 얼마나 들어오나
 
 Supabase 대시보드 → **SQL Editor**에 그대로 붙여넣어 실행한다.
 전부 2026-07-25에 실제 실행해 결과를 확인한 쿼리다.
@@ -22,13 +22,22 @@ Supabase 대시보드 → **SQL Editor**에 그대로 붙여넣어 실행한다.
 4. **동기화는 30초 디바운스다.** 지금 이 순간 쓰고 있는 사람은 아직 안 올라와 있을 수 있다.
 5. **`auth.users.last_sign_in_at`은 사용 지표가 아니다.** 세션이 유지되면 갱신되지 않아서,
    매일 쓰는 사람도 몇 주 전으로 찍힌다. DAU 용도로 쓰면 안 된다.
+6. **날짜 기준이 컬럼마다 다르다.** `cloud_study_days.date`·`cloud_memorized_log.date`는
+   **기기 로컬 날짜**이고, `last_studied_at`·`created_at` 등 epoch ms 컬럼은 절대시각이다.
+   해외 사용자는 이 둘이 하루 어긋나 한 세션이 이틀에 걸쳐 보인다 (Q8 참고).
+7. **봇과 운영자 계정이 섞여 있다.** `@cloudtestlabaccounts.com`은 Play 사전 출시 보고서가
+   돌리는 Firebase Test Lab이고, `eunjbaek12@` / `mtgirltreeguy@`는 운영자 본인이다.
+   Q8의 `flag` 컬럼이 이 둘을 표시한다.
 
 `cloud_words`의 단어 수가 500 / 1000 / 1500처럼 딱 떨어지면 대개 **공식 큐레이션 덱을
 통째로 담은 것**이지 직접 추가한 게 아니다. 활동의 깊이로 오해하지 말 것.
 
 ---
 
-## Q1. 오늘 활동한 사람 (가장 자주 쓸 쿼리)
+## Q1. 오늘 활동한 사람 (간단 버전)
+
+> **무엇을 공부했는지(단어장 이름·단어)까지 보려면 [Q8](#q8-오늘-누가--무엇을-공부했나-종합)** 을 쓴다.
+> Q1은 컬럼이 적어 "몇 명이 썼나"만 빠르게 볼 때 쓴다.
 
 학습·단어 추가·AI 보강을 한 화면에 모은다. 어느 한 지표만 보면 사람을 놓친다 —
 단어만 추가한 사용자는 `cloud_study_days`에 안 남고, 복습만 한 사용자는 `ai_usage_daily`에 안 남는다.
@@ -237,14 +246,363 @@ select lang,
 ⚠️ `\y`(단어 경계)로 좁히면 **중국어·일본어가 전부 실패로 잡힌다** — 띄어쓰기가 없어서다.
 한국어도 조사가 붙어 실패로 보인다. 언어별 규칙 차이는 SQL로 재현하지 말고 위 스크립트를 쓴다.
 
+## Q8. 오늘 누가 · 무엇을 공부했나 (종합)
+
+Q1이 "몇 명이 썼나"라면 이건 **"누가 어떤 단어장에서 어떤 단어를 봤나"** 다.
+한 사람이 한 행이고, 학습 카운트 옆에 실제 단어장 제목과 단어 샘플이 붙는다.
+
+첫 줄 `- 0`을 `- 1`로 바꾸면 어제. 아침에 돌리면 대개 비어 있으니 어제로 보는 편이 낫다.
+
+```sql
+with d as (
+  select (now() at time zone 'Asia/Seoul')::date - 0 as day   -- ← 어제는 - 1
+), b as (
+  select day,
+         to_char(day, 'YYYY-MM-DD')                                                           as day_txt,
+         (extract(epoch from (day::timestamp     at time zone 'Asia/Seoul')) * 1000)::bigint  as t0,
+         (extract(epoch from ((day+1)::timestamp at time zone 'Asia/Seoul')) * 1000)::bigint  as t1
+    from d
+), sd as (                              -- 학습 세션 카운트 (기기 로컬 날짜 기준!)
+  select s.user_id, s.studied_count, s.memorized_count, s.updated_at
+    from cloud_study_days s, b where s.date = b.day_txt
+), ls as (                              -- 그날 학습한 단어장 + 완료율
+  select l.user_id, count(*) as n, max(l.last_studied_at) as last_ms,
+         array_to_string((array_agg(
+           l.title || coalesce(' ' || round(l.last_result_percent::numeric) || '%', '')
+           order by l.last_studied_at desc))[1:4], ' / ')
+         || case when count(*) > 4 then ' 외 ' || (count(*) - 4) else '' end as titles
+    from cloud_lists l, b
+   where l.last_studied_at >= b.t0 and l.last_studied_at < b.t1
+     and coalesce(l.is_deleted, false) = false
+   group by l.user_id
+), rv as (                              -- 그날 복습한 단어 (Gentle SRS)
+  select w.user_id, count(*) as n, max(w.last_reviewed_at) as last_ms,
+         array_to_string((array_agg(w.term order by w.last_reviewed_at desc))[1:5], ', ') as sample
+    from cloud_words w, b
+   where w.last_reviewed_at >= b.t0 and w.last_reviewed_at < b.t1
+     and coalesce(w.is_deleted, false) = false
+   group by w.user_id
+), mm as (                              -- 그날 새로 외운 단어
+  select m.user_id, count(*) as n,
+         array_to_string((array_agg(coalesce(w.term, '?') order by m.created_at_ms desc))[1:5], ', ') as sample
+    from cloud_memorized_log m
+    join b on m.date = b.day_txt
+    left join cloud_words w on w.id = m.word_id and w.user_id = m.user_id
+   group by m.user_id
+), ad as (                              -- 그날 추가한 단어
+  select w.user_id, count(*) as n, max(w.created_at) as last_ms,
+         array_to_string((array_agg(w.term order by w.created_at desc))[1:5], ', ')      as sample,
+         array_to_string(array_agg(distinct w.source_lang || '→' || w.target_lang), ',') as langs
+    from cloud_words w, b
+   where w.created_at >= b.t0 and w.created_at < b.t1
+     and coalesce(w.is_deleted, false) = false
+   group by w.user_id
+), ai as (
+  select a.user_id, a.word_count, a.call_count from ai_usage_daily a, b where a.usage_date = b.day
+), ids as (
+  select user_id from sd union select user_id from ls union select user_id from rv
+  union select user_id from mm union select user_id from ad union select user_id from ai
+)
+select coalesce(u.raw_user_meta_data->>'nickname',
+                u.raw_user_meta_data->>'full_name',
+                u.raw_user_meta_data->>'name',
+                split_part(u.email, '@', 1), left(u.id::text, 8))          as name,
+       case when u.email like '%@cloudtestlabaccounts.com'          then 'bot'
+            when u.email in ('eunjbaek12@gmail.com',
+                             'mtgirltreeguy@gmail.com')             then 'me'
+            else '' end                                                    as flag,
+       u.email,
+       to_char(u.created_at at time zone 'Asia/Seoul', 'MM-DD')            as signup,
+       coalesce(sd.studied_count, 0)   as studied,      -- 카드를 넘긴 수
+       coalesce(sd.memorized_count, 0) as memorized,
+       coalesce(ls.n, 0)               as decks,
+       ls.titles                       as studied_decks,
+       coalesce(rv.n, 0)               as reviewed,
+       rv.sample                       as reviewed_words,
+       coalesce(mm.n, 0)               as newly_memorized,
+       mm.sample                       as memorized_words,
+       coalesce(ad.n, 0)               as words_added,
+       ad.sample                       as added_words,
+       ad.langs,
+       coalesce(ai.word_count, 0)      as ai_words,
+       to_char(to_timestamp(greatest(coalesce(sd.updated_at, 0), coalesce(ls.last_ms, 0),
+                                     coalesce(rv.last_ms, 0), coalesce(ad.last_ms, 0)) / 1000.0)
+                 at time zone 'Asia/Seoul', 'HH24:MI')                     as last_seen_kst
+  from ids i
+  join auth.users u on u.id = i.user_id
+  left join sd on sd.user_id = i.user_id
+  left join ls on ls.user_id = i.user_id
+  left join rv on rv.user_id = i.user_id
+  left join mm on mm.user_id = i.user_id
+  left join ad on ad.user_id = i.user_id
+  left join ai on ai.user_id = i.user_id
+ order by coalesce(sd.studied_count, 0) + coalesce(rv.n, 0) desc, last_seen_kst desc;
+```
+
+2026-07-30(어제) 실행 결과 — 발췌:
+
+| name | studied | memorized | 학습한 단어장 | 복습 | 추가 | ai |
+|---|---|---|---|---|---|---|
+| Ellie Whipp | 500 | 407 | – | 0 | 0 | 0 |
+| 서하랑 | 314 | 110 | 스카이 7.30 85% / 수특 0% | 122 | 122 | 125 |
+| Eli | 56 | 5 | Basic Korean 500 19% / Korean Market Trip 50 18% | 65 | 0 | 0 |
+| Danielle A | 38 | 38 | – | 0 | 0 | 0 |
+
+**컬럼별 성격이 다르다** — 이걸 섞어 읽으면 안 된다.
+
+| 컬럼 | 출처 | 날짜 기준 |
+|---|---|---|
+| `studied` / `memorized` / `newly_memorized` | `cloud_study_days`, `cloud_memorized_log`의 `date` | **기기 로컬 날짜** |
+| `decks` / `reviewed` / `words_added` | `last_studied_at`·`last_reviewed_at`·`created_at` (기기 시계 epoch ms) | KST 절대시각 |
+| `last_seen_kst` | 위 값들의 최대치 | KST |
+
+⚠️ **`studied_decks`가 비어 있는데 `studied`가 큰 경우가 정상적으로 생긴다.** 위 표의 Ellie가
+그 예다 — 해외 사용자라 기기 로컬 날짜(7/30)와 KST(7/31 새벽)가 어긋나서, 학습 카운트는
+어제 행에 잡히고 단어장 갱신 시각은 오늘로 잡혔다. **하루 어긋나면 같은 세션을 이틀에 나눠
+보게 되므로, 해외 사용자는 `- 0`과 `- 1`을 둘 다 봐야 한다.**
+
+`flag` 컬럼: `bot`은 Play 사전 출시 보고서가 돌리는 Firebase Test Lab 계정이고(`@cloudtestlabaccounts.com`),
+`me`는 운영자 본인 계정이다. **둘 다 실사용 지표에서 빼고 읽어야 한다** —
+7/30 활동자 9명 중 3명이 여기 해당했다.
+
+## Q9. 한 사람이 그날 무엇을 공부했나 (단어 단위 타임라인)
+
+Q8에서 눈에 띈 사람을 파고들 때. `ilike` 검색어에 닉네임·이름·이메일 일부를 넣는다.
+
+```sql
+with d as (
+  select (now() at time zone 'Asia/Seoul')::date - 0 as day   -- ← 어제는 - 1
+), b as (
+  select day, to_char(day, 'YYYY-MM-DD') as day_txt,
+         (extract(epoch from (day::timestamp     at time zone 'Asia/Seoul')) * 1000)::bigint as t0,
+         (extract(epoch from ((day+1)::timestamp at time zone 'Asia/Seoul')) * 1000)::bigint as t1
+    from d
+), who as (
+  select id from auth.users
+   where coalesce(raw_user_meta_data->>'nickname', raw_user_meta_data->>'full_name',
+                  raw_user_meta_data->>'name', email) ilike '%검색어%'   -- ←
+), ev as (
+  select '복습' as kind, w.last_reviewed_at as ms, w.list_id, w.term, w.meaning_kr, w.definition,
+         w.is_memorized, w.review_success_count
+    from cloud_words w, b where w.user_id in (select id from who)
+     and w.last_reviewed_at >= b.t0 and w.last_reviewed_at < b.t1
+  union all
+  select '암기표시', m.created_at_ms, w.list_id, coalesce(w.term, m.word_id), w.meaning_kr, w.definition,
+         w.is_memorized, w.review_success_count
+    from cloud_memorized_log m
+    join b on m.date = b.day_txt
+    left join cloud_words w on w.id = m.word_id and w.user_id = m.user_id
+   where m.user_id in (select id from who)
+  union all
+  select '추가', w.created_at, w.list_id, w.term, w.meaning_kr, w.definition,
+         w.is_memorized, w.review_success_count
+    from cloud_words w, b where w.user_id in (select id from who)
+     and w.created_at >= b.t0 and w.created_at < b.t1
+)
+select to_char(to_timestamp(ev.ms / 1000.0) at time zone 'Asia/Seoul', 'HH24:MI') as time_kst,
+       ev.kind,
+       left(coalesce(l.title, '-'), 28)                     as deck,
+       ev.term,
+       left(coalesce(ev.meaning_kr, ev.definition, ''), 30) as meaning,
+       ev.is_memorized                                      as memorized,
+       ev.review_success_count                              as streak
+  from ev left join cloud_lists l on l.id = ev.list_id
+ order by ev.ms desc
+ limit 40;
+```
+
+`streak`(`review_success_count`)는 Gentle SRS 사다리 칸(0~7)이다. 복습을 연속으로 맞힐수록
+올라가고, 다음 복습 간격이 늘어난다.
+
+2026-07-31 새벽 `Danielle A` 실행 결과: 02:07에 `Basic Korean 500` 덱을 담고
+02:10에 38개를 학습·암기했다 — **가입 3분 만에 첫 세션까지 간 경로**가 그대로 보인다.
+
+## Q10. 가입자 추이
+
+`auth.users.created_at` 기준. **로그인 사용자만** 세는 값이라 설치 수와 다르다
+(설치는 Play Console / App Store Connect에서 본다).
+
+### 일별 — 가입이 0인 날도 빠뜨리지 않는다
+
+`generate_series`로 달력을 먼저 깔고 왼쪽 조인한다. 이렇게 안 하면 가입 없는 날이 행 자체로
+사라져서, 띄엄띄엄 들어온 걸 매일 들어온 것처럼 착각한다.
+
+```sql
+with bounds as (
+  select min((created_at at time zone 'Asia/Seoul')::date) as d0,
+         (now() at time zone 'Asia/Seoul')::date           as d1
+    from auth.users
+), days as (
+  select generate_series(d0, d1, interval '1 day')::date as day from bounds
+), s as (
+  select (created_at at time zone 'Asia/Seoul')::date as day, count(*) as n
+    from auth.users group by 1
+)
+select to_char(d.day, 'MM-DD (Dy)')                as day,
+       coalesce(s.n, 0)                            as signups,
+       sum(coalesce(s.n, 0)) over (order by d.day) as cumulative
+  from days d
+  left join s on s.day = d.day
+ order by d.day;
+```
+
+최근 30일만 보려면 **`bounds`는 그대로 두고** 마지막에 조건을 건다 —
+`d0`를 잘라내면 `cumulative`가 전체 누적이 아니라 그 구간 안에서의 누적이 된다.
+
+```sql
+ where d.day >= (now() at time zone 'Asia/Seoul')::date - 29
+```
+
+### 주별 — 로그인 수단까지
+
+```sql
+with s as (
+  select date_trunc('week', created_at at time zone 'Asia/Seoul')::date as wk,
+         count(*)                                                          as n,
+         count(*) filter (where raw_app_meta_data->>'provider' = 'google')  as google,
+         count(*) filter (where raw_app_meta_data->>'provider' = 'apple')   as apple
+    from auth.users
+   group by 1
+)
+select to_char(wk, 'YYYY-MM-DD') as week_start,
+       n as signups, google, apple,
+       sum(n) over (order by wk) as cumulative
+  from s order by wk;
+```
+
+2026-07-31 실행 결과 (총 59명):
+
+| 주 시작 | 신규 | Google | Apple | 누적 | |
+|---|---|---|---|---|---|
+| 05-18 | 1 | 1 | 0 | 1 | |
+| 06-08 | 13 | 9 | 4 | 16 | iOS 출시(6/12) |
+| 06-15 | 1 | 0 | 1 | 17 | |
+| 06-22 | 1 | 1 | 0 | 18 | |
+| 06-29 | 6 | 5 | 1 | 24 | Android 출시(7/1) |
+| 07-06 | 12 | 8 | 4 | 36 | |
+| 07-13 | 7 | 4 | 3 | 43 | |
+| 07-20 | 5 | 5 | 0 | 48 | |
+| 07-27 | 11 | 7 | 4 | 59 | 5일치인데 이미 2위 |
+
+읽을 때 주의:
+
+- **`provider`는 최초 가입 수단이 아니라 최근 로그인 수단에 가깝다.** 게다가 같은 이메일의
+  Google/Apple 계정은 **하나의 `user_id`로 자동 병합**된다(Supabase identity 자동 링크 — 정상 동작이다).
+  Google/Apple 분해는 대략의 비율로만 본다.
+- **탈퇴하면 행이 사라진다.** 과거 날짜의 신규 수가 나중에 소급해서 줄어든다.
+- Q8의 `flag`에 해당하는 봇·운영자 계정도 이 숫자에 포함돼 있다.
+
+## Q11. 오늘 쓴 사람은 "어떤 사람"인가 (프로필)
+
+Q8이 **무엇을 했나**라면 이건 **누구인가**다. 활동량 대신 신규/기존, 모국어, 보유 단어,
+정착 정도, 요금제를 본다. 하루 지표를 사람 단위로 해석할 때 쓴다.
+
+```sql
+with d as (
+  select (now() at time zone 'Asia/Seoul')::date - 0 as day   -- ← 어제는 - 1
+), b as (
+  select day, to_char(day, 'YYYY-MM-DD') as day_txt,
+         (extract(epoch from (day::timestamp     at time zone 'Asia/Seoul')) * 1000)::bigint as t0,
+         (extract(epoch from ((day+1)::timestamp at time zone 'Asia/Seoul')) * 1000)::bigint as t1
+    from d
+), ev as (                              -- 활동 신호를 (시각, 종류)로 평탄화
+  select s.user_id, s.updated_at as ms, '학습'::text as kind from cloud_study_days s, b where s.date = b.day_txt
+  union all
+  select l.user_id, l.last_studied_at,  '학습' from cloud_lists l, b
+   where l.last_studied_at  >= b.t0 and l.last_studied_at  < b.t1
+  union all
+  select w.user_id, w.last_reviewed_at, '복습' from cloud_words w, b
+   where w.last_reviewed_at >= b.t0 and w.last_reviewed_at < b.t1
+  union all
+  select w.user_id, w.created_at,       '추가' from cloud_words w, b
+   where w.created_at       >= b.t0 and w.created_at       < b.t1
+  union all
+  select a.user_id, (extract(epoch from a.updated_at) * 1000)::bigint, 'AI' from ai_usage_daily a, b
+   where a.usage_date = b.day
+), act as (
+  select user_id, min(ms) as first_ms, max(ms) as last_ms,
+         string_agg(distinct kind, '+') as did
+    from ev group by user_id
+), prof as (                            -- 계정 전체 프로필 (오늘로 한정하지 않는다)
+  select w.user_id,
+         count(*) filter (where coalesce(w.is_deleted, false) = false)                    as words,
+         count(*) filter (where w.is_memorized and coalesce(w.is_deleted, false) = false) as memorized_total,
+         mode() within group (order by w.source_lang || '→' || w.target_lang)             as main_pair,
+         mode() within group (order by w.target_lang)                                     as ui_lang
+    from cloud_words w group by w.user_id
+), sdays as (
+  select user_id, count(*) as study_days, max(date) as last_study_date
+    from cloud_study_days group by user_id
+)
+select coalesce(u.raw_user_meta_data->>'nickname', u.raw_user_meta_data->>'full_name',
+                u.raw_user_meta_data->>'name', split_part(u.email, '@', 1), left(u.id::text, 8)) as name,
+       case when u.email like '%@cloudtestlabaccounts.com' then 'bot'
+            when u.email in ('eunjbaek12@gmail.com', 'mtgirltreeguy@gmail.com') then 'me'
+            else '' end                                                          as flag,
+       ((select day from d) - (u.created_at at time zone 'Asia/Seoul')::date) + 1 as day_n,
+       case when (u.created_at at time zone 'Asia/Seoul')::date = (select day from d) then '오늘 가입'
+            when u.created_at > now() - interval '7 days'  then '신입(7일 내)'
+            when u.created_at > now() - interval '30 days' then '한 달 내'
+            else '기존' end                                                      as cohort,
+       coalesce(p.main_pair, '-')                                                as main_pair,
+       case p.ui_lang when 'ko' then '한국어 화자'
+                      when 'en' then '영어 화자' else coalesce(p.ui_lang, '-') end as speaker,
+       coalesce(p.words, 0)             as words,
+       coalesce(p.memorized_total, 0)   as memorized,
+       coalesce(sd.study_days, 0)       as study_days,
+       case when sub.pro_until     > now() then 'pro'          -- 앱과 동일한 판정 순서
+            when sub.trial_ends_at > now() then 'pro(체험)'
+            when sub.tier = 'pro'          then 'pro(만료)'
+            else 'free' end                                                      as tier,
+       a.did                                                                     as today_did,
+       to_char(to_timestamp(a.first_ms / 1000.0) at time zone 'Asia/Seoul', 'HH24:MI')
+         || '~' || to_char(to_timestamp(a.last_ms / 1000.0) at time zone 'Asia/Seoul', 'HH24:MI')
+                                                                                 as active_kst,
+       u.email
+  from act a
+  join auth.users u on u.id = a.user_id
+  left join prof  p  on p.user_id  = a.user_id
+  left join sdays sd on sd.user_id = a.user_id
+  left join user_subscriptions sub on sub.user_id = a.user_id
+ order by a.last_ms desc;
+```
+
+2026-07-31 11:50 KST 실행 결과:
+
+| name | cohort | 언어쌍 | 화자 | words | 암기 | 학습일 | tier | 오늘 한 일 | 활동(KST) |
+|---|---|---|---|---|---|---|---|---|---|
+| 산녀나무꾼 `me` | 신입 3일차 | es→ko | 한국어 | 303 | 31 | 2 | pro(만료) | AI+추가 | 03:04~11:49 |
+| 백경현 | 한 달 내 11일차 | en→ko | 한국어 | 214 | 0 | 1 | free | AI+추가+학습 | 10:10~10:24 |
+| Salamata | 오늘 가입 | – | – | 0 | 0 | 0 | pro(체험) | AI+학습 | 10:03 |
+| Ellie Whipp | 오늘 가입 | ko→en | 영어 | 1000 | 407 | 1 | pro(체험) | 복습+추가+학습 | 02:03~05:56 |
+| Danielle A | 오늘 가입 | ko→en | 영어 | 500 | 38 | 1 | pro(체험) | 복습+추가+학습 | 02:07~02:10 |
+| 희민 조 | 한 달 내 26일차 | en→ko | 한국어 | 384 | 360 | 7 | free | 추가 | 00:29 |
+
+읽는 법:
+
+- **`speaker`는 `target_lang` 최빈값으로 추정한 모국어다.** 뜻을 한국어로 받으면 한국어 화자,
+  영어로 받으면 영어 화자다. 국가 정보는 서버에 없으므로 이게 가장 가까운 신호다.
+- **`active_kst`가 새벽대면 해외 사용자로 봐도 거의 맞다.** 위 표의 02시대 두 명이 그 예다
+  (`ko→en` = 한국어를 배우는 영어 화자).
+- **`tier` 판정 순서는 앱 서버 RPC와 같다** (`pro_until` → `trial_ends_at` → `free`,
+  `20260518000000_ai_quota.sql`). `pro(만료)`는 결제했다가 끊긴 사람이고,
+  `pro(체험)`은 **가입 시 자동 부여된 7일 체험**이다.
+- **`words = 0`인데 `학습`이 찍힐 수 있다.** 동기화 30초 디바운스 때문에 방금 담은 단어가
+  아직 안 올라온 것이다. `speaker`가 `-`인 것도 같은 이유(판단할 단어가 없음).
+- `prof`/`sdays`는 **계정 전체 누적**이라 오늘 범위와 무관하다. `words`·`study_days`는
+  "이 사람이 얼마나 쌓았나"이고, `today_did`만 오늘 것이다.
+
 ---
 
 ## 스키마 메모 (쿼리 짤 때 매번 헷갈리는 것)
 
 | 테이블 | 날짜 컬럼 | 타입 | 주의 |
 |---|---|---|---|
-| `cloud_study_days` | `date` | **text** `'YYYY-MM-DD'` | `updated_at`은 epoch **ms** bigint |
+| `cloud_study_days` | `date` | **text** `'YYYY-MM-DD'` | **기기 로컬 날짜**. `updated_at`은 epoch **ms** bigint |
+| `cloud_memorized_log` | `date` | **text** `'YYYY-MM-DD'` | 기기 로컬 날짜. `word_id`는 FK 아님(단어 삭제돼도 남음) → `left join` |
 | `cloud_words` / `cloud_lists` | `updated_at` | epoch **ms** bigint | 초로 나눌 때 `/ 1000.0` |
+| `cloud_lists` | `last_studied_at` | epoch **ms** bigint | 그날 학습한 단어장. 결과는 `last_result_percent`(real → `round()` 전에 `::numeric`) |
+| `cloud_words` | `last_reviewed_at` | epoch **ms** bigint, **nullable** | NULL = 학습 이력 없음. `review_success_count`는 SRS 사다리 0~7 |
 | `ai_usage_daily` | **`usage_date`** | date | `day` 아님. 수치는 `word_count`/`call_count` |
 | `auth.users` | `created_at` / `last_sign_in_at` | timestamptz | `last_sign_in_at`은 DAU 지표 아님 |
 | `auth.users` | `raw_user_meta_data` | jsonb | 닉네임은 `nickname` 키. `full_name`/`name`은 소셜 계정 이름 |

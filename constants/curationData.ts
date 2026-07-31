@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-mimetic-ko-1",
+    "title": "Korean Onomatopoeia & Mimetic Words 100",
+    "icon": "✨",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "The word class English doesn't have — 의성어·의태어, the sound and \"feel\" words that fill K-dramas, webtoons and everyday speech: 반짝반짝, 두근두근, 아삭아삭, 깜짝, 후루룩, 살금살금, 멍멍 and more across light, emotion, laughter, voices, food texture, weather, walking, sleep, pain, impacts, animal sounds & textures. Every card marks whether it copies a sound or a manner and shows the verb it pairs with. Korean→English; meanings & spoken examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1785514388516,
+    "words": [
+      {
+        "id": "word-mimetic-0-1785514388516",
+        "term": "반짝반짝",
+        "definition": "(manner) twinkling, sparkling; of small lights, stars, polished things; pairs with 빛나다 or 반짝이다.",
+        "meaningKr": "(manner) twinkling, sparkling; of small lights, stars, polished things; pairs with 빛나다 or 반짝이다.",
+        "exampleEn": "어두운 밤하늘에 별들이 반짝반짝 빛나서 정말 아름다웠어.",
+        "exampleKr": "The stars twinkled beautifully in the dark night sky, making it truly gorgeous.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "banjjak-banjjak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-1-1785514388516",
+        "term": "번쩍번쩍",
+        "definition": "(manner) flashing, gleaming brightly; lightning, gold, a shined car; pairs with 번쩍이다. Bigger/harsher than 반짝반짝.",
+        "meaningKr": "(manner) flashing, gleaming brightly; lightning, gold, a shined car; pairs with 번쩍이다. Bigger/harsher than 반짝반짝.",
+        "exampleEn": "새 차가 햇빛에 번쩍번쩍 빛나서 눈이 부셨어.",
+        "exampleKr": "The new car gleamed brightly in the sunlight, dazzling my eyes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "beonjjeok-beonjjeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-2-1785514388516",
+        "term": "깜빡깜빡",
+        "definition": "(manner) blinking, flickering; a turn signal, a dying bulb, eyes; pairs with 깜빡거리다. NOTE: 깜빡하다 also means to forget momentarily.",
+        "meaningKr": "(manner) blinking, flickering; a turn signal, a dying bulb, eyes; pairs with 깜빡거리다. NOTE: 깜빡하다 also means to forget momentarily.",
+        "exampleEn": "오래된 전구가 깜빡깜빡하더니 결국 꺼져버렸어.",
+        "exampleKr": "The old light bulb flickered a few times and then finally went out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkamppak-kkamppak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-3-1785514388516",
+        "term": "알록달록",
+        "definition": "(manner) multicolored, patterned in many bright colors; pairs with 알록달록하다.",
+        "meaningKr": "(manner) multicolored, patterned in many bright colors; pairs with 알록달록하다.",
+        "exampleEn": "아이들 옷이 알록달록해서 정말 예쁘고 귀여워 보여.",
+        "exampleKr": "The children's clothes are so colorful, they look really pretty and adorable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "allok-dallok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-4-1785514388516",
+        "term": "울긋불긋",
+        "definition": "(manner) splashed with reds and yellows; classic word for autumn foliage; pairs with 울긋불긋하다.",
+        "meaningKr": "(manner) splashed with reds and yellows; classic word for autumn foliage; pairs with 울긋불긋하다.",
+        "exampleEn": "가을 산은 단풍으로 울긋불긋 아름다운 옷을 입었네.",
+        "exampleKr": "The autumn mountain dressed itself in beautiful, colorful fall foliage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ulgeut-bulgeut",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-5-1785514388516",
+        "term": "아른아른",
+        "definition": "(manner) shimmering faintly, hazily flickering in sight or in memory; pairs with 아른거리다. (e.g. a face 아른거리다 = can't stop picturing it.)",
+        "meaningKr": "(manner) shimmering faintly, hazily flickering in sight or in memory; pairs with 아른거리다. (e.g. a face 아른거리다 = can't stop picturing it.)",
+        "exampleEn": "고향에 계신 할머니 얼굴이 자꾸 아른아른 떠올라.",
+        "exampleKr": "My grandmother's face back home keeps shimmering faintly in my mind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "areun-areun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-6-1785514388516",
+        "term": "두근두근",
+        "definition": "(manner) heart pounding with excitement or nerves; pairs with 두근거리다. The single most-used emotion mimetic.",
+        "meaningKr": "(manner) heart pounding with excitement or nerves; pairs with 두근거리다. The single most-used emotion mimetic.",
+        "exampleEn": "첫 데이트라니, 아침부터 가슴이 두근두근 떨렸어.",
+        "exampleKr": "It's our first date, so my heart has been pounding with excitement since this morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "dugeun-dugeun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-7-1785514388516",
+        "term": "콩닥콩닥",
+        "definition": "(manner) heart thumping lightly and fast; cuter, smaller-scale than 두근두근; pairs with 콩닥거리다.",
+        "meaningKr": "(manner) heart thumping lightly and fast; cuter, smaller-scale than 두근두근; pairs with 콩닥거리다.",
+        "exampleEn": "아기가 엄마 품에서 콩닥콩닥 심장이 뛰고 있었어.",
+        "exampleKr": "The baby's heart was thumping lightly and fast in its mother's arms.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kongdak-kongdak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-8-1785514388516",
+        "term": "조마조마",
+        "definition": "(manner) on edge, nervously watching something risky unfold; pairs with 조마조마하다.",
+        "meaningKr": "(manner) on edge, nervously watching something risky unfold; pairs with 조마조마하다.",
+        "exampleEn": "시험 결과를 기다리는 동안 너무 조마조마했어.",
+        "exampleKr": "I was so on edge while waiting for my test results.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "joma-joma",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-9-1785514388516",
+        "term": "울컥",
+        "definition": "(manner) emotion surging up all at once; tears rising, or a flash of anger; pairs with 울컥하다.",
+        "meaningKr": "(manner) emotion surging up all at once; tears rising, or a flash of anger; pairs with 울컥하다.",
+        "exampleEn": "친구의 진심 어린 말에 갑자기 눈물이 울컥 쏟아졌어.",
+        "exampleKr": "At my friend's heartfelt words, tears suddenly welled up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ulkeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-10-1785514388516",
+        "term": "뭉클",
+        "definition": "(manner) heart swelling with warmth, deeply moved; often 가슴이 뭉클하다; pairs with 뭉클하다.",
+        "meaningKr": "(manner) heart swelling with warmth, deeply moved; often 가슴이 뭉클하다; pairs with 뭉클하다.",
+        "exampleEn": "졸업식에서 부모님께 감사 인사를 전하니 가슴이 뭉클했어.",
+        "exampleKr": "My heart swelled with warmth when I thanked my parents at graduation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "mungkeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-11-1785514388516",
+        "term": "짜릿짜릿",
+        "definition": "(manner) an electric, thrilling tingle; also a limb tingling; pairs with 짜릿하다.",
+        "meaningKr": "(manner) an electric, thrilling tingle; also a limb tingling; pairs with 짜릿하다.",
+        "exampleEn": "높은 곳에서 번지점프를 하니 온몸이 짜릿짜릿했어.",
+        "exampleKr": "My whole body tingled with thrill after bungee jumping from a high place.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jjarit-jjarit",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-12-1785514388516",
+        "term": "오싹오싹",
+        "definition": "(manner) chills running over you from fear or cold; pairs with 오싹하다. A horror-movie word.",
+        "meaningKr": "(manner) chills running over you from fear or cold; pairs with 오싹하다. A horror-movie word.",
+        "exampleEn": "한밤중에 으스스한 소리를 들으니 등골이 오싹오싹했어.",
+        "exampleKr": "Hearing a creepy sound in the middle of the night sent chills down my spine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ossak-ossak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-13-1785514388516",
+        "term": "섬뜩",
+        "definition": "(manner) a sudden eerie chill, blood running cold at something sinister; pairs with 섬뜩하다.",
+        "meaningKr": "(manner) a sudden eerie chill, blood running cold at something sinister; pairs with 섬뜩하다.",
+        "exampleEn": "어두운 골목에서 이상한 그림자를 보고 등골이 섬뜩했어.",
+        "exampleKr": "I saw a strange shadow in the dark alley and felt a chill down my spine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "seomtteuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-14-1785514388516",
+        "term": "근질근질",
+        "definition": "(manner) itchy; figuratively itching to do something you're holding back; pairs with 근질거리다. (e.g., 입이 근질근질 = dying to spill a secret).",
+        "meaningKr": "(manner) itchy; figuratively itching to do something you're holding back; pairs with 근질거리다. (e.g., 입이 근질근질 = dying to spill a secret).",
+        "exampleEn": "새로운 비밀을 알아서 입이 근질근질해서 참기 힘들어.",
+        "exampleKr": "I know a new secret, and my mouth is itching to tell it, it's hard to hold back.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "geunjil-geunjil",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-15-1785514388516",
+        "term": "깜짝",
+        "definition": "(manner) with a start; almost always 깜짝 놀라다 = to be startled. Also 깜짝 파티 = surprise party.",
+        "meaningKr": "(manner) with a start; almost always 깜짝 놀라다 = to be startled. Also 깜짝 파티 = surprise party.",
+        "exampleEn": "뒤에서 갑자기 누가 내 이름을 불러서 깜짝 놀랐잖아.",
+        "exampleKr": "Someone suddenly called my name from behind, and I was startled.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkamjjak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-16-1785514388516",
+        "term": "화들짝",
+        "definition": "(manner) with a violent start, jumping in shock; stronger than 깜짝; often 화들짝 놀라다.",
+        "meaningKr": "(manner) with a violent start, jumping in shock; stronger than 깜짝; often 화들짝 놀라다.",
+        "exampleEn": "인기척 없는 곳에서 고양이가 튀어나와서 화들짝 놀랐어.",
+        "exampleKr": "A cat suddenly jumped out in a deserted place, and I jumped in shock.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hwadeuljjak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-17-1785514388516",
+        "term": "흠칫",
+        "definition": "(manner) flinching, a small startled recoil of the shoulders; pairs with 흠칫하다.",
+        "meaningKr": "(manner) flinching, a small startled recoil of the shoulders; pairs with 흠칫하다.",
+        "exampleEn": "갑자기 들리는 소리에 그는 흠칫 놀라 어깨를 움츠렸어.",
+        "exampleKr": "He flinched at the sudden sound, recoiling his shoulders.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "heumchit",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-18-1785514388516",
+        "term": "두리번두리번",
+        "definition": "(manner) looking around restlessly, head turning to search; pairs with 두리번거리다.",
+        "meaningKr": "(manner) looking around restlessly, head turning to search; pairs with 두리번거리다.",
+        "exampleEn": "처음 온 도시에서 길을 잃어서 두리번두리번 주위를 살폈어.",
+        "exampleKr": "I got lost in a new city and looked around restlessly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "duribeon-duribeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-19-1785514388516",
+        "term": "안절부절",
+        "definition": "(manner) fidgety with worry, unable to settle. WARNING: only used as 안절부절못하다; 안절부절하다 is incorrect Korean.",
+        "meaningKr": "(manner) fidgety with worry, unable to settle. WARNING: only used as 안절부절못하다; 안절부절하다 is incorrect Korean.",
+        "exampleEn": "중요한 발표를 앞두고 너무 긴장돼서 안절부절못하고 있었어.",
+        "exampleKr": "I was fidgety with worry, unable to settle, because I was so nervous before an important presentation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "anjeol-bujeol",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-20-1785514388516",
+        "term": "깔깔",
+        "definition": "(sound) loud, uninhibited cackling laughter; pairs with 깔깔거리다.",
+        "meaningKr": "(sound) loud, uninhibited cackling laughter; pairs with 깔깔거리다.",
+        "exampleEn": "친구들과 재미있는 농담을 주고받으며 깔깔 웃었어.",
+        "exampleKr": "I exchanged funny jokes with my friends and cackled with laughter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkal-kkal",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-21-1785514388516",
+        "term": "킥킥",
+        "definition": "(sound) giggling, a stifled laugh you're trying to hold in; pairs with 킥킥거리다.",
+        "meaningKr": "(sound) giggling, a stifled laugh you're trying to hold in; pairs with 킥킥거리다.",
+        "exampleEn": "선생님 몰래 친구랑 킥킥거리며 웃다가 혼났어.",
+        "exampleKr": "I got in trouble for giggling with my friend secretly behind the teacher's back.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kik-kik",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-22-1785514388516",
+        "term": "히죽히죽",
+        "definition": "(manner) grinning, smirking (often smug or up to something); pairs with 히죽거리다.",
+        "meaningKr": "(manner) grinning, smirking (often smug or up to something); pairs with 히죽거리다.",
+        "exampleEn": "재미있는 상상을 했는지 혼자 히죽히죽 웃고 있더라.",
+        "exampleKr": "He must have imagined something funny because he was grinning to himself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hijuk-hijuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-23-1785514388516",
+        "term": "싱글벙글",
+        "definition": "(manner) all smiles, beaming with visible happiness.",
+        "meaningKr": "(manner) all smiles, beaming with visible happiness.",
+        "exampleEn": "좋은 소식이 있는지 아침부터 싱글벙글 웃고 있어.",
+        "exampleKr": "She must have good news; she's been beaming with happiness since this morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "singgeul-beonggeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-24-1785514388516",
+        "term": "방긋방긋",
+        "definition": "(manner) smiling brightly and innocently; the word for a baby's smile; pairs with 방긋거리다.",
+        "meaningKr": "(manner) smiling brightly and innocently; the word for a baby's smile; pairs with 방긋거리다.",
+        "exampleEn": "아기가 엄마를 보며 방긋방긋 예쁘게 웃었어.",
+        "exampleKr": "The baby smiled brightly and innocently at its mom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "banggeut-banggeut",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-25-1785514388516",
+        "term": "엉엉",
+        "definition": "(sound) bawling out loud, crying without holding back; pairs with 울다.",
+        "meaningKr": "(sound) bawling out loud, crying without holding back; pairs with 울다.",
+        "exampleEn": "아기가 배고픈지 엉엉 울기 시작했어요.",
+        "exampleKr": "The baby started to bawl, probably because it was hungry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "eong-eong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-26-1785514388516",
+        "term": "훌쩍훌쩍",
+        "definition": "(sound) sniffling, quiet sobbing; also sniffing a runny nose. verb 훌쩍거리다. NOTE: single 훌쩍 = in one leap / all at once.",
+        "meaningKr": "(sound) sniffling, quiet sobbing; also sniffing a runny nose. verb 훌쩍거리다. NOTE: single 훌쩍 = in one leap / all at once.",
+        "exampleEn": "영화가 슬펐는지 옆자리 친구가 훌쩍훌쩍 울고 있었어.",
+        "exampleKr": "The movie must have been sad; my friend next to me was quietly sniffling.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "huljjeok-huljjeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-27-1785514388516",
+        "term": "소곤소곤",
+        "definition": "(sound) whispering softly, heads close together. verb 소곤거리다.",
+        "meaningKr": "(sound) whispering softly, heads close together. verb 소곤거리다.",
+        "exampleEn": "아이들이 서로 얼굴을 맞대고 소곤소곤 이야기했어요.",
+        "exampleKr": "The children put their heads together and whispered softly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "sogon-sogon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-28-1785514388516",
+        "term": "속닥속닥",
+        "definition": "(sound) whispering secretively, gossiping just out of earshot. verb 속닥거리다.",
+        "meaningKr": "(sound) whispering secretively, gossiping just out of earshot. verb 속닥거리다.",
+        "exampleEn": "저 사람들이 뭐 때문에 저렇게 속닥속닥 얘기할까?",
+        "exampleKr": "What are those people secretly whispering about?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "sokdak-sokdak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-29-1785514388516",
+        "term": "중얼중얼",
+        "definition": "(sound) muttering to oneself under one's breath. verb 중얼거리다.",
+        "meaningKr": "(sound) muttering to oneself under one's breath. verb 중얼거리다.",
+        "exampleEn": "혼자서 뭘 그렇게 중얼중얼해? 무슨 일 있어?",
+        "exampleKr": "What are you muttering about to yourself? Is something wrong?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jung-eol-jung-eol",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-30-1785514388516",
+        "term": "재잘재잘",
+        "definition": "(sound) chattering away brightly; children or small birds. verb 재잘거리다.",
+        "meaningKr": "(sound) chattering away brightly; children or small birds. verb 재잘거리다.",
+        "exampleEn": "아이들이 학교 끝나고 재잘재잘 떠드는 소리가 들려요.",
+        "exampleKr": "I can hear the children chattering brightly after school.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jaejal-jaejal",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-31-1785514388516",
+        "term": "웅성웅성",
+        "definition": "(sound) a crowd murmuring and buzzing, many voices at once. verb 웅성거리다.",
+        "meaningKr": "(sound) a crowd murmuring and buzzing, many voices at once. verb 웅성거리다.",
+        "exampleEn": "무슨 일인지 사람들이 모여서 웅성웅성하고 있었어.",
+        "exampleKr": "People gathered, murmuring and buzzing, wondering what was happening.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ungseong-ungseong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-32-1785514388516",
+        "term": "또박또박",
+        "definition": "(manner) clearly and distinctly, one syllable at a time; speaking, writing, or paying installments on time.",
+        "meaningKr": "(manner) clearly and distinctly, one syllable at a time; speaking, writing, or paying installments on time.",
+        "exampleEn": "아나운서는 말을 또박또박하게 잘하는 것 같아요.",
+        "exampleKr": "Announcers seem to speak very clearly and distinctly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ttobak-ttobak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-33-1785514388516",
+        "term": "아삭아삭",
+        "definition": "(sound) crisp, fresh bite: apple, lettuce, fresh kimchi. verb 아삭거리다, adj 아삭하다.",
+        "meaningKr": "(sound) crisp, fresh bite: apple, lettuce, fresh kimchi. verb 아삭거리다, adj 아삭하다.",
+        "exampleEn": "신선한 사과를 아삭아삭 소리 내면서 맛있게 먹었어요.",
+        "exampleKr": "I ate the fresh apple, making a crisp crunching sound.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "asak-asak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-34-1785514388516",
+        "term": "바삭바삭",
+        "definition": "(sound) crunchy and dry-crisp: fried chicken, crackers, 전. adj 바삭하다.",
+        "meaningKr": "(sound) crunchy and dry-crisp: fried chicken, crackers, 전. adj 바삭하다.",
+        "exampleEn": "이 치킨은 튀김옷이 바삭바삭해서 정말 맛있어요.",
+        "exampleKr": "This fried chicken is so delicious because the batter is perfectly crunchy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "basak-basak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-35-1785514388516",
+        "term": "쫄깃쫄깃",
+        "definition": "(manner) chewy and springy in a good way: 떡, noodles, squid. adj 쫄깃하다. prized texture in Korean food.",
+        "meaningKr": "(manner) chewy and springy in a good way: 떡, noodles, squid. adj 쫄깃하다. prized texture in Korean food.",
+        "exampleEn": "이 떡볶이 떡은 쫄깃쫄깃해서 식감이 너무 좋아요.",
+        "exampleKr": "The rice cakes in this tteokbokki are so deliciously chewy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jjolgit-jjolgit",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-36-1785514388516",
+        "term": "촉촉",
+        "definition": "(manner) pleasantly moist: cake, skin, damp grass. normally used as adj 촉촉하다; skincare-ad staple.",
+        "meaningKr": "(manner) pleasantly moist: cake, skin, damp grass. normally used as adj 촉촉하다; skincare-ad staple.",
+        "exampleEn": "이 크림을 바르니 피부가 촉촉하고 부드러워졌어요.",
+        "exampleKr": "My skin became moist and soft after I applied this cream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "chokchok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-37-1785514388516",
+        "term": "후루룩",
+        "definition": "(sound) slurping noodles or soup in one go; not rude in Korea.",
+        "meaningKr": "(sound) slurping noodles or soup in one go; not rude in Korea.",
+        "exampleEn": "배고파서 라면을 후루룩 소리 내면서 다 먹었어요.",
+        "exampleKr": "I was so hungry that I slurped down all the ramen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hururuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-38-1785514388516",
+        "term": "꿀꺽",
+        "definition": "(sound) gulping down in one swallow; also swallowing hard from nerves.",
+        "meaningKr": "(sound) gulping down in one swallow; also swallowing hard from nerves.",
+        "exampleEn": "목이 말라서 물 한 잔을 꿀꺽 삼켰어요.",
+        "exampleKr": "I was so thirsty I gulped down a whole glass of water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkulkkeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-39-1785514388516",
+        "term": "냠냠",
+        "definition": "(sound) yum-yum, munching happily; childlike and cute.",
+        "meaningKr": "(sound) yum-yum, munching happily; childlike and cute.",
+        "exampleEn": "아기가 밥을 냠냠 맛있게 먹는 모습이 귀여워요.",
+        "exampleKr": "It's cute how the baby happily munches on its food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "nyamnyam",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-40-1785514388516",
+        "term": "오독오독",
+        "definition": "(sound) crunching small hard bits: nuts, ice, 단무지. verb 오독거리다.",
+        "meaningKr": "(sound) crunching small hard bits: nuts, ice, 단무지. verb 오독거리다.",
+        "exampleEn": "땅콩을 오독오독 씹어 먹으니 고소하고 맛있어요.",
+        "exampleKr": "Chewing the peanuts with a crunch is savory and delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "odok-odok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-41-1785514388516",
+        "term": "보글보글",
+        "definition": "(sound) bubbling and simmering; the sound of 찌개 on the stove. verb 보글거리다.",
+        "meaningKr": "(sound) bubbling and simmering; the sound of 찌개 on the stove. verb 보글거리다.",
+        "exampleEn": "찌개가 냄비에서 보글보글 끓고 있어서 침이 고여요.",
+        "exampleKr": "The jjigae is bubbling away in the pot, making my mouth water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "bogeul-bogeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-42-1785514388516",
+        "term": "지글지글",
+        "definition": "(sound) sizzling on a hot grill or pan; 삼겹살 cooking.",
+        "meaningKr": "(sound) sizzling on a hot grill or pan; 삼겹살 cooking.",
+        "exampleEn": "불판 위에서 삼겹살이 지글지글 맛있게 익고 있어요.",
+        "exampleKr": "The samgyeopsal is sizzling deliciously on the grill.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jigeul-jigeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-43-1785514388516",
+        "term": "주룩주룩",
+        "definition": "(sound) rain pouring down steadily in streams; also tears running down.",
+        "meaningKr": "(sound) rain pouring down steadily in streams; also tears running down.",
+        "exampleEn": "어제 비가 하루 종일 주룩주룩 내렸어요.",
+        "exampleKr": "It rained steadily all day yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "juruk-juruk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-44-1785514388516",
+        "term": "보슬보슬",
+        "definition": "(manner) drizzling softly, fine misty rain. 보슬비 = drizzle.",
+        "meaningKr": "(manner) drizzling softly, fine misty rain. 보슬비 = drizzle.",
+        "exampleEn": "날씨가 흐리고 보슬보슬 비가 내리고 있어요.",
+        "exampleKr": "The weather is cloudy, and it's drizzling softly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "boseul-boseul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-45-1785514388516",
+        "term": "첨벙첨벙",
+        "definition": "(sound) splashing about in water.",
+        "meaningKr": "(sound) splashing about in water.",
+        "exampleEn": "아이들이 물웅덩이에서 첨벙첨벙 신나게 놀고 있었어요.",
+        "exampleKr": "The children were happily splashing about in the puddles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "cheombeong-cheombeong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-46-1785514388516",
+        "term": "졸졸",
+        "definition": "(sound) a small stream trickling; also trailing after someone closely (강아지처럼 졸졸 따라다니다).",
+        "meaningKr": "(sound) a small stream trickling; also trailing after someone closely (강아지처럼 졸졸 따라다니다).",
+        "exampleEn": "작은 시냇물이 졸졸 흐르는 소리가 들렸어요.",
+        "exampleKr": "I heard the sound of a small stream trickling.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "joljol",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-47-1785514388516",
+        "term": "살랑살랑",
+        "definition": "(manner) a breeze blowing gently; also a tail wagging. verb 살랑거리다.",
+        "meaningKr": "(manner) a breeze blowing gently; also a tail wagging. verb 살랑거리다.",
+        "exampleEn": "봄바람이 살랑살랑 불어와서 기분이 좋았어요.",
+        "exampleKr": "The spring breeze blew gently, making me feel good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "sallang-sallang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-48-1785514388516",
+        "term": "훨훨",
+        "definition": "(manner) flying freely on wide wings; also flames blazing up, or letting something go free.",
+        "meaningKr": "(manner) flying freely on wide wings; also flames blazing up, or letting something go free.",
+        "exampleEn": "새들이 하늘 위로 훨훨 날아가는 모습이 아름다웠어요.",
+        "exampleKr": "The sight of birds flying freely high in the sky was beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hwolhwol",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-49-1785514388516",
+        "term": "펑펑",
+        "definition": "(manner) snow falling thickly; crying one's eyes out; spending money freely. (three common uses)",
+        "meaningKr": "(manner) snow falling thickly; crying one's eyes out; spending money freely. (three common uses)",
+        "exampleEn": "밤새 눈이 펑펑 내려서 온 세상이 하얗게 변했어요.",
+        "exampleKr": "Snow fell thickly all night, turning the whole world white.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "peongpeong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-50-1785514388516",
+        "term": "후끈후끈",
+        "definition": "(manner) air turning hot and stuffy; a face flushing with heat; pairs with 하다.",
+        "meaningKr": "(manner) air turning hot and stuffy; a face flushing with heat; pairs with 하다.",
+        "exampleEn": "방 안이 후끈후끈해서 창문을 좀 열어야겠어요.",
+        "exampleKr": "The room is getting all hot and stuffy, so I should open the window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hukkeun-hukkeun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-51-1785514388516",
+        "term": "아장아장",
+        "definition": "(manner) toddling; a baby's first unsteady steps; pairs with 걷다.",
+        "meaningKr": "(manner) toddling; a baby's first unsteady steps; pairs with 걷다.",
+        "exampleEn": "우리 아기가 아장아장 걷는 모습이 너무 귀여워요.",
+        "exampleKr": "Our baby toddling around is so cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ajang-ajang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-52-1785514388516",
+        "term": "성큼성큼",
+        "definition": "(manner) striding with long confident steps; a season arriving fast; pairs with 걷다 or 다가오다.",
+        "meaningKr": "(manner) striding with long confident steps; a season arriving fast; pairs with 걷다 or 다가오다.",
+        "exampleEn": "그는 성큼성큼 걸어서 금방 우리에게 다가왔어.",
+        "exampleKr": "He strode quickly and came over to us in no time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "seongkeum-seongkeum",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-53-1785514388516",
+        "term": "어슬렁어슬렁",
+        "definition": "(manner) ambling around with no purpose, or a predator prowling; pairs with 걷다 or 거리다.",
+        "meaningKr": "(manner) ambling around with no purpose, or a predator prowling; pairs with 걷다 or 거리다.",
+        "exampleEn": "길고양이가 골목을 어슬렁어슬렁 돌아다니고 있었어요.",
+        "exampleKr": "A stray cat was ambling aimlessly around the alley.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "eoseulleong-eoseulleong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-54-1785514388516",
+        "term": "살금살금",
+        "definition": "(manner) sneaking quietly so no one notices; pairs with 걷다 or 움직이다.",
+        "meaningKr": "(manner) sneaking quietly so no one notices; pairs with 걷다 or 움직이다.",
+        "exampleEn": "엄마 몰래 냉장고로 살금살금 가서 아이스크림을 꺼냈어.",
+        "exampleKr": "I snuck quietly to the fridge without Mom knowing and took out some ice cream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "salgeum-salgeum",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-55-1785514388516",
+        "term": "후다닥",
+        "definition": "(manner) dashing off or finishing something in a quick burst; pairs with 가다 or 해치우다.",
+        "meaningKr": "(manner) dashing off or finishing something in a quick burst; pairs with 가다 or 해치우다.",
+        "exampleEn": "비가 오기 전에 빨래를 후다닥 걷어 왔어요.",
+        "exampleKr": "I quickly dashed out and brought in the laundry before it rained.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "hudadak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-56-1785514388516",
+        "term": "비틀비틀",
+        "definition": "(manner) staggering, unsteady on one's feet; pairs with 걷다 or 거리다.",
+        "meaningKr": "(manner) staggering, unsteady on one's feet; pairs with 걷다 or 거리다.",
+        "exampleEn": "술에 취해서 비틀비틀 걷는 사람이 보였어요.",
+        "exampleKr": "I saw someone staggering unsteadily, drunk from alcohol.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "biteul-biteul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-57-1785514388516",
+        "term": "터벅터벅",
+        "definition": "(manner) trudging wearily, heavy dragging steps after a hard day; pairs with 걷다.",
+        "meaningKr": "(manner) trudging wearily, heavy dragging steps after a hard day; pairs with 걷다.",
+        "exampleEn": "힘든 하루를 보내고 터벅터벅 집으로 돌아왔어요.",
+        "exampleKr": "After a tough day, I trudged wearily back home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "teobeok-teobeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-58-1785514388516",
+        "term": "깡충깡충",
+        "definition": "(manner) hopping; a rabbit's movement; pairs with 뛰다.",
+        "meaningKr": "(manner) hopping; a rabbit's movement; pairs with 뛰다.",
+        "exampleEn": "토끼가 풀밭에서 깡충깡충 뛰어다니는 모습이 귀엽네요.",
+        "exampleKr": "The rabbit hopping around in the grass looks cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkangchung-kkangchung",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-59-1785514388516",
+        "term": "뒤뚱뒤뚱",
+        "definition": "(manner) waddling side to side; a penguin or duck; pairs with 걷다 or 거리다.",
+        "meaningKr": "(manner) waddling side to side; a penguin or duck; pairs with 걷다 or 거리다.",
+        "exampleEn": "아기 오리들이 엄마를 따라 뒤뚱뒤뚱 걸어가요.",
+        "exampleKr": "Baby ducklings waddle along, following their mom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "dwittung-dwittung",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-60-1785514388516",
+        "term": "빙글빙글",
+        "definition": "(manner) spinning round and round smoothly; a head spinning; pairs with 돌다 or 돌리다.",
+        "meaningKr": "(manner) spinning round and round smoothly; a head spinning; pairs with 돌다 or 돌리다.",
+        "exampleEn": "컵이 빙글빙글 돌다가 바닥으로 떨어졌어요.",
+        "exampleKr": "The cup spun round and round before falling to the floor.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "binggeul-binggeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-61-1785514388516",
+        "term": "쿨쿨",
+        "definition": "(sound) sleeping deeply, snoring; the Korean 'zzz'; pairs with 자다.",
+        "meaningKr": "(sound) sleeping deeply, snoring; the Korean 'zzz'; pairs with 자다.",
+        "exampleEn": "아기가 침대에서 쿨쿨 자고 있어서 방해하지 마.",
+        "exampleKr": "The baby is sleeping soundly in bed, so don't disturb him.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kul-kul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-62-1785514388516",
+        "term": "꾸벅꾸벅",
+        "definition": "(manner) nodding off, head bobbing with sleep; pairs with 졸다. NOTE: single 꾸벅 is a quick bow.",
+        "meaningKr": "(manner) nodding off, head bobbing with sleep; pairs with 졸다. NOTE: single 꾸벅 is a quick bow.",
+        "exampleEn": "수업 시간에 꾸벅꾸벅 졸아서 선생님께 혼났어요.",
+        "exampleKr": "I nodded off repeatedly during class and got scolded by the teacher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkubeok-kkubeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-63-1785514388516",
+        "term": "뒹굴뒹굴",
+        "definition": "(manner) rolling around doing absolutely nothing; lazy-weekend word; pairs with 하다 or 거리다.",
+        "meaningKr": "(manner) rolling around doing absolutely nothing; lazy-weekend word; pairs with 하다 or 거리다.",
+        "exampleEn": "주말에는 집에서 뒹굴뒹굴 영화 보는 게 최고야.",
+        "exampleKr": "On weekends, just rolling around at home watching movies is the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "dwinggul-dwinggul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-64-1785514388516",
+        "term": "멍하니",
+        "definition": "(manner) blankly, staring into space; pairs with 있다 or 쳐다보다. 멍때리다 = to zone out.",
+        "meaningKr": "(manner) blankly, staring into space; pairs with 있다 or 쳐다보다. 멍때리다 = to zone out.",
+        "exampleEn": "피곤해서 멍하니 창밖만 바라보고 있었어요.",
+        "exampleKr": "I was so tired, I just stared blankly out the window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "meonghani",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-65-1785514388516",
+        "term": "꼼지락꼼지락",
+        "definition": "(manner) fidgeting or wriggling slowly; small restless movements of fingers/toes; pairs with 움직이다 or 거리다.",
+        "meaningKr": "(manner) fidgeting or wriggling slowly; small restless movements of fingers/toes; pairs with 움직이다 or 거리다.",
+        "exampleEn": "아기가 발가락을 꼼지락꼼지락 움직이는 게 너무 귀여워.",
+        "exampleKr": "The baby wiggling its toes is so cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkomjirak-kkomjirak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-66-1785514388516",
+        "term": "욱신욱신",
+        "definition": "(manner) a deep throbbing ache; sore muscles, a bruise; pairs with 아프다 or 거리다.",
+        "meaningKr": "(manner) a deep throbbing ache; sore muscles, a bruise; pairs with 아프다 or 거리다.",
+        "exampleEn": "어제 운동했더니 다리가 욱신욱신 아파요.",
+        "exampleKr": "My legs are throbbing from exercising yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "uksin-uksin",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-67-1785514388516",
+        "term": "지끈지끈",
+        "definition": "(manner) a splitting headache pounding; pairs with 아프다 or 하다.",
+        "meaningKr": "(manner) a splitting headache pounding; pairs with 아프다 or 하다.",
+        "exampleEn": "스트레스 때문에 머리가 지끈지끈 아파서 약을 먹었어요.",
+        "exampleKr": "My head was pounding from stress, so I took some medicine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jikkeun-jikkeun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-68-1785514388516",
+        "term": "콕콕",
+        "definition": "(manner) sharp little stabs of pain; also poking someone repeatedly; pairs with 쑤시다 or 찌르다.",
+        "meaningKr": "(manner) sharp little stabs of pain; also poking someone repeatedly; pairs with 쑤시다 or 찌르다.",
+        "exampleEn": "옆구리가 콕콕 쑤셔서 병원에 가봐야겠어요.",
+        "exampleKr": "My side is having sharp little pains, so I should go to the hospital.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kok-kok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-69-1785514388516",
+        "term": "따끔따끔",
+        "definition": "(manner) stinging, prickling; a sore throat, sunburn, injection; pairs with 아프다 or 거리다.",
+        "meaningKr": "(manner) stinging, prickling; a sore throat, sunburn, injection; pairs with 아프다 or 거리다.",
+        "exampleEn": "햇볕에 타서 피부가 따끔따끔해요.",
+        "exampleKr": "My skin is stinging from the sunburn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ttakkeum-ttakkeum",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-70-1785514388516",
+        "term": "간질간질",
+        "definition": "(manner) ticklish, a light itch on the skin; pairs with 하다 or 거리다. 간지럽히다 = to tickle.",
+        "meaningKr": "(manner) ticklish, a light itch on the skin; pairs with 하다 or 거리다. 간지럽히다 = to tickle.",
+        "exampleEn": "목 뒤가 간질간질해서 자꾸 긁게 돼요.",
+        "exampleKr": "The back of my neck feels ticklish, so I keep scratching it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ganjil-ganjil",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-71-1785514388516",
+        "term": "어질어질",
+        "definition": "(manner) dizzy, the room spinning; pairs with 하다.",
+        "meaningKr": "(manner) dizzy, the room spinning; pairs with 하다.",
+        "exampleEn": "너무 오래 서 있었더니 머리가 어질어질해요.",
+        "exampleKr": "I stood for too long, and now my head feels dizzy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "eojil-eojil",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-72-1785514388516",
+        "term": "울렁울렁",
+        "definition": "(manner) queasy, stomach churning with nausea or nerves; pairs with 하다 or 거리다.",
+        "meaningKr": "(manner) queasy, stomach churning with nausea or nerves; pairs with 하다 or 거리다.",
+        "exampleEn": "멀미 때문에 속이 울렁울렁해서 아무것도 못 먹겠어요.",
+        "exampleKr": "I'm so nauseous from motion sickness that I can't eat anything.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ulleong-ulleong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-73-1785514388516",
+        "term": "쾅",
+        "definition": "(sound) a bang or slam; a door slamming, a crash; pairs with 닫다 or 부딪히다. Often doubled as 쾅쾅.",
+        "meaningKr": "(sound) a bang or slam; a door slamming, a crash; pairs with 닫다 or 부딪히다. Often doubled as 쾅쾅.",
+        "exampleEn": "바람 때문에 문이 쾅 하고 닫혔어요.",
+        "exampleKr": "The wind made the door slam shut with a bang.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kwang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-74-1785514388516",
+        "term": "쿵",
+        "definition": "(sound) a heavy thud; something big hitting the floor; pairs with 떨어지다 or 부딪히다. 쿵쾅쿵쾅 = stomping.",
+        "meaningKr": "(sound) a heavy thud; something big hitting the floor; pairs with 떨어지다 or 부딪히다. 쿵쾅쿵쾅 = stomping.",
+        "exampleEn": "위층에서 뭔가 쿵 하고 떨어지는 소리가 났어.",
+        "exampleKr": "There was a heavy thud from upstairs, like something fell.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kung",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-75-1785514388516",
+        "term": "똑똑",
+        "definition": "(sound) knocking on a door or dripping in drops; pairs with 두드리다 (knock) or 떨어지다 (drip). NOTE: homonym 똑똑하다 means 'to be smart'.",
+        "meaningKr": "(sound) knocking on a door or dripping in drops; pairs with 두드리다 (knock) or 떨어지다 (drip). NOTE: homonym 똑똑하다 means 'to be smart'.",
+        "exampleEn": "문에서 똑똑 소리가 나서 누구인지 궁금했어요.",
+        "exampleKr": "I heard a knock-knock sound at the door and wondered who it was.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ttok-ttok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-76-1785514388516",
+        "term": "삐걱삐걱",
+        "definition": "(sound) creaking of an old door or floorboard; also used for a relationship/plan hitting friction. Pairs with 거리다 or 나다.",
+        "meaningKr": "(sound) creaking of an old door or floorboard; also used for a relationship/plan hitting friction. Pairs with 거리다 or 나다.",
+        "exampleEn": "오래된 마루에서 걸을 때마다 삐걱삐걱 소리가 나요.",
+        "exampleKr": "Every time I walk on the old wooden floor, it makes a creaking sound.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ppigeok-ppigeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-77-1785514388516",
+        "term": "부스럭부스럭",
+        "definition": "(sound) rustling of paper, dry leaves, or a plastic snack bag; pairs with 거리다 or 소리 나다.",
+        "meaningKr": "(sound) rustling of paper, dry leaves, or a plastic snack bag; pairs with 거리다 or 소리 나다.",
+        "exampleEn": "밤에 누가 과자 봉지를 부스럭부스럭 뜯는 소리가 났어요.",
+        "exampleKr": "At night, I heard someone rustling a snack bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "buseureok-buseureok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-78-1785514388516",
+        "term": "와장창",
+        "definition": "(sound) the crash of something shattering all at once (dishes, glass); pairs with 깨지다 or 떨어지다.",
+        "meaningKr": "(sound) the crash of something shattering all at once (dishes, glass); pairs with 깨지다 or 떨어지다.",
+        "exampleEn": "접시가 바닥에 떨어져 와장창 깨지는 소리가 들렸어요.",
+        "exampleKr": "I heard the plates fall to the floor and shatter with a crash.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "wajang-chang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-79-1785514388516",
+        "term": "짤랑짤랑",
+        "definition": "(sound) coins or keys jingling in a pocket; pairs with 거리다 or 소리 나다.",
+        "meaningKr": "(sound) coins or keys jingling in a pocket; pairs with 거리다 or 소리 나다.",
+        "exampleEn": "주머니에서 동전이 짤랑짤랑 소리를 내며 흔들렸어요.",
+        "exampleKr": "The coins in my pocket jingled and rattled.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jjallang-jjallang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-80-1785514388516",
+        "term": "딸랑딸랑",
+        "definition": "(sound) a small bell ringing (e.g., shop door chime, cat's collar); pairs with 울리다 or 소리 나다.",
+        "meaningKr": "(sound) a small bell ringing (e.g., shop door chime, cat's collar); pairs with 울리다 or 소리 나다.",
+        "exampleEn": "고양이 목에 달린 방울이 딸랑딸랑 소리를 냈어요.",
+        "exampleKr": "The bell on the cat's neck made a ding-a-ling sound.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ttallang-ttallang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-81-1785514388516",
+        "term": "뚝뚝",
+        "definition": "(sound) dripping in fat drops (tears, water); also something snapping off. Pairs with 떨어지다 or 흐르다. Used with 그치다 (stop abruptly).",
+        "meaningKr": "(sound) dripping in fat drops (tears, water); also something snapping off. Pairs with 떨어지다 or 흐르다. Used with 그치다 (stop abruptly).",
+        "exampleEn": "수도꼭지에서 물방울이 뚝뚝 떨어지는 소리가 밤새 들렸어요.",
+        "exampleKr": "I heard water drops dripping all night from the faucet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ttuk-ttuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-82-1785514388516",
+        "term": "멍멍",
+        "definition": "(sound) a dog barking: woof woof; pairs with 짖다 (bark). Often used as 멍멍이 for 'doggy'.",
+        "meaningKr": "(sound) a dog barking: woof woof; pairs with 짖다 (bark). Often used as 멍멍이 for 'doggy'.",
+        "exampleEn": "옆집 개가 밤새 멍멍 짖어서 잠을 잘 수 없었어요.",
+        "exampleKr": "The dog next door barked \"woof woof\" all night, so I couldn't sleep.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "meong-meong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-83-1785514388516",
+        "term": "야옹",
+        "definition": "(sound) a cat meowing: meow; pairs with 울다 (cry/meow). Often used as 야옹이 for 'kitty'.",
+        "meaningKr": "(sound) a cat meowing: meow; pairs with 울다 (cry/meow). Often used as 야옹이 for 'kitty'.",
+        "exampleEn": "배고픈 아기 고양이가 야옹 소리를 내며 엄마를 찾았어요.",
+        "exampleKr": "The hungry kitten meowed, looking for its mom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ya-ong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-84-1785514388516",
+        "term": "짹짹",
+        "definition": "(sound) a small bird chirping: tweet tweet, chirp chirp; pairs with 울다 (cry/chirp).",
+        "meaningKr": "(sound) a small bird chirping: tweet tweet, chirp chirp; pairs with 울다 (cry/chirp).",
+        "exampleEn": "아침에 창문 밖에서 새들이 짹짹 노래하는 소리가 들렸어요.",
+        "exampleKr": "In the morning, I heard birds chirping outside the window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "jjaek-jjaek",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-85-1785514388516",
+        "term": "꿀꿀",
+        "definition": "(sound) a pig: oink oink; pairs with 울다 (cry/oink). Often used as 꿀꿀이 for 'piggy'.",
+        "meaningKr": "(sound) a pig: oink oink; pairs with 울다 (cry/oink). Often used as 꿀꿀이 for 'piggy'.",
+        "exampleEn": "돼지가 밥 달라고 꿀꿀 소리를 내며 우리를 쳐다봤어요.",
+        "exampleKr": "The pig oinked and looked at us, asking for food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkul-kkul",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-86-1785514388516",
+        "term": "음매",
+        "definition": "(sound) a cow: moo; pairs with 울다 (cry/moo).",
+        "meaningKr": "(sound) a cow: moo; pairs with 울다 (cry/moo).",
+        "exampleEn": "넓은 초원에서 소들이 음매 울며 풀을 뜯고 있었어요.",
+        "exampleKr": "In the wide pasture, cows were mooing and grazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "eum-mae",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-87-1785514388516",
+        "term": "개굴개굴",
+        "definition": "(sound) a frog: ribbit ribbit; pairs with 울다 (cry/ribbit).",
+        "meaningKr": "(sound) a frog: ribbit ribbit; pairs with 울다 (cry/ribbit).",
+        "exampleEn": "연못가에서 개구리들이 개굴개굴 소리를 내며 합창했어요.",
+        "exampleKr": "By the pond, the frogs were ribbiting in chorus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "gaegul-gaegul",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-88-1785514388516",
+        "term": "삐약삐약",
+        "definition": "(sound) a baby chick: peep peep; pairs with 울다 (cry/peep).",
+        "meaningKr": "(sound) a baby chick: peep peep; pairs with 울다 (cry/peep).",
+        "exampleEn": "병아리들이 엄마를 따라다니며 삐약삐약 울었어요.",
+        "exampleKr": "The chicks followed their mom, peeping.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ppiyak-ppiyak",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-89-1785514388516",
+        "term": "꼬끼오",
+        "definition": "(sound) a rooster: cock-a-doodle-doo; pairs with 울다 (cry/crow).",
+        "meaningKr": "(sound) a rooster: cock-a-doodle-doo; pairs with 울다 (cry/crow).",
+        "exampleEn": "새벽마다 수탉이 꼬끼오 하고 울어서 잠을 깼어요.",
+        "exampleKr": "Every dawn, the rooster crowed \"cock-a-doodle-doo\" and woke me up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkokkio",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mimetic-90-1785514388516",
+        "term": "동글동글",
+        "definition": "(manner) round and roundish, lots of small round things; pairs with 하다 (동글동글하다) or 생기다 (look round).",
+        "meaningKr": "(manner) round and roundish, lots of small round things; pairs with 하다 (동글동글하다) or 생기다 (look round).",
+        "exampleEn": "아기 얼굴이 너무 동글동글해서 귀여워요.",
+        "exampleKr": "The baby's face is so round and cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "donggeul-donggeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-91-1785514388516",
+        "term": "울퉁불퉁",
+        "definition": "(manner) bumpy and uneven (a rough road, muscles); pairs with 하다 (울퉁불퉁하다) or 생기다 (look bumpy).",
+        "meaningKr": "(manner) bumpy and uneven (a rough road, muscles); pairs with 하다 (울퉁불퉁하다) or 생기다 (look bumpy).",
+        "exampleEn": "산길은 울퉁불퉁해서 조심해서 걸어야 해요.",
+        "exampleKr": "The mountain path is bumpy and uneven, so you have to walk carefully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ultung-bultung",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-92-1785514388516",
+        "term": "미끌미끌",
+        "definition": "(manner) slippery, slick to the touch (a wet floor, soap); pairs with 하다 (미끌미끌하다) or 거리다.",
+        "meaningKr": "(manner) slippery, slick to the touch (a wet floor, soap); pairs with 하다 (미끌미끌하다) or 거리다.",
+        "exampleEn": "비가 와서 바닥이 미끌미끌하니까 조심하세요.",
+        "exampleKr": "The floor is slippery because of the rain, so be careful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "mikkeul-mikkeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-93-1785514388516",
+        "term": "흐물흐물",
+        "definition": "(manner) limp and mushy, falling apart (overcooked noodles); pairs with 하다 (흐물흐물하다) or 해지다 (become mushy).",
+        "meaningKr": "(manner) limp and mushy, falling apart (overcooked noodles); pairs with 하다 (흐물흐물하다) or 해지다 (become mushy).",
+        "exampleEn": "라면을 너무 오래 끓였더니 흐물흐물해져서 맛이 없어요.",
+        "exampleKr": "I boiled the ramen for too long, and now it's mushy and doesn't taste good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "heumul-heumul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-94-1785514388516",
+        "term": "보들보들",
+        "definition": "(manner) soft and smooth to the touch (a baby's cheek, fine fabric); pairs with 하다 (보들보들하다).",
+        "meaningKr": "(manner) soft and smooth to the touch (a baby's cheek, fine fabric); pairs with 하다 (보들보들하다).",
+        "exampleEn": "아기 피부가 보들보들해서 계속 만지고 싶어요.",
+        "exampleKr": "The baby's skin is so soft and smooth, I want to keep touching it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "bodeul-bodeul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-95-1785514388516",
+        "term": "푹신푹신",
+        "definition": "(manner) fluffy and cushiony (a thick sofa, a duvet); pairs with 하다 (푹신푹신하다).",
+        "meaningKr": "(manner) fluffy and cushiony (a thick sofa, a duvet); pairs with 하다 (푹신푹신하다).",
+        "exampleEn": "이 소파는 너무 푹신푹신해서 앉으면 잠이 와요.",
+        "exampleKr": "This sofa is so fluffy and cushiony that I feel sleepy when I sit on it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "puksin-puksin",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-96-1785514388516",
+        "term": "끈적끈적",
+        "definition": "(manner) sticky and tacky (honey, sweaty summer air); pairs with 하다 (끈적끈적하다) or 거리다.",
+        "meaningKr": "(manner) sticky and tacky (honey, sweaty summer air); pairs with 하다 (끈적끈적하다) or 거리다.",
+        "exampleEn": "더운 여름날에는 피부가 끈적끈적해서 불쾌해요.",
+        "exampleKr": "On hot summer days, my skin feels sticky and uncomfortable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "kkeunjeok-kkeunjeok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-97-1785514388516",
+        "term": "뾰족뾰족",
+        "definition": "(manner) pointy and spiky all over (a cactus, mountain peaks); pairs with 하다 (뾰족뾰족하다) or 생기다. Note: adj is 뾰족하다.",
+        "meaningKr": "(manner) pointy and spiky all over (a cactus, mountain peaks); pairs with 하다 (뾰족뾰족하다) or 생기다. Note: adj is 뾰족하다.",
+        "exampleEn": "선인장에는 뾰족뾰족한 가시가 많으니 조심하세요.",
+        "exampleKr": "Cacti have lots of pointy spines, so be careful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "ppyojok-ppyojok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-98-1785514388516",
+        "term": "오돌토돌",
+        "definition": "(manner) covered in tiny bumps (goosebumps, a bumpy rind); pairs with 하다 (오돌토돌하다) or 돋다 (for goosebumps).",
+        "meaningKr": "(manner) covered in tiny bumps (goosebumps, a bumpy rind); pairs with 하다 (오돌토돌하다) or 돋다 (for goosebumps).",
+        "exampleEn": "추워서 팔에 오돌토돌 소름이 돋았어요.",
+        "exampleKr": "I was so cold that I got goosebumps all over my arms.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "odol-todol",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mimetic-99-1785514388516",
+        "term": "반들반들",
+        "definition": "(manner) glossy, polished smooth and shiny (a waxed floor, slicked hair); pairs with 하다 (반들반들하다) or 거리다.",
+        "meaningKr": "(manner) glossy, polished smooth and shiny (a waxed floor, slicked hair); pairs with 하다 (반들반들하다) or 거리다.",
+        "exampleEn": "깨끗하게 닦은 바닥이 반들반들 윤이 났어요.",
+        "exampleKr": "The freshly cleaned floor was glossy and shiny.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Mimetic",
+          "Culture"
+        ],
+        "phonetic": "bandeul-bandeul",
+        "pos": "adverb"
+      }
+    ]
+  },
+{
     "id": "curated-clinic-ko-1",
     "title": "Korean Clinic Visit 50",
     "icon": "🤒",

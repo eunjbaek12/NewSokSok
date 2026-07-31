@@ -1,0 +1,1002 @@
+[
+  {
+    "rank": 1,
+    "term": "반짝반짝",
+    "pos": "adverb",
+    "meaningEn": "(manner) twinkling, sparkling; of small lights, stars, polished things; pairs with 빛나다 or 반짝이다.",
+    "romaja": "banjjak-banjjak",
+    "exampleKo": "어두운 밤하늘에 별들이 반짝반짝 빛나서 정말 아름다웠어.",
+    "exampleEn": "The stars twinkled beautifully in the dark night sky, making it truly gorgeous.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 2,
+    "term": "번쩍번쩍",
+    "pos": "adverb",
+    "meaningEn": "(manner) flashing, gleaming brightly; lightning, gold, a shined car; pairs with 번쩍이다. Bigger/harsher than 반짝반짝.",
+    "romaja": "beonjjeok-beonjjeok",
+    "exampleKo": "새 차가 햇빛에 번쩍번쩍 빛나서 눈이 부셨어.",
+    "exampleEn": "The new car gleamed brightly in the sunlight, dazzling my eyes.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 3,
+    "term": "깜빡깜빡",
+    "pos": "adverb",
+    "meaningEn": "(manner) blinking, flickering; a turn signal, a dying bulb, eyes; pairs with 깜빡거리다. NOTE: 깜빡하다 also means to forget momentarily.",
+    "romaja": "kkamppak-kkamppak",
+    "exampleKo": "오래된 전구가 깜빡깜빡하더니 결국 꺼져버렸어.",
+    "exampleEn": "The old light bulb flickered a few times and then finally went out.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 4,
+    "term": "알록달록",
+    "pos": "adverb",
+    "meaningEn": "(manner) multicolored, patterned in many bright colors; pairs with 알록달록하다.",
+    "romaja": "allok-dallok",
+    "exampleKo": "아이들 옷이 알록달록해서 정말 예쁘고 귀여워 보여.",
+    "exampleEn": "The children's clothes are so colorful, they look really pretty and adorable.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 5,
+    "term": "울긋불긋",
+    "pos": "adverb",
+    "meaningEn": "(manner) splashed with reds and yellows; classic word for autumn foliage; pairs with 울긋불긋하다.",
+    "romaja": "ulgeut-bulgeut",
+    "exampleKo": "가을 산은 단풍으로 울긋불긋 아름다운 옷을 입었네.",
+    "exampleEn": "The autumn mountain dressed itself in beautiful, colorful fall foliage.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 6,
+    "term": "아른아른",
+    "pos": "adverb",
+    "meaningEn": "(manner) shimmering faintly, hazily flickering in sight or in memory; pairs with 아른거리다. (e.g. a face 아른거리다 = can't stop picturing it.)",
+    "romaja": "areun-areun",
+    "exampleKo": "고향에 계신 할머니 얼굴이 자꾸 아른아른 떠올라.",
+    "exampleEn": "My grandmother's face back home keeps shimmering faintly in my mind.",
+    "category": "빛·색"
+  },
+  {
+    "rank": 7,
+    "term": "두근두근",
+    "pos": "adverb",
+    "meaningEn": "(manner) heart pounding with excitement or nerves; pairs with 두근거리다. The single most-used emotion mimetic.",
+    "romaja": "dugeun-dugeun",
+    "exampleKo": "첫 데이트라니, 아침부터 가슴이 두근두근 떨렸어.",
+    "exampleEn": "It's our first date, so my heart has been pounding with excitement since this morning.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 8,
+    "term": "콩닥콩닥",
+    "pos": "adverb",
+    "meaningEn": "(manner) heart thumping lightly and fast; cuter, smaller-scale than 두근두근; pairs with 콩닥거리다.",
+    "romaja": "kongdak-kongdak",
+    "exampleKo": "아기가 엄마 품에서 콩닥콩닥 심장이 뛰고 있었어.",
+    "exampleEn": "The baby's heart was thumping lightly and fast in its mother's arms.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 9,
+    "term": "조마조마",
+    "pos": "adverb",
+    "meaningEn": "(manner) on edge, nervously watching something risky unfold; pairs with 조마조마하다.",
+    "romaja": "joma-joma",
+    "exampleKo": "시험 결과를 기다리는 동안 너무 조마조마했어.",
+    "exampleEn": "I was so on edge while waiting for my test results.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 10,
+    "term": "울컥",
+    "pos": "adverb",
+    "meaningEn": "(manner) emotion surging up all at once; tears rising, or a flash of anger; pairs with 울컥하다.",
+    "romaja": "ulkeok",
+    "exampleKo": "친구의 진심 어린 말에 갑자기 눈물이 울컥 쏟아졌어.",
+    "exampleEn": "At my friend's heartfelt words, tears suddenly welled up.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 11,
+    "term": "뭉클",
+    "pos": "adverb",
+    "meaningEn": "(manner) heart swelling with warmth, deeply moved; often 가슴이 뭉클하다; pairs with 뭉클하다.",
+    "romaja": "mungkeul",
+    "exampleKo": "졸업식에서 부모님께 감사 인사를 전하니 가슴이 뭉클했어.",
+    "exampleEn": "My heart swelled with warmth when I thanked my parents at graduation.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 12,
+    "term": "짜릿짜릿",
+    "pos": "adverb",
+    "meaningEn": "(manner) an electric, thrilling tingle; also a limb tingling; pairs with 짜릿하다.",
+    "romaja": "jjarit-jjarit",
+    "exampleKo": "높은 곳에서 번지점프를 하니 온몸이 짜릿짜릿했어.",
+    "exampleEn": "My whole body tingled with thrill after bungee jumping from a high place.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 13,
+    "term": "오싹오싹",
+    "pos": "adverb",
+    "meaningEn": "(manner) chills running over you from fear or cold; pairs with 오싹하다. A horror-movie word.",
+    "romaja": "ossak-ossak",
+    "exampleKo": "한밤중에 으스스한 소리를 들으니 등골이 오싹오싹했어.",
+    "exampleEn": "Hearing a creepy sound in the middle of the night sent chills down my spine.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 14,
+    "term": "섬뜩",
+    "pos": "adverb",
+    "meaningEn": "(manner) a sudden eerie chill, blood running cold at something sinister; pairs with 섬뜩하다.",
+    "romaja": "seomtteuk",
+    "exampleKo": "어두운 골목에서 이상한 그림자를 보고 등골이 섬뜩했어.",
+    "exampleEn": "I saw a strange shadow in the dark alley and felt a chill down my spine.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 15,
+    "term": "근질근질",
+    "pos": "adverb",
+    "meaningEn": "(manner) itchy; figuratively itching to do something you're holding back; pairs with 근질거리다. (e.g., 입이 근질근질 = dying to spill a secret).",
+    "romaja": "geunjil-geunjil",
+    "exampleKo": "새로운 비밀을 알아서 입이 근질근질해서 참기 힘들어.",
+    "exampleEn": "I know a new secret, and my mouth is itching to tell it, it's hard to hold back.",
+    "category": "마음·감정"
+  },
+  {
+    "rank": 16,
+    "term": "깜짝",
+    "pos": "adverb",
+    "meaningEn": "(manner) with a start; almost always 깜짝 놀라다 = to be startled. Also 깜짝 파티 = surprise party.",
+    "romaja": "kkamjjak",
+    "exampleKo": "뒤에서 갑자기 누가 내 이름을 불러서 깜짝 놀랐잖아.",
+    "exampleEn": "Someone suddenly called my name from behind, and I was startled.",
+    "category": "놀람·당황"
+  },
+  {
+    "rank": 17,
+    "term": "화들짝",
+    "pos": "adverb",
+    "meaningEn": "(manner) with a violent start, jumping in shock; stronger than 깜짝; often 화들짝 놀라다.",
+    "romaja": "hwadeuljjak",
+    "exampleKo": "인기척 없는 곳에서 고양이가 튀어나와서 화들짝 놀랐어.",
+    "exampleEn": "A cat suddenly jumped out in a deserted place, and I jumped in shock.",
+    "category": "놀람·당황"
+  },
+  {
+    "rank": 18,
+    "term": "흠칫",
+    "pos": "adverb",
+    "meaningEn": "(manner) flinching, a small startled recoil of the shoulders; pairs with 흠칫하다.",
+    "romaja": "heumchit",
+    "exampleKo": "갑자기 들리는 소리에 그는 흠칫 놀라 어깨를 움츠렸어.",
+    "exampleEn": "He flinched at the sudden sound, recoiling his shoulders.",
+    "category": "놀람·당황"
+  },
+  {
+    "rank": 19,
+    "term": "두리번두리번",
+    "pos": "adverb",
+    "meaningEn": "(manner) looking around restlessly, head turning to search; pairs with 두리번거리다.",
+    "romaja": "duribeon-duribeon",
+    "exampleKo": "처음 온 도시에서 길을 잃어서 두리번두리번 주위를 살폈어.",
+    "exampleEn": "I got lost in a new city and looked around restlessly.",
+    "category": "놀람·당황"
+  },
+  {
+    "rank": 20,
+    "term": "안절부절",
+    "pos": "adverb",
+    "meaningEn": "(manner) fidgety with worry, unable to settle. WARNING: only used as 안절부절못하다; 안절부절하다 is incorrect Korean.",
+    "romaja": "anjeol-bujeol",
+    "exampleKo": "중요한 발표를 앞두고 너무 긴장돼서 안절부절못하고 있었어.",
+    "exampleEn": "I was fidgety with worry, unable to settle, because I was so nervous before an important presentation.",
+    "category": "놀람·당황"
+  },
+  {
+    "rank": 21,
+    "term": "깔깔",
+    "pos": "adverb",
+    "meaningEn": "(sound) loud, uninhibited cackling laughter; pairs with 깔깔거리다.",
+    "romaja": "kkal-kkal",
+    "exampleKo": "친구들과 재미있는 농담을 주고받으며 깔깔 웃었어.",
+    "exampleEn": "I exchanged funny jokes with my friends and cackled with laughter.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 22,
+    "term": "킥킥",
+    "pos": "adverb",
+    "meaningEn": "(sound) giggling, a stifled laugh you're trying to hold in; pairs with 킥킥거리다.",
+    "romaja": "kik-kik",
+    "exampleKo": "선생님 몰래 친구랑 킥킥거리며 웃다가 혼났어.",
+    "exampleEn": "I got in trouble for giggling with my friend secretly behind the teacher's back.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 23,
+    "term": "히죽히죽",
+    "pos": "adverb",
+    "meaningEn": "(manner) grinning, smirking (often smug or up to something); pairs with 히죽거리다.",
+    "romaja": "hijuk-hijuk",
+    "exampleKo": "재미있는 상상을 했는지 혼자 히죽히죽 웃고 있더라.",
+    "exampleEn": "He must have imagined something funny because he was grinning to himself.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 24,
+    "term": "싱글벙글",
+    "pos": "adverb",
+    "meaningEn": "(manner) all smiles, beaming with visible happiness.",
+    "romaja": "singgeul-beonggeul",
+    "exampleKo": "좋은 소식이 있는지 아침부터 싱글벙글 웃고 있어.",
+    "exampleEn": "She must have good news; she's been beaming with happiness since this morning.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 25,
+    "term": "방긋방긋",
+    "pos": "adverb",
+    "meaningEn": "(manner) smiling brightly and innocently; the word for a baby's smile; pairs with 방긋거리다.",
+    "romaja": "banggeut-banggeut",
+    "exampleKo": "아기가 엄마를 보며 방긋방긋 예쁘게 웃었어.",
+    "exampleEn": "The baby smiled brightly and innocently at its mom.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 26,
+    "term": "엉엉",
+    "pos": "adverb",
+    "meaningEn": "(sound) bawling out loud, crying without holding back; pairs with 울다.",
+    "romaja": "eong-eong",
+    "exampleKo": "아기가 배고픈지 엉엉 울기 시작했어요.",
+    "exampleEn": "The baby started to bawl, probably because it was hungry.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 27,
+    "term": "훌쩍훌쩍",
+    "pos": "adverb",
+    "meaningEn": "(sound) sniffling, quiet sobbing; also sniffing a runny nose. verb 훌쩍거리다. NOTE: single 훌쩍 = in one leap / all at once.",
+    "romaja": "huljjeok-huljjeok",
+    "exampleKo": "영화가 슬펐는지 옆자리 친구가 훌쩍훌쩍 울고 있었어.",
+    "exampleEn": "The movie must have been sad; my friend next to me was quietly sniffling.",
+    "category": "웃음·울음"
+  },
+  {
+    "rank": 28,
+    "term": "소곤소곤",
+    "pos": "adverb",
+    "meaningEn": "(sound) whispering softly, heads close together. verb 소곤거리다.",
+    "romaja": "sogon-sogon",
+    "exampleKo": "아이들이 서로 얼굴을 맞대고 소곤소곤 이야기했어요.",
+    "exampleEn": "The children put their heads together and whispered softly.",
+    "category": "말소리"
+  },
+  {
+    "rank": 29,
+    "term": "속닥속닥",
+    "pos": "adverb",
+    "meaningEn": "(sound) whispering secretively, gossiping just out of earshot. verb 속닥거리다.",
+    "romaja": "sokdak-sokdak",
+    "exampleKo": "저 사람들이 뭐 때문에 저렇게 속닥속닥 얘기할까?",
+    "exampleEn": "What are those people secretly whispering about?",
+    "category": "말소리"
+  },
+  {
+    "rank": 30,
+    "term": "중얼중얼",
+    "pos": "adverb",
+    "meaningEn": "(sound) muttering to oneself under one's breath. verb 중얼거리다.",
+    "romaja": "jung-eol-jung-eol",
+    "exampleKo": "혼자서 뭘 그렇게 중얼중얼해? 무슨 일 있어?",
+    "exampleEn": "What are you muttering about to yourself? Is something wrong?",
+    "category": "말소리"
+  },
+  {
+    "rank": 31,
+    "term": "재잘재잘",
+    "pos": "adverb",
+    "meaningEn": "(sound) chattering away brightly; children or small birds. verb 재잘거리다.",
+    "romaja": "jaejal-jaejal",
+    "exampleKo": "아이들이 학교 끝나고 재잘재잘 떠드는 소리가 들려요.",
+    "exampleEn": "I can hear the children chattering brightly after school.",
+    "category": "말소리"
+  },
+  {
+    "rank": 32,
+    "term": "웅성웅성",
+    "pos": "adverb",
+    "meaningEn": "(sound) a crowd murmuring and buzzing, many voices at once. verb 웅성거리다.",
+    "romaja": "ungseong-ungseong",
+    "exampleKo": "무슨 일인지 사람들이 모여서 웅성웅성하고 있었어.",
+    "exampleEn": "People gathered, murmuring and buzzing, wondering what was happening.",
+    "category": "말소리"
+  },
+  {
+    "rank": 33,
+    "term": "또박또박",
+    "pos": "adverb",
+    "meaningEn": "(manner) clearly and distinctly, one syllable at a time; speaking, writing, or paying installments on time.",
+    "romaja": "ttobak-ttobak",
+    "exampleKo": "아나운서는 말을 또박또박하게 잘하는 것 같아요.",
+    "exampleEn": "Announcers seem to speak very clearly and distinctly.",
+    "category": "말소리"
+  },
+  {
+    "rank": 34,
+    "term": "아삭아삭",
+    "pos": "adverb",
+    "meaningEn": "(sound) crisp, fresh bite: apple, lettuce, fresh kimchi. verb 아삭거리다, adj 아삭하다.",
+    "romaja": "asak-asak",
+    "exampleKo": "신선한 사과를 아삭아삭 소리 내면서 맛있게 먹었어요.",
+    "exampleEn": "I ate the fresh apple, making a crisp crunching sound.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 35,
+    "term": "바삭바삭",
+    "pos": "adverb",
+    "meaningEn": "(sound) crunchy and dry-crisp: fried chicken, crackers, 전. adj 바삭하다.",
+    "romaja": "basak-basak",
+    "exampleKo": "이 치킨은 튀김옷이 바삭바삭해서 정말 맛있어요.",
+    "exampleEn": "This fried chicken is so delicious because the batter is perfectly crunchy.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 36,
+    "term": "쫄깃쫄깃",
+    "pos": "adverb",
+    "meaningEn": "(manner) chewy and springy in a good way: 떡, noodles, squid. adj 쫄깃하다. prized texture in Korean food.",
+    "romaja": "jjolgit-jjolgit",
+    "exampleKo": "이 떡볶이 떡은 쫄깃쫄깃해서 식감이 너무 좋아요.",
+    "exampleEn": "The rice cakes in this tteokbokki are so deliciously chewy.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 37,
+    "term": "촉촉",
+    "pos": "adverb",
+    "meaningEn": "(manner) pleasantly moist: cake, skin, damp grass. normally used as adj 촉촉하다; skincare-ad staple.",
+    "romaja": "chokchok",
+    "exampleKo": "이 크림을 바르니 피부가 촉촉하고 부드러워졌어요.",
+    "exampleEn": "My skin became moist and soft after I applied this cream.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 38,
+    "term": "후루룩",
+    "pos": "adverb",
+    "meaningEn": "(sound) slurping noodles or soup in one go; not rude in Korea.",
+    "romaja": "hururuk",
+    "exampleKo": "배고파서 라면을 후루룩 소리 내면서 다 먹었어요.",
+    "exampleEn": "I was so hungry that I slurped down all the ramen.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 39,
+    "term": "꿀꺽",
+    "pos": "adverb",
+    "meaningEn": "(sound) gulping down in one swallow; also swallowing hard from nerves.",
+    "romaja": "kkulkkeok",
+    "exampleKo": "목이 말라서 물 한 잔을 꿀꺽 삼켰어요.",
+    "exampleEn": "I was so thirsty I gulped down a whole glass of water.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 40,
+    "term": "냠냠",
+    "pos": "adverb",
+    "meaningEn": "(sound) yum-yum, munching happily; childlike and cute.",
+    "romaja": "nyamnyam",
+    "exampleKo": "아기가 밥을 냠냠 맛있게 먹는 모습이 귀여워요.",
+    "exampleEn": "It's cute how the baby happily munches on its food.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 41,
+    "term": "오독오독",
+    "pos": "adverb",
+    "meaningEn": "(sound) crunching small hard bits: nuts, ice, 단무지. verb 오독거리다.",
+    "romaja": "odok-odok",
+    "exampleKo": "땅콩을 오독오독 씹어 먹으니 고소하고 맛있어요.",
+    "exampleEn": "Chewing the peanuts with a crunch is savory and delicious.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 42,
+    "term": "보글보글",
+    "pos": "adverb",
+    "meaningEn": "(sound) bubbling and simmering; the sound of 찌개 on the stove. verb 보글거리다.",
+    "romaja": "bogeul-bogeul",
+    "exampleKo": "찌개가 냄비에서 보글보글 끓고 있어서 침이 고여요.",
+    "exampleEn": "The jjigae is bubbling away in the pot, making my mouth water.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 43,
+    "term": "지글지글",
+    "pos": "adverb",
+    "meaningEn": "(sound) sizzling on a hot grill or pan; 삼겹살 cooking.",
+    "romaja": "jigeul-jigeul",
+    "exampleKo": "불판 위에서 삼겹살이 지글지글 맛있게 익고 있어요.",
+    "exampleEn": "The samgyeopsal is sizzling deliciously on the grill.",
+    "category": "먹기·식감"
+  },
+  {
+    "rank": 44,
+    "term": "주룩주룩",
+    "pos": "adverb",
+    "meaningEn": "(sound) rain pouring down steadily in streams; also tears running down.",
+    "romaja": "juruk-juruk",
+    "exampleKo": "어제 비가 하루 종일 주룩주룩 내렸어요.",
+    "exampleEn": "It rained steadily all day yesterday.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 45,
+    "term": "보슬보슬",
+    "pos": "adverb",
+    "meaningEn": "(manner) drizzling softly, fine misty rain. 보슬비 = drizzle.",
+    "romaja": "boseul-boseul",
+    "exampleKo": "날씨가 흐리고 보슬보슬 비가 내리고 있어요.",
+    "exampleEn": "The weather is cloudy, and it's drizzling softly.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 46,
+    "term": "첨벙첨벙",
+    "pos": "adverb",
+    "meaningEn": "(sound) splashing about in water.",
+    "romaja": "cheombeong-cheombeong",
+    "exampleKo": "아이들이 물웅덩이에서 첨벙첨벙 신나게 놀고 있었어요.",
+    "exampleEn": "The children were happily splashing about in the puddles.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 47,
+    "term": "졸졸",
+    "pos": "adverb",
+    "meaningEn": "(sound) a small stream trickling; also trailing after someone closely (강아지처럼 졸졸 따라다니다).",
+    "romaja": "joljol",
+    "exampleKo": "작은 시냇물이 졸졸 흐르는 소리가 들렸어요.",
+    "exampleEn": "I heard the sound of a small stream trickling.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 48,
+    "term": "살랑살랑",
+    "pos": "adverb",
+    "meaningEn": "(manner) a breeze blowing gently; also a tail wagging. verb 살랑거리다.",
+    "romaja": "sallang-sallang",
+    "exampleKo": "봄바람이 살랑살랑 불어와서 기분이 좋았어요.",
+    "exampleEn": "The spring breeze blew gently, making me feel good.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 49,
+    "term": "훨훨",
+    "pos": "adverb",
+    "meaningEn": "(manner) flying freely on wide wings; also flames blazing up, or letting something go free.",
+    "romaja": "hwolhwol",
+    "exampleKo": "새들이 하늘 위로 훨훨 날아가는 모습이 아름다웠어요.",
+    "exampleEn": "The sight of birds flying freely high in the sky was beautiful.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 50,
+    "term": "펑펑",
+    "pos": "adverb",
+    "meaningEn": "(manner) snow falling thickly; crying one's eyes out; spending money freely. (three common uses)",
+    "romaja": "peongpeong",
+    "exampleKo": "밤새 눈이 펑펑 내려서 온 세상이 하얗게 변했어요.",
+    "exampleEn": "Snow fell thickly all night, turning the whole world white.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 51,
+    "term": "후끈후끈",
+    "pos": "adverb",
+    "meaningEn": "(manner) air turning hot and stuffy; a face flushing with heat; pairs with 하다.",
+    "romaja": "hukkeun-hukkeun",
+    "exampleKo": "방 안이 후끈후끈해서 창문을 좀 열어야겠어요.",
+    "exampleEn": "The room is getting all hot and stuffy, so I should open the window.",
+    "category": "물·날씨"
+  },
+  {
+    "rank": 52,
+    "term": "아장아장",
+    "pos": "adverb",
+    "meaningEn": "(manner) toddling; a baby's first unsteady steps; pairs with 걷다.",
+    "romaja": "ajang-ajang",
+    "exampleKo": "우리 아기가 아장아장 걷는 모습이 너무 귀여워요.",
+    "exampleEn": "Our baby toddling around is so cute.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 53,
+    "term": "성큼성큼",
+    "pos": "adverb",
+    "meaningEn": "(manner) striding with long confident steps; a season arriving fast; pairs with 걷다 or 다가오다.",
+    "romaja": "seongkeum-seongkeum",
+    "exampleKo": "그는 성큼성큼 걸어서 금방 우리에게 다가왔어.",
+    "exampleEn": "He strode quickly and came over to us in no time.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 54,
+    "term": "어슬렁어슬렁",
+    "pos": "adverb",
+    "meaningEn": "(manner) ambling around with no purpose, or a predator prowling; pairs with 걷다 or 거리다.",
+    "romaja": "eoseulleong-eoseulleong",
+    "exampleKo": "길고양이가 골목을 어슬렁어슬렁 돌아다니고 있었어요.",
+    "exampleEn": "A stray cat was ambling aimlessly around the alley.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 55,
+    "term": "살금살금",
+    "pos": "adverb",
+    "meaningEn": "(manner) sneaking quietly so no one notices; pairs with 걷다 or 움직이다.",
+    "romaja": "salgeum-salgeum",
+    "exampleKo": "엄마 몰래 냉장고로 살금살금 가서 아이스크림을 꺼냈어.",
+    "exampleEn": "I snuck quietly to the fridge without Mom knowing and took out some ice cream.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 56,
+    "term": "후다닥",
+    "pos": "adverb",
+    "meaningEn": "(manner) dashing off or finishing something in a quick burst; pairs with 가다 or 해치우다.",
+    "romaja": "hudadak",
+    "exampleKo": "비가 오기 전에 빨래를 후다닥 걷어 왔어요.",
+    "exampleEn": "I quickly dashed out and brought in the laundry before it rained.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 57,
+    "term": "비틀비틀",
+    "pos": "adverb",
+    "meaningEn": "(manner) staggering, unsteady on one's feet; pairs with 걷다 or 거리다.",
+    "romaja": "biteul-biteul",
+    "exampleKo": "술에 취해서 비틀비틀 걷는 사람이 보였어요.",
+    "exampleEn": "I saw someone staggering unsteadily, drunk from alcohol.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 58,
+    "term": "터벅터벅",
+    "pos": "adverb",
+    "meaningEn": "(manner) trudging wearily, heavy dragging steps after a hard day; pairs with 걷다.",
+    "romaja": "teobeok-teobeok",
+    "exampleKo": "힘든 하루를 보내고 터벅터벅 집으로 돌아왔어요.",
+    "exampleEn": "After a tough day, I trudged wearily back home.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 59,
+    "term": "깡충깡충",
+    "pos": "adverb",
+    "meaningEn": "(manner) hopping; a rabbit's movement; pairs with 뛰다.",
+    "romaja": "kkangchung-kkangchung",
+    "exampleKo": "토끼가 풀밭에서 깡충깡충 뛰어다니는 모습이 귀엽네요.",
+    "exampleEn": "The rabbit hopping around in the grass looks cute.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 60,
+    "term": "뒤뚱뒤뚱",
+    "pos": "adverb",
+    "meaningEn": "(manner) waddling side to side; a penguin or duck; pairs with 걷다 or 거리다.",
+    "romaja": "dwittung-dwittung",
+    "exampleKo": "아기 오리들이 엄마를 따라 뒤뚱뒤뚱 걸어가요.",
+    "exampleEn": "Baby ducklings waddle along, following their mom.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 61,
+    "term": "빙글빙글",
+    "pos": "adverb",
+    "meaningEn": "(manner) spinning round and round smoothly; a head spinning; pairs with 돌다 or 돌리다.",
+    "romaja": "binggeul-binggeul",
+    "exampleKo": "컵이 빙글빙글 돌다가 바닥으로 떨어졌어요.",
+    "exampleEn": "The cup spun round and round before falling to the floor.",
+    "category": "걷기·움직임"
+  },
+  {
+    "rank": 62,
+    "term": "쿨쿨",
+    "pos": "adverb",
+    "meaningEn": "(sound) sleeping deeply, snoring; the Korean 'zzz'; pairs with 자다.",
+    "romaja": "kul-kul",
+    "exampleKo": "아기가 침대에서 쿨쿨 자고 있어서 방해하지 마.",
+    "exampleEn": "The baby is sleeping soundly in bed, so don't disturb him.",
+    "category": "잠·게으름"
+  },
+  {
+    "rank": 63,
+    "term": "꾸벅꾸벅",
+    "pos": "adverb",
+    "meaningEn": "(manner) nodding off, head bobbing with sleep; pairs with 졸다. NOTE: single 꾸벅 is a quick bow.",
+    "romaja": "kkubeok-kkubeok",
+    "exampleKo": "수업 시간에 꾸벅꾸벅 졸아서 선생님께 혼났어요.",
+    "exampleEn": "I nodded off repeatedly during class and got scolded by the teacher.",
+    "category": "잠·게으름"
+  },
+  {
+    "rank": 64,
+    "term": "뒹굴뒹굴",
+    "pos": "adverb",
+    "meaningEn": "(manner) rolling around doing absolutely nothing; lazy-weekend word; pairs with 하다 or 거리다.",
+    "romaja": "dwinggul-dwinggul",
+    "exampleKo": "주말에는 집에서 뒹굴뒹굴 영화 보는 게 최고야.",
+    "exampleEn": "On weekends, just rolling around at home watching movies is the best.",
+    "category": "잠·게으름"
+  },
+  {
+    "rank": 65,
+    "term": "멍하니",
+    "pos": "adverb",
+    "meaningEn": "(manner) blankly, staring into space; pairs with 있다 or 쳐다보다. 멍때리다 = to zone out.",
+    "romaja": "meonghani",
+    "exampleKo": "피곤해서 멍하니 창밖만 바라보고 있었어요.",
+    "exampleEn": "I was so tired, I just stared blankly out the window.",
+    "category": "잠·게으름"
+  },
+  {
+    "rank": 66,
+    "term": "꼼지락꼼지락",
+    "pos": "adverb",
+    "meaningEn": "(manner) fidgeting or wriggling slowly; small restless movements of fingers/toes; pairs with 움직이다 or 거리다.",
+    "romaja": "kkomjirak-kkomjirak",
+    "exampleKo": "아기가 발가락을 꼼지락꼼지락 움직이는 게 너무 귀여워.",
+    "exampleEn": "The baby wiggling its toes is so cute.",
+    "category": "잠·게으름"
+  },
+  {
+    "rank": 67,
+    "term": "욱신욱신",
+    "pos": "adverb",
+    "meaningEn": "(manner) a deep throbbing ache; sore muscles, a bruise; pairs with 아프다 or 거리다.",
+    "romaja": "uksin-uksin",
+    "exampleKo": "어제 운동했더니 다리가 욱신욱신 아파요.",
+    "exampleEn": "My legs are throbbing from exercising yesterday.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 68,
+    "term": "지끈지끈",
+    "pos": "adverb",
+    "meaningEn": "(manner) a splitting headache pounding; pairs with 아프다 or 하다.",
+    "romaja": "jikkeun-jikkeun",
+    "exampleKo": "스트레스 때문에 머리가 지끈지끈 아파서 약을 먹었어요.",
+    "exampleEn": "My head was pounding from stress, so I took some medicine.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 69,
+    "term": "콕콕",
+    "pos": "adverb",
+    "meaningEn": "(manner) sharp little stabs of pain; also poking someone repeatedly; pairs with 쑤시다 or 찌르다.",
+    "romaja": "kok-kok",
+    "exampleKo": "옆구리가 콕콕 쑤셔서 병원에 가봐야겠어요.",
+    "exampleEn": "My side is having sharp little pains, so I should go to the hospital.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 70,
+    "term": "따끔따끔",
+    "pos": "adverb",
+    "meaningEn": "(manner) stinging, prickling; a sore throat, sunburn, injection; pairs with 아프다 or 거리다.",
+    "romaja": "ttakkeum-ttakkeum",
+    "exampleKo": "햇볕에 타서 피부가 따끔따끔해요.",
+    "exampleEn": "My skin is stinging from the sunburn.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 71,
+    "term": "간질간질",
+    "pos": "adverb",
+    "meaningEn": "(manner) ticklish, a light itch on the skin; pairs with 하다 or 거리다. 간지럽히다 = to tickle.",
+    "romaja": "ganjil-ganjil",
+    "exampleKo": "목 뒤가 간질간질해서 자꾸 긁게 돼요.",
+    "exampleEn": "The back of my neck feels ticklish, so I keep scratching it.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 72,
+    "term": "어질어질",
+    "pos": "adverb",
+    "meaningEn": "(manner) dizzy, the room spinning; pairs with 하다.",
+    "romaja": "eojil-eojil",
+    "exampleKo": "너무 오래 서 있었더니 머리가 어질어질해요.",
+    "exampleEn": "I stood for too long, and now my head feels dizzy.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 73,
+    "term": "울렁울렁",
+    "pos": "adverb",
+    "meaningEn": "(manner) queasy, stomach churning with nausea or nerves; pairs with 하다 or 거리다.",
+    "romaja": "ulleong-ulleong",
+    "exampleKo": "멀미 때문에 속이 울렁울렁해서 아무것도 못 먹겠어요.",
+    "exampleEn": "I'm so nauseous from motion sickness that I can't eat anything.",
+    "category": "몸·통증"
+  },
+  {
+    "rank": 74,
+    "term": "쾅",
+    "pos": "adverb",
+    "meaningEn": "(sound) a bang or slam; a door slamming, a crash; pairs with 닫다 or 부딪히다. Often doubled as 쾅쾅.",
+    "romaja": "kwang",
+    "exampleKo": "바람 때문에 문이 쾅 하고 닫혔어요.",
+    "exampleEn": "The wind made the door slam shut with a bang.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 75,
+    "term": "쿵",
+    "pos": "adverb",
+    "meaningEn": "(sound) a heavy thud; something big hitting the floor; pairs with 떨어지다 or 부딪히다. 쿵쾅쿵쾅 = stomping.",
+    "romaja": "kung",
+    "exampleKo": "위층에서 뭔가 쿵 하고 떨어지는 소리가 났어.",
+    "exampleEn": "There was a heavy thud from upstairs, like something fell.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 76,
+    "term": "똑똑",
+    "pos": "adverb",
+    "meaningEn": "(sound) knocking on a door or dripping in drops; pairs with 두드리다 (knock) or 떨어지다 (drip). NOTE: homonym 똑똑하다 means 'to be smart'.",
+    "romaja": "ttok-ttok",
+    "exampleKo": "문에서 똑똑 소리가 나서 누구인지 궁금했어요.",
+    "exampleEn": "I heard a knock-knock sound at the door and wondered who it was.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 77,
+    "term": "삐걱삐걱",
+    "pos": "adverb",
+    "meaningEn": "(sound) creaking of an old door or floorboard; also used for a relationship/plan hitting friction. Pairs with 거리다 or 나다.",
+    "romaja": "ppigeok-ppigeok",
+    "exampleKo": "오래된 마루에서 걸을 때마다 삐걱삐걱 소리가 나요.",
+    "exampleEn": "Every time I walk on the old wooden floor, it makes a creaking sound.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 78,
+    "term": "부스럭부스럭",
+    "pos": "adverb",
+    "meaningEn": "(sound) rustling of paper, dry leaves, or a plastic snack bag; pairs with 거리다 or 소리 나다.",
+    "romaja": "buseureok-buseureok",
+    "exampleKo": "밤에 누가 과자 봉지를 부스럭부스럭 뜯는 소리가 났어요.",
+    "exampleEn": "At night, I heard someone rustling a snack bag.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 79,
+    "term": "와장창",
+    "pos": "adverb",
+    "meaningEn": "(sound) the crash of something shattering all at once (dishes, glass); pairs with 깨지다 or 떨어지다.",
+    "romaja": "wajang-chang",
+    "exampleKo": "접시가 바닥에 떨어져 와장창 깨지는 소리가 들렸어요.",
+    "exampleEn": "I heard the plates fall to the floor and shatter with a crash.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 80,
+    "term": "짤랑짤랑",
+    "pos": "adverb",
+    "meaningEn": "(sound) coins or keys jingling in a pocket; pairs with 거리다 or 소리 나다.",
+    "romaja": "jjallang-jjallang",
+    "exampleKo": "주머니에서 동전이 짤랑짤랑 소리를 내며 흔들렸어요.",
+    "exampleEn": "The coins in my pocket jingled and rattled.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 81,
+    "term": "딸랑딸랑",
+    "pos": "adverb",
+    "meaningEn": "(sound) a small bell ringing (e.g., shop door chime, cat's collar); pairs with 울리다 or 소리 나다.",
+    "romaja": "ttallang-ttallang",
+    "exampleKo": "고양이 목에 달린 방울이 딸랑딸랑 소리를 냈어요.",
+    "exampleEn": "The bell on the cat's neck made a ding-a-ling sound.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 82,
+    "term": "뚝뚝",
+    "pos": "adverb",
+    "meaningEn": "(sound) dripping in fat drops (tears, water); also something snapping off. Pairs with 떨어지다 or 흐르다. Used with 그치다 (stop abruptly).",
+    "romaja": "ttuk-ttuk",
+    "exampleKo": "수도꼭지에서 물방울이 뚝뚝 떨어지는 소리가 밤새 들렸어요.",
+    "exampleEn": "I heard water drops dripping all night from the faucet.",
+    "category": "소리·충격"
+  },
+  {
+    "rank": 83,
+    "term": "멍멍",
+    "pos": "interjection",
+    "meaningEn": "(sound) a dog barking: woof woof; pairs with 짖다 (bark). Often used as 멍멍이 for 'doggy'.",
+    "romaja": "meong-meong",
+    "exampleKo": "옆집 개가 밤새 멍멍 짖어서 잠을 잘 수 없었어요.",
+    "exampleEn": "The dog next door barked \"woof woof\" all night, so I couldn't sleep.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 84,
+    "term": "야옹",
+    "pos": "interjection",
+    "meaningEn": "(sound) a cat meowing: meow; pairs with 울다 (cry/meow). Often used as 야옹이 for 'kitty'.",
+    "romaja": "ya-ong",
+    "exampleKo": "배고픈 아기 고양이가 야옹 소리를 내며 엄마를 찾았어요.",
+    "exampleEn": "The hungry kitten meowed, looking for its mom.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 85,
+    "term": "짹짹",
+    "pos": "interjection",
+    "meaningEn": "(sound) a small bird chirping: tweet tweet, chirp chirp; pairs with 울다 (cry/chirp).",
+    "romaja": "jjaek-jjaek",
+    "exampleKo": "아침에 창문 밖에서 새들이 짹짹 노래하는 소리가 들렸어요.",
+    "exampleEn": "In the morning, I heard birds chirping outside the window.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 86,
+    "term": "꿀꿀",
+    "pos": "interjection",
+    "meaningEn": "(sound) a pig: oink oink; pairs with 울다 (cry/oink). Often used as 꿀꿀이 for 'piggy'.",
+    "romaja": "kkul-kkul",
+    "exampleKo": "돼지가 밥 달라고 꿀꿀 소리를 내며 우리를 쳐다봤어요.",
+    "exampleEn": "The pig oinked and looked at us, asking for food.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 87,
+    "term": "음매",
+    "pos": "interjection",
+    "meaningEn": "(sound) a cow: moo; pairs with 울다 (cry/moo).",
+    "romaja": "eum-mae",
+    "exampleKo": "넓은 초원에서 소들이 음매 울며 풀을 뜯고 있었어요.",
+    "exampleEn": "In the wide pasture, cows were mooing and grazing.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 88,
+    "term": "개굴개굴",
+    "pos": "interjection",
+    "meaningEn": "(sound) a frog: ribbit ribbit; pairs with 울다 (cry/ribbit).",
+    "romaja": "gaegul-gaegul",
+    "exampleKo": "연못가에서 개구리들이 개굴개굴 소리를 내며 합창했어요.",
+    "exampleEn": "By the pond, the frogs were ribbiting in chorus.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 89,
+    "term": "삐약삐약",
+    "pos": "interjection",
+    "meaningEn": "(sound) a baby chick: peep peep; pairs with 울다 (cry/peep).",
+    "romaja": "ppiyak-ppiyak",
+    "exampleKo": "병아리들이 엄마를 따라다니며 삐약삐약 울었어요.",
+    "exampleEn": "The chicks followed their mom, peeping.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 90,
+    "term": "꼬끼오",
+    "pos": "interjection",
+    "meaningEn": "(sound) a rooster: cock-a-doodle-doo; pairs with 울다 (cry/crow).",
+    "romaja": "kkokkio",
+    "exampleKo": "새벽마다 수탉이 꼬끼오 하고 울어서 잠을 깼어요.",
+    "exampleEn": "Every dawn, the rooster crowed \"cock-a-doodle-doo\" and woke me up.",
+    "category": "동물 소리"
+  },
+  {
+    "rank": 91,
+    "term": "동글동글",
+    "pos": "adverb",
+    "meaningEn": "(manner) round and roundish, lots of small round things; pairs with 하다 (동글동글하다) or 생기다 (look round).",
+    "romaja": "donggeul-donggeul",
+    "exampleKo": "아기 얼굴이 너무 동글동글해서 귀여워요.",
+    "exampleEn": "The baby's face is so round and cute.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 92,
+    "term": "울퉁불퉁",
+    "pos": "adverb",
+    "meaningEn": "(manner) bumpy and uneven (a rough road, muscles); pairs with 하다 (울퉁불퉁하다) or 생기다 (look bumpy).",
+    "romaja": "ultung-bultung",
+    "exampleKo": "산길은 울퉁불퉁해서 조심해서 걸어야 해요.",
+    "exampleEn": "The mountain path is bumpy and uneven, so you have to walk carefully.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 93,
+    "term": "미끌미끌",
+    "pos": "adverb",
+    "meaningEn": "(manner) slippery, slick to the touch (a wet floor, soap); pairs with 하다 (미끌미끌하다) or 거리다.",
+    "romaja": "mikkeul-mikkeul",
+    "exampleKo": "비가 와서 바닥이 미끌미끌하니까 조심하세요.",
+    "exampleEn": "The floor is slippery because of the rain, so be careful.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 94,
+    "term": "흐물흐물",
+    "pos": "adverb",
+    "meaningEn": "(manner) limp and mushy, falling apart (overcooked noodles); pairs with 하다 (흐물흐물하다) or 해지다 (become mushy).",
+    "romaja": "heumul-heumul",
+    "exampleKo": "라면을 너무 오래 끓였더니 흐물흐물해져서 맛이 없어요.",
+    "exampleEn": "I boiled the ramen for too long, and now it's mushy and doesn't taste good.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 95,
+    "term": "보들보들",
+    "pos": "adverb",
+    "meaningEn": "(manner) soft and smooth to the touch (a baby's cheek, fine fabric); pairs with 하다 (보들보들하다).",
+    "romaja": "bodeul-bodeul",
+    "exampleKo": "아기 피부가 보들보들해서 계속 만지고 싶어요.",
+    "exampleEn": "The baby's skin is so soft and smooth, I want to keep touching it.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 96,
+    "term": "푹신푹신",
+    "pos": "adverb",
+    "meaningEn": "(manner) fluffy and cushiony (a thick sofa, a duvet); pairs with 하다 (푹신푹신하다).",
+    "romaja": "puksin-puksin",
+    "exampleKo": "이 소파는 너무 푹신푹신해서 앉으면 잠이 와요.",
+    "exampleEn": "This sofa is so fluffy and cushiony that I feel sleepy when I sit on it.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 97,
+    "term": "끈적끈적",
+    "pos": "adverb",
+    "meaningEn": "(manner) sticky and tacky (honey, sweaty summer air); pairs with 하다 (끈적끈적하다) or 거리다.",
+    "romaja": "kkeunjeok-kkeunjeok",
+    "exampleKo": "더운 여름날에는 피부가 끈적끈적해서 불쾌해요.",
+    "exampleEn": "On hot summer days, my skin feels sticky and uncomfortable.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 98,
+    "term": "뾰족뾰족",
+    "pos": "adverb",
+    "meaningEn": "(manner) pointy and spiky all over (a cactus, mountain peaks); pairs with 하다 (뾰족뾰족하다) or 생기다. Note: adj is 뾰족하다.",
+    "romaja": "ppyojok-ppyojok",
+    "exampleKo": "선인장에는 뾰족뾰족한 가시가 많으니 조심하세요.",
+    "exampleEn": "Cacti have lots of pointy spines, so be careful.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 99,
+    "term": "오돌토돌",
+    "pos": "adverb",
+    "meaningEn": "(manner) covered in tiny bumps (goosebumps, a bumpy rind); pairs with 하다 (오돌토돌하다) or 돋다 (for goosebumps).",
+    "romaja": "odol-todol",
+    "exampleKo": "추워서 팔에 오돌토돌 소름이 돋았어요.",
+    "exampleEn": "I was so cold that I got goosebumps all over my arms.",
+    "category": "모양·질감"
+  },
+  {
+    "rank": 100,
+    "term": "반들반들",
+    "pos": "adverb",
+    "meaningEn": "(manner) glossy, polished smooth and shiny (a waxed floor, slicked hair); pairs with 하다 (반들반들하다) or 거리다.",
+    "romaja": "bandeul-bandeul",
+    "exampleKo": "깨끗하게 닦은 바닥이 반들반들 윤이 났어요.",
+    "exampleEn": "The freshly cleaned floor was glossy and shiny.",
+    "category": "모양·질감"
+  }
+]

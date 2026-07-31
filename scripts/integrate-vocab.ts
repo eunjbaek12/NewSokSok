@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  mimetic: {
+    id: 'curated-mimetic-ko-1',
+    title: 'Korean Onomatopoeia & Mimetic Words 100',
+    icon: '✨',
+    category: '문화',
+    level: 'intermediate',
+    description: 'The word class English doesn\'t have — 의성어·의태어, the sound and "feel" words that fill K-dramas, webtoons and everyday speech: 반짝반짝, 두근두근, 아삭아삭, 깜짝, 후루룩, 살금살금, 멍멍 and more across light, emotion, laughter, voices, food texture, weather, walking, sleep, pain, impacts, animal sounds & textures. Every card marks whether it copies a sound or a manner and shows the verb it pairs with. Korean→English; meanings & spoken examples AI-generated.',
+    tags: ['Korean', 'Mimetic', 'Culture'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   kpop: {
     id: 'curated-kpop-ko-1',
     title: 'K-Pop & Idol Stan Slang 100',

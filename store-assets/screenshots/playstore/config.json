@@ -14,19 +14,19 @@
   },
   "hero": {
     "dir": "../hero",
-    "note": "hero/hero.png(1984x2144)를 장마다 다른 배율·오프셋으로 깐다. 좌표 근거는 hero/README.md. Play 캔버스가 2580이라 배율이 appstore와 다르다.",
+    "note": "hero/hero.png(1984x2144)를 두 장에 걸쳐 파노라마로 깐다. 배율은 캔버스 폭 2장분(2580)/1984 = 1.3004로 appstore와 같고, 오프셋 y만 다르다 — Play 캔버스는 2580이라 세로가 208px 넘쳐 y=-52로 내려야 캐릭터 발(원본 2024)과 폰 하단(2022)이 안 잘린다. 좌표 근거는 hero/README.md.",
     "cream": "#F4E5CA",
     "statusBarPx": 132,
-    "screen": { "x": 1437.7, "y": 802.9, "width": 723.7, "height": 1542.1, "radius": 55 },
-    "notch": { "x": 153.6, "width": 415.2 }
+    "screen": { "x": 1557.9, "y": 870.0, "width": 784.1, "height": 1671.0, "radius": 60 },
+    "notch": { "x": 166.5, "width": 449.9 }
   },
   "screenshots": [
     {
       "id": "00-hero-a",
       "type": "hero",
-      "bg": { "file": "hero.png", "width": 2222, "height": 2401, "x": 4, "y": 90 },
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": 0, "y": -52 },
       "phone": null,
-      "screen": "히어로 1장 — 캐릭터. raw 캡처 불필요. x=4는 폰의 가장 왼쪽 픽셀(측면 버튼, 원본 x=1150)이 캔버스 밖으로 나가게 하는 값.",
+      "screen": "히어로 1장 — 캐릭터. raw 캡처 불필요. 2장과 같은 배율(1.3004)로 깔고 x=0(원본 왼쪽 절반) — 2장이 x=-1290으로 이어받아 두 장이 파노라마로 연결된다.",
       "ko": {
         "caption": "단어장 만들기,<br>이제 3초",
         "sub": "주제만 말하면 단어·뜻·예문까지 한 번에"
@@ -39,9 +39,9 @@
     {
       "id": "00-hero-b",
       "type": "hero",
-      "bg": { "file": "hero.png", "width": 2381, "height": 2573, "x": -1195, "y": 0 },
+      "bg": { "file": "hero.png", "width": 2580, "height": 2788, "x": -1290, "y": -52 },
       "phone": "05-home",
-      "screen": "히어로 2장 — 폰 안은 홈 탭 실제 캡처(raw/{lang}/05-home.png). x=-1195는 폰 중심을 캔버스 정중앙(645)에 놓는 값.",
+      "screen": "히어로 2장 — 폰 안은 홈 탭 실제 캡처(raw/{lang}/05-home.png). x=-1290은 1장이 담은 왼쪽 절반의 바로 다음 — 캐릭터의 뻗은 팔이 1장에서 이어져 폰으로 닿는다.",
       "ko": {
         "caption": "만드는 건 AI,<br>외우는 건 나",
         "sub": "카드·퀴즈·예문·섀도잉으로 진짜 외운다"

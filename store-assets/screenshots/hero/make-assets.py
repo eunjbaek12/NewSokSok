@@ -48,6 +48,10 @@ crop.save(out)
 print(f"OK notch.png  {crop.size}  (원본 crop {box})")
 print(f"   화면 기준 상대위치: left={nx - pad - SCREEN[0]}, top={ny - SCREEN[1]}")
 
+# 참고: 두 장은 이 원본 한 장을 같은 배율(2580/1984 = 1.3004)로 깔고 x 오프셋만
+# 0 / -1290으로 달리해 파노라마로 잇는다. 캐릭터를 지운 별도 판은 필요 없다 —
+# 1장에서 잘리는 몸통·팔이 2장에서 그대로 이어지는 게 이 구성의 요점이다.
+
 # 참고용 실측 출력
 full = im.load()
 sx, sy, sw, sh = SCREEN

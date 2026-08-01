@@ -10,13 +10,14 @@
  * 출력: scripts/mimetic-translated.json
  * 진행 파일: scripts/.mimetic-progress.json (중단 후 재실행 가능)
  *
- * 실행: npx ts-node scripts/translate-mimetic-vocab.ts
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-mimetic-vocab.ts
  * 옵션:
  *   --limit=N     상위 N개만 처리 (smoke test용)
  *   --model=lite  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
  */
 import fs from 'fs';
 import path from 'path';
+import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -100,6 +101,7 @@ Rules:
 - Use the term in the EXACT form given as "term". If the term is single (꿀꺽, 깜짝), do not silently double it (꿀꺽꿀꺽) in the example — the card teaches the form on its front.
 - Never define the word with the word. meaningEn must be plain English a beginner can read.
 - Keep every example clean and family-friendly.
+${SHARED_PROMPT_RULES}
 - Return ONLY the JSON array.`;
 
   try {
@@ -163,49 +165,6 @@ function saveProgress(items: TranslatedEntry[]) {
   fs.writeFileSync(PROGRESS_PATH, JSON.stringify(items, null, 2));
 }
 
-/**
- * 표제어가 예문에 실제로 쓰였는지 검사. 의성어·의태어 덱은 예문이 곧 학습 내용이라
- * 이게 깨지면 카드가 무의미해진다. 활용형(촉촉→촉촉한)을 감안해 앞 2음절로도 확인하고,
- * 그래도 안 걸리는 것만 사람이 볼 수 있게 경고로 남긴다.
- */
-function checkExamples(items: TranslatedEntry[]) {
-  const missing = items.filter(w => {
-    if (w.exampleKo.includes(w.term)) return false;
-    const stem = w.term.slice(0, 2);              // 촉촉/멍하니 같은 변형 대비
-    return !(stem.length === 2 && w.exampleKo.includes(stem));
-  });
-  const noMeaning = items.filter(w => !w.meaningEn || !w.romaja || !w.exampleEn);
-
-  // 같은 어근 동사를 뒤에 또 붙이는 오류("번쩍번쩍 번쩍였어") — 첫 시도에서 실제로
-  // 나왔다. hint의 "verb 번쩍이다"를 짝꿍 동사로 오해해 생기며, 원어민이 안 쓰는
-  // 문장인데 문법은 멀쩡해 보여 눈으로만 보면 놓친다.
-  // 반복형 뒤에 -거리다를 또 붙이는 것도 같은 종류의 오류다("두리번두리번 거렸어").
-  // 반복 자체가 이미 되풀이를 뜻하므로 둘 중 하나만 써야 한다.
-  // 단 짧은 의성어는 "킥킥거리다"·"깔깔거리다"처럼 결합형이 사전에 등재돼 있어
-  // 정상이다. 여기서 걸리는 건 경고일 뿐이니 사전을 기준으로 사람이 판단할 것.
-  const rootEcho = items.filter(w => {
-    if (w.term.length < 2) return false;
-    const idx = w.exampleKo.indexOf(w.term);
-    if (idx < 0) return false;
-    const rest = w.exampleKo.slice(idx + w.term.length).trimStart();
-    return rest.startsWith(w.term.slice(0, 2)) || /^거[리려렸립]/.test(rest);
-  });
-
-  if (noMeaning.length > 0) {
-    console.log(`\n⚠️ 뜻·로마자·번역 누락 ${noMeaning.length}개: ${noMeaning.map(m => m.term).join(', ')}`);
-  }
-  if (missing.length > 0) {
-    console.log(`\n⚠️ 예문에 표제어가 안 보이는 ${missing.length}개 — 눈으로 확인하세요:`);
-    missing.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  if (rootEcho.length > 0) {
-    console.log(`\n⚠️ 같은 어근 동사가 뒤따르는 ${rootEcho.length}개 — 고쳐야 합니다:`);
-    rootEcho.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  if (missing.length === 0 && noMeaning.length === 0 && rootEcho.length === 0) {
-    console.log('\n✅ 전 항목 예문에 표제어 사용 확인, 어근 중복 없음');
-  }
-}
 
 async function main() {
   if (!fs.existsSync(SOURCE_PATH)) {
@@ -241,7 +200,7 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 완료! ${OUTPUT_PATH} (${results.length}개)`);
-  checkExamples(results);
+  reportFindings(collectFindings(results, { meaningMax: 140, mimeticEcho: true }), results.length);
   if (fs.existsSync(PROGRESS_PATH)) { fs.unlinkSync(PROGRESS_PATH); console.log('진행 파일 정리됨'); }
 }
 

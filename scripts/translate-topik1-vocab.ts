@@ -14,13 +14,14 @@
  * 출력: scripts/topik1-translated.json
  * 진행 파일: scripts/.topik1-progress.json (중단 후 재실행 가능)
  *
- * 실행: npx ts-node scripts/translate-topik1-vocab.ts
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-topik1-vocab.ts
  * 옵션:
  *   --limit=N     상위 N개만 처리 (smoke test용)
  *   --model=lite  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
  */
 import fs from 'fs';
 import path from 'path';
+import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -109,6 +110,7 @@ Other rules:
 - Do NOT change the term field — copy exactly.
 - exampleKo must contain the term (conjugated naturally for verbs and adjectives, e.g. 맵다 → 매워요).
 - Keep everything clean and family-friendly.
+${SHARED_PROMPT_RULES}
 - Return ONLY the JSON array.`;
 
   try {
@@ -172,57 +174,6 @@ function saveProgress(items: TranslatedEntry[]) {
   fs.writeFileSync(PROGRESS_PATH, JSON.stringify(items, null, 2));
 }
 
-// 초급 덱에서 나오면 안 되는 중급 이상 문법. 예문이 어려워지는 건 눈으로는 잘 안 걸린다.
-const BANNED_GRAMMAR = ['잖아', '더라고', '느라고', '더니', '바람에', '마련이', '을 텐데', '을걸'];
-
-function checkEntries(items: TranslatedEntry[]) {
-  const empty = items.filter(w => !w.meaningEn || !w.romaja || !w.exampleKo || !w.exampleEn);
-  const longMeaning = items.filter(w => w.meaningEn.length > MEANING_MAX);
-  const longExample = items.filter(w => w.exampleKo.length > EXAMPLE_MAX);
-  const banned = items.filter(w => BANNED_GRAMMAR.some(g => w.exampleKo.includes(g)));
-  // 교재가 흔히 저지르는 오류. 한국어는 2인칭 대명사를 이렇게 쓰지 않는다.
-  const yeoDangsin = items.filter(w => w.exampleKo.includes('당신'));
-  const missing = items.filter(w => {
-    const probe = /다$/.test(w.term) && w.term.length >= 2 ? w.term.slice(0, 1) : w.term;
-    return !w.exampleKo.includes(probe);
-  });
-  const dupExample = (() => {
-    const seen = new Map<string, string[]>();
-    items.forEach(w => { if (!seen.has(w.exampleKo)) seen.set(w.exampleKo, []); seen.get(w.exampleKo)!.push(w.term); });
-    return [...seen.values()].filter(v => v.length > 1);
-  })();
-
-  if (empty.length) console.log(`\n⚠️ 빈 슬롯 ${empty.length}개: ${empty.map(m => m.term).join(', ')}`);
-  if (longMeaning.length) {
-    console.log(`\n⚠️ 뜻이 ${MEANING_MAX}자 초과 ${longMeaning.length}개:`);
-    longMeaning.forEach(m => console.log(`   ${m.term} (${m.meaningEn.length}자): ${m.meaningEn}`));
-  }
-  if (longExample.length) {
-    console.log(`\n⚠️ 예문이 ${EXAMPLE_MAX}자 초과 ${longExample.length}개 — 초급용으로 깁니다:`);
-    longExample.forEach(m => console.log(`   ${m.term} (${m.exampleKo.length}자): ${m.exampleKo}`));
-  }
-  if (banned.length) {
-    console.log(`\n⚠️ 중급 문법이 섞인 ${banned.length}개 — 초급 예문으로 부적합:`);
-    banned.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  if (yeoDangsin.length) {
-    console.log(`\n⚠️ '당신'을 쓴 ${yeoDangsin.length}개 — 한국어답지 않습니다:`);
-    yeoDangsin.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  if (missing.length) {
-    console.log(`\n⚠️ 예문에 표제어가 안 보이는 ${missing.length}개:`);
-    missing.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  if (dupExample.length) {
-    console.log(`\n⚠️ 예문이 겹치는 ${dupExample.length}쌍: ${dupExample.map(v => v.join('/')).join(', ')}`);
-  }
-  const mAvg = Math.round(items.reduce((s, w) => s + w.meaningEn.length, 0) / (items.length || 1));
-  const eAvg = Math.round(items.reduce((s, w) => s + w.exampleKo.length, 0) / (items.length || 1));
-  console.log(`\n📏 뜻 평균 ${mAvg}자 (상한 ${MEANING_MAX}) / 예문 평균 ${eAvg}자 (상한 ${EXAMPLE_MAX})`);
-  if (!empty.length && !longMeaning.length && !longExample.length && !banned.length && !missing.length && !dupExample.length && !yeoDangsin.length) {
-    console.log('✅ 자동 검사 전부 통과 — 로마자는 눈으로 확인할 것');
-  }
-}
 
 async function main() {
   if (!fs.existsSync(SOURCE_PATH)) {
@@ -258,7 +209,7 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 완료! ${OUTPUT_PATH} (${results.length}개)`);
-  checkEntries(results);
+  reportFindings(collectFindings(results, { meaningMax: MEANING_MAX, exampleMax: EXAMPLE_MAX, beginnerGrammar: true }), results.length);
   if (fs.existsSync(PROGRESS_PATH)) { fs.unlinkSync(PROGRESS_PATH); console.log('진행 파일 정리됨'); }
 }
 

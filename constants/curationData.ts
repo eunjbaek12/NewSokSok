@@ -300,7 +300,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "jondaetmal",
+        "phonetic": "jondaenmal",
         "pos": "noun"
       },
       {
@@ -725,7 +725,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "muni",
+        "phonetic": "munui",
         "pos": "noun"
       },
       {
@@ -1796,7 +1796,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "akki",
+        "phonetic": "akgi",
         "pos": "noun"
       },
       {
@@ -2051,7 +2051,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "yutubeu",
+        "phonetic": "yutyubeu",
         "pos": "noun"
       },
       {
@@ -2459,7 +2459,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "seupahada",
+        "phonetic": "seupada",
         "pos": "adjective"
       },
       {
@@ -2748,7 +2748,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "ssahida",
+        "phonetic": "ssaida",
         "pos": "verb"
       },
       {
@@ -5026,7 +5026,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Exam"
         ],
-        "phonetic": "yeojjeoboda",
+        "phonetic": "yeojjwoboda",
         "pos": "verb"
       },
       {
@@ -6282,7 +6282,7 @@ export const curationPresets: VocaList[] = [
           "Daily Life",
           "Delivery"
         ],
-        "phonetic": "won peullaseu won",
+        "phonetic": "won peulleoseu won",
         "pos": "noun"
       },
       {
@@ -6537,7 +6537,7 @@ export const curationPresets: VocaList[] = [
           "Daily Life",
           "Delivery"
         ],
-        "phonetic": "baedal-aep",
+        "phonetic": "baedaraep",
         "pos": "noun"
       },
       {
@@ -7589,7 +7589,7 @@ export const curationPresets: VocaList[] = [
           "Culture",
           "Nuance"
         ],
-        "phonetic": "hanteoknaeda",
+        "phonetic": "hanteongnaeda",
         "pos": "verb"
       },
       {

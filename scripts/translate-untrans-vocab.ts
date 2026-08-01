@@ -11,13 +11,14 @@
  * 출력: scripts/untrans-translated.json
  * 진행 파일: scripts/.untrans-progress.json (중단 후 재실행 가능)
  *
- * 실행: npx ts-node scripts/translate-untrans-vocab.ts
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-untrans-vocab.ts
  * 옵션:
  *   --limit=N     상위 N개만 처리 (smoke test용)
  *   --model=lite  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
  */
 import fs from 'fs';
 import path from 'path';
+import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -104,6 +105,7 @@ Rules:
 - Do not use the headword itself inside meaningEn, and do not write meaningEn as a dictionary gloss list ("sadness, sorrow, grief") — that is what fails learners for these words.
 - exampleKo must contain the term (conjugated naturally if it is a verb or adjective, e.g. 답답하다 → 답답해서).
 - Keep every example clean and family-friendly, and keep the register everyday, not literary.
+${SHARED_PROMPT_RULES}
 - Return ONLY the JSON array.`;
 
   try {
@@ -167,39 +169,6 @@ function saveProgress(items: TranslatedEntry[]) {
   fs.writeFileSync(PROGRESS_PATH, JSON.stringify(items, null, 2));
 }
 
-/**
- * 용언(-다)은 예문에서 활용되어 어간까지 바뀌므로(챙기다 → 챙겨) 첫 음절로만 확인한다.
- * 느슨한 검사라 놓치는 게 있다 — 이 덱은 50개뿐이니 전량 눈으로도 볼 것.
- */
-function checkEntries(items: TranslatedEntry[]) {
-  const empty = items.filter(w => !w.meaningEn || !w.romaja || !w.exampleKo || !w.exampleEn);
-  const tooLong = items.filter(w => w.meaningEn.length > MEANING_MAX);
-  const selfDefining = items.filter(w => w.meaningEn.includes(w.term));
-  const missing = items.filter(w => {
-    const probe = w.term.endsWith('다') && w.term.length >= 2 ? w.term.slice(0, 1) : w.term;
-    return !w.exampleKo.includes(probe);
-  });
-
-  if (empty.length) console.log(`\n⚠️ 빈 슬롯 ${empty.length}개: ${empty.map(m => m.term).join(', ')}`);
-  if (tooLong.length) {
-    console.log(`\n⚠️ 뜻이 ${MEANING_MAX}자를 넘는 ${tooLong.length}개 — 카드에 안 들어갑니다:`);
-    tooLong.forEach(m => console.log(`   ${m.term} (${m.meaningEn.length}자): ${m.meaningEn}`));
-  }
-  if (selfDefining.length) {
-    console.log(`\n⚠️ 뜻에 표제어가 그대로 들어간 ${selfDefining.length}개:`);
-    selfDefining.forEach(m => console.log(`   ${m.term}: ${m.meaningEn}`));
-  }
-  if (missing.length) {
-    console.log(`\n⚠️ 예문에 표제어가 안 보이는 ${missing.length}개:`);
-    missing.forEach(m => console.log(`   ${m.term}: ${m.exampleKo}`));
-  }
-  const meanLen = Math.round(items.reduce((s, w) => s + w.meaningEn.length, 0) / (items.length || 1));
-  console.log(`\n📏 뜻 평균 ${meanLen}자 (상한 ${MEANING_MAX})`);
-  if (!empty.length && !tooLong.length && !selfDefining.length && !missing.length) {
-    console.log('✅ 자동 검사 전부 통과 — 로마자와 뉘앙스는 눈으로 확인할 것');
-  }
-}
-
 async function main() {
   if (!fs.existsSync(SOURCE_PATH)) {
     console.error(`❌ 소스 없음: ${SOURCE_PATH}`);
@@ -234,7 +203,7 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 완료! ${OUTPUT_PATH} (${results.length}개)`);
-  checkEntries(results);
+  reportFindings(collectFindings(results, { meaningMax: MEANING_MAX }), results.length);
   if (fs.existsSync(PROGRESS_PATH)) { fs.unlinkSync(PROGRESS_PATH); console.log('진행 파일 정리됨'); }
 }
 

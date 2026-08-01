@@ -6,7 +6,8 @@
  * 출력: scripts/<deck>-translated.json
  * 진행 파일: scripts/.<deck>-progress.json (중단 후 재실행 가능)
  *
- * 실행: npx ts-node scripts/translate-situation-vocab.ts --deck=market
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-situation-vocab.ts --deck=market
+ *       (공용 검사 모듈을 상대 import 하므로 -P 옵션이 필요하다)
  * 옵션:
  *   --deck=market|hiking|clinic|convenience   (필수)
  *   --limit=N                     상위 N개만 처리 (smoke test용)
@@ -14,6 +15,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
 
 interface DeckConfig {
   /** 프롬프트에 넣을 상황 설명 — 예문의 무대를 결정한다. */
@@ -133,9 +135,10 @@ Each item:
 Rules:
 - Return EXACTLY ${batch.length} items, same order as input.
 - Do NOT change the term field — copy exactly.
-- The example MUST use the term and MUST be set in the situation above. No generic textbook sentences that could be about anything.
+- The example MUST be set in the situation above. No generic textbook sentences that could be about anything.
 - Keep it tight: these go on a flashcard. A long meaning or a two-sentence example is a failure, even if accurate.
 - meaningEn must reflect the situational sense from "context", never an unrelated literal dictionary meaning.
+${SHARED_PROMPT_RULES}
 - Keep everything SFW, friendly and respectful. No profanity, no medical advice framed as instruction, no discriminatory content.
 - Return ONLY the JSON array.`;
 
@@ -234,6 +237,7 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 완료! ${OUTPUT_PATH} (${results.length}개)`);
+  reportFindings(collectFindings(results, { meaningMax: 70 }), results.length);
   if (fs.existsSync(PROGRESS_PATH)) { fs.unlinkSync(PROGRESS_PATH); console.log('진행 파일 정리됨'); }
 }
 

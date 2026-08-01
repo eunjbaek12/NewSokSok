@@ -164,7 +164,7 @@
     "term": "존댓말",
     "pos": "noun",
     "meaningEn": "polite speech",
-    "romaja": "jondaetmal",
+    "romaja": "jondaenmal",
     "exampleKo": "선생님께 존댓말을 해요.",
     "exampleEn": "I speak politely to the teacher.",
     "category": "자기소개·가족"
@@ -414,7 +414,7 @@
     "term": "무늬",
     "pos": "noun",
     "meaningEn": "a pattern (on fabric)",
-    "romaja": "muni",
+    "romaja": "munui",
     "exampleKo": "무늬가 예뻐요.",
     "exampleEn": "The pattern is pretty.",
     "category": "쇼핑·가격"
@@ -1044,7 +1044,7 @@
     "term": "악기",
     "pos": "noun",
     "meaningEn": "a musical instrument",
-    "romaja": "akki",
+    "romaja": "akgi",
     "exampleKo": "악기 연주를 좋아해요.",
     "exampleEn": "I like playing musical instruments.",
     "category": "취미·여가"
@@ -1194,7 +1194,7 @@
     "term": "유튜브",
     "pos": "noun",
     "meaningEn": "YouTube",
-    "romaja": "yutubeu",
+    "romaja": "yutyubeu",
     "exampleKo": "유튜브를 자주 봐요.",
     "exampleEn": "I often watch YouTube.",
     "category": "취미·여가"
@@ -1434,7 +1434,7 @@
     "term": "습하다",
     "pos": "adjective",
     "meaningEn": "humid, muggy",
-    "romaja": "seupahada",
+    "romaja": "seupada",
     "exampleKo": "날씨가 습해요.",
     "exampleEn": "The weather is humid.",
     "category": "날씨·계절"
@@ -1604,7 +1604,7 @@
     "term": "쌓이다",
     "pos": "verb",
     "meaningEn": "to pile up (snow, work, stress)",
-    "romaja": "ssahida",
+    "romaja": "ssaida",
     "exampleKo": "눈이 많이 쌓였어요.",
     "exampleEn": "A lot of snow piled up.",
     "category": "날씨·계절"
@@ -2944,7 +2944,7 @@
     "term": "여쭤보다",
     "pos": "verb",
     "meaningEn": "to ask (humble form to seniors)",
-    "romaja": "yeojjeoboda",
+    "romaja": "yeojjwoboda",
     "exampleKo": "선생님께 여쭤봤어요.",
     "exampleEn": "I asked the teacher.",
     "category": "전화·부탁·약속"

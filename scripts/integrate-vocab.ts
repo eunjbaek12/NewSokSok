@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  convenience: {
+    id: 'curated-convenience-ko-1',
+    title: 'Korean Convenience Store & Delivery 50',
+    icon: '🏪',
+    category: '생활',
+    level: 'beginner',
+    description: 'Handle a Korean 편의점 and a delivery app like a local — 봉투 드릴까요, 데워 드릴까요, 적립, 일시불, 삼각김밥, 온장고, 배달비, 일회용품, 문 앞에 두고 벨 and more across the shelves, the checkout, the hot-food corner, ordering on 배달앱 and getting it to your door. Korean→English; meanings & real counter-and-doorstep examples AI-generated.',
+    tags: ['Korean', 'Daily Life', 'Delivery'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   untrans: {
     id: 'curated-untrans-ko-1',
     title: 'Untranslatable Korean 50',

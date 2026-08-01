@@ -1,5 +1,5 @@
 /**
- * 상황별 한국어 생활 어휘(시장/등산/병원) 50선을 영어 뜻 + 로마자 + 한국어 예문 + 영어 번역으로 enrich.
+ * 상황별 한국어 생활 어휘(시장/등산/병원/편의점·배달) 50선을 영어 뜻 + 로마자 + 한국어 예문 + 영어 번역으로 enrich.
  * 방향: ko → en (영미권 한국어 학습자 대상). integrate-vocab.ts 의 ko→en 분기로 통합.
  *
  * 입력: scripts/<deck>-source.json ({rank, term, pos, category, hint})
@@ -8,7 +8,7 @@
  *
  * 실행: npx ts-node scripts/translate-situation-vocab.ts --deck=market
  * 옵션:
- *   --deck=market|hiking|clinic   (필수)
+ *   --deck=market|hiking|clinic|convenience   (필수)
  *   --limit=N                     상위 N개만 처리 (smoke test용)
  *   --model=lite                  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
  */
@@ -34,6 +34,12 @@ const DECKS: Record<string, DeckConfig> = {
       'hiking a Korean mountain (등산) — trails, summits, gear, trail etiquette, and the food and drink that go with it',
     voice:
       'a hiker on the trail talking with a hiking companion or greeting another hiker. Friendly 해요체, the way Korean hikers actually speak on a mountain.',
+  },
+  convenience: {
+    setting:
+      'a Korean convenience store (편의점) and ordering food on a delivery app — the checkout and its bag/points/receipt questions, the hot-food case and the free microwave and hot-water dispenser, then ordering on a 배달앱 and receiving it at the door',
+    voice:
+      'a customer and the part-time clerk talking across the counter, in polite 해요체 both ways. For the delivery-app items, write the way Koreans actually type into the request box instead — short, clipped, imperative (문 앞에 두고 벨 눌러 주세요) — or a customer speaking to the driver.',
   },
   clinic: {
     setting:

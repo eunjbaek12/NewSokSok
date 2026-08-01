@@ -2,6 +2,871 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-convenience-ko-1",
+    "title": "Korean Convenience Store & Delivery 50",
+    "icon": "🏪",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Handle a Korean 편의점 and a delivery app like a local — 봉투 드릴까요, 데워 드릴까요, 적립, 일시불, 삼각김밥, 온장고, 배달비, 일회용품, 문 앞에 두고 벨 and more across the shelves, the checkout, the hot-food corner, ordering on 배달앱 and getting it to your door. Korean→English; meanings & real counter-and-doorstep examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1785585348846,
+    "words": [
+      {
+        "id": "word-convenience-0-1785585348846",
+        "term": "편의점",
+        "definition": "a convenience store",
+        "meaningKr": "a convenience store",
+        "exampleEn": "집 앞 편의점에서 우산 하나 사 왔어요.",
+        "exampleKr": "I bought an umbrella at the convenience store in front of my place.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "pyeonuijeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-1-1785585348846",
+        "term": "24시간",
+        "definition": "24 hours",
+        "meaningKr": "24 hours",
+        "exampleEn": "이 편의점은 24시간 문을 열어요.",
+        "exampleKr": "This convenience store is open 24 hours.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "isipsasigan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-2-1785585348846",
+        "term": "매대",
+        "definition": "a display stand; a shelf unit",
+        "meaningKr": "a display stand; a shelf unit",
+        "exampleEn": "저쪽 매대에 행사 상품 있어요.",
+        "exampleKr": "There are promotional items on that display stand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "maedae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-3-1785585348846",
+        "term": "소비기한",
+        "definition": "use-by date (replaced 유통기한 on labels in 2023)",
+        "meaningKr": "use-by date (replaced 유통기한 on labels in 2023)",
+        "exampleEn": "이 도시락 소비기한이 언제까지예요?",
+        "exampleKr": "What's the use-by date for this lunchbox?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "sobigihan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-4-1785585348846",
+        "term": "알바생",
+        "definition": "a part-time worker",
+        "meaningKr": "a part-time worker",
+        "exampleEn": "알바생이 아주 친절하게 응대해 줬어요.",
+        "exampleKr": "The part-time worker responded very kindly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "albasaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-5-1785585348846",
+        "term": "창가석",
+        "definition": "a window counter seat",
+        "meaningKr": "a window counter seat",
+        "exampleEn": "창가석에 앉아서 컵라면 먹을게요.",
+        "exampleKr": "I'll sit at the window seat and eat cup ramen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "changgaseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-6-1785585348846",
+        "term": "전자레인지",
+        "definition": "a microwave",
+        "meaningKr": "a microwave",
+        "exampleEn": "전자레인지는 어디에서 사용할 수 있어요?",
+        "exampleKr": "Where can I use the microwave?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "jeonjareinji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-7-1785585348846",
+        "term": "온수기",
+        "definition": "a hot water dispenser",
+        "meaningKr": "a hot water dispenser",
+        "exampleEn": "컵라면에 온수기 물을 부어 주세요.",
+        "exampleKr": "Please pour hot water from the dispenser into the cup ramen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "onsugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-8-1785585348846",
+        "term": "택배 접수",
+        "definition": "parcel drop-off; courier service reception",
+        "meaningKr": "parcel drop-off; courier service reception",
+        "exampleEn": "여기서 택배 접수도 가능한가요?",
+        "exampleKr": "Can I also drop off a parcel here?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "taekbae jeopsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-9-1785585348846",
+        "term": "품절",
+        "definition": "sold out; out of stock",
+        "meaningKr": "sold out; out of stock",
+        "exampleEn": "죄송하지만 그 상품은 지금 품절이에요.",
+        "exampleKr": "I'm sorry, but that item is currently sold out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "pumjeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-10-1785585348846",
+        "term": "계산대",
+        "definition": "a checkout counter",
+        "meaningKr": "a checkout counter",
+        "exampleEn": "계산대로 가셔서 결제하시면 됩니다.",
+        "exampleKr": "Please go to the checkout counter to pay.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "gyesandae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-11-1785585348846",
+        "term": "봉투",
+        "definition": "a bag",
+        "meaningKr": "a bag",
+        "exampleEn": "봉투 필요하세요? 200원입니다.",
+        "exampleKr": "Do you need a bag? It's 200 won.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "bongtu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-12-1785585348846",
+        "term": "비닐봉투",
+        "definition": "a plastic bag",
+        "meaningKr": "a plastic bag",
+        "exampleEn": "비닐봉투는 따로 구매하셔야 해요.",
+        "exampleKr": "You have to buy plastic bags separately.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "binilbongtu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-13-1785585348846",
+        "term": "종량제봉투",
+        "definition": "a volume-rate rubbish bag",
+        "meaningKr": "a volume-rate rubbish bag",
+        "exampleEn": "20리터 종량제봉투 하나 주세요.",
+        "exampleKr": "Please give me one 20-liter volume-rate rubbish bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "jongnyangjebongtu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-14-1785585348846",
+        "term": "적립",
+        "definition": "point accrual; earning points",
+        "meaningKr": "point accrual; earning points",
+        "exampleEn": "포인트 적립하시겠어요? 전화번호 알려 주세요.",
+        "exampleKr": "Would you like to accrue points? Please tell me your phone number.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "jeongnip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-15-1785585348846",
+        "term": "현금영수증",
+        "definition": "a cash receipt (for tax deduction)",
+        "meaningKr": "a cash receipt (for tax deduction)",
+        "exampleEn": "현금영수증 발행해 드릴까요?",
+        "exampleKr": "Shall I issue a cash receipt for you?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "hyeongeumyeongsujeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-16-1785585348846",
+        "term": "일시불",
+        "definition": "one-time payment; lump sum payment",
+        "meaningKr": "one-time payment; lump sum payment",
+        "exampleEn": "일시불로 결제하시겠어요, 할부로 하시겠어요?",
+        "exampleKr": "Would you like to pay in a lump sum or in installments?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "ilsibul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-17-1785585348846",
+        "term": "원 플러스 원",
+        "definition": "buy one get one free (1+1)",
+        "meaningKr": "buy one get one free (1+1)",
+        "exampleEn": "이 과자는 지금 원 플러스 원 행사 중이에요.",
+        "exampleKr": "This snack is currently on a buy one get one free promotion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "won peullaseu won",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-18-1785585348846",
+        "term": "행사 상품",
+        "definition": "an item on promotion",
+        "meaningKr": "an item on promotion",
+        "exampleEn": "행사 상품은 저쪽 매대에 진열되어 있어요.",
+        "exampleKr": "Promotional items are displayed on that stand over there.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "haengsa sangpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-19-1785585348846",
+        "term": "잔돈",
+        "definition": "change (money)",
+        "meaningKr": "change (money)",
+        "exampleEn": "잔돈은 현금으로 드릴까요?",
+        "exampleKr": "Shall I give you the change in cash?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "jandon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-20-1785585348846",
+        "term": "바코드",
+        "definition": "a barcode",
+        "meaningKr": "a barcode",
+        "exampleEn": "이 상품 바코드 좀 찍어 주세요.",
+        "exampleKr": "Please scan the barcode for this item.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "bakodeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-21-1785585348846",
+        "term": "도시락",
+        "definition": "a boxed meal; a lunchbox",
+        "meaningKr": "a boxed meal; a lunchbox",
+        "exampleEn": "오늘 저녁은 편의점 도시락으로 때울게요.",
+        "exampleKr": "I'll grab a convenience store lunchbox for dinner tonight.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "dosirak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-22-1785585348846",
+        "term": "삼각김밥",
+        "definition": "a triangular rice ball (gimbap)",
+        "meaningKr": "a triangular rice ball (gimbap)",
+        "exampleEn": "참치마요 삼각김밥 두 개 주세요.",
+        "exampleKr": "Please give me two tuna mayo triangular rice balls.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "samgakgimbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-23-1785585348846",
+        "term": "컵라면",
+        "definition": "cup ramen; instant noodles in a cup",
+        "meaningKr": "cup ramen; instant noodles in a cup",
+        "exampleEn": "뜨거운 물 받아서 컵라면 먹고 갈게요.",
+        "exampleKr": "I'll get hot water, eat cup ramen, and then leave.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "keomnamyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-24-1785585348846",
+        "term": "데우다",
+        "definition": "to heat up; to warm (food)",
+        "meaningKr": "to heat up; to warm (food)",
+        "exampleEn": "찌개가 식었으니까 다시 데워 먹어야겠어요.",
+        "exampleKr": "The stew has gone cold, so I'll have to heat it up again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "de-uda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-convenience-25-1785585348846",
+        "term": "데워 드릴까요?",
+        "definition": "Shall I heat it up for you?",
+        "meaningKr": "Shall I heat it up for you?",
+        "exampleEn": "이거 데워 드릴까요?",
+        "exampleKr": "Shall I heat this up for you?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "dewo deurilkkayo?",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-convenience-26-1785585348846",
+        "term": "나무젓가락",
+        "definition": "disposable wooden chopsticks",
+        "meaningKr": "disposable wooden chopsticks",
+        "exampleEn": "나무젓가락 필요하세요?",
+        "exampleKr": "Do you need wooden chopsticks?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "namujeotgarak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-27-1785585348846",
+        "term": "뚜껑",
+        "definition": "a lid",
+        "meaningKr": "a lid",
+        "exampleEn": "라면 뚜껑 닫아주세요.",
+        "exampleKr": "Please close the ramen lid.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "ttukkeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-28-1785585348846",
+        "term": "스프",
+        "definition": "ramen soup powder sachet",
+        "meaningKr": "ramen soup powder sachet",
+        "exampleEn": "라면에 스프 먼저 넣으세요.",
+        "exampleKr": "Put the soup sachet in the ramen first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "seupeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-29-1785585348846",
+        "term": "어묵",
+        "definition": "fish cake (on a skewer)",
+        "meaningKr": "fish cake (on a skewer)",
+        "exampleEn": "어묵 하나 주세요.",
+        "exampleKr": "Please give me one fish cake.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "eomuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-30-1785585348846",
+        "term": "온장고",
+        "definition": "heated display case",
+        "meaningKr": "heated display case",
+        "exampleEn": "온장고에 따뜻한 음료 있어요.",
+        "exampleKr": "There are warm drinks in the heated case.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "onjanggo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-31-1785585348846",
+        "term": "컵밥",
+        "definition": "rice meal in a cup",
+        "meaningKr": "rice meal in a cup",
+        "exampleEn": "컵밥은 전자레인지에 2분만 돌리면 돼요.",
+        "exampleKr": "Cup rice only needs two minutes in the microwave.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "keopbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-32-1785585348846",
+        "term": "배달앱",
+        "definition": "food delivery app",
+        "meaningKr": "food delivery app",
+        "exampleEn": "요즘은 배달앱으로 안 시키는 게 없어요.",
+        "exampleKr": "These days there's nothing people don't order on a delivery app.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "baedal-aep",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-33-1785585348846",
+        "term": "배달비",
+        "definition": "delivery fee",
+        "meaningKr": "delivery fee",
+        "exampleEn": "배달비가 너무 비싸요.",
+        "exampleKr": "The delivery fee is too expensive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "baedalbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-34-1785585348846",
+        "term": "최소주문금액",
+        "definition": "minimum order amount",
+        "meaningKr": "minimum order amount",
+        "exampleEn": "최소주문금액이 만 오천 원이라 하나 더 담았어요.",
+        "exampleKr": "The minimum order was 15,000 won, so I added one more thing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "choesojumungeumaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-35-1785585348846",
+        "term": "요청사항",
+        "definition": "special requests (for order)",
+        "meaningKr": "special requests (for order)",
+        "exampleEn": "요청사항에 덜 맵게 해 달라고 써 주세요.",
+        "exampleKr": "Please write in the request box that you'd like it less spicy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "yocheongsahang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-36-1785585348846",
+        "term": "일회용품",
+        "definition": "disposables; disposable cutlery",
+        "meaningKr": "disposables; disposable cutlery",
+        "exampleEn": "일회용품 빼주세요.",
+        "exampleKr": "Please leave out the disposables.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "ilhoeyongpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-37-1785585348846",
+        "term": "리뷰 이벤트",
+        "definition": "review event (for free food)",
+        "meaningKr": "review event (for free food)",
+        "exampleEn": "리뷰 이벤트 참여할게요.",
+        "exampleKr": "I'll participate in the review event.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "ribyu ibenteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-38-1785585348846",
+        "term": "묶음배달",
+        "definition": "bundled delivery",
+        "meaningKr": "bundled delivery",
+        "exampleEn": "묶음배달이라 좀 늦어요.",
+        "exampleKr": "It's a bundled delivery, so it's a bit late.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "mukkeumbaedal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-39-1785585348846",
+        "term": "포장",
+        "definition": "takeout (ordered via app)",
+        "meaningKr": "takeout (ordered via app)",
+        "exampleEn": "배달비가 아까워서 그냥 포장으로 주문했어요.",
+        "exampleKr": "The delivery fee felt like a waste, so I ordered it for pickup instead.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "pojang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-40-1785585348846",
+        "term": "별점",
+        "definition": "star rating",
+        "meaningKr": "star rating",
+        "exampleEn": "별점 5점 남겨주세요.",
+        "exampleKr": "Please leave a 5-star rating.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "byeoljeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-41-1785585348846",
+        "term": "쿠폰",
+        "definition": "a coupon",
+        "meaningKr": "a coupon",
+        "exampleEn": "쿠폰 적용해 주세요.",
+        "exampleKr": "Please apply the coupon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "kupon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-42-1785585348846",
+        "term": "문 앞에 두고 벨 눌러 주세요",
+        "definition": "Please leave it at the door and ring the bell",
+        "meaningKr": "Please leave it at the door and ring the bell",
+        "exampleEn": "문 앞에 두고 벨 눌러 주세요.",
+        "exampleKr": "Please leave it at the door and ring the bell.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "mun ape dugo bel nulleo juseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-convenience-43-1785585348846",
+        "term": "공동현관 비밀번호",
+        "definition": "shared entrance door code",
+        "meaningKr": "shared entrance door code",
+        "exampleEn": "공동현관 비밀번호 알려주세요.",
+        "exampleKr": "Please tell me the shared entrance code.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "gongdonghyeongwan bimilbeonho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-44-1785585348846",
+        "term": "벨 누르지 마세요",
+        "definition": "Please don't ring the bell.",
+        "meaningKr": "Please don't ring the bell.",
+        "exampleEn": "아기가 자고 있어서 벨 누르지 마세요.",
+        "exampleKr": "The baby is sleeping, so please don't ring the bell.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "bel nureuji maseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-convenience-45-1785585348846",
+        "term": "기사님",
+        "definition": "delivery driver (respectful)",
+        "meaningKr": "delivery driver (respectful)",
+        "exampleEn": "기사님, 조심히 오세요!",
+        "exampleKr": "Driver, please drive safely!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "gisanim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-46-1785585348846",
+        "term": "비대면",
+        "definition": "contact-free",
+        "meaningKr": "contact-free",
+        "exampleEn": "비대면 배달로 요청했어요.",
+        "exampleKr": "I requested contact-free delivery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "bidaemyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-47-1785585348846",
+        "term": "문고리",
+        "definition": "door handle",
+        "meaningKr": "door handle",
+        "exampleEn": "문고리에 걸어 주세요.",
+        "exampleKr": "Please hang it on the door handle.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "mungori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-48-1785585348846",
+        "term": "배달 완료",
+        "definition": "delivery complete",
+        "meaningKr": "delivery complete",
+        "exampleEn": "배달 완료 알림이 왔어요.",
+        "exampleKr": "I got a 'delivery complete' notification.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "baedal wallyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-convenience-49-1785585348846",
+        "term": "도착 예정 시간",
+        "definition": "estimated arrival time",
+        "meaningKr": "estimated arrival time",
+        "exampleEn": "도착 예정 시간 확인해 보세요.",
+        "exampleKr": "Please check the estimated arrival time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Daily Life",
+          "Delivery"
+        ],
+        "phonetic": "dochak yejeong sigan",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-untrans-ko-1",
     "title": "Untranslatable Korean 50",
     "icon": "💭",

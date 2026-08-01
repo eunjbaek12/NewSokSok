@@ -344,6 +344,9 @@ export default function CurationScreen() {
     const [aiTopic, setAiTopic] = useState('');
     const [aiSourceLangPickerOpen, setAiSourceLangPickerOpen] = useState(false);
     const [aiTargetLangPickerOpen, setAiTargetLangPickerOpen] = useState(false);
+    // 목록 끝의 "뜻 언어" 줄에서 여는 시트. AI 모달 안의 도착어 피커와 같은 값을
+    // 고치지만, 이쪽은 화면에서 바로 열리므로 상태를 따로 둔다.
+    const [meaningLangPickerOpen, setMeaningLangPickerOpen] = useState(false);
     const [lastGenParams, setLastGenParams] = useState<{ topic: string; difficulty: AiDifficulty; wordCount: number; sourceLang: string; targetLang: string } | null>(null);
     const [regenerating, setRegenerating] = useState(false);
     // 진행 중 생성 요청을 취소(중단)하기 위한 AbortController. 사용자가 닫기를 누르면 abort.
@@ -439,11 +442,52 @@ export default function CurationScreen() {
     }, [detailScrollY, detailFabAnim]);
 
     const sourceThemes = activeTab === 'official' ? curationPresets : communityThemes;
-    const filteredThemes = useMemo(() => sourceThemes.filter(t => {
-        const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesLang = languageFilter === 'all' || t.sourceLanguage === languageFilter;
-        return matchesSearch && matchesLang;
-    }), [sourceThemes, searchQuery, languageFilter]);
+    /*
+     * 필터 축이 둘에서 셋으로 늘어난다: 검색어 · 배울 언어(칩) · 뜻 언어.
+     *
+     * 뜻 언어를 안 보던 동안, 일본어로 앱을 쓰는 사람이 "영어" 칩을 눌러도 뜻이
+     * 한국어인 덱 35개가 그대로 나왔다 — 읽을 수 없는 목록이다. 반대로 한국어
+     * 사용자에게는 외국인용 한국어 교재 13개가 섞여 보였다.
+     *
+     * 공식 덱에만 건다. 커뮤니티는 덱 수가 적어 같은 규칙을 걸면 탭이 통째로 빌
+     * 수 있고, 남이 공유한 것을 구경하는 성격이라 덜 엄격해도 자연스럽다.
+     * targetLanguage가 없는 덱(구버전·커뮤니티)은 거르지 않고 통과시킨다.
+     */
+    const filteredThemes = useMemo(() => sourceThemes.filter(th => {
+        const matchesSearch = th.title.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesLang = languageFilter === 'all' || th.sourceLanguage === languageFilter;
+        const matchesMeaning = activeTab !== 'official'
+            || !th.targetLanguage
+            || th.targetLanguage === aiTargetLang;
+        return matchesSearch && matchesLang && matchesMeaning;
+    }), [sourceThemes, searchQuery, languageFilter, activeTab, aiTargetLang]);
+
+    /*
+     * 뜻 언어 시트에 붙는 덱 수. 공식 덱 전체를 센다 — 검색어나 배울 언어 칩이
+     * 걸린 상태에서 세면 "그 언어로 바꾸면 뭐가 있는지"를 오히려 가린다.
+     */
+    const meaningLangCounts = useMemo(() => {
+        const counts = new Map<string, number>();
+        for (const preset of curationPresets) {
+            const tg = preset.targetLanguage;
+            if (!tg) continue;
+            counts.set(tg, (counts.get(tg) ?? 0) + 1);
+        }
+        return counts;
+    }, []);
+
+    /* 덱이 하나도 없는 언어는 숨긴다 — 고르면 빈 화면이 되는 선택지다. 다만 지금
+     * 고른 언어는 개수가 0이어도 남겨야 자기 상태가 보인다. */
+    const meaningLangOptions = useMemo(
+        () => SUPPORTED_LANGUAGES
+            .filter(l => (meaningLangCounts.get(l.code) ?? 0) > 0 || l.code === aiTargetLang)
+            .map(l => ({
+                id: l.code,
+                title: getLanguageLabel(l.code, t),
+                subtitle: t('curation.nDecks', { count: meaningLangCounts.get(l.code) ?? 0 }),
+            })),
+        [meaningLangCounts, aiTargetLang, t],
+    );
 
     const langFilterChips = useMemo(() => [
         { code: 'all', label: t('curation.langAll') },
@@ -1218,14 +1262,50 @@ export default function CurationScreen() {
                         })}
 
                         {filteredThemes.length === 0 && (
-                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 24, paddingHorizontal: 32 }}>
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>
-                                {activeTab === 'official' && (
-                                    <Text style={{ marginTop: 8, color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 18 }}>
-                                        {t('curation.noThemeFoundHint')}
-                                    </Text>
-                                )}
+                            </View>
+                        )}
+
+                        {/*
+                          * 목록 끝 두 줄 — 뜻 언어를 바꾸는 길과 AI로 만드는 길.
+                          *
+                          * "몇 개 이하일 때 띄울까"를 정하지 않는다. 위치가 그 일을 대신하기
+                          * 때문이다: 46개가 보이는 사람은 46장을 다 넘겨야 만나므로 방해가
+                          * 되지 않고, 덱이 1개뿐인 사람에게는 이 두 줄이 곧 첫 화면이다.
+                          * 가벼운 해결(언어 바꾸기)을 위에, 무거운 해결(만들기)을 아래에 둔다.
+                          */}
+                        {activeTab === 'official' && (
+                            <View style={{ marginTop: filteredThemes.length === 0 ? 8 : 20, marginBottom: 8 }}>
+                                <Pressable
+                                    onPress={() => { Haptics.selectionAsync(); setMeaningLangPickerOpen(true); }}
+                                    style={({ pressed }) => [
+                                        styles.meaningLangRow,
+                                        { backgroundColor: colors.surface, borderColor: colors.borderLight, opacity: pressed ? 0.7 : 1 },
+                                    ]}
+                                >
+                                    <Text style={[styles.meaningLangLabel, { color: colors.textSecondary }]}>{t('curation.meaningLang')}</Text>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                                        <Text style={[styles.meaningLangValue, { color: colors.text }]}>{getLanguageLabel(aiTargetLang, t)}</Text>
+                                        <Ionicons name="chevron-down" size={15} color={colors.textTertiary} />
+                                    </View>
+                                </Pressable>
+
+                                <View style={[styles.tailAiBox, { backgroundColor: colors.surfaceSecondary, borderColor: colors.borderLight }]}>
+                                    <Ionicons name="sparkles" size={20} color={colors.accent} />
+                                    <Text style={[styles.tailAiTitle, { color: colors.text }]}>{t('curation.noThemeFound')}</Text>
+                                    <Text style={[styles.tailAiBody, { color: colors.textSecondary }]}>{t('curation.noDeckForLangBody')}</Text>
+                                    <Pressable
+                                        onPress={handleOpenAiModal}
+                                        style={({ pressed }) => [
+                                            styles.tailAiBtn,
+                                            { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1 },
+                                        ]}
+                                    >
+                                        <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>{t('curation.createWithAi')}</Text>
+                                    </Pressable>
+                                </View>
                             </View>
                         )}
                     </ScrollView>
@@ -1273,6 +1353,20 @@ export default function CurationScreen() {
                 title={t('curation.chooseDestination')}
                 options={importOptions}
                 onSelect={handleImport}
+            />
+
+            {/* 뜻 언어 시트. AI 생성 모달의 도착어와 같은 값을 고치므로 저장 경로도 같다. */}
+            <ModalPicker
+                visible={meaningLangPickerOpen}
+                onClose={() => setMeaningLangPickerOpen(false)}
+                title={t('curation.meaningLang')}
+                options={meaningLangOptions}
+                selectedValue={aiTargetLang}
+                onSelect={(id) => {
+                    Haptics.selectionAsync();
+                    void updateAiCurationSettings({ targetLang: id as LanguageCode });
+                    setMeaningLangPickerOpen(false);
+                }}
             />
 
             <DialogModal
@@ -1521,4 +1615,30 @@ const styles = StyleSheet.create({
     masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12 },
     masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
     fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
+
+    /*
+     * 목록 끝 두 줄. overflow: 'hidden'은 장식이 아니라 필수다 — 배경색과
+     * borderRadius를 함께 준 View는 Android(New Arch)에서 모서리가 각지게 그려지는
+     * 경우가 있고, 이 속성이 둥근 클리핑을 강제한다(CLAUDE.md UI 체크리스트).
+     *
+     * AI 블록에 점선 테두리를 쓰지 않은 이유: RN의 borderStyle 'dashed'는 Android에서
+     * borderRadius와 같이 주면 무시된다. 대신 배경을 surfaceSecondary로 한 톤 낮춰
+     * 위쪽 덱 카드(surface)와 구분한다.
+     */
+    meaningLangRow: {
+        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+        paddingVertical: 12, paddingHorizontal: 14,
+        borderRadius: 12, borderWidth: 1, overflow: 'hidden',
+    },
+    meaningLangLabel: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
+    meaningLangValue: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+    tailAiBox: {
+        marginTop: 10, alignItems: 'center',
+        paddingVertical: 22, paddingHorizontal: 20,
+        borderRadius: 12, borderWidth: 1, overflow: 'hidden',
+    },
+    tailAiTitle: { marginTop: 7, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+    tailAiBody: { marginTop: 4, fontSize: 12.5, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 18 },
+    tailAiBtn: { marginTop: 13, paddingVertical: 9, paddingHorizontal: 18, borderRadius: 12, overflow: 'hidden' },
+    tailAiBtnText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
 });

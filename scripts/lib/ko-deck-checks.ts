@@ -31,6 +31,11 @@ export interface CheckOptions {
   mimeticEcho?: boolean;
   /** 로마자 검사를 건너뛴다(표제어가 한글이 아닌 덱 등). */
   skipRomaja?: boolean;
+  /**
+   * 도착어가 한국어인 덱(ko→ko: 맞춤법·유행어 풀이). 번역 슬롯에 한글이 있는 게
+   * 정상이므로 '번역 슬롯에 한글' 검사를 끈다.
+   */
+  targetIsKorean?: boolean;
 }
 
 export interface Finding {
@@ -83,8 +88,10 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
     // 표제어가 '당신' 자체인 카드는 예문에 쓸 수밖에 없다(기존 Intermediate 덱에 있다).
     if (w.term !== '당신' && ko.includes('당신')) push('당신', w.term, ko);
 
-    // 영어 슬롯에 한글이 남은 것 (화병 덱에서 exampleEn에 '화병'이 그대로 남았다)
-    if (/[가-힣]/.test(en)) push('영어 슬롯에 한글', w.term, en);
+    // 번역 슬롯에 한글이 남은 것 (화병 덱에서 exampleEn에 '화병'이 그대로 남았다).
+    // ja/zh 덱도 이 슬롯은 도착어라 한글이 남으면 번역이 빠진 것이다 — 한자는
+    // /[가-힣]/ 에 걸리지 않으므로 같은 검사를 그대로 쓸 수 있다.
+    if (!opts.targetIsKorean && /[가-힣]/.test(en)) push('번역 슬롯에 한글', w.term, en);
 
     // 뜻이 표제어를 그대로 되풀이하면 정의가 아니다 — 다만 파생형("pairs with
     // 알록달록하다")·동음이의 경고("짜다 also means to squeeze")·관용구 예시처럼

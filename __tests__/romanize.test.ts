@@ -77,6 +77,26 @@ describe('romanize — 정답에 거짓경보를 내지 않는다', () => {
     expect(checkRomaja('색깔', 'saekkkal')?.ok).toBe(true);
     expect(checkRomaja('색깔', 'saekkal')?.ok).toBe(true);
   });
+
+  // ㄴ 첨가는 합성어 경계를 알아야 해서 등록어로만 처리한다. 등록을 빠뜨리면 정답이
+  // 오류로 잡혀 사람이 맞는 값을 '고쳐' 버리게 되므로, 실제로 겪은 세 낱말을 고정한다.
+  test('ㄴ 첨가 등록어는 첨가형을 정답으로 통과시킨다', () => {
+    expect(checkRomaja('알약', 'allyak')?.ok).toBe(true);
+    expect(checkRomaja('물약', 'mullyak')?.ok).toBe(true);
+    expect(checkRomaja('입덕영상', 'ipdeongnyeongsang')?.ok).toBe(true);
+  });
+
+  // 첨가형을 '더하는' 것이라 미첨가 표기도 그대로 통과해야 한다(표기 관행이 갈린다)
+  test('ㄴ 첨가 등록어는 미첨가 표기도 계속 허용한다', () => {
+    expect(checkRomaja('알약', 'aryak')?.ok).toBe(true);
+    expect(checkRomaja('입덕영상', 'ipdeogyeongsang')?.ok).toBe(true);
+  });
+
+  // 등록어라고 아무 값이나 통과시키면 검사기가 무력해진다
+  test('ㄴ 첨가 등록어도 오타는 걸러낸다', () => {
+    expect(checkRomaja('알약', 'alyak')?.ok).toBe(false);
+    expect(checkRomaja('입덕영상', 'ipdeok-yeongsan')?.ok).toBe(false);
+  });
 });
 
 describe('romanize — 기본 동작', () => {

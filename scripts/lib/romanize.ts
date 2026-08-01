@@ -42,6 +42,23 @@ const JONG_REMAIN: number[] = [
 ];
 // ㅎ을 품은 종성(ㅎ·ㄶ·ㅀ) — 뒤 예사소리를 거센소리로 만든다
 const CODA_HAS_H = new Set([6, 15, 27]);
+
+/**
+ * ㄴ 첨가(표준 발음법 제29항) — 어절 → ㄴ이 덧나는 음절 인덱스.
+ *
+ * 합성어에서 앞말이 자음으로 끝나고 뒷말이 '이·야·여·요·유'로 시작하면 ㄴ이 덧난다
+ * (알약 [알략], 담요 [담뇨]). 합성어 경계를 알아야 판정할 수 있어 자동화가 어렵다 —
+ * 그래서 실제로 걸린 낱말만 사전처럼 등록한다. 첨가형을 후보에 **더할 뿐**이므로
+ * 미첨가 표기도 계속 통과하고, 등록하지 않은 낱말의 판정은 달라지지 않는다.
+ *
+ * 등록을 빠뜨리면 정답이 오류로 잡힌다 — 실제로 clinic 덱의 알약·물약이 그렇게
+ * 걸려서, 모르고 '고쳤다면' 맞는 값을 틀린 값으로 바꿀 뻔했다.
+ */
+const N_INSERTION: Record<string, number[]> = {
+  알약: [1],      // [알략] — ㄴ 첨가 뒤 유음화
+  물약: [1],      // [물략]
+  입덕영상: [2],  // [입떵녕상] — ㄴ 첨가 뒤 앞 음절이 비음화
+};
 // 격음화 대상 초성: ㄱ→ㅋ, ㄷ→ㅌ, ㅂ→ㅍ, ㅈ→ㅊ
 const ASPIRATE: Record<number, number> = { 0: 15, 3: 16, 7: 17, 12: 14 };
 
@@ -161,6 +178,13 @@ export function romanizeCandidates(hangul: string): string[] {
     }
     if (!syls.length) return null;
     const cands = [render(applyPhonology(syls, true)), render(applyPhonology(syls, false))];
+    // ㄴ 첨가 등록어는 첨가형도 후보에 넣는다(초성 ㅇ → ㄴ 으로 바꾼 뒤 같은 규칙을 태운다).
+    const nIns = N_INSERTION[word];
+    if (nIns) {
+      const ins = syls.map(x => ({ ...x }));
+      for (const i of nIns) if (ins[i]?.cho === 11) ins[i].cho = 2;
+      cands.push(render(applyPhonology(ins, true)), render(applyPhonology(ins, false)));
+    }
     // 반복형 의성어·의태어(오싹오싹, 아삭아삭)는 단위를 끊어 적는 관행이 있다.
     // 이어 읽으면 연음이 일어나 ossagossak이 되지만 카드에는 ossak-ossak으로 적는
     // 편이 학습자에게 읽히므로, 앞뒤 절반이 같으면 절반씩 변환한 형태도 후보에 넣는다.

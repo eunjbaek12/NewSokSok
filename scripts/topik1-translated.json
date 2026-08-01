@@ -1,0 +1,3502 @@
+[
+  {
+    "rank": 1,
+    "term": "국적",
+    "pos": "noun",
+    "meaningEn": "nationality",
+    "romaja": "gukjeok",
+    "exampleKo": "국적이 어디예요?",
+    "exampleEn": "What is your nationality?",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 2,
+    "term": "직업",
+    "pos": "noun",
+    "meaningEn": "occupation, job",
+    "romaja": "jigeop",
+    "exampleKo": "제 직업은 학생이에요.",
+    "exampleEn": "My occupation is student.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 3,
+    "term": "형제",
+    "pos": "noun",
+    "meaningEn": "brothers; siblings in general",
+    "romaja": "hyeongje",
+    "exampleKo": "형제가 몇 명이에요?",
+    "exampleEn": "How many siblings do you have?",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 4,
+    "term": "자매",
+    "pos": "noun",
+    "meaningEn": "sisters",
+    "romaja": "jamae",
+    "exampleKo": "저는 자매가 없어요.",
+    "exampleEn": "I don't have any sisters.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 5,
+    "term": "남매",
+    "pos": "noun",
+    "meaningEn": "a brother and sister pair",
+    "romaja": "nammae",
+    "exampleKo": "그들은 남매예요.",
+    "exampleEn": "They are a brother and sister.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 6,
+    "term": "첫째",
+    "pos": "noun",
+    "meaningEn": "the eldest child; firstly",
+    "romaja": "cheotjjae",
+    "exampleKo": "저는 첫째예요.",
+    "exampleEn": "I am the eldest child.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 7,
+    "term": "둘째",
+    "pos": "noun",
+    "meaningEn": "the second child; secondly",
+    "romaja": "duljjae",
+    "exampleKo": "제 동생은 둘째예요.",
+    "exampleEn": "My younger sibling is the second child.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 8,
+    "term": "조카",
+    "pos": "noun",
+    "meaningEn": "a nephew or niece",
+    "romaja": "joka",
+    "exampleKo": "조카가 아주 귀여워요.",
+    "exampleEn": "My nephew/niece is very cute.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 9,
+    "term": "삼촌",
+    "pos": "noun",
+    "meaningEn": "uncle (father's brother)",
+    "romaja": "samchon",
+    "exampleKo": "우리 삼촌은 키가 커요.",
+    "exampleEn": "My uncle is tall.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 10,
+    "term": "고모",
+    "pos": "noun",
+    "meaningEn": "aunt (father's side)",
+    "romaja": "gomo",
+    "exampleKo": "고모는 선생님이에요.",
+    "exampleEn": "My aunt is a teacher.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 11,
+    "term": "사촌",
+    "pos": "noun",
+    "meaningEn": "a cousin",
+    "romaja": "sachon",
+    "exampleKo": "사촌하고 놀아요.",
+    "exampleEn": "I play with my cousin.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 12,
+    "term": "손자",
+    "pos": "noun",
+    "meaningEn": "a grandson",
+    "romaja": "sonja",
+    "exampleKo": "할머니는 손자가 있어요.",
+    "exampleEn": "Grandma has a grandson.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 13,
+    "term": "성인",
+    "pos": "noun",
+    "meaningEn": "an adult (19+ in Korea)",
+    "romaja": "seongin",
+    "exampleKo": "저는 성인이에요.",
+    "exampleEn": "I am an adult.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 14,
+    "term": "친척",
+    "pos": "noun",
+    "meaningEn": "a relative, extended family",
+    "romaja": "chincheok",
+    "exampleKo": "친척 집에 가요.",
+    "exampleEn": "I go to my relative's house.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 15,
+    "term": "후배",
+    "pos": "noun",
+    "meaningEn": "junior (school/company)",
+    "romaja": "hubae",
+    "exampleKo": "제 후배는 착해요.",
+    "exampleEn": "My junior is kind.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 16,
+    "term": "반말",
+    "pos": "noun",
+    "meaningEn": "casual speech",
+    "romaja": "banmal",
+    "exampleKo": "친구에게 반말을 해요.",
+    "exampleEn": "I speak casually to my friend.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 17,
+    "term": "존댓말",
+    "pos": "noun",
+    "meaningEn": "polite speech",
+    "romaja": "jondaenmal",
+    "exampleKo": "선생님께 존댓말을 해요.",
+    "exampleEn": "I speak politely to the teacher.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 18,
+    "term": "인사하다",
+    "pos": "verb",
+    "meaningEn": "to greet, to say hello",
+    "romaja": "insahada",
+    "exampleKo": "친구에게 인사했어요.",
+    "exampleEn": "I greeted my friend.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 19,
+    "term": "소개",
+    "pos": "noun",
+    "meaningEn": "an introduction",
+    "romaja": "sogae",
+    "exampleKo": "자기소개를 해요.",
+    "exampleEn": "I introduce myself.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 20,
+    "term": "취미",
+    "pos": "noun",
+    "meaningEn": "a hobby",
+    "romaja": "chwimi",
+    "exampleKo": "제 취미는 독서예요.",
+    "exampleEn": "My hobby is reading.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 21,
+    "term": "며느리",
+    "pos": "noun",
+    "meaningEn": "a daughter-in-law",
+    "romaja": "myeoneuri",
+    "exampleKo": "우리 며느리는 예뻐요.",
+    "exampleEn": "My daughter-in-law is pretty.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 22,
+    "term": "사위",
+    "pos": "noun",
+    "meaningEn": "a son-in-law",
+    "romaja": "sawi",
+    "exampleKo": "우리 사위는 좋아요.",
+    "exampleEn": "My son-in-law is good.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 23,
+    "term": "외국인",
+    "pos": "noun",
+    "meaningEn": "a foreigner",
+    "romaja": "oegugin",
+    "exampleKo": "저는 외국인이에요.",
+    "exampleEn": "I am a foreigner.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 24,
+    "term": "유학생",
+    "pos": "noun",
+    "meaningEn": "an international student",
+    "romaja": "yuhaksaeng",
+    "exampleKo": "저는 유학생이에요.",
+    "exampleEn": "I am an international student.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 25,
+    "term": "직장인",
+    "pos": "noun",
+    "meaningEn": "an office worker",
+    "romaja": "jikjangin",
+    "exampleKo": "저는 직장인이에요.",
+    "exampleEn": "I am an office worker.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 26,
+    "term": "주부",
+    "pos": "noun",
+    "meaningEn": "a homemaker",
+    "romaja": "jubu",
+    "exampleKo": "저는 주부예요.",
+    "exampleEn": "I am a homemaker.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 27,
+    "term": "아줌마",
+    "pos": "noun",
+    "meaningEn": "a middle-aged woman (address in shops; rude if misjudged)",
+    "romaja": "ajumma",
+    "exampleKo": "저기요, 아줌마!",
+    "exampleEn": "Excuse me, ma'am!",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 28,
+    "term": "어르신",
+    "pos": "noun",
+    "meaningEn": "respectful term for an elderly person",
+    "romaja": "eoreusin",
+    "exampleKo": "어르신, 안녕하세요?",
+    "exampleEn": "Hello, respected elder.",
+    "category": "자기소개·가족"
+  },
+  {
+    "rank": 29,
+    "term": "백화점",
+    "pos": "noun",
+    "meaningEn": "a department store",
+    "romaja": "baekhwajeom",
+    "exampleKo": "백화점에 가요.",
+    "exampleEn": "I go to the department store.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 30,
+    "term": "마트",
+    "pos": "noun",
+    "meaningEn": "a supermarket / big-box store",
+    "romaja": "mateu",
+    "exampleKo": "마트에서 장 봐요.",
+    "exampleEn": "I grocery shop at the supermarket.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 31,
+    "term": "신발",
+    "pos": "noun",
+    "meaningEn": "shoes",
+    "romaja": "sinbal",
+    "exampleKo": "새 신발을 샀어요.",
+    "exampleEn": "I bought new shoes.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 32,
+    "term": "바지",
+    "pos": "noun",
+    "meaningEn": "trousers, pants",
+    "romaja": "baji",
+    "exampleKo": "이 바지가 좋아요.",
+    "exampleEn": "I like these pants.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 33,
+    "term": "치마",
+    "pos": "noun",
+    "meaningEn": "a skirt",
+    "romaja": "chima",
+    "exampleKo": "치마를 입었어요.",
+    "exampleEn": "I wore a skirt.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 34,
+    "term": "티셔츠",
+    "pos": "noun",
+    "meaningEn": "a T-shirt",
+    "romaja": "tisyeocheu",
+    "exampleKo": "티셔츠가 예뻐요.",
+    "exampleEn": "The T-shirt is pretty.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 35,
+    "term": "코트",
+    "pos": "noun",
+    "meaningEn": "a coat",
+    "romaja": "koteu",
+    "exampleKo": "코트가 따뜻해요.",
+    "exampleEn": "The coat is warm.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 36,
+    "term": "모자",
+    "pos": "noun",
+    "meaningEn": "a hat or cap",
+    "romaja": "moja",
+    "exampleKo": "모자를 썼어요.",
+    "exampleEn": "I wore a hat.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 37,
+    "term": "양말",
+    "pos": "noun",
+    "meaningEn": "socks",
+    "romaja": "yangmal",
+    "exampleKo": "양말이 필요해요.",
+    "exampleEn": "I need socks.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 38,
+    "term": "장갑",
+    "pos": "noun",
+    "meaningEn": "gloves",
+    "romaja": "janggap",
+    "exampleKo": "장갑을 껴요.",
+    "exampleEn": "I wear gloves.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 39,
+    "term": "목도리",
+    "pos": "noun",
+    "meaningEn": "a scarf (for warmth)",
+    "romaja": "mokdori",
+    "exampleKo": "목도리가 따뜻해요.",
+    "exampleEn": "The scarf is warm.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 40,
+    "term": "사이즈",
+    "pos": "noun",
+    "meaningEn": "size (of clothing or shoes)",
+    "romaja": "saijeu",
+    "exampleKo": "사이즈가 커요.",
+    "exampleEn": "The size is big.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 41,
+    "term": "색깔",
+    "pos": "noun",
+    "meaningEn": "colour",
+    "romaja": "saekkal",
+    "exampleKo": "무슨 색깔을 좋아해요?",
+    "exampleEn": "What color do you like?",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 42,
+    "term": "무늬",
+    "pos": "noun",
+    "meaningEn": "a pattern (on fabric)",
+    "romaja": "munui",
+    "exampleKo": "무늬가 예뻐요.",
+    "exampleEn": "The pattern is pretty.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 43,
+    "term": "입어보다",
+    "pos": "verb",
+    "meaningEn": "to try on (clothing)",
+    "romaja": "ibeoboda",
+    "exampleKo": "이 옷을 입어봐도 돼요?",
+    "exampleEn": "May I try on these clothes?",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 44,
+    "term": "신어보다",
+    "pos": "verb",
+    "meaningEn": "to try on (shoes)",
+    "romaja": "sineoboda",
+    "exampleKo": "이 신발을 신어볼게요.",
+    "exampleEn": "I will try on these shoes.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 45,
+    "term": "계산하다",
+    "pos": "verb",
+    "meaningEn": "to pay at the counter; to calculate",
+    "romaja": "gyesanhada",
+    "exampleKo": "제가 계산할게요.",
+    "exampleEn": "I will pay.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 46,
+    "term": "카드",
+    "pos": "noun",
+    "meaningEn": "a card (credit/debit in shops)",
+    "romaja": "kadeu",
+    "exampleKo": "카드로 계산해요.",
+    "exampleEn": "I pay with a card.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 47,
+    "term": "할인",
+    "pos": "noun",
+    "meaningEn": "a discount",
+    "romaja": "harin",
+    "exampleKo": "할인이 있어요?",
+    "exampleEn": "Is there a discount?",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 48,
+    "term": "세일",
+    "pos": "noun",
+    "meaningEn": "a sale (period of discounts)",
+    "romaja": "seil",
+    "exampleKo": "지금 세일 중이에요.",
+    "exampleEn": "It's on sale now.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 49,
+    "term": "영수증",
+    "pos": "noun",
+    "meaningEn": "a receipt (needed for exchange/refund)",
+    "romaja": "yeongsujeung",
+    "exampleKo": "영수증 주세요.",
+    "exampleEn": "Please give me the receipt.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 50,
+    "term": "교환",
+    "pos": "noun",
+    "meaningEn": "an exchange (swapping a purchase)",
+    "romaja": "gyohwan",
+    "exampleKo": "교환하고 싶어요.",
+    "exampleEn": "I want to exchange it.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 51,
+    "term": "환불",
+    "pos": "noun",
+    "meaningEn": "a refund",
+    "romaja": "hwanbul",
+    "exampleKo": "환불해 주세요.",
+    "exampleEn": "Please give me a refund.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 52,
+    "term": "포장하다",
+    "pos": "verb",
+    "meaningEn": "to wrap, to pack (food to go)",
+    "romaja": "pojanghada",
+    "exampleKo": "이거 포장해 주세요.",
+    "exampleEn": "Please wrap this.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 53,
+    "term": "고르다",
+    "pos": "verb",
+    "meaningEn": "to choose, to pick out",
+    "romaja": "goreuda",
+    "exampleKo": "뭐 고를 거예요?",
+    "exampleEn": "What will you choose?",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 54,
+    "term": "지갑",
+    "pos": "noun",
+    "meaningEn": "a wallet or purse",
+    "romaja": "jigap",
+    "exampleKo": "지갑이 없어요.",
+    "exampleEn": "I don't have my wallet.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 55,
+    "term": "쇼핑",
+    "pos": "noun",
+    "meaningEn": "shopping",
+    "romaja": "syoping",
+    "exampleKo": "쇼핑하러 가요.",
+    "exampleEn": "I'm going shopping.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 56,
+    "term": "구경하다",
+    "pos": "verb",
+    "meaningEn": "to look around, to browse",
+    "romaja": "gugyeonghada",
+    "exampleKo": "여기 구경했어요.",
+    "exampleEn": "I looked around here.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 57,
+    "term": "손수건",
+    "pos": "noun",
+    "meaningEn": "a handkerchief",
+    "romaja": "sonsugeon",
+    "exampleKo": "손수건이 필요해요.",
+    "exampleEn": "I need a handkerchief.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 58,
+    "term": "반지",
+    "pos": "noun",
+    "meaningEn": "a ring",
+    "romaja": "banji",
+    "exampleKo": "반지가 예뻐요.",
+    "exampleEn": "The ring is pretty.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 59,
+    "term": "목걸이",
+    "pos": "noun",
+    "meaningEn": "a necklace",
+    "romaja": "mokgeori",
+    "exampleKo": "목걸이 샀어요.",
+    "exampleEn": "I bought a necklace.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 60,
+    "term": "시계",
+    "pos": "noun",
+    "meaningEn": "a watch or clock",
+    "romaja": "sigye",
+    "exampleKo": "시계가 있어요.",
+    "exampleEn": "I have a watch.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 61,
+    "term": "안경",
+    "pos": "noun",
+    "meaningEn": "glasses",
+    "romaja": "angyeong",
+    "exampleKo": "안경을 써요.",
+    "exampleEn": "I wear glasses.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 62,
+    "term": "우산",
+    "pos": "noun",
+    "meaningEn": "an umbrella",
+    "romaja": "usan",
+    "exampleKo": "우산이 없어요.",
+    "exampleEn": "I don't have an umbrella.",
+    "category": "쇼핑·가격"
+  },
+  {
+    "rank": 63,
+    "term": "메뉴",
+    "pos": "noun",
+    "meaningEn": "a menu",
+    "romaja": "menyu",
+    "exampleKo": "메뉴 주세요.",
+    "exampleEn": "Please give me the menu.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 64,
+    "term": "주문하다",
+    "pos": "verb",
+    "meaningEn": "to order (food or goods)",
+    "romaja": "jumunhada",
+    "exampleKo": "지금 주문할까요?",
+    "exampleEn": "Shall I order now?",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 65,
+    "term": "예약하다",
+    "pos": "verb",
+    "meaningEn": "to book, to make a reservation",
+    "romaja": "yeyakhada",
+    "exampleKo": "예약했어요.",
+    "exampleEn": "I made a reservation.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 66,
+    "term": "반찬",
+    "pos": "noun",
+    "meaningEn": "side dishes (usually free refills)",
+    "romaja": "banchan",
+    "exampleKo": "반찬 더 주세요.",
+    "exampleEn": "Please give me more side dishes.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 67,
+    "term": "국",
+    "pos": "noun",
+    "meaningEn": "soup (served with rice, thinner than stew)",
+    "romaja": "guk",
+    "exampleKo": "국이 맛있어요.",
+    "exampleEn": "The soup is delicious.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 68,
+    "term": "찌개",
+    "pos": "noun",
+    "meaningEn": "a thick stew (shared from table)",
+    "romaja": "jjigae",
+    "exampleKo": "김치찌개 먹고 싶어요.",
+    "exampleEn": "I want to eat Kimchi jjigae.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 69,
+    "term": "국수",
+    "pos": "noun",
+    "meaningEn": "noodles",
+    "romaja": "guksu",
+    "exampleKo": "국수 먹을까요?",
+    "exampleEn": "Shall we eat noodles?",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 70,
+    "term": "라면",
+    "pos": "noun",
+    "meaningEn": "instant ramen",
+    "romaja": "ramyeon",
+    "exampleKo": "라면을 좋아해요.",
+    "exampleEn": "I like ramen.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 71,
+    "term": "비빔밥",
+    "pos": "noun",
+    "meaningEn": "rice mixed with vegetables and gochujang",
+    "romaja": "bibimbap",
+    "exampleKo": "비빔밥 주세요.",
+    "exampleEn": "Please give me bibimbap.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 72,
+    "term": "불고기",
+    "pos": "noun",
+    "meaningEn": "marinated grilled beef",
+    "romaja": "bulgogi",
+    "exampleKo": "불고기 맛있어요.",
+    "exampleEn": "Bulgogi is delicious.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 73,
+    "term": "삼겹살",
+    "pos": "noun",
+    "meaningEn": "pork belly (grilled at the table)",
+    "romaja": "samgyeopsal",
+    "exampleKo": "삼겹살 먹고 싶어요.",
+    "exampleEn": "I want to eat samgyeopsal.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 74,
+    "term": "치킨",
+    "pos": "noun",
+    "meaningEn": "Korean fried chicken",
+    "romaja": "chikin",
+    "exampleKo": "치킨 시킬까요?",
+    "exampleEn": "Shall we order chicken?",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 75,
+    "term": "피자",
+    "pos": "noun",
+    "meaningEn": "pizza",
+    "romaja": "pija",
+    "exampleKo": "피자 좋아해요.",
+    "exampleEn": "I like pizza.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 76,
+    "term": "햄버거",
+    "pos": "noun",
+    "meaningEn": "a hamburger",
+    "romaja": "haembeogeo",
+    "exampleKo": "햄버거 하나 주세요.",
+    "exampleEn": "Please give me one hamburger.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 77,
+    "term": "샐러드",
+    "pos": "noun",
+    "meaningEn": "a salad",
+    "romaja": "saelleodeu",
+    "exampleKo": "샐러드를 좋아해요.",
+    "exampleEn": "I like salad.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 78,
+    "term": "채소",
+    "pos": "noun",
+    "meaningEn": "vegetables",
+    "romaja": "chaeso",
+    "exampleKo": "채소를 많이 먹어요.",
+    "exampleEn": "I eat a lot of vegetables.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 79,
+    "term": "생선",
+    "pos": "noun",
+    "meaningEn": "fish as food (live fish is 물고기)",
+    "romaja": "saengseon",
+    "exampleKo": "생선이 맛있어요.",
+    "exampleEn": "The fish is delicious.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 80,
+    "term": "계란",
+    "pos": "noun",
+    "meaningEn": "an egg",
+    "romaja": "gyeran",
+    "exampleKo": "계란 두 개 있어요.",
+    "exampleEn": "I have two eggs.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 81,
+    "term": "두부",
+    "pos": "noun",
+    "meaningEn": "tofu",
+    "romaja": "dubu",
+    "exampleKo": "저는 두부를 먹어요.",
+    "exampleEn": "I eat tofu.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 82,
+    "term": "김치",
+    "pos": "noun",
+    "meaningEn": "kimchi",
+    "romaja": "gimchi",
+    "exampleKo": "김치를 좋아해요.",
+    "exampleEn": "I like kimchi.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 83,
+    "term": "된장",
+    "pos": "noun",
+    "meaningEn": "fermented soybean paste",
+    "romaja": "doenjang",
+    "exampleKo": "된장찌개 먹고 싶어요.",
+    "exampleEn": "I want to eat doenjang jjigae.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 84,
+    "term": "고추장",
+    "pos": "noun",
+    "meaningEn": "red chilli paste",
+    "romaja": "gochujang",
+    "exampleKo": "고추장이 매워요.",
+    "exampleEn": "Gochujang is spicy.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 85,
+    "term": "간장",
+    "pos": "noun",
+    "meaningEn": "soy sauce",
+    "romaja": "ganjang",
+    "exampleKo": "간장을 찍어 먹어요.",
+    "exampleEn": "I dip it in soy sauce and eat it.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 86,
+    "term": "설탕",
+    "pos": "noun",
+    "meaningEn": "sugar",
+    "romaja": "seoltang",
+    "exampleKo": "커피에 설탕을 넣어요.",
+    "exampleEn": "I put sugar in coffee.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 87,
+    "term": "후추",
+    "pos": "noun",
+    "meaningEn": "black pepper",
+    "romaja": "huchu",
+    "exampleKo": "후추 좀 주세요.",
+    "exampleEn": "Please give me some pepper.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 88,
+    "term": "기름",
+    "pos": "noun",
+    "meaningEn": "oil (cooking or fuel)",
+    "romaja": "gireum",
+    "exampleKo": "기름을 많이 써요.",
+    "exampleEn": "I use a lot of oil.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 89,
+    "term": "맵다",
+    "pos": "adjective",
+    "meaningEn": "spicy hot",
+    "romaja": "maepda",
+    "exampleKo": "이 음식은 매워요.",
+    "exampleEn": "This food is spicy.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 90,
+    "term": "짜다",
+    "pos": "adjective",
+    "meaningEn": "salty (note: 짜다 also means to squeeze)",
+    "romaja": "jjada",
+    "exampleKo": "국이 너무 짜요.",
+    "exampleEn": "The soup is too salty.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 91,
+    "term": "싱겁다",
+    "pos": "adjective",
+    "meaningEn": "bland, under-seasoned",
+    "romaja": "singgeopda",
+    "exampleKo": "국이 싱거워요.",
+    "exampleEn": "The soup is bland.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 92,
+    "term": "달다",
+    "pos": "adjective",
+    "meaningEn": "sweet",
+    "romaja": "dalda",
+    "exampleKo": "이 사과는 달아요.",
+    "exampleEn": "This apple is sweet.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 93,
+    "term": "시다",
+    "pos": "adjective",
+    "meaningEn": "sour",
+    "romaja": "sida",
+    "exampleKo": "레몬은 너무 셔요.",
+    "exampleEn": "Lemon is too sour.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 94,
+    "term": "배부르다",
+    "pos": "adjective",
+    "meaningEn": "full (after eating)",
+    "romaja": "baebureuda",
+    "exampleKo": "저는 배불러요.",
+    "exampleEn": "I am full.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 95,
+    "term": "배고프다",
+    "pos": "adjective",
+    "meaningEn": "hungry",
+    "romaja": "baegopeuda",
+    "exampleKo": "지금 배고파요.",
+    "exampleEn": "I am hungry now.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 96,
+    "term": "젓가락",
+    "pos": "noun",
+    "meaningEn": "chopsticks (Korean ones are flat and metal)",
+    "romaja": "jeotgarak",
+    "exampleKo": "젓가락으로 먹어요.",
+    "exampleEn": "I eat with chopsticks.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 97,
+    "term": "숟가락",
+    "pos": "noun",
+    "meaningEn": "a spoon (used for rice and soup)",
+    "romaja": "sutgarak",
+    "exampleKo": "숟가락을 주세요.",
+    "exampleEn": "Please give me a spoon.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 98,
+    "term": "그릇",
+    "pos": "noun",
+    "meaningEn": "a bowl or dish; counter for bowls of food",
+    "romaja": "geureut",
+    "exampleKo": "밥 한 그릇 주세요.",
+    "exampleEn": "Please give me one bowl of rice.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 99,
+    "term": "접시",
+    "pos": "noun",
+    "meaningEn": "a plate",
+    "romaja": "jeopsi",
+    "exampleKo": "접시에 담아 주세요.",
+    "exampleEn": "Please put it on a plate.",
+    "category": "음식·식당"
+  },
+  {
+    "rank": 100,
+    "term": "수영",
+    "pos": "noun",
+    "meaningEn": "swimming",
+    "romaja": "suyeong",
+    "exampleKo": "수영을 좋아해요.",
+    "exampleEn": "I like swimming.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 101,
+    "term": "야구",
+    "pos": "noun",
+    "meaningEn": "baseball (Korea's biggest spectator sport)",
+    "romaja": "yagu",
+    "exampleKo": "저는 야구를 좋아해요.",
+    "exampleEn": "I like baseball.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 102,
+    "term": "농구",
+    "pos": "noun",
+    "meaningEn": "basketball",
+    "romaja": "nonggu",
+    "exampleKo": "농구 경기를 봐요.",
+    "exampleEn": "I watch a basketball game.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 103,
+    "term": "테니스",
+    "pos": "noun",
+    "meaningEn": "tennis",
+    "romaja": "teniseu",
+    "exampleKo": "테니스 치러 가요.",
+    "exampleEn": "I go to play tennis.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 104,
+    "term": "산책",
+    "pos": "noun",
+    "meaningEn": "a walk for pleasure",
+    "romaja": "sanchaek",
+    "exampleKo": "공원에서 산책해요.",
+    "exampleEn": "I take a walk in the park.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 105,
+    "term": "악기",
+    "pos": "noun",
+    "meaningEn": "a musical instrument",
+    "romaja": "akgi",
+    "exampleKo": "악기 연주를 좋아해요.",
+    "exampleEn": "I like playing musical instruments.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 106,
+    "term": "피아노",
+    "pos": "noun",
+    "meaningEn": "a piano",
+    "romaja": "piano",
+    "exampleKo": "피아노를 쳐요.",
+    "exampleEn": "I play the piano.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 107,
+    "term": "기타",
+    "pos": "noun",
+    "meaningEn": "a guitar (note: 기타 also means etc., other)",
+    "romaja": "gita",
+    "exampleKo": "기타를 배우고 싶어요.",
+    "exampleEn": "I want to learn guitar.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 108,
+    "term": "노래방",
+    "pos": "noun",
+    "meaningEn": "a karaoke room",
+    "romaja": "noraebang",
+    "exampleKo": "노래방에 갈까요?",
+    "exampleEn": "Shall we go to the karaoke room?",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 109,
+    "term": "영화관",
+    "pos": "noun",
+    "meaningEn": "a cinema",
+    "romaja": "yeonghwagwan",
+    "exampleKo": "영화관에서 영화를 봐요.",
+    "exampleEn": "I watch a movie at the cinema.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 110,
+    "term": "콘서트",
+    "pos": "noun",
+    "meaningEn": "a concert",
+    "romaja": "konseoteu",
+    "exampleKo": "콘서트에 가요.",
+    "exampleEn": "I go to a concert.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 111,
+    "term": "박물관",
+    "pos": "noun",
+    "meaningEn": "a museum",
+    "romaja": "bangmulgwan",
+    "exampleKo": "박물관 구경을 해요.",
+    "exampleEn": "I visit a museum.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 112,
+    "term": "미술관",
+    "pos": "noun",
+    "meaningEn": "an art gallery",
+    "romaja": "misulgwan",
+    "exampleKo": "미술관이 예뻐요.",
+    "exampleEn": "The art gallery is pretty.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 113,
+    "term": "공원",
+    "pos": "noun",
+    "meaningEn": "a park",
+    "romaja": "gongwon",
+    "exampleKo": "공원에서 쉬어요.",
+    "exampleEn": "I rest in the park.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 114,
+    "term": "놀이공원",
+    "pos": "noun",
+    "meaningEn": "an amusement park",
+    "romaja": "norigongwon",
+    "exampleKo": "놀이공원에 가요.",
+    "exampleEn": "I go to the amusement park.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 115,
+    "term": "동물원",
+    "pos": "noun",
+    "meaningEn": "a zoo",
+    "romaja": "dongmurwon",
+    "exampleKo": "동물원에서 동물을 봐요.",
+    "exampleEn": "I see animals at the zoo.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 116,
+    "term": "심심하다",
+    "pos": "adjective",
+    "meaningEn": "to be bored, to have nothing to do",
+    "romaja": "simsimhada",
+    "exampleKo": "저는 오늘 심심해요.",
+    "exampleEn": "I am bored today.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 117,
+    "term": "낚시",
+    "pos": "noun",
+    "meaningEn": "fishing as a hobby",
+    "romaja": "naksi",
+    "exampleKo": "낚시를 좋아해요.",
+    "exampleEn": "I like fishing.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 118,
+    "term": "요리하다",
+    "pos": "verb",
+    "meaningEn": "to cook",
+    "romaja": "yorihada",
+    "exampleKo": "저는 요리하는 것을 좋아해요.",
+    "exampleEn": "I like cooking.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 119,
+    "term": "독서",
+    "pos": "noun",
+    "meaningEn": "reading as a pastime",
+    "romaja": "dokseo",
+    "exampleKo": "독서가 취미예요.",
+    "exampleEn": "Reading is my hobby.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 120,
+    "term": "유튜브",
+    "pos": "noun",
+    "meaningEn": "YouTube",
+    "romaja": "yutyubeu",
+    "exampleKo": "유튜브를 자주 봐요.",
+    "exampleEn": "I often watch YouTube.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 121,
+    "term": "만화",
+    "pos": "noun",
+    "meaningEn": "comics",
+    "romaja": "manhwa",
+    "exampleKo": "만화책을 읽어요.",
+    "exampleEn": "I read comic books.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 122,
+    "term": "잡지",
+    "pos": "noun",
+    "meaningEn": "a magazine",
+    "romaja": "japji",
+    "exampleKo": "잡지를 읽고 있어요.",
+    "exampleEn": "I am reading a magazine.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 123,
+    "term": "여가",
+    "pos": "noun",
+    "meaningEn": "leisure, free time",
+    "romaja": "yeoga",
+    "exampleKo": "여가 시간에 뭐 해요?",
+    "exampleEn": "What do you do in your free time?",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 124,
+    "term": "동호회",
+    "pos": "noun",
+    "meaningEn": "a hobby club",
+    "romaja": "donghohoe",
+    "exampleKo": "동호회에 가입했어요.",
+    "exampleEn": "I joined a hobby club.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 125,
+    "term": "취미생활",
+    "pos": "noun",
+    "meaningEn": "pursuing one's hobbies as part of life",
+    "romaja": "chwimisaenghwal",
+    "exampleKo": "취미생활을 즐겨요.",
+    "exampleEn": "I enjoy my hobbies.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 126,
+    "term": "구경",
+    "pos": "noun",
+    "meaningEn": "sightseeing, looking around",
+    "romaja": "gugyeong",
+    "exampleKo": "서울 구경을 했어요.",
+    "exampleEn": "I went sightseeing in Seoul.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 127,
+    "term": "캠핑",
+    "pos": "noun",
+    "meaningEn": "camping",
+    "romaja": "kaemping",
+    "exampleKo": "주말에 캠핑 가요.",
+    "exampleEn": "I'm going camping on the weekend.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 128,
+    "term": "자원봉사",
+    "pos": "noun",
+    "meaningEn": "volunteer work",
+    "romaja": "jawonbongsa",
+    "exampleKo": "자원봉사를 하고 싶어요.",
+    "exampleEn": "I want to do volunteer work.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 129,
+    "term": "사진기",
+    "pos": "noun",
+    "meaningEn": "a camera",
+    "romaja": "sajingi",
+    "exampleKo": "새 사진기를 샀어요.",
+    "exampleEn": "I bought a new camera.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 130,
+    "term": "입장권",
+    "pos": "noun",
+    "meaningEn": "an admission ticket",
+    "romaja": "ipjanggwon",
+    "exampleKo": "입장권을 주세요.",
+    "exampleEn": "Please give me an admission ticket.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 131,
+    "term": "예매하다",
+    "pos": "verb",
+    "meaningEn": "to book tickets in advance",
+    "romaja": "yemaehada",
+    "exampleKo": "표를 예매했어요.",
+    "exampleEn": "I booked the tickets in advance.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 132,
+    "term": "관람하다",
+    "pos": "verb",
+    "meaningEn": "to view or watch (an exhibition, a game)",
+    "romaja": "gwallamhada",
+    "exampleKo": "공연을 관람했어요.",
+    "exampleEn": "I watched the performance.",
+    "category": "취미·여가"
+  },
+  {
+    "rank": 133,
+    "term": "계절",
+    "pos": "noun",
+    "meaningEn": "a season (Korea has 4 distinct seasons)",
+    "romaja": "gyejeol",
+    "exampleKo": "좋아하는 계절이 뭐예요?",
+    "exampleEn": "What's your favorite season?",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 134,
+    "term": "덥다",
+    "pos": "adjective",
+    "meaningEn": "hot (weather)",
+    "romaja": "deopda",
+    "exampleKo": "날씨가 더워요.",
+    "exampleEn": "The weather is hot.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 135,
+    "term": "춥다",
+    "pos": "adjective",
+    "meaningEn": "cold (weather)",
+    "romaja": "chupda",
+    "exampleKo": "오늘 날씨가 추워요.",
+    "exampleEn": "The weather is cold today.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 136,
+    "term": "쌀쌀하다",
+    "pos": "adjective",
+    "meaningEn": "chilly (also of a cold manner)",
+    "romaja": "ssalssalhada",
+    "exampleKo": "날씨가 쌀쌀해요.",
+    "exampleEn": "The weather is chilly.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 137,
+    "term": "흐리다",
+    "pos": "adjective",
+    "meaningEn": "cloudy, overcast",
+    "romaja": "heurida",
+    "exampleKo": "하늘이 흐려요.",
+    "exampleEn": "The sky is cloudy.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 138,
+    "term": "구름",
+    "pos": "noun",
+    "meaningEn": "a cloud",
+    "romaja": "gureum",
+    "exampleKo": "하늘에 구름이 많아요.",
+    "exampleEn": "There are many clouds in the sky.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 139,
+    "term": "태풍",
+    "pos": "noun",
+    "meaningEn": "a typhoon (hits Korea late summer)",
+    "romaja": "taepung",
+    "exampleKo": "태풍이 와요.",
+    "exampleEn": "A typhoon is coming.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 140,
+    "term": "장마",
+    "pos": "noun",
+    "meaningEn": "summer monsoon rain season (late June-July)",
+    "romaja": "jangma",
+    "exampleKo": "장마가 시작됐어요.",
+    "exampleEn": "The monsoon season has started.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 141,
+    "term": "온도",
+    "pos": "noun",
+    "meaningEn": "temperature",
+    "romaja": "ondo",
+    "exampleKo": "온도가 높아요.",
+    "exampleEn": "The temperature is high.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 142,
+    "term": "기온",
+    "pos": "noun",
+    "meaningEn": "air temperature (as in forecasts)",
+    "romaja": "gion",
+    "exampleKo": "오늘 기온이 낮아요.",
+    "exampleEn": "Today's air temperature is low.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 143,
+    "term": "영하",
+    "pos": "noun",
+    "meaningEn": "below zero (e.g., 영하 5도 = minus 5 degrees)",
+    "romaja": "yeongha",
+    "exampleKo": "기온이 영하 5도예요.",
+    "exampleEn": "The temperature is minus 5 degrees.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 144,
+    "term": "습하다",
+    "pos": "adjective",
+    "meaningEn": "humid, muggy",
+    "romaja": "seupada",
+    "exampleKo": "날씨가 습해요.",
+    "exampleEn": "The weather is humid.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 145,
+    "term": "건조하다",
+    "pos": "adjective",
+    "meaningEn": "dry (air, skin)",
+    "romaja": "geonjohada",
+    "exampleKo": "공기가 건조해요.",
+    "exampleEn": "The air is dry.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 146,
+    "term": "미세먼지",
+    "pos": "noun",
+    "meaningEn": "fine dust pollution (checked daily in Korea)",
+    "romaja": "misemeonji",
+    "exampleKo": "미세먼지가 심해요.",
+    "exampleEn": "The fine dust pollution is severe.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 147,
+    "term": "일기예보",
+    "pos": "noun",
+    "meaningEn": "the weather forecast",
+    "romaja": "ilgiyebo",
+    "exampleKo": "일기예보를 봤어요.",
+    "exampleEn": "I watched the weather forecast.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 148,
+    "term": "선풍기",
+    "pos": "noun",
+    "meaningEn": "an electric fan",
+    "romaja": "seonpunggi",
+    "exampleKo": "선풍기를 켰어요.",
+    "exampleEn": "I turned on the electric fan.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 149,
+    "term": "에어컨",
+    "pos": "noun",
+    "meaningEn": "air conditioning",
+    "romaja": "eeokeon",
+    "exampleKo": "에어컨을 끄세요.",
+    "exampleEn": "Please turn off the air conditioning.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 150,
+    "term": "난방",
+    "pos": "noun",
+    "meaningEn": "heating (Korean floors are heated)",
+    "romaja": "nanbang",
+    "exampleKo": "난방이 따뜻해요.",
+    "exampleEn": "The heating is warm.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 151,
+    "term": "황사",
+    "pos": "noun",
+    "meaningEn": "yellow dust (blown from mainland in spring)",
+    "romaja": "hwangsa",
+    "exampleKo": "봄에 황사가 와요.",
+    "exampleEn": "Yellow dust comes in spring.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 152,
+    "term": "소나기",
+    "pos": "noun",
+    "meaningEn": "sudden shower",
+    "romaja": "sonagi",
+    "exampleKo": "소나기가 내려요.",
+    "exampleEn": "A sudden shower is falling.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 153,
+    "term": "무지개",
+    "pos": "noun",
+    "meaningEn": "rainbow",
+    "romaja": "mujigae",
+    "exampleKo": "비 온 뒤에 무지개가 보여요.",
+    "exampleEn": "A rainbow is visible after the rain.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 154,
+    "term": "얼음",
+    "pos": "noun",
+    "meaningEn": "ice",
+    "romaja": "eoreum",
+    "exampleKo": "음료수에 얼음을 넣어요.",
+    "exampleEn": "I put ice in my drink.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 155,
+    "term": "녹다",
+    "pos": "verb",
+    "meaningEn": "to melt",
+    "romaja": "nokda",
+    "exampleKo": "눈이 다 녹았어요.",
+    "exampleEn": "All the snow melted.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 156,
+    "term": "눈사람",
+    "pos": "noun",
+    "meaningEn": "snowman",
+    "romaja": "nunsaram",
+    "exampleKo": "아이들이 눈사람을 만들어요.",
+    "exampleEn": "Children are making a snowman.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 157,
+    "term": "벚꽃",
+    "pos": "noun",
+    "meaningEn": "cherry blossom (a spring event in Korea)",
+    "romaja": "beotkkot",
+    "exampleKo": "봄에 벚꽃이 예뻐요.",
+    "exampleEn": "Cherry blossoms are pretty in spring.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 158,
+    "term": "더위",
+    "pos": "noun",
+    "meaningEn": "the heat (as a condition)",
+    "romaja": "deowi",
+    "exampleKo": "저는 더위를 싫어해요.",
+    "exampleEn": "I dislike the heat.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 159,
+    "term": "추위",
+    "pos": "noun",
+    "meaningEn": "the cold (as a condition)",
+    "romaja": "chuwi",
+    "exampleKo": "추위에 약해요.",
+    "exampleEn": "I am weak to the cold.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 160,
+    "term": "따뜻해지다",
+    "pos": "verb",
+    "meaningEn": "to grow warmer",
+    "romaja": "ttatteutaejida",
+    "exampleKo": "날씨가 따뜻해졌어요.",
+    "exampleEn": "The weather grew warmer.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 161,
+    "term": "쌓이다",
+    "pos": "verb",
+    "meaningEn": "to pile up (snow, work, stress)",
+    "romaja": "ssaida",
+    "exampleKo": "눈이 많이 쌓였어요.",
+    "exampleEn": "A lot of snow piled up.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 162,
+    "term": "개다",
+    "pos": "verb",
+    "meaningEn": "to clear up (weather); (homonym: to fold)",
+    "romaja": "gaeda",
+    "exampleKo": "비가 그치고 날씨가 갰어요.",
+    "exampleEn": "The rain stopped and the weather cleared up.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 163,
+    "term": "영상",
+    "pos": "noun",
+    "meaningEn": "above zero (temperature); (homonym: video)",
+    "romaja": "yeongsang",
+    "exampleKo": "오늘 기온은 영상 5도예요.",
+    "exampleEn": "Today's temperature is 5 degrees above zero.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 164,
+    "term": "최고기온",
+    "pos": "noun",
+    "meaningEn": "the day's high temperature",
+    "romaja": "choegogion",
+    "exampleKo": "오늘 최고기온은 20도예요.",
+    "exampleEn": "Today's high temperature is 20 degrees.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 165,
+    "term": "봄비",
+    "pos": "noun",
+    "meaningEn": "spring rain",
+    "romaja": "bombi",
+    "exampleKo": "봄비가 촉촉하게 내려요.",
+    "exampleEn": "Spring rain falls softly.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 166,
+    "term": "첫눈",
+    "pos": "noun",
+    "meaningEn": "the first snow of the year (romantic in Korea)",
+    "romaja": "cheonnun",
+    "exampleKo": "첫눈이 와서 기뻐요.",
+    "exampleEn": "I'm happy because the first snow came.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 167,
+    "term": "안개",
+    "pos": "noun",
+    "meaningEn": "fog",
+    "romaja": "angae",
+    "exampleKo": "아침에 안개가 심했어요.",
+    "exampleEn": "The fog was heavy in the morning.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 168,
+    "term": "서리",
+    "pos": "noun",
+    "meaningEn": "frost",
+    "romaja": "seori",
+    "exampleKo": "아침에 서리가 내렸어요.",
+    "exampleEn": "Frost fell in the morning.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 169,
+    "term": "폭염",
+    "pos": "noun",
+    "meaningEn": "heat wave (as declared in warnings)",
+    "romaja": "pogyeom",
+    "exampleKo": "폭염 때문에 너무 더워요.",
+    "exampleEn": "It's too hot because of the heat wave.",
+    "category": "날씨·계절"
+  },
+  {
+    "rank": 170,
+    "term": "세수하다",
+    "pos": "verb",
+    "meaningEn": "to wash one's face",
+    "romaja": "sesuhada",
+    "exampleKo": "아침에 세수했어요.",
+    "exampleEn": "I washed my face in the morning.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 171,
+    "term": "양치하다",
+    "pos": "verb",
+    "meaningEn": "to brush one's teeth",
+    "romaja": "yangchihada",
+    "exampleKo": "밥 먹고 양치하세요.",
+    "exampleEn": "Brush your teeth after eating.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 172,
+    "term": "점심",
+    "pos": "noun",
+    "meaningEn": "lunch; midday",
+    "romaja": "jeomsim",
+    "exampleKo": "점심 뭐 먹을까요?",
+    "exampleEn": "What shall we eat for lunch?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 173,
+    "term": "요일",
+    "pos": "noun",
+    "meaningEn": "day of the week",
+    "romaja": "yoil",
+    "exampleKo": "오늘 무슨 요일이에요?",
+    "exampleEn": "What day of the week is it today?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 174,
+    "term": "월요일",
+    "pos": "noun",
+    "meaningEn": "Monday",
+    "romaja": "woryoil",
+    "exampleKo": "월요일은 한 주의 시작이에요.",
+    "exampleEn": "Monday is the start of the week.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 175,
+    "term": "화요일",
+    "pos": "noun",
+    "meaningEn": "Tuesday",
+    "romaja": "hwayoil",
+    "exampleKo": "화요일에 친구를 만나요.",
+    "exampleEn": "I meet a friend on Tuesday.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 176,
+    "term": "수요일",
+    "pos": "noun",
+    "meaningEn": "Wednesday",
+    "romaja": "suyoil",
+    "exampleKo": "수요일에 만날까요?",
+    "exampleEn": "Shall we meet on Wednesday?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 177,
+    "term": "목요일",
+    "pos": "noun",
+    "meaningEn": "Thursday",
+    "romaja": "mogyoil",
+    "exampleKo": "목요일에 수업이 없어요.",
+    "exampleEn": "I don't have class on Thursday.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 178,
+    "term": "금요일",
+    "pos": "noun",
+    "meaningEn": "Friday",
+    "romaja": "geumyoil",
+    "exampleKo": "금요일 저녁을 좋아해요.",
+    "exampleEn": "I like Friday evenings.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 179,
+    "term": "토요일",
+    "pos": "noun",
+    "meaningEn": "Saturday",
+    "romaja": "toyoil",
+    "exampleKo": "토요일은 주말이에요.",
+    "exampleEn": "Saturday is the weekend.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 180,
+    "term": "일요일",
+    "pos": "noun",
+    "meaningEn": "Sunday",
+    "romaja": "iryoil",
+    "exampleKo": "일요일에 뭐 할 거예요?",
+    "exampleEn": "What are you going to do on Sunday?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 181,
+    "term": "주말",
+    "pos": "noun",
+    "meaningEn": "the weekend",
+    "romaja": "jumal",
+    "exampleKo": "주말에 쉬고 싶어요.",
+    "exampleEn": "I want to rest on the weekend.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 182,
+    "term": "평일",
+    "pos": "noun",
+    "meaningEn": "a weekday",
+    "romaja": "pyeongil",
+    "exampleKo": "평일에는 바빠요.",
+    "exampleEn": "I am busy on weekdays.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 183,
+    "term": "어제",
+    "pos": "noun",
+    "meaningEn": "yesterday",
+    "romaja": "eoje",
+    "exampleKo": "어제 영화를 봤어요.",
+    "exampleEn": "I watched a movie yesterday.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 184,
+    "term": "모레",
+    "pos": "noun",
+    "meaningEn": "the day after tomorrow — one word in Korean",
+    "romaja": "more",
+    "exampleKo": "모레 시험이 있어요.",
+    "exampleEn": "I have an exam the day after tomorrow.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 185,
+    "term": "그저께",
+    "pos": "noun",
+    "meaningEn": "the day before yesterday",
+    "romaja": "geujeokke",
+    "exampleKo": "그저께 비가 왔어요.",
+    "exampleEn": "It rained the day before yesterday.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 186,
+    "term": "지난주",
+    "pos": "noun",
+    "meaningEn": "last week",
+    "romaja": "jinanju",
+    "exampleKo": "지난주에 여행했어요.",
+    "exampleEn": "I traveled last week.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 187,
+    "term": "출근하다",
+    "pos": "verb",
+    "meaningEn": "to go to work",
+    "romaja": "chulgeunhada",
+    "exampleKo": "아침 9시에 출근해요.",
+    "exampleEn": "I go to work at 9 AM.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 188,
+    "term": "퇴근하다",
+    "pos": "verb",
+    "meaningEn": "to leave work for the day",
+    "romaja": "toegeunhada",
+    "exampleKo": "6시에 퇴근하고 싶어요.",
+    "exampleEn": "I want to leave work at 6 o'clock.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 189,
+    "term": "등교하다",
+    "pos": "verb",
+    "meaningEn": "to go to school",
+    "romaja": "deunggyohada",
+    "exampleKo": "매일 아침 등교해요.",
+    "exampleEn": "I go to school every morning.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 190,
+    "term": "하교하다",
+    "pos": "verb",
+    "meaningEn": "to come home from school",
+    "romaja": "hagyohada",
+    "exampleKo": "4시에 하교했어요.",
+    "exampleEn": "I came home from school at 4 o'clock.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 191,
+    "term": "잠들다",
+    "pos": "verb",
+    "meaningEn": "to fall asleep",
+    "romaja": "jamdeulda",
+    "exampleKo": "밤 늦게 잠들었어요.",
+    "exampleEn": "I fell asleep late at night.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 192,
+    "term": "늦잠",
+    "pos": "noun",
+    "meaningEn": "oversleeping; 늦잠을 자다 = to sleep in",
+    "romaja": "neutjam",
+    "exampleKo": "주말에 늦잠을 잤어요.",
+    "exampleEn": "I slept in on the weekend.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 193,
+    "term": "일과",
+    "pos": "noun",
+    "meaningEn": "one's daily routine",
+    "romaja": "ilgwa",
+    "exampleKo": "저의 일과는 간단해요.",
+    "exampleEn": "My daily routine is simple.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 194,
+    "term": "시간표",
+    "pos": "noun",
+    "meaningEn": "a timetable or class schedule",
+    "romaja": "siganpyo",
+    "exampleKo": "수업 시간표를 확인해요.",
+    "exampleEn": "I check the class schedule.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 195,
+    "term": "이틀",
+    "pos": "noun",
+    "meaningEn": "two days (native Korean counting word)",
+    "romaja": "iteul",
+    "exampleKo": "이틀 동안 여행했어요.",
+    "exampleEn": "I traveled for two days.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 196,
+    "term": "사흘",
+    "pos": "noun",
+    "meaningEn": "three days (native Korean counting word)",
+    "romaja": "saheul",
+    "exampleKo": "사흘 후에 돌아올 거예요.",
+    "exampleEn": "I will come back in three days.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 197,
+    "term": "아침밥",
+    "pos": "noun",
+    "meaningEn": "breakfast (the meal itself)",
+    "romaja": "achimbap",
+    "exampleKo": "아침밥을 먹었어요.",
+    "exampleEn": "I ate breakfast.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 198,
+    "term": "저녁밥",
+    "pos": "noun",
+    "meaningEn": "dinner (the meal itself)",
+    "romaja": "jeonyeokbap",
+    "exampleKo": "저녁밥은 뭐예요?",
+    "exampleEn": "What's for dinner?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 199,
+    "term": "낮잠",
+    "pos": "noun",
+    "meaningEn": "a nap",
+    "romaja": "natjam",
+    "exampleKo": "점심 후에 낮잠을 잤어요.",
+    "exampleEn": "I took a nap after lunch.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 200,
+    "term": "휴일",
+    "pos": "noun",
+    "meaningEn": "a day off",
+    "romaja": "hyuil",
+    "exampleKo": "휴일에 영화를 볼 거예요.",
+    "exampleEn": "I will watch a movie on my day off.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 201,
+    "term": "공휴일",
+    "pos": "noun",
+    "meaningEn": "a public holiday",
+    "romaja": "gonghyuil",
+    "exampleKo": "오늘은 공휴일이에요.",
+    "exampleEn": "Today is a public holiday.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 202,
+    "term": "방학",
+    "pos": "noun",
+    "meaningEn": "a school vacation",
+    "romaja": "banghak",
+    "exampleKo": "여름 방학이 길어요.",
+    "exampleEn": "Summer vacation is long.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 203,
+    "term": "퇴근",
+    "pos": "noun",
+    "meaningEn": "leaving work",
+    "romaja": "toegeun",
+    "exampleKo": "퇴근 후에 만나요.",
+    "exampleEn": "Let's meet after work.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 204,
+    "term": "출근",
+    "pos": "noun",
+    "meaningEn": "going to work",
+    "romaja": "chulgeun",
+    "exampleKo": "매일 출근해요.",
+    "exampleEn": "I go to work every day.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 205,
+    "term": "준비물",
+    "pos": "noun",
+    "meaningEn": "things to prepare and bring",
+    "romaja": "junbimul",
+    "exampleKo": "준비물이 뭐예요?",
+    "exampleEn": "What are the things to prepare?",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 206,
+    "term": "알람",
+    "pos": "noun",
+    "meaningEn": "an alarm",
+    "romaja": "allam",
+    "exampleKo": "알람을 맞췄어요.",
+    "exampleEn": "I set an alarm.",
+    "category": "하루 일과·시간"
+  },
+  {
+    "rank": 207,
+    "term": "지하철",
+    "pos": "noun",
+    "meaningEn": "the subway",
+    "romaja": "jihacheol",
+    "exampleKo": "지하철역이 어디예요?",
+    "exampleEn": "Where is the subway station?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 208,
+    "term": "택시",
+    "pos": "noun",
+    "meaningEn": "a taxi",
+    "romaja": "taeksi",
+    "exampleKo": "택시를 탈까요?",
+    "exampleEn": "Shall we take a taxi?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 209,
+    "term": "기차",
+    "pos": "noun",
+    "meaningEn": "a train (intercity)",
+    "romaja": "gicha",
+    "exampleKo": "기차표를 샀어요.",
+    "exampleEn": "I bought a train ticket.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 210,
+    "term": "오토바이",
+    "pos": "noun",
+    "meaningEn": "a motorcycle",
+    "romaja": "otobai",
+    "exampleKo": "오토바이를 타고 가요.",
+    "exampleEn": "I go by motorcycle.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 211,
+    "term": "정류장",
+    "pos": "noun",
+    "meaningEn": "a bus stop",
+    "romaja": "jeongnyujang",
+    "exampleKo": "버스 정류장이 여기예요.",
+    "exampleEn": "The bus stop is here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 212,
+    "term": "공항",
+    "pos": "noun",
+    "meaningEn": "an airport",
+    "romaja": "gonghang",
+    "exampleKo": "공항에 갈 거예요.",
+    "exampleEn": "I will go to the airport.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 213,
+    "term": "터미널",
+    "pos": "noun",
+    "meaningEn": "an intercity bus terminal",
+    "romaja": "teomineol",
+    "exampleKo": "버스 터미널에 있어요.",
+    "exampleEn": "It's at the bus terminal.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 214,
+    "term": "표",
+    "pos": "noun",
+    "meaningEn": "a ticket",
+    "romaja": "pyo",
+    "exampleKo": "표가 두 장 있어요.",
+    "exampleEn": "I have two tickets.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 215,
+    "term": "요금",
+    "pos": "noun",
+    "meaningEn": "a fare or charge",
+    "romaja": "yogeum",
+    "exampleKo": "요금이 얼마예요?",
+    "exampleEn": "How much is the fare?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 216,
+    "term": "갈아타다",
+    "pos": "verb",
+    "meaningEn": "to transfer (trains/buses)",
+    "romaja": "garatada",
+    "exampleKo": "여기서 갈아타야 해요.",
+    "exampleEn": "You have to transfer here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 217,
+    "term": "사거리",
+    "pos": "noun",
+    "meaningEn": "a four-way intersection",
+    "romaja": "sageori",
+    "exampleKo": "사거리에서 왼쪽으로 가세요.",
+    "exampleEn": "At the intersection, turn left.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 218,
+    "term": "신호등",
+    "pos": "noun",
+    "meaningEn": "a traffic light",
+    "romaja": "sinhodeung",
+    "exampleKo": "신호등이 빨간색이에요.",
+    "exampleEn": "The traffic light is red.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 219,
+    "term": "횡단보도",
+    "pos": "noun",
+    "meaningEn": "a pedestrian crossing",
+    "romaja": "hoengdanbodo",
+    "exampleKo": "횡단보도로 건너세요.",
+    "exampleEn": "Please cross at the pedestrian crossing.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 220,
+    "term": "육교",
+    "pos": "noun",
+    "meaningEn": "a pedestrian overpass",
+    "romaja": "yukgyo",
+    "exampleKo": "육교 위로 걸어요.",
+    "exampleEn": "I walk over the pedestrian overpass.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 221,
+    "term": "지하도",
+    "pos": "noun",
+    "meaningEn": "an underground passage",
+    "romaja": "jihado",
+    "exampleKo": "지하도로 건너요.",
+    "exampleEn": "I cross through the underground passage.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 222,
+    "term": "직진",
+    "pos": "noun",
+    "meaningEn": "going straight ahead",
+    "romaja": "jikjin",
+    "exampleKo": "여기서 직진하세요.",
+    "exampleEn": "Please go straight here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 223,
+    "term": "좌회전",
+    "pos": "noun",
+    "meaningEn": "a left turn",
+    "romaja": "jwahoejeon",
+    "exampleKo": "좌회전 금지예요.",
+    "exampleEn": "Left turn is prohibited.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 224,
+    "term": "우회전",
+    "pos": "noun",
+    "meaningEn": "a right turn",
+    "romaja": "uhoejeon",
+    "exampleKo": "여기서 우회전하세요.",
+    "exampleEn": "Please turn right here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 225,
+    "term": "건너다",
+    "pos": "verb",
+    "meaningEn": "to cross (a road, a bridge)",
+    "romaja": "geonneoda",
+    "exampleKo": "길을 건너요.",
+    "exampleEn": "I cross the road.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 226,
+    "term": "주차장",
+    "pos": "noun",
+    "meaningEn": "a car park",
+    "romaja": "juchajang",
+    "exampleKo": "여기에 주차장이 있어요.",
+    "exampleEn": "There is a car park here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 227,
+    "term": "주차하다",
+    "pos": "verb",
+    "meaningEn": "to park a car",
+    "romaja": "juchahada",
+    "exampleKo": "여기에 주차해도 돼요?",
+    "exampleEn": "Can I park here?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 228,
+    "term": "운전하다",
+    "pos": "verb",
+    "meaningEn": "to drive",
+    "romaja": "unjeonhada",
+    "exampleKo": "저는 운전할 수 있어요.",
+    "exampleEn": "I can drive.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 229,
+    "term": "면허",
+    "pos": "noun",
+    "meaningEn": "a licence; 운전면허 = driving licence",
+    "romaja": "myeonheo",
+    "exampleKo": "운전면허가 있어요.",
+    "exampleEn": "I have a driving licence.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 230,
+    "term": "안전벨트",
+    "pos": "noun",
+    "meaningEn": "a seatbelt",
+    "romaja": "anjeonbelteu",
+    "exampleKo": "안전벨트를 매세요.",
+    "exampleEn": "Please wear your seatbelt.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 231,
+    "term": "지도",
+    "pos": "noun",
+    "meaningEn": "a map",
+    "romaja": "jido",
+    "exampleKo": "지도를 보고 있어요.",
+    "exampleEn": "I am looking at a map.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 232,
+    "term": "노선",
+    "pos": "noun",
+    "meaningEn": "a route or line (subway, bus)",
+    "romaja": "noseon",
+    "exampleKo": "이 버스 노선은 어디로 가요?",
+    "exampleEn": "Where does this bus route go?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 233,
+    "term": "출구",
+    "pos": "noun",
+    "meaningEn": "an exit (e.g. subway, building)",
+    "romaja": "chulgu",
+    "exampleKo": "3번 출구로 나가세요.",
+    "exampleEn": "Please go out through Exit 3.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 234,
+    "term": "입구",
+    "pos": "noun",
+    "meaningEn": "an entrance",
+    "romaja": "ipgu",
+    "exampleKo": "저기가 입구예요.",
+    "exampleEn": "That is the entrance.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 235,
+    "term": "승강장",
+    "pos": "noun",
+    "meaningEn": "a station platform",
+    "romaja": "seunggangjang",
+    "exampleKo": "승강장에서 기다려요.",
+    "exampleEn": "I wait on the platform.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 236,
+    "term": "좌석",
+    "pos": "noun",
+    "meaningEn": "a seat (reserved or assigned)",
+    "romaja": "jwaseok",
+    "exampleKo": "제 좌석은 여기예요.",
+    "exampleEn": "My seat is here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 237,
+    "term": "왕복",
+    "pos": "noun",
+    "meaningEn": "a round trip",
+    "romaja": "wangbok",
+    "exampleKo": "왕복표 주세요.",
+    "exampleEn": "Please give me a round-trip ticket.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 238,
+    "term": "편도",
+    "pos": "noun",
+    "meaningEn": "one way (trip)",
+    "romaja": "pyeondo",
+    "exampleKo": "편도표는 얼마예요?",
+    "exampleEn": "How much is a one-way ticket?",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 239,
+    "term": "도착",
+    "pos": "noun",
+    "meaningEn": "arrival",
+    "romaja": "dochak",
+    "exampleKo": "도착 시간은 3시예요.",
+    "exampleEn": "Arrival time is 3 o'clock.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 240,
+    "term": "출발",
+    "pos": "noun",
+    "meaningEn": "departure",
+    "romaja": "chulbal",
+    "exampleKo": "출발 시간은 2시예요.",
+    "exampleEn": "Departure time is 2 o'clock.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 241,
+    "term": "교통카드",
+    "pos": "noun",
+    "meaningEn": "a transit card (for bus, subway)",
+    "romaja": "gyotongkadeu",
+    "exampleKo": "교통카드가 없어요.",
+    "exampleEn": "I don't have a transit card.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 242,
+    "term": "환승",
+    "pos": "noun",
+    "meaningEn": "a transfer (between transport lines)",
+    "romaja": "hwanseung",
+    "exampleKo": "여기서 환승할 수 있어요.",
+    "exampleEn": "You can transfer here.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 243,
+    "term": "골목",
+    "pos": "noun",
+    "meaningEn": "a narrow alley",
+    "romaja": "golmok",
+    "exampleKo": "골목으로 들어가세요.",
+    "exampleEn": "Please go into the alley.",
+    "category": "교통·길찾기"
+  },
+  {
+    "rank": 244,
+    "term": "우체국",
+    "pos": "noun",
+    "meaningEn": "a post office",
+    "romaja": "ucheguk",
+    "exampleKo": "우체국이 어디예요?",
+    "exampleEn": "Where is the post office?",
+    "category": "공공시설"
+  },
+  {
+    "rank": 245,
+    "term": "도서관",
+    "pos": "noun",
+    "meaningEn": "a library",
+    "romaja": "doseogwan",
+    "exampleKo": "도서관에 가고 싶어요.",
+    "exampleEn": "I want to go to the library.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 246,
+    "term": "시청",
+    "pos": "noun",
+    "meaningEn": "city hall",
+    "romaja": "sicheong",
+    "exampleKo": "시청은 저쪽에 있어요.",
+    "exampleEn": "City hall is over there.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 247,
+    "term": "구청",
+    "pos": "noun",
+    "meaningEn": "a district office",
+    "romaja": "gucheong",
+    "exampleKo": "구청에 갈 거예요.",
+    "exampleEn": "I will go to the district office.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 248,
+    "term": "동사무소",
+    "pos": "noun",
+    "meaningEn": "a neighbourhood community office",
+    "romaja": "dongsamuso",
+    "exampleKo": "동사무소에 서류를 내요.",
+    "exampleEn": "I submit documents at the community office.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 249,
+    "term": "경찰서",
+    "pos": "noun",
+    "meaningEn": "a police station",
+    "romaja": "gyeongchalseo",
+    "exampleKo": "경찰서에 전화했어요.",
+    "exampleEn": "I called the police station.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 250,
+    "term": "소방서",
+    "pos": "noun",
+    "meaningEn": "a fire station",
+    "romaja": "sobangseo",
+    "exampleKo": "소방서는 가까이에 있어요.",
+    "exampleEn": "The fire station is nearby.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 251,
+    "term": "대사관",
+    "pos": "noun",
+    "meaningEn": "an embassy",
+    "romaja": "daesagwan",
+    "exampleKo": "한국 대사관은 어디예요?",
+    "exampleEn": "Where is the Korean embassy?",
+    "category": "공공시설"
+  },
+  {
+    "rank": 252,
+    "term": "소포",
+    "pos": "noun",
+    "meaningEn": "a parcel sent by post",
+    "romaja": "sopo",
+    "exampleKo": "소포를 보내고 싶어요.",
+    "exampleEn": "I want to send a parcel.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 253,
+    "term": "우표",
+    "pos": "noun",
+    "meaningEn": "a postage stamp",
+    "romaja": "upyo",
+    "exampleKo": "우표를 사야 해요.",
+    "exampleEn": "I need to buy a stamp.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 254,
+    "term": "부치다",
+    "pos": "verb",
+    "meaningEn": "to send by post",
+    "romaja": "buchida",
+    "exampleKo": "편지를 부쳤어요.",
+    "exampleEn": "I sent a letter by post.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 255,
+    "term": "통장",
+    "pos": "noun",
+    "meaningEn": "a bankbook (still used in Korea)",
+    "romaja": "tongjang",
+    "exampleKo": "통장을 만들고 싶어요.",
+    "exampleEn": "I want to open a bankbook.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 256,
+    "term": "계좌",
+    "pos": "noun",
+    "meaningEn": "a bank account",
+    "romaja": "gyejwa",
+    "exampleKo": "계좌 번호가 뭐예요?",
+    "exampleEn": "What is the account number?",
+    "category": "공공시설"
+  },
+  {
+    "rank": 257,
+    "term": "입금",
+    "pos": "noun",
+    "meaningEn": "a deposit into an account",
+    "romaja": "ipgeum",
+    "exampleKo": "은행에 입금했어요.",
+    "exampleEn": "I made a deposit at the bank.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 258,
+    "term": "출금",
+    "pos": "noun",
+    "meaningEn": "a withdrawal",
+    "romaja": "chulgeum",
+    "exampleKo": "돈을 출금했어요.",
+    "exampleEn": "I withdrew money.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 259,
+    "term": "송금",
+    "pos": "noun",
+    "meaningEn": "a money transfer",
+    "romaja": "songgeum",
+    "exampleKo": "송금하고 싶어요.",
+    "exampleEn": "I want to transfer money.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 260,
+    "term": "환전",
+    "pos": "noun",
+    "meaningEn": "currency exchange",
+    "romaja": "hwanjeon",
+    "exampleKo": "달러를 환전했어요.",
+    "exampleEn": "I exchanged dollars.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 261,
+    "term": "비밀번호",
+    "pos": "noun",
+    "meaningEn": "a PIN or password",
+    "romaja": "bimilbeonho",
+    "exampleKo": "비밀번호를 잊었어요.",
+    "exampleEn": "I forgot my password.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 262,
+    "term": "여권",
+    "pos": "noun",
+    "meaningEn": "a passport",
+    "romaja": "yeogwon",
+    "exampleKo": "여권을 보여주세요.",
+    "exampleEn": "Please show your passport.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 263,
+    "term": "비자",
+    "pos": "noun",
+    "meaningEn": "a visa",
+    "romaja": "bija",
+    "exampleKo": "비자를 신청했어요.",
+    "exampleEn": "I applied for a visa.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 264,
+    "term": "서류",
+    "pos": "noun",
+    "meaningEn": "documents, paperwork",
+    "romaja": "seoryu",
+    "exampleKo": "서류를 준비했어요.",
+    "exampleEn": "I prepared the documents.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 265,
+    "term": "신청하다",
+    "pos": "verb",
+    "meaningEn": "to apply for something",
+    "romaja": "sincheonghada",
+    "exampleKo": "인터넷으로 신청했어요.",
+    "exampleEn": "I applied online.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 266,
+    "term": "접수하다",
+    "pos": "verb",
+    "meaningEn": "to submit or register at a counter",
+    "romaja": "jeopsuhada",
+    "exampleKo": "서류를 접수했어요.",
+    "exampleEn": "I submitted the documents.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 267,
+    "term": "발급받다",
+    "pos": "verb",
+    "meaningEn": "to be issued (a card, a certificate)",
+    "romaja": "balgeupbatda",
+    "exampleKo": "카드를 발급받았어요.",
+    "exampleEn": "I was issued a card.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 268,
+    "term": "도장",
+    "pos": "noun",
+    "meaningEn": "a personal seal (used like a signature)",
+    "romaja": "dojang",
+    "exampleKo": "도장이 필요해요.",
+    "exampleEn": "I need a personal seal.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 269,
+    "term": "서명",
+    "pos": "noun",
+    "meaningEn": "a signature",
+    "romaja": "seomyeong",
+    "exampleKo": "여기에 서명해주세요.",
+    "exampleEn": "Please sign here.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 270,
+    "term": "대출",
+    "pos": "noun",
+    "meaningEn": "a loan; borrowing a library book",
+    "romaja": "daechul",
+    "exampleKo": "책을 대출했어요.",
+    "exampleEn": "I borrowed a book.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 271,
+    "term": "반납",
+    "pos": "noun",
+    "meaningEn": "returning something borrowed",
+    "romaja": "bannap",
+    "exampleKo": "책을 반납했어요.",
+    "exampleEn": "I returned the book.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 272,
+    "term": "연체",
+    "pos": "noun",
+    "meaningEn": "being overdue (return or payment)",
+    "romaja": "yeonche",
+    "exampleKo": "연체료가 있어요.",
+    "exampleEn": "There is a late fee.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 273,
+    "term": "회원증",
+    "pos": "noun",
+    "meaningEn": "a membership card",
+    "romaja": "hoewonjeung",
+    "exampleKo": "회원증이 없어요.",
+    "exampleEn": "I don't have a membership card.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 274,
+    "term": "창구",
+    "pos": "noun",
+    "meaningEn": "a service window or teller counter",
+    "romaja": "changgu",
+    "exampleKo": "저 창구로 가세요.",
+    "exampleEn": "Please go to that counter.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 275,
+    "term": "번호표",
+    "pos": "noun",
+    "meaningEn": "a queue number ticket (take one)",
+    "romaja": "beonhopyo",
+    "exampleKo": "번호표를 뽑아주세요.",
+    "exampleEn": "Please take a number ticket.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 276,
+    "term": "문의하다",
+    "pos": "verb",
+    "meaningEn": "to enquire",
+    "romaja": "munuihada",
+    "exampleKo": "은행에 문의했어요.",
+    "exampleEn": "I enquired at the bank.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 277,
+    "term": "수수료",
+    "pos": "noun",
+    "meaningEn": "a service fee, commission",
+    "romaja": "susuryo",
+    "exampleKo": "수수료가 얼마예요?",
+    "exampleEn": "How much is the service fee?",
+    "category": "공공시설"
+  },
+  {
+    "rank": 278,
+    "term": "사무실",
+    "pos": "noun",
+    "meaningEn": "an office",
+    "romaja": "samusil",
+    "exampleKo": "사무실이 어디예요?",
+    "exampleEn": "Where is the office?",
+    "category": "공공시설"
+  },
+  {
+    "rank": 279,
+    "term": "안내",
+    "pos": "noun",
+    "meaningEn": "guidance, information",
+    "romaja": "annae",
+    "exampleKo": "안내 데스크에 가세요.",
+    "exampleEn": "Please go to the information desk.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 280,
+    "term": "민원",
+    "pos": "noun",
+    "meaningEn": "a civil request or complaint",
+    "romaja": "minwon",
+    "exampleKo": "민원 서류를 냈어요.",
+    "exampleEn": "I submitted a civil complaint document.",
+    "category": "공공시설"
+  },
+  {
+    "rank": 281,
+    "term": "전화하다",
+    "pos": "verb",
+    "meaningEn": "to make a phone call",
+    "romaja": "jeonhwahada",
+    "exampleKo": "친구에게 전화했어요.",
+    "exampleEn": "I called my friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 282,
+    "term": "끊다",
+    "pos": "verb",
+    "meaningEn": "to hang up; to quit (smoking)",
+    "romaja": "kkeunta",
+    "exampleKo": "전화를 끊었어요.",
+    "exampleEn": "I hung up the phone.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 283,
+    "term": "메시지",
+    "pos": "noun",
+    "meaningEn": "a message",
+    "romaja": "mesiji",
+    "exampleKo": "메시지를 남겼어요.",
+    "exampleEn": "I left a message.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 284,
+    "term": "통화",
+    "pos": "noun",
+    "meaningEn": "a phone conversation; 통화 중 = busy line",
+    "romaja": "tonghwa",
+    "exampleKo": "지금 통화 중이에요.",
+    "exampleEn": "The line is busy now.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 285,
+    "term": "부재중",
+    "pos": "noun",
+    "meaningEn": "absent; 부재중 전화 = a missed call",
+    "romaja": "bujaejung",
+    "exampleKo": "부재중 전화가 왔어요.",
+    "exampleEn": "I got a missed call.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 286,
+    "term": "여보세요",
+    "pos": "phrase",
+    "meaningEn": "'Hello?' (on the phone)",
+    "romaja": "yeoboseyo",
+    "exampleKo": "여보세요, 김민수 씨?",
+    "exampleEn": "Hello, is this Kim Minsu?",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 287,
+    "term": "부탁하다",
+    "pos": "verb",
+    "meaningEn": "to ask a favour",
+    "romaja": "butakhada",
+    "exampleKo": "부탁 좀 들어줄래요?",
+    "exampleEn": "Could you do me a favor?",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 288,
+    "term": "도와주다",
+    "pos": "verb",
+    "meaningEn": "to help someone",
+    "romaja": "dowajuda",
+    "exampleKo": "저를 도와주세요.",
+    "exampleEn": "Please help me.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 289,
+    "term": "빌려주다",
+    "pos": "verb",
+    "meaningEn": "to lend (counterpart of 빌리다 'to borrow')",
+    "romaja": "billyeojuda",
+    "exampleKo": "책을 빌려줬어요.",
+    "exampleEn": "I lent a book.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 290,
+    "term": "약속하다",
+    "pos": "verb",
+    "meaningEn": "to promise; to make plans to meet",
+    "romaja": "yaksokhada",
+    "exampleKo": "친구와 약속했어요.",
+    "exampleEn": "I made plans with my friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 291,
+    "term": "취소하다",
+    "pos": "verb",
+    "meaningEn": "to cancel",
+    "romaja": "chwisohada",
+    "exampleKo": "약속을 취소했어요.",
+    "exampleEn": "I cancelled the appointment.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 292,
+    "term": "천만에요",
+    "pos": "phrase",
+    "meaningEn": "'You're welcome' (textbook reply to thanks)",
+    "romaja": "cheonmaneyo",
+    "exampleKo": "천만에요.",
+    "exampleEn": "You're welcome.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 293,
+    "term": "죄송합니다",
+    "pos": "phrase",
+    "meaningEn": "'I'm sorry' (more formal than 미안해요)",
+    "romaja": "joesonghamnida",
+    "exampleKo": "늦어서 죄송합니다.",
+    "exampleEn": "I'm sorry for being late.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 294,
+    "term": "알겠습니다",
+    "pos": "phrase",
+    "meaningEn": "'Understood' (standard acknowledgement)",
+    "romaja": "algetseumnida",
+    "exampleKo": "네, 알겠습니다.",
+    "exampleEn": "Yes, I understand.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 295,
+    "term": "여쭤보다",
+    "pos": "verb",
+    "meaningEn": "to ask (humble form to seniors)",
+    "romaja": "yeojjwoboda",
+    "exampleKo": "선생님께 여쭤봤어요.",
+    "exampleEn": "I asked the teacher.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 296,
+    "term": "연락하다",
+    "pos": "verb",
+    "meaningEn": "to get in touch",
+    "romaja": "yeollakhada",
+    "exampleKo": "나중에 연락할게요.",
+    "exampleEn": "I'll contact you later.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 297,
+    "term": "연락처",
+    "pos": "noun",
+    "meaningEn": "contact details",
+    "romaja": "yeollakcheo",
+    "exampleKo": "연락처를 알려주세요.",
+    "exampleEn": "Please give me your contact details.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 298,
+    "term": "번호",
+    "pos": "noun",
+    "meaningEn": "a number",
+    "romaja": "beonho",
+    "exampleKo": "전화번호가 뭐예요?",
+    "exampleEn": "What is your phone number?",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 299,
+    "term": "실례하다",
+    "pos": "verb",
+    "meaningEn": "to be excused; 실례합니다 = excuse me",
+    "romaja": "sillyehada",
+    "exampleKo": "실례합니다, 질문 있어요.",
+    "exampleEn": "Excuse me, I have a question.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 300,
+    "term": "초대하다",
+    "pos": "verb",
+    "meaningEn": "to invite",
+    "romaja": "chodaehada",
+    "exampleKo": "친구를 초대했어요.",
+    "exampleEn": "I invited a friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 301,
+    "term": "초대",
+    "pos": "noun",
+    "meaningEn": "an invitation",
+    "romaja": "chodae",
+    "exampleKo": "친구에게 초대 받았어요.",
+    "exampleEn": "I received an invitation from a friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 302,
+    "term": "방문하다",
+    "pos": "verb",
+    "meaningEn": "to visit",
+    "romaja": "bangmunhada",
+    "exampleKo": "할머니 댁에 방문했어요.",
+    "exampleEn": "I visited my grandmother's house.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 303,
+    "term": "늦어지다",
+    "pos": "verb",
+    "meaningEn": "to be delayed, to end up late",
+    "romaja": "neujeojida",
+    "exampleKo": "버스가 늦어졌어요.",
+    "exampleEn": "The bus was delayed.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 304,
+    "term": "기다려주다",
+    "pos": "verb",
+    "meaningEn": "to wait for someone (as a favor)",
+    "romaja": "gidaryeojuda",
+    "exampleKo": "친구가 저를 기다려줬어요.",
+    "exampleEn": "My friend waited for me.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 305,
+    "term": "답장",
+    "pos": "noun",
+    "meaningEn": "a reply (to a message/letter)",
+    "romaja": "dapjang",
+    "exampleKo": "답장을 빨리 보냈어요.",
+    "exampleEn": "I sent a reply quickly.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 306,
+    "term": "안부",
+    "pos": "noun",
+    "meaningEn": "regards, news of how someone is",
+    "romaja": "anbu",
+    "exampleKo": "친구에게 안부 전했어요.",
+    "exampleEn": "I sent regards to my friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 307,
+    "term": "인사말",
+    "pos": "noun",
+    "meaningEn": "a greeting, words of greeting",
+    "romaja": "insamal",
+    "exampleKo": "짧은 인사말을 했어요.",
+    "exampleEn": "I gave a short greeting.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 308,
+    "term": "부탁",
+    "pos": "noun",
+    "meaningEn": "a favour",
+    "romaja": "butak",
+    "exampleKo": "부탁이 하나 있어요.",
+    "exampleEn": "I have one favour to ask.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 309,
+    "term": "거절하다",
+    "pos": "verb",
+    "meaningEn": "to refuse or decline",
+    "romaja": "geojeolhada",
+    "exampleKo": "제안을 거절했어요.",
+    "exampleEn": "I refused the offer.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 310,
+    "term": "승낙하다",
+    "pos": "verb",
+    "meaningEn": "to consent, to agree to a request",
+    "romaja": "seungnakada",
+    "exampleKo": "요청을 승낙했어요.",
+    "exampleEn": "I agreed to the request.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 311,
+    "term": "만남",
+    "pos": "noun",
+    "meaningEn": "a meeting or encounter",
+    "romaja": "mannam",
+    "exampleKo": "다음 만남은 언제예요?",
+    "exampleEn": "When is our next meeting?",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 312,
+    "term": "전화번호",
+    "pos": "noun",
+    "meaningEn": "a phone number",
+    "romaja": "jeonhwabeonho",
+    "exampleKo": "전화번호를 알아요?",
+    "exampleEn": "Do you know the phone number?",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 313,
+    "term": "통화하다",
+    "pos": "verb",
+    "meaningEn": "to talk on the phone",
+    "romaja": "tonghwahada",
+    "exampleKo": "친구와 통화했어요.",
+    "exampleEn": "I talked on the phone with a friend.",
+    "category": "전화·부탁·약속"
+  },
+  {
+    "rank": 314,
+    "term": "거실",
+    "pos": "noun",
+    "meaningEn": "a living room",
+    "romaja": "geosil",
+    "exampleKo": "거실에 소파가 있어요.",
+    "exampleEn": "There is a sofa in the living room.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 315,
+    "term": "주방",
+    "pos": "noun",
+    "meaningEn": "a kitchen (formal)",
+    "romaja": "jubang",
+    "exampleKo": "주방이 아주 깨끗해요.",
+    "exampleEn": "The kitchen is very clean.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 316,
+    "term": "부엌",
+    "pos": "noun",
+    "meaningEn": "a kitchen (everyday)",
+    "romaja": "bueok",
+    "exampleKo": "부엌에서 요리했어요.",
+    "exampleEn": "I cooked in the kitchen.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 317,
+    "term": "화장실",
+    "pos": "noun",
+    "meaningEn": "a toilet or bathroom",
+    "romaja": "hwajangsil",
+    "exampleKo": "화장실이 어디예요?",
+    "exampleEn": "Where is the bathroom?",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 318,
+    "term": "욕실",
+    "pos": "noun",
+    "meaningEn": "a bathroom (with a bath/shower)",
+    "romaja": "yoksil",
+    "exampleKo": "욕실에서 샤워했어요.",
+    "exampleEn": "I showered in the bathroom.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 319,
+    "term": "침실",
+    "pos": "noun",
+    "meaningEn": "a bedroom",
+    "romaja": "chimsil",
+    "exampleKo": "침실이 편안해요.",
+    "exampleEn": "The bedroom is comfortable.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 320,
+    "term": "베란다",
+    "pos": "noun",
+    "meaningEn": "a veranda (for drying laundry)",
+    "romaja": "beranda",
+    "exampleKo": "베란다에서 빨래 말려요.",
+    "exampleEn": "I dry laundry on the veranda.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 321,
+    "term": "현관",
+    "pos": "noun",
+    "meaningEn": "entryway (where shoes are removed)",
+    "romaja": "hyeongwan",
+    "exampleKo": "현관에 신발이 많아요.",
+    "exampleEn": "There are many shoes in the entryway.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 322,
+    "term": "창문",
+    "pos": "noun",
+    "meaningEn": "a window",
+    "romaja": "changmun",
+    "exampleKo": "창문을 열었어요.",
+    "exampleEn": "I opened the window.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 323,
+    "term": "천장",
+    "pos": "noun",
+    "meaningEn": "a ceiling",
+    "romaja": "cheonjang",
+    "exampleKo": "천장이 높아요.",
+    "exampleEn": "The ceiling is high.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 324,
+    "term": "침대",
+    "pos": "noun",
+    "meaningEn": "a bed",
+    "romaja": "chimdae",
+    "exampleKo": "침대에서 잤어요.",
+    "exampleEn": "I slept in bed.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 325,
+    "term": "책상",
+    "pos": "noun",
+    "meaningEn": "a desk",
+    "romaja": "chaeksang",
+    "exampleKo": "책상에 책이 있어요.",
+    "exampleEn": "There is a book on the desk.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 326,
+    "term": "의자",
+    "pos": "noun",
+    "meaningEn": "a chair",
+    "romaja": "uija",
+    "exampleKo": "의자에 앉으세요.",
+    "exampleEn": "Please sit on the chair.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 327,
+    "term": "소파",
+    "pos": "noun",
+    "meaningEn": "a sofa",
+    "romaja": "sopa",
+    "exampleKo": "소파가 아주 편해요.",
+    "exampleEn": "The sofa is very comfortable.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 328,
+    "term": "옷장",
+    "pos": "noun",
+    "meaningEn": "a wardrobe",
+    "romaja": "otjang",
+    "exampleKo": "옷을 옷장에 넣어요.",
+    "exampleEn": "I put clothes in the wardrobe.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 329,
+    "term": "서랍",
+    "pos": "noun",
+    "meaningEn": "a drawer",
+    "romaja": "seorap",
+    "exampleKo": "서랍 안에 펜이 있어요.",
+    "exampleEn": "There is a pen in the drawer.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 330,
+    "term": "책장",
+    "pos": "noun",
+    "meaningEn": "a bookshelf",
+    "romaja": "chaekjang",
+    "exampleKo": "책을 책장에 꽂아요.",
+    "exampleEn": "I put books on the bookshelf.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 331,
+    "term": "냉장고",
+    "pos": "noun",
+    "meaningEn": "a refrigerator (김치냉장고 is a kimchi fridge)",
+    "romaja": "naengjanggo",
+    "exampleKo": "냉장고에 우유가 있어요.",
+    "exampleEn": "There is milk in the refrigerator.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 332,
+    "term": "세탁기",
+    "pos": "noun",
+    "meaningEn": "a washing machine",
+    "romaja": "setakgi",
+    "exampleKo": "세탁기로 빨래해요.",
+    "exampleEn": "I do laundry with the washing machine.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 333,
+    "term": "청소기",
+    "pos": "noun",
+    "meaningEn": "a vacuum cleaner",
+    "romaja": "cheongsogi",
+    "exampleKo": "청소기로 방을 청소해요.",
+    "exampleEn": "I clean the room with a vacuum cleaner.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 334,
+    "term": "냄비",
+    "pos": "noun",
+    "meaningEn": "a pot for cooking",
+    "romaja": "naembi",
+    "exampleKo": "냄비에 물을 끓여요.",
+    "exampleEn": "I boil water in a pot.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 335,
+    "term": "프라이팬",
+    "pos": "noun",
+    "meaningEn": "a frying pan",
+    "romaja": "peuraipaen",
+    "exampleKo": "프라이팬에 계란을 구워요.",
+    "exampleEn": "I fry eggs in a frying pan.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 336,
+    "term": "수건",
+    "pos": "noun",
+    "meaningEn": "a towel",
+    "romaja": "sugeon",
+    "exampleKo": "수건이 필요해요.",
+    "exampleEn": "I need a towel.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 337,
+    "term": "비누",
+    "pos": "noun",
+    "meaningEn": "soap",
+    "romaja": "binu",
+    "exampleKo": "비누로 손을 씻어요.",
+    "exampleEn": "I wash my hands with soap.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 338,
+    "term": "치약",
+    "pos": "noun",
+    "meaningEn": "toothpaste",
+    "romaja": "chiyak",
+    "exampleKo": "치약을 사용하세요.",
+    "exampleEn": "Please use toothpaste.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 339,
+    "term": "칫솔",
+    "pos": "noun",
+    "meaningEn": "a toothbrush",
+    "romaja": "chitsol",
+    "exampleKo": "칫솔로 이를 닦아요.",
+    "exampleEn": "I brush my teeth with a toothbrush.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 340,
+    "term": "휴지",
+    "pos": "noun",
+    "meaningEn": "tissue or toilet paper",
+    "romaja": "hyuji",
+    "exampleKo": "휴지가 없어요.",
+    "exampleEn": "There is no toilet paper.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 341,
+    "term": "쓰레기통",
+    "pos": "noun",
+    "meaningEn": "a rubbish bin",
+    "romaja": "sseuregitong",
+    "exampleKo": "쓰레기를 쓰레기통에 버려요.",
+    "exampleEn": "I throw rubbish in the bin.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 342,
+    "term": "이사하다",
+    "pos": "verb",
+    "meaningEn": "to move house",
+    "romaja": "isahada",
+    "exampleKo": "다음 달에 이사할 거예요.",
+    "exampleEn": "I will move next month.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 343,
+    "term": "청소하다",
+    "pos": "verb",
+    "meaningEn": "to clean",
+    "romaja": "cheongsohada",
+    "exampleKo": "방을 청소했어요.",
+    "exampleEn": "I cleaned the room.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 344,
+    "term": "빨래하다",
+    "pos": "verb",
+    "meaningEn": "to do the laundry",
+    "romaja": "ppallaehada",
+    "exampleKo": "매일 빨래해요.",
+    "exampleEn": "I do laundry every day.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 345,
+    "term": "전등",
+    "pos": "noun",
+    "meaningEn": "an electric light",
+    "romaja": "jeondeung",
+    "exampleKo": "전등을 켜세요.",
+    "exampleEn": "Please turn on the light.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 346,
+    "term": "열쇠",
+    "pos": "noun",
+    "meaningEn": "a key (Korean doors often use keypads)",
+    "romaja": "yeolsoe",
+    "exampleKo": "열쇠가 어디에 있어요?",
+    "exampleEn": "Where is the key?",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 347,
+    "term": "계단",
+    "pos": "noun",
+    "meaningEn": "stairs",
+    "romaja": "gyedan",
+    "exampleKo": "계단으로 올라가세요.",
+    "exampleEn": "Please go up the stairs.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 348,
+    "term": "엘리베이터",
+    "pos": "noun",
+    "meaningEn": "a lift, an elevator",
+    "romaja": "ellibeiteo",
+    "exampleKo": "엘리베이터를 타세요.",
+    "exampleEn": "Please take the elevator.",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 349,
+    "term": "주소",
+    "pos": "noun",
+    "meaningEn": "an address",
+    "romaja": "juso",
+    "exampleKo": "주소가 뭐예요?",
+    "exampleEn": "What is the address?",
+    "category": "집·방·물건"
+  },
+  {
+    "rank": 350,
+    "term": "월세",
+    "pos": "noun",
+    "meaningEn": "monthly rent (vs. 전세, lump-sum deposit)",
+    "romaja": "wolse",
+    "exampleKo": "월세가 얼마예요?",
+    "exampleEn": "How much is the monthly rent?",
+    "category": "집·방·물건"
+  }
+]

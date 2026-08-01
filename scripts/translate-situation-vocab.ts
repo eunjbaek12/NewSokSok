@@ -1,19 +1,21 @@
 /**
- * 상황별 한국어 생활 어휘(시장/등산/병원) 50선을 영어 뜻 + 로마자 + 한국어 예문 + 영어 번역으로 enrich.
+ * 상황별 한국어 생활 어휘(시장/등산/병원/편의점·배달) 50선을 영어 뜻 + 로마자 + 한국어 예문 + 영어 번역으로 enrich.
  * 방향: ko → en (영미권 한국어 학습자 대상). integrate-vocab.ts 의 ko→en 분기로 통합.
  *
  * 입력: scripts/<deck>-source.json ({rank, term, pos, category, hint})
  * 출력: scripts/<deck>-translated.json
  * 진행 파일: scripts/.<deck>-progress.json (중단 후 재실행 가능)
  *
- * 실행: npx ts-node scripts/translate-situation-vocab.ts --deck=market
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-situation-vocab.ts --deck=market
+ *       (공용 검사 모듈을 상대 import 하므로 -P 옵션이 필요하다)
  * 옵션:
- *   --deck=market|hiking|clinic   (필수)
+ *   --deck=market|hiking|clinic|convenience   (필수)
  *   --limit=N                     상위 N개만 처리 (smoke test용)
  *   --model=lite                  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
  */
 import fs from 'fs';
 import path from 'path';
+import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
 
 interface DeckConfig {
   /** 프롬프트에 넣을 상황 설명 — 예문의 무대를 결정한다. */
@@ -34,6 +36,12 @@ const DECKS: Record<string, DeckConfig> = {
       'hiking a Korean mountain (등산) — trails, summits, gear, trail etiquette, and the food and drink that go with it',
     voice:
       'a hiker on the trail talking with a hiking companion or greeting another hiker. Friendly 해요체, the way Korean hikers actually speak on a mountain.',
+  },
+  convenience: {
+    setting:
+      'a Korean convenience store (편의점) and ordering food on a delivery app — the checkout and its bag/points/receipt questions, the hot-food case and the free microwave and hot-water dispenser, then ordering on a 배달앱 and receiving it at the door',
+    voice:
+      'a customer and the part-time clerk talking across the counter, in polite 해요체 both ways. For the delivery-app items, write the way Koreans actually type into the request box instead — short, clipped, imperative (문 앞에 두고 벨 눌러 주세요) — or a customer speaking to the driver.',
   },
   clinic: {
     setting:
@@ -127,9 +135,10 @@ Each item:
 Rules:
 - Return EXACTLY ${batch.length} items, same order as input.
 - Do NOT change the term field — copy exactly.
-- The example MUST use the term and MUST be set in the situation above. No generic textbook sentences that could be about anything.
+- The example MUST be set in the situation above. No generic textbook sentences that could be about anything.
 - Keep it tight: these go on a flashcard. A long meaning or a two-sentence example is a failure, even if accurate.
 - meaningEn must reflect the situational sense from "context", never an unrelated literal dictionary meaning.
+${SHARED_PROMPT_RULES}
 - Keep everything SFW, friendly and respectful. No profanity, no medical advice framed as instruction, no discriminatory content.
 - Return ONLY the JSON array.`;
 
@@ -228,6 +237,7 @@ async function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 완료! ${OUTPUT_PATH} (${results.length}개)`);
+  reportFindings(collectFindings(results, { meaningMax: 70 }), results.length);
   if (fs.existsSync(PROGRESS_PATH)) { fs.unlinkSync(PROGRESS_PATH); console.log('진행 파일 정리됨'); }
 }
 

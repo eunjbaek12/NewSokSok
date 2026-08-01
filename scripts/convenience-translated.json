@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "편의점",
+    "pos": "noun",
+    "meaningEn": "a convenience store",
+    "romaja": "pyeonuijeom",
+    "exampleKo": "집 앞 편의점에서 우산 하나 사 왔어요.",
+    "exampleEn": "I bought an umbrella at the convenience store in front of my place.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 2,
+    "term": "24시간",
+    "pos": "noun",
+    "meaningEn": "24 hours",
+    "romaja": "isipsasigan",
+    "exampleKo": "이 편의점은 24시간 문을 열어요.",
+    "exampleEn": "This convenience store is open 24 hours.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 3,
+    "term": "매대",
+    "pos": "noun",
+    "meaningEn": "a display stand; a shelf unit",
+    "romaja": "maedae",
+    "exampleKo": "저쪽 매대에 행사 상품 있어요.",
+    "exampleEn": "There are promotional items on that display stand.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 4,
+    "term": "소비기한",
+    "pos": "noun",
+    "meaningEn": "use-by date (replaced 유통기한 on labels in 2023)",
+    "romaja": "sobigihan",
+    "exampleKo": "이 도시락 소비기한이 언제까지예요?",
+    "exampleEn": "What's the use-by date for this lunchbox?",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 5,
+    "term": "알바생",
+    "pos": "noun",
+    "meaningEn": "a part-time worker",
+    "romaja": "albasaeng",
+    "exampleKo": "알바생이 아주 친절하게 응대해 줬어요.",
+    "exampleEn": "The part-time worker responded very kindly.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 6,
+    "term": "창가석",
+    "pos": "noun",
+    "meaningEn": "a window counter seat",
+    "romaja": "changgaseok",
+    "exampleKo": "창가석에 앉아서 컵라면 먹을게요.",
+    "exampleEn": "I'll sit at the window seat and eat cup ramen.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 7,
+    "term": "전자레인지",
+    "pos": "noun",
+    "meaningEn": "a microwave",
+    "romaja": "jeonjareinji",
+    "exampleKo": "전자레인지는 어디에서 사용할 수 있어요?",
+    "exampleEn": "Where can I use the microwave?",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 8,
+    "term": "온수기",
+    "pos": "noun",
+    "meaningEn": "a hot water dispenser",
+    "romaja": "onsugi",
+    "exampleKo": "컵라면에 온수기 물을 부어 주세요.",
+    "exampleEn": "Please pour hot water from the dispenser into the cup ramen.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 9,
+    "term": "택배 접수",
+    "pos": "noun",
+    "meaningEn": "parcel drop-off; courier service reception",
+    "romaja": "taekbae jeopsu",
+    "exampleKo": "여기서 택배 접수도 가능한가요?",
+    "exampleEn": "Can I also drop off a parcel here?",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 10,
+    "term": "품절",
+    "pos": "noun",
+    "meaningEn": "sold out; out of stock",
+    "romaja": "pumjeol",
+    "exampleKo": "죄송하지만 그 상품은 지금 품절이에요.",
+    "exampleEn": "I'm sorry, but that item is currently sold out.",
+    "category": "매장·매대"
+  },
+  {
+    "rank": 11,
+    "term": "계산대",
+    "pos": "noun",
+    "meaningEn": "a checkout counter",
+    "romaja": "gyesandae",
+    "exampleKo": "계산대로 가셔서 결제하시면 됩니다.",
+    "exampleEn": "Please go to the checkout counter to pay.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 12,
+    "term": "봉투",
+    "pos": "noun",
+    "meaningEn": "a bag",
+    "romaja": "bongtu",
+    "exampleKo": "봉투 필요하세요? 200원입니다.",
+    "exampleEn": "Do you need a bag? It's 200 won.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 13,
+    "term": "비닐봉투",
+    "pos": "noun",
+    "meaningEn": "a plastic bag",
+    "romaja": "binilbongtu",
+    "exampleKo": "비닐봉투는 따로 구매하셔야 해요.",
+    "exampleEn": "You have to buy plastic bags separately.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 14,
+    "term": "종량제봉투",
+    "pos": "noun",
+    "meaningEn": "a volume-rate rubbish bag",
+    "romaja": "jongnyangjebongtu",
+    "exampleKo": "20리터 종량제봉투 하나 주세요.",
+    "exampleEn": "Please give me one 20-liter volume-rate rubbish bag.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 15,
+    "term": "적립",
+    "pos": "noun",
+    "meaningEn": "point accrual; earning points",
+    "romaja": "jeongnip",
+    "exampleKo": "포인트 적립하시겠어요? 전화번호 알려 주세요.",
+    "exampleEn": "Would you like to accrue points? Please tell me your phone number.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 16,
+    "term": "현금영수증",
+    "pos": "noun",
+    "meaningEn": "a cash receipt (for tax deduction)",
+    "romaja": "hyeongeumyeongsujeung",
+    "exampleKo": "현금영수증 발행해 드릴까요?",
+    "exampleEn": "Shall I issue a cash receipt for you?",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 17,
+    "term": "일시불",
+    "pos": "noun",
+    "meaningEn": "one-time payment; lump sum payment",
+    "romaja": "ilsibul",
+    "exampleKo": "일시불로 결제하시겠어요, 할부로 하시겠어요?",
+    "exampleEn": "Would you like to pay in a lump sum or in installments?",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 18,
+    "term": "원 플러스 원",
+    "pos": "noun",
+    "meaningEn": "buy one get one free (1+1)",
+    "romaja": "won peulleoseu won",
+    "exampleKo": "이 과자는 지금 원 플러스 원 행사 중이에요.",
+    "exampleEn": "This snack is currently on a buy one get one free promotion.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 19,
+    "term": "행사 상품",
+    "pos": "noun",
+    "meaningEn": "an item on promotion",
+    "romaja": "haengsa sangpum",
+    "exampleKo": "행사 상품은 저쪽 매대에 진열되어 있어요.",
+    "exampleEn": "Promotional items are displayed on that stand over there.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 20,
+    "term": "잔돈",
+    "pos": "noun",
+    "meaningEn": "change (money)",
+    "romaja": "jandon",
+    "exampleKo": "잔돈은 현금으로 드릴까요?",
+    "exampleEn": "Shall I give you the change in cash?",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 21,
+    "term": "바코드",
+    "pos": "noun",
+    "meaningEn": "a barcode",
+    "romaja": "bakodeu",
+    "exampleKo": "이 상품 바코드 좀 찍어 주세요.",
+    "exampleEn": "Please scan the barcode for this item.",
+    "category": "계산·결제"
+  },
+  {
+    "rank": 22,
+    "term": "도시락",
+    "pos": "noun",
+    "meaningEn": "a boxed meal; a lunchbox",
+    "romaja": "dosirak",
+    "exampleKo": "오늘 저녁은 편의점 도시락으로 때울게요.",
+    "exampleEn": "I'll grab a convenience store lunchbox for dinner tonight.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 23,
+    "term": "삼각김밥",
+    "pos": "noun",
+    "meaningEn": "a triangular rice ball (gimbap)",
+    "romaja": "samgakgimbap",
+    "exampleKo": "참치마요 삼각김밥 두 개 주세요.",
+    "exampleEn": "Please give me two tuna mayo triangular rice balls.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 24,
+    "term": "컵라면",
+    "pos": "noun",
+    "meaningEn": "cup ramen; instant noodles in a cup",
+    "romaja": "keomnamyeon",
+    "exampleKo": "뜨거운 물 받아서 컵라면 먹고 갈게요.",
+    "exampleEn": "I'll get hot water, eat cup ramen, and then leave.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 25,
+    "term": "데우다",
+    "pos": "verb",
+    "meaningEn": "to heat up; to warm (food)",
+    "romaja": "de-uda",
+    "exampleKo": "찌개가 식었으니까 다시 데워 먹어야겠어요.",
+    "exampleEn": "The stew has gone cold, so I'll have to heat it up again.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 26,
+    "term": "데워 드릴까요?",
+    "pos": "phrase",
+    "meaningEn": "Shall I heat it up for you?",
+    "romaja": "dewo deurilkkayo?",
+    "exampleKo": "이거 데워 드릴까요?",
+    "exampleEn": "Shall I heat this up for you?",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 27,
+    "term": "나무젓가락",
+    "pos": "noun",
+    "meaningEn": "disposable wooden chopsticks",
+    "romaja": "namujeotgarak",
+    "exampleKo": "나무젓가락 필요하세요?",
+    "exampleEn": "Do you need wooden chopsticks?",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 28,
+    "term": "뚜껑",
+    "pos": "noun",
+    "meaningEn": "a lid",
+    "romaja": "ttukkeong",
+    "exampleKo": "라면 뚜껑 닫아주세요.",
+    "exampleEn": "Please close the ramen lid.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 29,
+    "term": "스프",
+    "pos": "noun",
+    "meaningEn": "ramen soup powder sachet",
+    "romaja": "seupeu",
+    "exampleKo": "라면에 스프 먼저 넣으세요.",
+    "exampleEn": "Put the soup sachet in the ramen first.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 30,
+    "term": "어묵",
+    "pos": "noun",
+    "meaningEn": "fish cake (on a skewer)",
+    "romaja": "eomuk",
+    "exampleKo": "어묵 하나 주세요.",
+    "exampleEn": "Please give me one fish cake.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 31,
+    "term": "온장고",
+    "pos": "noun",
+    "meaningEn": "heated display case",
+    "romaja": "onjanggo",
+    "exampleKo": "온장고에 따뜻한 음료 있어요.",
+    "exampleEn": "There are warm drinks in the heated case.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 32,
+    "term": "컵밥",
+    "pos": "noun",
+    "meaningEn": "rice meal in a cup",
+    "romaja": "keopbap",
+    "exampleKo": "컵밥은 전자레인지에 2분만 돌리면 돼요.",
+    "exampleEn": "Cup rice only needs two minutes in the microwave.",
+    "category": "즉석식품"
+  },
+  {
+    "rank": 33,
+    "term": "배달앱",
+    "pos": "noun",
+    "meaningEn": "food delivery app",
+    "romaja": "baedaraep",
+    "exampleKo": "요즘은 배달앱으로 안 시키는 게 없어요.",
+    "exampleEn": "These days there's nothing people don't order on a delivery app.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 34,
+    "term": "배달비",
+    "pos": "noun",
+    "meaningEn": "delivery fee",
+    "romaja": "baedalbi",
+    "exampleKo": "배달비가 너무 비싸요.",
+    "exampleEn": "The delivery fee is too expensive.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 35,
+    "term": "최소주문금액",
+    "pos": "noun",
+    "meaningEn": "minimum order amount",
+    "romaja": "choesojumungeumaek",
+    "exampleKo": "최소주문금액이 만 오천 원이라 하나 더 담았어요.",
+    "exampleEn": "The minimum order was 15,000 won, so I added one more thing.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 36,
+    "term": "요청사항",
+    "pos": "noun",
+    "meaningEn": "special requests (for order)",
+    "romaja": "yocheongsahang",
+    "exampleKo": "요청사항에 덜 맵게 해 달라고 써 주세요.",
+    "exampleEn": "Please write in the request box that you'd like it less spicy.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 37,
+    "term": "일회용품",
+    "pos": "noun",
+    "meaningEn": "disposables; disposable cutlery",
+    "romaja": "ilhoeyongpum",
+    "exampleKo": "일회용품 빼주세요.",
+    "exampleEn": "Please leave out the disposables.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 38,
+    "term": "리뷰 이벤트",
+    "pos": "noun",
+    "meaningEn": "review event (for free food)",
+    "romaja": "ribyu ibenteu",
+    "exampleKo": "리뷰 이벤트 참여할게요.",
+    "exampleEn": "I'll participate in the review event.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 39,
+    "term": "묶음배달",
+    "pos": "noun",
+    "meaningEn": "bundled delivery",
+    "romaja": "mukkeumbaedal",
+    "exampleKo": "묶음배달이라 좀 늦어요.",
+    "exampleEn": "It's a bundled delivery, so it's a bit late.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 40,
+    "term": "포장",
+    "pos": "noun",
+    "meaningEn": "takeout (ordered via app)",
+    "romaja": "pojang",
+    "exampleKo": "배달비가 아까워서 그냥 포장으로 주문했어요.",
+    "exampleEn": "The delivery fee felt like a waste, so I ordered it for pickup instead.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 41,
+    "term": "별점",
+    "pos": "noun",
+    "meaningEn": "star rating",
+    "romaja": "byeoljeom",
+    "exampleKo": "별점 5점 남겨주세요.",
+    "exampleEn": "Please leave a 5-star rating.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 42,
+    "term": "쿠폰",
+    "pos": "noun",
+    "meaningEn": "a coupon",
+    "romaja": "kupon",
+    "exampleKo": "쿠폰 적용해 주세요.",
+    "exampleEn": "Please apply the coupon.",
+    "category": "배달 주문"
+  },
+  {
+    "rank": 43,
+    "term": "문 앞에 두고 벨 눌러 주세요",
+    "pos": "phrase",
+    "meaningEn": "Please leave it at the door and ring the bell",
+    "romaja": "mun ape dugo bel nulleo juseyo",
+    "exampleKo": "문 앞에 두고 벨 눌러 주세요.",
+    "exampleEn": "Please leave it at the door and ring the bell.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 44,
+    "term": "공동현관 비밀번호",
+    "pos": "noun",
+    "meaningEn": "shared entrance door code",
+    "romaja": "gongdonghyeongwan bimilbeonho",
+    "exampleKo": "공동현관 비밀번호 알려주세요.",
+    "exampleEn": "Please tell me the shared entrance code.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 45,
+    "term": "벨 누르지 마세요",
+    "pos": "phrase",
+    "meaningEn": "Please don't ring the bell.",
+    "romaja": "bel nureuji maseyo",
+    "exampleKo": "아기가 자고 있어서 벨 누르지 마세요.",
+    "exampleEn": "The baby is sleeping, so please don't ring the bell.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 46,
+    "term": "기사님",
+    "pos": "noun",
+    "meaningEn": "delivery driver (respectful)",
+    "romaja": "gisanim",
+    "exampleKo": "기사님, 조심히 오세요!",
+    "exampleEn": "Driver, please drive safely!",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 47,
+    "term": "비대면",
+    "pos": "noun",
+    "meaningEn": "contact-free",
+    "romaja": "bidaemyeon",
+    "exampleKo": "비대면 배달로 요청했어요.",
+    "exampleEn": "I requested contact-free delivery.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 48,
+    "term": "문고리",
+    "pos": "noun",
+    "meaningEn": "door handle",
+    "romaja": "mungori",
+    "exampleKo": "문고리에 걸어 주세요.",
+    "exampleEn": "Please hang it on the door handle.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 49,
+    "term": "배달 완료",
+    "pos": "noun",
+    "meaningEn": "delivery complete",
+    "romaja": "baedal wallyo",
+    "exampleKo": "배달 완료 알림이 왔어요.",
+    "exampleEn": "I got a 'delivery complete' notification.",
+    "category": "배달 받기"
+  },
+  {
+    "rank": 50,
+    "term": "도착 예정 시간",
+    "pos": "noun",
+    "meaningEn": "estimated arrival time",
+    "romaja": "dochak yejeong sigan",
+    "exampleKo": "도착 예정 시간 확인해 보세요.",
+    "exampleEn": "Please check the estimated arrival time.",
+    "category": "배달 받기"
+  }
+]

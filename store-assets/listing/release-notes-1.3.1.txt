@@ -1,0 +1,70 @@
+<ko-KR>
+📚 새 단어장 4종
+• 의성어·의태어 100 — 반짝반짝, 두근두근처럼 한국어다운 표현
+• 영어로 옮기기 어려운 한국어 50 — 눈치, 정, 서운하다
+• 편의점·배달 50 — 소비기한, 묶음배달, 문고리
+• TOPIK I 필수 350 — 시험 주제별로 정리
+
+🔤 로마자 표기를 다듬었어요
+한국어 단어장의 발음 표기를 국립국어원 로마자 표기법에 맞게 바로잡았어요.
+
+그 밖에
+• 읽을 수 없는 언어의 단어장은 목록에 뜨지 않아요
+• 앱 평가하기를 눌러도 반응이 없던 문제 수정
+</ko-KR>
+<en-US>
+📚 Four new word lists
+• Onomatopoeia & Mimetic Words 100 — the sounds and textures Korean does best
+• Untranslatable Korean 50 — 눈치, 정, 서운하다
+• Convenience Store & Delivery 50 — everyday Korean you'll actually use
+• TOPIK I Essentials 350 — organised by exam topic
+
+🔤 Cleaner romanisation
+Pronunciation in the Korean lists now follows the Revised Romanization standard.
+
+Also
+• Lists in languages you can't read no longer clutter the catalogue
+• Fixed the Rate This App button doing nothing when tapped
+</en-US>
+<ja-JP>
+📚 新しい単語帳4種
+• 擬声語・擬態語100 — 韓国語らしい音と様子の表現
+• 英語にしにくい韓国語50 — 눈치、정、서운하다
+• コンビニ・デリバリー50 — 実際に使う日常の韓国語
+• TOPIK I 必須350 — 試験のテーマ別に整理
+
+🔤 ローマ字表記を整えました
+韓国語単語帳の発音表記を、韓国の国立国語院のローマ字表記法に合わせて修正しました。
+
+その他
+• 読めない言語の単語帳は一覧に表示されなくなりました
+• 「アプリを評価」を押しても反応しなかった問題を修正
+</ja-JP>
+<vi>
+📚 Bốn bộ từ vựng mới
+• Từ tượng thanh & tượng hình 100 — nét đặc trưng nhất của tiếng Hàn
+• Tiếng Hàn khó dịch sang tiếng Anh 50 — 눈치, 정, 서운하다
+• Cửa hàng tiện lợi & Giao hàng 50 — tiếng Hàn dùng hằng ngày
+• TOPIK I trọng tâm 350 — sắp xếp theo chủ đề thi
+
+🔤 Chuẩn hóa phiên âm La-tinh
+Phiên âm trong các bộ từ tiếng Hàn nay theo đúng quy tắc La-tinh hóa của Viện Quốc ngữ Hàn Quốc.
+
+Khác
+• Bộ từ vựng bằng ngôn ngữ bạn không đọc được sẽ không hiện trong danh sách
+• Sửa lỗi nút Đánh giá ứng dụng không phản hồi khi nhấn
+</vi>
+<zh-CN>
+📚 四套新单词本
+• 拟声词·拟态词100 — 最有韩语味道的表达
+• 难以译成英文的韩语50 — 눈치、정、서운하다
+• 便利店·外卖50 — 真正用得上的日常韩语
+• TOPIK I 必备350 — 按考试主题整理
+
+🔤 罗马字标注更准确
+韩语单词本的发音标注已按韩国国立国语院的罗马字标记法修正。
+
+其他
+• 你读不懂的语言的单词本不再出现在列表中
+• 修复点击"给应用评分"没有反应的问题
+</zh-CN>

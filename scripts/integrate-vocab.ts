@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  topik1: {
+    id: 'curated-topik1-ko-1',
+    title: 'TOPIK I Essentials 350',
+    icon: '📝',
+    category: '시험',
+    level: 'beginner',
+    description: 'Vocabulary for TOPIK I (levels 1-2), organised by the topic areas the official assessment criteria name — introducing yourself & family, shopping, ordering food, hobbies, weather & seasons, daily routine, transport & directions, and the level-2 functions: public facilities (post office, bank, district office) and phone calls, requests & appointments. 350 words across 10 topics, headwords selected in-house rather than copied from any published list. Every example is written within beginner grammar so you can read the whole sentence. Korean→English; meanings & examples AI-generated.',
+    tags: ['Korean', 'TOPIK', 'Exam'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   convenience: {
     id: 'curated-convenience-ko-1',
     title: 'Korean Convenience Store & Delivery 50',

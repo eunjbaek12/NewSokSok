@@ -80,7 +80,8 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
     // '당신' — topik1 첫 생성에서 "당신의 직업은 무엇입니까?"가 나왔다. 한국어는
     // 2인칭 대명사를 이렇게 쓰지 않아 번역투이거나 무례하게 들리는데, 교재가 흔히
     // 저지르는 오류라 학습자에게 그대로 심긴다.
-    if (ko.includes('당신')) push('당신', w.term, ko);
+    // 표제어가 '당신' 자체인 카드는 예문에 쓸 수밖에 없다(기존 Intermediate 덱에 있다).
+    if (w.term !== '당신' && ko.includes('당신')) push('당신', w.term, ko);
 
     // 영어 슬롯에 한글이 남은 것 (화병 덱에서 exampleEn에 '화병'이 그대로 남았다)
     if (/[가-힣]/.test(en)) push('영어 슬롯에 한글', w.term, en);

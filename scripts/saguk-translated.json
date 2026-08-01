@@ -284,7 +284,7 @@
     "term": "현감",
     "pos": "noun",
     "meaningEn": "a county magistrate (the lowest-ranking local governor in Joseon)",
-    "romaja": "hyeogam",
+    "romaja": "hyeongam",
     "exampleKo": "현감 나리, 저희 마을의 억울한 사정을 헤아려 주시옵소서.",
     "exampleEn": "County Magistrate, please consider the injustice of our village.",
     "category": "관직"
@@ -314,7 +314,7 @@
     "term": "대제학",
     "pos": "noun",
     "meaningEn": "the Grand Scholar (the highest scholarly and literary official, often overseeing royal academies)",
-    "romaja": "daejehagi",
+    "romaja": "daejehak",
     "exampleKo": "대제학께서는 폐하의 총애를 받으시어 지엄하신 분이시옵니다.",
     "exampleEn": "The Grand Scholar is a revered figure, enjoying His Majesty's favor.",
     "category": "관직"
@@ -414,7 +414,7 @@
     "term": "제조상궁",
     "pos": "noun",
     "meaningEn": "the head court lady (the highest-ranking court lady, overseeing all palace women and managing royal household affairs)",
-    "romaja": "jejosaungung",
+    "romaja": "jejosanggung",
     "exampleKo": "제조상궁은 궁궐의 모든 일을 총괄하니 그 권세가 막강하다.",
     "exampleEn": "The Head Court Lady oversees all palace affairs, so her authority is immense.",
     "category": "궁중"
@@ -454,7 +454,7 @@
     "term": "성은이 망극하옵니다",
     "pos": "phrase",
     "meaningEn": "Your Majesty's grace is boundless (a set phrase expressing overwhelming gratitude to the king)",
-    "romaja": "seong-eun-i mang-geuk-ha-op-ni-da",
+    "romaja": "seongeuni manggeukaomnida",
     "exampleKo": "폐하의 지극한 성은이 망극하옵니다. 소신, 죽어서도 그 은혜 잊지 않겠습니다.",
     "exampleEn": "Your Majesty's boundless grace overwhelms me. I shall not forget this favor even in death.",
     "category": "사극체 표현"
@@ -464,7 +464,7 @@
     "term": "통촉하여 주시옵소서",
     "pos": "phrase",
     "meaningEn": "Please reconsider / show your wisdom, Your Majesty (a humble plea to the king to carefully consider a matter with wisdom)",
-    "romaja": "tongchok-hayeo jusiobeoseo",
+    "romaja": "tongchokayeo jusiopsoseo",
     "exampleKo": "폐하, 부디 소신들의 충언을 통촉하여 주시옵소서.",
     "exampleEn": "Your Majesty, please graciously consider our loyal counsel.",
     "category": "사극체 표현"
@@ -474,7 +474,7 @@
     "term": "망극하옵니다",
     "pos": "phrase",
     "meaningEn": "I am overwhelmed (with gratitude or grief), Your Majesty (a formal expression of being overwhelmed, often by royal grace or sorrow)",
-    "romaja": "mang-geuk-ha-op-ni-da",
+    "romaja": "manggeukaomnida",
     "exampleKo": "폐하의 깊으신 배려에 소신은 그저 망극하옵니다.",
     "exampleEn": "I am simply overwhelmed by Your Majesty's profound consideration.",
     "category": "사극체 표현"
@@ -484,7 +484,7 @@
     "term": "황공하옵니다",
     "pos": "phrase",
     "meaningEn": "I am humbled and awestruck (before the king; expressing extreme deference and trepidation in the king's presence)",
-    "romaja": "hwanggong-ha-op-ni-da",
+    "romaja": "hwanggonghaomnida",
     "exampleKo": "폐하의 지엄하신 분부에 소신 황공하옵니다. 명을 받들겠습니다.",
     "exampleEn": "I am humbled and awestruck by Your Majesty's solemn command. I shall obey.",
     "category": "사극체 표현"
@@ -494,7 +494,7 @@
     "term": "송구하옵니다",
     "pos": "phrase",
     "meaningEn": "I am deeply sorry, Your Majesty (a humble apology, expressing remorse and regret to the king)",
-    "romaja": "song-gu-ha-op-ni-da",
+    "romaja": "songguhaomnida",
     "exampleKo": "소신, 폐하께 실례를 범하여 송구하옵니다. 부디 용서하여 주시옵소서.",
     "exampleEn": "I am deeply sorry for having offended Your Majesty. Please forgive me.",
     "category": "사극체 표현"
@@ -504,7 +504,7 @@
     "term": "아니 되옵니다",
     "pos": "phrase",
     "meaningEn": "It must not be done, Your Majesty (a courtly objection to a royal command or action).",
-    "romaja": "ani doeopnida",
+    "romaja": "ani doeomnida",
     "exampleKo": "전하, 이는 결코 아니 되옵니다! 부디 재고하여 주시옵소서.",
     "exampleEn": "Your Majesty, this must absolutely not be done! Please reconsider.",
     "category": "사극체 표현"
@@ -514,7 +514,7 @@
     "term": "분부대로 하겠사옵니다",
     "pos": "phrase",
     "meaningEn": "I shall do exactly as you command (an obedient reply to a superior or the king).",
-    "romaja": "bunbudaero haget-saopnida",
+    "romaja": "bunbudaero hagetsaomnida",
     "exampleKo": "마마, 소인이 마마의 분부대로 하겠사옵니다. 염려 마시옵소서.",
     "exampleEn": "Your Highness, I shall do exactly as you command. Please do not worry.",
     "category": "사극체 표현"
@@ -524,7 +524,7 @@
     "term": "명을 받들겠사옵니다",
     "pos": "phrase",
     "meaningEn": "I shall obey and carry out the command (a formal declaration of obedience to a royal or superior's order).",
-    "romaja": "myeong-eul batdeulget-saopnida",
+    "romaja": "myeongeul batdeulgetsaomnida",
     "exampleKo": "전하의 지엄하신 명을 받들겠사옵니다. 소신, 목숨을 다하겠나이다.",
     "exampleEn": "I shall obey and carry out Your Majesty's solemn command. I, your subject, will give my life.",
     "category": "사극체 표현"
@@ -614,7 +614,7 @@
     "term": "어전",
     "pos": "noun",
     "meaningEn": "The royal presence; before the king (the area or situation directly in front of the king).",
-    "romaja": "eojon",
+    "romaja": "eojeon",
     "exampleKo": "감히 어전에서 소란을 피우다니, 당장 끌어내라!",
     "exampleEn": "How dare you cause a disturbance in the royal presence! Drag him out at once!",
     "category": "사극체 표현"
@@ -724,7 +724,7 @@
     "term": "역모",
     "pos": "noun",
     "meaningEn": "A plot of treason or rebellion against the king or the state.",
-    "romaja": "yeokmo",
+    "romaja": "yeongmo",
     "exampleKo": "역모의 증좌가 명백하니, 죄인들을 엄히 다스려야 할 것이옵니다.",
     "exampleEn": "The evidence of treason is clear, so the culprits must be severely punished.",
     "category": "군사·무관"

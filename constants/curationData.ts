@@ -11034,7 +11034,7 @@ export const curationPresets: VocaList[] = [
           "Hiking",
           "Daily Life"
         ],
-        "phonetic": "sugohasyeosseumnida",
+        "phonetic": "sugohasyeotseumnida",
         "pos": "phrase"
       },
       {
@@ -11270,7 +11270,7 @@ export const curationPresets: VocaList[] = [
           "Market",
           "Daily Life"
         ],
-        "phonetic": "jeongnyukjeom",
+        "phonetic": "jeongyukjeom",
         "pos": "noun"
       },
       {
@@ -12492,7 +12492,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "manhta",
+        "phonetic": "manta",
         "pos": "adjective"
       },
       {
@@ -12526,7 +12526,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "johda",
+        "phonetic": "jota",
         "pos": "adjective"
       },
       {
@@ -13180,8 +13180,8 @@ export const curationPresets: VocaList[] = [
         "term": "시간",
         "definition": "thời gian, giờ",
         "meaningKr": "thời gian, giờ",
-        "exampleEn": "지금 몇 시예요?",
-        "exampleKr": "Bây giờ là mấy giờ rồi ạ?",
+        "exampleEn": "시간이 없어서 빨리 가야 해요.",
+        "exampleKr": "Tôi không có thời gian nên phải đi nhanh.",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -14124,7 +14124,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "antta",
+        "phonetic": "anda",
         "pos": "verb"
       },
       {
@@ -15399,7 +15399,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "pillyo",
+        "phonetic": "piryo",
         "pos": "noun"
       },
       {
@@ -16453,7 +16453,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "haknyeon",
+        "phonetic": "hangnyeon",
         "pos": "noun"
       },
       {
@@ -16487,7 +16487,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ihaehanada",
+        "phonetic": "ihaehada",
         "pos": "verb"
       },
       {
@@ -17736,8 +17736,8 @@ export const curationPresets: VocaList[] = [
         "term": "버스",
         "definition": "xe buýt",
         "meaningKr": "xe buýt",
-        "exampleEn": "버스를 타고 학교에 가요.",
-        "exampleKr": "Tôi đi xe buýt đến trường.",
+        "exampleEn": "버스 정류장이 어디에 있어요?",
+        "exampleKr": "Bến xe buýt ở đâu ạ?",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -18255,7 +18255,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jjalbda",
+        "phonetic": "jjalda",
         "pos": "adjective"
       },
       {
@@ -18365,7 +18365,7 @@ export const curationPresets: VocaList[] = [
         "term": "언제",
         "definition": "khi nào, bao giờ",
         "meaningKr": "khi nào, bao giờ",
-        "exampleEn": "당신은 언제 한국에 왔어요?",
+        "exampleEn": "언제 한국에 왔어요?",
         "exampleKr": "Bạn đã đến Hàn Quốc khi nào?",
         "isMemorized": false,
         "isStarred": false,
@@ -18901,7 +18901,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ssauuda",
+        "phonetic": "ssauda",
         "pos": "verb"
       },
       {
@@ -18986,7 +18986,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jaknyeon",
+        "phonetic": "jangnyeon",
         "pos": "noun"
       },
       {
@@ -19666,7 +19666,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jajeongeoji",
+        "phonetic": "jajeongeo",
         "pos": "noun"
       },
       {
@@ -20346,7 +20346,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "kkeutnaeda",
+        "phonetic": "kkeunnaeda",
         "pos": "verb"
       },
       {
@@ -21007,7 +21007,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "manhta",
+        "phonetic": "manta",
         "pos": "adjective"
       },
       {
@@ -21041,7 +21041,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "johda",
+        "phonetic": "jota",
         "pos": "adjective"
       },
       {
@@ -21135,7 +21135,7 @@ export const curationPresets: VocaList[] = [
         "definition": "従う、ついていく、注ぐ",
         "meaningKr": "従う、ついていく、注ぐ",
         "exampleEn": "길을 잃지 않으려면 앞 사람을 따르세요.",
-        "exampleKr": "道を失わないためには前の人を 따라いましょう。",
+        "exampleKr": "道に迷わないように前の人について行ってください。",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -21695,8 +21695,8 @@ export const curationPresets: VocaList[] = [
         "term": "시간",
         "definition": "時間、時",
         "meaningKr": "時間、時",
-        "exampleEn": "지금 몇 시예요?",
-        "exampleKr": "今何時ですか？",
+        "exampleEn": "시간이 없어서 빨리 가야 해요.",
+        "exampleKr": "時間がないので早く行かなければなりません。",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -22639,7 +22639,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "antta",
+        "phonetic": "anda",
         "pos": "verb"
       },
       {
@@ -23914,7 +23914,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "pillyo",
+        "phonetic": "piryo",
         "pos": "noun"
       },
       {
@@ -24968,7 +24968,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "haknyeon",
+        "phonetic": "hangnyeon",
         "pos": "noun"
       },
       {
@@ -25002,7 +25002,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ihaehanada",
+        "phonetic": "ihaehada",
         "pos": "verb"
       },
       {
@@ -26251,8 +26251,8 @@ export const curationPresets: VocaList[] = [
         "term": "버스",
         "definition": "バス",
         "meaningKr": "バス",
-        "exampleEn": "버스를 타고 학교에 가요.",
-        "exampleKr": "バスに乗って学校に行きます。",
+        "exampleEn": "버스 정류장이 어디에 있어요?",
+        "exampleKr": "バス停はどこにありますか？",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -26770,7 +26770,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jjalbda",
+        "phonetic": "jjalda",
         "pos": "adjective"
       },
       {
@@ -26880,7 +26880,7 @@ export const curationPresets: VocaList[] = [
         "term": "언제",
         "definition": "いつ",
         "meaningKr": "いつ",
-        "exampleEn": "당신은 언제 한국에 왔어요?",
+        "exampleEn": "언제 한국에 왔어요?",
         "exampleKr": "あなたはいつ韓国に来ましたか？",
         "isMemorized": false,
         "isStarred": false,
@@ -27416,7 +27416,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ssauuda",
+        "phonetic": "ssauda",
         "pos": "verb"
       },
       {
@@ -27501,7 +27501,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jaknyeon",
+        "phonetic": "jangnyeon",
         "pos": "noun"
       },
       {
@@ -27578,7 +27578,7 @@ export const curationPresets: VocaList[] = [
         "definition": "男女",
         "meaningKr": "男女",
         "exampleEn": "남녀 모두 참여할 수 있습니다.",
-        "exampleKr": "男女 모두 参加できます。",
+        "exampleKr": "男女ともに参加できます。",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -28181,7 +28181,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jajeongeoji",
+        "phonetic": "jajeongeo",
         "pos": "noun"
       },
       {
@@ -28861,7 +28861,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "kkeutnaeda",
+        "phonetic": "kkeunnaeda",
         "pos": "verb"
       },
       {
@@ -29522,7 +29522,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "manhta",
+        "phonetic": "manta",
         "pos": "adjective"
       },
       {
@@ -29556,7 +29556,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "johda",
+        "phonetic": "jota",
         "pos": "adjective"
       },
       {
@@ -30210,8 +30210,8 @@ export const curationPresets: VocaList[] = [
         "term": "시간",
         "definition": "时间, 小时",
         "meaningKr": "时间, 小时",
-        "exampleEn": "지금 몇 시예요?",
-        "exampleKr": "现在几点钟？",
+        "exampleEn": "시간이 없어서 빨리 가야 해요.",
+        "exampleKr": "没有时间了，所以得快点走。",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -31154,7 +31154,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "antta",
+        "phonetic": "anda",
         "pos": "verb"
       },
       {
@@ -32429,7 +32429,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "pillyo",
+        "phonetic": "piryo",
         "pos": "noun"
       },
       {
@@ -33483,7 +33483,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "haknyeon",
+        "phonetic": "hangnyeon",
         "pos": "noun"
       },
       {
@@ -33517,7 +33517,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ihaehanada",
+        "phonetic": "ihaehada",
         "pos": "verb"
       },
       {
@@ -34766,8 +34766,8 @@ export const curationPresets: VocaList[] = [
         "term": "버스",
         "definition": "公交车",
         "meaningKr": "公交车",
-        "exampleEn": "버스를 타고 학교에 가요.",
-        "exampleKr": "我坐公交车去学校。",
+        "exampleEn": "버스 정류장이 어디에 있어요?",
+        "exampleKr": "公交车站在哪里？",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -35285,7 +35285,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jjalbda",
+        "phonetic": "jjalda",
         "pos": "adjective"
       },
       {
@@ -35395,7 +35395,7 @@ export const curationPresets: VocaList[] = [
         "term": "언제",
         "definition": "什么时候",
         "meaningKr": "什么时候",
-        "exampleEn": "당신은 언제 한국에 왔어요?",
+        "exampleEn": "언제 한국에 왔어요?",
         "exampleKr": "你是什么时候来韩国的？",
         "isMemorized": false,
         "isStarred": false,
@@ -35931,7 +35931,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ssauuda",
+        "phonetic": "ssauda",
         "pos": "verb"
       },
       {
@@ -36016,7 +36016,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jaknyeon",
+        "phonetic": "jangnyeon",
         "pos": "noun"
       },
       {
@@ -36696,7 +36696,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jajeongeoji",
+        "phonetic": "jajeongeo",
         "pos": "noun"
       },
       {
@@ -37376,7 +37376,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "kkeutnaeda",
+        "phonetic": "kkeunnaeda",
         "pos": "verb"
       },
       {
@@ -40447,7 +40447,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "ddingjak",
+        "phonetic": "ttingjak",
         "pos": "noun"
       },
       {
@@ -40515,7 +40515,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "soooreum",
+        "phonetic": "sooreum",
         "pos": "interjection"
       },
       {
@@ -40634,7 +40634,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jjintaen",
+        "phonetic": "jjinten",
         "pos": "noun"
       },
       {
@@ -40685,7 +40685,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "gatssaeng",
+        "phonetic": "gatsaeng",
         "pos": "noun"
       },
       {
@@ -40770,7 +40770,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "peurobulpyeonreo",
+        "phonetic": "peurobulpyeolleo",
         "pos": "noun"
       },
       {
@@ -40787,7 +40787,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "mosssol",
+        "phonetic": "mossol",
         "pos": "noun"
       },
       {
@@ -40906,7 +40906,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "peulrekseu",
+        "phonetic": "peullekseu",
         "pos": "verb"
       },
       {
@@ -40940,7 +40940,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jjantaekeu",
+        "phonetic": "jjantekeu",
         "pos": "noun"
       },
       {
@@ -41025,7 +41025,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jeommaechu",
+        "phonetic": "jeommechu",
         "pos": "phrase"
       },
       {
@@ -41042,7 +41042,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jeomaechu",
+        "phonetic": "jeomechu",
         "pos": "phrase"
       },
       {
@@ -41093,7 +41093,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "eoljjuga",
+        "phonetic": "eoljuga",
         "pos": "phrase"
       },
       {
@@ -41127,7 +41127,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "gukrul",
+        "phonetic": "gungnul",
         "pos": "noun"
       },
       {
@@ -41960,7 +41960,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "gaekkulk",
+        "phonetic": "gaekkul",
         "pos": "adjective"
       },
       {
@@ -43775,7 +43775,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "michyeotta",
+        "phonetic": "michyeotda",
         "pos": "phrase"
       },
       {
@@ -43877,7 +43877,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "ddingjak",
+        "phonetic": "ttingjak",
         "pos": "noun"
       },
       {
@@ -44081,7 +44081,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "manrep",
+        "phonetic": "mallep",
         "pos": "noun"
       },
       {
@@ -44200,7 +44200,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "peurobulpyeonreo",
+        "phonetic": "peurobulpyeolleo",
         "pos": "noun"
       },
       {
@@ -44217,7 +44217,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "molsol",
+        "phonetic": "mossol",
         "pos": "noun"
       },
       {
@@ -44251,7 +44251,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "worabel",
+        "phonetic": "worabael",
         "pos": "noun"
       },
       {
@@ -44302,7 +44302,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "gasseongbi",
+        "phonetic": "gatseongbi",
         "pos": "noun"
       },
       {
@@ -44370,7 +44370,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jjantecheu",
+        "phonetic": "jjantekeu",
         "pos": "noun"
       },
       {
@@ -44455,7 +44455,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jeommechyu",
+        "phonetic": "jeommechu",
         "pos": "phrase"
       },
       {
@@ -44472,7 +44472,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "jeomechyu",
+        "phonetic": "jeomechu",
         "pos": "phrase"
       },
       {
@@ -44557,7 +44557,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "gungnyul",
+        "phonetic": "gungnul",
         "pos": "noun"
       },
       {
@@ -44676,7 +44676,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "naeroneambul",
+        "phonetic": "naeronambul",
         "pos": "phrase"
       },
       {
@@ -44693,7 +44693,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "kkilkkibappa",
+        "phonetic": "kkilkkippappa",
         "pos": "phrase"
       },
       {
@@ -44744,7 +44744,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "kebabke",
+        "phonetic": "kebake",
         "pos": "phrase"
       },
       {
@@ -44795,7 +44795,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "aljaltakkkalsen",
+        "phonetic": "aljalttakkalsen",
         "pos": "phrase"
       },
       {
@@ -45118,7 +45118,7 @@ export const curationPresets: VocaList[] = [
           "Slang",
           "MZ"
         ],
-        "phonetic": "dding-eon",
+        "phonetic": "ttingeon",
         "pos": "noun"
       },
       {
@@ -47324,7 +47324,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "deokme",
+        "phonetic": "deongme",
         "pos": "noun"
       },
       {
@@ -47426,7 +47426,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "gwamollip",
+        "phonetic": "gwamorip",
         "pos": "noun"
       },
       {
@@ -47528,7 +47528,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "geujeu",
+        "phonetic": "gutjeu",
         "pos": "noun"
       },
       {
@@ -47817,7 +47817,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "taiteulgon",
+        "phonetic": "taiteulgok",
         "pos": "noun"
       },
       {
@@ -48004,7 +48004,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "jikcaem",
+        "phonetic": "jikkaem",
         "pos": "noun"
       },
       {
@@ -48106,7 +48106,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "keombaekmudae",
+        "phonetic": "keombaengmudae",
         "pos": "noun"
       },
       {
@@ -48225,7 +48225,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "maknae",
+        "phonetic": "mangnae",
         "pos": "noun"
       },
       {
@@ -48293,7 +48293,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "maknaerain",
+        "phonetic": "mangnaerain",
         "pos": "noun"
       },
       {
@@ -48310,7 +48310,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "hyeongrain",
+        "phonetic": "hyeongnain",
         "pos": "noun"
       },
       {
@@ -48837,7 +48837,7 @@ export const curationPresets: VocaList[] = [
           "K-pop",
           "Culture"
         ],
-        "phonetic": "ipdeok-yeongsan",
+        "phonetic": "ipdeongnyeongsang",
         "pos": "noun"
       },
       {
@@ -49362,7 +49362,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "hyeogam",
+        "phonetic": "hyeongam",
         "pos": "noun"
       },
       {
@@ -49413,7 +49413,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "daejehagi",
+        "phonetic": "daejehak",
         "pos": "noun"
       },
       {
@@ -49583,7 +49583,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "jejosaungung",
+        "phonetic": "jejosanggung",
         "pos": "noun"
       },
       {
@@ -49651,7 +49651,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "seong-eun-i mang-geuk-ha-op-ni-da",
+        "phonetic": "seongeuni manggeukaomnida",
         "pos": "phrase"
       },
       {
@@ -49668,7 +49668,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "tongchok-hayeo jusiobeoseo",
+        "phonetic": "tongchokayeo jusiopsoseo",
         "pos": "phrase"
       },
       {
@@ -49685,7 +49685,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "mang-geuk-ha-op-ni-da",
+        "phonetic": "manggeukaomnida",
         "pos": "phrase"
       },
       {
@@ -49702,7 +49702,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "hwanggong-ha-op-ni-da",
+        "phonetic": "hwanggonghaomnida",
         "pos": "phrase"
       },
       {
@@ -49719,7 +49719,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "song-gu-ha-op-ni-da",
+        "phonetic": "songguhaomnida",
         "pos": "phrase"
       },
       {
@@ -49736,7 +49736,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "ani doeopnida",
+        "phonetic": "ani doeomnida",
         "pos": "phrase"
       },
       {
@@ -49753,7 +49753,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "bunbudaero haget-saopnida",
+        "phonetic": "bunbudaero hagetsaomnida",
         "pos": "phrase"
       },
       {
@@ -49770,7 +49770,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "myeong-eul batdeulget-saopnida",
+        "phonetic": "myeongeul batdeulgetsaomnida",
         "pos": "phrase"
       },
       {
@@ -49923,7 +49923,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "eojon",
+        "phonetic": "eojeon",
         "pos": "noun"
       },
       {
@@ -50110,7 +50110,7 @@ export const curationPresets: VocaList[] = [
           "Sageuk",
           "Culture"
         ],
-        "phonetic": "yeokmo",
+        "phonetic": "yeongmo",
         "pos": "noun"
       },
       {
@@ -105191,7 +105191,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "salm",
+        "phonetic": "sam",
         "pos": "noun"
       },
       {
@@ -105480,7 +105480,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "araboada",
+        "phonetic": "araboda",
         "pos": "verb"
       },
       {
@@ -106721,7 +106721,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "birohada",
+        "phonetic": "birotada",
         "pos": "verb"
       },
       {
@@ -106891,7 +106891,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "salagada",
+        "phonetic": "saragada",
         "pos": "verb"
       },
       {
@@ -107282,7 +107282,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "eon-ron",
+        "phonetic": "eollon",
         "pos": "noun"
       },
       {
@@ -107401,7 +107401,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "ja-gyeong",
+        "phonetic": "jagyong",
         "pos": "noun"
       },
       {
@@ -107452,7 +107452,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "chu-sin",
+        "phonetic": "chulsin",
         "pos": "noun"
       },
       {
@@ -108183,7 +108183,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "deobeulda",
+        "phonetic": "deobulda",
         "pos": "verb"
       },
       {
@@ -108217,7 +108217,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "apsseo",
+        "phonetic": "apseo",
         "pos": "adverb"
       },
       {
@@ -108319,7 +108319,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "maechye",
+        "phonetic": "maeche",
         "pos": "noun"
       },
       {
@@ -108591,7 +108591,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "dontukada",
+        "phonetic": "dokteukada",
         "pos": "adjective"
       },
       {
@@ -108676,7 +108676,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "hunryeon",
+        "phonetic": "hullyeon",
         "pos": "noun"
       },
       {
@@ -108744,7 +108744,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "pokryeok",
+        "phonetic": "pongnyeok",
         "pos": "noun"
       },
       {
@@ -108982,7 +108982,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "nungi",
+        "phonetic": "nungil",
         "pos": "noun"
       },
       {
@@ -109084,7 +109084,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "gyeol론",
+        "phonetic": "gyeollon",
         "pos": "noun"
       },
       {
@@ -109101,7 +109101,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "deulida",
+        "phonetic": "deurida",
         "pos": "verb"
       },
       {
@@ -109424,7 +109424,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "bonkyeokjeok",
+        "phonetic": "bongyeokjeok",
         "pos": "noun"
       },
       {
@@ -109594,7 +109594,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "chamuro",
+        "phonetic": "chameuro",
         "pos": "adverb"
       },
       {
@@ -110172,7 +110172,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "jomiry",
+        "phonetic": "jomiryo",
         "pos": "noun"
       },
       {
@@ -110393,7 +110393,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "ttwida",
+        "phonetic": "ttuida",
         "pos": "verb"
       },
       {
@@ -110784,7 +110784,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "silssi",
+        "phonetic": "silsi",
         "pos": "noun"
       },
       {
@@ -111073,7 +111073,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "sikryang",
+        "phonetic": "singnyang",
         "pos": "noun"
       },
       {
@@ -111243,7 +111243,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "nongsangmul",
+        "phonetic": "nongsanmul",
         "pos": "noun"
       },
       {
@@ -111260,7 +111260,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "widaehaada",
+        "phonetic": "widaehada",
         "pos": "adjective"
       },
       {
@@ -111311,7 +111311,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "gallyeong",
+        "phonetic": "garyeong",
         "pos": "adverb"
       },
       {
@@ -111634,7 +111634,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "apryeok",
+        "phonetic": "amnyeok",
         "pos": "noun"
       },
       {
@@ -111974,7 +111974,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "gyechung",
+        "phonetic": "gyecheung",
         "pos": "noun"
       },
       {
@@ -112042,7 +112042,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "cheolcheolhada",
+        "phonetic": "cheoljeohada",
         "pos": "adjective"
       },
       {
@@ -112280,7 +112280,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "aulyeo",
+        "phonetic": "aulleo",
         "pos": "adverb"
       },
       {
@@ -112331,7 +112331,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "deotbutida",
+        "phonetic": "deotbuchida",
         "pos": "verb"
       },
       {
@@ -112501,7 +112501,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "silshidoeda",
+        "phonetic": "silsidoeda",
         "pos": "verb"
       },
       {
@@ -112535,7 +112535,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "chotjeom",
+        "phonetic": "chojeom",
         "pos": "noun"
       },
       {
@@ -112841,7 +112841,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "motjianhda",
+        "phonetic": "motjianta",
         "pos": "adjective"
       },
       {
@@ -113079,7 +113079,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "gyeongjaengryeok",
+        "phonetic": "gyeongjaengnyeok",
         "pos": "noun"
       },
       {
@@ -113453,7 +113453,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Advanced"
         ],
-        "phonetic": "narani",
+        "phonetic": "naranhi",
         "pos": "adverb"
       },
       {
@@ -114828,7 +114828,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "hwalttong",
+        "phonetic": "hwaldong",
         "pos": "noun"
       },
       {
@@ -114981,7 +114981,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "gisure",
+        "phonetic": "gisul",
         "pos": "noun"
       },
       {
@@ -115397,8 +115397,8 @@ export const curationPresets: VocaList[] = [
         "term": "발전",
         "definition": "development, progress",
         "meaningKr": "development, progress",
-        "exampleEn": "한국은 짧은 시간 안에 경제적으로 크게 발전했습니다.",
-        "exampleKr": "Korea has greatly developed economically in a short period of time.",
+        "exampleEn": "이 도시는 최근 몇 년 사이에 눈부신 발전을 이루었습니다.",
+        "exampleKr": "This city has achieved remarkable development in recent years.",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -116783,7 +116783,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "beolida",
+        "phonetic": "beorida",
         "pos": "verb"
       },
       {
@@ -116817,7 +116817,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "matta",
+        "phonetic": "matda",
         "pos": "verb"
       },
       {
@@ -117412,7 +117412,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "nongup",
+        "phonetic": "nongeop",
         "pos": "noun"
       },
       {
@@ -118296,7 +118296,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "gwanri",
+        "phonetic": "gwalli",
         "pos": "noun"
       },
       {
@@ -118534,7 +118534,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "julida",
+        "phonetic": "jurida",
         "pos": "verb"
       },
       {
@@ -119086,8 +119086,8 @@ export const curationPresets: VocaList[] = [
         "term": "어울리다",
         "definition": "to get along with, to suit, to match",
         "meaningKr": "to get along with, to suit, to match",
-        "exampleEn": "그 옷은 당신에게 아주 잘 어울리니까 꼭 사세요!",
-        "exampleKr": "Those clothes suit you very well, so definitely buy them!",
+        "exampleEn": "그 옷이 정말 잘 어울리니까 꼭 사세요!",
+        "exampleKr": "Those clothes really suit you, so definitely buy them!",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -119452,7 +119452,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "imggeum",
+        "phonetic": "imgeum",
         "pos": "noun"
       },
       {
@@ -119656,7 +119656,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "naenoda",
+        "phonetic": "naenota",
         "pos": "verb"
       },
       {
@@ -119860,7 +119860,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "gyeongjeong",
+        "phonetic": "gyeoljeong",
         "pos": "noun"
       },
       {
@@ -119911,7 +119911,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "eopmu",
+        "phonetic": "eommu",
         "pos": "noun"
       },
       {
@@ -120421,7 +120421,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "wonrae",
+        "phonetic": "wollae",
         "pos": "adverb"
       },
       {
@@ -121118,7 +121118,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "jayuropta",
+        "phonetic": "jayuropda",
         "pos": "adjective"
       },
       {
@@ -121169,7 +121169,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "gili",
+        "phonetic": "giri",
         "pos": "noun"
       },
       {
@@ -121271,7 +121271,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "gidaehanda",
+        "phonetic": "gidaehada",
         "pos": "verb"
       },
       {
@@ -121781,7 +121781,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "paldal",
+        "phonetic": "baldal",
         "pos": "noun"
       },
       {
@@ -121883,7 +121883,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Intermediate"
         ],
-        "phonetic": "paksa",
+        "phonetic": "baksa",
         "pos": "noun"
       },
       {
@@ -131110,7 +131110,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "manhta",
+        "phonetic": "manta",
         "pos": "adjective"
       },
       {
@@ -131144,7 +131144,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "johda",
+        "phonetic": "jota",
         "pos": "adjective"
       },
       {
@@ -131798,8 +131798,8 @@ export const curationPresets: VocaList[] = [
         "term": "시간",
         "definition": "time, hour",
         "meaningKr": "time, hour",
-        "exampleEn": "지금 몇 시예요?",
-        "exampleKr": "What time is it now?",
+        "exampleEn": "시간이 없어서 빨리 가야 해요.",
+        "exampleKr": "I don't have time, so I have to go quickly.",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -132742,7 +132742,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "antta",
+        "phonetic": "anda",
         "pos": "verb"
       },
       {
@@ -134017,7 +134017,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "pillyo",
+        "phonetic": "piryo",
         "pos": "noun"
       },
       {
@@ -135071,7 +135071,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "haknyeon",
+        "phonetic": "hangnyeon",
         "pos": "noun"
       },
       {
@@ -135105,7 +135105,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ihaehanada",
+        "phonetic": "ihaehada",
         "pos": "verb"
       },
       {
@@ -136354,8 +136354,8 @@ export const curationPresets: VocaList[] = [
         "term": "버스",
         "definition": "bus",
         "meaningKr": "bus",
-        "exampleEn": "버스를 타고 학교에 가요.",
-        "exampleKr": "I go to school by bus.",
+        "exampleEn": "버스 정류장이 어디에 있어요?",
+        "exampleKr": "Where is the bus stop?",
         "isMemorized": false,
         "isStarred": false,
         "tags": [
@@ -136873,7 +136873,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jjalbda",
+        "phonetic": "jjalda",
         "pos": "adjective"
       },
       {
@@ -136983,7 +136983,7 @@ export const curationPresets: VocaList[] = [
         "term": "언제",
         "definition": "when",
         "meaningKr": "when",
-        "exampleEn": "당신은 언제 한국에 왔어요?",
+        "exampleEn": "언제 한국에 왔어요?",
         "exampleKr": "When did you come to Korea?",
         "isMemorized": false,
         "isStarred": false,
@@ -137519,7 +137519,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "ssauuda",
+        "phonetic": "ssauda",
         "pos": "verb"
       },
       {
@@ -137604,7 +137604,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jaknyeon",
+        "phonetic": "jangnyeon",
         "pos": "noun"
       },
       {
@@ -138284,7 +138284,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "jajeongeoji",
+        "phonetic": "jajeongeo",
         "pos": "noun"
       },
       {
@@ -138964,7 +138964,7 @@ export const curationPresets: VocaList[] = [
           "TOPIK",
           "Foundation"
         ],
-        "phonetic": "kkeutnaeda",
+        "phonetic": "kkeunnaeda",
         "pos": "verb"
       },
       {

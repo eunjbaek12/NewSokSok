@@ -786,7 +786,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "activity, movement",
-    "romaja": "hwalttong",
+    "romaja": "hwaldong",
     "exampleKo": "주말에는 주로 야외 활동을 하면서 시간을 보냅니다.",
     "exampleEn": "On weekends, I usually spend my time doing outdoor activities.",
     "category": "noun"
@@ -885,7 +885,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "technology, skill, technique",
-    "romaja": "gisure",
+    "romaja": "gisul",
     "exampleKo": "이 회사는 최신 IT 기술을 사용하여 제품을 만듭니다.",
     "exampleEn": "This company uses the latest IT technology to make its products.",
     "category": "noun"
@@ -1161,8 +1161,8 @@
     "grade": "B",
     "meaningEn": "development, progress",
     "romaja": "baljeon",
-    "exampleKo": "한국은 짧은 시간 안에 경제적으로 크게 발전했습니다.",
-    "exampleEn": "Korea has greatly developed economically in a short period of time.",
+    "exampleKo": "이 도시는 최근 몇 년 사이에 눈부신 발전을 이루었습니다.",
+    "exampleEn": "This city has achieved remarkable development in recent years.",
     "category": "noun"
   },
   {
@@ -2051,7 +2051,7 @@
     "pos": "verb",
     "grade": "B",
     "meaningEn": "to start, to begin, to wage (a war), to set up (a business)",
-    "romaja": "beolida",
+    "romaja": "beorida",
     "exampleKo": "친구와 함께 작은 사업을 벌이기로 결정했어요.",
     "exampleEn": "My friend and I decided to start a small business together.",
     "category": "verb"
@@ -2073,7 +2073,7 @@
     "pos": "verb",
     "grade": "B",
     "meaningEn": "to take charge of, to undertake, to smell",
-    "romaja": "matta",
+    "romaja": "matda",
     "exampleKo": "새로운 프로젝트를 맡게 되어서 책임감이 더 커졌어요.",
     "exampleEn": "I took charge of a new project, so my sense of responsibility grew.",
     "category": "verb"
@@ -2458,7 +2458,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "agriculture, farming",
-    "romaja": "nongup",
+    "romaja": "nongeop",
     "exampleKo": "이 지역은 주로 농업에 의존하며 살아가고 있습니다.",
     "exampleEn": "This region mainly relies on agriculture to live.",
     "category": "noun"
@@ -3030,7 +3030,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "management, administration; manager",
-    "romaja": "gwanri",
+    "romaja": "gwalli",
     "exampleKo": "이 건물은 관리가 잘 되어서 항상 깨끗해요.",
     "exampleEn": "This building is always clean because it is well-managed.",
     "category": "noun"
@@ -3184,7 +3184,7 @@
     "pos": "verb",
     "grade": "B",
     "meaningEn": "to reduce, to decrease, to shorten",
-    "romaja": "julida",
+    "romaja": "jurida",
     "exampleKo": "건강을 위해 저녁 식사량을 조금 줄이려고 노력하고 있어요.",
     "exampleEn": "I'm trying to reduce my dinner portion a bit for my health.",
     "category": "verb"
@@ -3548,8 +3548,8 @@
     "grade": "B",
     "meaningEn": "to get along with, to suit, to match",
     "romaja": "eoullida",
-    "exampleKo": "그 옷은 당신에게 아주 잘 어울리니까 꼭 사세요!",
-    "exampleEn": "Those clothes suit you very well, so definitely buy them!",
+    "exampleKo": "그 옷이 정말 잘 어울리니까 꼭 사세요!",
+    "exampleEn": "Those clothes really suit you, so definitely buy them!",
     "category": "verb"
   },
   {
@@ -3778,7 +3778,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "wages, pay, salary",
-    "romaja": "imggeum",
+    "romaja": "imgeum",
     "exampleKo": "이 회사는 다른 회사보다 임금이 높아서 인기가 많아요.",
     "exampleEn": "This company is popular because its wages are higher than other companies.",
     "category": "noun"
@@ -3910,7 +3910,7 @@
     "pos": "verb",
     "grade": "B",
     "meaningEn": "to put out, to release, to present",
-    "romaja": "naenoda",
+    "romaja": "naenota",
     "exampleKo": "새로운 디자인의 휴대폰을 다음 달에 내놓을 예정입니다.",
     "exampleEn": "We plan to release a new design of phone next month.",
     "category": "verb"
@@ -4042,7 +4042,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "decision, determination",
-    "romaja": "gyeongjeong",
+    "romaja": "gyeoljeong",
     "exampleKo": "중요한 결정을 내리기 전에 충분히 생각해야 해요.",
     "exampleEn": "You should think enough before making an important decision.",
     "category": "noun"
@@ -4075,7 +4075,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "task, duty, work",
-    "romaja": "eopmu",
+    "romaja": "eommu",
     "exampleKo": "오늘 업무가 너무 많아서 야근해야 할 것 같아요.",
     "exampleEn": "I have so much work today that I think I'll have to work overtime.",
     "category": "noun"
@@ -4405,7 +4405,7 @@
     "pos": "adverb",
     "grade": "B",
     "meaningEn": "originally, in the first place",
-    "romaja": "wonrae",
+    "romaja": "wollae",
     "exampleKo": "이 식당은 원래 작은 카페였는데, 지금은 아주 유명해졌어요.",
     "exampleEn": "This restaurant was originally a small cafe, but now it has become very famous.",
     "category": "noun"
@@ -4856,7 +4856,7 @@
     "pos": "adjective",
     "grade": "B",
     "meaningEn": "to be free, to be liberal",
-    "romaja": "jayuropta",
+    "romaja": "jayuropda",
     "exampleKo": "이곳에서는 자기 의견을 자유롭게 말할 수 있어서 좋아요.",
     "exampleEn": "It's good here because you can freely express your opinions.",
     "category": "adjective"
@@ -4889,7 +4889,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "length",
-    "romaja": "gili",
+    "romaja": "giri",
     "exampleKo": "이 도로의 총 길이는 약 100킬로미터 정도 됩니다.",
     "exampleEn": "The total length of this road is about 100 kilometers.",
     "category": "noun"
@@ -4955,7 +4955,7 @@
     "pos": "verb",
     "grade": "B",
     "meaningEn": "to expect, to look forward to",
-    "romaja": "gidaehanda",
+    "romaja": "gidaehada",
     "exampleKo": "이번 프로젝트가 성공할 거라고 모두 기대하고 있어요.",
     "exampleEn": "Everyone is expecting this project to succeed.",
     "category": "verb"
@@ -5285,7 +5285,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "development, growth",
-    "romaja": "paldal",
+    "romaja": "baldal",
     "exampleKo": "한국은 경제 발달이 아주 빠르게 이루어졌습니다.",
     "exampleEn": "Korea's economic development has occurred very rapidly.",
     "category": "noun"
@@ -5351,7 +5351,7 @@
     "pos": "noun",
     "grade": "B",
     "meaningEn": "doctor (Ph.D.), expert",
-    "romaja": "paksa",
+    "romaja": "baksa",
     "exampleKo": "그는 컴퓨터 분야에서 박사 학위를 받은 전문가입니다.",
     "exampleEn": "He is an expert who received a doctoral degree in the computer field.",
     "category": "noun"

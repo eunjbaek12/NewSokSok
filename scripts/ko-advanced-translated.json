@@ -60,7 +60,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "life, living",
-    "romaja": "salm",
+    "romaja": "sam",
     "exampleKo": "그는 어려운 환경 속에서도 희망을 잃지 않고 자신의 삶을 개척해 나갔다.",
     "exampleEn": "Despite his difficult circumstances, he did not lose hope and forged his own life.",
     "category": "noun"
@@ -247,7 +247,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to recognize, to find out, to look into",
-    "romaja": "araboada",
+    "romaja": "araboda",
     "exampleKo": "새로운 직업을 구하기 위해 그는 여러 기관에 문의하여 정보를 알아보고 있다.",
     "exampleEn": "In order to find a new job, he is inquiring with various organizations to look into information.",
     "category": "verb"
@@ -1050,7 +1050,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to begin (with), to start (from)",
-    "romaja": "birohada",
+    "romaja": "birotada",
     "exampleKo": "그의 혁신적인 아이디어는 작은 실험에서 비롯되었지만, 결국 산업 전체에 큰 변화를 가져왔다.",
     "exampleEn": "His innovative idea originated from a small experiment but eventually brought about significant changes in the entire industry.",
     "category": "verb"
@@ -1160,7 +1160,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to live, to get along, to make a living",
-    "romaja": "salagada",
+    "romaja": "saragada",
     "exampleKo": "어려운 환경 속에서도 희망을 잃지 않고 긍정적인 자세로 살아가는 것이 중요하다.",
     "exampleEn": "It is important to live with a positive attitude, without losing hope even in difficult circumstances.",
     "category": "verb"
@@ -1413,7 +1413,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "the press, the media, journalism",
-    "romaja": "eon-ron",
+    "romaja": "eollon",
     "exampleKo": "이번 사건에 대한 언론의 집중적인 보도는 대중의 인식을 크게 변화시켰다.",
     "exampleEn": "The media's intensive coverage of this incident significantly altered public perception.",
     "category": "noun"
@@ -1490,7 +1490,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "action, effect, function",
-    "romaja": "ja-gyeong",
+    "romaja": "jagyong",
     "exampleKo": "이 약물은 특정 효소의 작용을 억제함으로써 질병의 진행을 늦추는 효과가 있다.",
     "exampleEn": "This drug has the effect of slowing disease progression by inhibiting the action of specific enzymes.",
     "category": "noun"
@@ -1523,7 +1523,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "origin, place of birth; alma mater",
-    "romaja": "chu-sin",
+    "romaja": "chulsin",
     "exampleKo": "그는 명문 대학 출신임에도 불구하고 겸손한 태도를 잃지 않아 많은 이들의 귀감이 되고 있다.",
     "exampleEn": "Despite being an alumnus of a prestigious university, he has not lost his humble attitude, serving as a role model for many.",
     "category": "noun"
@@ -1996,7 +1996,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to be together with, to accompany, to go along with",
-    "romaja": "deobeulda",
+    "romaja": "deobulda",
     "exampleKo": "지속 가능한 발전은 환경 보호와 더불어 사회적 형평성을 추구해야 한다.",
     "exampleEn": "Sustainable development must pursue social equity along with environmental protection.",
     "category": "verb"
@@ -2018,7 +2018,7 @@
     "pos": "adverb",
     "grade": "C",
     "meaningEn": "ahead, before, previously",
-    "romaja": "apsseo",
+    "romaja": "apseo",
     "exampleKo": "앞서 언급한 이론은 현대 과학의 발전에 지대한 영향을 미쳤다.",
     "exampleEn": "The theory mentioned previously had a profound impact on the development of modern science.",
     "category": "adverb"
@@ -2084,7 +2084,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "medium, media",
-    "romaja": "maechye",
+    "romaja": "maeche",
     "exampleKo": "다양한 현대 대중 매체는 정보 전달 방식에 혁신을 가져왔다.",
     "exampleEn": "Various modern mass media have brought innovation to the way information is delivered.",
     "category": "noun"
@@ -2260,7 +2260,7 @@
     "pos": "adjective",
     "grade": "C",
     "meaningEn": "unique, peculiar, distinctive",
-    "romaja": "dontukada",
+    "romaja": "dokteukada",
     "exampleKo": "그 가수의 목소리는 매우 독특해서 단번에 알아들을 수 있다.",
     "exampleEn": "The singer's voice is so unique that it can be recognized at once.",
     "category": "adjective"
@@ -2315,7 +2315,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "training, drill, exercise",
-    "romaja": "hunryeon",
+    "romaja": "hullyeon",
     "exampleKo": "혹독한 동계 훈련은 선수들의 체력과 정신력을 강화하는 데 필수적이다.",
     "exampleEn": "Rigorous winter training is essential for strengthening athletes' physical and mental endurance.",
     "category": "noun"
@@ -2359,7 +2359,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "violence",
-    "romaja": "pokryeok",
+    "romaja": "pongnyeok",
     "exampleKo": "어떠한 이유로도 정당화될 수 없는 폭력 행위에 대해 강력히 규탄해야 한다.",
     "exampleEn": "We must strongly condemn acts of violence that cannot be justified for any reason.",
     "category": "noun"
@@ -2513,7 +2513,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "gaze, glance, attention",
-    "romaja": "nungi",
+    "romaja": "nungil",
     "exampleKo": "그녀의 독특한 패션 감각은 지나가는 사람들의 많은 눈길을 사로잡았다.",
     "exampleEn": "Her unique fashion sense captured the attention of many passersby.",
     "category": "noun"
@@ -2579,7 +2579,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "conclusion, result, outcome",
-    "romaja": "gyeol론",
+    "romaja": "gyeollon",
     "exampleKo": "수많은 데이터를 분석한 결과, 우리는 예상과는 다른 결론에 도달할 수밖에 없었다.",
     "exampleEn": "As a result of analyzing a vast amount of data, we had no choice but to reach a conclusion different from what we expected.",
     "category": "noun"
@@ -2590,7 +2590,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to let in, to bring in, to incur",
-    "romaja": "deulida",
+    "romaja": "deurida",
     "exampleKo": "전문가들은 이 새로운 기술을 도입함으로써 생산성을 획기적으로 높일 수 있다고 말합니다.",
     "exampleEn": "Experts say that introducing this new technology can dramatically increase productivity.",
     "category": "verb"
@@ -2799,7 +2799,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "full-scale, serious",
-    "romaja": "bonkyeokjeok",
+    "romaja": "bongyeokjeok",
     "exampleKo": "새로운 프로젝트가 본격적으로 시작되면서 팀원들은 모두 맡은 바 임무에 최선을 다하고 있다.",
     "exampleEn": "As the new project has begun in full swing, all team members are doing their best in their assigned duties.",
     "category": "noun"
@@ -2909,7 +2909,7 @@
     "pos": "adverb",
     "grade": "C",
     "meaningEn": "truly, indeed, really",
-    "romaja": "chamuro",
+    "romaja": "chameuro",
     "exampleKo": "그의 헌신적인 노력 덕분에 어려운 프로젝트가 성공적으로 마무리될 수 있었으니 참으로 다행이다.",
     "exampleEn": "Thanks to his dedicated efforts, the difficult project could be successfully completed, which is indeed fortunate.",
     "category": "adverb"
@@ -3283,7 +3283,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "seasoning, condiment, spice",
-    "romaja": "jomiry",
+    "romaja": "jomiryo",
     "exampleKo": "건강을 생각하는 사람들은 인공 조미료 대신 천연 재료를 사용하여 음식의 맛을 내는 것을 선호한다.",
     "exampleEn": "Health-conscious people prefer to season food using natural ingredients instead of artificial seasonings.",
     "category": "noun"
@@ -3426,7 +3426,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to be noticeable, to stand out, to show",
-    "romaja": "ttwida",
+    "romaja": "ttuida",
     "exampleKo": "그의 연설에는 설득력이 부족하여 청중들의 관심이 별로 띄지 않는 듯했다.",
     "exampleEn": "His speech lacked persuasiveness, and the audience's interest did not seem to be particularly piqued.",
     "category": "verb"
@@ -3679,7 +3679,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "implementation, execution, carrying out",
-    "romaja": "silssi",
+    "romaja": "silsi",
     "exampleKo": "새로운 규정의 성공적인 실시는 충분한 준비와 체계적인 계획 수립에 달려 있다.",
     "exampleEn": "The successful implementation of new regulations depends on thorough preparation and systematic planning.",
     "category": "noun"
@@ -3866,7 +3866,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "food, provisions, foodstuffs",
-    "romaja": "sikryang",
+    "romaja": "singnyang",
     "exampleKo": "기후 변화로 인한 농작물 피해가 증가하면서 식량 안보에 대한 우려가 커지고 있다.",
     "exampleEn": "Concerns about food security are growing as crop damage due to climate change increases.",
     "category": "noun"
@@ -3976,7 +3976,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "agricultural products, farm produce",
-    "romaja": "nongsangmul",
+    "romaja": "nongsanmul",
     "exampleKo": "정부는 농산물 가격 안정을 위해 다양한 지원 정책을 추진하고 있다.",
     "exampleEn": "The government is pursuing various support policies to stabilize agricultural product prices.",
     "category": "noun"
@@ -3987,7 +3987,7 @@
     "pos": "adjective",
     "grade": "C",
     "meaningEn": "great, grand, magnificent",
-    "romaja": "widaehaada",
+    "romaja": "widaehada",
     "exampleKo": "그는 인류 역사에 길이 남을 위대한 업적을 남긴 인물로 평가받는다.",
     "exampleEn": "He is regarded as a figure who left behind great achievements that will be remembered throughout human history.",
     "category": "adjective"
@@ -4020,7 +4020,7 @@
     "pos": "adverb",
     "grade": "C",
     "meaningEn": "for example, supposing, if",
-    "romaja": "gallyeong",
+    "romaja": "garyeong",
     "exampleKo": "가령 예상치 못한 문제가 발생했을 경우, 즉시 대처할 수 있는 비상 계획이 마련되어 있다.",
     "exampleEn": "For example, in case an unexpected problem arises, an emergency plan is in place to respond immediately.",
     "category": "adverb"
@@ -4229,7 +4229,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "pressure, stress",
-    "romaja": "apryeok",
+    "romaja": "amnyeok",
     "exampleKo": "정치적·경제적 압력 속에서도 언론의 자유를 지키려는 노력이 계속되고 있다.",
     "exampleEn": "Efforts to protect freedom of the press continue amidst political and economic pressure.",
     "category": "noun"
@@ -4449,7 +4449,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "stratum, class, layer",
-    "romaja": "gyechung",
+    "romaja": "gyecheung",
     "exampleKo": "사회경제적 지위에 따라 교육 기회의 불평등이 발생하며, 이는 계층 이동을 더욱 어렵게 만듭니다.",
     "exampleEn": "Educational opportunities are unequally distributed according to socioeconomic status, making social mobility even more difficult.",
     "category": "noun"
@@ -4493,7 +4493,7 @@
     "pos": "adjective",
     "grade": "C",
     "meaningEn": "thorough, complete, rigorous",
-    "romaja": "cheolcheolhada",
+    "romaja": "cheoljeohada",
     "exampleKo": "안전 규정을 철저히 준수하는 것은 모든 작업 현장에서 사고를 예방하는 가장 기본적인 조치입니다.",
     "exampleEn": "Thoroughly adhering to safety regulations is the most basic measure to prevent accidents at any worksite.",
     "category": "adjective"
@@ -4647,7 +4647,7 @@
     "pos": "adverb",
     "grade": "C",
     "meaningEn": "in addition, also, furthermore",
-    "romaja": "aulyeo",
+    "romaja": "aulleo",
     "exampleKo": "이 프로젝트는 지역 경제 활성화에 기여할 뿐만 아니라, 아울러 환경 보호에도 긍정적인 영향을 미칠 것으로 기대됩니다.",
     "exampleEn": "This project is expected not only to contribute to revitalizing the local economy but also to have a positive impact on environmental protection.",
     "category": "adverb"
@@ -4680,7 +4680,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to add, to append, to attach",
-    "romaja": "deotbutida",
+    "romaja": "deotbuchida",
     "exampleKo": "발표자는 기존의 연구 결과에 새로운 분석을 덧붙여 논의를 더욱 심화시켰다.",
     "exampleEn": "The presenter further deepened the discussion by adding new analysis to the existing research findings.",
     "category": "verb"
@@ -4790,7 +4790,7 @@
     "pos": "verb",
     "grade": "C",
     "meaningEn": "to be implemented, to be put into effect, to be carried out",
-    "romaja": "silshidoeda",
+    "romaja": "silsidoeda",
     "exampleKo": "새로운 정책은 오는 9월부터 전국적으로 실시될 예정이다.",
     "exampleEn": "The new policy is scheduled to be implemented nationwide starting this coming September.",
     "category": "verb"
@@ -4812,7 +4812,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "focus, focal point, spotlight",
-    "romaja": "chotjeom",
+    "romaja": "chojeom",
     "exampleKo": "이번 토론회는 기후 변화 문제에 대한 국제 사회의 초점을 맞추는 데 기여했다.",
     "exampleEn": "This forum contributed to focusing the international community's attention on the issue of climate change.",
     "category": "noun"
@@ -5010,7 +5010,7 @@
     "pos": "adjective",
     "grade": "C",
     "meaningEn": "as much as, no less than, comparable to",
-    "romaja": "motjianhda",
+    "romaja": "motjianta",
     "exampleKo": "그의 연설은 내용의 깊이나 전달력 면에서 전문가의 강연 못지않았다.",
     "exampleEn": "His speech was comparable to an expert's lecture in terms of depth of content and delivery.",
     "category": "adjective"
@@ -5164,7 +5164,7 @@
     "pos": "noun",
     "grade": "C",
     "meaningEn": "competitiveness, competitive edge",
-    "romaja": "gyeongjaengryeok",
+    "romaja": "gyeongjaengnyeok",
     "exampleKo": "끊임없이 변화하는 시장 환경 속에서 기업의 경쟁력은 혁신을 통해 확보된다.",
     "exampleEn": "In the constantly changing market environment, a company's competitiveness is secured through innovation.",
     "category": "noun"
@@ -5406,7 +5406,7 @@
     "pos": "adverb",
     "grade": "C",
     "meaningEn": "side by side, abreast, shoulder to shoulder",
-    "romaja": "narani",
+    "romaja": "naranhi",
     "exampleKo": "두 정상은 나란히 서서 공동 성명을 발표하며 협력 의지를 다졌다.",
     "exampleEn": "The two leaders stood side by side, releasing a joint statement and reinforcing their will to cooperate.",
     "category": "adverb"

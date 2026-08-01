@@ -302,7 +302,7 @@
     "pos": "adjective",
     "grade": "A",
     "meaningEn": "to be many, to be much, a lot of",
-    "romaja": "manhta",
+    "romaja": "manta",
     "exampleKo": "도서관에 재미있는 책이 정말 많아요.",
     "exampleEn": "There are really many interesting books in the library.",
     "category": "adjective"
@@ -324,7 +324,7 @@
     "pos": "adjective",
     "grade": "A",
     "meaningEn": "to be good, to be nice",
-    "romaja": "johda",
+    "romaja": "jota",
     "exampleKo": "오늘 날씨가 정말 따뜻하고 좋아요.",
     "exampleEn": "Today's weather is really warm and nice.",
     "category": "adjective"
@@ -754,8 +754,8 @@
     "grade": "A",
     "meaningEn": "time, hour",
     "romaja": "sigan",
-    "exampleKo": "지금 몇 시예요?",
-    "exampleEn": "What time is it now?",
+    "exampleKo": "시간이 없어서 빨리 가야 해요.",
+    "exampleEn": "I don't have time, so I have to go quickly.",
     "category": "noun"
   },
   {
@@ -1358,7 +1358,7 @@
     "pos": "verb",
     "grade": "A",
     "meaningEn": "to sit",
-    "romaja": "antta",
+    "romaja": "anda",
     "exampleKo": "의자에 앉으세요.",
     "exampleEn": "Please sit on the chair.",
     "category": "verb"
@@ -2183,7 +2183,7 @@
     "pos": "noun",
     "grade": "A",
     "meaningEn": "necessity, need",
-    "romaja": "pillyo",
+    "romaja": "piryo",
     "exampleKo": "지금 도움이 필요해요.",
     "exampleEn": "I need help now.",
     "category": "noun"
@@ -2865,7 +2865,7 @@
     "pos": "noun",
     "grade": "A",
     "meaningEn": "grade, school year",
-    "romaja": "haknyeon",
+    "romaja": "hangnyeon",
     "exampleKo": "저는 1학년 학생이에요.",
     "exampleEn": "I am a first-year student.",
     "category": "noun"
@@ -2887,7 +2887,7 @@
     "pos": "verb",
     "grade": "A",
     "meaningEn": "to understand",
-    "romaja": "ihaehanada",
+    "romaja": "ihaehada",
     "exampleKo": "저는 선생님 말씀을 이해해요.",
     "exampleEn": "I understand what the teacher says.",
     "category": "verb"
@@ -3702,8 +3702,8 @@
     "grade": "A",
     "meaningEn": "bus",
     "romaja": "beoseu",
-    "exampleKo": "버스를 타고 학교에 가요.",
-    "exampleEn": "I go to school by bus.",
+    "exampleKo": "버스 정류장이 어디에 있어요?",
+    "exampleEn": "Where is the bus stop?",
     "category": "noun"
   },
   {
@@ -4031,7 +4031,7 @@
     "pos": "adjective",
     "grade": "A",
     "meaningEn": "to be short",
-    "romaja": "jjalbda",
+    "romaja": "jjalda",
     "exampleKo": "이 연필은 너무 짧아요.",
     "exampleEn": "This pencil is too short.",
     "category": "adjective"
@@ -4109,7 +4109,7 @@
     "grade": "A",
     "meaningEn": "when",
     "romaja": "eonje",
-    "exampleKo": "당신은 언제 한국에 왔어요?",
+    "exampleKo": "언제 한국에 왔어요?",
     "exampleEn": "When did you come to Korea?",
     "category": "adverb"
   },
@@ -4449,7 +4449,7 @@
     "pos": "verb",
     "grade": "A",
     "meaningEn": "to fight, to argue",
-    "romaja": "ssauuda",
+    "romaja": "ssauda",
     "exampleKo": "우리는 어제 친구와 싸웠어요.",
     "exampleEn": "We fought with a friend yesterday.",
     "category": "verb"
@@ -4504,7 +4504,7 @@
     "pos": "noun",
     "grade": "A",
     "meaningEn": "last year",
-    "romaja": "jaknyeon",
+    "romaja": "jangnyeon",
     "exampleKo": "작년에 한국에 왔어요.",
     "exampleEn": "I came to Korea last year.",
     "category": "noun"
@@ -4944,7 +4944,7 @@
     "pos": "noun",
     "grade": "A",
     "meaningEn": "bicycle",
-    "romaja": "jajeongeoji",
+    "romaja": "jajeongeo",
     "exampleKo": "저는 매일 자전거를 타요.",
     "exampleEn": "I ride my bicycle every day.",
     "category": "noun"
@@ -5384,7 +5384,7 @@
     "pos": "verb",
     "grade": "A",
     "meaningEn": "to finish, to end",
-    "romaja": "kkeutnaeda",
+    "romaja": "kkeunnaeda",
     "exampleKo": "숙제를 빨리 끝내야 해요.",
     "exampleEn": "I have to finish my homework quickly.",
     "category": "verb"

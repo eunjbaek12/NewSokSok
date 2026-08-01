@@ -24,7 +24,7 @@
     "term": "미쳤다",
     "pos": "phrase",
     "meaningEn": "That's insane!",
-    "romaja": "michyeotta",
+    "romaja": "michyeotda",
     "exampleKo": "야, 저 영상 봤어? 진짜 미쳤다! 대박이야.",
     "exampleEn": "Hey, did you see that video? It's seriously insane! So amazing.",
     "category": "감탄·리액션"
@@ -84,7 +84,7 @@
     "term": "띵작",
     "pos": "noun",
     "meaningEn": "A masterpiece; A classic",
-    "romaja": "ddingjak",
+    "romaja": "ttingjak",
     "exampleKo": "이 웹툰 진짜 띵작이니까 꼭 봐봐! 후회 안 할 걸.",
     "exampleEn": "This webtoon is a real masterpiece, so definitely check it out! You won't regret it.",
     "category": "감탄·리액션"
@@ -204,7 +204,7 @@
     "term": "만렙",
     "pos": "noun",
     "meaningEn": "Max level; An expert who's totally mastered something",
-    "romaja": "manrep",
+    "romaja": "mallep",
     "exampleKo": "와, 이 게임 벌써 만렙 찍었어? 너 진짜 만렙 능력자다!",
     "exampleEn": "Wow, you already reached max level in this game? You're a true master!",
     "category": "인물·유형"
@@ -274,7 +274,7 @@
     "term": "프로불편러",
     "pos": "noun",
     "meaningEn": "A 'professional complainer' or 'professional discomforter'; someone who easily finds things to be offended by or complain about.",
-    "romaja": "peurobulpyeonreo",
+    "romaja": "peurobulpyeolleo",
     "exampleKo": "걔는 진짜 프로불편러야. 뭘 해도 다 불편해하는 것 같아.",
     "exampleEn": "They're a real 'professional complainer.' It seems like everything makes them uncomfortable.",
     "category": "인물·유형"
@@ -284,7 +284,7 @@
     "term": "모쏠",
     "pos": "noun",
     "meaningEn": "Someone who has been single their entire life and has never dated anyone; a 'lifetime solo'.",
-    "romaja": "molsol",
+    "romaja": "mossol",
     "exampleKo": "친구 중에 모쏠이 많아서 다 같이 솔로 파티했어.",
     "exampleEn": "I have a lot of friends who've never dated, so we all had a solo party together.",
     "category": "인물·유형"
@@ -304,7 +304,7 @@
     "term": "워라밸",
     "pos": "noun",
     "meaningEn": "Work-life balance; the state of having a healthy balance between work and personal life.",
-    "romaja": "worabel",
+    "romaja": "worabael",
     "exampleKo": "요즘 회사 워라밸 너무 좋아서 행복해. 퇴근하고 바로 운동 가!",
     "exampleEn": "My company's work-life balance is so good these days, I'm happy. I go straight to work out after leaving work!",
     "category": "일상·소비"
@@ -334,7 +334,7 @@
     "term": "갓성비",
     "pos": "noun",
     "meaningEn": "Amazing, 'god-tier' value for money; exceptionally good performance or quality relative to its price.",
-    "romaja": "gasseongbi",
+    "romaja": "gatseongbi",
     "exampleKo": "와, 이 노트북 갓성비 미쳤다! 이 가격에 이런 사양이라니.",
     "exampleEn": "Wow, this laptop has insane 'god-tier' value for money! These specs for this price?",
     "category": "일상·소비"
@@ -374,7 +374,7 @@
     "term": "짠테크",
     "pos": "noun",
     "meaningEn": "A frugal money-saving lifestyle that involves being very stingy and creative with finances; 'stingy tech/finance'.",
-    "romaja": "jjantecheu",
+    "romaja": "jjantekeu",
     "exampleKo": "나 요즘 짠테크 중이야. 한 푼이라도 아끼려고 노력하고 있어.",
     "exampleEn": "I'm doing 'stingy tech' these days. I'm trying to save every penny.",
     "category": "일상·소비"
@@ -424,7 +424,7 @@
     "term": "점메추",
     "pos": "phrase",
     "meaningEn": "An initialism asking for a 'lunch menu recommendation'.",
-    "romaja": "jeommechyu",
+    "romaja": "jeommechu",
     "exampleKo": "얘들아, 오늘 점메추 좀! 뭐 먹을지 고민돼.",
     "exampleEn": "Guys, any lunch menu recommendations for today? I can't decide what to eat.",
     "category": "일상·소비"
@@ -434,7 +434,7 @@
     "term": "저메추",
     "pos": "phrase",
     "meaningEn": "An initialism asking for a 'dinner menu recommendation'.",
-    "romaja": "jeomechyu",
+    "romaja": "jeomechu",
     "exampleKo": "퇴근하고 뭐 먹지? 저메추 해주라!",
     "exampleEn": "What should I eat after work? Recommend me a dinner menu!",
     "category": "일상·소비"
@@ -484,7 +484,7 @@
     "term": "국룰",
     "pos": "noun",
     "meaningEn": "The universal rule everyone follows; an unspoken standard or common practice that's widely accepted; 'national rule'.",
-    "romaja": "gungnyul",
+    "romaja": "gungnul",
     "exampleKo": "떡볶이 먹을 땐 쿨피스 마시는 게 국룰 아니겠어?",
     "exampleEn": "Isn't it a 'national rule' to drink Coolpis when you eat tteokbokki?",
     "category": "일상·소비"
@@ -554,7 +554,7 @@
     "term": "내로남불",
     "pos": "phrase",
     "meaningEn": "A double standard; \"romance when I do it, an affair when others do it.\" Hypocrisy where one judges others by a stricter standard than oneself.",
-    "romaja": "naeroneambul",
+    "romaja": "naeronambul",
     "exampleKo": "자기 할 땐 괜찮고 남이 하면 안 된대. 완전 내로남불 아니야?",
     "exampleEn": "When they do it, it's fine, but when others do it, it's not. Isn't that a total double standard?",
     "category": "연애·관계"
@@ -564,7 +564,7 @@
     "term": "낄끼빠빠",
     "pos": "phrase",
     "meaningEn": "Know when to join in and when to back off; to \"read the room\" and act appropriately in social situations.",
-    "romaja": "kkilkkibappa",
+    "romaja": "kkilkkippappa",
     "exampleKo": "야, 쟤는 진짜 낄끼빠빠를 너무 못해. 분위기 흐리네.",
     "exampleEn": "Hey, they really don't know when to join in and when to back off. They're ruining the mood.",
     "category": "연애·관계"
@@ -594,7 +594,7 @@
     "term": "케바케",
     "pos": "phrase",
     "meaningEn": "It depends; case by case; meaning that the outcome or situation varies depending on the specific circumstances.",
-    "romaja": "kebabke",
+    "romaja": "kebake",
     "exampleKo": "그거 되는지 안 되는지는 케바케야. 상황마다 달라.",
     "exampleEn": "Whether that works or not is case by case. It varies with the situation.",
     "category": "연애·관계"
@@ -624,7 +624,7 @@
     "term": "알잘딱깔센",
     "pos": "phrase",
     "meaningEn": "A request to \"handle it well, neatly, and with good sense, on your own\"; implying to take care of something skillfully and appropriately without needing detailed instructions.",
-    "romaja": "aljaltakkkalsen",
+    "romaja": "aljalttakkalsen",
     "exampleKo": "그 일은 네가 알잘딱깔센하게 처리해 줘. 믿는다!",
     "exampleEn": "Please handle that task well and smartly on your own. I trust you!",
     "category": "연애·관계"
@@ -814,7 +814,7 @@
     "term": "띵언",
     "pos": "noun",
     "meaningEn": "A great quote or profound words of wisdom, often used playfully.",
-    "romaja": "dding-eon",
+    "romaja": "ttingeon",
     "exampleKo": "와, 방금 네가 한 말 완전 띵언이다. 메모해 놔야겠어.",
     "exampleEn": "Wow, what you just said is totally words of wisdom. I should write that down.",
     "category": "트렌드·밈"

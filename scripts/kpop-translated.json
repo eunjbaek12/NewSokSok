@@ -94,7 +94,7 @@
     "term": "덕메",
     "pos": "noun",
     "meaningEn": "fandom friend; a fellow fan with whom one shares their stanning activities.",
-    "romaja": "deokme",
+    "romaja": "deongme",
     "exampleKo": "이번 콘서트 덕메랑 같이 가기로 했어! 너무 신난다.",
     "exampleEn": "I decided to go to this concert with my fandom friend! I'm so excited.",
     "category": "팬덤·덕질"
@@ -154,7 +154,7 @@
     "term": "과몰입",
     "pos": "noun",
     "meaningEn": "over-immersion; being excessively emotionally invested or immersed in something, often to the point of forgetting reality.",
-    "romaja": "gwamollip",
+    "romaja": "gwamorip",
     "exampleKo": "최애 리얼리티에 과몰입해서 마치 내가 같이 여행 간 것 같아.",
     "exampleEn": "I'm so over-immersed in my bias's reality show, it feels like I went on the trip with them.",
     "category": "팬덤·덕질"
@@ -214,7 +214,7 @@
     "term": "굿즈",
     "pos": "noun",
     "meaningEn": "goods/merch; official merchandise released by an idol group or company.",
-    "romaja": "geujeu",
+    "romaja": "gutjeu",
     "exampleKo": "이번 팝업 스토어 굿즈 너무 예뻐서 다 사고 싶다.",
     "exampleEn": "The merchandise at this pop-up store is so pretty, I want to buy everything.",
     "category": "굿즈·응원"
@@ -384,7 +384,7 @@
     "term": "타이틀곡",
     "pos": "noun",
     "meaningEn": "The title track; the main promoted song of an album or single, often with a music video and extensive performances.",
-    "romaja": "taiteulgon",
+    "romaja": "taiteulgok",
     "exampleKo": "이번 타이틀곡 안무 너무 멋있어! 무대 볼 때마다 소름 돋아.",
     "exampleEn": "The choreography for this title track is so cool! I get goosebumps every time I watch the stage.",
     "category": "음악·활동"
@@ -494,7 +494,7 @@
     "term": "직캠",
     "pos": "noun",
     "meaningEn": "A fancam; a fan-recorded video focused on a single member's performance, often filmed during music shows or concerts.",
-    "romaja": "jikcaem",
+    "romaja": "jikkaem",
     "exampleKo": "어제 무대 직캠 떴던데, 우리 최애 표정 연기 진짜 미쳤어!",
     "exampleEn": "The fancam from yesterday's stage dropped, and my bias's facial expressions are absolutely insane!",
     "category": "음악·활동"
@@ -554,7 +554,7 @@
     "term": "컴백무대",
     "pos": "noun",
     "meaningEn": "the first stage performance of a comeback",
-    "romaja": "keombaekmudae",
+    "romaja": "keombaengmudae",
     "exampleKo": "내일 컴백무대 벌써부터 너무 설레서 잠이 안 와!",
     "exampleEn": "I'm so excited for tomorrow's comeback stage, I can't sleep!",
     "category": "음악·활동"
@@ -624,7 +624,7 @@
     "term": "막내",
     "pos": "noun",
     "meaningEn": "the youngest member (maknae)",
-    "romaja": "maknae",
+    "romaja": "mangnae",
     "exampleKo": "우리 막내 이제 성인인데 아직도 아기 같아 보여!",
     "exampleEn": "Our maknae is an adult now, but they still look like a baby!",
     "category": "멤버·포지션"
@@ -664,7 +664,7 @@
     "term": "막내라인",
     "pos": "noun",
     "meaningEn": "the younger members of the group as a group (maknae line)",
-    "romaja": "maknaerain",
+    "romaja": "mangnaerain",
     "exampleKo": "우리 막내라인 조합은 진짜 귀여움 폭발이야!",
     "exampleEn": "Our maknae line combination is seriously cuteness overload!",
     "category": "멤버·포지션"
@@ -674,7 +674,7 @@
     "term": "형라인",
     "pos": "noun",
     "meaningEn": "the older members of a boy group as a group (hyung line)",
-    "romaja": "hyeongrain",
+    "romaja": "hyeongnain",
     "exampleKo": "형라인 멤버들이 막내들을 잘 챙겨주는 모습이 너무 보기 좋아.",
     "exampleEn": "It's so nice to see the hyung line members taking good care of the maknaes.",
     "category": "멤버·포지션"
@@ -984,7 +984,7 @@
     "term": "입덕영상",
     "pos": "noun",
     "meaningEn": "an \"introductory video\"; the video that makes someone fall for an idol and become a fan",
-    "romaja": "ipdeok-yeongsan",
+    "romaja": "ipdeongnyeongsang",
     "exampleKo": "내 입덕영상은 바로 그 직캠이었어. 아직도 보면 심장이 뛰어.",
     "exampleEn": "My introductory video was that fancam. My heart still races when I watch it.",
     "category": "슬랭·감탄"

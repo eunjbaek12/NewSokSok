@@ -19,7 +19,9 @@ import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { usePurchaseFlow, monthlyEquivalent, savingsPercent } from '@/features/billing';
+import { useLocale } from '@/features/locale';
 import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY, getPlanPeriod } from '@/lib/billing/skus';
+import { localeTag } from '@/i18n';
 
 export default function PlansScreen() {
   const insets = useSafeAreaInsets();
@@ -28,6 +30,7 @@ export default function PlansScreen() {
   const { authMode, signInWithGoogle } = useAuth();
   const { apiKey } = useSettings();
   const { status, productId, refresh } = useQuota();
+  const { locale } = useLocale();
   const flow = usePurchaseFlow();
 
   const isLoggedIn = isCloudAuthMode(authMode);
@@ -41,7 +44,7 @@ export default function PlansScreen() {
   // 날짜는 "갱신"이 아닌 중립적 "~까지 이용"으로 표기.
   const planPeriod = proMode === 'paid' ? getPlanPeriod(productId) : null;
   const proUntilLabel = proMode === 'paid' && status?.pro_until
-    ? new Date(status.pro_until).toLocaleDateString()
+    ? new Date(status.pro_until).toLocaleDateString(localeTag(locale))
     : null;
   // 무료 체험 안내 — 스토어 오퍼에 실제로 체험이 걸려 있을 때만, 아직 Pro가 아닌
   // 로그인 사용자에게 노출한다. 기간도 스토어 값을 그대로 쓴다.

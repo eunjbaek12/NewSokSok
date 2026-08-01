@@ -180,8 +180,14 @@ export type DashboardFilter = z.infer<typeof DashboardFilterSchema>;
 export const ThemeModeSchema = z.enum(['classic', 'dark', 'y2k', 'lab']);
 export type ThemeMode = z.infer<typeof ThemeModeSchema>;
 
+// UI 언어(앱 화면 문구)의 단일 소스. 학습 언어(LanguageCodeSchema)와는 별개다 —
+// 한국어 UI로 일본어를 배우는 사용자가 있으므로 두 축은 독립적이다.
+//
+// 언어를 추가할 때 고칠 곳은 여기 enum 하나뿐이다. 나머지(표시 메타·번역 JSON)는
+// i18n/index.ts가 Record로 받으므로 빠뜨리면 컴파일이 깨진다.
 export const UILocaleCodeSchema = z.enum(['ko', 'en']);
 export type UILocaleCode = z.infer<typeof UILocaleCodeSchema>;
+export const UI_LOCALE_CODES = UILocaleCodeSchema.options;
 
 // ============================================================================
 // Word / VocaList (local SQLite-mirrored)

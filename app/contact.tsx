@@ -33,6 +33,7 @@ import { useLists } from '@/features/vocab';
 import { useQuota } from '@/features/quota';
 import { useLocale } from '@/features/locale';
 import { useSettings } from '@/features/settings';
+import { localeTag } from '@/i18n';
 import { Radius } from '@/constants/tokens';
 import {
   useSupportStore,
@@ -168,7 +169,7 @@ export default function ContactScreen() {
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const formatDate = useCallback(
-    (iso: string) => new Date(iso).toLocaleDateString(locale === 'en' ? 'en-US' : 'ko-KR', {
+    (iso: string) => new Date(iso).toLocaleDateString(localeTag(locale), {
       month: 'long', day: 'numeric',
     }),
     [locale],

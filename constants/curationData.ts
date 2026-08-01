@@ -2,6 +2,871 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-untrans-ko-1",
+    "title": "Untranslatable Korean 50",
+    "icon": "💭",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "The Korean words English has no single word for — 눈치, 정, 한, 서운하다, 억울하다, 시원하다, 애교, 갑질, 오지랖 and more across relationships, feelings, taste & sensation, character, work life and Korean living. Each card names the closest English word, then draws the line between them — the gap is the lesson. Korean→English; meanings & spoken examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1785515605826,
+    "words": [
+      {
+        "id": "word-untrans-0-1785515605826",
+        "term": "눈치",
+        "definition": "The social radar — reading a room and sensing others' needs; it's a skill you're judged on.",
+        "meaningKr": "The social radar — reading a room and sensing others' needs; it's a skill you're judged on.",
+        "exampleEn": "저 친구는 눈치가 빨라서 분위기를 잘 읽어.",
+        "exampleKr": "That friend is quick to pick up on things, so they read the room well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "nunchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-1-1785515605826",
+        "term": "정",
+        "definition": "Attachment that builds between people (or things) over time — not romantic love, but a deep bond.",
+        "meaningKr": "Attachment that builds between people (or things) over time — not romantic love, but a deep bond.",
+        "exampleEn": "오래 같이 살면 가족끼리 정이 많이 들어요.",
+        "exampleKr": "When you live together a long time, families grow very attached to each other.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "jeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-2-1785515605826",
+        "term": "우리",
+        "definition": "'Our' used where English says 'my' (our mom, our house) to mark belonging to a shared group.",
+        "meaningKr": "'Our' used where English says 'my' (our mom, our house) to mark belonging to a shared group.",
+        "exampleEn": "우리 엄마는 요리를 정말 잘하세요.",
+        "exampleKr": "My mom is a really good cook.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "uri",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-untrans-3-1785515605826",
+        "term": "의리",
+        "definition": "Loyalty owed to those who stood by you — a strong moral obligation to return that support.",
+        "meaningKr": "Loyalty owed to those who stood by you — a strong moral obligation to return that support.",
+        "exampleEn": "우리 둘은 의리로 뭉쳤으니까 배신하면 안 돼.",
+        "exampleKr": "We're bound by loyalty, so don't betray me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "uiri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-4-1785515605826",
+        "term": "신세",
+        "definition": "Being in debt for someone's help — a discomfort Koreans track carefully to repay.",
+        "meaningKr": "Being in debt for someone's help — a discomfort Koreans track carefully to repay.",
+        "exampleEn": "지난번에 신세를 져서 이번에는 제가 밥 살게요.",
+        "exampleKr": "I was in your debt last time, so I'll buy dinner this time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "sinse",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-5-1785515605826",
+        "term": "챙기다",
+        "definition": "To look after someone's needs by noticing them and acting, without being asked.",
+        "meaningKr": "To look after someone's needs by noticing them and acting, without being asked.",
+        "exampleEn": "엄마는 항상 내 도시락이랑 약을 챙겨주셨어.",
+        "exampleKr": "Mom always packed my lunch and remembered my medicine for me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "chaenggida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-6-1785515605826",
+        "term": "살갑다",
+        "definition": "Warm and attentive in how one speaks and treats you — affectionate without being sappy.",
+        "meaningKr": "Warm and attentive in how one speaks and treats you — affectionate without being sappy.",
+        "exampleEn": "우리 할머니는 누구에게나 살갑게 대해주셔서 좋아요.",
+        "exampleKr": "I like how my grandma is warm and kind to everyone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "salgapda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-7-1785515605826",
+        "term": "무뚝뚝하다",
+        "definition": "Brusque and undemonstrative, showing no warmth on the surface — but not unkind.",
+        "meaningKr": "Brusque and undemonstrative, showing no warmth on the surface — but not unkind.",
+        "exampleEn": "우리 아빠는 무뚝뚝하지만 속은 따뜻한 분이세요.",
+        "exampleKr": "My dad is gruff, but he's warm-hearted inside.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "muttukttuk-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-8-1785515605826",
+        "term": "낯가리다",
+        "definition": "To be shy and stiff around people one doesn't know yet — often said of babies too.",
+        "meaningKr": "To be shy and stiff around people one doesn't know yet — often said of babies too.",
+        "exampleEn": "우리 아기는 낯을 가려서 처음 보는 사람한테는 잘 안 웃어.",
+        "exampleKr": "Our baby is shy with strangers, so she doesn't smile much at people she's just met.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "natgarida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-9-1785515605826",
+        "term": "정들다",
+        "definition": "To grow attached to a person, place, or object through time spent together.",
+        "meaningKr": "To grow attached to a person, place, or object through time spent together.",
+        "exampleEn": "이 동네에 10년 넘게 살았더니 정이 많이 들었어.",
+        "exampleKr": "I've lived in this neighborhood for over 10 years, so I've grown very attached to it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "jeongdeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-10-1785515605826",
+        "term": "한",
+        "definition": "Accumulated, unresolved grief and resentment carried over time — sorrow hardened into endurance.",
+        "meaningKr": "Accumulated, unresolved grief and resentment carried over time — sorrow hardened into endurance.",
+        "exampleEn": "그 할머니의 얼굴에는 평생 쌓인 한이 느껴졌다.",
+        "exampleKr": "On that grandma's face, you could feel the accumulated grief of a lifetime.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "han",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-11-1785515605826",
+        "term": "답답하다",
+        "definition": "Chest-tight frustration at something that won't move — a slow explanation, blocked plan, or stuffy air.",
+        "meaningKr": "Chest-tight frustration at something that won't move — a slow explanation, blocked plan, or stuffy air.",
+        "exampleEn": "설명이 너무 답답해서 제가 직접 할게요.",
+        "exampleKr": "The explanation is so frustratingly slow, I'll just do it myself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "dapdap-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-12-1785515605826",
+        "term": "억울하다",
+        "definition": "The anguish of being wrongly blamed or punished unfairly — it describes how it feels inside.",
+        "meaningKr": "The anguish of being wrongly blamed or punished unfairly — it describes how it feels inside.",
+        "exampleEn": "난 아무것도 안 했는데 오해받으니 너무 억울해.",
+        "exampleKr": "I didn't do anything, so it feels so unfair to be misunderstood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "eogul-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-13-1785515605826",
+        "term": "아쉽다",
+        "definition": "Mild regret that something good ended too soon or fell just short — wistful, not sad.",
+        "meaningKr": "Mild regret that something good ended too soon or fell just short — wistful, not sad.",
+        "exampleEn": "벌써 집에 가야 하다니 아쉽다. 좀 더 놀고 싶은데.",
+        "exampleKr": "I have to go home already, what a shame. I want to play a bit more.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "aswipda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-14-1785515605826",
+        "term": "서운하다",
+        "definition": "Quietly hurt that someone close didn't do as much as you'd hoped — it stings precisely because you care.",
+        "meaningKr": "Quietly hurt that someone close didn't do as much as you'd hoped — it stings precisely because you care.",
+        "exampleEn": "네가 내 생일도 잊어버려서 좀 서운했어.",
+        "exampleKr": "I was a bit hurt that you even forgot my birthday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "seoun-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-15-1785515605826",
+        "term": "설레다",
+        "definition": "The fluttery anticipation before something good — it's the physical flutter itself, common in early romance.",
+        "meaningKr": "The fluttery anticipation before something good — it's the physical flutter itself, common in early romance.",
+        "exampleEn": "내일 여행 갈 생각에 아침부터 너무 설레.",
+        "exampleKr": "I'm so fluttery with anticipation for the trip tomorrow, I've been like this since morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "seolleda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-16-1785515605826",
+        "term": "뿌듯하다",
+        "definition": "The warm, swelling feeling in your chest when proud of what you or someone close achieved — quieter than 'proud'.",
+        "meaningKr": "The warm, swelling feeling in your chest when proud of what you or someone close achieved — quieter than 'proud'.",
+        "exampleEn": "시험에 합격해서 너무 뿌듯하고 기분 좋아.",
+        "exampleKr": "I'm so proud and happy that I passed the exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "ppudeut-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-17-1785515605826",
+        "term": "시원섭섭하다",
+        "definition": "Relieved and sad at once — like graduation or a last day at work; two feelings fused.",
+        "meaningKr": "Relieved and sad at once — like graduation or a last day at work; two feelings fused.",
+        "exampleEn": "학교 졸업하고 나니 시원섭섭한 기분이 들었어.",
+        "exampleKr": "After graduating from school, I felt relieved and sad at the same time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "siwonseopseop-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-18-1785515605826",
+        "term": "삐치다",
+        "definition": "To sulk over a small slight and show it, expecting to be coaxed back.",
+        "meaningKr": "To sulk over a small slight and show it, expecting to be coaxed back.",
+        "exampleEn": "내가 장난쳤다고 삐쳤어? 빨리 풀어.",
+        "exampleKr": "Are you sulking because I played a prank? Cheer up quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "ppichida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-19-1785515605826",
+        "term": "짠하다",
+        "definition": "A tender ache of pity or sympathy — like watching an aging parent work hard; softer than 'heartbreaking'.",
+        "meaningKr": "A tender ache of pity or sympathy — like watching an aging parent work hard; softer than 'heartbreaking'.",
+        "exampleEn": "혼자 힘들게 일하는 모습이 너무 짠해서 도와주고 싶었어.",
+        "exampleKr": "Their struggling to work alone made me feel such tender pity that I wanted to help.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "jjan-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-20-1785515605826",
+        "term": "속상하다",
+        "definition": "Heartsore — upset in a way that gnaws at you, over something gone wrong or someone you care about.",
+        "meaningKr": "Heartsore — upset in a way that gnaws at you, over something gone wrong or someone you care about.",
+        "exampleEn": "친구랑 다투고 나니 너무 속상해서 잠이 안 와.",
+        "exampleKr": "After fighting with my friend, I'm so heartsore I can't sleep.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "soksang-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-21-1785515605826",
+        "term": "화병",
+        "definition": "A physical illness brought on by anger and grief suppressed for years — recognized in Korean medicine.",
+        "meaningKr": "A physical illness brought on by anger and grief suppressed for years — recognized in Korean medicine.",
+        "exampleEn": "그 할머니는 오랫동안 쌓인 스트레스로 화병을 앓고 계셨어.",
+        "exampleKr": "That grandma had been suffering from hwabyeong after years of bottled-up stress.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "hwabyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-22-1785515605826",
+        "term": "시원하다",
+        "definition": "A feeling of satisfying relief — whether from cool air, hot soup, a good massage, or a problem resolved.",
+        "meaningKr": "A feeling of satisfying relief — whether from cool air, hot soup, a good massage, or a problem resolved.",
+        "exampleEn": "이 얼큰한 국물 마시니까 속이 시원하다!",
+        "exampleKr": "Drinking this spicy soup gives me such a satisfying feeling of relief!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "siwon-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-23-1785515605826",
+        "term": "개운하다",
+        "definition": "The clean, light feeling after a shower, good sleep, or resolving something that was bothering you.",
+        "meaningKr": "The clean, light feeling after a shower, good sleep, or resolving something that was bothering you.",
+        "exampleEn": "뜨거운 물로 샤워하고 나니 몸이 개운해졌어.",
+        "exampleKr": "After taking a hot shower, my body feels clean and refreshed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "gaeun-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-24-1785515605826",
+        "term": "느끼하다",
+        "definition": "Heavy and greasy in a way that coats the mouth (food) — also, a person who is cheesy or overly smooth.",
+        "meaningKr": "Heavy and greasy in a way that coats the mouth (food) — also, a person who is cheesy or overly smooth.",
+        "exampleEn": "이 피자는 너무 느끼해서 김치랑 같이 먹어야겠어.",
+        "exampleKr": "This pizza is too greasy; I need to eat it with kimchi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "neukki-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-25-1785515605826",
+        "term": "고소하다",
+        "definition": "Nutty, toasty savouriness — also the quiet glee at seeing someone who wronged you get their due",
+        "meaningKr": "Nutty, toasty savouriness — also the quiet glee at seeing someone who wronged you get their due",
+        "exampleEn": "참기름 냄새가 진짜 고소하고 맛있지 않아?",
+        "exampleKr": "Doesn't sesame oil smell really nutty and delicious?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "goso-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-26-1785515605826",
+        "term": "담백하다",
+        "definition": "Food that is clean and light on the palate, not rich. Also, a person's plain, unpretentious manner.",
+        "meaningKr": "Food that is clean and light on the palate, not rich. Also, a person's plain, unpretentious manner.",
+        "exampleEn": "이 국물은 담백해서 해장하기 딱 좋아.",
+        "exampleKr": "This broth is clean and light, perfect for a hangover cure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "dambaek-hada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-27-1785515605826",
+        "term": "애교",
+        "definition": "Deliberately cute, endearing behavior used to charm others — a social skill, not just cuteness.",
+        "meaningKr": "Deliberately cute, endearing behavior used to charm others — a social skill, not just cuteness.",
+        "exampleEn": "너 애교 부리면 뭐든지 다 해줄 것 같아.",
+        "exampleKr": "If you act cute, it feels like I'd do anything for you.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "aegyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-28-1785515605826",
+        "term": "어리광",
+        "definition": "Babyish, clingy acting-up to someone who dotes on you, usually for attention or a favor.",
+        "meaningKr": "Babyish, clingy acting-up to someone who dotes on you, usually for attention or a favor.",
+        "exampleEn": "막내라서 어리광이 좀 심한 편이야.",
+        "exampleKr": "Since she's the youngest, she tends to act a bit too babyish.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "eorigwang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-29-1785515605826",
+        "term": "능청스럽다",
+        "definition": "Shamelessly playing innocent while knowing exactly what you're doing, keeping a straight face.",
+        "meaningKr": "Shamelessly playing innocent while knowing exactly what you're doing, keeping a straight face.",
+        "exampleEn": "걔는 뭘 해도 능청스러워서 믿을 수가 없어.",
+        "exampleKr": "No matter what he does, he's so shamelessly sly, I can't trust him.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "neungcheong-seureopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-30-1785515605826",
+        "term": "오지랖",
+        "definition": "Uninvited meddling in other people's business — often implying being nosy or overstepping.",
+        "meaningKr": "Uninvited meddling in other people's business — often implying being nosy or overstepping.",
+        "exampleEn": "내 일에 오지랖 좀 부리지 마! 네 일이나 신경 써.",
+        "exampleKr": "Stop meddling in my business! Mind your own.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "ojirap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-31-1785515605826",
+        "term": "철없다",
+        "definition": "Immature for one's age, lacking common sense or emotional maturity.",
+        "meaningKr": "Immature for one's age, lacking common sense or emotional maturity.",
+        "exampleEn": "걔는 나이만 먹었지 아직도 너무 철없는 행동을 해.",
+        "exampleKr": "He's old enough, but he still acts so immature.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "cheoreopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-32-1785515605826",
+        "term": "은근히",
+        "definition": "Subtly, more than you'd expect or admit — often used to soften a compliment or complaint.",
+        "meaningKr": "Subtly, more than you'd expect or admit — often used to soften a compliment or complaint.",
+        "exampleEn": "이 카페 커피 은근히 맛있더라. 또 가자!",
+        "exampleKr": "The coffee at this cafe was surprisingly good, actually. Let's go again!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "eungeunhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-untrans-33-1785515605826",
+        "term": "억지로",
+        "definition": "Forcing yourself, or being forced, to do something against your will.",
+        "meaningKr": "Forcing yourself, or being forced, to do something against your will.",
+        "exampleEn": "하기 싫은데 억지로 하려니까 너무 힘들다.",
+        "exampleKr": "It's so hard trying to force myself to do something I don't want to.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "eokjiro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-untrans-34-1785515605826",
+        "term": "대충",
+        "definition": "Roughly, good-enough, without full effort — can be practical or a criticism.",
+        "meaningKr": "Roughly, good-enough, without full effort — can be practical or a criticism.",
+        "exampleEn": "숙제 대충 하지 말고 좀 더 신경 써서 해 봐.",
+        "exampleKr": "Don't do your homework roughly; try to put more effort into it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "daechung",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-untrans-35-1785515605826",
+        "term": "갑질",
+        "definition": "Abuse of power by someone in a stronger position, like a boss to staff or client to vendor.",
+        "meaningKr": "Abuse of power by someone in a stronger position, like a boss to staff or client to vendor.",
+        "exampleEn": "저 사장님은 직원들한테 갑질이 너무 심해.",
+        "exampleKr": "That boss's abuse of power towards his employees is too severe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "gapjil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-36-1785515605826",
+        "term": "회식",
+        "definition": "An after-work team dinner, usually with drinking, for team bonding — often effectively compulsory.",
+        "meaningKr": "An after-work team dinner, usually with drinking, for team bonding — often effectively compulsory.",
+        "exampleEn": "오늘 회식 있다고? 나 오늘 약속 있는데 어쩌지?",
+        "exampleKr": "There's a team dinner today? I have plans, what should I do?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "hoesik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-37-1785515605826",
+        "term": "눈도장",
+        "definition": "'An eye-stamp' — showing your face so a key person registers you were there.",
+        "meaningKr": "'An eye-stamp' — showing your face so a key person registers you were there.",
+        "exampleEn": "사장님한테 눈도장 찍으려면 일찍 출근해야 해.",
+        "exampleKr": "If you want the boss to notice you, you have to come to work early.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "nundojang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-38-1785515605826",
+        "term": "뒷북",
+        "definition": "Reacting to news everyone else processed long ago — being late to the party, often said teasingly.",
+        "meaningKr": "Reacting to news everyone else processed long ago — being late to the party, often said teasingly.",
+        "exampleEn": "그거 벌써 지난주 뉴스인데 이제 와서 뒷북치냐?",
+        "exampleKr": "That was last week's news; are you just now reacting to it?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "dwitbuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-39-1785515605826",
+        "term": "정신없다",
+        "definition": "So hectic there's no headspace left; frazzled or all over the place — for a day, room, or person.",
+        "meaningKr": "So hectic there's no headspace left; frazzled or all over the place — for a day, room, or person.",
+        "exampleEn": "오늘 하루 종일 너무 정신없어서 점심도 못 먹었어.",
+        "exampleKr": "I was so frazzled all day today that I couldn't even eat lunch.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "jeongsineopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-untrans-40-1785515605826",
+        "term": "수고하다",
+        "definition": "To put in effort, but mainly used as a polite farewell like 'thank you for your work today'.",
+        "meaningKr": "To put in effort, but mainly used as a polite farewell like 'thank you for your work today'.",
+        "exampleEn": "오늘 하루도 수고하셨습니다! 조심히 들어가세요.",
+        "exampleKr": "Thank you for your hard work today! Please go home safely.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "sugo-hada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-41-1785515605826",
+        "term": "알아서",
+        "definition": "'As you see fit', on your own judgment — warm or cold depending entirely on tone",
+        "meaningKr": "'As you see fit', on your own judgment — warm or cold depending entirely on tone",
+        "exampleEn": "점심 뭐 먹을지 알아서 시켜 먹어. 난 아무거나 괜찮아.",
+        "exampleKr": "Order whatever you see fit for lunch; anything is fine with me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "araseo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-untrans-42-1785515605826",
+        "term": "뒷담화",
+        "definition": "Talking about someone behind their back after the fact — often implying badmouthing.",
+        "meaningKr": "Talking about someone behind their back after the fact — often implying badmouthing.",
+        "exampleEn": "남 뒷담화 하지 말고 직접 가서 말해봐.",
+        "exampleKr": "Don't talk about people behind their backs; go tell them directly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "dwitdamhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-43-1785515605826",
+        "term": "한턱내다",
+        "definition": "To treat everyone to a meal or drinks because something good happened to you.",
+        "meaningKr": "To treat everyone to a meal or drinks because something good happened to you.",
+        "exampleEn": "나 승진했어! 오늘 저녁은 내가 한턱낼게!",
+        "exampleKr": "I got promoted! I'll treat everyone to dinner tonight!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "hanteoknaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-untrans-44-1785515605826",
+        "term": "밥심",
+        "definition": "'Rice strength' — the belief that stamina and resilience come from eating proper meals.",
+        "meaningKr": "'Rice strength' — the belief that stamina and resilience come from eating proper meals.",
+        "exampleEn": "역시 한국인은 밥심이지! 밥 먹어야 힘이 나지.",
+        "exampleKr": "Koreans truly live on 'rice strength'! You only get energy after eating rice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "bapsim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-45-1785515605826",
+        "term": "동갑",
+        "definition": "Being the same age as someone — in Korea, this instantly settles speech level and closeness.",
+        "meaningKr": "Being the same age as someone — in Korea, this instantly settles speech level and closeness.",
+        "exampleEn": "우리 동갑이니까 말 편하게 해도 돼.",
+        "exampleKr": "We're the same age, so you can speak casually to me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "donggap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-46-1785515605826",
+        "term": "집들이",
+        "definition": "A housewarming party where guests traditionally bring detergent or toilet paper for good luck.",
+        "meaningKr": "A housewarming party where guests traditionally bring detergent or toilet paper for good luck.",
+        "exampleEn": "우리 다음 주에 집들이 하는데 놀러 올래?",
+        "exampleKr": "We're having a housewarming next week, want to come?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "jipdeuri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-47-1785515605826",
+        "term": "몸보신",
+        "definition": "Eating specific restorative foods like samgyetang to rebuild the body's strength.",
+        "meaningKr": "Eating specific restorative foods like samgyetang to rebuild the body's strength.",
+        "exampleEn": "여름이라 몸보신 좀 해야겠어. 삼계탕 먹으러 갈까?",
+        "exampleKr": "It's summer, so I should rebuild my strength. Shall we go eat samgyetang?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "mombosin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-48-1785515605826",
+        "term": "엄살",
+        "definition": "Exaggerating how hurt or tired you are to get sympathy — can be affectionate or dismissive.",
+        "meaningKr": "Exaggerating how hurt or tired you are to get sympathy — can be affectionate or dismissive.",
+        "exampleEn": "쟤 또 엄살 부리네. 그렇게 아픈 거 아닌 것 같은데.",
+        "exampleKr": "He's exaggerating again. It doesn't seem like he's that hurt.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "eomsal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-untrans-49-1785515605826",
+        "term": "인심",
+        "definition": "Open-handed generosity, especially giving a little extra unasked — like a market vendor's free gift.",
+        "meaningKr": "Open-handed generosity, especially giving a little extra unasked — like a market vendor's free gift.",
+        "exampleEn": "이 동네는 인심이 좋아서 덤을 많이 줘.",
+        "exampleKr": "This neighborhood is generous, so they give a lot of free extras.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Nuance"
+        ],
+        "phonetic": "insim",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-mimetic-ko-1",
     "title": "Korean Onomatopoeia & Mimetic Words 100",
     "icon": "✨",

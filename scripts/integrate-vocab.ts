@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  untrans: {
+    id: 'curated-untrans-ko-1',
+    title: 'Untranslatable Korean 50',
+    icon: '💭',
+    category: '문화',
+    level: 'intermediate',
+    description: 'The Korean words English has no single word for — 눈치, 정, 한, 서운하다, 억울하다, 시원하다, 애교, 갑질, 오지랖 and more across relationships, feelings, taste & sensation, character, work life and Korean living. Each card names the closest English word, then draws the line between them — the gap is the lesson. Korean→English; meanings & spoken examples AI-generated.',
+    tags: ['Korean', 'Culture', 'Nuance'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   mimetic: {
     id: 'curated-mimetic-ko-1',
     title: 'Korean Onomatopoeia & Mimetic Words 100',

@@ -1,11 +1,40 @@
-import { serializeCsv, parseCsv, CsvParseError, CsvWordRow } from '../utils/csv';
+import { UI_LOCALE_CODES } from '../shared/contracts';
+import { serializeCsv, parseCsv, csvHeaders, CsvParseError, CsvWordRow } from '../utils/csv';
+
+/**
+ * 내보내기 헤더는 UI 언어를 따르는데, 가져오기는 헤더 **이름**으로 컬럼을 찾는다.
+ * 그래서 새 언어의 헤더 라벨이 HEADER_ALIASES에 없으면 "내보낸 파일을 다시 가져올 수
+ * 없는" 상태가 조용히 만들어진다 — 언어를 추가할 때 가장 놓치기 쉬운 지점이라 전
+ * 로케일을 훑는다.
+ */
+describe('내보내기 헤더는 모든 UI 언어에서 다시 가져올 수 있다', () => {
+  const rows: CsvWordRow[] = [
+    { term: 'apple', meaningKr: '사과', phonetic: 'ˈæpəl', pos: 'noun', definition: 'a fruit', exampleEn: 'I ate an apple.', exampleKr: '나는 사과를 먹었다.', tags: ['과일', '기초'] },
+  ];
+
+  it.each(UI_LOCALE_CODES)('%s 헤더로 내보낸 파일이 손실 없이 왕복한다', (locale) => {
+    const { rows: parsed, skipped } = parseCsv(serializeCsv(rows, locale));
+    expect(skipped).toBe(0);
+    expect(parsed).toEqual(rows);
+  });
+
+  it.each(UI_LOCALE_CODES)('%s 헤더는 컬럼 수가 맞고 빈 라벨이 없다', (locale) => {
+    const headers = csvHeaders(locale);
+    expect(headers).toHaveLength(8);
+    expect(headers.every((h) => h.trim().length > 0)).toBe(true);
+  });
+
+  it('지원하지 않는 언어는 폴백 로케일의 헤더를 쓴다', () => {
+    expect(csvHeaders('ja')).toEqual(csvHeaders('en'));
+  });
+});
 
 describe('serializeCsv / parseCsv 왕복', () => {
   it('기본 행을 직렬화 후 파싱하면 동일하게 복원된다', () => {
     const rows: CsvWordRow[] = [
       { term: 'apple', meaningKr: '사과', phonetic: 'ˈæpəl', pos: 'noun', definition: 'a fruit', exampleEn: 'I ate an apple.', exampleKr: '나는 사과를 먹었다.', tags: ['과일', '기초'] },
     ];
-    const csv = serializeCsv(rows);
+    const csv = serializeCsv(rows, 'ko');
     const { rows: parsed, skipped } = parseCsv(csv);
     expect(skipped).toBe(0);
     expect(parsed).toEqual(rows);
@@ -15,14 +44,14 @@ describe('serializeCsv / parseCsv 왕복', () => {
     const rows: CsvWordRow[] = [
       { term: 'bank', meaningKr: '은행, 둑', phonetic: '', pos: '', definition: '', exampleEn: 'He said "hello", then left.', exampleKr: '', tags: [] },
     ];
-    const csv = serializeCsv(rows);
+    const csv = serializeCsv(rows, 'ko');
     const { rows: parsed } = parseCsv(csv);
     expect(parsed[0].meaningKr).toBe('은행, 둑');
     expect(parsed[0].exampleEn).toBe('He said "hello", then left.');
   });
 
   it('내보낸 파일은 BOM으로 시작하고 파싱 시 BOM이 제거된다', () => {
-    const csv = serializeCsv([{ term: 'a', meaningKr: '에이' }]);
+    const csv = serializeCsv([{ term: 'a', meaningKr: '에이' }], 'ko');
     expect(csv.charCodeAt(0)).toBe(0xfeff);
     const { rows } = parseCsv(csv);
     expect(rows[0].term).toBe('a');

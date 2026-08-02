@@ -9,6 +9,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import CharacterSvg from '@/components/CharacterSvg';
+import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 import { useTheme } from '@/features/theme';
 
 type DemoColors = {
@@ -55,8 +57,8 @@ type CardData = {
 
 // ─── 실제 curation.tsx 카드(detailed 모드)와 동일한 구조 ───────────────────
 function ThemeCard({
-  icon, title, description, tags, wordCount, level, langPair, delay, isActive, C, fontFamily,
-}: CardData & { isActive: boolean; C: DemoColors; fontFamily: FontFamilyMap }) {
+  t, icon, title, description, tags, wordCount, level, langPair, delay, isActive, C, fontFamily,
+}: CardData & { t: TFunction; isActive: boolean; C: DemoColors; fontFamily: FontFamilyMap }) {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(10);
 
@@ -73,7 +75,7 @@ function ThemeCard({
 
   const levelBg = level === 'beginner' ? C.beginnerBg : C.intermediateBg;
   const levelColor = level === 'beginner' ? C.beginnerText : C.intermediateText;
-  const levelLabel = level === 'beginner' ? '초급' : '중급';
+  const levelLabel = t(level === 'beginner' ? 'onboardingDemo.levelBeginner' : 'onboardingDemo.levelIntermediate');
   const p = S;
 
   return (
@@ -123,40 +125,45 @@ function ThemeCard({
       {/* cardFooter */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 * p }}>
         <View style={{ backgroundColor: C.primaryLight, paddingHorizontal: 8 * p, paddingVertical: 3 * p, borderRadius: 10 * p }}>
-          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.bold, color: C.primary, letterSpacing: 0.3 }}>{wordCount} 단어 수록</Text>
+          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.bold, color: C.primary, letterSpacing: 0.3 }}>{t('onboardingDemo.wordCount', { count: wordCount })}</Text>
         </View>
       </View>
     </Animated.View>
   );
 }
 
-const THEMES: CardData[] = [
+// 데모용 가짜 덱. 언어쌍이 UI 언어를 따른다 — ko 화면은 영어를 배우는 덱(EN→KO),
+// en 화면은 한국어를 배우는 덱(KO→EN)을 보여준다.
+const themes = (t: TFunction): CardData[] => [
   {
     icon: '✈️',
-    title: '여행 영어 필수 표현',
-    description: '공항, 호텔, 레스토랑 등 여행 필수 어휘',
-    tags: ['여행', '회화'],
+    title: t('onboardingDemo.deck1Title'),
+    description: t('onboardingDemo.deck1Desc'),
+    tags: t('onboardingDemo.deck1Tags').split(','),
     wordCount: 30,
     level: 'beginner',
-    langPair: '🇺🇸 EN → 🇰🇷 KO',
+    langPair: t('onboardingDemo.langPair'),
     delay: 500,
   },
   {
     icon: '💼',
-    title: '비즈니스 이메일',
-    description: '업무 이메일 및 회의에서 쓰는 표현 모음',
-    tags: ['비즈니스', '이메일'],
+    title: t('onboardingDemo.deck2Title'),
+    description: t('onboardingDemo.deck2Desc'),
+    tags: t('onboardingDemo.deck2Tags').split(','),
     wordCount: 25,
     level: 'intermediate',
-    langPair: '🇺🇸 EN → 🇰🇷 KO',
+    langPair: t('onboardingDemo.langPair'),
     delay: 850,
   },
 ];
 
-const CHIPS = ['전체', '영어', '한국어', '일본어', '중국어'];
+// 칩 라벨은 쉼표로 이어 붙인 한 키다 — 언어 목록이라 개수가 로케일마다 같고,
+// 번역자가 순서를 한눈에 맞추기도 쉽다.
+const chipLabels = (t: TFunction): string[] => t('onboardingDemo.chips').split(',');
 
 export function CurationDemo({ isActive }: { isActive: boolean }) {
   const { colors, fontFamily, isDark } = useTheme();
+  const { t } = useTranslation();
   const screenOpacity = useSharedValue(0);
 
   const C: DemoColors = useMemo(() => ({
@@ -216,7 +223,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
             color: C.text,
             letterSpacing: -0.5,
           }}>
-            단어 모음
+            {t('onboardingDemo.curationTitle')}
           </Text>
           <Text style={{
             fontSize: 11 * p,
@@ -225,7 +232,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
             marginTop: 1,
             lineHeight: 16 * p,
           }} numberOfLines={1}>
-            단어장을 바로 내 것으로 가져와요
+            {t('onboardingDemo.curationSubtitle')}
           </Text>
         </View>
 
@@ -262,7 +269,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         }}>
           <Ionicons name="search" size={18 * p} color={C.textTertiary} />
           <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.regular, color: C.textTertiary }}>
-            주제나 상황을 입력하세요
+            {t('onboardingDemo.curationSearch')}
           </Text>
         </View>
         <View style={{
@@ -285,7 +292,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
 
       {/* ── 언어 필터 칩 ── */}
       <View style={{ flexDirection: 'row', paddingHorizontal: 14 * p, paddingVertical: 2 * p, gap: 7 * p }}>
-        {CHIPS.map((chip, i) => (
+        {chipLabels(t).map((chip, i) => (
           <View key={chip} style={{
             paddingHorizontal: 12 * p,
             paddingVertical: 6 * p,
@@ -318,17 +325,17 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           borderBottomWidth: 2,
           borderBottomColor: C.primary,
         }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>공식 단어장</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>{t('onboardingDemo.tabOfficial')}</Text>
         </View>
         <View style={{ flex: 1, paddingVertical: 10 * p, alignItems: 'center' }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>공유 단어장</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>{t('onboardingDemo.tabShared')}</Text>
         </View>
       </View>
 
       {/* ── 카드 목록 ── */}
       <View style={{ paddingHorizontal: 14 * p, paddingBottom: 12 * p }}>
-        {THEMES.map(theme => (
-          <ThemeCard key={theme.title} {...theme} isActive={isActive} C={C} fontFamily={fontFamily} />
+        {themes(t).map(theme => (
+          <ThemeCard key={theme.title} t={t} {...theme} isActive={isActive} C={C} fontFamily={fontFamily} />
         ))}
       </View>
     </Animated.View>

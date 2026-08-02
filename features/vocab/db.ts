@@ -106,7 +106,28 @@ export async function getLists(): Promise<VocaList[]> {
   return listsRows.map(row => rowToVocaList(row, wordsByListId.get(row.id) ?? []));
 }
 
-export async function initSeedDataIfEmpty(): Promise<void> {
+/**
+ * 첫 실행 때 넣을 샘플 단어장. 문구는 **호출부가 만들어 넘긴다**.
+ *
+ * 이 모듈이 i18n을 직접 읽지 않는 이유: 데이터 계층이 UI 언어를 알 이유가 없고,
+ * 실제로 `@/i18n`을 import했더니 expo-localization까지 딸려 와 db 유닛 테스트 두 개가
+ * 로드조차 못 하게 됐다. 언어는 화면 쪽 관심사로 남긴다(→ features/vocab/seed.ts).
+ */
+export interface SeedData {
+  listTitle: string;
+  words: {
+    term: string;
+    definition: string;
+    phonetic: string;
+    pos: string;
+    exampleEn: string;
+    exampleKr: string;
+    meaningKr: string;
+    tags: string[];
+  }[];
+}
+
+export async function initSeedDataIfEmpty(seed: SeedData): Promise<void> {
   const db = await getDb();
 
   // COUNT(*) returns an object like { count: 0 } or { "COUNT(*)": 0 } depending on exact sqlite query parser
@@ -123,26 +144,20 @@ export async function initSeedDataIfEmpty(): Promise<void> {
     const defaultListId = generateId();
     await db.runAsync(
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt) VALUES (?, ?, ?, ?, ?)`,
-      [defaultListId, '샘플 단어장 (Sample)', 1, Date.now(), Date.now()]
+      [defaultListId, seed.listTitle, 1, Date.now(), Date.now()]
     );
 
-    await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Serendipity', 'The occurrence of events by chance in a happy way', 'ˌserənˈdipədē', 'noun', 'We found the cafe by serendipity.', '우리는 우연히 그 카페를 찾았다.', '뜻밖의 행운', 0, 0, JSON.stringify(['행운', '우연'])]
-    );
-
-    await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Resilience', 'The capacity to recover quickly from difficulties', 'riˈzilyəns', 'noun', 'He showed great resilience after the failure.', '그는 실패 후 놀라운 회복력을 보여주었다.', '회복력', 0, 0, JSON.stringify(['멘탈', '회복'])]
-    );
-
-    await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Consistency', 'Conformity in the application of something', 'kənˈsistənsē', 'noun', 'Consistency is key to success.', '일관성은 성공의 열쇠이다.', '일관성', 0, 0, JSON.stringify(['습관'])]
-    );
+    for (const w of seed.words) {
+      await db.runAsync(
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          generateId(), defaultListId,
+          w.term, w.definition, w.phonetic, w.pos, w.exampleEn, w.exampleKr, w.meaningKr,
+          0, 0, JSON.stringify(w.tags),
+        ]
+      );
+    }
   }
 }
 

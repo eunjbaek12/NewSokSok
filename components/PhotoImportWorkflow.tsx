@@ -8,7 +8,7 @@ import { useTheme } from '@/features/theme';
 import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 
-import { fetchWordsFromImage } from '@/lib/gemini-api';
+import { fetchWordsFromImage, ScanError } from '@/lib/gemini-api';
 import { filterExtractedWords } from '@/lib/stopwords';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
 import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
@@ -207,7 +207,11 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         } catch (error: any) {
             if (error?.name === 'AbortError') return;
             console.error(error);
-            Alert.alert(t('common.error'), error?.message || t('photoImport.saveError'));
+            // ScanError는 코드만 들고 온다 — 문구는 여기서 만든다(lib은 UI 언어를 모른다).
+            const message = error instanceof ScanError
+                ? t(`scanError.${error.code}`, { detail: error.detail ?? '' })
+                : (error?.message || t('photoImport.saveError'));
+            Alert.alert(t('common.error'), message);
             setIsScanning(false);
         }
     };

@@ -11,6 +11,8 @@
  * 담당한다 — 앱이 새벽 학습자에게 "그 시간은 못 고릅니다"라고 참견하면 안 된다.
  */
 
+import { localeTag } from '@/i18n/locale';
+
 export interface ReviewTimeOption {
   id: string;
   hour: number;
@@ -34,14 +36,30 @@ export const REVIEW_TIME_OPTIONS: ReviewTimeOption[] = Array.from({ length: 48 }
 });
 
 /**
- * 사람이 읽는 시각. 한국어는 "오후 8:00", 영어는 "8:00 PM" — 24시간제 지역 사용자를 위해
- * Intl에 맡기지 않고 로케일 분기만 최소로 둔다(앱 UI 언어는 ko/en 둘뿐).
+ * 사람이 읽는 시각. 한국어는 "오전 8:00", 영어는 "8:00 AM".
+ *
+ * `hour12: true`를 명시하는 이유: 24시간제가 기본인 지역(en-GB 등)에서도 이 화면은
+ * 12시간제로 통일한다 — 목록 48개가 오전/오후로 갈려 있어야 훑기 쉽다. 이건 원래
+ * 코드가 로케일 분기를 손으로 짠 이유이기도 한데, **분기까지 손으로 짤 필요는 없다**:
+ * 오전/오후 단어와 그 위치(한국어는 앞, 영어는 뒤, 일본어는 앞에 붙여 씀)는 Intl이 안다.
+ * 세 번째 언어를 추가할 때 이 함수는 손댈 것이 없다.
+ *
+ * Intl.DateTimeFormat은 이미 프로덕션에서 쓰고 있다(app/contact.tsx·whats-new.tsx의
+ * toLocaleDateString) — Hermes에서 동작이 확인된 경로다. 그래도 로케일 데이터가 없는
+ * 런타임을 만나면 포맷터가 던지므로, 영어식 표기로 떨어뜨린다.
  */
 export function formatReviewTime(hour: number, minute: number, locale: string): string {
   const mm = String(minute).padStart(2, '0');
   const h12 = hour % 12 === 0 ? 12 : hour % 12;
-  if (locale.startsWith('ko')) {
-    return `${hour < 12 ? '오전' : '오후'} ${h12}:${mm}`;
+  try {
+    // 날짜 부분은 버리고 시:분만 쓴다. 1970-01-01 로컬 자정 기준으로 시각만 얹는다.
+    const ref = new Date(1970, 0, 1, hour, minute);
+    return new Intl.DateTimeFormat(localeTag(locale), {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    }).format(ref);
+  } catch {
+    return `${h12}:${mm} ${hour < 12 ? 'AM' : 'PM'}`;
   }
-  return `${h12}:${mm} ${hour < 12 ? 'AM' : 'PM'}`;
 }

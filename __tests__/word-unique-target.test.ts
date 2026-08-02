@@ -38,7 +38,7 @@ describe('migration 015 — words unique key on (listId, term, sourceLang, targe
 
     beforeAll(async () => {
         await getDb();
-        await initSeedDataIfEmpty();
+        await initSeedDataIfEmpty({ listTitle: 'Sample', words: [] });
         const list = await createList('Unique Test List');
         listId = list.id;
     });

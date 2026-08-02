@@ -20,8 +20,7 @@ const jua = {
 export const SKINS: Record<SkinId, SkinDefinition> = {
   lab: {
     id: 'lab',
-    nameKo: '실험실',
-    nameEn: 'Lab',
+    nameKey: 'skinLab',
     colorScheme: 'light',
     fontFamily: pretendard,
     previewColors: {
@@ -35,8 +34,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
   },
   classic: {
     id: 'classic',
-    nameKo: '클래식',
-    nameEn: 'Classic',
+    nameKey: 'skinClassic',
     colorScheme: 'light',
     fontFamily: pretendard,
     previewColors: {
@@ -50,8 +48,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
   },
   dark: {
     id: 'dark',
-    nameKo: '다크 고요',
-    nameEn: 'Dark',
+    nameKey: 'skinDark',
     colorScheme: 'dark',
     fontFamily: pretendard,
     previewColors: {
@@ -65,8 +62,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
   },
   y2k: {
     id: 'y2k',
-    nameKo: 'Y2K',
-    nameEn: 'Y2K',
+    nameKey: 'skinY2k',
     colorScheme: 'light',
     fontFamily: jua,
     previewColors: {

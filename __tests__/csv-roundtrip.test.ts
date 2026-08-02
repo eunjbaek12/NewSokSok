@@ -25,14 +25,14 @@ describe('내보내기 → 가져오기 → 저장 end-to-end', () => {
   ];
 
   it('손실 없이 왕복하고 모든 필드가 보존된다', () => {
-    const csv = serializeCsv(sourceList);
+    const csv = serializeCsv(sourceList, 'ko');
     const { rows, skipped } = parseCsv(csv);
     expect(skipped).toBe(0);
     expect(rows).toEqual(sourceList);
   });
 
   it('대상 단어장에 일부 중복이 있으면 그 단어만 제외하고 추가된다', () => {
-    const csv = serializeCsv(sourceList);
+    const csv = serializeCsv(sourceList, 'ko');
     const { rows } = parseCsv(csv);
 
     // 대상 단어장에 'Apple'(대소문자 다름)과 'run'이 이미 있다고 가정
@@ -44,7 +44,7 @@ describe('내보내기 → 가져오기 → 저장 end-to-end', () => {
   });
 
   it('빈 단어장으로 가져오면 전부 추가된다', () => {
-    const csv = serializeCsv(sourceList);
+    const csv = serializeCsv(sourceList, 'ko');
     const { rows } = parseCsv(csv);
     const { added, dup } = simulateAddBatch([], rows);
     expect(added).toHaveLength(3);

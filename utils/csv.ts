@@ -8,6 +8,8 @@
 // 가져온 행은 features/vocab의 addBatchWords(→ WordSaveSchema)로 저장되므로,
 // 파싱 단계에서 제어문자 제거(NO_CONTROL)와 컬럼별 길이 제한을 미리 적용해
 // 저장 시 throw를 방지한다.
+import { resolveLocale, type UILocaleCode } from '@/i18n/locale';
+
 import { WORD_SAVE_CAPS, sanitizeWordField } from './word-sanitize';
 
 export interface CsvWordRow {
@@ -21,10 +23,30 @@ export interface CsvWordRow {
   tags?: string[];
 }
 
-// 내보내기 컬럼 순서 + 한국어 헤더(왕복 기준). 가져오기는 헤더명으로 매핑하므로
-// 순서가 달라도 되지만, 우리 내보내기 파일은 이 순서·이 헤더로 고정한다.
+// 내보내기 컬럼 순서. 가져오기는 헤더명으로 매핑하므로 순서가 달라도 되지만,
+// 우리 내보내기 파일은 이 순서로 고정한다.
 export const CSV_COLUMNS = ['term', 'meaningKr', 'phonetic', 'pos', 'definition', 'exampleEn', 'exampleKr', 'tags'] as const;
-export const CSV_HEADERS_KO = ['단어', '뜻', '발음', '품사', '정의', '예문', '예문뜻', '태그'] as const;
+
+/**
+ * 내보내기 헤더 — UI 언어별.
+ *
+ * 예전에는 한국어 헤더 하나뿐이라 영어 사용자도 `단어,뜻,발음…`이 박힌 파일을 받았다.
+ *
+ * ⚠️ 여기 쓰는 라벨은 **반드시 아래 HEADER_ALIASES에 있는 값**이어야 한다. 그래야
+ * 내보낸 파일을 그대로 다시 가져올 수 있다(왕복). `__tests__/csv.test.ts`가 모든
+ * 로케일에 대해 이걸 검사한다.
+ *
+ * Record<UILocaleCode, …>이라 언어를 추가하면 여기서 컴파일이 깨진다.
+ */
+const CSV_HEADERS: Record<UILocaleCode, readonly string[]> = {
+  ko: ['단어', '뜻', '발음', '품사', '정의', '예문', '예문뜻', '태그'],
+  en: ['Word', 'Meaning', 'Phonetic', 'POS', 'Definition', 'Example', 'Example Translation', 'Tags'],
+};
+
+/** 해당 UI 언어의 내보내기 헤더 행. */
+export function csvHeaders(locale: string): readonly string[] {
+  return CSV_HEADERS[resolveLocale(locale)];
+}
 
 const TAG_CAP = 60;
 const TAG_DELIM = ';';
@@ -57,9 +79,11 @@ function escapeField(value: string): string {
 }
 
 // CsvWordRow[] → CSV 문자열. UTF-8 BOM(엑셀 한글) + CRLF(RFC 4180) 포함.
-export function serializeCsv(rows: CsvWordRow[]): string {
+// locale은 헤더 행의 언어다 — 기본값을 두지 않는 이유는, 안 넘기면 조용히 한국어가
+// 나가던 것이 원래 버그라서다.
+export function serializeCsv(rows: CsvWordRow[], locale: string): string {
   const lines: string[] = [];
-  lines.push(CSV_HEADERS_KO.map(escapeField).join(','));
+  lines.push(csvHeaders(locale).map(escapeField).join(','));
   for (const row of rows) {
     const cells = CSV_COLUMNS.map((col) => {
       if (col === 'tags') return escapeField((row.tags ?? []).join(TAG_DELIM));

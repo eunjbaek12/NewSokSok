@@ -21,17 +21,43 @@ function buildExtractPrompt(langName: string, sourceLang: string): string {
     return `Extract the ${langName} vocabulary visible in the image. Extract individual vocabulary words only — never full sentences, clauses, or particle-attached phrases. ${formInstr} Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]`;
 }
 
-const scanEdgeErrorMessage = (kind: string): string => {
-    switch (kind) {
-        case 'quota_exceeded':
-            return '오늘의 AI 한도를 모두 사용했어요. 광고를 보거나 잠시 후 다시 시도해주세요.';
-        case 'rate_limited':
-            return '요청이 많아요. 잠시 후 다시 시도해주세요.';
-        case 'unauthorized':
-            return '로그인이 필요해요. 다시 로그인한 뒤 시도해주세요.';
-        default:
-            return '사진 분석에 실패했어요. 잠시 후 다시 시도해주세요.';
+/**
+ * 사진 스캔 실패 사유 — 문장이 아니라 **코드**로 던지고 화면에서 번역한다.
+ *
+ * 예전에는 한국어 문장을 Error.message에 담아 던졌는데, 아래 재시도 판단이 그 문장과
+ * 문자열을 비교하고 있었다. 그대로 번역했다면 재시도 여부가 UI 언어에 따라 갈렸을
+ * 자리다(마침 그 비교는 아무 효과가 없는 죽은 가지였지만, 남겨 두면 언제든 살아난다).
+ */
+export type ScanErrorCode =
+    | 'quotaExceeded'
+    | 'rateLimited'
+    | 'unauthorized'
+    | 'badResponse'   // 스키마 불일치·JSON 아님·본문 없음 — 사용자에게는 다 같은 말이다
+    | 'apiError'      // API가 준 사유(detail)가 있는 경우
+    | 'failed';
+
+export class ScanError extends Error {
+    readonly code: ScanErrorCode;
+    /** API가 돌려준 원문 사유. 우리가 쓴 문장이 아니므로 번역하지 않고 덧붙이기만 한다. */
+    readonly detail?: string;
+    /** HTTP 400 — payload 문제라 같은 요청을 다시 보내도 결과가 같다. */
+    readonly isBadRequest: boolean;
+
+    constructor(code: ScanErrorCode, opts: { detail?: string; isBadRequest?: boolean } = {}) {
+        // message는 로그·크래시 리포트용이다. 사용자에게 보이는 문구는 화면에서 code로 만든다.
+        super(opts.detail ? `${code}: ${opts.detail}` : code);
+        this.name = 'ScanError';
+        this.code = code;
+        this.detail = opts.detail;
+        this.isBadRequest = opts.isBadRequest ?? false;
     }
+}
+
+// Edge Function이 주는 실패 종류 → 화면 코드.
+const EDGE_ERROR_CODE: Record<string, ScanErrorCode> = {
+    quota_exceeded: 'quotaExceeded',
+    rate_limited: 'rateLimited',
+    unauthorized: 'unauthorized',
 };
 
 export const fetchWordsFromImage = async (
@@ -46,11 +72,11 @@ export const fetchWordsFromImage = async (
     // BYOK 키가 없으면 운영자 키(Edge, quota 적용) 경로로 추출.
     if (!GEMINI_API_KEY) {
         const res = await scanImageViaEdge(base64Image, sourceLang, signal);
-        if (res.kind !== 'ok') throw new Error(scanEdgeErrorMessage(res.kind));
+        if (res.kind !== 'ok') throw new ScanError(EDGE_ERROR_CODE[res.kind] ?? 'failed');
         const parsed = GeminiImageResultSchema.safeParse(res.result);
         if (!parsed.success) {
             console.error('scan-image 응답 스키마 불일치:', parsed.error.issues, 'raw:', res.result);
-            throw new Error('API 응답 형식이 예상과 다릅니다. 다시 시도해주세요.');
+            throw new ScanError('badResponse');
         }
         return parsed.data;
     }
@@ -77,7 +103,7 @@ export const fetchWordsFromImage = async (
         }
     };
 
-    let lastError: Error = new Error('API 호출에 실패했습니다.');
+    let lastError: Error = new ScanError('failed');
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
@@ -92,45 +118,42 @@ export const fetchWordsFromImage = async (
 
             if (!response.ok) {
                 const errorText = await response.text();
-                let errorMessage = 'API 호출에 실패했습니다.';
+                let detail: string | undefined;
 
                 try {
                     const errJson = JSON.parse(errorText);
                     if (errJson.error && errJson.error.message) {
-                        errorMessage = errJson.error.message;
+                        detail = errJson.error.message;
                     }
                 } catch (e) {
-                    // parsing failed, use fallback message
+                    // parsing failed — detail 없이 코드만으로 안내한다
                 }
 
                 // If it's a 400 Bad Request (likely a malformed payload or unrecoverable client error) don't retry,
                 // otherwise retry for 429 Too Many Requests, 50x Server errors, etc.
-                if (response.status === 400) {
-                    const finalErr = new Error(`API 오류: ${errorMessage}`);
-                    // Setting a flag so the catch block knows it's a 400
-                    (finalErr as any).isBadRequest = true;
-                    throw finalErr;
-                }
+                const isBadRequest = response.status === 400;
+                const err = new ScanError(detail ? 'apiError' : 'failed', { detail, isBadRequest });
+                if (isBadRequest) throw err;
 
-                lastError = new Error(`API 오류: ${errorMessage}`);
+                lastError = err;
                 throw lastError; // Throw so we catch it and potentially retry
             }
 
             const data = await response.json();
             const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (!textResponse) throw new Error('결과를 파싱할 수 없습니다.');
+            if (!textResponse) throw new ScanError('badResponse');
 
             let raw: unknown;
             try {
                 raw = JSON.parse(textResponse);
             } catch (e) {
                 console.error("JSON 파싱 에러:", textResponse);
-                throw new Error("API 응답이 올바른 JSON 형식이 아닙니다.");
+                throw new ScanError('badResponse');
             }
             const parsed = GeminiImageResultSchema.safeParse(raw);
             if (!parsed.success) {
                 console.error("Gemini 이미지 응답 스키마 불일치:", parsed.error.issues, 'raw:', raw);
-                throw new Error("API 응답 형식이 예상과 다릅니다. 다시 시도해주세요.");
+                throw new ScanError('badResponse');
             }
             return parsed.data;
 
@@ -138,24 +161,17 @@ export const fetchWordsFromImage = async (
             // AbortError는 retry 없이 즉시 throw
             if (error.name === 'AbortError') throw error;
 
-            // If it's the last attempt OR if it's a specific, unrecoverable error (like JSON parsing failure
-            // from a perfectly 200 OK response, or 400 Bad Request thrown from above)
-            if (
-                attempt === maxRetries ||
-                error.message === '결과를 파싱할 수 없습니다.' ||
-                error.message === 'API 응답이 올바른 JSON 형식이 아닙니다.' ||
-                error.isBadRequest
-            ) {
-                // If we specifically marked this as a bad request (400), throw immediately
-                if (error.isBadRequest) {
-                    throw error;
-                }
+            // 400은 payload 문제라 같은 요청을 다시 보내도 결과가 같다 — 즉시 포기.
+            if (error.isBadRequest) throw error;
 
-                // To be safe and retry on most network errors or 429s/500s:
-                if (attempt === maxRetries) {
-                    console.error("Gemini API Error details after max retries:", error);
-                    throw error;
-                }
+            // 그 밖(네트워크·429·50x·응답 파싱 실패)은 마지막 시도까지 재시도한다.
+            //
+            // 예전에는 여기에 "파싱 실패는 재시도하지 않는다"는 뜻으로 보이는 메시지 비교
+            // 두 줄이 더 있었지만, 두 조건 모두 바깥 if만 통과시키고 안에서 아무것도 하지
+            // 않아 실제로는 그대로 재시도로 흘렀다. 있는 그대로 남긴다(동작 동일).
+            if (attempt === maxRetries) {
+                console.error("Gemini API Error details after max retries:", error);
+                throw error;
             }
 
             // Wait before next retry. Exponential backoff: 1000ms * 2^attempt

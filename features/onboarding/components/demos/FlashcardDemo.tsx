@@ -11,6 +11,7 @@ import Animated, {
   Extrapolation,
 } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 
 const AVAIL_W = 300;
@@ -18,6 +19,7 @@ const SCALE = AVAIL_W / 340;
 
 export function FlashcardDemo({ isActive }: { isActive: boolean }) {
   const { colors, fontFamily } = useTheme();
+  const { t } = useTranslation();
   const rotation = useSharedValue(0);
   const containerOpacity = useSharedValue(0);
 
@@ -107,7 +109,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
               fontFamily: fontFamily.bold,
               color: C.text,
             }} numberOfLines={1}>
-              카드 학습
+              {t('onboardingDemo.cardTitle')}
             </Text>
             <Ionicons name="settings-outline" size={20 * s} color={C.textSecondary} />
           </View>
@@ -167,18 +169,18 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 paddingHorizontal: 7 * s, paddingVertical: 2 * s,
                 borderRadius: 8 * s, marginBottom: 6 * s,
               }}>
-                <Text style={{ fontSize: 11 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>명사</Text>
+                <Text style={{ fontSize: 11 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>{t('onboardingDemo.pos')}</Text>
               </View>
 
               {/* cardWord */}
               <Text style={{ fontSize: 26 * s, fontFamily: fontFamily.bold, color: C.text, textAlign: 'center' }}>
-                apple
+                {t('onboardingDemo.newTerm')}
               </Text>
 
               {/* cardInfoRow → phoneticText */}
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={{ fontSize: 13 * s, fontFamily: fontFamily.regular, color: C.textSecondary }}>
-                  /æp·əl/
+                  {t('onboardingDemo.phonetic')}
                 </Text>
               </View>
 
@@ -196,7 +198,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 color: C.textTertiary,
                 opacity: 0.7,
               }}>
-                탭하여 뒤집기
+                {t('onboardingDemo.tapToFlip')}
               </Text>
             </Animated.View>
 
@@ -231,13 +233,13 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                   paddingHorizontal: 5 * s, paddingVertical: 1 * s,
                   borderRadius: 8 * s, marginBottom: 3 * s,
                 }}>
-                  <Text style={{ fontSize: 9 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>명사</Text>
+                  <Text style={{ fontSize: 9 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>{t('onboardingDemo.pos')}</Text>
                 </View>
                 <Text style={{ fontSize: 14 * s, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>
-                  apple
+                  {t('onboardingDemo.newTerm')}
                 </Text>
                 <Text style={{ fontSize: 11 * s, fontFamily: fontFamily.regular, color: C.textSecondary }}>
-                  /æp·əl/
+                  {t('onboardingDemo.phonetic')}
                 </Text>
                 <View style={{ padding: 4 * s, alignItems: 'center' }}>
                   <Ionicons name="volume-medium-outline" size={20 * s} color={C.textTertiary} />
@@ -252,7 +254,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
 
               {/* cardMeaning */}
               <Text style={{ fontSize: 20 * s, fontFamily: fontFamily.bold, color: C.text, textAlign: 'center' }}>
-                사과
+                {t('onboardingDemo.newMeaning')}
               </Text>
 
               {/* cardExampleBox */}
@@ -265,7 +267,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                   fontSize: 10 * s, fontFamily: fontFamily.regular,
                   color: C.textSecondary, textAlign: 'center', fontStyle: 'italic',
                 }}>
-                  I ate an apple this morning.
+                  {t('onboardingDemo.example')}
                 </Text>
               </View>
             </Animated.View>
@@ -290,7 +292,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
           }]}>
             <Ionicons name="chevron-back" size={20 * s} color={C.warning} />
             <View>
-              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.warning }}>다시 볼게요</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.warning }}>{t('onboardingDemo.again')}</Text>
               <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 9 * s, color: C.warning, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Left</Text>
             </View>
           </View>
@@ -306,7 +308,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             justifyContent: 'flex-end',
           }]}>
             <View style={{ alignItems: 'flex-end' }}>
-              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.primary }}>외웠어요</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.primary }}>{t('onboardingDemo.gotIt')}</Text>
               <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 9 * s, color: C.primary, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Right</Text>
             </View>
             <Ionicons name="chevron-forward" size={20 * s} color={C.primary} />

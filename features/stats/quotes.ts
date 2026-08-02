@@ -1,3 +1,5 @@
+import { resolveLocale, type UILocaleCode } from '@/i18n/locale';
+
 import { dateStrToEpochDay } from './date';
 
 /** 명언 한 줄. author가 비면 UI에서 출처 줄을 렌더하지 않는다. */
@@ -59,9 +61,21 @@ const EN: Quote[] = [
   { text: 'Keep going. It always adds up.' },
 ];
 
-/** UI 언어에 맞는 명언 목록. ko 계열이면 한국어, 그 외엔 영어. */
+/**
+ * UI 언어별 명언 목록.
+ *
+ * 번역 JSON이 아니라 코드에 두는 이유: 명언은 번역이 아니라 **대체**다. 한국어 사용자에게
+ * 필요한 건 비트겐슈타인의 한국어 번역문이 아니라 "천 리 길도 한 걸음부터"라서, 언어마다
+ * 목록의 길이도 출처도 다르다(실제로 KO는 한국 속담 2개, EN은 프랭클린 2개로 갈린다).
+ *
+ * Record<UILocaleCode, …>이라 언어를 추가하면 여기서 컴파일이 깨진다 — 예전에는
+ * `startsWith('ko') ? KO : EN` 삼항이라 새 언어가 조용히 영어 명언을 받았다.
+ */
+const QUOTES: Record<UILocaleCode, Quote[]> = { ko: KO, en: EN };
+
+/** UI 언어에 맞는 명언 목록. 지원하지 않는 언어는 `FALLBACK_LOCALE`의 목록. */
 export function getQuotes(lang: string): Quote[] {
-  return lang.toLowerCase().startsWith('ko') ? KO : EN;
+  return QUOTES[resolveLocale(lang)];
 }
 
 /**

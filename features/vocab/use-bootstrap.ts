@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Alert, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
+// 컴포넌트 밖(모듈 함수)에서 뜨는 Alert이라 훅을 쓸 수 없다 — i18n 인스턴스를 직접 쓴다.
+import i18n from '@/i18n';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
   flushPush,
@@ -14,6 +16,7 @@ import {
   markAllLocalStatsDirty,
 } from '@/features/sync';
 import { initSeedDataIfEmpty, clearAllData } from './db';
+import { buildSeedData } from './seed';
 import { invalidateLists } from './queries';
 
 const LAST_GOOGLE_ID_KEY = '@soksok_last_google_id';
@@ -41,11 +44,11 @@ async function loadCloudData(): Promise<void> {
       if (state === 'conflict') {
         const choice = await new Promise<'merge' | 'cloud'>((resolve) => {
           Alert.alert(
-            '데이터 선택',
-            `클라우드에 ${cloudWordCount}개, 이 기기에 ${localWordCount}개 단어가 있습니다. 어떻게 할까요?`,
+            i18n.t('bootstrap.conflictTitle'),
+            i18n.t('bootstrap.conflictMessage', { cloud: cloudWordCount, local: localWordCount }),
             [
-              { text: '합치기', onPress: () => resolve('merge') },
-              { text: '클라우드 유지', style: 'destructive', onPress: () => resolve('cloud') },
+              { text: i18n.t('bootstrap.merge'), onPress: () => resolve('merge') },
+              { text: i18n.t('bootstrap.keepCloud'), style: 'destructive', onPress: () => resolve('cloud') },
             ],
             { cancelable: false },
           );
@@ -68,7 +71,10 @@ async function loadCloudData(): Promise<void> {
     }
   } catch (e: any) {
     console.warn('Cloud data load failed:', e?.message ?? e);
-    Alert.alert('동기화 오류', `클라우드 동기화에 실패했습니다.\n${e?.message ?? String(e)}`);
+    Alert.alert(
+      i18n.t('bootstrap.syncErrorTitle'),
+      i18n.t('bootstrap.syncErrorMessage', { detail: e?.message ?? String(e) }),
+    );
   }
 }
 
@@ -157,7 +163,7 @@ export function useVocabBootstrap(): void {
         // vanish after a logout/login round-trip even though they're safe in
         // the cloud.
         if (authMode === 'guest') {
-          await initSeedDataIfEmpty();
+          await initSeedDataIfEmpty(buildSeedData());
         }
       }
       await invalidateLists();

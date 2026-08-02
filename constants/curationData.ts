@@ -45975,7 +45975,7 @@ export const curationPresets: VocaList[] = [
         "definition": "extremely delicious, especially food ('this is bussin')",
         "meaningKr": "엄청나게 맛있는 (주로 음식에 사용).",
         "exampleEn": "This pizza is so bussin, I could eat the whole thing myself!",
-        "exampleKr": "이 피자 진짜 핵존맛이야, 나 혼자 다 먹을 수 있겠어!",
+        "exampleKr": "이 피자 진짜 핵꿀맛이야, 나 혼자 다 먹을 수 있겠어!",
         "isMemorized": false,
         "isStarred": false,
         "tags": [

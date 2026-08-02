@@ -1,5 +1,5 @@
 /**
- * ko→en 큐레이션 덱 공용 검수 규칙.
+ * 한국어가 얽힌 큐레이션 덱 공용 검수 규칙.
  *
  * 왜 공용인가: 덱을 만들 때마다 translate 스크립트를 복제해 온 탓에 검사 규칙이
  * 파일마다 흩어졌다. '당신' 금지는 topik1에만, 어근 중복 검사는 mimetic에만 있었고,
@@ -32,10 +32,20 @@ export interface CheckOptions {
   /** 로마자 검사를 건너뛴다(표제어가 한글이 아닌 덱 등). */
   skipRomaja?: boolean;
   /**
-   * 도착어가 한국어인 덱(ko→ko: 맞춤법·유행어 풀이). 번역 슬롯에 한글이 있는 게
-   * 정상이므로 '번역 슬롯에 한글' 검사를 끈다.
+   * 번역 슬롯(exampleEn)에 한글이 있어도 정상인 덱 — ko→ko(맞춤법·유행어 풀이)가
+   * 그렇다. '번역 슬롯에 한글' 검사를 끈다.
+   *
+   * ⚠️ "도착어가 한국어냐"를 묻는 게 아니다. en→ko 덱도 도착어는 한국어지만 이
+   * 슬롯에는 영어 예문이 들어가므로 한글이 남으면 그건 번역이 빠진 것이다.
    */
-  targetIsKorean?: boolean;
+  allowHangulInTranslation?: boolean;
+  /**
+   * 한국어가 **도착어**인 덱(en→ko, zh→ko …). 한국어 문장이 학습 대상이 아니라
+   * 원어 예문의 번역문이라, 같은 규칙이라도 무게가 다르다:
+   * - '당신'은 어색한 번역투일 뿐 잘못된 한국어를 가르치지는 않으므로 advisory.
+   * - 표제어가 원어라 한국어 문장에 없는 게 당연하므로 '예문에 표제어 없음'은 끈다.
+   */
+  koreanIsTranslation?: boolean;
 }
 
 export interface Finding {
@@ -86,12 +96,17 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
     // 2인칭 대명사를 이렇게 쓰지 않아 번역투이거나 무례하게 들리는데, 교재가 흔히
     // 저지르는 오류라 학습자에게 그대로 심긴다.
     // 표제어가 '당신' 자체인 카드는 예문에 쓸 수밖에 없다(기존 Intermediate 덱에 있다).
-    if (w.term !== '당신' && ko.includes('당신')) push('당신', w.term, ko);
+    // 한국어가 도착어인 덱에서는 번역문의 어색함일 뿐이라 advisory로 낮춘다.
+    if (w.term !== '당신' && ko.includes('당신')) {
+      push('당신', w.term, ko, opts.koreanIsTranslation);
+    }
 
     // 번역 슬롯에 한글이 남은 것 (화병 덱에서 exampleEn에 '화병'이 그대로 남았다).
     // ja/zh 덱도 이 슬롯은 도착어라 한글이 남으면 번역이 빠진 것이다 — 한자는
     // /[가-힣]/ 에 걸리지 않으므로 같은 검사를 그대로 쓸 수 있다.
-    if (!opts.targetIsKorean && /[가-힣]/.test(en)) push('번역 슬롯에 한글', w.term, en);
+    if (!opts.allowHangulInTranslation && /[가-힣]/.test(en)) {
+      push('번역 슬롯에 한글', w.term, en);
+    }
 
     // 뜻이 표제어를 그대로 되풀이하면 정의가 아니다 — 다만 파생형("pairs with
     // 알록달록하다")·동음이의 경고("짜다 also means to squeeze")·관용구 예시처럼
@@ -107,8 +122,11 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
 
     // 예문에 표제어가 없으면 카드가 무의미하다. 용언은 활용으로 어간까지 바뀌므로
     // (맵다→매워요, 챙기다→챙겨) 첫 음절만 본다 — 느슨한 검사라 놓치는 건 있다.
-    const probe = /다$/.test(w.term) && w.term.length >= 2 ? w.term.slice(0, 1) : w.term;
-    if (!ko.includes(probe)) push('예문에 표제어 없음', w.term, ko, true);
+    // 한국어가 도착어면 이 문장은 번역문이고 표제어는 원어라, 없는 게 정상이다.
+    if (!opts.koreanIsTranslation) {
+      const probe = /다$/.test(w.term) && w.term.length >= 2 ? w.term.slice(0, 1) : w.term;
+      if (!ko.includes(probe)) push('예문에 표제어 없음', w.term, ko, true);
+    }
 
     if (opts.beginnerGrammar) {
       const hit = BANNED_GRAMMAR.find(g => ko.includes(g));
@@ -128,8 +146,13 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
       }
     }
 
-    if (!exampleSeen.has(ko)) exampleSeen.set(ko, []);
-    exampleSeen.get(ko)!.push(w.term);
+    // 중복 판정은 **학습자가 읽는 문장** 기준이다. 한국어가 도착어면 그건 번역문이
+    // 아니라 원어 예문 쪽이다 — 번역문으로 재면 원문이 다른데 번역만 수렴한 경우
+    // (请慢一点儿说 / 请你说慢一点 → 둘 다 "조금만 천천히 말씀해 주세요")까지 잡아
+    // 실제 중복과 섞인다. 실측: 13건 중 6건이 그런 오탐이었다.
+    const dupKey = opts.koreanIsTranslation ? en : ko;
+    if (!exampleSeen.has(dupKey)) exampleSeen.set(dupKey, []);
+    exampleSeen.get(dupKey)!.push(w.term);
   }
 
   for (const [ko, terms] of exampleSeen) {

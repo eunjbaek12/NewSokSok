@@ -26,10 +26,15 @@ AI flashcards · K-pop Korean
 ## Promotional Text (max 170 chars, editable without resubmission)
 
 ```
-✨ v1.2 — Gentle Review is here: words come back right when you're about to forget them. No backlog, no red badges — just a soft daily nudge. Track your streak too. 7-day Pro free trial.
+✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 100 a day stays free after that.
 ```
 
 > The only field you can change anytime without going through review. Use it for seasonal pushes / new features.
+>
+> Updated for 1.3.1 (2026-08-02). Unlike the Korean locale, English speakers **can** see the new
+> ko→en decks (the catalogue filters by meaning language), so leading with them is honest here.
+> The closing CTA moved from "7-day free trial" to the first-day 300-word quota — signing up no
+> longer grants any trial, so the quota is what a new user actually receives.
 
 ## Keywords (max 100 chars, comma-separated, no spaces)
 
@@ -60,7 +65,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Words you've nailed and words that trip you up are tracked separately
 - Star a word or revisit only the ones you got wrong
 
-• Gentle Review — right before you forget (NEW)
+• Gentle Review — right before you forget
 - Memorized words quietly resurface right when you're about to forget them
 - Words you know well come back rarely; ones you keep missing come back sooner — spaced repetition that stays kind
 - Each day's review is capped, so nothing piles up even if you skip a few days
@@ -89,7 +94,11 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
   · Japanese — Basic 500 · JLPT N3
   · Chinese — HSK 1
-  · Korean — TOPIK Basic · Intermediate · Advanced full series (NIKL A/B/C frequency, for English speakers — perfect for K-pop, Hallyu, and study-abroad learners)
+  · Korean (for English speakers) — Basic · Intermediate · Advanced 500 series,
+    TOPIK I Essentials 350, Onomatopoeia & Mimetic Words 100,
+    Untranslatable Korean 50, Convenience Store & Delivery 50,
+    Sageuk (historical drama) 100, K-pop stan slang 100
+    (perfect for K-pop, Hallyu, and study-abroad learners)
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
@@ -125,14 +134,20 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## What's New (max 4000 chars, per-version)
 
 ```
-v1.2 — Review right before you forget.
+1.3.1 — Four new Korean word lists.
 
-- Gentle Review: memorized words quietly resurface right when you're about to forget them. No backlog dumped on you, no red badges — spaced repetition that stays kind.
-- Review reminders: only on days you have words to review, once a day. Nothing on empty days, and you set the time.
-- Streaks & stats: see your day streak, calendar, and words learned in "My Learning." Share your progress as an image.
-- Subscription reliability: Pro status is re-checked at launch, fixing the brief "Free" flash near renewal.
-- Expanded in-app Help (FAQ): review, learning stats, Sign in with Apple, and clearer per-screen guidance.
-- Various stability improvements.
+📚 New lists
+- Onomatopoeia & Mimetic Words 100: the sounds and textures Korean does best
+- Untranslatable Korean 50: 눈치, 정, 서운하다
+- Convenience Store & Delivery 50: everyday Korean you'll actually use
+- TOPIK I Essentials 350: organised by exam topic
+
+🔤 Cleaner romanisation
+Pronunciation across the Korean lists now follows the Revised Romanization standard.
+
+Also
+- Lists written in languages you can't read no longer clutter the catalogue.
+- Fixed the Rate This App button doing nothing when tapped.
 ```
 
 ---

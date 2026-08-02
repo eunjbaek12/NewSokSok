@@ -57,6 +57,40 @@ export function canBlankExample(sentence: string | null | undefined, term: strin
   return segmentExample(sentence, term) !== null;
 }
 
+/**
+ * 스피커가 읽을 문장. 정답 공개 전에는 **빈칸 구간을 빼고** 읽는다.
+ *
+ * 화면은 답을 가려 놓고 소리로는 그대로 흘리면 문제가 성립하지 않는다. 이 동작은 한때
+ * "자발적 힌트"로 판정해 그냥 뒀다가 실기에서 뒤집힌 자리다 — 스피커는 답을 보려고
+ * 누르는 버튼이 아니라 **발음을 들으려고** 누르는 버튼이라, 학습 의도대로 눌렀는데
+ * 문제가 무력화된다. 자발적 선택이 아니라 함정이다. (되돌리지 말 것.)
+ *
+ * 공개된 뒤에는 원문 그대로 읽는다. 빈칸을 계속 빼면 정작 그 단어의 발음을 끝내
+ * 못 듣게 되는데, 발음 학습이야말로 이 버튼의 존재 이유다.
+ *
+ * 빈칸 자리에 "블랭크" 같은 말을 넣지 않는다 — 덱 언어마다 그 단어를 따로 정해야 하고,
+ * 읽히는 순간 문장이 아니라 문제지가 된다.
+ *
+ * 빈칸을 못 만드는 문장은 통째로 답이므로 **빈 문자열**을 준다(호출부는 스피커를 감춘다).
+ */
+export function spokenExample(
+  sentence: string | null | undefined,
+  term: string | null | undefined,
+  revealed: boolean,
+): string {
+  if (!sentence) return '';
+  // 동음이의어 병기 기호(①②)는 읽을 대상이 아니다. 공백 정리도 여기서 함께 한다 —
+  // 빈칸을 들어내면 앞뒤 공백이 붙어 이중 공백이 남는다.
+  const clean = (s: string) => s.replace(SENSE_MARKER_RE, ' ').replace(/\s+/g, ' ').trim();
+
+  if (revealed) return clean(sentence);
+  if (!term) return '';
+
+  const segments = segmentExample(sentence, term);
+  if (!segments) return '';
+  return clean(segments.filter(s => !s.isBlank).map(s => s.text).join(''));
+}
+
 type Range = [start: number, end: number];
 
 // ── 라틴 (en / es / vi …) ────────────────────────────────────────

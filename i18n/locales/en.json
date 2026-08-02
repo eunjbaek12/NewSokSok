@@ -1243,7 +1243,8 @@
     "excludeAndStart": "Exclude & Start",
     "generating": "Generating examples...",
     "bgGenerating": "Generating examples {{completed}}/{{total}}",
-    "bgGenerateAllMissing": "All words are missing examples — generating with AI"
+    "bgGenerateAllMissing": "All words are missing examples — generating with AI",
+    "hintLabel": "Meaning: {{meaning}}"
   },
   "autoplay": {
     "title": "Autoplay",

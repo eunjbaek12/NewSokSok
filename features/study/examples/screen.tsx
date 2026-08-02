@@ -19,8 +19,7 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
-import { stripSenseMarkers } from '@/lib/senses';
-import { segmentExample, canBlankExample } from '@/lib/example-blank';
+import { segmentExample, canBlankExample, spokenExample } from '@/lib/example-blank';
 import { buildChoices } from '../choices';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
@@ -29,7 +28,7 @@ import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
 
-function HighlightedSentence({ sentence, term, meaning, primaryColor, textColor, showTerm = true, showHint = false, onPressBlank, isDark, colors }: { sentence: string; term: string; meaning: string; primaryColor: string; textColor: string; showTerm?: boolean; showHint?: boolean; onPressBlank?: () => void; isDark: boolean; colors: any }) {
+function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any }) {
   // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
   const segments = React.useMemo(() => segmentExample(sentence, term), [sentence, term]);
 
@@ -47,19 +46,17 @@ function HighlightedSentence({ sentence, term, meaning, primaryColor, textColor,
         if (showTerm) {
           return <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{seg.text}</Text>;
         }
+        // 빈칸은 언제나 `?`다. 예전에는 힌트(뜻)를 이 박스 **안에** 렌더했는데, 박스가
+        // <Text> 안의 인라인 View라 줄바꿈되지 않아 뜻이 길면 폭을 넘겨 잘렸다
+        // (동음이의어는 "①… ②…" 조립본이라 특히 길다). 힌트는 문장 아래 별도 줄로 뺐다 —
+        // 그래야 빈칸이 순수하게 "가려진 자리"로 남아 스피커 낭독 규칙과도 맞물린다.
         // key는 바깥 요소에만 준다 — Text 안의 인라인 View를 한 겹 더 감싸면 정렬이 틀어진다.
         const box = (key?: number) => (
           <View key={key} style={[
             styles.blankBox,
-            {
-              backgroundColor: showHint ? colors.hintBg : colors.surfaceSecondary,
-              borderColor: showHint ? colors.hintBorder : colors.border,
-              minWidth: showHint ? 60 : 40,
-            }
+            { backgroundColor: colors.surfaceSecondary, borderColor: colors.border },
           ]}>
-            <Text style={[styles.blankText, { color: showHint ? colors.hintText : colors.textTertiary }]}>
-              {showHint ? meaning : '?'}
-            </Text>
+            <Text style={[styles.blankText, { color: colors.textTertiary }]}>?</Text>
           </View>
         );
         return onPressBlank ? (
@@ -307,6 +304,18 @@ export default function ExamplesScreen() {
 
   const currentWord = currentBatchWords[currentIndex];
 
+  /**
+   * 정답이 이미 보이는 상태인가. 답을 골랐거나, 애초에 "표제어 보기" 설정을 켜 둔 경우다.
+   * 화면(빈칸)·힌트 줄·스피커 낭독이 모두 이 하나를 기준으로 갈려야 어긋나지 않는다 —
+   * 예전에는 화면만 이 조건을 보고 스피커는 아무 조건도 안 봐서 소리로 답이 새어 나갔다.
+   */
+  const isRevealed = settings.showTerm || selectedAnswer !== null;
+
+  const spokenText = useMemo(
+    () => spokenExample(currentWord?.exampleEn, currentWord?.term, isRevealed),
+    [currentWord?.exampleEn, currentWord?.term, isRevealed],
+  );
+
   const handleToggleStar = useCallback(async (wordId: string) => {
     setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -524,25 +533,45 @@ export default function ExamplesScreen() {
                 <HighlightedSentence
                   sentence={currentWord.exampleEn}
                   term={currentWord.term}
-                  meaning={currentWord.meaningKr || t('examples.noMeaning')}
                   primaryColor={colors.primary}
                   textColor={colors.text}
-                  showTerm={settings.showTerm || selectedAnswer !== null}
-                  showHint={showHint}
+                  showTerm={isRevealed}
                   onPressBlank={() => setShowHint(prev => !prev)}
-                  isDark={isDark}
                   colors={colors}
                 />
+
+                {/*
+                  힌트는 빈칸 안이 아니라 문장 아래 한 줄로 나온다(P8). 정답이 이미 보이는
+                  상태에서는 뜻만 따로 띄울 이유가 없으므로 공개 전에만 렌더한다.
+                */}
+                {!isRevealed && showHint && (
+                  <Pressable onPress={() => setShowHint(false)} hitSlop={6}>
+                    <View style={[styles.hintLine, { backgroundColor: colors.hintBg, borderColor: colors.hintBorder }]}>
+                      <Text style={[styles.hintLineText, { color: colors.hintText }]} numberOfLines={2}>
+                        {t('examples.hintLabel', { meaning: currentWord.meaningKr || t('examples.noMeaning') })}
+                      </Text>
+                    </View>
+                  </Pressable>
+                )}
 
                 {settings.showExampleKr && shouldShowExampleTranslation(currentWord.exampleEn, currentWord.exampleKr) && selectedAnswer !== null && (
                   <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
                 )}
 
-                <SpeakerButton
-                  text={stripSenseMarkers(currentWord.exampleEn)}
-                  language={getTtsLang(getStudySourceLang(currentWord, list))}
-                  style={styles.speakerBtn}
-                />
+                {/*
+                  공개 전에는 빈칸을 뺀 문장을 읽는다(P7) — 자세한 근거는 spokenExample 주석.
+                  읽을 문자열은 여기서 만들어 넘긴다: SpeakerButton은 7곳 공용이라
+                  이 화면의 사정을 컴포넌트가 알면 안 된다.
+                  빈칸을 못 만드는 예문은 빈 문자열이 오고, 그때는 문장 자체가 화면에도
+                  안 뜨므로 버튼도 감춘다.
+                */}
+                {spokenText ? (
+                  <SpeakerButton
+                    text={spokenText}
+                    language={getTtsLang(getStudySourceLang(currentWord, list))}
+                    style={styles.speakerBtn}
+                  />
+                ) : null}
               </View>
             ) : (
               <Text style={[styles.noExample, { color: colors.textTertiary }]}>{t('examples.noExample')}</Text>
@@ -810,6 +839,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 4,
+    // 힌트가 안으로 들어오지 않으므로 폭은 `?` 하나에 맞춘 고정값이면 된다.
+    minWidth: 40,
     minHeight: 34,
     justifyContent: 'center',
     alignItems: 'center',
@@ -818,6 +849,22 @@ const styles = StyleSheet.create({
   blankText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
+  },
+  // 힌트 줄 — 문장 아래에 놓이는 별도 블록이라 인라인 View와 달리 정상적으로 줄바꿈된다.
+  // 카드 세로를 한 줄 더 먹으므로 조밀하게 잡는다(a252ed2가 확보한 여유를 갉아먹지 않도록).
+  hintLine: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    maxWidth: '100%',
+  },
+  hintLineText: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   noExample: {
     fontSize: 16,

@@ -1243,7 +1243,8 @@
     "excludeAndStart": "제외하고 시작",
     "generating": "예문 생성 중...",
     "bgGenerating": "AI 예문 생성 중 {{completed}}/{{total}}",
-    "bgGenerateAllMissing": "모든 단어에 예문이 없어 AI로 생성 중입니다"
+    "bgGenerateAllMissing": "모든 단어에 예문이 없어 AI로 생성 중입니다",
+    "hintLabel": "뜻: {{meaning}}"
   },
   "autoplay": {
     "title": "자동재생",

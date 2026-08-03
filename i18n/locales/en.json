@@ -55,8 +55,8 @@
   },
   "tabs": {
     "home": "Home",
-    "vocabLists": "Vocab Lists",
-    "curation": "Collections",
+    "vocabLists": "Lists",
+    "curation": "Explore",
     "settings": "Settings"
   },
   "home": {

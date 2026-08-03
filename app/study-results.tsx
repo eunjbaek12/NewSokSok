@@ -24,6 +24,13 @@ import { maybeRequestReview, isGoodMoment } from '@/features/reviews';
 // 축하 모달을 600ms 늦추는 것과 같은 이유이며, 읽을 내용이 더 많아 조금 더 길다.
 const REVIEW_PROMPT_DELAY_MS = 1500;
 
+// 하단 버튼 묶음의 아래 여백. 직전 화면인 카드 학습의 "외웠어요 / 다시 볼게요"와 같은 높이에
+// 놓기 위한 값이다 — 그 화면은 버튼 줄 아래 끝을 insets.bottom + (adsBottomInset || 76) + 12에
+// 둔다(features/study/flashcards/screen.tsx). 결과 화면엔 배너가 없으므로 배너 없는 쪽(76+12)에
+// 맞췄다(배너를 보는 사용자 기준으론 10dp 높은데 눈에 띄는 차이는 아니다).
+// 예전 값 20은 학습 화면보다 60dp 넘게 낮아, 학습을 마치는 순간 버튼이 뚝 떨어져 보였다.
+const BOTTOM_BAR_OFFSET = 88;
+
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
@@ -48,6 +55,10 @@ export default function StudyResultsScreen() {
     memorized: number;
   } | null>(null);
   const [milestoneVisible, setMilestoneVisible] = useState(false);
+  // 하단 바가 절대배치라 ScrollView가 그 높이만큼 자리를 비워 둬야 내용이 안 가린다.
+  // 고정값(160)이었는데 바의 실제 높이는 여백 포함 그보다 컸다 — 버튼 라벨이 두 줄로 감기거나
+  // 언어가 바뀌면 더 커지는 값이라 실측해서 쓴다.
+  const [bottomBarHeight, setBottomBarHeight] = useState(0);
   // 지연 리뷰 요청 타이머 — 화면을 떠난 뒤 시스템 시트가 뒤늦게 뜨는 걸 막으려 정리한다.
   const reviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -155,7 +166,7 @@ export default function StudyResultsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: 160 }]}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: bottomBarHeight + 24 }]}>
         <View style={styles.header}>
           <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight, shadowColor: colors.shadow }]}>
             <Ionicons
@@ -200,7 +211,10 @@ export default function StudyResultsScreen() {
         </View>
       </ScrollView>
 
-      <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 20, backgroundColor: colors.background }]}>
+      <View
+        onLayout={e => setBottomBarHeight(e.nativeEvent.layout.height)}
+        style={[styles.bottomBar, { paddingBottom: insets.bottom + BOTTOM_BAR_OFFSET, backgroundColor: colors.background }]}
+      >
         <View style={styles.retryGroup}>
           <Pressable
             onPress={handleRetryAll}

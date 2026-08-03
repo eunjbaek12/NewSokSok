@@ -12,7 +12,9 @@
     "diagnose:examples": "ts-node -P tsconfig.scripts.json scripts/diagnose-example-quality.ts",
     "diagnose:decks": "ts-node -P tsconfig.scripts.json scripts/diagnose-ko-decks.ts",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "i18n:check": "node scripts/i18n-check.mjs",
+    "i18n:fill": "node scripts/i18n-fill.mjs"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",

@@ -658,7 +658,7 @@ export default function PlanScreen() {
                         {label}
                       </Text>
                       <Text style={[styles.filterOptionCount, { color: isSelected ? colors.primary : colors.textTertiary }]}>
-                        {count}개
+                        {t('common.nItems', { count })}
                       </Text>
                     </Pressable>
                   );

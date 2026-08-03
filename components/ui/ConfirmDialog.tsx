@@ -9,8 +9,11 @@ interface ConfirmDialogProps {
   onClose: () => void;
   title: string;
   message: string;
-  confirmLabel?: string;
-  cancelLabel?: string;
+  // 기본값을 두지 않는다 — 예전에는 '확인'/'취소'가 기본값으로 박혀 있어서, 라벨을
+  // 넘기지 않는 호출부가 생기는 순간 그 화면만 조용히 한국어가 됐다. 지금은 안 넘기면
+  // 컴파일이 깨진다.
+  confirmLabel: string;
+  cancelLabel: string;
   confirmVariant?: 'primary' | 'destructive';
   onConfirm: () => void;
 }
@@ -20,8 +23,8 @@ export default function ConfirmDialog({
   onClose,
   title,
   message,
-  confirmLabel = '확인',
-  cancelLabel = '취소',
+  confirmLabel,
+  cancelLabel,
   confirmVariant = 'primary',
   onConfirm,
 }: ConfirmDialogProps) {

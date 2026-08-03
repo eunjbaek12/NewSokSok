@@ -9,6 +9,7 @@ import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/comp
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTheme } from '@/features/theme';
@@ -101,6 +102,66 @@ type GenerateAIWordsResult = { words: Word[]; droppedCount: number };
 const aiOverCount = (wordCount: number): number =>
     wordCount + Math.min(6, Math.max(3, Math.ceil(wordCount * 0.2)));
 
+/**
+ * AI 생성 실패 사유 — 문장이 아니라 **코드**로 던진다.
+ *
+ * 아래 generateViaByok·generateAIWords는 컴포넌트 밖의 모듈 함수라 `useTranslation`을
+ * 쓸 수 없다. 그래서 예전에는 한국어 문장을 그대로 Error에 담아 던졌고, 화면은 그걸
+ * `e.message`로 받아 그대로 보여줬다 — 영어 사용자에게도 한국어가 그대로 나갔다.
+ * 코드만 던지고 문구는 화면에서 `aiErrorMessage`가 만든다.
+ */
+type AiErrorCode =
+    | 'dailyQuota'        // Google 무료 등급 일일 한도(BYOK)
+    | 'perMinuteQuota'
+    | 'quotaReached'      // 그 밖의 한도 — detail에 quotaMetric
+    | 'permissionDenied'
+    | 'invalidKey'
+    | 'timeout'
+    | 'unparseable'
+    | 'badFormat'
+    | 'quotaExceeded'     // 운영자 키(Edge) 경로의 한도
+    | 'rateLimited'
+    | 'unauthorized'
+    | 'failed';           // detail에 API 원문 사유 또는 HTTP 상태
+
+class AiGenerateError extends Error {
+    readonly code: AiErrorCode;
+    /** API가 준 원문(quotaMetric·에러 메시지·HTTP 상태). 우리 문장이 아니라 번역하지 않는다. */
+    readonly detail?: string;
+
+    constructor(code: AiErrorCode, detail?: string) {
+        super(detail ? `${code}: ${detail}` : code);
+        this.name = 'AiGenerateError';
+        this.code = code;
+        this.detail = detail;
+    }
+}
+
+// Edge Function이 주는 실패 종류 → 화면 코드.
+const EDGE_GENERATE_CODE: Record<string, AiErrorCode> = {
+    quota_exceeded: 'quotaExceeded',
+    rate_limited: 'rateLimited',
+    unauthorized: 'unauthorized',
+};
+
+/**
+ * AI 생성 실패를 사용자 문구로. 우리 코드가 아닌 에러는 기존 동작대로 message를 쓴다.
+ *
+ * detail이 있으면 `_detail` 키를 쓴다 — "한도에 도달했습니다 (metric)"처럼 괄호를
+ * 붙일지 말지는 언어마다 문장 구조가 달라 문자열 안에서 조건 분기할 수 없다.
+ */
+function aiErrorMessage(e: any, t: TFunction): string {
+    if (e instanceof AiGenerateError) {
+        // 키 배열 = 순서대로 있는 것을 고른다. `_detail`이 없는 코드에 detail이 붙어도
+        // 키 문자열이 그대로 노출되지 않고 기본 문구로 떨어진다.
+        const keys = e.detail
+            ? [`aiError.${e.code}_detail`, `aiError.${e.code}`]
+            : [`aiError.${e.code}`];
+        return t(keys, { detail: e.detail ?? '' });
+    }
+    return e?.message || t('curation.aiGenerateError');
+}
+
 const generateViaByok = async (
     query: string,
     apiKey: string,
@@ -152,20 +213,20 @@ const generateViaByok = async (
 
             if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
                 if (/per_?day|PerDay/i.test(quotaMetric)) {
-                    throw new Error('오늘의 무료 일일 한도가 모두 소진되었습니다. 자정(태평양시) 이후 다시 시도해주세요.');
+                    throw new AiGenerateError('dailyQuota');
                 }
                 if (/per_?minute|PerMinute/i.test(quotaMetric)) {
-                    throw new Error('분당 요청 한도를 초과했습니다. 약 1분 후 다시 시도해주세요.');
+                    throw new AiGenerateError('perMinuteQuota');
                 }
-                throw new Error(`API 사용량 한도에 도달했습니다${quotaMetric ? ` (${quotaMetric})` : ''}. 잠시 후 다시 시도해주세요.`);
+                throw new AiGenerateError('quotaReached', quotaMetric || undefined);
             }
             if (status === 'PERMISSION_DENIED' || response.status === 403) {
-                throw new Error('API 키에 권한이 없습니다. Google AI Studio에서 Generative Language API가 활성화되어 있는지 확인해주세요.');
+                throw new AiGenerateError('permissionDenied');
             }
             if (status === 'INVALID_ARGUMENT' || response.status === 400) {
-                throw new Error('API 키가 올바르지 않습니다. 설정에서 다시 확인해주세요.');
+                throw new AiGenerateError('invalidKey');
             }
-            throw new Error(`AI 생성에 실패했습니다${message ? `: ${message}` : ` (HTTP ${response.status})`}`);
+            throw new AiGenerateError('failed', message || `HTTP ${response.status}`);
         }
         data = await response.json();
     } catch (e: any) {
@@ -173,7 +234,7 @@ const generateViaByok = async (
             // 사용자가 직접 중단했으면 AbortError를 그대로 전파(호출부에서 조용히 처리),
             // 그 외(내부 60초 타임아웃)는 안내 메시지로 변환.
             if (signal?.aborted) throw e;
-            throw new Error('AI 응답 시간이 초과되었습니다 (60초). 네트워크 상태를 확인하고 다시 시도해주세요.');
+            throw new AiGenerateError('timeout');
         }
         throw e;
     } finally {
@@ -195,20 +256,7 @@ const generateViaByok = async (
         return JSON.parse(textResponse);
     } catch (e) {
         console.error('Failed to parse AI response:', textResponse);
-        throw new Error('응답을 파싱할 수 없습니다.');
-    }
-};
-
-const edgeGenerateErrorMessage = (kind: string): string => {
-    switch (kind) {
-        case 'quota_exceeded':
-            return '오늘의 AI 생성 한도를 모두 사용했어요. 광고를 보거나 잠시 후 다시 시도해주세요.';
-        case 'rate_limited':
-            return '요청이 많아요. 잠시 후 다시 시도해주세요.';
-        case 'unauthorized':
-            return '로그인이 필요해요. 다시 로그인한 뒤 시도해주세요.';
-        default:
-            return 'AI 생성에 실패했어요. 잠시 후 다시 시도해주세요.';
+        throw new AiGenerateError('unparseable');
     }
 };
 
@@ -231,13 +279,13 @@ const generateAIWords = async (
         raw = await generateViaByok(query, apiKey, overCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
     } else {
         const res = await generateWordsViaEdge(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
-        if (res.kind !== 'ok') throw new Error(edgeGenerateErrorMessage(res.kind));
+        if (res.kind !== 'ok') throw new AiGenerateError(EDGE_GENERATE_CODE[res.kind] ?? 'failed');
         raw = res.result;
     }
 
     if (!Array.isArray(raw)) {
         console.error('AI curation: expected array, got:', raw);
-        throw new Error('AI 응답 형식이 올바르지 않습니다. 다시 시도해주세요.');
+        throw new AiGenerateError('badFormat');
     }
 
     const validated: { item: ReturnType<typeof AIWordResultSchema.parse>; originalIndex: number }[] = [];
@@ -254,7 +302,7 @@ const generateAIWords = async (
 
     if (validated.length === 0) {
         console.error('AI curation: all items failed validation, raw:', raw);
-        throw new Error('AI 응답 형식이 올바르지 않습니다. 다시 시도해주세요.');
+        throw new AiGenerateError('badFormat');
     }
 
     // 오버제너레이트 보정: 세트 내부 중복(같은 lemma·대소문자만 다른 단어) 제거 후
@@ -690,7 +738,7 @@ export default function CurationScreen() {
         } catch (e: any) {
             // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
             if (e?.name === 'AbortError' || controller.signal.aborted) return;
-            setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
+            setSnackbar({ visible: true, message: aiErrorMessage(e, t) });
         } finally {
             // abort된 요청은 cancel 핸들러가 이미 generating=false로 만들었으니 덮어쓰지 않는다.
             if (!controller.signal.aborted) setGenerating(false);
@@ -751,7 +799,7 @@ export default function CurationScreen() {
             }
         } catch (e: any) {
             if (e?.name === 'AbortError') return;
-            setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
+            setSnackbar({ visible: true, message: aiErrorMessage(e, t) });
         } finally {
             setRegenerating(false);
         }

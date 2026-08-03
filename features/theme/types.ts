@@ -11,8 +11,15 @@ export type CharacterAccessory = 'none' | 'y2k-ribbon';
 
 export interface SkinDefinition {
   id: SkinId;
-  nameKo: string;
-  nameEn: string;
+  /**
+   * 표시 이름의 번역 키. 예전에는 `nameKo`/`nameEn` 두 필드였는데, 그러면 언어를
+   * 추가할 때마다 타입과 정의 네 개를 모두 고쳐야 하고 호출부의
+   * `locale === 'ko' ? nameKo : nameEn` 삼항은 컴파일이 잡아주지도 않았다.
+   *
+   * 가리키는 키(`skinLab` 등)는 ko/en 번역 JSON에 **이미 있었지만 아무도 쓰지 않던**
+   * 것이다 — 번역은 준비돼 있었고 컴포넌트만 하드코딩 필드를 읽고 있었다.
+   */
+  nameKey: string;
   colorScheme: 'light' | 'dark';
   fontFamily: FontFamily;
   previewColors: {

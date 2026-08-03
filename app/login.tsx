@@ -107,7 +107,7 @@ export default function LoginScreen() {
           <View style={styles.characterContainer}>
             <AvocadoCharacter slideIndex={0} isActive={false} isStatic size={110} />
           </View>
-          <Text style={[styles.appName, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('login.appName')}</Text>
+          <Text style={[styles.appName, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('common.appName')}</Text>
           <Text style={[styles.appNameEn, { color: colors.brand.green }]}>{t('login.appNameEn')}</Text>
           <Text style={[styles.tagline, { color: colors.textSecondary }]}>{t('login.tagline')}</Text>
         </View>

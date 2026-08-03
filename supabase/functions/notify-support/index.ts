@@ -176,30 +176,74 @@ async function handleNewMessage(row: SupportRow): Promise<SendResult> {
   });
 }
 
+/**
+ * 사용자에게 가는 답장 메일의 껍데기 문구.
+ *
+ * 운영자에게 가는 알림 메일(위 handleNew)은 한국어로 둔다 — 읽는 사람이 운영자다.
+ * 반면 이 메일은 사용자가 읽으므로 사용자의 앱 언어를 따라야 한다. 앱의 i18n 번들은
+ * Edge(Deno)에서 못 읽으니 여기 최소한만 둔다.
+ */
+const REPLY_COPY = {
+  ko: {
+    subject: '아보카도 — 문의하신 내용에 답장드려요',
+    intro: '보내주신 메시지에 답장을 드립니다.',
+    yourMessage: '[보내주신 내용]',
+    outro: [
+      '앱의 설정 › 문의하기에서도 같은 답장을 보실 수 있고,',
+      '이어서 하실 말씀이 있으면 거기서 바로 보내주시면 됩니다.',
+    ],
+    signature: '아보카도',
+  },
+  en: {
+    subject: 'Avocado — a reply to your message',
+    intro: "Here's our reply to the message you sent.",
+    yourMessage: '[Your message]',
+    outro: [
+      'You can also read this reply in the app under Settings › Contact us,',
+      'and reply back from there if you have anything to add.',
+    ],
+    signature: 'Avocado',
+  },
+} as const;
+
+/**
+ * 답장 언어 — 진단 정보에 담겨 온 앱 언어를 따른다.
+ *
+ * 모를 때 한국어인 이유: 답장 본문(reply_body)은 운영자가 직접 쓴 글이고 지금은 한국어다.
+ * 껍데기만 영어로 감싸면 오히려 어긋나므로, 아는 경우에만 갈라 준다.
+ * (앱 쪽 FALLBACK_LOCALE이 en인 것과 방향이 다른데, 그건 "읽을 수라도 있게" 하려는
+ *  것이고 여기는 "본문과 맞추려는" 것이라 기준이 다르다.)
+ */
+function replyLocale(d: Record<string, unknown> | null): keyof typeof REPLY_COPY {
+  const raw = typeof d?.locale === 'string' ? d.locale : '';
+  const base = raw.toLowerCase().split(/[-_]/)[0];
+  return base === 'en' ? 'en' : 'ko';
+}
+
 async function handleReply(row: SupportRow): Promise<SendResult> {
   // 이메일을 안 적은 사용자에게는 앱이 유일한 경로다 — 메일은 건너뛴다.
   // 실패가 아니라 정상 경로이므로 skip이다(failed로 두면 웹훅이 재시도한다).
   if (!row.reply_email) return { status: 'skip' };
 
+  const c = REPLY_COPY[replyLocale(row.diagnostics)];
   const lines = [
-    '보내주신 메시지에 답장을 드립니다.',
+    c.intro,
     '',
     row.reply_body ?? '',
     '',
     '─────────────',
     '',
-    '[보내주신 내용]',
+    c.yourMessage,
     row.body,
     '',
-    '앱의 설정 › 문의하기에서도 같은 답장을 보실 수 있고,',
-    '이어서 하실 말씀이 있으면 거기서 바로 보내주시면 됩니다.',
+    ...c.outro,
     '',
-    '아보카도',
+    c.signature,
   ];
 
   return await sendEmail({
     to: row.reply_email,
-    subject: '아보카도 — 문의하신 내용에 답장드려요',
+    subject: c.subject,
     text: lines.join('\n'),
     replyTo: NOTIFY_TO,
   });

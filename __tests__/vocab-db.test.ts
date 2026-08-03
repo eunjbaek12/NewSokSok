@@ -60,7 +60,7 @@ describe('features/vocab/db - addWord', () => {
     beforeAll(async () => {
         // Requires sqlite3 for the mock
         const db = await getDb();
-        await initSeedDataIfEmpty();
+        await initSeedDataIfEmpty({ listTitle: 'Sample', words: [] });
         const lists = await getLists();
         if (lists.length === 0) {
             const newList = await createList('Test List');

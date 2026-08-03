@@ -517,7 +517,7 @@ export default function AddWordScreen() {
     const handleVoiceInput = async () => {
         try {
             if (!ExpoSpeechRecognitionModule) {
-                Alert.alert(t('common.error'), t('addWord.voiceNotSupported', { defaultValue: '음성 입력이 이 기기에서 지원되지 않습니다.' }));
+                Alert.alert(t('common.error'), t('addWord.voiceNotSupported'));
                 return;
             }
             if (isListening) {
@@ -555,7 +555,7 @@ export default function AddWordScreen() {
 
             ExpoSpeechRecognitionModule.start({ lang, interimResults: true });
         } catch {
-            Alert.alert(t('common.error'), t('addWord.voiceNotSupported', { defaultValue: '음성 입력이 이 기기에서 지원되지 않습니다.' }));
+            Alert.alert(t('common.error'), t('addWord.voiceNotSupported'));
         }
     };
 

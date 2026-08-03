@@ -37,14 +37,15 @@ export type ExportResult =
   | { kind: 'shared' }                   // iOS: 공유 시트("파일에 저장")를 띄움
   | { kind: 'cancelled' };               // Android: 폴더 선택 취소
 
-// 단어장을 CSV로 직렬화 → 저장한다.
+// 단어장을 CSV로 직렬화 → 저장한다. locale은 헤더 행의 언어(파일을 열어 볼 사람은
+// 앱 사용자이므로 UI 언어를 따른다).
 // - Android: Storage Access Framework로 폴더를 고르고 그 폴더에 직접 파일 생성(=다운로드).
 //   공유 시트는 카톡 등 일부 앱이 .csv를 조용히 버려 신뢰할 수 없어 SAF 저장으로 간다.
 // - iOS: 서드파티 앱이 접근하는 공용 다운로드 폴더가 없으므로 공유 시트(→ "파일에 저장")가
 //   사실상 유일한 저장 경로다.
-export async function exportListToCsv(list: VocaList): Promise<ExportResult> {
+export async function exportListToCsv(list: VocaList, locale: string): Promise<ExportResult> {
   const rows = (list.words ?? []).map(wordToCsvRow);
-  const csv = serializeCsv(rows);
+  const csv = serializeCsv(rows, locale);
   const base = sanitizeFilename(list.title);
   const fileName = `${base}.csv`;
 

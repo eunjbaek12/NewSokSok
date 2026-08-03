@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { VocaList } from '@/lib/types';
 import { useSettingsStore } from '@/features/settings';
 import { ensureReviewChannel, syncReviewNotifications } from './notifications';
@@ -15,6 +16,11 @@ import { ensureReviewChannel, syncReviewNotifications } from './notifications';
 export function useReviewNotificationScheduler(lists: VocaList[]) {
   const settings = useSettingsStore(s => s.reviewNotificationSettings);
   const isLoading = useSettingsStore(s => s.isLoading);
+  // 알림 문구는 **예약하는 순간** 굳어 OS에 넘어간다 — 나중에 i18n.t를 다시 부를 기회가
+  // 없다. 언어를 바꾸면 이미 걸려 있는 알림은 옛 언어 그대로 뜨므로, 언어도 재예약
+  // 트리거로 넣는다(lists·settings가 우연히 바뀌기 전까지 안 고쳐지던 상태였다).
+  const { i18n } = useTranslation();
+  const language = i18n.language;
 
   useEffect(() => {
     void ensureReviewChannel();
@@ -42,7 +48,7 @@ export function useReviewNotificationScheduler(lists: VocaList[]) {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [isLoading, lists, settings]);
+  }, [isLoading, lists, settings, language]);
 }
 
 /**

@@ -50,7 +50,7 @@ export default function ListContextMenu({
   onShareList,
 }: ListContextMenuProps) {
   const { colors } = useTheme();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
 
   const [shareModalOpen, setShareModalOpen] = useState(false);
@@ -228,7 +228,7 @@ export default function ListContextMenu({
     }
     setTimeout(() => {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      exportListToCsv(target).then((res) => {
+      exportListToCsv(target, i18n.language).then((res) => {
         // Android 저장 완료만 안내. iOS(shared)는 시트가, cancelled는 사용자가 처리.
         if (res.kind === 'saved') {
           Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);

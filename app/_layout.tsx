@@ -210,15 +210,6 @@ function AppStack() {
       <Stack.Screen name="examples/[id]" options={{ headerShown: false, gestureEnabled: false, fullScreenGestureEnabled: false }} />
       <Stack.Screen name="autoplay/[id]" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen
-        name="theme-generator"
-        options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.85],
-          sheetGrabberVisible: true,
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
         name="search-modal"
         options={{
           presentation: "fullScreenModal",

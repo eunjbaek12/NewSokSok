@@ -29,7 +29,7 @@ describe('CSV 가져오기 → WordSaveSchema 호환', () => {
       { term: 'piñata', meaningKr: '피냐타', phonetic: 'piˈɲata', pos: 'noun', definition: 'juguete de fiesta', exampleEn: 'Rompimos la piñata, ¡qué divertido!', exampleKr: '피냐타를 깼다', tags: ['es'] },
       { term: 'quote, comma', meaningKr: '그는 "안녕, 잘 가"라고 말했다', phonetic: '', pos: '', definition: 'a "quoted, thing"', exampleEn: 'She said "hi, there".', exampleKr: '', tags: ['a;b'.replace(';', '')] },
     ];
-    const { rows: parsed, skipped } = parseCsv(serializeCsv(rows));
+    const { rows: parsed, skipped } = parseCsv(serializeCsv(rows, 'ko'));
     expect(skipped).toBe(0);
     expect(parsed.map(r => r.term)).toEqual(rows.map(r => r.term));
     expect(parsed[2].meaningKr).toBe('① eye ② snow'); // 동음이의어 병기 마커 보존
@@ -71,7 +71,7 @@ describe('CSV 가져오기 → WordSaveSchema 호환', () => {
 
 describe('엑셀(한글 Windows) 호환 바이트 검증', () => {
   it('UTF-8 인코딩 시 파일이 BOM(EF BB BF)으로 시작하고 CRLF를 쓴다', () => {
-    const csv = serializeCsv([{ term: 'apple', meaningKr: '사과' }]);
+    const csv = serializeCsv([{ term: 'apple', meaningKr: '사과' }], 'ko');
     const bytes = Buffer.from(csv, 'utf8');
     expect([bytes[0], bytes[1], bytes[2]]).toEqual([0xef, 0xbb, 0xbf]); // 엑셀 한글 깨짐 방지
     expect(csv).toContain('\r\n'); // RFC 4180 줄끝

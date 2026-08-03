@@ -1,4 +1,4 @@
-import { segmentExample, canBlankExample } from '../lib/example-blank';
+import { segmentExample, canBlankExample, spokenExample } from '../lib/example-blank';
 
 /** 빈칸을 [?]로 치환한 표시 문자열 — 화면에 보이는 모양 그대로 검증한다. */
 function view(sentence: string, term: string): string | null {
@@ -135,5 +135,58 @@ describe('동음이의어 병기 기호', () => {
   test('표제어에 섞인 ①②는 무시하고 찾는다', () => {
     expect(view('① He is a smart kid. ② You look smart.', '① smart'))
       .toBe('① He is a [?] kid. ② You look [?].');
+  });
+});
+
+/**
+ * 스피커 낭독(P7). 이 규칙이 깨지면 화면은 답을 가린 채 소리로만 답이 새어 나가
+ * 예문 학습 자체가 성립하지 않는다 — 눈으로는 안 보이는 종류의 고장이라 테스트로 잡는다.
+ */
+describe('spokenExample — 정답 공개 전에는 빈칸을 읽지 않는다', () => {
+  const S = 'I ate an apple this morning.';
+
+  test('공개 전에는 표제어가 소리에 섞이지 않는다', () => {
+    const spoken = spokenExample(S, 'apple', false);
+    expect(spoken).toBe('I ate an this morning.');
+    expect(spoken).not.toMatch(/apple/i);
+  });
+
+  test('공개 후에는 원문 그대로 읽는다 — 발음을 들을 기회를 막지 않는다', () => {
+    expect(spokenExample(S, 'apple', true)).toBe(S);
+  });
+
+  test('굴절형도 빠진다 — 화면 빈칸과 같은 자리를 판단한다', () => {
+    expect(spokenExample('She signifies her intent.', 'signify', false))
+      .toBe('She her intent.');
+  });
+
+  test('빈칸이 여러 개면 전부 빠진다', () => {
+    expect(spokenExample('An apple a day. I like apple.', 'apple', false))
+      .toBe('An a day. I like .');
+  });
+
+  test('한국어 — 조사는 남고 어간만 빠진다', () => {
+    const spoken = spokenExample('저는 의사가 되고 싶어요.', '의사', false);
+    expect(spoken).not.toMatch(/의사/);
+    expect(spoken).toBe('저는 가 되고 싶어요.');
+  });
+
+  test('빈칸을 못 만드는 예문은 빈 문자열 — 통째로 답이라 읽으면 안 된다', () => {
+    expect(spokenExample('Nothing matches here.', 'apple', false)).toBe('');
+    // 공개된 뒤에는 읽어도 된다(이미 화면에 보인다).
+    expect(spokenExample('Nothing matches here.', 'apple', true)).toBe('Nothing matches here.');
+  });
+
+  test('①② 병기 기호는 읽지 않는다', () => {
+    expect(spokenExample('① He is a smart kid.', '① smart', false)).toBe('He is a kid.');
+    expect(spokenExample('① He is a smart kid.', '① smart', true)).toBe('He is a smart kid.');
+  });
+
+  test('null/빈 입력은 빈 문자열', () => {
+    expect(spokenExample(null, 'apple', false)).toBe('');
+    expect(spokenExample(undefined, 'apple', true)).toBe('');
+    expect(spokenExample(S, null, false)).toBe('');
+    // 표제어가 없어도 공개 상태면 문장은 읽을 수 있다.
+    expect(spokenExample(S, null, true)).toBe(S);
   });
 });

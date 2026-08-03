@@ -10,7 +10,10 @@ import Animated, {
   SharedValue,
 } from 'react-native-reanimated';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 import { useTheme } from '@/features/theme';
+import { resolveLocale, type UILocaleCode } from '@/i18n/locale';
 
 // 데모용 단축 토큰 — useTheme().colors에서 파생
 type DemoColors = {
@@ -92,9 +95,54 @@ function WordCard({
 }
 
 // ─── iOS 스타일 리얼 키보드 ──────────────────────────────────
+// 키 **위치**는 언제나 QWERTY다. 한국어 두벌식도 같은 자리에 자모가 얹힐 뿐이라,
+// 자판 배열은 그대로 두고 라벨만 바꾸면 실제 키보드처럼 보인다.
 const KB_ROW1 = ['Q','W','E','R','T','Y','U','I','O','P'];
 const KB_ROW2 = ['A','S','D','F','G','H','J','K','L'];
 const KB_ROW3 = ['Z','X','C','V','B','N','M'];
+
+/**
+ * 키 라벨 — **UI 언어가 아니라 "그 사용자가 입력할 언어"의 자판**이다.
+ *
+ * ko UI = 한국어 사용자가 영어를 배우는 화면이므로 영문 자판,
+ * en UI = 영어 사용자가 한국어를 배우는 화면이므로 두벌식 자판.
+ * (헷갈리기 쉬운 대응이라 적어 둔다.)
+ */
+const DUBEOLSIK: Record<string, string> = {
+  Q:'ㅂ', W:'ㅈ', E:'ㄷ', R:'ㄱ', T:'ㅅ', Y:'ㅛ', U:'ㅕ', I:'ㅑ', O:'ㅐ', P:'ㅔ',
+  A:'ㅁ', S:'ㄴ', D:'ㅇ', F:'ㄹ', G:'ㅎ', H:'ㅗ', J:'ㅓ', K:'ㅏ', L:'ㅣ',
+  Z:'ㅋ', X:'ㅌ', C:'ㅊ', V:'ㅍ', B:'ㅠ', N:'ㅜ', M:'ㅡ',
+};
+
+const KB_LABELS: Record<UILocaleCode, Record<string, string> | null> = {
+  ko: null, // null = 영문 라벨 그대로
+  en: DUBEOLSIK,
+  es: DUBEOLSIK, // 스페인어 사용자도 한국어를 배우는 쪽이라 en과 같은 자판
+};
+
+/**
+ * 한 글자씩 입력되는 모습 — `{ 화면에 보이는 글자, 눌린 키 }`의 나열.
+ *
+ * 단순히 문자열을 잘라 쓸 수 없다: 한글은 자모가 합쳐지며 글자가 바뀐다
+ * (ㅅ → 사 → 삭 → 사고 → 사과). 그래서 표시 문자열과 키를 따로 적는다.
+ *
+ * Record<UILocaleCode, …>이라 언어를 추가하면 여기서 컴파일이 깨진다 — 자판을
+ * 흉내 낼 수 없는 언어(일본어·중국어 IME)라면 그때 다른 연출을 골라야 한다는 신호다.
+ */
+// 사과 = ㅅ(T) ㅏ(K) ㄱ(R) ㅗ(H) ㅏ(K)
+const TYPING_SAGWA = [
+  { text: 'ㅅ', key: 'T' }, { text: '사', key: 'K' }, { text: '삭', key: 'R' },
+  { text: '사고', key: 'H' }, { text: '사과', key: 'K' },
+];
+
+const TYPING_STEPS: Record<UILocaleCode, { text: string; key: string }[]> = {
+  ko: [
+    { text: 'a', key: 'A' }, { text: 'ap', key: 'P' }, { text: 'app', key: 'P' },
+    { text: 'appl', key: 'L' }, { text: 'apple', key: 'E' },
+  ],
+  en: TYPING_SAGWA,
+  es: TYPING_SAGWA,
+};
 
 function Key({
   label, isHighlighted, isSpecial, isReturn, width, height, fontSize, C, fontFamily,
@@ -137,6 +185,9 @@ function RealisticKeyboard({
   C: DemoColors;
   fontFamily: FontFamilyMap;
 }) {
+  const { i18n } = useTranslation();
+  const labels = KB_LABELS[resolveLocale(i18n.language)];
+  const keyLabel = (k: string) => labels?.[k] ?? k;
   const p = S;
   const kbStyle = useAnimatedStyle(() => ({
     opacity: kbOpacity.value,
@@ -170,13 +221,13 @@ function RealisticKeyboard({
     }]}>
       <View style={{ flexDirection: 'row', gap: KEY_GAP, marginBottom: ROW_GAP }}>
         {KB_ROW1.map(k => (
-          <Key key={k} label={k} width={R1_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
+          <Key key={k} label={keyLabel(k)} width={R1_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
       </View>
 
       <View style={{ flexDirection: 'row', gap: KEY_GAP, marginBottom: ROW_GAP, paddingHorizontal: R1_KEY_W / 2 }}>
         {KB_ROW2.map(k => (
-          <Key key={k} label={k} width={R2_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
+          <Key key={k} label={keyLabel(k)} width={R2_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
       </View>
 
@@ -185,7 +236,7 @@ function RealisticKeyboard({
           <Ionicons name="arrow-up" size={14 * p} color={C.kbText} />
         } isSpecial width={SPECIAL_W} height={KEY_H} fontSize={FONT} C={C} fontFamily={fontFamily} />
         {KB_ROW3.map(k => (
-          <Key key={k} label={k} width={R3_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
+          <Key key={k} label={keyLabel(k)} width={R3_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
         <Key label={
           <Ionicons name="backspace-outline" size={16 * p} color={C.kbText} />
@@ -203,9 +254,11 @@ function RealisticKeyboard({
 
 // ─── 단어 추가 팝업 (실제 add-word.tsx UI와 동일) ─────────────
 function AddWordPopup({
+  t,
   popupOpacity, popupScale, inputText, showAutofill,
   saveFabOpacity, saveFabScale, kbOpacity, highlightedKey, C, fontFamily,
 }: {
+  t: TFunction;
   popupOpacity: SharedValue<number>;
   popupScale: SharedValue<number>;
   inputText: string;
@@ -257,8 +310,8 @@ function AddWordPopup({
           paddingHorizontal: 20 * p, paddingTop: 10 * p, paddingBottom: 8 * p,
           borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.borderLight,
         }}>
-          <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>취소</Text>
-          <Text style={{ fontSize: 16 * p, fontFamily: fontFamily.semiBold, color: C.text }}>단어 추가</Text>
+          <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>{t('onboardingDemo.addCancel')}</Text>
+          <Text style={{ fontSize: 16 * p, fontFamily: fontFamily.semiBold, color: C.text }}>{t('onboardingDemo.addTitle')}</Text>
           <Ionicons name="settings-outline" size={19 * p} color={C.textSecondary} />
         </View>
 
@@ -273,7 +326,7 @@ function AddWordPopup({
             gap: 7 * p, backgroundColor: C.surface,
           }}>
             <Ionicons name="folder-outline" size={17 * p} color={C.textSecondary} />
-            <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.medium, color: C.text }}>✈️ 여행 영어 단어장</Text>
+            <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.medium, color: C.text }}>{t('onboardingDemo.deckTitle')}</Text>
             <Ionicons name="chevron-down" size={15 * p} color={C.textTertiary} />
           </View>
 
@@ -314,7 +367,7 @@ function AddWordPopup({
                   <Text style={{ color: C.primary }}>|</Text>
                 )}
                 {inputText.length === 0 && (
-                  <Text style={{ color: C.textTertiary, fontFamily: fontFamily.regular }}>영어 단어 입력...</Text>
+                  <Text style={{ color: C.textTertiary, fontFamily: fontFamily.regular }}>{t('onboardingDemo.addPlaceholder')}</Text>
                 )}
               </Text>
             </View>
@@ -343,8 +396,8 @@ function AddWordPopup({
               paddingHorizontal: 14 * p, paddingVertical: 10 * p,
               backgroundColor: C.surface,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>한국어 뜻</Text>
-              <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.semiBold, color: C.text }}>사과</Text>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>{t('onboardingDemo.meaningLabel')}</Text>
+              <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.semiBold, color: C.text }}>{t('onboardingDemo.newMeaning')}</Text>
             </View>
 
             <View style={{
@@ -353,8 +406,8 @@ function AddWordPopup({
               backgroundColor: C.surface,
               flexDirection: 'row', alignItems: 'center', gap: 8 * p,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8 }}>발음</Text>
-              <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>/æp·əl/</Text>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8 }}>{t('onboardingDemo.phoneticLabel')}</Text>
+              <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>{t('onboardingDemo.phonetic')}</Text>
             </View>
 
             <View style={{
@@ -362,9 +415,9 @@ function AddWordPopup({
               paddingHorizontal: 14 * p, paddingVertical: 9 * p,
               backgroundColor: C.surface,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>예문</Text>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>{t('onboardingDemo.exampleLabel')}</Text>
               <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.regular, color: C.textSecondary, fontStyle: 'italic' }}>
-                I ate an apple this morning.
+                {t('onboardingDemo.example')}
               </Text>
             </View>
           </Animated.View>
@@ -388,7 +441,7 @@ function AddWordPopup({
           elevation: 6,
         }}>
           <Ionicons name="checkmark" size={18 * p} color="#fff" />
-          <Text style={{ color: '#fff', fontSize: 15 * p, fontFamily: fontFamily.bold }}>저장</Text>
+          <Text style={{ color: '#fff', fontSize: 15 * p, fontFamily: fontFamily.bold }}>{t('onboardingDemo.save')}</Text>
         </View>
       </Animated.View>
 
@@ -399,17 +452,22 @@ function AddWordPopup({
 }
 
 // ─── 메인 컴포넌트 ────────────────────────────────────────────
-const WORDS = [
-  { term: 'luggage', meaning: '짐, 수하물', isMemorized: false, isStarred: true },
-  { term: 'departure', meaning: '출발', isMemorized: false, isStarred: false },
-  { term: 'journey', meaning: '여행, 여정', isMemorized: true, isStarred: false },
-];
-
 const CYCLE_MS = 8800;
 
 export function WordListDemo({ isActive }: { isActive: boolean }) {
   const { colors, fontFamily } = useTheme();
+  const { t, i18n } = useTranslation();
   const p = S;
+
+  // 데모에 쓰는 단어 쌍은 UI 언어를 따른다 — ko 화면은 영어를 배우는 사람의 단어장,
+  // en 화면은 한국어를 배우는 사람의 단어장이다(실제 큐레이션 덱과 같은 방향).
+  const WORDS = useMemo(() => [
+    { term: t('onboardingDemo.word1Term'), meaning: t('onboardingDemo.word1Meaning'), isMemorized: false, isStarred: true },
+    { term: t('onboardingDemo.word2Term'), meaning: t('onboardingDemo.word2Meaning'), isMemorized: false, isStarred: false },
+    { term: t('onboardingDemo.word3Term'), meaning: t('onboardingDemo.word3Meaning'), isMemorized: true, isStarred: false },
+  ], [t]);
+
+  const typingSteps = TYPING_STEPS[resolveLocale(i18n.language)];
 
   const C: DemoColors = useMemo(() => ({
     bg: colors.background,
@@ -497,13 +555,10 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
       kbOpacity.value = withSpring(1, { damping: 18, stiffness: 180 });
     }, offset + 2050);
 
-    const WORD = 'apple';
-    const KEY_MAP: Record<string, string> = { a:'A', p:'P', l:'L', e:'E' };
-    WORD.split('').forEach((char, i) => {
+    typingSteps.forEach((step, i) => {
       after(() => {
-        setInputText(WORD.slice(0, i + 1));
-        const key = KEY_MAP[char] || char.toUpperCase();
-        setHighlightedKey(key);
+        setInputText(step.text);
+        setHighlightedKey(step.key);
         setTimeout(() => setHighlightedKey(''), 110);
       }, offset + 2180 + i * 150);
     });
@@ -543,7 +598,9 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
     }
 
     return clearTimers;
-  }, [isActive]);
+    // typingSteps는 UI 언어에 따라 달라지므로 의존성에 넣는다 — 언어를 바꾸면
+    // 자판·조합 단계가 함께 갈리기 때문에 예전 루프가 남아 있으면 안 맞는다.
+  }, [isActive, typingSteps]);
 
   const screenStyle = useAnimatedStyle(() => ({ opacity: screenOpacity.value }));
   const barStyle = useAnimatedStyle(() => ({ width: `${progressWidth.value * 100}%` }));
@@ -565,8 +622,8 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         {/* headerRow */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 * p }}>
           <Ionicons name="chevron-back" size={28 * p} color={C.text} />
-          <Text style={{ fontSize: 20 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }} numberOfLines={1}>✈️ 여행 영어 단어장</Text>
-          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>계획보기</Text>
+          <Text style={{ fontSize: 20 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }} numberOfLines={1}>{t('onboardingDemo.deckTitle')}</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>{t('onboardingDemo.planLink')}</Text>
         </View>
 
         {/* progressContainer */}
@@ -587,10 +644,10 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         <Ionicons name="star-outline" size={22 * p} color={C.textTertiary} />
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 4 * p }}>
           <Ionicons name="time-outline" size={13 * p} color={C.textSecondary} />
-          <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>최신순 (4)</Text>
+          <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>{t('onboardingDemo.sortLabel')}</Text>
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 * p, paddingRight: 4 * p }}>
-          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textTertiary, textTransform: 'uppercase' }}>전체</Text>
+          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textTertiary, textTransform: 'uppercase' }}>{t('onboardingDemo.filterAll')}</Text>
           <Ionicons name="filter-outline" size={20 * p} color={C.textTertiary} />
         </View>
       </View>
@@ -600,7 +657,7 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         <WordCard {...WORDS[0]} opacity={word1Opacity} translateX={word1X} C={C} fontFamily={fontFamily} />
         <WordCard {...WORDS[1]} opacity={word2Opacity} translateX={word2X} C={C} fontFamily={fontFamily} />
         <WordCard {...WORDS[2]} opacity={word3Opacity} translateX={word3X} C={C} fontFamily={fontFamily} />
-        <WordCard term="apple" meaning="사과" isMemorized={false} isStarred={false} opacity={word4Opacity} translateX={word4X} C={C} fontFamily={fontFamily} />
+        <WordCard term={t('onboardingDemo.newTerm')} meaning={t('onboardingDemo.newMeaning')} isMemorized={false} isStarred={false} opacity={word4Opacity} translateX={word4X} C={C} fontFamily={fontFamily} />
       </View>
 
       {/* ── + FAB ── */}
@@ -615,6 +672,7 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
 
       {/* ── 단어 추가 팝업 (저장 버튼 + 키보드 포함) ── */}
       <AddWordPopup
+        t={t}
         popupOpacity={popupOpacity}
         popupScale={popupScale}
         inputText={inputText}

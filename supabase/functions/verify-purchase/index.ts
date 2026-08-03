@@ -121,6 +121,25 @@ const handle = createVerifyHandler({
     }
   },
 
+  async findTokenOwner(token: string) {
+    const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
+    // maybeSingle()이 아니라 limit(1) — 인덱스를 걸기 전에 이미 들어온 중복 행이
+    // 있으면 maybeSingle은 에러를 던져 정상 요청까지 막는다.
+    const { data, error } = await svc
+      .from('user_subscriptions')
+      .select('user_id')
+      .eq('play_purchase_token', token)
+      .limit(1);
+    if (error) {
+      // 조회 실패는 통과시킨다(fail-open). 최종 방어선은 코드가 아니라
+      // play_purchase_token의 부분 unique 인덱스이고, 그쪽이 막으면 아래
+      // upsert가 23505로 떨어져 409가 된다.
+      console.error('[verify] findTokenOwner failed:', error.message);
+      return null;
+    }
+    return data?.[0]?.user_id ?? null;
+  },
+
   async upsertSubscription(row: SubscriptionRow) {
     const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
     return await svc.from('user_subscriptions').upsert(row, { onConflict: 'user_id' });

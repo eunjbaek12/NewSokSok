@@ -45,6 +45,7 @@ function makeDeps(over: Partial<VerifyDeps> = {}): jest.Mocked<VerifyDeps> {
     getAppleConfig: jest.fn(() => ({ keyId: 'KID', issuerId: 'ISS', bundleId: BUNDLE, privateKey: 'pk' })),
     fetchAppleTransaction: jest.fn(async () => ({ environment: 'production' as const, payload: { ...activeApplePayload } })),
     decodeAppleJWS: jest.fn(() => ({ transactionId: APPLE_TX })),
+    findTokenOwner: jest.fn(async () => null),
     upsertSubscription: jest.fn(async () => ({ error: null })),
     ...over,
   } as jest.Mocked<VerifyDeps>;
@@ -322,5 +323,60 @@ describe('verify-purchase 핸들러 — DB 오류', () => {
     const res = await createVerifyHandler(deps)(makeReq());
     expect(res.status).toBe(500);
     expect(res.body).toMatchObject({ error: 'internal_error' });
+  });
+});
+
+// 구매는 스토어 계정에, 권한은 앱 계정에 귀속된다. 스토어 응답만 보고 부여하면
+// 같은 Play 계정으로 다른 앱 계정에 로그인해 복원하는 것만으로 결제 하나가 계정
+// 여럿에 Pro를 뿌린다(2026-08-03 실측: 토큰 1개 · 계정 2개).
+describe('verify-purchase 핸들러 — 구매 토큰 소유권', () => {
+  it('다른 계정이 이미 보유한 토큰 → 409, 권한 부여 안 함', async () => {
+    const deps = makeDeps({ findTokenOwner: jest.fn(async () => 'user-OTHER') });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(409);
+    expect(res.body).toMatchObject({ ok: false, error: 'subscription_owned_by_other' });
+    // 가장 중요한 단언 — 거절했으면 DB에 아무것도 쓰지 않아야 한다.
+    expect(deps.upsertSubscription).not.toHaveBeenCalled();
+  });
+
+  it('같은 계정이 보유한 토큰 → 200 (갱신은 막지 않는다)', async () => {
+    const deps = makeDeps({ findTokenOwner: jest.fn(async () => 'user-1') });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(200);
+    expect(deps.upsertSubscription).toHaveBeenCalledTimes(1);
+  });
+
+  it('아무도 보유하지 않은 토큰 → 200 (최초 귀속)', async () => {
+    const deps = makeDeps({ findTokenOwner: jest.fn(async () => null) });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(200);
+    expect(deps.upsertSubscription).toHaveBeenCalledTimes(1);
+  });
+
+  it('iOS는 originalTransactionId 로 소유권을 조회한다', async () => {
+    // 구독 갱신마다 transactionId는 바뀌지만 originalTransactionId는 고정이다.
+    // 갱신 때 transactionId로 조회하면 매번 "주인 없음"이 되어 검사가 무의미해진다.
+    const deps = makeDeps();
+    await createVerifyHandler(deps)(
+      makeReq({ json: async () => ({ purchaseToken: 'jws-blob', productId: PRODUCT, platform: 'ios' }) }),
+    );
+
+    expect(deps.findTokenOwner).toHaveBeenCalledWith(APPLE_ORIGINAL_TX);
+  });
+
+  it('소유권 조회 실패로 통과해도 unique 위반(23505)이 409로 잡힌다', async () => {
+    // findTokenOwner는 조회 실패 시 fail-open이다. 최종 방어선은 부분 unique
+    // 인덱스이고, 그게 잡은 것은 원인이 소유권 충돌 하나뿐이라 500이 아니라 409다.
+    const deps = makeDeps({
+      findTokenOwner: jest.fn(async () => null),
+      upsertSubscription: jest.fn(async () => ({ error: { code: '23505', message: 'duplicate key' } })),
+    });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(409);
+    expect(res.body).toMatchObject({ error: 'subscription_owned_by_other' });
   });
 });

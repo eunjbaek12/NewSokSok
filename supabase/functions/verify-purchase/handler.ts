@@ -83,6 +83,13 @@ export interface VerifyDeps {
   fetchAppleTransaction(transactionId: string, creds: AppleConfig): Promise<AppleTransactionResult | null>;
   /** iOS purchaseToken(JWS)에서 transactionId만 디코딩. */
   decodeAppleJWS(jws: string): { transactionId?: string } | null;
+  /**
+   * 이 구매 토큰을 이미 보유한 user_id. 없으면 null.
+   *
+   * 스토어는 "이 구매가 유효한가"에는 답하지만 "누구 것인가"에는 답하지 않는다.
+   * 귀속은 우리만 아는 사실이라 우리가 기록해 둔 것과 대조해야 한다.
+   */
+  findTokenOwner(token: string): Promise<string | null>;
   /** user_subscriptions upsert. */
   upsertSubscription(row: SubscriptionRow): Promise<{ error: unknown | null }>;
 }
@@ -143,7 +150,23 @@ export function createVerifyHandler(deps: VerifyDeps) {
       storedToken = result.originalTransactionId;
     }
 
-    // 7. user_subscriptions 갱신
+    // 7. 소유권 검사 — 구매는 스토어 계정에, 권한은 앱 계정에 귀속된다.
+    //
+    // 이 둘은 서로 다른 네임스페이스이고, 스토어 응답만으로는 이어지지 않는다.
+    // Play/Apple은 "이 구독이 유효한가"까지만 답하므로, 그 답만 보고 부여하면
+    // 같은 Play·Apple 계정으로 다른 앱 계정에 로그인한 뒤 복원하는 것만으로
+    // 결제 하나가 여러 계정에 Pro를 뿌린다(2026-08-03 실측: 토큰 1개 · 계정 2개).
+    //
+    // 선점 정책: 먼저 귀속된 계정이 계속 보유한다. 계정을 옮기려는 정상 사용자는
+    // 조용한 자동 이전 대신 명시적인 이전 절차로 다뤄야 한다 — 여기서 소유자를
+    // 바꿔주면 "의도한 이전"과 "권한 새기"를 서버가 구분할 방법이 없다.
+    const owner = await deps.findTokenOwner(storedToken);
+    if (owner && owner !== user.id) {
+      console.error('[verify] token already owned by another user:', { owner, requester: user.id });
+      return r(409, { ok: false, error: 'subscription_owned_by_other' });
+    }
+
+    // 8. user_subscriptions 갱신
     const { error: upsertErr } = await deps.upsertSubscription({
       user_id: user.id,
       tier: 'pro',
@@ -153,6 +176,13 @@ export function createVerifyHandler(deps: VerifyDeps) {
       updated_at: new Date().toISOString(),
     });
     if (upsertErr) {
+      // 23505 = unique 위반. play_purchase_token의 부분 unique 인덱스가 잡은
+      // 것이므로 원인은 소유권 충돌 하나뿐이다 — 위 검사와 이 쓰기 사이의 경쟁,
+      // 또는 findTokenOwner가 조회 실패로 통과시킨 경우. 500이 아니라 409다.
+      if ((upsertErr as { code?: string })?.code === '23505') {
+        console.error('[verify] token owned by another user (unique violation):', user.id);
+        return r(409, { ok: false, error: 'subscription_owned_by_other' });
+      }
       console.error('[verify] upsert failed:', (upsertErr as { message?: string })?.message ?? JSON.stringify(upsertErr));
       return r(500, { ok: false, error: 'internal_error' });
     }

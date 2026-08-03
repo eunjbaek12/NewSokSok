@@ -479,6 +479,7 @@
       "pending": "El pago está pendiente. Te avisaremos cuando se haya procesado.",
       "developerError": "Hay un problema con la configuración de pago. Contacta con soporte.",
       "verifyFailed": "Falló la verificación del pago. Si ya pagaste, toca 'Restaurar compra anterior'.",
+      "ownedByOther": "Esta suscripción pertenece a otra cuenta. Inicia sesión con la cuenta que la contrató.",
       "noToken": "No se recibió la información de pago. Inténtalo de nuevo o toca 'Restaurar compra anterior'.",
       "loadProductsFailed": "No se pudieron cargar los detalles de la suscripción. Inténtalo de nuevo más tarde.",
       "restoreFailed": "No se pudo restaurar tu compra anterior. Inténtalo de nuevo más tarde."

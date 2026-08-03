@@ -744,7 +744,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   errorText: {
-    textAlign: 'center',
+  textAlign: 'center',
     marginTop: 40,
     fontSize: 15,
     fontFamily: 'Pretendard_400Regular',
@@ -923,6 +923,7 @@ const styles = StyleSheet.create({
   completedTitle: {
     fontSize: 22,
     fontFamily: 'Pretendard_700Bold',
+    textAlign: 'center',
   },
   completedDesc: {
     fontSize: 14,
@@ -937,6 +938,7 @@ const styles = StyleSheet.create({
   dayEmptyText: {
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
+    textAlign: 'center',
   },
   includeBtn: {
     flexDirection: 'row',
@@ -952,6 +954,7 @@ const styles = StyleSheet.create({
   includeBtnText: {
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   // Bottom Bar
   bottomBar: {
@@ -977,6 +980,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
     letterSpacing: -0.2,
+    textAlign: 'center',
   },
   actionBtn: {
     borderRadius: 28,

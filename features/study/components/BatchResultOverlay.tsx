@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
     primaryButtonText: {
         fontSize: 16,
         fontFamily: 'Pretendard_600SemiBold',
+        textAlign: 'center',
     },
     secondaryButton: {
         flexDirection: 'row',
@@ -260,5 +261,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontFamily: 'Pretendard_500Medium',
         textDecorationLine: 'underline',
+        textAlign: 'center',
     },
 });

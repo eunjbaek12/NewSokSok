@@ -418,7 +418,7 @@ const styles = StyleSheet.create({
   },
   heroImg: { width: 52, height: 52, borderRadius: 26 },
   heroNum: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5, lineHeight: 31 },
-  heroLabel: { fontSize: 12, fontFamily: 'Pretendard_700Bold' },
+  heroLabel: { fontSize: 12, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
   heroRight: { marginLeft: 'auto', alignItems: 'flex-end', gap: 6 },
   heroSub: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
   heroRec: {
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     marginTop: 4,
   },
-  saveText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+  saveText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
   rateBtn: {
     flexDirection: 'row',
     alignItems: 'center',

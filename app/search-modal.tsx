@@ -1060,6 +1060,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontFamily: 'Pretendard_600SemiBold',
         marginTop: 12,
+        textAlign: 'center',
     },
     emptySubtitle: {
         fontSize: 13,

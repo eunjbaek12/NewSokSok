@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
   },
-  pickBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
+  pickBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
   summaryBox: { paddingHorizontal: 16, paddingVertical: 12, gap: 2 },
   summaryFile: { fontSize: 12, fontFamily: 'Pretendard_400Regular' },
   summaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },

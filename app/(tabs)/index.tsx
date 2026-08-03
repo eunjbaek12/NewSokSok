@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import CharacterSvg from '@/components/CharacterSvg';
 import { CharacterAccessory } from '@/components/CharacterAccessory';
+import { OceanBackdrop } from '@/components/OceanBackdrop';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { Radius } from '@/constants/tokens';
@@ -239,6 +240,9 @@ export default function DashboardScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* 여름 바다 스킨 — 홈 하단 파도 배경(맨 뒤 레이어, 터치 통과) */}
+      {skin.id === 'ocean' && <OceanBackdrop />}
+
       {/* Fixed Header / Greeting */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
         <View style={{ width: 56, height: 56 }}>

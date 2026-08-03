@@ -74,9 +74,23 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     },
     characterAccessory: 'y2k-ribbon',
   },
+  ocean: {
+    id: 'ocean',
+    nameKey: 'skinOcean',
+    colorScheme: 'light',
+    fontFamily: pretendard,
+    previewColors: {
+      background: '#EAF6F7',
+      primary: '#0C7178',
+      surface: '#F5FBFB',
+      accent: '#FF7F5C',
+      text: '#0B2E33',
+    },
+    characterAccessory: 'ocean-hat',
+  },
 };
 
-export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab];
+export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.ocean, SKINS.dark, SKINS.y2k, SKINS.lab];
 
 export const LEGACY_THEME_TO_SKIN: Record<string, SkinId> = {
   light: 'classic',
@@ -87,5 +101,6 @@ export function getSkinColors(id: SkinId): ThemeColors {
   if (id === 'dark') return Colors.dark;
   if (id === 'y2k') return Colors.y2k;
   if (id === 'lab') return Colors.lab;
+  if (id === 'ocean') return Colors.ocean;
   return Colors.light;
 }

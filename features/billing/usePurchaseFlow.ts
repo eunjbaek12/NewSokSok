@@ -25,7 +25,7 @@ import {
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
 import { PRO_SKUS, basePlanIdFor, type ProSku } from '@/lib/billing/skus';
-import { mapPurchaseError, readEdgeErrorBody, isDefinitiveVerifyRejection, type MappedPurchaseError } from './error-mapping';
+import { mapPurchaseError, readEdgeErrorBody, isDefinitiveVerifyRejection, isOwnershipRejection, type MappedPurchaseError } from './error-mapping';
 import { isoPeriodToDays, type PriceDetail } from './pricing';
 import { pickAndroidOffer } from './offers';
 
@@ -143,7 +143,14 @@ export function usePurchaseFlow(): PurchaseFlow {
         'ok=', data?.ok,
         'edgeErrMsg=', edgeErr?.message ?? null,
       );
-      if (edgeErr || !data?.ok) throw edgeErr ?? new Error('verify_failed');
+      if (edgeErr || !data?.ok) {
+        // 409는 "이 구독이 다른 앱 계정 것"이라는 확정 거절이다. generic
+        // verify_failed로 뭉뚱그리면 "복원해보세요"를 권하게 되는데, 복원해도
+        // 같은 409를 받으므로 사용자를 무한히 돌린다.
+        const body = edgeErr ? await readEdgeErrorBody(edgeErr) : data;
+        if (isOwnershipRejection(body)) throw new Error('owned_by_other');
+        throw edgeErr ?? new Error('verify_failed');
+      }
 
       await finishTransaction({ purchase, isConsumable: false });
       console.warn('[billing-diag] acknowledged', 'productId=', purchase.productId);
@@ -359,9 +366,20 @@ export function usePurchaseFlow(): PurchaseFlow {
     setStage('purchasing');
     userInitiatedRef.current = true;
     try {
+      // 구매에 앱 계정 id를 각인한다. Play/Apple이 이 값을 그대로(서명해서) 돌려주므로,
+      // 서버는 "이 구독이 누구 것인가"를 우리 DB 기록으로 추측하는 대신 스토어가
+      // 확인해 준 사실로 알 수 있다. 구매가 스토어 계정에, 권한이 앱 계정에 귀속되는
+      // 두 네임스페이스를 잇는 유일한 지점이다.
+      //
+      // 게스트(세션 없음)면 각인할 게 없다 — 그 경우 verify가 401로 떨어지는 건
+      // 이전과 동일하다. user.id는 UUID라 Apple의 UUID 요구와 Play의 64자 제한을
+      // 둘 다 만족한다.
+      const { data: sess } = await supabase.auth.getSession();
+      const accountId = sess.session?.user?.id;
+
       if (Platform.OS === 'ios') {
         await requestPurchase({
-          request: { apple: { sku } },
+          request: { apple: { sku, appAccountToken: accountId } },
           type: 'subs',
         });
       } else {
@@ -378,6 +396,7 @@ export function usePurchaseFlow(): PurchaseFlow {
             google: {
               skus: [sku],
               subscriptionOffers: [{ sku, offerToken }],
+              obfuscatedAccountId: accountId,
             },
           },
           type: 'subs',
@@ -395,13 +414,20 @@ export function usePurchaseFlow(): PurchaseFlow {
     try {
       const purchases = await getAvailablePurchases();
       let restored = false;
+      // 복원 대상이 있긴 한데 전부 다른 계정 것이었던 경우. 이게 없으면 화면이
+      // 조용히 idle로 돌아가 사용자는 "눌렀는데 아무 일도 안 일어났다"를 겪는다.
+      let ownedByOther = false;
       for (const p of purchases) {
         if (!PRO_SKUS.includes(p.productId as ProSku)) continue;
         const token = p.purchaseToken ?? '';
         if (!token) continue;
-        const { data } = await supabase.functions.invoke('verify-purchase', {
+        const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
           body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
         });
+        if (edgeErr && isOwnershipRejection(await readEdgeErrorBody(edgeErr))) {
+          ownedByOther = true;
+          continue;
+        }
         if (data?.ok) {
           // Acknowledge the purchase. Without this, an un-acknowledged purchase
           // lingers and Play blocks any re-purchase / plan change with
@@ -414,6 +440,9 @@ export function usePurchaseFlow(): PurchaseFlow {
       if (restored) {
         await useQuotaStore.getState().refresh(true);
         setStage('success');
+      } else if (ownedByOther) {
+        setError(mapPurchaseError(new Error('owned_by_other')));
+        setStage('failed');
       } else {
         setStage('idle');
       }

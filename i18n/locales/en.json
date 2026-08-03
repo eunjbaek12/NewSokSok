@@ -516,6 +516,7 @@
       "pending": "Payment is pending. We'll notify you once it's processed.",
       "developerError": "There's a setup issue with billing. Please contact support.",
       "verifyFailed": "Payment verification failed. If you've already paid, tap 'Restore previous purchase'.",
+      "ownedByOther": "This subscription belongs to a different account. Please sign in with the account that started it.",
       "noToken": "Didn't receive payment info. Try again or tap 'Restore previous purchase'.",
       "loadProductsFailed": "Couldn't load subscription details. Please try again later.",
       "restoreFailed": "Couldn't restore your previous purchase. Please try again later."

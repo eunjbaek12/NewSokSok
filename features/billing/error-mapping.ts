@@ -47,6 +47,14 @@ export function isDefinitiveVerifyRejection(body: unknown): boolean {
   return (body as { error?: string } | null)?.error === 'subscription_invalid';
 }
 
+// verify-purchase의 409 — 이 구독이 다른 앱 계정에 귀속돼 있다는 뜻.
+// 재시도·복원으로 풀리지 않으므로(선점 정책) 조용히 삼키면 안 되고, 사용자에게
+// 그 사실을 알려야 한다. 여기서 finishTransaction은 하지 않는다 — 그 거래는
+// 진짜 소유자 계정에서 정리되어야 한다.
+export function isOwnershipRejection(body: unknown): boolean {
+  return (body as { error?: string } | null)?.error === 'subscription_owned_by_other';
+}
+
 export function mapPurchaseError(err: any): MappedPurchaseError {
   const rawCode = String(err?.code ?? '');
   const rawMessage = String(err?.message ?? err ?? '');
@@ -98,6 +106,10 @@ export function mapPurchaseError(err: any): MappedPurchaseError {
   switch (rawMessage) {
     case 'no_token':
       return { ...base, key: 'noToken' };
+    case 'owned_by_other':
+      // 복원을 제안하지 않는다 — 복원해도 같은 409를 받는다. 사용자가 할 수 있는
+      // 일은 그 구독을 산 계정으로 로그인하는 것뿐이다.
+      return { ...base, key: 'ownedByOther' };
     case 'verify_failed':
       return { ...base, key: 'verifyFailed', suggestRestore: true };
     case 'no_offer_token':

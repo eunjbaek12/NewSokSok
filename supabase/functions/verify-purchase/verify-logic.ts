@@ -16,7 +16,17 @@ export interface PlaySubscriptionV2Response {
     expiryTime?: string;
     autoRenewingPlan?: { autoRenewEnabled?: boolean };
   }>;
-  // 그 외 필드 다수 — 검증엔 아래 세 가지(state, productId, expiryTime)만 사용
+  /**
+   * 구매 시작 때 넘긴 obfuscatedAccountId를 Play가 그대로 담아 돌려준다.
+   * 앱이 요청 본문에 실어 보낸 값이 아니라 **Play가 확인해 준 값**이라 위조할 수
+   * 없다 — 그래서 소유권 판정에 쓸 수 있다. 각인 이전에 결제된 구독에는 없다.
+   */
+  externalAccountIdentifiers?: {
+    obfuscatedExternalAccountId?: string;
+    obfuscatedExternalProfileId?: string;
+    externalAccountId?: string;
+  };
+  // 그 외 필드 다수 — 검증엔 위 네 가지만 사용
 }
 
 export type SubscriptionEvaluation =
@@ -66,6 +76,12 @@ export interface AppleTransactionPayload {
   revocationDate?: number;    // epoch ms — 환불 시
   type?: string;              // "Auto-Renewable Subscription"
   inAppOwnershipType?: string;
+  /**
+   * 구매 시작 때 넘긴 appAccountToken(UUID)을 Apple이 서명된 payload에 담아
+   * 돌려준다. 서명된 값이라 위조할 수 없어 소유권 판정에 쓸 수 있다.
+   * 각인 이전에 결제된 구독에는 없다.
+   */
+  appAccountToken?: string;
 }
 
 /**

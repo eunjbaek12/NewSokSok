@@ -1,26 +1,28 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Svg, { Path, Ellipse } from 'react-native-svg';
-import type { CharacterAccessory as AccessoryType } from '@/features/theme/types';
+import { G, Path, Ellipse } from 'react-native-svg';
+import type { CharacterAccessory as AccessoryType } from '@/features/theme';
 
-interface Props {
-  accessory: AccessoryType;
-  size: number;
-}
+/**
+ * 아보카도는 viewBox(0 0 250 250) 한가운데가 아니라 x=113.4에 서 있다
+ * (머리 꼭짓점 `m113.4 37.7`, 두 눈 90.09·136.7의 중점 = 113.4).
+ * 액세서리는 읽기 쉽게 125 기준으로 그려 두고 이 차이만큼 통째로 민다.
+ * 보정이 없던 동안 모자·리본이 11.6단위(56dp에서 화면 2.6px) 오른쪽으로 튀어나와 있었다.
+ */
+const ACCESSORY_CENTER_OFFSET_X = 113.4 - 125;
 
-export function CharacterAccessory({ accessory, size }: Props) {
+/**
+ * 캐릭터와 같은 250 viewBox를 쓰므로 `CharacterSvg`의 <Svg> 안에 마지막 자식으로 얹는다.
+ * 별도 <Svg>를 절대배치로 겹치지 않는 이유: 그러려면 호출부마다 크기를 맞춘 View로
+ * 감싸야 했고, 캐릭터를 그리는 8곳 중 5곳이 그 조립을 빠뜨려 액세서리가 홈에서만 보였다.
+ */
+export function CharacterAccessoryPaths({ accessory }: { accessory: AccessoryType }) {
   if (accessory === 'none') return null;
 
   return (
-    <Svg
-      viewBox="0 0 250 250"
-      width={size}
-      height={size}
-      style={StyleSheet.absoluteFillObject}
-    >
+    <G transform={[{ translateX: ACCESSORY_CENTER_OFFSET_X }]}>
       {accessory === 'y2k-ribbon' && <Y2kRibbon />}
       {accessory === 'ocean-hat' && <OceanHat />}
-    </Svg>
+    </G>
   );
 }
 

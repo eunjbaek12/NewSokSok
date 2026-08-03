@@ -63,6 +63,7 @@ module.exports = defineConfig([
       'constants/colors.ts',
       'lib/theme/**/*.{ts,tsx}',
       'components/CharacterSvg.tsx',
+      'components/CharacterAccessory.tsx',
       'components/ErrorFallback.tsx',
       'features/onboarding/screen.tsx',
       'features/onboarding/components/AvocadoCharacter.tsx',

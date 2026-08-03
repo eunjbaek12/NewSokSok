@@ -214,7 +214,8 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         paddingBottom: 8 * p,
         gap: 10 * p,
       }}>
-        <CharacterSvg size={Math.round(44 * p)} wave={isActive} isDark={isDark} />
+        {/* 온보딩 데모는 화면 축소 모형이라 현재 스킨의 액세서리는 얹지 않는다 */}
+        <CharacterSvg size={Math.round(44 * p)} wave={isActive} isDark={isDark} accessory="none" />
 
         <View style={{ flex: 1 }}>
           <Text style={{

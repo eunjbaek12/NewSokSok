@@ -1,0 +1,14 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Avocado",
+    "NSMicrophoneUsageDescription": "Avocado usa el micrófono para escribir palabras por voz.",
+    "NSSpeechRecognitionUsageDescription": "Avocado usa el reconocimiento de voz para escribir palabras por voz.",
+    "NSCameraUsageDescription": "Avocado usa la cámara para escanear listas de palabras en fotos.",
+    "NSPhotoLibraryUsageDescription": "Avocado accede a tus fotos para importar listas de palabras.",
+    "NSPhotoLibraryAddUsageDescription": "Avocado guarda tu tarjeta de estadísticas en tus fotos.",
+    "NSUserTrackingUsageDescription": "Este identificador solo se usa para mostrarte anuncios más relevantes. La app funciona igual si lo rechazas y verás anuncios no personalizados."
+  },
+  "android": {
+    "app_name": "Avocado"
+  }
+}

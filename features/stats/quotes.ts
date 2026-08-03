@@ -61,6 +61,31 @@ const EN: Quote[] = [
   { text: 'Keep going. It always adds up.' },
 ];
 
+const ES: Quote[] = [
+  { text: 'Los límites de mi lenguaje significan los límites de mi mundo.', author: 'Ludwig Wittgenstein' },
+  { text: 'Tener otra lengua es poseer una segunda alma.', author: 'Carlomagno' },
+  { text: 'No hay camino real hacia el aprendizaje.', author: 'Euclides' },
+  { text: 'Un viaje de mil millas comienza con un solo paso.', author: 'Lao-Tsé' },
+  { text: 'El conocimiento es poder.', author: 'Francis Bacon' },
+  { text: 'No importa lo despacio que vayas, mientras no te detengas.', author: 'Confucio' },
+  { text: 'La repetición es la madre del aprendizaje.', author: 'Proverbio latino' },
+  { text: 'Poco a poco se anda lejos.', author: 'Refrán español' },
+  { text: 'Gota a gota, el mar se agota.', author: 'Refrán español' },
+  { text: 'El que lee mucho y anda mucho, ve mucho y sabe mucho.', author: 'Miguel de Cervantes' },
+  { text: 'Lo bello de aprender es que nadie puede quitártelo.', author: 'B.B. King' },
+  { text: 'Aprender nunca agota la mente.', author: 'Leonardo da Vinci' },
+  { text: 'Una palabra hoy es una frase mañana.' },
+  { text: 'Progreso, no perfección: una palabra más que ayer.' },
+  { text: 'La constancia le gana al talento.' },
+  { text: 'Pequeños hábitos, grandes cambios.' },
+  { text: 'Los errores son la prueba de que estás aprendiendo.' },
+  { text: 'Nunca es tarde mientras no te rindas.' },
+  { text: 'Paso a paso. Lo estás haciendo muy bien.' },
+  { text: 'Cinco minutos al día son 30 horas al año.' },
+  { text: 'Cada palabra que aprendes se queda contigo.' },
+  { text: 'Sigue adelante. Todo suma.' },
+];
+
 /**
  * UI 언어별 명언 목록.
  *
@@ -71,7 +96,7 @@ const EN: Quote[] = [
  * Record<UILocaleCode, …>이라 언어를 추가하면 여기서 컴파일이 깨진다 — 예전에는
  * `startsWith('ko') ? KO : EN` 삼항이라 새 언어가 조용히 영어 명언을 받았다.
  */
-const QUOTES: Record<UILocaleCode, Quote[]> = { ko: KO, en: EN };
+const QUOTES: Record<UILocaleCode, Quote[]> = { ko: KO, en: EN, es: ES };
 
 /** UI 언어에 맞는 명언 목록. 지원하지 않는 언어는 `FALLBACK_LOCALE`의 목록. */
 export function getQuotes(lang: string): Quote[] {

@@ -185,7 +185,7 @@ export type ThemeMode = z.infer<typeof ThemeModeSchema>;
 //
 // 언어를 추가할 때 고칠 곳은 여기 enum 하나뿐이다. 나머지(표시 메타·번역 JSON)는
 // i18n/index.ts가 Record로 받으므로 빠뜨리면 컴파일이 깨진다.
-export const UILocaleCodeSchema = z.enum(['ko', 'en']);
+export const UILocaleCodeSchema = z.enum(['ko', 'en', 'es']);
 export type UILocaleCode = z.infer<typeof UILocaleCodeSchema>;
 export const UI_LOCALE_CODES = UILocaleCodeSchema.options;
 

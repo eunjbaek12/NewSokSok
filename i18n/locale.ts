@@ -34,6 +34,7 @@ export const FALLBACK_LOCALE: UILocaleCode = 'en';
 const UI_LOCALE_META: Record<UILocaleCode, { nativeLabel: string; flag: string; bcp47: string }> = {
   ko: { nativeLabel: '한국어', flag: '🇰🇷', bcp47: 'ko-KR' },
   en: { nativeLabel: 'English', flag: '🇺🇸', bcp47: 'en-US' },
+  es: { nativeLabel: 'Español', flag: '🇪🇸', bcp47: 'es-ES' },
 };
 
 export const UI_LOCALES = UI_LOCALE_CODES.map((code) => ({

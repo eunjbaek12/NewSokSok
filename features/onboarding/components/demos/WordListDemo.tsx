@@ -108,13 +108,16 @@ const KB_ROW3 = ['Z','X','C','V','B','N','M'];
  * en UI = 영어 사용자가 한국어를 배우는 화면이므로 두벌식 자판.
  * (헷갈리기 쉬운 대응이라 적어 둔다.)
  */
+const DUBEOLSIK: Record<string, string> = {
+  Q:'ㅂ', W:'ㅈ', E:'ㄷ', R:'ㄱ', T:'ㅅ', Y:'ㅛ', U:'ㅕ', I:'ㅑ', O:'ㅐ', P:'ㅔ',
+  A:'ㅁ', S:'ㄴ', D:'ㅇ', F:'ㄹ', G:'ㅎ', H:'ㅗ', J:'ㅓ', K:'ㅏ', L:'ㅣ',
+  Z:'ㅋ', X:'ㅌ', C:'ㅊ', V:'ㅍ', B:'ㅠ', N:'ㅜ', M:'ㅡ',
+};
+
 const KB_LABELS: Record<UILocaleCode, Record<string, string> | null> = {
   ko: null, // null = 영문 라벨 그대로
-  en: {
-    Q:'ㅂ', W:'ㅈ', E:'ㄷ', R:'ㄱ', T:'ㅅ', Y:'ㅛ', U:'ㅕ', I:'ㅑ', O:'ㅐ', P:'ㅔ',
-    A:'ㅁ', S:'ㄴ', D:'ㅇ', F:'ㄹ', G:'ㅎ', H:'ㅗ', J:'ㅓ', K:'ㅏ', L:'ㅣ',
-    Z:'ㅋ', X:'ㅌ', C:'ㅊ', V:'ㅍ', B:'ㅠ', N:'ㅜ', M:'ㅡ',
-  },
+  en: DUBEOLSIK,
+  es: DUBEOLSIK, // 스페인어 사용자도 한국어를 배우는 쪽이라 en과 같은 자판
 };
 
 /**
@@ -126,16 +129,19 @@ const KB_LABELS: Record<UILocaleCode, Record<string, string> | null> = {
  * Record<UILocaleCode, …>이라 언어를 추가하면 여기서 컴파일이 깨진다 — 자판을
  * 흉내 낼 수 없는 언어(일본어·중국어 IME)라면 그때 다른 연출을 골라야 한다는 신호다.
  */
+// 사과 = ㅅ(T) ㅏ(K) ㄱ(R) ㅗ(H) ㅏ(K)
+const TYPING_SAGWA = [
+  { text: 'ㅅ', key: 'T' }, { text: '사', key: 'K' }, { text: '삭', key: 'R' },
+  { text: '사고', key: 'H' }, { text: '사과', key: 'K' },
+];
+
 const TYPING_STEPS: Record<UILocaleCode, { text: string; key: string }[]> = {
   ko: [
     { text: 'a', key: 'A' }, { text: 'ap', key: 'P' }, { text: 'app', key: 'P' },
     { text: 'appl', key: 'L' }, { text: 'apple', key: 'E' },
   ],
-  // 사과 = ㅅ(T) ㅏ(K) ㄱ(R) ㅗ(H) ㅏ(K)
-  en: [
-    { text: 'ㅅ', key: 'T' }, { text: '사', key: 'K' }, { text: '삭', key: 'R' },
-    { text: '사고', key: 'H' }, { text: '사과', key: 'K' },
-  ],
+  en: TYPING_SAGWA,
+  es: TYPING_SAGWA,
 };
 
 function Key({

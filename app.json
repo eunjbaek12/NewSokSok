@@ -6,7 +6,8 @@
     "orientation": "portrait",
     "locales": {
       "ko": "./languages/ko.json",
-      "en": "./languages/en.json"
+      "en": "./languages/en.json",
+      "es": "./languages/es.json"
     },
     "icon": "./assets/images/icon.png",
     "scheme": "soksokvoca",

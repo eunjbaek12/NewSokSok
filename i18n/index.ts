@@ -7,6 +7,7 @@ import { type UILocaleCode } from '@shared/contracts';
 import { FALLBACK_LOCALE, resolveLocale } from './locale';
 import ko from './locales/ko.json';
 import en from './locales/en.json';
+import es from './locales/es.json';
 
 export const LOCALE_KEY = '@soksok_locale';
 
@@ -28,6 +29,7 @@ function getSystemLocale(): UILocaleCode {
 const resources: Record<UILocaleCode, ResourceLanguage> = {
   ko: { translation: ko },
   en: { translation: en },
+  es: { translation: es },
 };
 
 // Initialize synchronously with system locale; saved preference applied async in LocaleContext

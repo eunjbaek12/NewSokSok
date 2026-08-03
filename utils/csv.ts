@@ -41,6 +41,7 @@ export const CSV_COLUMNS = ['term', 'meaningKr', 'phonetic', 'pos', 'definition'
 const CSV_HEADERS: Record<UILocaleCode, readonly string[]> = {
   ko: ['단어', '뜻', '발음', '품사', '정의', '예문', '예문뜻', '태그'],
   en: ['Word', 'Meaning', 'Phonetic', 'POS', 'Definition', 'Example', 'Example Translation', 'Tags'],
+  es: ['Palabra', 'Significado', 'Pronunciación', 'Categoría', 'Definición', 'Ejemplo', 'Traducción del ejemplo', 'Etiquetas'],
 };
 
 /** 해당 UI 언어의 내보내기 헤더 행. */
@@ -52,16 +53,17 @@ const TAG_CAP = 60;
 const TAG_DELIM = ';';
 const BOM = '﻿';
 
-// 헤더 별칭 → 표준 키. 한국어/영어 모두 인식해 외부 CSV도 받아들인다.
+// 헤더 별칭 → 표준 키. 한국어/영어/스페인어 모두 인식해 외부 CSV도 받아들인다.
+// normalizeHeader가 소문자화와 공백 제거만 하므로 악센트는 그대로 적어야 매칭된다.
 const HEADER_ALIASES: Record<string, string[]> = {
-  term: ['단어', 'word', 'term', '표제어', '영단어'],
-  meaningKr: ['뜻', '의미', 'meaning', '뜻(필수)', '단어뜻'],
-  phonetic: ['발음', 'phonetic', 'pronunciation', '발음기호'],
-  pos: ['품사', 'pos', 'part of speech', 'partofspeech'],
-  definition: ['정의', 'definition', 'def'],
-  exampleEn: ['예문', 'example', 'sentence', '예시', 'examplesentence'],
-  exampleKr: ['예문뜻', '예문번역', '예문 뜻', '예문해석', 'example translation', 'exampletranslation'],
-  tags: ['태그', 'tags', 'tag'],
+  term: ['단어', 'word', 'term', '표제어', '영단어', 'palabra'],
+  meaningKr: ['뜻', '의미', 'meaning', '뜻(필수)', '단어뜻', 'significado'],
+  phonetic: ['발음', 'phonetic', 'pronunciation', '발음기호', 'pronunciación'],
+  pos: ['품사', 'pos', 'part of speech', 'partofspeech', 'categoría'],
+  definition: ['정의', 'definition', 'def', 'definición'],
+  exampleEn: ['예문', 'example', 'sentence', '예시', 'examplesentence', 'ejemplo'],
+  exampleKr: ['예문뜻', '예문번역', '예문 뜻', '예문해석', 'example translation', 'exampletranslation', 'traducción del ejemplo', 'traducción'],
+  tags: ['태그', 'tags', 'tag', 'etiquetas'],
 };
 
 // 제어문자 제거 + 길이 클램프는 저장 경계와 공용 헬퍼를 쓴다(단일 소스).

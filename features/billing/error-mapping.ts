@@ -14,6 +14,14 @@ import { ErrorCode } from 'expo-iap';
 export interface MappedPurchaseError {
   /** Suffix under i18n key `plans.errors.*`. */
   key: string;
+  /**
+   * Alert 제목의 전체 i18n 키. 없으면 caller가 `plans.purchaseFailedTitle`을 쓴다.
+   *
+   * 복원 경로의 결과는 "결제 실패"가 아니다 — 복원할 구매가 없었거나 아직 스토어에
+   * 연결되지 않은 것이라, 같은 제목을 달면 결제한 적 없는 사용자에게 "결제에
+   * 실패했어요"라고 말하게 된다.
+   */
+  titleKey?: string;
   /** True when the user cancelled deliberately — caller should not show an Alert. */
   silent?: boolean;
   /** True when retrying via "이전 구매 복원" is the right user action. */
@@ -118,6 +126,24 @@ export function mapPurchaseError(err: any): MappedPurchaseError {
       return { ...base, key: 'loadProductsFailed' };
     case 'restore_failed':
       return { ...base, key: 'restoreFailed' };
+    case 'not_connected':
+      // 스토어 연결 전에 복원을 누른 경우. 재시도가 정답이라 복원을 다시 제안하지
+      // 않는다 — Alert의 복원 버튼은 같은 미연결 상태로 곧장 되돌아온다.
+      return { ...base, key: 'notConnected', titleKey: 'plans.restoreNotReadyTitle' };
+    case 'no_restorable_purchase':
+      // sweep은 정상이었는데 이 스토어 계정에 복원할 구독이 없었다. 실패가 아니라
+      // 결과이므로 제목도 결과로 말한다.
+      return { ...base, key: 'noRestorablePurchase', titleKey: 'plans.restoreNoneTitle' };
+    case 'already_pro_no_restore':
+      // 복원할 게 없는데 이미 Pro인 경우 — 다른 스토어에서 산 구독을 쓰는 기기가
+      // 여기다(예: Play로 결제하고 iPhone에서 사용). 권한은 앱 계정에 붙어 있어
+      // 정상 동작인데, "복원할 구매를 찾지 못했어요"만 뜨면 화면의 "현재 Pro 구독 중"과
+      // 모순처럼 읽혀 사용자가 구독이 깨진 줄 안다.
+      return { ...base, key: 'alreadyProNoRestore', titleKey: 'plans.restoreAlreadyProTitle' };
+    case 'not_signed_in':
+      // 세션이 풀렸거나 만료. verify는 401 확정이라 호출해도 소용없고, 사용자가
+      // 할 일은 재로그인이다.
+      return { ...base, key: 'notSignedIn', titleKey: 'plans.loginRequiredTitle' };
     case 'purchase_failed':
       return { ...base, key: 'generic' };
   }

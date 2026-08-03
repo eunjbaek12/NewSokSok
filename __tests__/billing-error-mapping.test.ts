@@ -139,10 +139,40 @@ describe('mapPurchaseError — 자체 throw 메시지 매핑', () => {
     ['load_products_failed', 'loadProductsFailed', undefined],
     ['restore_failed', 'restoreFailed', undefined],
     ['purchase_failed', 'generic', undefined],
+    ['not_connected', 'notConnected', undefined],
+    ['no_restorable_purchase', 'noRestorablePurchase', undefined],
+    ['already_pro_no_restore', 'alreadyProNoRestore', undefined],
+    ['not_signed_in', 'notSignedIn', undefined],
   ])('message=%s → %s', (message, key, suggestRestore) => {
     const r = mapPurchaseError(new Error(message as string));
     expect(r.key).toBe(key);
     expect(r.suggestRestore).toBe(suggestRestore);
+  });
+});
+
+describe('복원 경로 결과는 "결제 실패"가 아니다 — 전용 제목', () => {
+  // 복원할 구매가 없던 사람에게 "결제에 실패했어요"라고 말하면, 결제한 적 없는
+  // 사용자가 자기 카드에 문제가 생긴 줄 안다.
+  it.each([
+    ['not_connected', 'plans.restoreNotReadyTitle'],
+    ['no_restorable_purchase', 'plans.restoreNoneTitle'],
+    // 다른 스토어에서 산 구독을 쓰는 기기(Play 결제 → iPhone 사용). 복원할 게 없는
+    // 게 정상인데 "찾지 못했어요"만 뜨면 화면의 "현재 Pro 구독 중"과 모순돼 보인다.
+    ['already_pro_no_restore', 'plans.restoreAlreadyProTitle'],
+    ['not_signed_in', 'plans.loginRequiredTitle'],
+  ])('message=%s → titleKey=%s', (message, titleKey) => {
+    expect(mapPurchaseError(new Error(message)).titleKey).toBe(titleKey);
+  });
+
+  it('결제 실패 계열엔 titleKey가 없다 — 호출부가 기본 제목을 쓴다', () => {
+    expect(mapPurchaseError({ code: 'network-error' }).titleKey).toBeUndefined();
+    expect(mapPurchaseError(new Error('verify_failed')).titleKey).toBeUndefined();
+    expect(mapPurchaseError(new Error('owned_by_other')).titleKey).toBeUndefined();
+  });
+
+  it('복원 재시도를 권하지 않는다 — 같은 결과로 되돌아온다', () => {
+    expect(mapPurchaseError(new Error('not_connected')).suggestRestore).toBeUndefined();
+    expect(mapPurchaseError(new Error('no_restorable_purchase')).suggestRestore).toBeUndefined();
   });
 });
 

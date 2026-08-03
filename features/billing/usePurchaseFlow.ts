@@ -247,8 +247,26 @@ export function usePurchaseFlow(): PurchaseFlow {
     let cancelled = false;
     (async () => {
       try {
+        // restore와 같은 이유로 세션을 먼저 확인·리프레시한다. 게스트면 verify가
+        // 401 확정이라 sweep 자체가 낭비고, 만료 토큰이면 게이트웨이에서 잘려
+        // 함수 로그에도 안 남는다.
+        const { data: sess } = await supabase.auth.getSession();
+        if (cancelled) return;
+        if (!sess.session) {
+          console.warn('[billing-diag] auto-reconcile skipped: no session');
+          return;
+        }
+
         const purchases = await getAvailablePurchases();
         if (cancelled) return;
+        // [billing-diag] restore와 같은 이유로 개수를 남긴다. 이 경로는 UI가 전혀
+        // 없어서, 로그가 없으면 "sweep이 아무것도 못 찾았다"와 "sweep이 아예 안
+        // 돌았다"를 구분할 방법이 없다.
+        console.warn(
+          '[billing-diag] auto-reconcile sweep',
+          'count=', purchases.length,
+          'ids=', purchases.map((p) => p.productId).join(',') || '(none)',
+        );
         let reconciled = false;
         for (const p of purchases) {
           if (cancelled) return;
@@ -256,9 +274,15 @@ export function usePurchaseFlow(): PurchaseFlow {
           const token = p.purchaseToken ?? '';
           if (!token) continue;
           try {
-            const { data } = await supabase.functions.invoke('verify-purchase', {
+            const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
               body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
             });
+            console.warn(
+              '[billing-diag] auto-reconcile verify',
+              'productId=', p.productId,
+              'ok=', data?.ok,
+              'edgeErrMsg=', edgeErr?.message ?? null,
+            );
             if (data?.ok) {
               await finishTransaction({ purchase: p, isConsumable: false });
               reconciled = true;
@@ -410,20 +434,68 @@ export function usePurchaseFlow(): PurchaseFlow {
 
   const restore = useCallback(async () => {
     setError(null);
+
+    // 스토어 연결 전에는 getAvailablePurchases가 던지지 않고 그냥 빈 배열을 준다 —
+    // "아직 물어볼 수 없다"와 "복원할 게 없다"가 호출부에서 구분되지 않는다. 그래서
+    // 연결 전에 누르면 sweep이 빈손으로 끝나고 화면은 조용히 idle로 돌아간다.
+    // auto-reconcile에는 이 가드가 처음부터 있었고 여기만 빠져 있었다.
+    if (!connected) {
+      console.warn('[billing-diag] restore aborted: not connected');
+      setError(mapPurchaseError(new Error('not_connected')));
+      setStage('failed');
+      return;
+    }
+
     setStage('verifying');
     try {
+      // 세션을 먼저 확인한다 — getSession()은 만료된 액세스 토큰을 리프레시하므로
+      // 진단이 아니라 예방이다. verify-purchase는 `--no-verify-jwt` 없이 배포돼
+      // 게이트웨이가 JWT를 먼저 검사하는데, 만료 토큰은 **함수가 부팅되기 전에**
+      // 401로 잘린다 — 그러면 Edge 함수 로그에도 안 남아 "요청이 아예 없었다"로
+      // 보인다. buy/reconcileReplayed는 원래 이 호출을 하고 있었고 여기만 빠져 있었다.
+      const { data: sess } = await supabase.auth.getSession();
+      if (!sess.session) {
+        console.warn('[billing-diag] restore aborted: no session');
+        setError(mapPurchaseError(new Error('not_signed_in')));
+        setStage('failed');
+        return;
+      }
+
       const purchases = await getAvailablePurchases();
+      // [billing-diag] 복원이 조용히 실패할 때 원인을 가르는 한 줄. 0이면 스토어가
+      // 아무것도 안 준 것(계정·연결), 0이 아닌데 아래 proMatches가 0이면 SKU 필터가
+      // 어긋난 것이다. 토큰은 절대 찍지 않는다 — productId만.
+      console.warn(
+        '[billing-diag] restore sweep',
+        'count=', purchases.length,
+        'ids=', purchases.map((p) => p.productId).join(',') || '(none)',
+      );
+
       let restored = false;
       // 복원 대상이 있긴 한데 전부 다른 계정 것이었던 경우. 이게 없으면 화면이
       // 조용히 idle로 돌아가 사용자는 "눌렀는데 아무 일도 안 일어났다"를 겪는다.
       let ownedByOther = false;
+      // verify가 일시 오류(네트워크·5xx)로 실패한 경우. "복원할 구매가 없다"와
+      // 반드시 구분해야 한다 — 구매는 있었는데 확인을 못 한 것이므로 재시도가 정답이다.
+      let verifyFailed = false;
+      let proMatches = 0;
       for (const p of purchases) {
         if (!PRO_SKUS.includes(p.productId as ProSku)) continue;
+        proMatches += 1;
         const token = p.purchaseToken ?? '';
-        if (!token) continue;
+        if (!token) {
+          console.warn('[billing-diag] restore: pro purchase without token', p.productId);
+          continue;
+        }
         const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
           body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
         });
+        console.warn(
+          '[billing-diag] restore verify',
+          'productId=', p.productId,
+          'ok=', data?.ok,
+          'edgeErrMsg=', edgeErr?.message ?? null,
+        );
         if (edgeErr && isOwnershipRejection(await readEdgeErrorBody(edgeErr))) {
           ownedByOther = true;
           continue;
@@ -435,22 +507,45 @@ export function usePurchaseFlow(): PurchaseFlow {
           // (handleSuccess) finishes the transaction; restore must too.
           await finishTransaction({ purchase: p, isConsumable: false });
           restored = true;
+        } else {
+          verifyFailed = true;
         }
       }
+      console.warn(
+        '[billing-diag] restore result',
+        'proMatches=', proMatches,
+        'restored=', restored,
+        'ownedByOther=', ownedByOther,
+        'verifyFailed=', verifyFailed,
+      );
+
       if (restored) {
         await useQuotaStore.getState().refresh(true);
         setStage('success');
       } else if (ownedByOther) {
         setError(mapPurchaseError(new Error('owned_by_other')));
         setStage('failed');
+      } else if (verifyFailed) {
+        setError(mapPurchaseError(new Error('restore_failed')));
+        setStage('failed');
       } else {
-        setStage('idle');
+        // 여기서 조용히 idle로 돌아가면 사용자는 "눌렀는데 아무 일도 없다"를 겪는다.
+        // 복원할 구매가 없었다는 것도 결과이므로 그대로 말해 준다.
+        //
+        // 단, 이미 Pro면 말이 달라진다. 구독은 앱 계정에 붙어 있어서 다른 스토어에서
+        // 산 구독을 쓰는 기기(Play로 결제 → iPhone에서 사용)에서는 이 스토어에
+        // 복원할 구매가 없는 게 정상이다. 그 사람에게 "복원할 구매가 없다"만 말하면
+        // 화면의 "현재 Pro 구독 중"과 모순돼 구독이 깨진 줄 안다.
+        const alreadyPro = useQuotaStore.getState().status?.tier === 'pro';
+        setError(mapPurchaseError(new Error(alreadyPro ? 'already_pro_no_restore' : 'no_restorable_purchase')));
+        setStage('failed');
       }
     } catch (e: any) {
+      console.warn('[billing-diag] restore threw', 'msg=', e?.message ?? String(e));
       setError(mapPurchaseError(e?.message ? e : new Error('restore_failed')));
       setStage('failed');
     }
-  }, [getAvailablePurchases, finishTransaction]);
+  }, [connected, getAvailablePurchases, finishTransaction]);
 
   const resetStage = useCallback(() => {
     setError(null);

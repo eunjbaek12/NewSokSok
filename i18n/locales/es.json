@@ -482,8 +482,15 @@
       "ownedByOther": "Esta suscripción pertenece a otra cuenta. Inicia sesión con la cuenta que la contrató.",
       "noToken": "No se recibió la información de pago. Inténtalo de nuevo o toca 'Restaurar compra anterior'.",
       "loadProductsFailed": "No se pudieron cargar los detalles de la suscripción. Inténtalo de nuevo más tarde.",
-      "restoreFailed": "No se pudo restaurar tu compra anterior. Inténtalo de nuevo más tarde."
+      "restoreFailed": "No se pudo restaurar tu compra anterior. Inténtalo de nuevo más tarde.",
+      "notConnected": "Todavía no hay conexión con la tienda. Vuelve a tocar en un momento.",
+      "noRestorablePurchase": "No se encontró ninguna suscripción restaurable en la cuenta de la tienda de este dispositivo. Comprueba que has iniciado sesión con la cuenta con la que pagaste.",
+      "alreadyProNoRestore": "Tu suscripción está vinculada a tu cuenta, así que funciona aquí aunque no la hayas comprado en este dispositivo.",
+      "notSignedIn": "Se ha cerrado tu sesión. Inicia sesión de nuevo y vuelve a restaurar."
     },
+    "restoreNotReadyTitle": "Conectando con la tienda",
+    "restoreNoneTitle": "No hay compras que restaurar",
+    "restoreAlreadyProTitle": "Pro ya está activo",
     "loginRequiredTitle": "Se requiere iniciar sesión",
     "loginRequiredMessage": "Inicia sesión con Google para comenzar tu suscripción Pro.",
     "purchaseSuccessTitle": "Suscripción Pro activada",

@@ -519,8 +519,15 @@
       "ownedByOther": "This subscription belongs to a different account. Please sign in with the account that started it.",
       "noToken": "Didn't receive payment info. Try again or tap 'Restore previous purchase'.",
       "loadProductsFailed": "Couldn't load subscription details. Please try again later.",
-      "restoreFailed": "Couldn't restore your previous purchase. Please try again later."
+      "restoreFailed": "Couldn't restore your previous purchase. Please try again later.",
+      "notConnected": "Not connected to the store yet. Please tap again in a moment.",
+      "noRestorablePurchase": "No restorable subscription was found for the store account on this device. Check that you're signed in with the store account you paid with.",
+      "alreadyProNoRestore": "Your subscription is tied to your account, so it works here even though it wasn't purchased on this device.",
+      "notSignedIn": "You've been signed out. Please sign in again, then restore."
     },
+    "restoreNotReadyTitle": "Connecting to the store",
+    "restoreNoneTitle": "No purchase to restore",
+    "restoreAlreadyProTitle": "Pro is already active",
     "loginRequiredTitle": "Login required",
     "loginRequiredMessage": "Please sign in with Google to start your Pro subscription.",
     "purchaseSuccessTitle": "Pro subscription activated",

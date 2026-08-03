@@ -76,8 +76,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
   },
   ocean: {
     id: 'ocean',
-    nameKo: '여름 바다',
-    nameEn: 'Summer Sea',
+    nameKey: 'skinOcean',
     colorScheme: 'light',
     fontFamily: pretendard,
     previewColors: {

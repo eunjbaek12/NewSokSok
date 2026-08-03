@@ -1102,6 +1102,7 @@
   "skinDark": "Oscuro",
   "skinY2k": "Y2K",
   "skinLab": "Laboratorio",
+  "skinOcean": "Mar de Verano",
   "reviewNotif": {
     "channelName": "Recordatorios de repaso",
     "title": "{{count}} palabras listas para repasar 🌱",

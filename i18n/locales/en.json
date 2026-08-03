@@ -1515,6 +1515,7 @@
   "skinDark": "Dark",
   "skinY2k": "Y2K",
   "skinLab": "Lab",
+  "skinOcean": "Summer Sea",
   "reviewNotif": {
     "channelName": "Review reminders",
     "title": "{{count}} words ready for review 🌱",

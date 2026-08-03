@@ -83,9 +83,19 @@ const baseFlat = flattenEntries(base);
 const ctxFlat = flattenEntries(context);
 const targetFlat = flattenEntries(existing);
 
+/*
+ * 채울 수 있는 값 = 문자열, 또는 문자열만 담은 배열(홈 화면 팁처럼 짧은 문구 묶음).
+ *
+ * 객체 배열은 제외한다 — licenses.sections·terms.sections·faq.categories가 그렇고,
+ * 라이선스 원문과 약관과 FAQ라 기계번역을 얹을 자리가 아니다. 마침 이 구분이
+ * "법적 문서·장문은 폴백에 맡긴다"는 방침과 정확히 겹친다(세 개로 30,142자).
+ */
+const isFillable = (v) => typeof v === 'string'
+  || (Array.isArray(v) && v.length > 0 && v.every(x => typeof x === 'string'));
+
 const missing = [...baseFlat.keys()].filter(k => !targetFlat.has(k));
-const nonString = missing.filter(k => typeof baseFlat.get(k) !== 'string');
-const fillable = missing.filter(k => typeof baseFlat.get(k) === 'string').slice(0, LIMIT);
+const nonString = missing.filter(k => !isFillable(baseFlat.get(k)));
+const fillable = missing.filter(k => isFillable(baseFlat.get(k))).slice(0, LIMIT);
 const extra = [...targetFlat.keys()].filter(k => !baseFlat.has(k));
 
 console.log(`대상 ${TARGET} (${TARGET_NAME})${isNewLanguage ? ' — 새 언어 파일을 만듭니다' : ''}`);
@@ -132,6 +142,7 @@ Rules — these matter more than elegance:
 - These are UI labels in tight spaces (buttons, tab titles, toasts). Prefer short natural phrasing over literal translation.
 - Address the user directly and politely, matching the tone of the Korean source.
 - Product nouns stay as-is: TOPIK, AI, Pro, Gemini, CSV.
+- When a value is an array of strings, return an array with the SAME number of items, in the same order.
 
 Korean is the source of truth. English is given only to disambiguate.
 Return ONLY a JSON object mapping each key to its ${TARGET_NAME} translation. No commentary, no code fence.`;
@@ -183,7 +194,18 @@ for (let i = 0; i < fillable.length; i += BATCH_SIZE) {
   let ok = 0;
   for (const key of batch) {
     const value = result[key];
-    if (typeof value !== 'string' || value.trim() === '') {
+    const source = baseFlat.get(key);
+
+    if (Array.isArray(source)) {
+      // 항목 수가 달라지면 UI가 기대하는 개수와 어긋난다(팁 회전·단계 표시).
+      const valid = Array.isArray(value)
+        && value.length === source.length
+        && value.every(x => typeof x === 'string' && x.trim() !== '');
+      if (!valid) {
+        rejected.push({ key, why: `배열이 아니거나 항목 수가 다름 (${source.length}개 필요, 받은 값 ${Array.isArray(value) ? value.length + '개' : typeof value})` });
+        continue;
+      }
+    } else if (typeof value !== 'string' || value.trim() === '') {
       rejected.push({ key, why: '응답에 없거나 빈 값' });
       continue;
     }

@@ -367,6 +367,72 @@ describe('verify-purchase 핸들러 — 구매 토큰 소유권', () => {
     expect(deps.findTokenOwner).toHaveBeenCalledWith(APPLE_ORIGINAL_TX);
   });
 
+  // 각인 대조는 우리 DB가 아니라 스토어가 확인해 준 값을 본다 — 사후 판정이
+  // 아니라 구매 시점의 사실이라 더 강한 근거다.
+  it('Android: Play가 돌려준 각인이 다른 계정이면 → 409 (DB 조회 전에 막힌다)', async () => {
+    const data = {
+      ...activePlayData,
+      externalAccountIdentifiers: { obfuscatedExternalAccountId: 'user-OTHER' },
+    };
+    const deps = makeDeps({ fetchPlay: jest.fn(async () => playResponse({ data })) });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(409);
+    expect(res.body).toMatchObject({ error: 'subscription_owned_by_other' });
+    expect(deps.upsertSubscription).not.toHaveBeenCalled();
+  });
+
+  it('Android: 각인이 요청자와 같으면 → 200', async () => {
+    const data = {
+      ...activePlayData,
+      externalAccountIdentifiers: { obfuscatedExternalAccountId: 'user-1' },
+    };
+    const deps = makeDeps({ fetchPlay: jest.fn(async () => playResponse({ data })) });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(200);
+  });
+
+  it('iOS: 서명 payload의 appAccountToken 이 다르면 → 409', async () => {
+    const deps = makeDeps({
+      fetchAppleTransaction: jest.fn(async () => ({
+        environment: 'production' as const,
+        payload: { ...activeApplePayload, appAccountToken: 'user-OTHER' },
+      })),
+    });
+    const res = await createVerifyHandler(deps)(
+      makeReq({ json: async () => ({ purchaseToken: 'jws-blob', productId: PRODUCT, platform: 'ios' }) }),
+    );
+
+    expect(res.status).toBe(409);
+    expect(deps.upsertSubscription).not.toHaveBeenCalled();
+  });
+
+  it('각인 UUID 의 대소문자는 무시한다 (Apple 이 대문자로 돌려주는 경우)', async () => {
+    const deps = makeDeps({
+      getUser: jest.fn(async () => ({ id: 'abcdef12-3456-7890-abcd-ef1234567890' })),
+      fetchAppleTransaction: jest.fn(async () => ({
+        environment: 'production' as const,
+        payload: { ...activeApplePayload, appAccountToken: 'ABCDEF12-3456-7890-ABCD-EF1234567890' },
+      })),
+    });
+    const res = await createVerifyHandler(deps)(
+      makeReq({ json: async () => ({ purchaseToken: 'jws-blob', productId: PRODUCT, platform: 'ios' }) }),
+    );
+
+    expect(res.status).toBe(200);
+  });
+
+  it('각인이 없는 옛 구매는 통과하고 토큰 소유권으로 폴백한다', async () => {
+    // 각인 도입 이전에 결제된 구독에는 값이 없다. 여기서 막으면 기존 유료
+    // 사용자가 전원 409를 받는다 — 폴백이 반드시 살아 있어야 한다.
+    const deps = makeDeps({ findTokenOwner: jest.fn(async () => 'user-OTHER') });
+    const res = await createVerifyHandler(deps)(makeReq());
+
+    expect(res.status).toBe(409); // 각인이 아니라 토큰 소유권이 막은 것
+    expect(deps.findTokenOwner).toHaveBeenCalled();
+  });
+
   it('소유권 조회 실패로 통과해도 unique 위반(23505)이 409로 잡힌다', async () => {
     // findTokenOwner는 조회 실패 시 fail-open이다. 최종 방어선은 부분 unique
     // 인덱스이고, 그게 잡은 것은 원인이 소유권 충돌 하나뿐이라 500이 아니라 409다.

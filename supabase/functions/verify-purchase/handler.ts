@@ -137,10 +137,12 @@ export function createVerifyHandler(deps: VerifyDeps) {
     // 4~6. 플랫폼별 검증
     let expiryTime: string;
     let storedToken: string = purchaseToken;
+    let storeAccountId: string | undefined;
     if (platform === 'android') {
       const result = await verifyAndroid(deps, productId, purchaseToken);
       if (!result.ok) return result.response;
       expiryTime = result.expiryTime;
+      storeAccountId = result.storeAccountId;
     } else {
       const result = await verifyApple(deps, productId, purchaseToken);
       if (!result.ok) return result.response;
@@ -148,9 +150,24 @@ export function createVerifyHandler(deps: VerifyDeps) {
       // iOS는 originalTransactionId를 안정 키로 저장 (구독 갱신마다 transactionId가
       // 바뀌지만 originalTransactionId는 동일). 환불·취소 추적 시 일관성.
       storedToken = result.originalTransactionId;
+      storeAccountId = result.storeAccountId;
     }
 
-    // 7. 소유권 검사 — 구매는 스토어 계정에, 권한은 앱 계정에 귀속된다.
+    // 7-a. 각인 대조 — 구매 시점에 박아 둔 소유자와 맞는지.
+    //
+    // 이 값은 앱이 요청 본문에 실어 보낸 게 아니라 **Play/Apple이 확인해 돌려준 것**
+    // (Android obfuscatedExternalAccountId · iOS 서명된 payload의 appAccountToken)
+    // 이라 위조할 수 없다. 아래 7-b가 우리 DB 기록에 의존하는 사후 판정인 데 반해,
+    // 이쪽은 구매 시점의 사실이라 더 강한 근거다.
+    //
+    // 각인 이전에 결제된 구독에는 이 값이 없다(undefined) — 그때는 7-b로 폴백한다.
+    // Apple이 UUID를 대문자로 돌려주는 경우가 있어 대소문자를 무시하고 비교한다.
+    if (storeAccountId && storeAccountId.toLowerCase() !== user.id.toLowerCase()) {
+      console.error('[verify] stamped account mismatch:', { stamped: storeAccountId, requester: user.id });
+      return r(409, { ok: false, error: 'subscription_owned_by_other' });
+    }
+
+    // 7-b. 소유권 검사 — 구매는 스토어 계정에, 권한은 앱 계정에 귀속된다.
     //
     // 이 둘은 서로 다른 네임스페이스이고, 스토어 응답만으로는 이어지지 않는다.
     // Play/Apple은 "이 구독이 유효한가"까지만 답하므로, 그 답만 보고 부여하면
@@ -194,7 +211,17 @@ export function createVerifyHandler(deps: VerifyDeps) {
 // ─── 플랫폼별 검증 ──────────────────────────────────────────────────────────
 
 type VerifyOutcome =
-  | { ok: true; expiryTime: string; originalTransactionId: string }
+  | {
+      ok: true;
+      expiryTime: string;
+      originalTransactionId: string;
+      /**
+       * 구매 시점에 각인된 앱 계정 id — Play/Apple이 확인해 돌려준 값이다.
+       * 각인 이전에 결제된 구독에는 없으므로(undefined) 그때는 토큰 소유권으로
+       * 폴백한다.
+       */
+      storeAccountId?: string;
+    }
   | { ok: false; response: HandlerResult };
 
 async function verifyAndroid(
@@ -240,7 +267,12 @@ async function verifyAndroid(
   if (!evaluation.ok) {
     return { ok: false, response: r(evaluation.status, { ok: false, error: evaluation.error, detail: evaluation.detail }) };
   }
-  return { ok: true, expiryTime: evaluation.expiryTime, originalTransactionId: purchaseToken };
+  return {
+    ok: true,
+    expiryTime: evaluation.expiryTime,
+    originalTransactionId: purchaseToken,
+    storeAccountId: playData.externalAccountIdentifiers?.obfuscatedExternalAccountId,
+  };
 }
 
 async function verifyApple(
@@ -285,5 +317,10 @@ async function verifyApple(
     return { ok: false, response: r(evaluation.status, { ok: false, error: evaluation.error, detail: evaluation.detail }) };
   }
   const originalTransactionId = txResult.payload.originalTransactionId ?? transactionId;
-  return { ok: true, expiryTime: evaluation.expiryTime, originalTransactionId };
+  return {
+    ok: true,
+    expiryTime: evaluation.expiryTime,
+    originalTransactionId,
+    storeAccountId: txResult.payload.appAccountToken,
+  };
 }

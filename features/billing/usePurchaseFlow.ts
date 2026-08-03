@@ -366,9 +366,20 @@ export function usePurchaseFlow(): PurchaseFlow {
     setStage('purchasing');
     userInitiatedRef.current = true;
     try {
+      // 구매에 앱 계정 id를 각인한다. Play/Apple이 이 값을 그대로(서명해서) 돌려주므로,
+      // 서버는 "이 구독이 누구 것인가"를 우리 DB 기록으로 추측하는 대신 스토어가
+      // 확인해 준 사실로 알 수 있다. 구매가 스토어 계정에, 권한이 앱 계정에 귀속되는
+      // 두 네임스페이스를 잇는 유일한 지점이다.
+      //
+      // 게스트(세션 없음)면 각인할 게 없다 — 그 경우 verify가 401로 떨어지는 건
+      // 이전과 동일하다. user.id는 UUID라 Apple의 UUID 요구와 Play의 64자 제한을
+      // 둘 다 만족한다.
+      const { data: sess } = await supabase.auth.getSession();
+      const accountId = sess.session?.user?.id;
+
       if (Platform.OS === 'ios') {
         await requestPurchase({
-          request: { apple: { sku } },
+          request: { apple: { sku, appAccountToken: accountId } },
           type: 'subs',
         });
       } else {
@@ -385,6 +396,7 @@ export function usePurchaseFlow(): PurchaseFlow {
             google: {
               skus: [sku],
               subscriptionOffers: [{ sku, offerToken }],
+              obfuscatedAccountId: accountId,
             },
           },
           type: 'subs',

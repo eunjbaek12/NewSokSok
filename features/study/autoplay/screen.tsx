@@ -703,6 +703,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Pretendard_500Medium',
         marginTop: 16,
         letterSpacing: 0.3,
+        textAlign: 'center',
     },
     backWordText: {
         fontSize: 22,

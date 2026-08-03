@@ -1,8 +1,9 @@
 // i18n 일관성 검사 — `node scripts/i18n-check.mjs` (또는 `pnpm run i18n:check`).
 //
-// 두 축을 본다.
+// 세 축을 본다.
 //   1) 코드 ↔ 기준 언어 : t()로 부르는데 없는 키 / 정의만 되고 안 불리는 키
 //   2) 언어 파일끼리     : 키 드리프트, 보간 변수 불일치, 미번역 의심
+//   3) 자리 ↔ 글자 길이  : 폭이 고정된 자리에 번역이 물리적으로 안 들어가는 것
 //
 // (2)가 이 스크립트의 존재 이유다. 언어가 둘일 땐 눈으로 맞출 수 있었지만(실제로
 // 103번 고치는 동안 ko/en 1,040키가 한 번도 어긋나지 않았다), 언어가 늘면 손으로는
@@ -14,6 +15,7 @@
 //   - 폴백 언어에 키가 빠졌다                    → 폴백이 뚫려 역시 키가 그대로 뜬다
 //   - 어느 언어에만 있는 잉여 키                 → 죽은 키(오타이거나 지우다 만 것)
 //   - 보간 변수가 언어마다 다르다                → 런타임에 값이 사라진다
+//   - 등록된 좁은 자리의 폭 예산을 넘었다        → 화면에서 잘리거나 줄이 감긴다
 // 그 외(폴백이 아닌 언어의 누락, 미번역 의심)는 보고만 한다. 폴백으로 메워지므로
 // 화면이 깨지지는 않는다 — 이걸 실패로 만들면 언어를 새로 추가하는 순간 CI가 빨개진다.
 
@@ -222,6 +224,104 @@ for (const code of localeFiles) {
   }
 
   if (identical) console.log(`   ℹ️  값이 ${BASE}와 동일한 키 ${identical}개 (고유명사면 정상)`);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. 자리 ↔ 글자 길이
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*
+ * 왜 필요한가 — 2026-08-03, 스페인어를 넣고 실기에서야 다섯 군데가 깨진 걸 발견했다.
+ * 그중 탭 라벨은 스페인어와 무관하게 **영어에서도 이미 잘리고 있었는데** 아무도
+ * 몰랐다("Collections" 11자). 눈으로 도는 검증은 언어 수만큼 비용이 곱해지는데,
+ * 정작 잘림은 한 언어만 봐도 안 보인다. 그래서 기계가 먼저 잰다.
+ *
+ * 왜 등록제인가 — `numberOfLines={1}`이 걸린 키는 35개나 되지만 대부분은 화면 폭을
+ * 통째로 쓰는 설정 행 설명이라 길어도 멀쩡하다. 문제는 "얼마나 좁은 자리인가"인데
+ * 그건 코드에서 못 읽는다(레이아웃을 돌려야 안다). 좁은 자리는 사람이 등록하고,
+ * 예산은 실측에서 역산한다.
+ *
+ * 단위는 em(폰트 크기 배수)이다. px로 적으면 폰트 크기를 바꿀 때 같이 못 고친다.
+ */
+const WIDTH_BUDGETS = [
+  {
+    slot: '탭 바 라벨',
+    max: 5.6,
+    basis: '탭 폭 ≈72dp(360÷5) / 12px → 6.0em, 여유 두어 5.6',
+    keys: ['tabs.home', 'tabs.vocabLists', 'tabs.curation', 'tabs.settings'],
+  },
+  {
+    slot: '학습 모드 버튼 (3분할)',
+    max: 8.3,
+    basis: '골라서 학습 하단바·학습계획 ≈101dp / 11.5px → 8.8em. 하단바는 numberOfLines={1}이라 잘리고, 학습계획은 두 줄로 감긴다',
+    keys: ['studySelect.flashcardsTitle', 'studySelect.quizTitle', 'studySelect.examplesTitle'],
+  },
+  {
+    slot: '카드학습 좌우 버튼',
+    max: 6.5,
+    basis: '버튼 폭 절반 ≈148dp에서 아이콘·gap 32 뺀 116dp / 17px → 6.8em',
+    keys: ['flashcards.reviewBtn', 'flashcards.memorized'],
+  },
+  {
+    slot: '홈 통계 3분할 캡션',
+    max: 8.5,
+    basis: 'StatsStrip 한 칸 ≈99dp / 11px → 9.0em',
+    keys: ['stats.streakLabel', 'stats.todayMemorized', 'stats.memorizedLabel'],
+  },
+];
+
+/**
+ * 글자 폭을 em으로 어림한다. 정확한 값은 폰트 메트릭이 필요하지만, 잘리느냐 마느냐는
+ * 이 정도 해상도로 갈린다 — 한글과 라틴이 자당 두 배 가까이 차이 나는 것만 반영하면
+ * "11자면 위험, 7자면 안전" 수준의 판정은 맞는다.
+ *
+ * 보간 변수는 런타임 값이라 길이를 모른다. 숫자 두 자리로 가정한다({{count}} 대부분이
+ * 한 자리~세 자리다). 여기가 틀려도 예산에 둔 여유가 흡수한다.
+ */
+function textWidthEm(raw) {
+  const text = String(raw).replace(/\{\{\s*[\w.]+\s*\}\}/g, '88');
+  let w = 0;
+  for (const ch of text) {
+    if (/[ᄀ-ᇿ⺀-鿿가-힯豈-﫿＀-｠]/.test(ch)) w += 1.0;
+    else if (ch === ' ') w += 0.26;
+    else if (/[iIl1.,:;'!|()[\]]/.test(ch)) w += 0.3;
+    else if (/[mwMW]/.test(ch)) w += 0.88;
+    else if (/[A-Z0-9]/.test(ch)) w += 0.62;
+    else w += 0.52;
+  }
+  return w;
+}
+
+console.log();
+console.log('─'.repeat(60));
+console.log('좁은 자리 폭 예산');
+console.log('─'.repeat(60));
+
+for (const { slot, max, basis, keys } of WIDTH_BUDGETS) {
+  const over = [];
+  for (const key of keys) {
+    if (!definedKeys.has(key)) {
+      fail(`❌ 폭 예산에 등록된 키가 ${BASE}.json에 없습니다: ${key} — 키를 지웠다면 이 등록도 지워 주세요.`);
+      continue;
+    }
+    for (const code of localeFiles) {
+      const value = entries.get(code).get(key);
+      if (typeof value !== 'string') continue;
+      const w = textWidthEm(value);
+      if (w > max) over.push({ code, key, value, w });
+    }
+  }
+
+  console.log();
+  console.log(`[${slot}] 상한 ${max}em — ${basis}`);
+  if (!over.length) {
+    console.log(`   ✅ ${keys.length}개 키 × ${localeFiles.length}개 언어 모두 예산 안`);
+    continue;
+  }
+  fail(`   ❌ 예산 초과 ${over.length}건 — 화면에서 잘리거나 줄이 감깁니다`);
+  for (const { code, key, value, w } of over.sort((a, b) => b.w - a.w)) {
+    console.log(`      - [${code}] ${key} = "${value}"  ${w.toFixed(1)}em (${(w - max).toFixed(1)} 초과)`);
+  }
 }
 
 console.log();

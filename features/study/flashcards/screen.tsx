@@ -901,6 +901,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
     opacity: 0.7,
+    textAlign: 'center',
   },
   starBtn: {
     position: 'absolute',
@@ -961,6 +962,7 @@ const styles = StyleSheet.create({
   actionBtnText: {
     fontSize: 17,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   actionBtnSubtext: {
     fontSize: 9,

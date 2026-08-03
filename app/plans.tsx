@@ -74,7 +74,13 @@ export default function PlansScreen() {
         { text: t('common.done'), onPress: flow.resetStage },
       ]);
     } else if (flow.stage === 'failed' && flow.error && !flow.error.silent) {
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      // titleKey가 있는 건 결제 실패가 아니라 복원 결과다("이미 Pro" 포함).
+      // 거기에 오류 진동을 울리면 멀쩡한 상태를 사고처럼 알리게 된다.
+      Haptics.notificationAsync(
+        flow.error.titleKey
+          ? Haptics.NotificationFeedbackType.Warning
+          : Haptics.NotificationFeedbackType.Error,
+      );
       const message = t(`plans.errors.${flow.error.key}`, t('plans.purchaseFailedMessage'));
       // "이미 구독중"·"verify 실패" 등은 복원이 정답 — Alert에 복원 버튼을 직접 노출.
       const buttons = flow.error.suggestRestore
@@ -85,7 +91,8 @@ export default function PlansScreen() {
         : [
             { text: t('common.done'), onPress: flow.resetStage },
           ];
-      Alert.alert(t('plans.purchaseFailedTitle'), message, buttons);
+      // 복원 결과처럼 "결제 실패"가 아닌 경우엔 매핑이 자기 제목을 들고 온다.
+      Alert.alert(t(flow.error.titleKey ?? 'plans.purchaseFailedTitle'), message, buttons);
     }
   }, [flow.stage, flow.error, flow.resetStage, flow.restore, flow, t]);
 
@@ -378,8 +385,16 @@ export default function PlansScreen() {
             disabled={busy}
             style={[styles.restoreRow, { borderColor: colors.borderLight, backgroundColor: colors.surface, opacity: busy ? 0.6 : 1 }]}
           >
-            <Ionicons name="refresh" size={16} color={colors.textSecondary} />
-            <Text style={[styles.restoreText, { color: colors.textSecondary }]}>{t('plans.restoreCta')}</Text>
+            {/* 진행 중 표시가 없으면 sweep이 도는 동안 화면이 완전히 정지한 것처럼
+                보인다 — 눌렀는지조차 알 수 없어 "아무 반응 없음"으로 겪힌다. */}
+            {busy ? (
+              <ActivityIndicator size="small" color={colors.textSecondary} />
+            ) : (
+              <>
+                <Ionicons name="refresh" size={16} color={colors.textSecondary} />
+                <Text style={[styles.restoreText, { color: colors.textSecondary }]}>{t('plans.restoreCta')}</Text>
+              </>
+            )}
           </Pressable>
         )}
 
@@ -454,7 +469,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 8,
   },
-  guestCtaText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+  guestCtaText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
 
   // 7일 체험 배너
   trialBanner: {
@@ -570,6 +585,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 4,
     marginBottom: 12,
+    // 스피너(20px)가 텍스트(≈17px)보다 커서, 없으면 복원을 누를 때마다 행이 튄다.
+    minHeight: 44,
   },
   restoreText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
 

@@ -520,13 +520,17 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
+    // 탭이 flex:1로 폭이 갈리므로 라벨이 긴 언어에서는 두 줄로 감긴다.
+    // 컨테이너의 alignItems만으로는 감긴 줄이 왼쪽에 붙는다 — textAlign이 있어야 가운데로 모인다.
     segmentedTabText: {
         fontSize: 13,
         fontFamily: 'Pretendard_500Medium',
+        textAlign: 'center',
     },
     segmentedTabTextActive: {
         fontSize: 13,
         fontFamily: 'Pretendard_600SemiBold',
+        textAlign: 'center',
     },
     settingRow: {
         flexDirection: 'row',

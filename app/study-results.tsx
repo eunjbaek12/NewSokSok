@@ -374,6 +374,7 @@ const styles = StyleSheet.create({
   retryBtnText: {
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   doneBtn: {
     width: '100%',
@@ -385,5 +386,6 @@ const styles = StyleSheet.create({
   doneBtnText: {
     fontSize: 17,
     fontFamily: 'Pretendard_700Bold',
+    textAlign: 'center',
   },
 });

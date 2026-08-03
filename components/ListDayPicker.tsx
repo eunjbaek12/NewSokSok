@@ -327,6 +327,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   scrollView: {
     flexShrink: 1,

@@ -1148,6 +1148,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Pretendard_600SemiBold',
     marginBottom: 8,
+    textAlign: 'center',
   },
   emptySubtitle: {
     fontSize: 14,
@@ -1167,6 +1168,7 @@ const styles = StyleSheet.create({
   emptyButtonText: {
     fontSize: 15,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   starBtn: {
     padding: 4,

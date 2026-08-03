@@ -1174,6 +1174,7 @@ const styles = StyleSheet.create({
   resultRestartBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
 
   // Empty Plans
@@ -1189,6 +1190,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
     marginTop: 4,
+    textAlign: 'center',
   },
   emptyPlansSubtitle: {
     fontSize: 14,
@@ -1207,6 +1209,7 @@ const styles = StyleSheet.create({
   emptyPlansLinkText: {
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
 
 });

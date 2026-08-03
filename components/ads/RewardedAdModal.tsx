@@ -240,5 +240,6 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
 });

@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 14,
   },
-  askBtnText: { fontSize: 14.5, fontFamily: 'Pretendard_700Bold' },
+  askBtnText: { fontSize: 14.5, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
   container: {
     flex: 1,
   },

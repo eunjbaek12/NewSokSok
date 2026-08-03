@@ -495,7 +495,7 @@ const styles = StyleSheet.create({
     previewContainer: { flex: 1, padding: 16 },
     previewImage: { flex: 1, borderRadius: 12 },
     loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, gap: 12 },
-    loadingText: { marginTop: 8, fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+    loadingText: { marginTop: 8, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
     loadingSubText: { fontSize: 13, fontFamily: 'Pretendard_400Regular', textAlign: 'center' },
     cancelBtn: { marginTop: 20, paddingHorizontal: 28, paddingVertical: 12, borderRadius: 20, borderWidth: 1 },
     cancelBtnText: { fontSize: 15, fontFamily: 'Pretendard_500Medium' },

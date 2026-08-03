@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   statCap: {
     fontSize: 11,
     fontFamily: 'Pretendard_500Medium',
+    textAlign: 'center',
   },
   statVDivider: {
     width: 1,

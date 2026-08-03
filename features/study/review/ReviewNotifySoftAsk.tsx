@@ -149,5 +149,6 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: 15,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
 });

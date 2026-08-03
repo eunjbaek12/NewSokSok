@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
     textArea: { height: 300, borderWidth: 1, borderRadius: 12, padding: 16, fontSize: 15, fontFamily: 'Pretendard_400Regular' },
     btnRow: { flexDirection: 'row', gap: 12 },
     uploadBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 14, borderWidth: 1, borderRadius: 12, gap: 8 },
-    uploadBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
+    uploadBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
     nextBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 14, borderRadius: 12, gap: 6 },
     nextBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     listContainer: { flex: 1, paddingHorizontal: 16, paddingTop: 8 },

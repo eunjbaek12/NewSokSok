@@ -47,19 +47,35 @@ export async function reconcileSubscriptionOnLaunch(): Promise<void> {
 
     // 만료가 아직 넉넉하면 스킵 — 갱신 경계 근처에서만 재검증.
     const proUntilMs = sub.pro_until ? new Date(sub.pro_until).getTime() : 0;
-    if (proUntilMs - Date.now() > REVERIFY_WINDOW_MS) return;
+    if (proUntilMs - Date.now() > REVERIFY_WINDOW_MS) {
+      // [billing-diag] 이 경로가 "안 도는" 가장 흔한 이유다(설계대로). 로그가 없으면
+      // 만료 3일 전까지는 침묵과 고장이 똑같아 보인다.
+      console.warn('[billing-diag] launch reconcile skipped: pro_until far off', sub.pro_until);
+      return;
+    }
 
     await initConnection();
     let updated = false;
     try {
       const purchases = (await getAvailablePurchases()) ?? [];
+      console.warn(
+        '[billing-diag] launch reconcile sweep',
+        'count=', purchases.length,
+        'ids=', purchases.map((p) => p.productId).join(',') || '(none)',
+      );
       for (const p of purchases) {
         if (!isProSku(p.productId)) continue;
         const token = p.purchaseToken ?? '';
         if (!token) continue;
-        const { data } = await supabase.functions.invoke('verify-purchase', {
+        const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
           body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
         });
+        console.warn(
+          '[billing-diag] launch reconcile verify',
+          'productId=', p.productId,
+          'ok=', data?.ok,
+          'edgeErrMsg=', edgeErr?.message ?? null,
+        );
         if (data?.ok) {
           // acknowledge(멱등). restore()와 동일 — 미완료 구매가 남아 재구매를
           // 막는 상황도 함께 정리.

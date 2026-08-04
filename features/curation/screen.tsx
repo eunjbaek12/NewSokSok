@@ -27,7 +27,7 @@ import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficult
 import { displayTag } from '@/lib/tag-display';
 import { stripToneBars } from '@/lib/phonetic';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
-import { curationPresets } from '@/constants/curationData';
+import { useCurationPresets } from './presets';
 import ReportCurationModal from './ReportCurationModal';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
@@ -383,6 +383,9 @@ export default function CurationScreen() {
     const [masterBarHeight, setMasterBarHeight] = useState(0);
 
     const lists = useLists();
+    // 공식 덱 8.16MB는 앱 시작 경로에서 떼어 뒀다 — 이 화면이 마운트될 때 처음 읽는다.
+    // 이름을 그대로 둔 것은 아래 사용처를 건드리지 않기 위해서다(→ ./presets).
+    const { presets: curationPresets, loading: isPresetsLoading } = useCurationPresets();
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user, authMode } = useAuth();
@@ -522,7 +525,8 @@ export default function CurationScreen() {
             counts.set(tg, (counts.get(tg) ?? 0) + 1);
         }
         return counts;
-    }, []);
+        // 덱이 지연 로드라 처음엔 빈 배열이다 — 도착하면 다시 세야 한다.
+    }, [curationPresets]);
 
     /* 덱이 하나도 없는 언어는 숨긴다 — 고르면 빈 화면이 되는 선택지다. 다만 지금
      * 고른 언어는 개수가 0이어도 남겨야 자기 상태가 보인다. */
@@ -1194,7 +1198,7 @@ export default function CurationScreen() {
                         </Pressable>
                     </View>
 
-                    {activeTab === 'community' && isCommunityLoading ? (
+                    {(activeTab === 'community' ? isCommunityLoading : isPresetsLoading) ? (
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <ActivityIndicator size="large" color={colors.primary} />
                         </View>

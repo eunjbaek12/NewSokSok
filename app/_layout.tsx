@@ -147,11 +147,19 @@ function GlobalRewardedAdModal() {
   const quotaExceededAt = useQuotaStore(s => s.quotaExceededAt);
   const dismiss = useQuotaStore(s => s.dismissQuotaExceeded);
   const adsAllowed = useAdsAllowed();
+  // 보상을 받은 순간 막혔던 요청을 이어서 돌린다. 모달은 여기서 닫히지 않고 성공 화면을
+  // 보여주므로, 사용자가 닫을 때쯤이면 폼이 이미 채워져 있다. 등록은 한 번만 쓰고 비운다.
+  const handleGranted = () => {
+    const quota = useQuotaStore.getState();
+    const retry = quota.retryAfterReward;
+    quota.setRetryAfterReward(null);
+    retry?.();
+  };
   return (
     <RewardedAdModal
       visible={adsAllowed && quotaExceededAt > 0}
       onClose={dismiss}
-      onGranted={() => { /* 사용자가 모달 닫고 다시 enrich 시도 — v1.2에 자동 재시도 검토 */ }}
+      onGranted={handleGranted}
     />
   );
 }

@@ -1,7 +1,8 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
-import { enrichWord } from '@/lib/translation-api';
+import { enrichWord, type EnrichFallback } from '@/lib/translation-api';
+import { useQuotaStore } from '@/features/quota';
 import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
 import type { AutoFillResult } from '@/lib/types';
@@ -39,6 +40,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const [isPendingSave, setIsPendingSave] = useState(false);
     const [aiQuotaHitAt, setAiQuotaHitAt] = useState(0);
     const [autoFillFailedAt, setAutoFillFailedAt] = useState(0);
+    // AI가 실패해 무료 사전으로 대체됐을 때의 사유. 폼은 채워지지만 뜻 칸만 비므로,
+    // 이 값이 없으면 화면은 "왜 뜻만 안 채워졌는지"를 말해 줄 수 없다.
+    const [enrichFallback, setEnrichFallback] = useState<EnrichFallback | null>(null);
     // 모델이 "사전에 존재하지 않는 단어"로 판정한 경우만 set. 일반 실패(네트워크/timeout)와
     // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
     const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
@@ -60,6 +64,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // 진행 중인 검색의 표제어와 그 취소 핸들.
     const fillTermRef = useRef('');
     const abortRef = useRef<AbortController | null>(null);
+    // 광고 보상 후 재개용. runAutoFill은 자기 자신을 참조할 수 없어 ref를 거치고,
+    // myRetryRef는 언마운트 때 "내가 등록한 것"인지 가리는 데 쓴다.
+    const runAutoFillRef = useRef<(searchTerm: string) => void>(() => {});
+    const myRetryRef = useRef<(() => void) | null>(null);
 
     // 표제어가 바뀌면 진행 중인 검색을 즉시 끊는다. 결과는 어차피 버려질 것이라(아래 낡은
     // 결과 판정) 응답을 기다릴 이유가 없는데, 그동안 스피너가 돌고 검색·저장 버튼이 잠겨
@@ -73,7 +81,15 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     }, [term]);
 
     // 화면을 떠날 때도 끊는다 — 남은 요청과 그 뒤의 상태 갱신은 갈 곳이 없다.
-    useEffect(() => () => abortRef.current?.abort(), []);
+    // 광고 보상 후 재시도 등록도 함께 거둔다. 내가 넣은 것일 때만 비워야 뒤에 등록한
+    // 다른 화면(사진 스캔 등)의 재시도를 지우지 않는다.
+    useEffect(() => () => {
+        abortRef.current?.abort();
+        const quota = useQuotaStore.getState();
+        if (myRetryRef.current && quota.retryAfterReward === myRetryRef.current) {
+            quota.setRetryAfterReward(null);
+        }
+    }, []);
 
     const applyFill = useCallback((fill: SenseFill) => {
         setMeaningKr(fill.meaningKr);
@@ -112,21 +128,35 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         const controller = new AbortController();
         abortRef.current = controller;
         let quotaHit = false;
+        // 콜백은 응답보다 먼저 올 수 있어 곧바로 상태에 넣지 않는다 — 취소되거나 낡은
+        // 결과로 판정되면 안내도 함께 버려야 하므로, 아래 가드를 통과한 뒤 반영한다.
+        let fallback: EnrichFallback | null = null;
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             // 새 검색은 이전 제안을 무효화하고 숨김 상태도 초기화.
             setSenseState(null);
             setSenseDismissed(false);
+            setEnrichFallback(null);
 
             const result = await enrichWord(
                 trimmed, sourceLang, targetLang, apiKey, controller.signal, 'autocomplete',
                 () => { quotaHit = true; setAiQuotaHitAt(Date.now()); },
+                { onFallback: (reason) => { fallback = reason; } },
             ).catch(() => null); // 취소(AbortError)도 여기서 null이 된다
             // 취소됐거나, 기다리는 동안 사용자가 표제어를 고쳤다면 이 결과는 낡은 것 —
             // 폼을 덮어쓰지도, 실패/못찾음 안내를 띄우지도 않는다. 표제어 판정은 취소가
             // 놓친 경합(응답이 이미 도착 중)의 backstop이다. (한도 초과 안내는 응답 전에
             // 콜백으로 이미 전달되므로 이 분기와 무관하게 뜬다.)
             if (controller.signal.aborted || termRef.current.trim() !== trimmed) return;
+            setEnrichFallback(fallback);
+            // 한도에 막혔다면 광고 보상 뒤 이어서 재개할 수 있게 자기 재시도를 걸어 둔다.
+            // 표제어는 등록 시점이 아니라 실행 시점의 것을 읽는다 — 광고를 보는 동안
+            // 사용자가 단어를 고쳤을 수 있고, 그때는 고친 쪽이 사용자의 의도다.
+            if (fallback === 'quotaExceeded') {
+                const retry = () => { void runAutoFillRef.current(termRef.current.trim()); };
+                myRetryRef.current = retry;
+                useQuotaStore.getState().setRetryAfterReward(retry);
+            }
             const hasAny = !!result && !!(
                 result.definition || result.meaningKr || result.exampleEn || result.phonetic || result.pos
             );
@@ -169,6 +199,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setPendingFillTerm('');
         }
     }, [sourceLang, targetLang, apiKey]);
+
+    useEffect(() => { runAutoFillRef.current = runAutoFill; }, [runAutoFill]);
 
     const handleAutoFill = () => runAutoFill(term);
     const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
@@ -299,6 +331,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        enrichFallback,
         // 동음이의어 토글 칩 — 숨김(수동 편집) 상태면 null.
         sensePicker: senseState && !senseDismissed
             ? { senses: senseState.senses, selected: senseState.selected }

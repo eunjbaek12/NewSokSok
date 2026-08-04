@@ -24,6 +24,51 @@ export function isQuotaError(e: any): boolean {
   return /\b429\b|RESOURCE_EXHAUSTED|exceeded your current quota/i.test(msg);
 }
 
+// BYOK 키 자체가 거부된 경우 판별 — 오타·폐기된 키·Generative Language API 미활성이
+// 모두 여기 들어온다. quota와 달리 기다려도 풀리지 않으므로 UI가 "키를 확인하라"고
+// 말할 수 있어야 한다. 이 구분이 없던 동안에는 키가 틀려도 조용히 무료 사전으로
+// 떨어져, 사용자는 뜻만 안 채워지는 이유를 알 수 없었다.
+//
+// 401/403은 인증·권한이라 무조건 키 문제지만, 400(INVALID_ARGUMENT)은 요청 스키마
+// 오류로도 나므로 메시지가 키를 가리킬 때만 인정한다.
+export function isInvalidKeyError(e: any): boolean {
+  const code = e?.error?.code ?? e?.code ?? e?.status;
+  const status = String(e?.error?.status ?? e?.status ?? '');
+  if (code === 401 || code === 403) return true;
+  if (status === 'PERMISSION_DENIED' || status === 'UNAUTHENTICATED') return true;
+  const msg = String(e?.message ?? '');
+  return /API_KEY_INVALID|API key not valid|api key expired|PERMISSION_DENIED|UNAUTHENTICATED/i.test(msg);
+}
+
+export type ApiKeyCheck = 'valid' | 'invalid' | 'unknown';
+
+/**
+ * 키를 저장하기 전에 유효한지 확인한다.
+ *
+ * 모델 목록 조회를 쓴다 — generateContent와 달리 토큰을 소모하지 않으면서 인증만
+ * 검사한다. 'unknown'은 "키가 나쁘다"가 아니라 "확인하지 못했다"이다(네트워크 단절,
+ * 서버 5xx). 그 둘을 뭉치면 비행기 모드에서 정당한 키를 저장하지 못한다.
+ */
+export async function validateApiKey(apiKey: string): Promise<ApiKeyCheck> {
+  const key = apiKey.trim();
+  if (!key) return 'invalid';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`,
+      { signal: controller.signal },
+    );
+    if (res.ok) return 'valid';
+    if (res.status === 400 || res.status === 401 || res.status === 403) return 'invalid';
+    return 'unknown';
+  } catch {
+    return 'unknown';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function isTransient(e: any): boolean {
   const code = e?.error?.code ?? e?.code ?? e?.status;
   const status = String(e?.error?.status ?? e?.status ?? '');

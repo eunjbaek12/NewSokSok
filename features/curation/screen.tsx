@@ -1523,6 +1523,7 @@ export default function CurationScreen() {
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
                                         color: aiDifficulty === d.key ? colors.onPrimary : colors.textSecondary,
+                                        textAlign: 'center',
                                     }}>{d.label}</Text>
                                 </Pressable>
                             ))}
@@ -1544,7 +1545,8 @@ export default function CurationScreen() {
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
                                         color: aiWordCount === n ? colors.onPrimary : colors.textSecondary,
-                                    }}>{n}{t('curation.aiWordUnit')}</Text>
+                                        textAlign: 'center',
+                                    }}>{n}</Text>
                                 </Pressable>
                             ))}
                         </View>

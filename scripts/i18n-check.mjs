@@ -268,6 +268,24 @@ const WIDTH_BUDGETS = [
     basis: 'StatsStrip 한 칸 ≈99dp / 11px → 9.0em',
     keys: ['stats.streakLabel', 'stats.todayMemorized', 'stats.memorizedLabel'],
   },
+  {
+    slot: '통계 화면 타일 (4분할)',
+    max: 6.3,
+    basis: '360 - 좌우 16×2 - gap 7×3 = 307을 4등분 76.8dp, 타일 안쪽 패딩·테두리 10 빼고 66.8dp / 10px → 6.7em',
+    keys: ['stats.todayMemorized', 'stats.weekMemorized', 'stats.totalMemorized', 'stats.totalDays'],
+  },
+  {
+    slot: 'AI 생성 모달 3분할 버튼',
+    max: 5.6,
+    basis: '모달 312dp(360 - 오버레이 24×2) - 본문 24×2 = 264, gap 8×2 빼고 3등분 82.7dp / 14px → 5.9em',
+    keys: ['curation.beginner', 'curation.intermediate', 'curation.advanced'],
+  },
+  {
+    slot: 'AI 생성 모달 주제 입력칸',
+    max: 14.0,
+    basis: '본문 264dp - 입력칸 좌우 14×2 = 236dp / 16px → 14.8em. 한 줄 입력이라 넘치면 잘린다',
+    keys: ['curation.aiTopicPlaceholder'],
+  },
 ];
 
 /**

@@ -226,7 +226,6 @@
     "aiLanguagePairLabel": "언어쌍",
     "aiDifficultyLabel": "난이도",
     "aiWordCount": "단어 수",
-    "aiWordUnit": "개",
     "enterSearchFirst": "주제를 입력해주세요.",
     "aiGenerateError": "단어 생성 중 오류가 발생했습니다.",
     "aiPartialResult": "{{kept}}개 단어를 가져왔어요 ({{dropped}}개는 형식 오류로 제외)",

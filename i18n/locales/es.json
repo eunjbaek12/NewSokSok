@@ -408,9 +408,11 @@
   "whatsNew": {
     "title": "Novedades en Avocado",
     "confirm": "Entendido",
-    "v130_1": "La función de repaso trae de vuelta las palabras justo antes de que las olvides.",
-    "v130_2": "La búsqueda de palabras y la selección para estudiar ahora están en una sola pantalla.",
-    "v130_3": "Puedes contactarnos desde Ajustes y leer la respuesta en la app."
+    "v140_1": "La función de repaso trae de vuelta las palabras justo antes de que las olvides.",
+    "v140_2": "La búsqueda de palabras y la selección para estudiar ahora están en una sola pantalla.",
+    "v140_3": "Puedes contactarnos desde Ajustes y leer la respuesta en la app.",
+    "v140_4": "Ya puedes usar la app en español.",
+    "v140_5": "Hay un nuevo aspecto, Mar de Verano, con sombrero de paja incluido."
   },
   "licenses": {
     "title": "Código abierto y fuentes de datos",

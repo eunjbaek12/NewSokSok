@@ -41,8 +41,7 @@ export interface Announcement {
 export const ANNOUNCEMENTS: Announcement[] = [
   {
     version: '1.4.0',
-    // ⚠️ 임시값 — 출시일이 정해지면 실제 날짜로 바꿀 것.
-    date: '2026-08-10',
+    date: '2026-08-06',
     // 앞 세 줄은 1.3.0 에 실었던 소식이다. 1.3.0 에서는 아무에게도 뜨지 않았다 —
     // 판정에 쓰는 @soksok_last_seen_version 키가 1.3.0 에서 처음 생겨서, 1.2.x 에서
     // 올라온 기존 사용자가 전부 "신규 설치"로 분류돼 조용히 기록만 되고 넘어갔다

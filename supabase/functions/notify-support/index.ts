@@ -204,6 +204,16 @@ const REPLY_COPY = {
     ],
     signature: 'Avocado',
   },
+  es: {
+    subject: 'Avocado — respuesta a tu mensaje',
+    intro: 'Esta es nuestra respuesta al mensaje que nos enviaste.',
+    yourMessage: '[Tu mensaje]',
+    outro: [
+      'También puedes leer esta respuesta en la app, en Ajustes › Contáctanos,',
+      'y escribirnos de nuevo desde ahí si quieres añadir algo.',
+    ],
+    signature: 'Avocado',
+  },
 } as const;
 
 /**
@@ -213,11 +223,15 @@ const REPLY_COPY = {
  * 껍데기만 영어로 감싸면 오히려 어긋나므로, 아는 경우에만 갈라 준다.
  * (앱 쪽 FALLBACK_LOCALE이 en인 것과 방향이 다른데, 그건 "읽을 수라도 있게" 하려는
  *  것이고 여기는 "본문과 맞추려는" 것이라 기준이 다르다.)
+ *
+ * UI 언어를 늘리면 여기도 함께 늘려야 한다 — 안 늘리면 그 언어 사용자는 조용히 한국어
+ * 껍데기를 받는다. 1.4.0이 스페인어를 내보내면서 es가 그 상태였다.
  */
 function replyLocale(d: Record<string, unknown> | null): keyof typeof REPLY_COPY {
   const raw = typeof d?.locale === 'string' ? d.locale : '';
   const base = raw.toLowerCase().split(/[-_]/)[0];
-  return base === 'en' ? 'en' : 'ko';
+  if (base === 'en' || base === 'es') return base;
+  return 'ko';
 }
 
 async function handleReply(row: SupportRow): Promise<SendResult> {

@@ -1,0 +1,68 @@
+App Store Connect 1.4.0 제출용 텍스트
+=====================================
+주의: App Store는 특수문자에 예민하다. 과거 ▸ 와 ★ 가 거부됐다.
+      안전한 문자는 • · — 뿐이고, 이모지는 쓰지 않는다.
+      프로모션 텍스트는 170자 제한 · 앱 업데이트 없이 언제든 교체 가능.
+
+로케일: ASC에 등록된 것은 ko·en 둘뿐이다(ja·vi·zh는 미등록 — 2026-08-02 확인).
+      스페인어도 미등록이라 스페인어권 사용자는 en 을 본다 → 스페인어 소식은 en 에만.
+      ko 에 "스페인어 지원"을 적지 않는 이유가 이것이다(한국 사용자에게 달라지는 게 없다).
+
+시작 속도 개선은 적지 않는다 — 코드 근거는 있지만 얼마나 빨라졌는지 못 쟀다.
+
+
+===== 이번 버전의 새로운 기능 / What's New =====
+
+--- ko ---
+여름 바다 스킨
+
+밀짚모자를 쓴 아보카도와 파도 배경이 더해졌습니다. 설정 · 테마에서 바꿀 수 있어요.
+
+AI가 뜻을 못 채웠을 때 이유를 알려드려요
+
+뜻 칸이 비어 있으면 왜 그런지, 어떻게 하면 채워지는지 그 자리에서 안내합니다.
+예전에는 발음과 예문만 채워지고 뜻만 비어서, 왜 그런지 알 방법이 없었습니다.
+
+광고를 보고 나면 하던 일이 이어져요
+
+한도가 차서 보상형 광고를 봤다면, 멈춰 있던 자동완성이 알아서 다시 돕니다.
+예전에는 보상이 반영돼도 화면은 그대로여서 받았는지조차 알기 어려웠습니다.
+
+그 밖에
+• 구독 복원 결과를 알려드립니다. 다른 계정에 연결된 구매는 안내와 함께 막습니다.
+• 좁은 화면에서 잘리던 글자와 어긋나던 가운데 정렬을 고쳤습니다.
+
+--- en ---
+The app now speaks Spanish
+
+Spanish joins Korean and English as a full interface language.
+
+Summer Sea skin
+
+A straw-hat avocado and a wave background. Settings · Theme.
+
+When AI can't fill in a meaning, we say why
+
+An empty meaning field now explains itself, and what to do about it. Until now
+the pronunciation and example filled in while only the meaning stayed blank,
+with no way to tell why.
+
+Watch an ad, pick up where you left off
+
+After a rewarded ad, the autocomplete you were waiting on runs itself. Until now
+the reward landed on the server but the screen stayed put, so it was hard to
+tell whether it had arrived at all.
+
+Also
+• Restoring a subscription now tells you the result, and a purchase tied to
+  another account is blocked with an explanation.
+• Fixed clipped labels and off-centre text on narrow screens.
+
+
+===== 프로모션 텍스트 / Promotional Text (170자 제한) =====
+
+--- ko ---
+밀짚모자를 쓴 아보카도와 여름 바다가 왔어요. AI가 뜻을 못 채우면 이유를 알려주고, 광고를 본 뒤에는 하던 일이 알아서 이어집니다.
+
+--- en ---
+Summer Sea has arrived, straw hat and all. When AI can't fill a meaning it now says why, and after a rewarded ad your work picks up on its own.

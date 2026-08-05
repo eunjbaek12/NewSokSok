@@ -54,7 +54,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Built equally for learners coming from any language to any language — including Korean for K-pop and Hallyu fans worldwide
 
 • Make it yours with skins
-- Classic, Dark Calm, Y2K, Lab, and more themes to choose from
+- Classic, Dark, Y2K, Lab, Summer Sea, and more themes to choose from
 - Set the mood for how you study
 
 • Offline-first with cloud sync

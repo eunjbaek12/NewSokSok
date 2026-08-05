@@ -4,6 +4,14 @@
 ＊ 나머지 세 가지(여름 스킨·AI 안내·광고 후 이어하기)는 전 로케일 공통이다.
 ＊
 ＊ 시작 속도 개선은 적지 않는다 — 코드 근거는 있지만 얼마나 빨라졌는지 못 쟀다.
+＊
+＊ 🔴 Play 출시 노트는 로케일마다 500자 제한이다. 처음 쓴 en-US 는 530자로 넘어 있었고
+＊ 붙여넣기 직전에 재서 발견했다 — 쓸 때마다 `[...s].length` 로 셀 것.
+＊ 현재: ko-KR 291 · en-US 498 · ja-JP 226 · vi 432 · zh-CN 176 · es-ES/es-419 각 494.
+＊ 스페인어는 영어보다 20~25% 길어져 같은 구조로 옮기면 넘친다 — 「그 밖에」를 한 줄로 합쳤다.
+＊
+＊ 2026-08-05 제출분부터 Play 에 스페인어 로케일(es-ES · es-419)이 열렸다. 두 벌은 같은
+＊ 텍스트다. 지역 없는 `es` 는 Play 언어 목록에 없다.
 
 <ko-KR>
 1.4.0 업데이트
@@ -25,19 +33,19 @@
 1.4.0
 
 🌐 The app now speaks Spanish
-Spanish joins Korean and English as a full interface language.
+A full interface language, alongside Korean and English.
 
 🏖️ Summer Sea skin
 A straw-hat avocado and a wave background. Settings › Theme.
 
-💡 When AI can't fill in a meaning, we say why
-An empty meaning field now explains itself, and what to do about it.
+💡 When AI cannot fill a meaning, we say why
+An empty meaning field explains why, and what to do.
 
 📺 Watch an ad, pick up where you left off
-After a rewarded ad, the autocomplete you were waiting on runs itself.
+After a rewarded ad, the autocomplete you were waiting on resumes.
 
 Also
-- Restoring a subscription now tells you the result.
+- Subscription restore now tells you the result.
 - Fixed clipped labels and off-centre text on narrow screens.
 </en-US>
 <ja-JP>
@@ -88,3 +96,37 @@ Khác
 - 恢复订阅时会明确告知结果。
 - 修复了窄屏上文字被截断和居中偏移的问题。
 </zh-CN>
+<es-ES>
+Actualización 1.4.0
+
+🌐 La app ya habla español
+Se suma al coreano y al inglés como idioma de la interfaz.
+
+🏖️ Tema Mar de Verano
+Un aguacate con sombrero de paja y olas. Ajustes › Tema.
+
+💡 Por qué la IA no completó un significado
+Si el campo está vacío, te explicamos el motivo y la solución.
+
+📺 Ve un anuncio y sigue donde lo dejaste
+El autocompletado en pausa se reanuda solo.
+
+Además: te decimos el resultado al restaurar una suscripción, y corregimos textos cortados en pantallas estrechas.
+</es-ES>
+<es-419>
+Actualización 1.4.0
+
+🌐 La app ya habla español
+Se suma al coreano y al inglés como idioma de la interfaz.
+
+🏖️ Tema Mar de Verano
+Un aguacate con sombrero de paja y olas. Ajustes › Tema.
+
+💡 Por qué la IA no completó un significado
+Si el campo está vacío, te explicamos el motivo y la solución.
+
+📺 Ve un anuncio y sigue donde lo dejaste
+El autocompletado en pausa se reanuda solo.
+
+Además: te decimos el resultado al restaurar una suscripción, y corregimos textos cortados en pantallas estrechas.
+</es-419>

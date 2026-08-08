@@ -140,8 +140,14 @@ Deno.serve(async (req) => {
   try {
     const result = await analyzeWord(termKey, sourceLang, targetLang);
     // 공용 캐시에 기록 — 다음 사용자부터 즉시. 캐시 쓰기 실패가 응답을 깨지 않게 격리.
-    try {
-      await svc.from('enrich_cache').upsert({
+    //
+    // 단, "실재하지 않는 단어"(isReal=false) 판정은 캐시하지 않는다 — 클라이언트
+    // (lib/translation-api.ts:114)와 같은 규칙. 빈 결과가 공용 캐시에 굳으면 모델이 진짜
+    // 단어를 한 번 오판했을 때 그 단어는 모든 사용자에게 영구히 "없는 단어"가 된다
+    // (PROMPT_VERSION을 올려 캐시를 통째로 버리기 전까지). 오타 재조회 비용보다 이쪽이 크다.
+    if (result?.isReal !== false) {
+      // upsert 실패는 throw가 아니라 { error }로 온다 — catch로는 안 잡히므로 직접 확인.
+      const { error: cacheErr } = await svc.from('enrich_cache').upsert({
         source_lang: sourceLang,
         target_lang: targetLang,
         term: termKey,
@@ -149,8 +155,7 @@ Deno.serve(async (req) => {
         prompt_version: PROMPT_VERSION,
         updated_at: new Date().toISOString(),
       });
-    } catch (cacheErr) {
-      console.error('enrich_cache write failed', cacheErr);
+      if (cacheErr) console.error('enrich_cache write failed', cacheErr);
     }
     return json(200, { result, quota });
   } catch (e) {

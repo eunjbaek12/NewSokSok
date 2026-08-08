@@ -151,8 +151,7 @@ export async function analyzeWord(
 
       SAME-LANGUAGE MODE — the learner's language and the study language are BOTH ${srcName}:
       - "meaningKr" = a short, simpler gloss or synonyms in ${srcName} (easier wording than the definition). NEVER another language.
-      - "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.
-      - "mnemonic" must be written in ${srcName}.` : '';
+      - "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.` : '';
 
   const response = await withRetry(() => ai.models.generateContent({
     model: MODEL_NAME,
@@ -164,12 +163,11 @@ export async function analyzeWord(
 
       When isReal is true, provide:
       1. A simple definition in ${srcName}.
-      2. One example sentence in ${srcName}.
+      2. One example sentence in ${srcName}. The sentence MUST actually use "${word}" — either verbatim or as an inflected/conjugated form of it. NEVER replace it with a synonym or a paraphrase. (The app hides this word inside the sentence to make a fill-in-the-blank exercise, so a sentence that does not contain it is unusable.) This applies to every example sentence inside "senses" too.
       3. The meaning translated into ${tgtName}.
-      4. A "mnemonic" to help remember the word easily, written in ${tgtName}.
-      5. The part of speech (pos, e.g., noun, verb).
-      6. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
-      7. A translation of the example sentence in ${tgtName}.
+      4. The part of speech (pos, e.g., noun, verb).
+      5. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
+      6. A translation of the example sentence in ${tgtName}.
 
       HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
       - Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
@@ -181,7 +179,6 @@ export async function analyzeWord(
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
       - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
       - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-      - "mnemonic" must be written in ${tgtName}.
       Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language.${sameLangBlock}`,
     config: {
       responseMimeType: 'application/json',
@@ -191,10 +188,9 @@ export async function analyzeWord(
           isReal: { type: Type.BOOLEAN, description: `True if "${word}" is a recognized ${srcName} word/phrase/idiom/proper noun. False if it appears to be a typo, gibberish, or unrecognizable.` },
           term: { type: Type.STRING, description: `The original word in ${srcName}` },
           definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
-          exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English). Empty string if isReal is false.` },
+          exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English). MUST contain "${word}" itself (verbatim or inflected) — never a synonym. Empty string if isReal is false.` },
           exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
           meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
-          mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}. Empty string if isReal is false.` },
           pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
           phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },
           senses: {
@@ -214,7 +210,7 @@ export async function analyzeWord(
             },
           },
         },
-        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic', 'senses'],
+        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'pos', 'phonetic', 'senses'],
       },
     },
   }));

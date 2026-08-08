@@ -129,8 +129,7 @@ function buildPrompt(word: string, srcName: string, tgtName: string, phoneticIns
 
 SAME-LANGUAGE MODE — the learner's language and the study language are BOTH ${srcName}:
 - "meaningKr" = a short, simpler gloss or synonyms in ${srcName} (easier wording than the definition). NEVER another language.
-- "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.
-- "mnemonic" must be written in ${srcName}.` : '';
+- "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.` : '';
   return `Analyze the ${srcName} word/phrase "${word}".
 
 FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.
@@ -139,12 +138,11 @@ FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, i
 
 When isReal is true, provide:
 1. A simple definition in ${srcName}.
-2. One example sentence in ${srcName}.
+2. One example sentence in ${srcName}. The sentence MUST actually use "${word}" — either verbatim or as an inflected/conjugated form of it. NEVER replace it with a synonym or a paraphrase. (The app hides this word inside the sentence to make a fill-in-the-blank exercise, so a sentence that does not contain it is unusable.) This applies to every example sentence inside "senses" too.
 3. The meaning translated into ${tgtName}.
-4. A "mnemonic" to help remember the word easily, written in ${tgtName}.
-5. The part of speech (pos, e.g., noun, verb).
-6. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
-7. A translation of the example sentence in ${tgtName}.
+4. The part of speech (pos, e.g., noun, verb).
+5. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
+6. A translation of the example sentence in ${tgtName}.
 
 HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
 - Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
@@ -156,7 +154,6 @@ IMPORTANT — Field naming is legacy and MUST be ignored:
 - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
 - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
 - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-- "mnemonic" must be written in ${tgtName}.
 Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language.${sameLangBlock}`;
 }
 
@@ -167,10 +164,9 @@ function responseSchema(srcName: string, tgtName: string) {
       isReal:     { type: 'BOOLEAN', description: `True if the input is a recognized ${srcName} entry; false if gibberish/typo.` },
       term:       { type: 'STRING' },
       definition: { type: 'STRING', description: `Definition in ${srcName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
-      exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}. Empty if isReal=false.` },
+      exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}. MUST contain the entry word itself (verbatim or inflected) — never a synonym. Empty if isReal=false.` },
       exampleKr:  { type: 'STRING', description: `Example translation in ${tgtName}. Empty if isReal=false.` },
       meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
-      mnemonic:   { type: 'STRING', description: `Memory aid in ${tgtName}. Empty if isReal=false.` },
       pos:        { type: 'STRING' },
       phonetic:   { type: 'STRING' },
       senses: {
@@ -190,7 +186,7 @@ function responseSchema(srcName: string, tgtName: string) {
         },
       },
     },
-    required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic', 'senses'],
+    required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'pos', 'phonetic', 'senses'],
   };
 }
 

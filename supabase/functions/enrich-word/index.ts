@@ -37,7 +37,12 @@ const COST_BY_MODE: Record<string, number> = {
 //     영어로 이탈하던 실측 수정) + 뜻 목록(개수·순서)은 출발어 속성으로 고정 + 언어 가드
 //     교정("출발어·도착어만 사용") — v5 캐시는 같은 언어쌍 오염·뜻 개수 편차 가능성으로 재생성.
 //     ⚠️ 클라이언트 lib/enrich-cache-shared.ts SHARED_ENRICH_PROMPT_VERSION과 함께 bump.
-const PROMPT_VERSION = 6;
+// v7: (1) 니모닉 제거 — 생성·저장만 되고 화면에 닿는 경로가 없던 죽은 필드라 출력 토큰만
+//     먹고 있었다. (2) 예문은 표제어를 그대로 또는 활용형으로 반드시 포함하도록 지시 —
+//     유의어로 바꿔 쓴 예문은 빈칸을 팔 자리가 없어 예문 학습에서 조용히 빠졌다
+//     (docs/backlog-examples-enrich.md P6). v6 캐시는 니모닉을 담고 있고 표제어 미포함
+//     예문이 섞여 있어 재생성.
+const PROMPT_VERSION = 7;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 

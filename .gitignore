@@ -89,3 +89,7 @@ store-assets/milestones-source/
 
 # Supabase CLI 캐시 (link 정보, 버전 캐시 등 로컬 한정)
 supabase/.temp/
+
+# 캐시 시딩 실행 산출물 (scripts/seed-cache.ts)
+seed-cache-report.json
+seed-cache-unsaved.json

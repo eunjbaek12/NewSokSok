@@ -29,6 +29,34 @@ export function normalizeSenses(senses: unknown): WordSense[] | null {
   return valid.slice(0, MAX_SENSES);
 }
 
+// senses[] 안에 이미 번호가 박혀 오는 경우가 실측 4% 있다(vi>es "lại" 의 senses[0].meaningKr
+// 이 "① de nuevo"). 그대로 번호를 붙이면 "① ① de nuevo" 가 되므로 앞 번호를 벗긴다.
+// 프롬프트는 "senses 안에는 번호를 넣지 말라"고 지시하지만 지켜지지 않는다.
+function stripLeadingMark(value: string | undefined): string {
+  return (value ?? '').replace(/^\s*[①②③④]\s*/, '').trim();
+}
+
+// AI 응답의 상위 병기 텍스트(meaningKr·definition)를 senses 배열에서 다시 만든다.
+// 모델에게 같은 내용을 배열과 텍스트로 두 번 쓰게 하면 어긋난다 — v7 실측 220건 중
+// 34건에서 텍스트가 배열보다 적었고 그렇게 빠진 뜻이 46개였다(반대 방향은 0건).
+// 배열이 정본이므로 텍스트는 여기서 만든다. 서버(supabase/functions/_shared/gemini-vertex.ts
+// 의 joinSenses)와 같은 규칙이니 한쪽을 고치면 반대쪽도 함께 고칠 것.
+//
+// composeSenseFill 과 규칙이 같다: 공백으로 잇고(NO_CONTROL), 빈 항목은 번호째 건너뛴다.
+// ⚠️ senses[] 안에 이미 번호가 박혀 오는 경우가 실측 4% 있어 앞 번호를 벗긴다.
+export function assembleTopText(
+  senses: readonly WordSense[],
+  key: 'meaningKr' | 'definition',
+): string {
+  return senses
+    .map((s, i) => {
+      const v = stripLeadingMark(s[key]);
+      return v ? `${CIRCLED_NUMBERS[i]} ${v}` : '';
+    })
+    .filter(Boolean)
+    .join(' ');
+}
+
 export interface SenseFill {
   meaningKr: string;
   definition: string;
@@ -67,13 +95,15 @@ export function composeSenseFill(
   }
 
   if (picks.length === 1) {
+    // 뜻 하나만 고르면 번호를 붙이지 않는다 — senses 안에 번호가 딸려 온 경우
+    // ("① de nuevo") 그대로 두면 홀로 남은 ①이 카드에 찍힌다.
     const s = picks[0];
     return {
-      meaningKr: s.meaningKr,
-      definition: s.definition || base.definition || '',
-      exampleEn: s.exampleEn || base.exampleEn || '',
-      exampleKr: s.exampleKr || base.exampleKr || '',
-      pos: s.pos || base.pos || '',
+      meaningKr: stripLeadingMark(s.meaningKr),
+      definition: stripLeadingMark(s.definition) || base.definition || '',
+      exampleEn: stripLeadingMark(s.exampleEn) || base.exampleEn || '',
+      exampleKr: stripLeadingMark(s.exampleKr) || base.exampleKr || '',
+      pos: stripLeadingMark(s.pos) || base.pos || '',
       phonetic: s.phonetic || base.phonetic || '',
     };
   }
@@ -82,7 +112,7 @@ export function composeSenseFill(
   const numbered = (key: keyof WordSense): string =>
     picks
       .map((s, i) => {
-        const v = (s[key] ?? '').trim();
+        const v = stripLeadingMark(s[key]);
         return v ? `${CIRCLED_NUMBERS[i]} ${v}` : '';
       })
       .filter(Boolean)
@@ -90,7 +120,7 @@ export function composeSenseFill(
 
   // 품사: 선택된 뜻들의 pos가 (대소문자 무시) 하나로 모이면 그 값, 갈리면 뜻과 같은
   // 번호로 병기. 병기 문자열은 pos 필터(lib/pos.ts)가 토큰 단위로 읽어 양쪽 다 매칭된다.
-  const posValues = picks.map(s => (s.pos ?? '').trim());
+  const posValues = picks.map(s => stripLeadingMark(s.pos));
   const distinctPos = new Set(posValues.filter(Boolean).map(p => p.toLowerCase()));
   const pos = distinctPos.size > 1
     ? numbered('pos')

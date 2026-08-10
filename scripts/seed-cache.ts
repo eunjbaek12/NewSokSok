@@ -115,6 +115,30 @@ function scriptViolation(text: string | undefined, lang: string): string | null 
   }
 }
 
+// ── 병기 번호 정합 ───────────────────────────────────────────────────────
+// 동음이의어는 senses 배열이 화면의 뜻 칩이 되고, meaningKr·definition 의 ①②③ 가
+// 그 옆에 붙는 설명이 된다. 둘의 개수가 어긋나면 아무 설명도 없는 칩이 남는다
+// (실측 v7: 뜻 15% · 정의 18%. en>ko "feather" 는 senses 3개인데 뜻은 "① 새의 깃털
+// ② 깃털을 달다" 두 개뿐이었다). 앞에 요약 줄을 덧붙이는 오염도 같이 잡는다
+// (ko>en "위치": "어떤 대상이 차지하고 있는 자리" 다음 줄에 다시 ①②).
+//
+// ⚠️ 번호를 코드로 잘라내지 않는 이유: ① 이 본문 예시로 쓰인 정상 문장이 있다
+//    (ko>vi "첫째" 의 뜻풀이가 "…나타내는 말. ①\n둘째, 셋째 …"). 기계적으로
+//    자르면 멀쩡한 글이 깨지므로, 판정만 하고 재생성에 맡긴다.
+const MARKS = ['①', '②', '③'];
+const markCount = (text?: string) => (text ? MARKS.filter(m => text.includes(m)).length : 0);
+
+function numberingViolation(label: string, text: string | undefined, nSenses: number): string | null {
+  const marks = markCount(text);
+  if (nSenses >= 2) {
+    if (marks !== nSenses) return `${label} 병기 ${marks}개 ≠ 뜻 ${nSenses}개`;
+    if (text && !text.trimStart().startsWith('①')) return `${label} ① 앞에 군더더기`;
+  } else if (marks > 0) {
+    return `${label}에 뜻이 하나인데 병기 번호`;
+  }
+  return null;
+}
+
 /** 다시 만들어야 하는 이유. 문제없으면 null. */
 function defectOf(r: SeedResult): string | null {
   const res = r.result ?? {};
@@ -147,7 +171,9 @@ function defectOf(r: SeedResult): string | null {
       ?? check(`뜻${i + 1} 예문번역`, s.exampleKr, r.targetLang);
     if (v) return v;
   }
-  return null;
+
+  return numberingViolation('뜻', res.meaningKr, senses.length)
+    ?? numberingViolation('정의', res.definition, senses.length);
 }
 
 /** senses 예문에서 표제어 자리를 못 찾은 개수 — 재생성하지 않고 기록만 한다. */

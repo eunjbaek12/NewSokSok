@@ -92,7 +92,6 @@ Content-Type: application/json
     "meaningKr": "...",
     "exampleEn": "...",
     "exampleKr": "...",
-    "mnemonic": "...",
     "pos": "noun",
     "phonetic": "/ˌsɛrənˈdɪpɪti/"
   },

@@ -30,7 +30,6 @@ export interface AnalyzedWord {
   exampleEn: string;
   exampleKr: string;
   meaningKr: string;
-  mnemonic: string;
   pos: string;
   phonetic: string;
   // 단어가 사전에 존재한다고 모델이 판단했는지. 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
@@ -106,18 +105,39 @@ export async function analyzeWord(
       ).slice(0, 3)
     : [];
 
+  // 뜻이 2개 이상이면 상위 병기 텍스트는 모델이 쓴 것을 버리고 senses 에서 조립한다.
+  // 같은 내용을 배열과 텍스트로 두 번 쓰게 시키면 어긋나기 때문이다(v7 실측 220건 중
+  // 34건에서 텍스트가 배열보다 적었고, 그렇게 사라진 뜻이 46개였다. 반대로 텍스트가
+  // 더 많은 경우는 0건 — 손실이 한 방향이라 배열을 정본으로 삼으면 잃는 것이 없다).
+  // ko>en "먹다" 는 칩에 세 뜻이 다 있는데 텍스트는 "to eat" 하나뿐이었다.
+  const multi = senses.length >= 2;
   return {
     term: parsed.term ?? word,
-    definition: parsed.definition ?? '',
+    definition: (multi && joinSenses(senses, 'definition')) || parsed.definition || '',
     exampleEn: parsed.exampleEn ?? '',
     exampleKr: parsed.exampleKr ?? '',
-    meaningKr: parsed.meaningKr ?? '',
-    mnemonic: parsed.mnemonic ?? '',
+    meaningKr: (multi && joinSenses(senses, 'meaningKr')) || parsed.meaningKr || '',
     pos: parsed.pos ?? '',
     phonetic: parsed.phonetic ?? '',
     isReal: parsed.isReal,
-    ...(senses.length >= 2 ? { senses } : {}),
+    ...(multi ? { senses } : {}),
   };
+}
+
+// senses 를 ①②③ 병기 한 줄로 잇는다. 클라이언트 lib/senses.ts 의 composeSenseFill 과
+// 같은 규칙을 쓴다 — 저장 스키마가 제어문자를 막으므로(NO_CONTROL) 줄바꿈이 아니라 공백으로 잇고,
+// 빈 항목은 번호째 건너뛰어 뜻 번호와의 대응을 유지한다.
+// ⚠️ senses[] 안에 이미 번호가 박혀 오는 경우가 실측 4% 있어(vi>es "lại" → "① ① de nuevo")
+//    앞 번호를 벗기고 붙인다.
+const SENSE_MARKS = ['①', '②', '③', '④'];
+function joinSenses(list: AnalyzedSense[], key: 'meaningKr' | 'definition'): string {
+  return list
+    .map((s, i) => {
+      const v = (s[key] ?? '').replace(/^\s*[①②③④]\s*/, '').trim();
+      return v ? `${SENSE_MARKS[i]} ${v}` : '';
+    })
+    .filter(Boolean)
+    .join(' ');
 }
 
 function buildPrompt(word: string, srcName: string, tgtName: string, phoneticInstr: string): string {
@@ -140,21 +160,23 @@ When isReal is true, provide:
 1. A simple definition in ${srcName}.
 2. One example sentence in ${srcName}. The sentence MUST actually use "${word}" — either verbatim or as an inflected/conjugated form of it. NEVER replace it with a synonym or a paraphrase. (The app hides this word inside the sentence to make a fill-in-the-blank exercise, so a sentence that does not contain it is unusable.) This applies to every example sentence inside "senses" too.
 3. The meaning translated into ${tgtName}.
-4. The part of speech (pos, e.g., noun, verb).
+4. The part of speech (pos), ALWAYS written in English: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom. The app groups and filters words by these exact English terms, so a translated label ("sustantivo", "名詞", "danh từ", "명사") is unusable. This applies to every "pos" inside "senses" too.
 5. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 6. A translation of the example sentence in ${tgtName}.
 
 HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
-- Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
-- ALSO fill the "senses" array with one entry per distinct sense (2-3, most common first). Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+- FIRST fix N, the number of distinct senses you will report (2 or 3). N then binds every field: the "senses" array MUST hold exactly N entries, and the numbered lists in "definition" and "meaningKr" MUST hold exactly N items in the same order. The app draws one chip per array entry and shows the numbered text beside them, so 3 entries with only ①② written out leaves a chip that nothing explains.
+- "senses": exactly N entries, most common first. Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+- "definition" and "meaningKr": exactly N items numbered ①②③, each a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Begin the text AT "①" — never put a summary line, a combined definition, or any other text before it, and add nothing after the last item.
+- "exampleEn", "exampleKr", "pos", and "phonetic" at the top level: use only the most common sense (①).
 - The inventory of distinct senses — how many, which ones, and their frequency order — is a property of the ${srcName} word ALONE and must be IDENTICAL no matter what the learner's language is. Fill EVERY field of every sense; never leave a field blank${sameLang ? ' (exception: "exampleKr" is an empty string in same-language mode)' : ''}.
-If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and do not use numbering anywhere. Do NOT number minor variations of one core meaning.
+If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and use NO numbering anywhere — "definition" and "meaningKr" must then be plain text with no ①②③ in them at all. Do NOT number minor variations of one core meaning.
 
 IMPORTANT — Field naming is legacy and MUST be ignored:
 - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
 - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
 - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language.${sameLangBlock}`;
+Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.${sameLangBlock}`;
 }
 
 function responseSchema(srcName: string, tgtName: string) {
@@ -163,11 +185,11 @@ function responseSchema(srcName: string, tgtName: string) {
     properties: {
       isReal:     { type: 'BOOLEAN', description: `True if the input is a recognized ${srcName} entry; false if gibberish/typo.` },
       term:       { type: 'STRING' },
-      definition: { type: 'STRING', description: `Definition in ${srcName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
+      definition: { type: 'STRING', description: `Definition in ${srcName}. For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty if isReal=false.` },
       exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}. MUST contain the entry word itself (verbatim or inflected) — never a synonym. Empty if isReal=false.` },
       exampleKr:  { type: 'STRING', description: `Example translation in ${tgtName}. Empty if isReal=false.` },
-      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
-      pos:        { type: 'STRING' },
+      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty if isReal=false.` },
+      pos:        { type: 'STRING', description: 'Part of speech in ENGLISH ONLY (noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom) — never translated into the source or target language.' },
       phonetic:   { type: 'STRING' },
       senses: {
         type: 'ARRAY',
@@ -179,7 +201,7 @@ function responseSchema(srcName: string, tgtName: string) {
             definition: { type: 'STRING', description: `Definition of this sense in ${srcName}.` },
             exampleEn:  { type: 'STRING', description: `Example sentence for this sense in ${srcName}.` },
             exampleKr:  { type: 'STRING', description: `The example translated into ${tgtName}.` },
-            pos:        { type: 'STRING' },
+            pos:        { type: 'STRING', description: 'Part of speech of this sense, in ENGLISH ONLY — never translated.' },
             phonetic:   { type: 'STRING', description: 'May differ per sense (e.g., English "lead").' },
           },
           required: ['meaningKr', 'definition', 'exampleEn', 'exampleKr', 'pos', 'phonetic'],

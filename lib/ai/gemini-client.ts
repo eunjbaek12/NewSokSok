@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
+import { assembleTopText, normalizeSenses } from '@/lib/senses';
 import { fromZodError } from 'zod-validation-error';
 
 const MODEL_NAME = 'gemini-2.5-flash-lite';
@@ -165,21 +166,23 @@ export async function analyzeWord(
       1. A simple definition in ${srcName}.
       2. One example sentence in ${srcName}. The sentence MUST actually use "${word}" — either verbatim or as an inflected/conjugated form of it. NEVER replace it with a synonym or a paraphrase. (The app hides this word inside the sentence to make a fill-in-the-blank exercise, so a sentence that does not contain it is unusable.) This applies to every example sentence inside "senses" too.
       3. The meaning translated into ${tgtName}.
-      4. The part of speech (pos, e.g., noun, verb).
+      4. The part of speech (pos), ALWAYS written in English: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom. The app groups and filters words by these exact English terms, so a translated label ("sustantivo", "名詞", "danh từ", "명사") is unusable. This applies to every "pos" inside "senses" too.
       5. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       6. A translation of the example sentence in ${tgtName}.
 
       HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
-      - Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
-      - ALSO fill the "senses" array with one entry per distinct sense (2-3, most common first). Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+      - FIRST fix N, the number of distinct senses you will report (2 or 3). N then binds every field: the "senses" array MUST hold exactly N entries, and the numbered lists in "definition" and "meaningKr" MUST hold exactly N items in the same order. The app draws one chip per array entry and shows the numbered text beside them, so 3 entries with only ①② written out leaves a chip that nothing explains.
+      - "senses": exactly N entries, most common first. Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+      - "definition" and "meaningKr": exactly N items numbered ①②③, each a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Begin the text AT "①" — never put a summary line, a combined definition, or any other text before it, and add nothing after the last item.
+      - "exampleEn", "exampleKr", "pos", and "phonetic" at the top level: use only the most common sense (①).
       - The inventory of distinct senses — how many, which ones, and their frequency order — is a property of the ${srcName} word ALONE and must be IDENTICAL no matter what the learner's language is. Fill EVERY field of every sense; never leave a field blank${sameLang ? ' (exception: "exampleKr" is an empty string in same-language mode)' : ''}.
-      If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and do not use numbering anywhere. Do NOT number minor variations of one core meaning.
+      If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and use NO numbering anywhere — "definition" and "meaningKr" must then be plain text with no ①②③ in them at all. Do NOT number minor variations of one core meaning.
 
       IMPORTANT — Field naming is legacy and MUST be ignored:
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
       - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
       - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-      Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language.${sameLangBlock}`,
+      Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.${sameLangBlock}`,
     config: {
       responseMimeType: 'application/json',
       responseSchema: {
@@ -187,11 +190,11 @@ export async function analyzeWord(
         properties: {
           isReal: { type: Type.BOOLEAN, description: `True if "${word}" is a recognized ${srcName} word/phrase/idiom/proper noun. False if it appears to be a typo, gibberish, or unrecognizable.` },
           term: { type: Type.STRING, description: `The original word in ${srcName}` },
-          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
+          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty string if isReal is false.` },
           exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English). MUST contain "${word}" itself (verbatim or inflected) — never a synonym. Empty string if isReal is false.` },
           exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
-          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
-          pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
+          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty string if isReal is false.` },
+          pos: { type: Type.STRING, description: 'Part of speech in ENGLISH ONLY (noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom) — never translated into the source or target language. Empty string if isReal is false.' },
           phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },
           senses: {
             type: Type.ARRAY,
@@ -203,7 +206,7 @@ export async function analyzeWord(
                 definition: { type: Type.STRING, description: `Definition of this sense in ${srcName}.` },
                 exampleEn: { type: Type.STRING, description: `Example sentence for this sense in ${srcName}.` },
                 exampleKr: { type: Type.STRING, description: `The example translated into ${tgtName}.` },
-                pos: { type: Type.STRING, description: 'Part of speech of this sense.' },
+                pos: { type: Type.STRING, description: 'Part of speech of this sense, in ENGLISH ONLY — never translated.' },
                 phonetic: { type: Type.STRING, description: 'Phonetic transcription of this sense (may differ per sense, e.g., English "lead").' },
               },
               required: ['meaningKr', 'definition', 'exampleEn', 'exampleKr', 'pos', 'phonetic'],
@@ -215,6 +218,18 @@ export async function analyzeWord(
     },
   }));
 
-  return parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
+  const parsed = parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
+
+  // 뜻이 2개 이상이면 상위 병기 텍스트는 senses 에서 다시 만든다 — 모델이 쓴 텍스트는
+  // 배열보다 뜻이 적은 경우가 실측 15%였다(assembleTopText 주석). Edge 경로
+  // (_shared/gemini-vertex.ts)도 같은 처리를 하므로 BYOK 여부와 무관하게 결과가 같다.
+  const senses = normalizeSenses(parsed.senses);
+  if (!senses) return parsed;
+  return {
+    ...parsed,
+    meaningKr: assembleTopText(senses, 'meaningKr') || parsed.meaningKr,
+    definition: assembleTopText(senses, 'definition') || parsed.definition,
+    senses,
+  };
 }
 

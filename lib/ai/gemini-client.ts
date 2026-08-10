@@ -213,7 +213,11 @@ export async function analyzeWord(
             },
           },
         },
-        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'pos', 'phonetic', 'senses'],
+        // exampleKr(예문 번역)은 senses 안쪽에선 필수였는데 상위에만 빠져 있었다. 빠지면
+        // 예문은 있고 번역만 없는 단어가 되고, 시딩은 이를 결함으로 잡아 한 번 더 만든다.
+        // 같은 언어쌍은 빈 문자열을 쓰는데 required 는 값이 아니라 키의 존재만 요구하므로
+        // 충돌하지 않는다.
+        required: ['isReal', 'term', 'definition', 'exampleEn', 'exampleKr', 'meaningKr', 'pos', 'phonetic', 'senses'],
       },
     },
   }));

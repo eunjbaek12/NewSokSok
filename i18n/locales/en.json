@@ -1188,7 +1188,7 @@
     "memorizedLabel": "Words learned",
     "dayStreak": "day streak",
     "streakSub": "Keep it going today!",
-    "streakSubZero": "Start your streak with today's first session!",
+    "streakSubZero": "Start your streak today!",
     "longestRecord": "Best: {{count}} days",
     "totalMemorized": "Total learned",
     "todayMemorized": "Today",

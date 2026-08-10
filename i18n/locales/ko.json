@@ -1188,7 +1188,7 @@
     "memorizedLabel": "외운 단어",
     "dayStreak": "일 연속",
     "streakSub": "오늘도 이어가는 중!",
-    "streakSubZero": "오늘 첫 학습으로 시작해볼까요?",
+    "streakSubZero": "오늘 첫 학습을 시작해요!",
     "longestRecord": "최장 {{count}}일",
     "totalMemorized": "총 외운 단어",
     "todayMemorized": "오늘 외운",

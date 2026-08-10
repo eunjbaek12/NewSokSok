@@ -179,7 +179,7 @@ export default function StatsScreen() {
             <Text style={[styles.heroLabel, { color: colors.warning }]}>{t('stats.streakLabel')}</Text>
           </View>
           <View style={styles.heroRight}>
-            <Text style={[styles.heroSub, { color: colors.textSecondary }]}>
+            <Text style={[styles.heroSub, { color: colors.textSecondary }]} numberOfLines={2}>
               {streak > 0 ? t('stats.streakSub') : t('stats.streakSubZero')}
             </Text>
             <View style={[styles.heroRec, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
@@ -419,8 +419,15 @@ const styles = StyleSheet.create({
   heroImg: { width: 52, height: 52, borderRadius: 26 },
   heroNum: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5, lineHeight: 31 },
   heroLabel: { fontSize: 12, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
-  heroRight: { marginLeft: 'auto', alignItems: 'flex-end', gap: 6 },
-  heroSub: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
+  // ⚠️ flex: 1 이 없으면 응원문구가 히어로 밖으로 삐져나간다. RN의 flexShrink 기본값은
+  // 0이라, marginLeft:'auto'만 있던 시절 이 칸은 자기 자연 폭을 그대로 주장했다 —
+  // 영어("Start your streak with today's first session!" 21.2em)는 좁은 자리 13em을
+  // 넘어도 감기지 않고 오른쪽으로 넘쳤다. flex:1은 flexBasis를 0으로 만들어 남은 폭만
+  // 쓰게 하고, 그제서야 numberOfLines가 의미를 갖는다.
+  heroRight: { flex: 1, alignItems: 'flex-end', gap: 6 },
+  // alignItems:'flex-end'는 Text 블록 자체만 오른쪽에 붙인다. 줄이 감기면 그 안의
+  // 두 번째 줄은 왼쪽 정렬로 남으므로 textAlign을 따로 줘야 한다.
+  heroSub: { fontSize: 12, fontFamily: 'Pretendard_500Medium', textAlign: 'right' },
   heroRec: {
     borderRadius: 999,
     borderWidth: 1,

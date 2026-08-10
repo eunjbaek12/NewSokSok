@@ -775,7 +775,7 @@
     "memorizedLabel": "Total aprendidas",
     "dayStreak": "días seguidos",
     "streakSub": "¡Sigue así hoy!",
-    "streakSubZero": "¡Empieza tu racha con la primera sesión de hoy!",
+    "streakSubZero": "¡Empieza tu racha hoy!",
     "longestRecord": "Mejor: {{count}} días",
     "totalMemorized": "Total",
     "todayMemorized": "Hoy",

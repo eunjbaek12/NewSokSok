@@ -213,11 +213,12 @@ export async function analyzeWord(
             },
           },
         },
-        // exampleKr(예문 번역)은 senses 안쪽에선 필수였는데 상위에만 빠져 있었다. 빠지면
-        // 예문은 있고 번역만 없는 단어가 되고, 시딩은 이를 결함으로 잡아 한 번 더 만든다.
-        // 같은 언어쌍은 빈 문자열을 쓰는데 required 는 값이 아니라 키의 존재만 요구하므로
-        // 충돌하지 않는다.
-        required: ['isReal', 'term', 'definition', 'exampleEn', 'exampleKr', 'meaningKr', 'pos', 'phonetic', 'senses'],
+        // exampleKr(예문 번역)은 일부러 필수에서 뺀다. 같은 언어쌍으로 배우는 사람에게는
+        // 존재할 이유가 없는 칸이라("빈 문자열로 두라"고 지시한다), 필수로 만들면 비우라는
+        // 지시와 채우라는 신호가 겹친다 — v5 에서 ko>ko 의 senses[].exampleKr 가 통째로
+        // 영어로 이탈한 전례가 있는 필드다. 다른 언어쌍에서는 프롬프트 6번과 필드 설명이
+        // 이미 요구하고 있고, v7 실측 137건에서 이 칸이 빈 결함은 나오지 않았다.
+        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'pos', 'phonetic', 'senses'],
       },
     },
   }));

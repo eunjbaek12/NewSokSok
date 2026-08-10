@@ -107,7 +107,7 @@ function getPhoneticInstruction(code: string): string {
   const map: Record<string, string> = {
     en: 'IPA (no slashes, e.g., prəˈnʌnsiˌeɪʃən)',
     ko: 'Revised Romanization of Korean (e.g., 안녕 → annyeong, 값 → gap)',
-    ja: 'furigana in kana (e.g., ありがとう)',
+    ja: 'furigana in kana only (hiragana/katakana). Never transliterate into Hangul or Latin letters; no parenthetical gloss, no spaces. If the term is already all kana, repeat it unchanged (e.g., 会議 → かいぎ, ワイン → ワイン, ここ → ここ)',
     zh: 'Pinyin with tone marks (e.g., nǐ hǎo)',
     vi: 'IPA segmentals only, WITHOUT tone letters/bars — tones are already shown by the orthography (e.g., đi → ɗi)',
     es: 'IPA (e.g., gracias → ˈɡɾasjas)',

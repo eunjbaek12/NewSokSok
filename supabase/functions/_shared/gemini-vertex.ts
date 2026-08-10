@@ -246,7 +246,7 @@ const DIFFICULTY_PROMPT: Record<string, string> = {
 const PHONETIC_INSTRUCTION: Record<string, string> = {
   en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
   ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
-  ja: '후리가나 (예: ありがとう)',
+  ja: '후리가나 — 히라가나·가타카나로만. 한글·로마자 전사 금지, 괄호 병기 금지, 공백 없이. 표제어가 이미 가나뿐이면 그대로 반복한다 (예: 会議 → かいぎ, ワイン → ワイン, ここ → ここ)',
   zh: '병음 (성조 포함, 예: nǐ hǎo)',
   vi: 'IPA 발음기호 (성조 막대 기호 없이 분절음만 — 성조는 철자의 성조 부호로 충분, 예: đi → ɗi)',
   es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',

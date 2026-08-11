@@ -1,15 +1,39 @@
 import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
-import { analyzeWord, isQuotaError } from '@/lib/ai/gemini-client';
+import { analyzeWord, isQuotaError, isInvalidKeyError } from '@/lib/ai/gemini-client';
 import { normalizeSenses } from '@/lib/senses';
 import { fetchSharedEnrich } from './enrich-cache-shared';
 import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
 import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
-import { stripToneBars } from './phonetic';
+import { cleanPhonetic } from './phonetic';
 import { RateLimitedError } from './enrich-queue-core';
 
+/**
+ * AI 보강이 실패해 무료 사전(dictionaryapi.dev)으로 떨어진 이유.
+ *
+ * 사전은 뜻(meaningKr)을 줄 수 없어 그 칸만 비는데, 화면은 지금까지 "왜 비었는지"를
+ * 알 방법이 없었다 — 결과만 돌아오고 출처가 없었기 때문이다. 사용자 눈에는 AI가
+ * 일부만 채운 것처럼 보인다.
+ *
+ * ⚠️ quotaExceeded는 UI가 안내를 띄우면 안 된다 — edge-enrich가 이미
+ * notifyQuotaExceeded()로 전역 보상형 광고 모달을 띄우므로 안내가 겹친다.
+ */
+export type EnrichFallback =
+  | 'invalidKey'     // BYOK 키가 거부됨. 기다려도 안 풀린다 → 키를 고치라고 안내
+  | 'byokFailed'     // BYOK 그 외 실패(네트워크·모델 오류)
+  | 'guest'          // 비로그인 — 운영자 AI 경로 자체를 못 탄다 → 로그인 유도
+  | 'quotaExceeded'  // 일일 한도 초과. 광고 모달이 따로 뜬다(위 주의 참조)
+  | 'serverFailed';  // Edge 인증 실패·업스트림 오류
+
 export interface EnrichOpts {
+  /**
+   * 사전으로 떨어졌을 때 그 사유를 알린다. 결과가 아니라 콜백인 이유는 캐시다 —
+   * enrichWord는 캐시를 먼저 조회해 그대로 반환하므로(아래 getCachedEnrich), 사유를
+   * 결과 객체에 실으면 캐시에 저장돼 다음 히트 때 옛 사유가 딸려 나온다. 캐시 히트는
+   * 애초에 안내가 필요 없는 성공 결과라 콜백을 부르지 않는 것이 의미상으로도 맞다.
+   */
+  onFallback?: (reason: EnrichFallback) => void;
   /**
    * 배치 흐름(사진 스캔·일괄 추가 큐) 표시. true면:
    * - 타임아웃 12초 → 30초. 배치는 백그라운드 진행이라 길어도 UX 손해가 없고,
@@ -24,14 +48,15 @@ export interface EnrichOpts {
 
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
-// 발음 표기 성조 막대 제거 — enrichWord가 단일 진입점이라 여기 한 번이면
+// 발음 표기 정리(vi 성조 막대·ja 한글 전사) — enrichWord가 단일 진입점이라 여기 한 번이면
 // BYOK·Edge·공용캐시·로컬캐시 전 경로를 덮는다. 근거는 lib/phonetic.ts.
-function cleanPhonetics(r: AutoFillResult): AutoFillResult {
+function cleanPhonetics(r: AutoFillResult, sourceLang: string, term: string): AutoFillResult {
+  const clean = (p: string) => cleanPhonetic(p, sourceLang, term);
   return {
     ...r,
-    ...(r.phonetic ? { phonetic: stripToneBars(r.phonetic) } : {}),
+    ...(r.phonetic ? { phonetic: clean(r.phonetic) } : {}),
     ...(r.senses
-      ? { senses: r.senses.map(s => (s.phonetic ? { ...s, phonetic: stripToneBars(s.phonetic) } : s)) }
+      ? { senses: r.senses.map(s => (s.phonetic ? { ...s, phonetic: clean(s.phonetic) } : s)) }
       : {}),
   };
 }
@@ -59,7 +84,7 @@ export async function enrichWord(
   if (!trimmed) return null;
 
   const cached = await getCachedEnrich(trimmed, sourceLang, targetLang);
-  if (cached) return cleanPhonetics(cached);
+  if (cached) return cleanPhonetics(cached, sourceLang, trimmed);
 
   const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
@@ -82,7 +107,7 @@ export async function enrichWord(
 
   try {
     const timeoutMs = opts?.batch ? 30000 : 12000;
-    const result = cleanPhonetics(await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota, opts), timeoutMs));
+    const result = cleanPhonetics(await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota, opts), timeoutMs), sourceLang, trimmed);
     if (result) {
       // 모델이 "이 단어는 실재하지 않는다"고 명시한 경우 — 빈 결과지만 null이 아닌
       // 명시적 not-found 신호를 호출자에게 전달(캐시는 하지 않음). UI에서 "찾지
@@ -138,7 +163,13 @@ export async function autoFillWord(
         ...(byokSenses ? { senses: byokSenses } : {}),
       };
     } catch (e: any) {
-      if (isQuotaError(e)) onByokQuota?.();
+      if (isQuotaError(e)) {
+        onByokQuota?.();
+        // 한도는 호출부가 이미 안내한다 — 사전 안내까지 겹치지 않게 같은 사유로 넘긴다.
+        opts?.onFallback?.('quotaExceeded');
+      } else {
+        opts?.onFallback?.(isInvalidKeyError(e) ? 'invalidKey' : 'byokFailed');
+      }
       // BYOK 실패 시에도 Edge로 fallback하지 않음 — 사용자가 명시적으로 키 등록한 의도 존중
     }
   }
@@ -179,10 +210,15 @@ export async function autoFillWord(
           throw new RateLimitedError(edge.retryAfter);
         }
         // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속
+        opts?.onFallback?.(edge.kind === 'quota_exceeded' ? 'quotaExceeded' : 'serverFailed');
+      } else {
+        // 로그인하지 않으면 운영자 키 경로 자체를 못 탄다 — 사전만 남는다.
+        opts?.onFallback?.('guest');
       }
     } catch (e: any) {
       // RateLimitedError·AbortError는 호출자 몫 — 나머지(세션 조회 실패 등)만 사전 fallback
       if (e instanceof RateLimitedError || e?.name === 'AbortError') throw e;
+      opts?.onFallback?.('serverFailed');
     }
   }
 

@@ -1,12 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, AccessibilityInfo } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, RadialGradient, Stop, G } from 'react-native-svg';
+import { CharacterAccessoryPaths } from '@/components/CharacterAccessory';
+import { useTheme, type CharacterAccessory as AccessoryType } from '@/features/theme';
 
 const AnimatedG = Animated.createAnimatedComponent(G);
 
-export default function CharacterSvg({ size = 56, wave = true, isDark = false }: { size?: number; wave?: boolean; isDark?: boolean }) {
+/**
+ * 스킨 액세서리(모자·리본)는 여기서 함께 그린다. 캐릭터가 나오는 자리는 곧 스킨이
+ * 드러나야 하는 자리인데, 호출부가 따로 얹는 구조였을 때 홈 세 곳에만 붙어 있었다.
+ * 액세서리를 빼고 싶은 자리(온보딩 데모처럼 스킨과 무관한 삽화)만 accessory="none".
+ */
+export default function CharacterSvg({ size = 56, wave = true, isDark = false, accessory }: { size?: number; wave?: boolean; isDark?: boolean; accessory?: AccessoryType }) {
+  const { skin } = useTheme();
   const armRot = useRef(new Animated.Value(0)).current;
   const [reduceMotion, setReduceMotion] = useState(false);
+  const resolvedAccessory = accessory ?? skin.characterAccessory;
 
   useEffect(() => {
     let mounted = true;
@@ -173,6 +182,9 @@ export default function CharacterSvg({ size = 56, wave = true, isDark = false }:
 
       {/* 입 */}
       <Path d="m104.9 113.8c3.02 3.7 11.9 4.57 17.18-0.26" stroke="url(#c_p15)" strokeLinecap="round" strokeMiterlimit={10} strokeWidth={2.5} fill="none" />
+
+      {/* 스킨 액세서리 — 캐릭터 위에 얹히므로 맨 마지막에 그린다 */}
+      <CharacterAccessoryPaths accessory={resolvedAccessory} />
     </Svg>
   );
 }

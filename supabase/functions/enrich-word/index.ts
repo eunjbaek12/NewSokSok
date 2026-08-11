@@ -37,7 +37,12 @@ const COST_BY_MODE: Record<string, number> = {
 //     영어로 이탈하던 실측 수정) + 뜻 목록(개수·순서)은 출발어 속성으로 고정 + 언어 가드
 //     교정("출발어·도착어만 사용") — v5 캐시는 같은 언어쌍 오염·뜻 개수 편차 가능성으로 재생성.
 //     ⚠️ 클라이언트 lib/enrich-cache-shared.ts SHARED_ENRICH_PROMPT_VERSION과 함께 bump.
-const PROMPT_VERSION = 6;
+// v7: (1) 니모닉 제거 — 생성·저장만 되고 화면에 닿는 경로가 없던 죽은 필드라 출력 토큰만
+//     먹고 있었다. (2) 예문은 표제어를 그대로 또는 활용형으로 반드시 포함하도록 지시 —
+//     유의어로 바꿔 쓴 예문은 빈칸을 팔 자리가 없어 예문 학습에서 조용히 빠졌다
+//     (docs/backlog-examples-enrich.md P6). v6 캐시는 니모닉을 담고 있고 표제어 미포함
+//     예문이 섞여 있어 재생성.
+const PROMPT_VERSION = 7;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 
@@ -140,8 +145,14 @@ Deno.serve(async (req) => {
   try {
     const result = await analyzeWord(termKey, sourceLang, targetLang);
     // 공용 캐시에 기록 — 다음 사용자부터 즉시. 캐시 쓰기 실패가 응답을 깨지 않게 격리.
-    try {
-      await svc.from('enrich_cache').upsert({
+    //
+    // 단, "실재하지 않는 단어"(isReal=false) 판정은 캐시하지 않는다 — 클라이언트
+    // (lib/translation-api.ts:114)와 같은 규칙. 빈 결과가 공용 캐시에 굳으면 모델이 진짜
+    // 단어를 한 번 오판했을 때 그 단어는 모든 사용자에게 영구히 "없는 단어"가 된다
+    // (PROMPT_VERSION을 올려 캐시를 통째로 버리기 전까지). 오타 재조회 비용보다 이쪽이 크다.
+    if (result?.isReal !== false) {
+      // upsert 실패는 throw가 아니라 { error }로 온다 — catch로는 안 잡히므로 직접 확인.
+      const { error: cacheErr } = await svc.from('enrich_cache').upsert({
         source_lang: sourceLang,
         target_lang: targetLang,
         term: termKey,
@@ -149,8 +160,7 @@ Deno.serve(async (req) => {
         prompt_version: PROMPT_VERSION,
         updated_at: new Date().toISOString(),
       });
-    } catch (cacheErr) {
-      console.error('enrich_cache write failed', cacheErr);
+      if (cacheErr) console.error('enrich_cache write failed', cacheErr);
     }
     return json(200, { result, quota });
   } catch (e) {

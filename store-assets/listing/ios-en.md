@@ -105,9 +105,10 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 • Six languages, every direction
 - English, Korean, Japanese, Chinese, Vietnamese, Spanish
 - Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
+- The app itself speaks English, Korean, and Spanish
 
 • Make it yours with skins
-- Classic, Dark Calm, Y2K, Lab, and more themes
+- Classic, Dark, Y2K, Lab, Summer Sea, and more themes
 
 • Offline-first with cloud sync
 - Data lives on your device first — study without internet

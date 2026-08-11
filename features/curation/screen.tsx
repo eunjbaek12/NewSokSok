@@ -25,9 +25,9 @@ import { useSettings } from '@/features/settings';
 import { VocaList, Word } from '@/lib/types';
 import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty } from '@shared/contracts';
 import { displayTag } from '@/lib/tag-display';
-import { stripToneBars } from '@/lib/phonetic';
+import { cleanPhonetic } from '@/lib/phonetic';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
-import { curationPresets } from '@/constants/curationData';
+import { useCurationPresets } from './presets';
 import ReportCurationModal from './ReportCurationModal';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
@@ -62,7 +62,7 @@ const LANG_LABEL_KO: Record<string, string> = {
 const PHONETIC_INSTRUCTION: Record<string, string> = {
     en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
     ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
-    ja: '후리가나 (예: ありがとう)',
+    ja: '후리가나 — 히라가나·가타카나로만. 한글·로마자 전사 금지, 괄호 병기 금지, 공백 없이. 표제어가 이미 가나뿐이면 그대로 반복한다 (예: 会議 → かいぎ, ワイン → ワイン, ここ → ここ)',
     zh: '병음 (성조 포함, 예: nǐ hǎo)',
     vi: 'IPA 발음기호 (성조 막대 기호 없이 분절음만 — 성조는 철자의 성조 부호로 충분, 예: đi → ɗi)',
     es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
@@ -328,7 +328,7 @@ const generateAIWords = async (
             exampleEn: w.exampleEn,
             exampleKr: w.exampleKr ?? '',
             pos: w.pos ?? '',
-            phonetic: stripToneBars(w.phonetic ?? ''),
+            phonetic: cleanPhonetic(w.phonetic ?? '', sourceLang, w.term),
             isMemorized: false,
             isStarred: false,
             tags: [...baseTags, AI_GENERATED_TAG, difficultyTag],
@@ -383,6 +383,9 @@ export default function CurationScreen() {
     const [masterBarHeight, setMasterBarHeight] = useState(0);
 
     const lists = useLists();
+    // 공식 덱 8.16MB는 앱 시작 경로에서 떼어 뒀다 — 이 화면이 마운트될 때 처음 읽는다.
+    // 이름을 그대로 둔 것은 아래 사용처를 건드리지 않기 위해서다(→ ./presets).
+    const { presets: curationPresets, loading: isPresetsLoading } = useCurationPresets();
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user, authMode } = useAuth();
@@ -522,7 +525,8 @@ export default function CurationScreen() {
             counts.set(tg, (counts.get(tg) ?? 0) + 1);
         }
         return counts;
-    }, []);
+        // 덱이 지연 로드라 처음엔 빈 배열이다 — 도착하면 다시 세야 한다.
+    }, [curationPresets]);
 
     /* 덱이 하나도 없는 언어는 숨긴다 — 고르면 빈 화면이 되는 선택지다. 다만 지금
      * 고른 언어는 개수가 0이어도 남겨야 자기 상태가 보인다. */
@@ -1194,7 +1198,7 @@ export default function CurationScreen() {
                         </Pressable>
                     </View>
 
-                    {activeTab === 'community' && isCommunityLoading ? (
+                    {(activeTab === 'community' ? isCommunityLoading : isPresetsLoading) ? (
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <ActivityIndicator size="large" color={colors.primary} />
                         </View>
@@ -1523,6 +1527,7 @@ export default function CurationScreen() {
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
                                         color: aiDifficulty === d.key ? colors.onPrimary : colors.textSecondary,
+                                        textAlign: 'center',
                                     }}>{d.label}</Text>
                                 </Pressable>
                             ))}
@@ -1544,7 +1549,8 @@ export default function CurationScreen() {
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
                                         color: aiWordCount === n ? colors.onPrimary : colors.textSecondary,
-                                    }}>{n}{t('curation.aiWordUnit')}</Text>
+                                        textAlign: 'center',
+                                    }}>{n}</Text>
                                 </Pressable>
                             ))}
                         </View>

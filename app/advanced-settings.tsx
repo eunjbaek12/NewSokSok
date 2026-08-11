@@ -8,6 +8,7 @@ import {
   Platform,
   TextInput,
   Linking,
+  ActivityIndicator,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -17,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
+import { validateApiKey, type ApiKeyCheck } from '@/lib/ai/gemini-client';
 import { PopupTokens } from '@/constants/popup';
 
 export default function AdvancedSettingsScreen() {
@@ -28,6 +30,11 @@ export default function AdvancedSettingsScreen() {
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [apiKeyVisible, setApiKeyVisible] = useState(false);
+  // 저장 전 키 검증. 'invalid'면 저장을 막고, 'unknown'(네트워크 실패 등)이면 한 번 더
+  // 누를 때 그대로 저장한다 — 확인하지 못한 것을 나쁜 키로 취급하면 비행기 모드에서
+  // 정당한 키를 넣을 수 없다.
+  const [checking, setChecking] = useState(false);
+  const [checkResult, setCheckResult] = useState<Exclude<ApiKeyCheck, 'valid'> | null>(null);
 
   // 외부 화면(예: 큐레이션)에서 ?openApiKey=1로 진입하면 모달 자동 오픈
   // 저장 시 자동 복귀.
@@ -40,6 +47,7 @@ export default function AdvancedSettingsScreen() {
       enteredForApiKeyRef.current = true;
       setApiKeyInput(apiKey || '');
       setApiKeyVisible(false);
+      setCheckResult(null);
       setApiKeyModalOpen(true);
       router.setParams({ openApiKey: undefined } as any);
     }
@@ -48,17 +56,38 @@ export default function AdvancedSettingsScreen() {
   const handleOpenApiKeyModal = () => {
     setApiKeyInput(apiKey || '');
     setApiKeyVisible(false);
+    setCheckResult(null);
     setApiKeyModalOpen(true);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
-  const handleSaveApiKey = async () => {
-    await updateApiKey(apiKeyInput.trim());
+  const commitApiKey = async (key: string) => {
+    await updateApiKey(key);
     setApiKeyModalOpen(false);
+    setCheckResult(null);
     if (enteredForApiKeyRef.current && router.canGoBack()) {
       enteredForApiKeyRef.current = false;
       router.back();
     }
+  };
+
+  // 저장 전에 키를 한 번 확인한다. 예전에는 입력값을 그대로 저장해서, 오타가 나도
+  // 여기서는 아무 일 없이 닫히고 한참 뒤 AI를 쓸 때에야 실패했다 — 단어 추가 쪽은
+  // 무료 사전으로 조용히 대체돼 실패한 줄조차 몰랐다.
+  const handleSaveApiKey = async () => {
+    if (checking) return;
+    const key = apiKeyInput.trim();
+    // 비우는 것은 해제라 검증 대상이 아니다.
+    if (!key) { await commitApiKey(''); return; }
+    // 확인하지 못한 상태에서 한 번 더 누른 것 = "그래도 저장".
+    if (checkResult === 'unknown') { await commitApiKey(key); return; }
+
+    setChecking(true);
+    const verdict = await validateApiKey(key);
+    setChecking(false);
+    if (verdict === 'valid') { await commitApiKey(key); return; }
+    setCheckResult(verdict);
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
   };
 
   const maskedApiKey = apiKey ? apiKey.slice(0, 8) + '••••••••••••••••' : '';
@@ -132,9 +161,20 @@ export default function AdvancedSettingsScreen() {
             </Pressable>
             <Pressable
               onPress={handleSaveApiKey}
-              style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              disabled={checking || checkResult === 'invalid'}
+              style={[styles.modalBtn, {
+                backgroundColor: checking || checkResult === 'invalid' ? colors.border : colors.primaryButton,
+                paddingVertical: btn.paddingVertical,
+                borderRadius: btn.borderRadius,
+              }]}
             >
-              <Text style={[styles.modalBtnText, { color: colors.onPrimary, fontSize: btn.fontSize }]}>{t('common.save')}</Text>
+              {checking ? (
+                <ActivityIndicator size="small" color={colors.onPrimary} />
+              ) : (
+                <Text style={[styles.modalBtnText, { color: colors.onPrimary, fontSize: btn.fontSize, textAlign: 'center' }]}>
+                  {checkResult === 'unknown' ? t('settings.geminiApiKeySaveAnyway') : t('common.save')}
+                </Text>
+              )}
             </Pressable>
           </View>
         }
@@ -156,7 +196,7 @@ export default function AdvancedSettingsScreen() {
             <TextInput
               style={[styles.apiKeyInput, { color: colors.text }]}
               value={apiKeyInput}
-              onChangeText={setApiKeyInput}
+              onChangeText={(v) => { setApiKeyInput(v); if (checkResult) setCheckResult(null); }}
               placeholder="AIza..."
               placeholderTextColor={colors.textTertiary}
               autoFocus
@@ -170,6 +210,36 @@ export default function AdvancedSettingsScreen() {
               <Ionicons name={apiKeyVisible ? 'eye-off-outline' : 'eye-outline'} size={18} color={colors.textTertiary} />
             </Pressable>
           </View>
+          {checking || checkResult ? (
+            <View style={styles.apiKeyStatusRow}>
+              {checking ? (
+                <>
+                  <ActivityIndicator size="small" color={colors.textTertiary} />
+                  <Text style={[styles.apiKeyStatusText, { color: colors.textSecondary }]}>
+                    {t('settings.geminiApiKeyChecking')}
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <Ionicons
+                    name={checkResult === 'invalid' ? 'close-circle' : 'alert-circle-outline'}
+                    size={15}
+                    color={checkResult === 'invalid' ? colors.error : colors.warning}
+                  />
+                  <Text
+                    style={[
+                      styles.apiKeyStatusText,
+                      { color: checkResult === 'invalid' ? colors.error : colors.textSecondary },
+                    ]}
+                  >
+                    {checkResult === 'invalid'
+                      ? t('settings.geminiApiKeyInvalid')
+                      : t('settings.geminiApiKeyUnverified')}
+                  </Text>
+                </>
+              )}
+            </View>
+          ) : null}
           {apiKey ? (
             <Pressable
               onPress={() => { setApiKeyInput(''); updateApiKey(''); setApiKeyModalOpen(false); }}
@@ -249,6 +319,8 @@ const styles = StyleSheet.create({
   modalBtn: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   modalBtnText: { fontFamily: 'Pretendard_600SemiBold' },
   modalBody: { gap: 10, paddingBottom: 8 },
+  apiKeyStatusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: -4 },
+  apiKeyStatusText: { flex: 1, fontSize: 12.5, fontFamily: 'Pretendard_500Medium', lineHeight: 17 },
   modalDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19, marginBottom: 2 },
   apiKeyInputRow: {
     flexDirection: 'row', alignItems: 'center', gap: 4,

@@ -268,6 +268,30 @@ const WIDTH_BUDGETS = [
     basis: 'StatsStrip 한 칸 ≈99dp / 11px → 9.0em',
     keys: ['stats.streakLabel', 'stats.todayMemorized', 'stats.memorizedLabel'],
   },
+  {
+    slot: '통계 화면 타일 (4분할)',
+    max: 6.3,
+    basis: '360 - 좌우 16×2 - gap 7×3 = 307을 4등분 76.8dp, 타일 안쪽 패딩·테두리 10 빼고 66.8dp / 10px → 6.7em',
+    keys: ['stats.todayMemorized', 'stats.weekMemorized', 'stats.totalMemorized', 'stats.totalDays'],
+  },
+  {
+    slot: 'AI 생성 모달 3분할 버튼',
+    max: 5.6,
+    basis: '모달 312dp(360 - 오버레이 24×2) - 본문 24×2 = 264, gap 8×2 빼고 3등분 82.7dp / 14px → 5.9em',
+    keys: ['curation.beginner', 'curation.intermediate', 'curation.advanced'],
+  },
+  {
+    slot: '통계 스트릭 히어로 응원문구',
+    max: 12.0,
+    basis: '히어로 안쪽 296dp에서 캐릭터 52·gap 12·gap 12을 빼고 남는 220dp를 숫자 블록과 나눠 쓴다. 숫자 블록 폭은 그 아래 라벨(stats.streakLabel)이 정하는데 가장 넓은 게 es "Racha de días" 6.34em=76dp → 오른쪽 칸 144dp / 12px → 12.0em. 넘으면 두 줄로 감겨 히어로가 높아진다',
+    keys: ['stats.streakSub', 'stats.streakSubZero'],
+  },
+  {
+    slot: 'AI 생성 모달 주제 입력칸',
+    max: 14.0,
+    basis: '본문 264dp - 입력칸 좌우 14×2 = 236dp / 16px → 14.8em. 한 줄 입력이라 넘치면 잘린다',
+    keys: ['curation.aiTopicPlaceholder'],
+  },
 ];
 
 /**

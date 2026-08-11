@@ -90,7 +90,8 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
   },
 };
 
-export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.ocean, SKINS.dark, SKINS.y2k, SKINS.lab];
+// 표시 순서 — 기본(classic)이 맨 앞, 나중에 추가한 스킨이 뒤로 간다.
+export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab, SKINS.ocean];
 
 export const LEGACY_THEME_TO_SKIN: Record<string, SkinId> = {
   light: 'classic',

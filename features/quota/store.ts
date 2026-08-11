@@ -32,6 +32,18 @@ interface QuotaState {
   quotaExceededAt: number;
   /** Pro 사용자의 quota_exceeded 시각. ProLimitReachedModal trigger (광고 X, 안내만). */
   proLimitReachedAt: number;
+  /**
+   * 광고 보상을 받은 뒤 이어서 실행할 재시도. 한도에 막힌 화면이 자기 것을 등록한다.
+   *
+   * 보상형 광고 모달은 앱 루트에 하나뿐이라(GlobalRewardedAdModal) 누가 막혔는지 모른다.
+   * 이 슬롯이 없던 동안에는 광고를 끝까지 봐도 하던 일이 이어지지 않아, 사용자가 검색을
+   * 처음부터 다시 눌러야 했다 — 보상을 받았는지조차 확신하기 어려웠다.
+   *
+   * ⚠️ 등록한 화면이 사라지면 반드시 거둬야 한다(언마운트 정리). 남아 있으면 없는 화면의
+   * 상태를 건드린다. 남의 등록을 지우지 않도록 "내가 넣은 것일 때만" 비울 것.
+   */
+  retryAfterReward: (() => void) | null;
+  setRetryAfterReward: (fn: (() => void) | null) => void;
 
   refresh: (force?: boolean) => Promise<void>;
   set: (s: QuotaStatus) => void;
@@ -52,6 +64,9 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   lastFetchedAt: 0,
   quotaExceededAt: 0,
   proLimitReachedAt: 0,
+  retryAfterReward: null,
+
+  setRetryAfterReward: (fn) => set({ retryAfterReward: fn }),
 
   refresh: async (force = false) => {
     if (!force && Date.now() - get().lastFetchedAt < STALE_MS) return;
@@ -99,7 +114,7 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
       lastFetchedAt: Date.now(),
     });
   },
-  clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0 }),
+  clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0, retryAfterReward: null }),
   notifyQuotaExceeded: (status) => {
     const current = get().status;
     // tier 우선순위: Edge 응답 quota > 기존 status > 'free' (게스트는 여기 도달 X)

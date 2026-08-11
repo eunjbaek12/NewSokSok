@@ -4,8 +4,28 @@ Play Console에 앱 등록할 때 입력해야 하는 텍스트들을 언어별�
 
 ## 파일
 
-- [`ko.md`](./ko.md) — 한국어 (기본 언어로 등록 권장)
-- [`en.md`](./en.md) — 영어 (글로벌 출시 시 추가 등록)
+**Play 용** — `<lang>.md`
+
+- [`ko.md`](./ko.md) — 한국어 (기본 언어)
+- [`en.md`](./en.md) — 영어
+- [`ja.md`](./ja.md) · [`vi.md`](./vi.md) · [`zh.md`](./zh.md)
+- [`es.md`](./es.md) — 스페인어 (`es-ES` · `es-419`, 2026-08-05 신설)
+- `play-description-1.3.0/*.txt` — 실제 붙여넣은 전체 설명 스냅샷
+
+**App Store 용** — `ios-<lang>.md`
+
+- [`ios-ko.md`](./ios-ko.md) · [`ios-en.md`](./ios-en.md) — ASC 등록 로케일
+- [`ios-es.md`](./ios-es.md) — 스페인어 (Spain · Mexico, 2026-08-05 신설)
+- [`ios-ja.md`](./ios-ja.md) · [`ios-vi.md`](./ios-vi.md) · [`ios-zh.md`](./ios-zh.md) — **ASC 미등록**(원고만 있음)
+
+**버전별**
+
+- `release-notes-<ver>.txt` — Play 출시 노트, `<로케일>` 태그 형식 그대로 붙여넣기
+- `appstore-<ver>.txt` — App Store "이번 버전의 새로운 기능" + 홍보 텍스트
+
+> ⚠️ **같은 로케일 원고가 Play 용·iOS 용 두 벌 있다.** 문구를 바꿀 땐
+> `grep -rn "<문구>" store-assets/listing/` 로 **양쪽 다** 확인할 것 — 한쪽만 고쳐서
+> iOS 원고 3개에 거짓 문구가 남았던 이력이 있다(2026-08-02).
 
 ## Play Console 입력 위치
 

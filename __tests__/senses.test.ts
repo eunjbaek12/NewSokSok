@@ -5,6 +5,7 @@ import {
   fitsSaveLimits,
   stripSenseMarkers,
   senseChipLabel,
+  assembleTopText,
   MAX_SENSES,
 } from '@/lib/senses';
 import { AIWordResultSchema } from '@shared/contracts';
@@ -240,5 +241,38 @@ describe('AIWordResultSchema senses 하위호환', () => {
   it('senses 5개 초과는 거부(max 4) — 수신 상한', () => {
     const many = Array.from({ length: 5 }, () => eye);
     expect(AIWordResultSchema.safeParse({ ...baseResult, senses: many }).success).toBe(false);
+  });
+});
+
+// 모델이 "senses 안에는 번호를 넣지 말라"는 지시를 어기고 번호를 박아 보내는 경우가
+// 실측 4% 있었다(vi>es "lại" → senses[0].meaningKr 이 "① de nuevo"). 그대로 조립하면
+// 번호가 두 번 찍힌다.
+describe('senses 안에 번호가 딸려 온 경우', () => {
+  const numbered1 = { ...eye, meaningKr: '① eye (organ of sight)', definition: '① 사람의 시각 기관', pos: '① noun' };
+  const numbered2 = { ...snow, meaningKr: '② snow', definition: '② 하늘에서 내리는 얼음 결정체' };
+
+  it('composeSenseFill 병기 — 번호가 겹쳐 찍히지 않는다', () => {
+    const fill = composeSenseFill([0, 1], [numbered1, numbered2], base);
+    expect(fill.meaningKr).toBe('① eye (organ of sight) ② snow');
+    expect(fill.definition).toBe('① 사람의 시각 기관 ② 하늘에서 내리는 얼음 결정체');
+    expect(fill.meaningKr).not.toMatch(/[①②③④]\s*[①②③④]/);
+  });
+
+  it('composeSenseFill 1개 선택 — 홀로 남는 번호를 벗긴다', () => {
+    const fill = composeSenseFill([0], [numbered1, numbered2], base);
+    expect(fill.meaningKr).toBe('eye (organ of sight)');
+    expect(fill.definition).toBe('사람의 시각 기관');
+    expect(fill.pos).toBe('noun');
+  });
+
+  it('assembleTopText — 서버 조립도 같은 규칙', () => {
+    expect(assembleTopText([numbered1, numbered2], 'meaningKr')).toBe('① eye (organ of sight) ② snow');
+    expect(assembleTopText([eye, snow], 'meaningKr')).toBe('① eye (organ of sight) ② snow');
+  });
+
+  it('assembleTopText — 빈 항목은 번호째 건너뛰어 뜻 번호와의 대응을 지킨다', () => {
+    const noDef = { meaningKr: 'snow' };
+    expect(assembleTopText([eye, noDef, discern], 'definition'))
+      .toBe(`① ${eye.definition} ③ ${discern.definition}`);
   });
 });

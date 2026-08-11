@@ -1,0 +1,132 @@
+＊ 로케일마다 내용이 다르다. 스페인어 UI 추가는 ko·ja·vi·zh 사용자에게 아무 의미가 없고
+＊ (그들이 앱을 열어도 달라지는 게 없다), es 는 Play 등록 로케일이 아니라 스페인어권
+＊ 사용자는 en 등록정보를 본다. 그래서 스페인어 소식은 en 에만 적는다.
+＊ 나머지 세 가지(여름 스킨·AI 안내·광고 후 이어하기)는 전 로케일 공통이다.
+＊
+＊ 시작 속도 개선은 적지 않는다 — 코드 근거는 있지만 얼마나 빨라졌는지 못 쟀다.
+＊
+＊ 🔴 Play 출시 노트는 로케일마다 500자 제한이다. 처음 쓴 en-US 는 530자로 넘어 있었고
+＊ 붙여넣기 직전에 재서 발견했다 — 쓸 때마다 `[...s].length` 로 셀 것.
+＊ 현재: ko-KR 291 · en-US 498 · ja-JP 226 · vi 432 · zh-CN 176 · es-ES/es-419 각 494.
+＊ 스페인어는 영어보다 20~25% 길어져 같은 구조로 옮기면 넘친다 — 「그 밖에」를 한 줄로 합쳤다.
+＊
+＊ 2026-08-05 제출분부터 Play 에 스페인어 로케일(es-ES · es-419)이 열렸다. 두 벌은 같은
+＊ 텍스트다. 지역 없는 `es` 는 Play 언어 목록에 없다.
+
+<ko-KR>
+1.4.0 업데이트
+
+🏖️ 여름 바다 스킨
+밀짚모자를 쓴 아보카도와 파도 배경. 설정 › 테마에서 바꿀 수 있어요.
+
+💡 AI가 뜻을 못 채웠을 때 이유를 알려드려요
+뜻 칸이 비어 있으면 왜 그런지, 어떻게 하면 채워지는지 그 자리에서 안내해요.
+
+📺 광고를 보고 나면 하던 일이 이어져요
+한도가 차서 광고를 봤다면, 멈춰 있던 자동완성이 알아서 다시 돕니다.
+
+그 밖에
+- 구독 복원 결과를 알려드려요. 다른 계정에 연결된 구매는 안내와 함께 막습니다.
+- 좁은 화면에서 잘리던 글자와 어긋나던 가운데 정렬을 고쳤어요.
+</ko-KR>
+<en-US>
+1.4.0
+
+🌐 The app now speaks Spanish
+A full interface language, alongside Korean and English.
+
+🏖️ Summer Sea skin
+A straw-hat avocado and a wave background. Settings › Theme.
+
+💡 When AI cannot fill a meaning, we say why
+An empty meaning field explains why, and what to do.
+
+📺 Watch an ad, pick up where you left off
+After a rewarded ad, the autocomplete you were waiting on resumes.
+
+Also
+- Subscription restore now tells you the result.
+- Fixed clipped labels and off-centre text on narrow screens.
+</en-US>
+<ja-JP>
+1.4.0 アップデート
+
+🏖️ 夏の海スキン
+麦わら帽子のアボカドと波の背景。設定 › テーマから変更できます。
+
+💡 AIが意味を埋められなかった理由をお知らせします
+意味欄が空のとき、その理由と対処法をその場で表示します。
+
+📺 広告を見たあとは、続きから
+上限に達して広告を見たら、止まっていた自動入力が自動で再開します。
+
+そのほか
+- 定期購入の復元結果をお知らせします。
+- 狭い画面で切れていた文字や、ずれていた中央揃えを修正しました。
+</ja-JP>
+<vi>
+Cập nhật 1.4.0
+
+🏖️ Giao diện Biển Mùa Hè
+Quả bơ đội mũ rơm và nền sóng biển. Đổi ở Cài đặt › Giao diện.
+
+💡 Cho bạn biết vì sao AI không điền được nghĩa
+Khi ô nghĩa trống, ứng dụng sẽ giải thích lý do và cách khắc phục.
+
+📺 Xem quảng cáo xong là học tiếp
+Sau khi xem quảng cáo thưởng, thao tác tự động điền đang chờ sẽ tự chạy lại.
+
+Khác
+- Khôi phục gói đăng ký nay báo rõ kết quả.
+- Sửa chữ bị cắt và căn giữa lệch trên màn hình hẹp.
+</vi>
+<zh-CN>
+1.4.0 更新
+
+🏖️ 夏日海洋皮肤
+戴草帽的牛油果和海浪背景。可在“设置 › 主题”中切换。
+
+💡 AI 没能填出释义时会告诉你原因
+释义栏为空时，会当场说明原因以及如何解决。
+
+📺 看完广告，接着刚才继续
+达到上限后看完激励广告，之前卡住的自动填充会自动继续。
+
+其他
+- 恢复订阅时会明确告知结果。
+- 修复了窄屏上文字被截断和居中偏移的问题。
+</zh-CN>
+<es-ES>
+Actualización 1.4.0
+
+🌐 La app ya habla español
+Se suma al coreano y al inglés como idioma de la interfaz.
+
+🏖️ Tema Mar de Verano
+Un aguacate con sombrero de paja y olas. Ajustes › Tema.
+
+💡 Por qué la IA no completó un significado
+Si el campo está vacío, te explicamos el motivo y la solución.
+
+📺 Ve un anuncio y sigue donde lo dejaste
+El autocompletado en pausa se reanuda solo.
+
+Además: te decimos el resultado al restaurar una suscripción, y corregimos textos cortados en pantallas estrechas.
+</es-ES>
+<es-419>
+Actualización 1.4.0
+
+🌐 La app ya habla español
+Se suma al coreano y al inglés como idioma de la interfaz.
+
+🏖️ Tema Mar de Verano
+Un aguacate con sombrero de paja y olas. Ajustes › Tema.
+
+💡 Por qué la IA no completó un significado
+Si el campo está vacío, te explicamos el motivo y la solución.
+
+📺 Ve un anuncio y sigue donde lo dejaste
+El autocompletado en pausa se reanuda solo.
+
+Además: te decimos el resultado al restaurar una suscripción, y corregimos textos cortados en pantallas estrechas.
+</es-419>

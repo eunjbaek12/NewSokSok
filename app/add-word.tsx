@@ -348,6 +348,7 @@ export default function AddWordScreen() {
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        enrichFallback,
         sensePicker,
         toggleSense,
         dismissSensePicker,
@@ -358,6 +359,22 @@ export default function AddWordScreen() {
             Alert.alert(t('addWord.aiQuotaTitle'), t('addWord.aiQuotaMessage'));
         }
     }, [aiQuotaHitAt]);
+
+    // AI가 실패해 무료 사전으로 대체된 경우의 안내. 사전은 뜻을 주지 못해 그 칸만 비는데,
+    // 이유를 말해 주지 않으면 "AI가 일부만 채웠다"로 읽힌다.
+    // ⚠️ quotaExceeded는 제외한다 — 그 사유는 edge-enrich가 이미 전역 보상형 광고 모달을
+    // 띄우므로 여기까지 안내하면 화면에 두 개가 겹친다.
+    // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
+    const fallbackNotice = useMemo(() => {
+        if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
+        if (enrichFallback === 'guest') {
+            return { text: t('addWord.fallbackGuest'), action: t('addWord.fallbackGuestAction'), onPress: () => router.push('/login') };
+        }
+        if (enrichFallback === 'invalidKey') {
+            return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
+        }
+        return { text: t('addWord.fallbackServer'), action: null, onPress: null };
+    }, [enrichFallback, meaningKr, t]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -1321,15 +1338,33 @@ export default function AddWordScreen() {
 
                                     if (fieldId === 'meaningKr') {
                                         return (
-                                            <Input
-                                                key="meaningKr"
-                                                label={getMeaningLabel(targetLang, t)}
-                                                placeholder={getMeaningLabel(targetLang, t)}
-                                                value={meaningKr}
-                                                maxLength={200}
-                                                onChangeText={(v: string) => { setMeaningKr(v); dismissSensePicker(); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                                error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
-                                            />
+                                            <View key="meaningKr">
+                                                <Input
+                                                    label={getMeaningLabel(targetLang, t)}
+                                                    placeholder={getMeaningLabel(targetLang, t)}
+                                                    value={meaningKr}
+                                                    maxLength={200}
+                                                    onChangeText={(v: string) => { setMeaningKr(v); dismissSensePicker(); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                    error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
+                                                />
+                                                {fallbackNotice && (
+                                                    <View style={styles.fallbackNotice}>
+                                                        <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} style={styles.fallbackNoticeIcon} />
+                                                        <Text style={[styles.fallbackNoticeText, { color: colors.textTertiary }]}>
+                                                            {fallbackNotice.text}
+                                                            {fallbackNotice.action ? ' ' : ''}
+                                                            {fallbackNotice.action && (
+                                                                <Text
+                                                                    onPress={fallbackNotice.onPress ?? undefined}
+                                                                    style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}
+                                                                >
+                                                                    {fallbackNotice.action}
+                                                                </Text>
+                                                            )}
+                                                        </Text>
+                                                    </View>
+                                                )}
+                                            </View>
                                         );
                                     }
 
@@ -1815,6 +1850,12 @@ const styles = StyleSheet.create({
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
+    // Input은 아래 여백이 0이고(container gap:6은 라벨↔입력칸 사이다), 필드 간격은
+    // 부모 fieldsContainer의 gap:10이 준다. 그래서 위로만 6을 띄우고 아래는 두지 않는다
+    // — 음수 마진을 주면 입력칸을 파고들고, 아래 마진을 주면 부모 gap과 겹쳐 벌어진다.
+    fallbackNotice: { flexDirection: 'row', alignItems: 'flex-start', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    fallbackNoticeIcon: { marginTop: 1 },
+    fallbackNoticeText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
     wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },

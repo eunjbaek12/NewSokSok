@@ -40,12 +40,20 @@ export interface Announcement {
 //    안 띄우는 편이 낫다).
 export const ANNOUNCEMENTS: Announcement[] = [
   {
-    version: '1.3.0',
-    date: '2026-07-30',
+    version: '1.4.0',
+    date: '2026-08-06',
+    // 앞 세 줄은 1.3.0 에 실었던 소식이다. 1.3.0 에서는 아무에게도 뜨지 않았다 —
+    // 판정에 쓰는 @soksok_last_seen_version 키가 1.3.0 에서 처음 생겨서, 1.2.x 에서
+    // 올라온 기존 사용자가 전부 "신규 설치"로 분류돼 조용히 기록만 되고 넘어갔다
+    // (use-whats-new.ts). 그래서 1.3.0 항목을 남겨 두지 않고 여기로 옮겼다 —
+    // 두 벌로 두면 목록 화면에 같은 문장이 두 카드에 중복으로 뜬다.
     items: [
-      { key: 'whatsNew.v130_1', icon: 'refresh' },
-      { key: 'whatsNew.v130_2', icon: 'search' },
-      { key: 'whatsNew.v130_3', icon: 'chatbubble-ellipses' },
+      { key: 'whatsNew.v140_1', icon: 'refresh' },
+      { key: 'whatsNew.v140_2', icon: 'search' },
+      { key: 'whatsNew.v140_3', icon: 'chatbubble-ellipses' },
+      // 설정의 앱 언어 행이 쓰는 globe, 스킨은 설정에 아이콘이 없어 새로 고른다.
+      { key: 'whatsNew.v140_4', icon: 'globe' },
+      { key: 'whatsNew.v140_5', icon: 'color-palette' },
     ],
   },
 ];

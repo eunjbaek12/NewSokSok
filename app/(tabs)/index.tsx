@@ -11,7 +11,6 @@ import {
   Modal,
 } from 'react-native';
 import CharacterSvg from '@/components/CharacterSvg';
-import { CharacterAccessory } from '@/components/CharacterAccessory';
 import { OceanBackdrop } from '@/components/OceanBackdrop';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -245,10 +244,7 @@ export default function DashboardScreen() {
 
       {/* Fixed Header / Greeting */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <View style={{ width: 56, height: 56 }}>
-          <CharacterSvg size={56} isDark={isDark} />
-          <CharacterAccessory accessory={skin.characterAccessory} size={56} />
-        </View>
+        <CharacterSvg size={56} isDark={isDark} />
         <View style={styles.headerTextArea}>
           <Text style={[styles.greeting, { color: colors.text, fontFamily: fontFamily.bold }]} numberOfLines={1}>
             {t('home.greeting')}<Text style={{ color: colors.primary, fontFamily: fontFamily.bold }}>{displayName}</Text>
@@ -704,10 +700,7 @@ export default function DashboardScreen() {
               {/* Empty: 플랜 자체가 없음 */}
               {planItems.length === 0 && (
                 <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                  <View style={{ width: 72, height: 72 }}>
-                    <CharacterSvg size={72} isDark={isDark} wave />
-                    <CharacterAccessory accessory={skin.characterAccessory} size={72} />
-                  </View>
+                  <CharacterSvg size={72} isDark={isDark} wave />
                   <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>{t('home.emptyTitle')}</Text>
                   <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>{t('home.emptySubtitle')}</Text>
                   <Pressable
@@ -770,10 +763,7 @@ export default function DashboardScreen() {
             <View style={[styles.resultSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
               <View style={styles.resultHeaderRow}>
-                <View style={{ width: 48, height: 48 }}>
-                  <CharacterSvg size={48} isDark={isDark} wave />
-                  <CharacterAccessory accessory={skin.characterAccessory} size={48} />
-                </View>
+                <CharacterSvg size={48} isDark={isDark} wave />
                 <View style={styles.resultTitleRow}>
                   <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
                     {t('home.studyResult')}

@@ -19,7 +19,8 @@
  *   SUPABASE_URL=... SERVICE_ROLE_KEY=... npx -y tsx scripts/seed-cache.ts [옵션]
  * 옵션:
  *   --limit N        앞에서 N건만 (소규모 시험용. 목록이 섞여 있어 전 언어쌍이 골고루 들어간다)
- *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건)
+ *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건). 4(=동시 80건)로 올리면 Vertex 가
+ *                    429 를 쏟는다 — 실측 15,050건 중 46.8% 실패. 2 를 넘기지 말 것.
  *   --pairs a>b,c>d  언어쌍을 골라서만 (기본: 30쌍 전부). 없는 쌍을 적으면 즉시 실패한다
  *   --dry-run        호출·저장 없이 대상 건수만 센다
  */
@@ -278,7 +279,18 @@ async function loadExistingKeys(db: any): Promise<Set<string>> {
 }
 
 // ── 3. Edge 호출 ────────────────────────────────────────────────────────
-async function callSeed(items: Job[], attempt = 1): Promise<SeedResult[]> {
+const VERTEX_RETRY = 3;           // Vertex 429 를 맞은 '항목'을 다시 시도하는 횟수
+const VERTEX_BACKOFF_MS = 5000;   // 5s → 10s → 15s
+
+const keyOf = (x: { sourceLang: string; targetLang: string; term: string }) =>
+  `${x.sourceLang}|${x.targetLang}|${x.term}`;
+
+/** Vertex 가 지금 바쁜 것뿐이라 다시 던지면 될 실패인가. */
+const isVertexBusy = (r: SeedResult) =>
+  !r.ok && /\(429\)|RESOURCE_EXHAUSTED|\(5\d\d\)/.test(r.error ?? '');
+
+/** seed-enrich 를 한 번 호출한다. 여기서 다시 시도하는 건 HTTP 단의 429·5xx 뿐이다. */
+async function postSeed(items: Job[], attempt = 1): Promise<SeedResult[]> {
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/seed-enrich`, {
       method: 'POST',
@@ -290,15 +302,39 @@ async function callSeed(items: Job[], attempt = 1): Promise<SeedResult[]> {
       // 429·5xx 는 잠시 쉬고 다시 — Vertex 쪽 일시적 한계일 뿐이라 포기할 이유가 없다.
       if ((res.status === 429 || res.status >= 500) && attempt <= 4) {
         await sleep(2000 * attempt);
-        return callSeed(items, attempt + 1);
+        return postSeed(items, attempt + 1);
       }
       return items.map(it => ({ ...it, ok: false, error: `${res.status} ${text.slice(0, 120)}` }));
     }
     return (await res.json()).results as SeedResult[];
   } catch (e: any) {
-    if (attempt <= 4) { await sleep(2000 * attempt); return callSeed(items, attempt + 1); }
+    if (attempt <= 4) { await sleep(2000 * attempt); return postSeed(items, attempt + 1); }
     return items.map(it => ({ ...it, ok: false, error: e?.message ?? String(e) }));
   }
+}
+
+/**
+ * Vertex 429 는 Edge 가 HTTP 200 으로 감싸 results[].error 안에 담아 보낸다 — postSeed 의
+ * 상태코드 재시도는 이걸 볼 수 없다. 실측: 동시 80건으로 15,050건을 돌리자 7,023건(46.8%)이
+ * 한 번도 재시도되지 않고 실패로 굳었다. 그래서 항목 단위로 다시 시도한다.
+ *
+ * 백오프를 5초부터 길게 잡는 이유는, 이 429 가 순간 폭주가 아니라 할당량 소진이라서다.
+ * 곧바로 다시 던지면 같은 벽에 그대로 부딪힌다.
+ */
+async function callSeed(items: Job[]): Promise<SeedResult[]> {
+  const got = new Map<string, SeedResult>();
+  let pending = items;
+
+  for (let round = 0; round <= VERTEX_RETRY && pending.length; round++) {
+    if (round > 0) await sleep(VERTEX_BACKOFF_MS * round);
+    const results = await postSeed(pending);
+    for (const r of results) got.set(keyOf(r), r);
+    pending = results.filter(isVertexBusy)
+      .map(r => ({ term: r.term, sourceLang: r.sourceLang, targetLang: r.targetLang }));
+  }
+
+  // 응답에 없던 항목까지 반드시 자리를 채운다 — 빠지면 호출자가 조용히 건수를 잃는다.
+  return items.map(it => got.get(keyOf(it)) ?? { ...it, ok: false, error: '응답 누락' });
 }
 
 // ── 실행 ────────────────────────────────────────────────────────────────

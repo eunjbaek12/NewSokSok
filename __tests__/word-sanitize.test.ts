@@ -12,11 +12,45 @@ import {
   WORD_SAVE_CAPS,
   sanitizeWordField,
   sanitizeWordForSave,
+  stripControlChars,
 } from '../utils/word-sanitize';
 
 function repeat(ch: string, n: number): string {
   return ch.repeat(n);
 }
+
+// 공용 캐시 시딩(scripts/seed-cache.ts)이 이 함수에 기대는 계약. 길이를 자르거나 앞뒤
+// 공백을 없애면 캐시에 원본과 다른 값이 굳으므로, 제어문자만 건드려야 한다.
+describe('stripControlChars — 제어문자만, 길이·공백은 그대로', () => {
+  const NUL = String.fromCharCode(0);
+
+  it('U+0000 을 공백으로 바꾼다 — Postgres jsonb 가 거부하는 그 문자', () => {
+    expect(stripControlChars(`음성${NUL}, 문자${NUL}`)).toBe('음성 , 문자 ');
+    expect(stripControlChars(NUL)).toBe(' ');
+  });
+
+  it('제어문자 전 구간(U+0000–001F, U+007F–009F)을 덮는다', () => {
+    expect(stripControlChars(`a${String.fromCharCode(0x1f)}b`)).toBe('a b');
+    expect(stripControlChars(`a${String.fromCharCode(0x7f)}b`)).toBe('a b');
+    expect(stripControlChars(`a${String.fromCharCode(0x9f)}b`)).toBe('a b');
+  });
+
+  it('앞뒤 공백을 남긴다 — sanitizeWordField 와 갈리는 지점', () => {
+    expect(stripControlChars('  가운데  ')).toBe('  가운데  ');
+    expect(sanitizeWordField('  가운데  ', 100)).toBe('가운데');
+  });
+
+  it('길이를 자르지 않는다', () => {
+    const long = repeat('가', 5000);
+    expect(stripControlChars(long)).toHaveLength(5000);
+  });
+
+  it('멀쩡한 문자열·이모지·빈 문자열은 그대로', () => {
+    expect(stripControlChars('ございます')).toBe('ございます');
+    expect(stripControlChars('🥑 avocado')).toBe('🥑 avocado');
+    expect(stripControlChars('')).toBe('');
+  });
+});
 
 describe('sanitizeWordField', () => {
   test('C0 control chars (LF/Tab/NUL) become spaces', () => {

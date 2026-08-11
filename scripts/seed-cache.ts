@@ -28,6 +28,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 import { canBlankExample } from '../lib/example-blank';
 import { cleanPhonetic } from '../lib/phonetic';
+import { stripControlChars } from '../utils/word-sanitize';
 
 const SUPABASE_URL = process.env.SUPABASE_URL!;
 const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY!;
@@ -201,6 +202,25 @@ function defectOf(r: SeedResult): string | null {
 
   return numberingViolation('뜻', res.meaningKr, senses.length)
     ?? numberingViolation('정의', res.definition, senses.length);
+}
+
+/**
+ * 저장 직전 제어문자를 걷어낸다. Postgres jsonb 는 U+0000 을 거부하는데 Gemini 가 드물게
+ * 뱉는다 — 실측 6,991건 중 1건(ko>vi "언어"의 definition 에 4개). 청크 단위 upsert 라
+ * 그 한 건이 같은 청크 219건을 통째로 막았고, 다시 만들면 그만큼 돈이 또 든다.
+ *
+ * term 은 손대지 않는다. 캐시 키라서 바꾸면 앱이 조회할 때 어긋난다.
+ * 판정(defectOf)은 이미 원본으로 끝난 뒤라 검사 결과에는 영향이 없다.
+ */
+function scrub<T>(v: T): T {
+  if (typeof v === 'string') return stripControlChars(v) as unknown as T;
+  if (Array.isArray(v)) return v.map(scrub) as unknown as T;
+  if (v && typeof v === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const [k, x] of Object.entries(v)) out[k] = scrub(x);
+    return out as unknown as T;
+  }
+  return v;
 }
 
 /** senses 예문에서 표제어 자리를 못 찾은 개수 — 재생성하지 않고 기록만 한다. */
@@ -435,7 +455,7 @@ async function main() {
 
     buffer.push({
       source_lang: r.sourceLang, target_lang: r.targetLang, term: r.term,
-      result: res, prompt_version: PROMPT_VERSION, updated_at: new Date().toISOString(),
+      result: scrub(res), prompt_version: PROMPT_VERSION, updated_at: new Date().toISOString(),
     });
   }
 

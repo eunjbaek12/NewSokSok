@@ -28,14 +28,24 @@ function isControl(code: number): boolean {
   return code <= 0x1f || (code >= 0x7f && code <= 0x9f);
 }
 
-// 제어문자를 공백으로 치환 → trim → cap 초과 시 자름. 보이는 공백은 보존한다.
-export function sanitizeWordField(value: string, cap: number): string {
+// 제어문자를 공백으로 치환한다. 길이·앞뒤 공백은 건드리지 않는다 — 공용 캐시
+// (scripts/seed-cache.ts)는 원본을 그대로 보존해야 해서 클램프와 떼어 두었다.
+//
+// 캐시 쪽에서 이게 필요한 이유: Postgres jsonb 는 U+0000 을 거부하는데 Gemini 가 드물게
+// 뱉는다(실측 6,991건 중 1건). 청크 단위 upsert 라 그 1건이 같은 청크 219건을 통째로
+// 막았다 — 다시 만들면 그만큼 돈이 또 든다.
+export function stripControlChars(value: string): string {
   let out = '';
   for (const ch of value) {
     const code = ch.codePointAt(0) ?? 0;
     out += isControl(code) ? ' ' : ch;
   }
-  out = out.trim();
+  return out;
+}
+
+// 제어문자를 공백으로 치환 → trim → cap 초과 시 자름. 보이는 공백은 보존한다.
+export function sanitizeWordField(value: string, cap: number): string {
+  const out = stripControlChars(value).trim();
   return out.length > cap ? out.slice(0, cap) : out;
 }
 

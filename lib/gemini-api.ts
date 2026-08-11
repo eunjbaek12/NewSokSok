@@ -1,5 +1,6 @@
 import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contracts';
 import { scanImageViaEdge } from '@/lib/ai/edge-scan';
+import { byokGenerateContentUrl } from '@/lib/ai/model';
 
 const LANG_NAMES: Record<string, string> = {
     en: 'English',
@@ -82,7 +83,7 @@ export const fetchWordsFromImage = async (
     }
 
     const langName = LANG_NAMES[sourceLang] || 'English';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
+    const url = byokGenerateContentUrl(GEMINI_API_KEY);
     const payload = {
         contents: [
             {

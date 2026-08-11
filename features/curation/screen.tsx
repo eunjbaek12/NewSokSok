@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { useTheme } from '@/features/theme';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
@@ -172,7 +173,7 @@ const generateViaByok = async (
     excludeTerms?: string[],
     signal?: AbortSignal,
 ): Promise<unknown> => {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
+    const url = byokGenerateContentUrl(apiKey);
     const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
 
     const payload = {

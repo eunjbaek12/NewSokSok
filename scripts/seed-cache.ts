@@ -20,6 +20,7 @@
  * 옵션:
  *   --limit N        앞에서 N건만 (소규모 시험용. 목록이 섞여 있어 전 언어쌍이 골고루 들어간다)
  *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건)
+ *   --pairs a>b,c>d  언어쌍을 골라서만 (기본: 30쌍 전부). 없는 쌍을 적으면 즉시 실패한다
  *   --dry-run        호출·저장 없이 대상 건수만 센다
  */
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -64,9 +65,20 @@ const optNum = (name: string, dflt: number) => {
   const i = argv.indexOf(name);
   return i >= 0 && argv[i + 1] ? Number(argv[i + 1]) : dflt;
 };
+const optStr = (name: string, dflt: string) => {
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : dflt;
+};
 const LIMIT = optNum('--limit', 0);
 const CONCURRENCY = optNum('--concurrency', 2);
 const DRY_RUN = argv.includes('--dry-run');
+// 언어쌍을 골라 돌린다 (예: --pairs en>ko,ko>en). 실사용이 en>ko 에 86.5% 몰려 있어
+// 30쌍을 한 번에 만들 이유가 없다 — 수요가 확인된 쌍부터 채우고 넓힌다.
+const PAIR_FILTER = (() => {
+  const raw = optStr('--pairs', '').trim();
+  if (!raw) return null;
+  return new Set(raw.split(',').map(s => s.trim()).filter(Boolean));
+})();
 
 interface Job { term: string; sourceLang: string; targetLang: string }
 interface SeedResult { term: string; sourceLang: string; targetLang: string; ok: boolean; result?: any; error?: string }
@@ -215,11 +227,23 @@ function collectJobs(): Job[] {
     }
   }
 
+  // 오타 난 쌍 이름은 조용히 0건이 되어 "다 만들었다"는 착각을 부른다. 먼저 막는다.
+  if (PAIR_FILTER) {
+    const all = new Set<string>();
+    for (const s of bySrc.keys()) for (const t of LANGS) if (t !== s) all.add(`${s}>${t}`);
+    const unknown = [...PAIR_FILTER].filter(p => !all.has(p));
+    if (unknown.length) {
+      throw new Error(`--pairs 에 없는 언어쌍: ${unknown.join(', ')}\n  가능한 쌍: ${[...all].sort().join(', ')}`);
+    }
+  }
+
   const byPair = new Map<string, Job[]>();
   for (const [sourceLang, terms] of bySrc) {
     for (const targetLang of LANGS) {
       if (targetLang === sourceLang) continue;   // 같은 언어쌍은 시딩 대상에서 제외
-      byPair.set(`${sourceLang}>${targetLang}`, [...terms].map(term => ({ term, sourceLang, targetLang })));
+      const pair = `${sourceLang}>${targetLang}`;
+      if (PAIR_FILTER && !PAIR_FILTER.has(pair)) continue;
+      byPair.set(pair, [...terms].map(term => ({ term, sourceLang, targetLang })));
     }
   }
 

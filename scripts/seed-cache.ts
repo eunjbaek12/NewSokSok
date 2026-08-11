@@ -25,6 +25,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 import { canBlankExample } from '../lib/example-blank';
+import { cleanPhonetic } from '../lib/phonetic';
 
 const SUPABASE_URL = process.env.SUPABASE_URL!;
 const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY!;
@@ -155,6 +156,16 @@ function defectOf(r: SeedResult): string | null {
     ?? check('예문번역', res.exampleKr, r.targetLang);
   if (top) return top;
 
+  // 발음 표기는 '가드가 통째로 버리는 것'만 재생성 사유로 삼는다. 살려내는 흠(괄호 병기
+  // "ああ (아아)", 공백 "ござ いま す", vi 성조 막대)까지 사유로 삼으면 헛돈이다 — 특히
+  // vi 성조 막대는 프롬프트가 금지하는데도 실측 8.9%로 계속 나오고(v7 포함) 재생성해도
+  // 같은 관성으로 또 붙는데, stripToneBars 가 읽기 경로에서 완전히 지운다. 반면 일본어
+  // 한글 전사("와인")는 가드가 버릴 수밖에 없어 발음 정보가 사라지므로 다시 만들 값어치가
+  // 있다. senses 예문의 slay/slain 가짜 경보와 같은 함정을 피하려는 것이다.
+  const phoneticGone = (p: unknown) =>
+    typeof p === 'string' && p.trim().length > 0 && !cleanPhonetic(p, r.sourceLang, r.term);
+  if (phoneticGone(res.phonetic)) return `발음 표기 이탈 ${JSON.stringify(res.phonetic)}`;
+
   // 동음이의어는 뜻마다 별도 예문을 갖고 그게 화면(뜻 고르기 칩)에서 실제로 쓰인다.
   // 대표 필드만 보면 이 안쪽이 아무리 어긋나도 통과한다.
   //
@@ -170,6 +181,9 @@ function defectOf(r: SeedResult): string | null {
       ?? check(`뜻${i + 1} 예문`, s.exampleEn, r.sourceLang)
       ?? check(`뜻${i + 1} 예문번역`, s.exampleKr, r.targetLang);
     if (v) return v;
+    // 뜻마다 별도 발음 표기를 갖는다. 상위만 보면 안쪽 오염을 놓친다(실측: 御座います 는
+    // 상위와 senses 2개가 함께 "ござ이마스"로 나왔다).
+    if (phoneticGone(s.phonetic)) return `뜻${i + 1} 발음 표기 이탈 ${JSON.stringify(s.phonetic)}`;
   }
 
   return numberingViolation('뜻', res.meaningKr, senses.length)

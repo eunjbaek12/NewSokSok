@@ -42,6 +42,7 @@ export async function analyzeWord(
   word: string,
   sourceLang: string,
   targetLang: string,
+  allowProperNouns = true,
 ): Promise<AnalyzedWord> {
   const projectId = Deno.env.get('VERTEX_PROJECT_ID');
   const location = Deno.env.get('VERTEX_LOCATION') ?? 'us-central1';
@@ -59,7 +60,7 @@ export async function analyzeWord(
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
     `/locations/${location}/publishers/google/models/${model}:generateContent`;
 
-  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr);
+  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr, allowProperNouns);
 
   const body = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -140,7 +141,13 @@ function joinSenses(list: AnalyzedSense[], key: 'meaningKr' | 'definition'): str
     .join(' ');
 }
 
-function buildPrompt(word: string, srcName: string, tgtName: string, phoneticInstr: string): string {
+function buildPrompt(
+  word: string,
+  srcName: string,
+  tgtName: string,
+  phoneticInstr: string,
+  allowProperNouns: boolean,
+): string {
   const sameLang = srcName === tgtName;
   // 같은 언어쌍은 "번역" 지시가 무의미(no-op)해서 모델이 영어로 이탈하는 실측
   // 사례가 있었다(v5, ko→ko의 senses[].exampleKr가 전부 영어). 뜻은 쉬운 뜻풀이로,
@@ -150,11 +157,18 @@ function buildPrompt(word: string, srcName: string, tgtName: string, phoneticIns
 SAME-LANGUAGE MODE — the learner's language and the study language are BOTH ${srcName}:
 - "meaningKr" = a short, simpler gloss or synonyms in ${srcName} (easier wording than the definition). NEVER another language.
 - "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.` : '';
+  const properNounBlock = allowProperNouns ? '' : `
+
+COMMON-VOCABULARY SEEDING MODE:
+- ACCEPT useful forms that learners actually encounter: inflected forms (plurals, tenses, participles), contractions, and widely understood abbreviations. Explain the relationship to the base form in the definition and meaning. The example sentence MUST contain the exact input surface form, not only its lemma (for "rights", use "rights", not only "right").
+- ACCEPT countries, globally prominent cities or regions, and globally familiar brands/services when the entry has clear everyday learning value.
+- REJECT entries that are primarily an ordinary person's given name or surname, an obscure local place, a minor organization/product/title/fictional character, a username, a single-letter corpus fragment, or an ambiguous letter fragment with no broadly understood standalone meaning. For rejected entries, set "isReal" to false and return empty text fields.
+- A proper noun that also has a useful common dictionary meaning remains accepted for that ordinary meaning.`;
   return `Analyze the ${srcName} word/phrase "${word}".
 
 FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.
 - If YES (or you are reasonably confident it exists), set "isReal" to true and fill in the other fields.
-- If it appears to be a typo, gibberish, random characters, or you cannot find any recognized meaning, set "isReal" to false and return EMPTY STRINGS for all other text fields. Do NOT invent a plausible-sounding definition. Be lenient toward real but uncommon entries (slang, neologisms, technical terms, dialect, proper nouns) — only mark false when there is genuinely no recognizable meaning.
+- If it appears to be a typo, gibberish, random characters, or you cannot find any recognized meaning, set "isReal" to false and return EMPTY STRINGS for all other text fields. Do NOT invent a plausible-sounding definition. Be lenient toward real but uncommon entries (slang, neologisms, technical terms, dialect${allowProperNouns ? ', proper nouns' : ''}) — only mark false when there is genuinely no recognizable meaning.${properNounBlock}
 
 When isReal is true, provide:
 1. A simple definition in ${srcName}.

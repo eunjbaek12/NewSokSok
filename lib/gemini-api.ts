@@ -30,6 +30,7 @@ function buildExtractPrompt(langName: string, sourceLang: string): string {
  * 자리다(마침 그 비교는 아무 효과가 없는 죽은 가지였지만, 남겨 두면 언제든 살아난다).
  */
 export type ScanErrorCode =
+    | 'byokQuotaExceeded'
     | 'quotaExceeded'
     | 'rateLimited'
     | 'unauthorized'
@@ -120,14 +121,24 @@ export const fetchWordsFromImage = async (
             if (!response.ok) {
                 const errorText = await response.text();
                 let detail: string | undefined;
+                let status: string | undefined;
 
                 try {
                     const errJson = JSON.parse(errorText);
                     if (errJson.error && errJson.error.message) {
                         detail = errJson.error.message;
                     }
+                    status = errJson.error?.status;
                 } catch (e) {
                     // parsing failed — detail 없이 코드만으로 안내한다
+                }
+
+                // BYOK 할당량 소진은 장애가 아니라 사용자가 조치 가능한 정상 상태다.
+                // Google 원문은 영어이며 요금제별 상세까지 섞여 있으므로 사용자에게 노출하지
+                // 않고, 화면이 현지화된 정식 안내를 만들 수 있도록 코드만 전달한다.
+                // 같은 요청을 재시도해도 풀리지 않아 불필요한 호출도 즉시 멈춘다.
+                if (response.status === 429 || status === 'RESOURCE_EXHAUSTED') {
+                    throw new ScanError('byokQuotaExceeded');
                 }
 
                 // If it's a 400 Bad Request (likely a malformed payload or unrecoverable client error) don't retry,
@@ -161,6 +172,10 @@ export const fetchWordsFromImage = async (
         } catch (error: any) {
             // AbortError는 retry 없이 즉시 throw
             if (error.name === 'AbortError') throw error;
+
+            // 사용량 소진은 재시도로 회복되지 않는다. Google에 같은 요청을 반복해
+            // 지연시키지 말고 화면의 현지화 안내로 즉시 넘긴다.
+            if (error instanceof ScanError && error.code === 'byokQuotaExceeded') throw error;
 
             // 400은 payload 문제라 같은 요청을 다시 보내도 결과가 같다 — 즉시 포기.
             if (error.isBadRequest) throw error;

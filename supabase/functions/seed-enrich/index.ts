@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
   } catch { /* JWT 형식이 아니면 role 은 빈 문자열로 두고 아래에서 거부 */ }
   if (role !== 'service_role') return json(401, { error: 'unauthorized' });
 
-  let body: { items?: unknown };
+  let body: { items?: unknown; commonOnly?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -54,6 +54,7 @@ Deno.serve(async (req) => {
   }
 
   const raw = body.items;
+  const commonOnly = body.commonOnly === true;
   if (!Array.isArray(raw) || raw.length === 0 || raw.length > MAX_ITEMS) {
     return json(400, { error: 'invalid_request', detail: `items must be 1..${MAX_ITEMS}` });
   }
@@ -71,7 +72,7 @@ Deno.serve(async (req) => {
 
   const results = await Promise.all(items.map(async (it) => {
     try {
-      const result = await analyzeWord(it.term, it.sourceLang, it.targetLang);
+      const result = await analyzeWord(it.term, it.sourceLang, it.targetLang, !commonOnly);
       return { ...it, ok: true, result };
     } catch (e) {
       console.error('seed analyzeWord failed', it.term, it.sourceLang, it.targetLang, e);

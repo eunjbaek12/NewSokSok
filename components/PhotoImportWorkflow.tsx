@@ -211,7 +211,10 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             const message = error instanceof ScanError
                 ? t(`scanError.${error.code}`, { detail: error.detail ?? '' })
                 : (error?.message || t('photoImport.saveError'));
-            Alert.alert(t('common.error'), message);
+            const title = error instanceof ScanError && error.code === 'byokQuotaExceeded'
+                ? t('scanError.quotaTitle')
+                : t('common.error');
+            Alert.alert(title, message);
             setIsScanning(false);
         }
     };

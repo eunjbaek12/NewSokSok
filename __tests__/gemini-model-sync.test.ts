@@ -45,6 +45,24 @@ describe('Gemini 모델명은 한 곳에서만 선언된다', () => {
     expect(MODEL_LITERAL.test(src)).toBe(true);
     expect(/export const GEMINI_BYOK_MODEL\s*=/.test(src)).toBe(true);
   });
+
+  it('BYOK 세 경로가 모두 공통 모델 선언을 실제로 사용한다', () => {
+    const consumers = {
+      '단어 자동완성': 'lib/ai/gemini-client.ts',
+      '사진 스캔': 'lib/gemini-api.ts',
+      'AI 단어 생성': 'features/curation/screen.tsx',
+    } as const;
+
+    for (const [label, file] of Object.entries(consumers)) {
+      const src = readFileSync(join(root, file), 'utf8');
+      const usesSharedModel = file === 'lib/ai/gemini-client.ts'
+        ? /import\s*\{[^}]*GEMINI_BYOK_MODEL[^}]*\}\s*from\s*['"]@\/lib\/ai\/model['"]/.test(src)
+          && /model:\s*GEMINI_BYOK_MODEL/.test(src)
+        : /import\s*\{[^}]*byokGenerateContentUrl[^}]*\}\s*from\s*['"]@\/lib\/ai\/model['"]/.test(src)
+          && /byokGenerateContentUrl\(/.test(src);
+      expect({ label, file, usesSharedModel }).toEqual({ label, file, usesSharedModel: true });
+    }
+  });
 });
 
 /**

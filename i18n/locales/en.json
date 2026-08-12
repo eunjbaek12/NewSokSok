@@ -560,7 +560,7 @@
     "rewardedExhaustedProCta": "Upgrade to Pro",
     "rewardedCta": "Watch ad for +{{amount}} words",
     "rewardedGrantedTitle": "+{{amount}} words added",
-    "rewardedGrantedBody": "You can continue adding words.",
+    "rewardedGrantedBody": "Your AI quota increased and banner ads are hidden for 24 hours.",
     "rewardedLoadFailed": "Failed to load ad. Please try again later.",
     "rewardedShowFailed": "Failed to show ad.",
     "rewardGrantFailed": "Failed to add quota. Please try again later.",
@@ -1563,6 +1563,8 @@
     "cancel": "Cancel"
   },
   "scanError": {
+    "quotaTitle": "Usage limit reached",
+    "byokQuotaExceeded": "This Gemini API key has reached its current usage limit. Try again after the limit resets. Reset timing depends on the key's plan and Google AI Studio settings.",
     "quotaExceeded": "You've used today's AI limit. Watch an ad or try again later.",
     "rateLimited": "Too many requests. Please try again in a moment.",
     "unauthorized": "Please sign in again and retry.",
@@ -1571,7 +1573,7 @@
     "failed": "Couldn't analyze the photo. Please try again in a moment."
   },
   "aiError": {
-    "dailyQuota": "You've used up today's free daily limit. Please try again after midnight (Pacific Time).",
+    "dailyQuota": "This Gemini API key has reached today's usage limit. Try again after the limit resets.",
     "perMinuteQuota": "Per-minute request limit exceeded. Please try again in about a minute.",
     "quotaReached": "API usage limit reached. Please try again in a moment.",
     "permissionDenied": "This API key lacks permission. Check that the Generative Language API is enabled in Google AI Studio.",

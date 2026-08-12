@@ -523,7 +523,7 @@
     "rewardedExhaustedProCta": "Actualizar a Pro",
     "rewardedCta": "Ver anuncio para +{{amount}} palabras",
     "rewardedGrantedTitle": "Se añadieron +{{amount}} palabras",
-    "rewardedGrantedBody": "Puedes seguir añadiendo palabras.",
+    "rewardedGrantedBody": "Tu cuota de IA aumentó y los banners se ocultarán durante 24 horas.",
     "rewardedLoadFailed": "No se pudo cargar el anuncio. Inténtalo de nuevo más tarde.",
     "rewardedShowFailed": "No se pudo mostrar el anuncio.",
     "rewardGrantFailed": "No se pudo añadir la cuota. Inténtalo de nuevo más tarde.",
@@ -1150,6 +1150,8 @@
     "cancel": "Cancelar"
   },
   "scanError": {
+    "quotaTitle": "Límite de uso alcanzado",
+    "byokQuotaExceeded": "Esta clave de la API de Gemini ha alcanzado su límite de uso actual. Inténtalo de nuevo cuando se restablezca. El momento depende del plan de la clave y de la configuración de Google AI Studio.",
     "quotaExceeded": "Has agotado el límite diario de IA. Mira un anuncio o inténtalo de nuevo más tarde.",
     "rateLimited": "Demasiadas solicitudes. Por favor, inténtalo de nuevo en un momento.",
     "unauthorized": "Por favor, inicia sesión de nuevo e inténtalo.",
@@ -1158,7 +1160,7 @@
     "failed": "No se pudo analizar la foto. Por favor, inténtalo de nuevo en un momento."
   },
   "aiError": {
-    "dailyQuota": "Has agotado el límite diario gratuito. Por favor, inténtalo de nuevo después de medianoche (hora del Pacífico).",
+    "dailyQuota": "Esta clave de la API de Gemini ha alcanzado el límite de uso de hoy. Inténtalo de nuevo cuando se restablezca.",
     "perMinuteQuota": "Límite de solicitudes por minuto excedido. Por favor, inténtalo de nuevo en aproximadamente un minuto.",
     "quotaReached": "Límite de uso de la API alcanzado. Por favor, inténtalo de nuevo en un momento.",
     "permissionDenied": "Esta clave de API carece de permiso. Comprueba que la API de Lenguaje Generativo esté habilitada en Google AI Studio.",

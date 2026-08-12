@@ -108,18 +108,23 @@ describe('Gemini API fetchWordsFromImage', () => {
         expect(result).toEqual([{ word: 'test', meaning: '시험', exampleSentence: 'test' }]);
     });
 
-    it('should exhaust retries and throw error (max retry test)', async () => {
+    it('BYOK 할당량 소진은 영어 원문 없이 정식 코드로 즉시 반환한다', async () => {
         const errorResponse = {
             ok: false,
             status: 429,
-            text: jest.fn().mockResolvedValue(JSON.stringify({ error: { message: 'Rate limit exceeded' } })),
+            text: jest.fn().mockResolvedValue(JSON.stringify({
+                error: { status: 'RESOURCE_EXHAUSTED', message: 'Rate limit exceeded' },
+            })),
         };
 
         global.fetch = jest.fn().mockResolvedValue(errorResponse) as jest.Mock;
 
-        // Try with 1 max retry (2 calls total)
-        await expect(fetchWordsFromImage('testBase64', 1, undefined, 'TEST_API_KEY')).rejects.toMatchObject({ code: 'apiError', detail: 'Rate limit exceeded' });
-        expect(global.fetch).toHaveBeenCalledTimes(2);
+        await expect(fetchWordsFromImage('testBase64', 3, undefined, 'TEST_API_KEY')).rejects.toMatchObject({
+            code: 'byokQuotaExceeded',
+            detail: undefined,
+            message: 'byokQuotaExceeded',
+        });
+        expect(global.fetch).toHaveBeenCalledTimes(1);
     });
 
     it('should throw an error when API request fails (auth error format check)', async () => {

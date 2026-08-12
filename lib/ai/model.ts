@@ -13,7 +13,7 @@
  * 운영자 몫이라 교체 시점이 다를 수 있다). 다만 **모르는 새** 갈라지면 안 되므로
  * `__tests__/gemini-model-sync.test.ts` 가 양쪽을 대조한다.
  */
-export const GEMINI_BYOK_MODEL = 'gemini-2.5-flash-lite';
+export const GEMINI_BYOK_MODEL = 'gemini-3.5-flash-lite';
 
 /**
  * REST 로 직접 부르는 두 곳(사진 스캔 · AI 단어 생성)이 쓰는 엔드포인트.

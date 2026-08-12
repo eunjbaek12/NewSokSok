@@ -55,7 +55,7 @@ describe('Gemini API fetchWordsFromImage', () => {
 
         // 모델명이 URL에 그대로 박히므로 바뀌면 여기서 잡힌다.
         // (스위트가 오래 로드조차 안 되던 사이 preview 모델명이 정식명으로 바뀌어 있었다.)
-        expect(fetchArgs[0]).toContain('models/gemini-2.5-flash-lite:generateContent');
+        expect(fetchArgs[0]).toContain('models/gemini-3.5-flash-lite:generateContent');
         expect(fetchArgs[0]).toContain('key=TEST_API_KEY');
 
         // Check the payload structure and standard request options

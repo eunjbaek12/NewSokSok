@@ -1350,6 +1350,8 @@ export default function AddWordScreen() {
                                                     value={meaningKr}
                                                     maxLength={200}
                                                     onChangeText={(v: string) => { setMeaningKr(v); dismissSensePicker(); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                    onClear={() => { setMeaningKr(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getMeaningLabel(targetLang, t)} ${t('common.delete')}`}
                                                     error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                                 />
                                                 {fallbackNotice && (
@@ -1381,6 +1383,8 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.pos')}
                                                     value={pos}
                                                     onChangeText={(v: string) => { setPos(v); dismissSensePicker(); }}
+                                                    onClear={() => { setPos(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${t('addWord.pos')} ${t('common.delete')}`}
                                                     maxLength={60}
                                                 />
                                             </Animated.View>
@@ -1395,6 +1399,8 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.phonetic')}
                                                     value={phonetic}
                                                     onChangeText={(v: string) => { setPhonetic(v); dismissSensePicker(); }}
+                                                    onClear={() => { setPhonetic(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${t('addWord.phonetic')} ${t('common.delete')}`}
                                                     maxLength={80}
                                                 />
                                             </Animated.View>
@@ -1409,6 +1415,8 @@ export default function AddWordScreen() {
                                                     placeholder={getExampleLabel(sourceLang, t)}
                                                     value={exampleEn}
                                                     onChangeText={(v: string) => { setExampleEn(v); dismissSensePicker(); }}
+                                                    onClear={() => { setExampleEn(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getExampleLabel(sourceLang, t)} ${t('common.delete')}`}
                                                     maxLength={300}
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
@@ -1420,6 +1428,8 @@ export default function AddWordScreen() {
                                                         placeholder={getExampleTranslationLabel(targetLang, t)}
                                                         value={exampleKr}
                                                         onChangeText={(v: string) => { setExampleKr(v); dismissSensePicker(); }}
+                                                        onClear={() => { setExampleKr(''); dismissSensePicker(); }}
+                                                        clearAccessibilityLabel={`${getExampleTranslationLabel(targetLang, t)} ${t('common.delete')}`}
                                                         maxLength={300}
                                                         multiline
                                                     />
@@ -1436,6 +1446,8 @@ export default function AddWordScreen() {
                                                     placeholder={getDefinitionLabel(sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={(v: string) => { setDefinition(v); dismissSensePicker(); }}
+                                                    onClear={() => { setDefinition(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getDefinitionLabel(sourceLang, t)} ${t('common.delete')}`}
                                                     maxLength={500}
                                                     multiline
                                                 />

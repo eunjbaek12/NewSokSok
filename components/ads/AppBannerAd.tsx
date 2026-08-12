@@ -42,9 +42,9 @@ export function useAdsAllowed(): boolean {
   return useMemo(() => {
     if (Platform.OS === 'web') return false;
     // 게스트는 quota 정보 없음 → tier=null → Free 동급으로 광고 노출
-    const tier = isCloudAuthMode(authMode) ? (status?.tier ?? null) : null;
-    return isAdsAllowed({ tier });
-  }, [authMode, status?.tier]);
+    const tier = authMode === 'guest' || isCloudAuthMode(authMode) ? (status?.tier ?? null) : null;
+    return isAdsAllowed({ tier, adFreeUntil: status?.ad_free_until });
+  }, [authMode, status?.tier, status?.ad_free_until]);
 }
 
 /**

@@ -300,9 +300,9 @@ export default function AddWordScreen() {
     const { authMode } = useAuth();
     const { status: quotaStatus, refresh: refreshQuota } = useQuota();
     // 화면 진입 시 1회 한도 갱신 (보상형 광고 + Edge 차감으로 carrier 갱신될 수 있음)
-    useEffect(() => { if (isCloudAuthMode(authMode)) refreshQuota(); }, [authMode, refreshQuota]);
+    useEffect(() => { if (authMode !== 'none') refreshQuota(); }, [authMode, refreshQuota]);
 
-    const showQuotaChip = isCloudAuthMode(authMode) && !apiKey && quotaStatus && quotaStatus.tier === 'free';
+    const showQuotaChip = authMode !== 'none' && !apiKey && !!quotaStatus && quotaStatus.tier !== 'pro';
 
     // 이 화면의 "유효 언어" — 전역 입력 설정이 아니라 편집 대상 단어(편집)/선택한
     // 단어장(신규)의 실제 언어를 따른다. 편집 레이블 정확화 + 저장 시 언어 보존의 핵심.
@@ -341,6 +341,7 @@ export default function AddWordScreen() {
         hasFillContent,
         handleAutoFill,
         handleAutoFillWithTerm,
+        handleEnrichFull,
         handleSaveWord,
         isPendingFill,
         pendingFillTerm,
@@ -349,6 +350,7 @@ export default function AddWordScreen() {
         autoFillFailedAt,
         autoFillNotFoundAt,
         enrichFallback,
+        enrichmentLevel,
         sensePicker,
         toggleSense,
         dismissSensePicker,
@@ -366,6 +368,9 @@ export default function AddWordScreen() {
     // 띄우므로 여기까지 안내하면 화면에 두 개가 겹친다.
     // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
     const fallbackNotice = useMemo(() => {
+        if (enrichmentLevel === 'basic') {
+            return { text: t('addWord.basicMeaningLoaded'), action: t('addWord.enrichWithAi'), onPress: handleEnrichFull };
+        }
         if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
         if (enrichFallback === 'guest') {
             return { text: t('addWord.fallbackGuest'), action: t('addWord.fallbackGuestAction'), onPress: () => router.push('/login') };
@@ -374,7 +379,7 @@ export default function AddWordScreen() {
             return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
         }
         return { text: t('addWord.fallbackServer'), action: null, onPress: null };
-    }, [enrichFallback, meaningKr, t]);
+    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);

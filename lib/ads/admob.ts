@@ -111,10 +111,12 @@ async function requestATTConsent(): Promise<void> {
 // ────────────────────────────────────────────────────────────
 export interface AdEligibilityInput {
   /** Edge Function get_ai_quota_status 응답의 tier ('free' | 'pro'). 게스트면 null. */
-  tier: 'free' | 'pro' | null;
+  tier: 'guest' | 'free' | 'pro' | null;
+  adFreeUntil?: string | null;
 }
 
 export function isAdsAllowed(input: AdEligibilityInput): boolean {
   if (input.tier === 'pro') return false; // 트라이얼 포함 (RPC에서 trial → tier='pro' 매핑)
+  if (input.adFreeUntil && new Date(input.adFreeUntil).getTime() > Date.now()) return false;
   return true;
 }

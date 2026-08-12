@@ -22,7 +22,6 @@ import { useSupportStore } from "@/features/support";
 import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
-import { useAdsAllowed } from "@/components/ads/AppBannerAd";
 import "@/i18n";
 import { useReviewNotificationRouting } from '@/features/study/review/use-review-notification-routing';
 import { useReviewNotificationScheduler } from '@/features/study/review/use-review-notifications';
@@ -146,7 +145,6 @@ function ReviewNotificationScheduler() {
 function GlobalRewardedAdModal() {
   const quotaExceededAt = useQuotaStore(s => s.quotaExceededAt);
   const dismiss = useQuotaStore(s => s.dismissQuotaExceeded);
-  const adsAllowed = useAdsAllowed();
   // 보상을 받은 순간 막혔던 요청을 이어서 돌린다. 모달은 여기서 닫히지 않고 성공 화면을
   // 보여주므로, 사용자가 닫을 때쯤이면 폼이 이미 채워져 있다. 등록은 한 번만 쓰고 비운다.
   const handleGranted = () => {
@@ -157,7 +155,7 @@ function GlobalRewardedAdModal() {
   };
   return (
     <RewardedAdModal
-      visible={adsAllowed && quotaExceededAt > 0}
+      visible={quotaExceededAt > 0}
       onClose={dismiss}
       onGranted={handleGranted}
     />

@@ -13,13 +13,19 @@ import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
 
 export interface QuotaStatus {
-  tier: 'free' | 'pro';
+  tier: 'guest' | 'free' | 'pro';
   used: number;
   limit: number;
   bonus: number;
   trial_ends_at: string | null;
   pro_until: string | null;
   reset_at: string;
+  month_used?: number;
+  month_limit?: number;
+  reward_amount?: number;
+  reward_views?: number;
+  reward_max_views?: number;
+  ad_free_until?: string | null;
 }
 
 interface QuotaState {
@@ -77,11 +83,11 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
         set({ status: null, productId: null, loading: false, lastFetchedAt: Date.now() });
         return;
       }
-      // quota 상태(RPC)와 구독 상품 ID(테이블 직접 조회, RLS self_read 허용)를 병렬로.
+      // 익명 게스트도 authenticated role의 자체 quota RPC를 사용한다.
       // product_id는 결제 주기 표시용이라 실패해도 quota 갱신을 막지 않는다.
       const [quotaRes, subRes] = await Promise.all([
         supabase.rpc('get_ai_quota_status', { p_user_id: userData.user.id }),
-        supabase
+        userData.user.is_anonymous ? Promise.resolve({ data: null }) : supabase
           .from('user_subscriptions')
           .select('play_product_id')
           .eq('user_id', userData.user.id)
@@ -117,8 +123,7 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0, retryAfterReward: null }),
   notifyQuotaExceeded: (status) => {
     const current = get().status;
-    // tier 우선순위: Edge 응답 quota > 기존 status > 'free' (게스트는 여기 도달 X)
-    const tier = (status?.tier ?? current?.tier ?? 'free') as 'free' | 'pro';
+    const tier = status?.tier ?? current?.tier ?? 'free';
     const next: Partial<QuotaState> =
       tier === 'pro' ? { proLimitReachedAt: Date.now() } : { quotaExceededAt: Date.now() };
     if (status) {

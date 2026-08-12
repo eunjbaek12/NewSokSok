@@ -2,7 +2,6 @@ import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
 import { analyzeWord, isQuotaError, isInvalidKeyError } from '@/lib/ai/gemini-client';
 import { normalizeSenses } from '@/lib/senses';
-import { fetchSharedEnrich } from './enrich-cache-shared';
 import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
 import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
@@ -83,7 +82,9 @@ export async function enrichWord(
   const trimmed = term.trim();
   if (!trimmed) return null;
 
-  const cached = await getCachedEnrich(trimmed, sourceLang, targetLang);
+  // Operator-path requests always go through Edge, including local/cache hits,
+  // because quota now measures product entitlement rather than Vertex cost.
+  const cached = apiKey ? await getCachedEnrich(trimmed, sourceLang, targetLang) : null;
   if (cached) return cleanPhonetics(cached, sourceLang, trimmed);
 
   const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
@@ -142,9 +143,6 @@ export async function autoFillWord(
 
   // 1) BYOK
   if (apiKey) {
-    // 본인 키 호출 전에 공용 캐시(L2) 확인 — 다른 사용자가 이미 만든 결과면 즉시 반환.
-    const shared = await fetchSharedEnrich(trimmed, sourceLang, targetLang);
-    if (shared && shared.meaningKr) return shared;
     try {
       const data = await analyzeWord(trimmed, sourceLang, targetLang, apiKey);
       // 모델이 실재하지 않는 단어로 판정 → 빈 결과 + isReal=false 신호.
@@ -194,6 +192,7 @@ export async function autoFillWord(
           }
           const edgeSenses = normalizeSenses(d.senses);
           return {
+            enrichmentLevel: edge.enrichmentLevel,
             definition: d.definition || '',
             meaningKr: d.meaningKr || '',
             exampleEn: d.exampleEn || '',
@@ -203,6 +202,11 @@ export async function autoFillWord(
             phonetic: d.phonetic || '',
             ...(edgeSenses ? { senses: edgeSenses } : {}),
           };
+        }
+        // 서버가 입력 철자를 검증해 없는 단어로 확정했다. 연결 실패가 아니며,
+        // 무료 사전으로 재시도하면 잘못된 fallback 안내만 남으므로 여기서 종료한다.
+        if (edge.kind === 'not_found') {
+          return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
         }
         // 배치 흐름은 429를 큐가 retry_after 대기 후 재시도할 수 있게 신호로 올린다.
         // (autocomplete 단건은 기존대로 조용히 사전 폴백 — 아래 계속)

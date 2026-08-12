@@ -43,6 +43,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // AI가 실패해 무료 사전으로 대체됐을 때의 사유. 폼은 채워지지만 뜻 칸만 비므로,
     // 이 값이 없으면 화면은 "왜 뜻만 안 채워졌는지"를 말해 줄 수 없다.
     const [enrichFallback, setEnrichFallback] = useState<EnrichFallback | null>(null);
+    const [enrichmentLevel, setEnrichmentLevel] = useState<'basic' | 'full' | null>(null);
     // 모델이 "사전에 존재하지 않는 단어"로 판정한 경우만 set. 일반 실패(네트워크/timeout)와
     // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
     const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
@@ -137,6 +138,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setSenseState(null);
             setSenseDismissed(false);
             setEnrichFallback(null);
+            setEnrichmentLevel(null);
 
             const result = await enrichWord(
                 trimmed, sourceLang, targetLang, apiKey, controller.signal, 'autocomplete',
@@ -149,6 +151,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             // 콜백으로 이미 전달되므로 이 분기와 무관하게 뜬다.)
             if (controller.signal.aborted || termRef.current.trim() !== trimmed) return;
             setEnrichFallback(fallback);
+            setEnrichmentLevel(result?.enrichmentLevel ?? (result ? 'full' : null));
             // 한도에 막혔다면 광고 보상 뒤 이어서 재개할 수 있게 자기 재시도를 걸어 둔다.
             // 표제어는 등록 시점이 아니라 실행 시점의 것을 읽는다 — 광고를 보는 동안
             // 사용자가 단어를 고쳤을 수 있고, 그때는 고친 쪽이 사용자의 의도다.
@@ -204,6 +207,18 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
 
     const handleAutoFill = () => runAutoFill(term);
     const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
+    const handleEnrichFull = () => {
+        const quota = useQuotaStore.getState();
+        const status = quota.status;
+        if (status && status.used >= status.limit + status.bonus) {
+            const retry = () => { void runAutoFillRef.current(termRef.current.trim()); };
+            myRetryRef.current = retry;
+            quota.setRetryAfterReward(retry);
+            quota.notifyQuotaExceeded(status);
+            return;
+        }
+        void runAutoFill(termRef.current.trim());
+    };
 
     const handleSaveWord = async (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: (reason?: 'no-list' | 'duplicate' | 'error') => void) => {
         const newErrors: { term?: boolean; meaningKr?: boolean } = {};
@@ -324,6 +339,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         hasFillContent,
         handleAutoFill,
         handleAutoFillWithTerm,
+        handleEnrichFull,
         handleSaveWord,
         isPendingFill,
         pendingFillTerm,
@@ -332,6 +348,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         autoFillFailedAt,
         autoFillNotFoundAt,
         enrichFallback,
+        enrichmentLevel,
         // 동음이의어 토글 칩 — 숨김(수동 편집) 상태면 null.
         sensePicker: senseState && !senseDismissed
             ? { senses: senseState.senses, selected: senseState.selected }

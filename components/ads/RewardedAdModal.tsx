@@ -16,13 +16,9 @@ import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { RewardedAd, RewardedAdEventType, AdEventType } from 'react-native-google-mobile-ads';
 import { useTheme } from '@/features/theme';
-import { useAuth } from '@/features/auth';
-import { useQuotaStore } from '@/features/quota';
+import { hasRewardViewsRemaining, isAiQuotaExhausted, useQuotaStore } from '@/features/quota';
 import { AD_UNIT_REWARDED } from '@/lib/ads/admob';
 import { supabase } from '@/lib/supabase/client';
-
-const REWARD_AMOUNT = 50;
-const DAILY_BONUS_CAP = 200;
 
 interface Props {
   visible: boolean;
@@ -34,7 +30,6 @@ interface Props {
 export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const { user } = useAuth();
   const status = useQuotaStore((s) => s.status);
   const refreshQuota = useQuotaStore((s) => s.refresh);
 
@@ -44,8 +39,9 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   const earnedRef = useRef(false);
   const adRef = useRef<RewardedAd | null>(null);
 
-  const remainingCap = Math.max(0, DAILY_BONUS_CAP - (status?.bonus ?? 0));
-  const exhausted = remainingCap <= 0;
+  const rewardAmount = status?.reward_amount ?? (status?.tier === 'guest' ? 10 : 20);
+  const exhausted = !!status && !hasRewardViewsRemaining(status);
+  const quotaExhausted = isAiQuotaExhausted(status);
 
   // 모달 닫힐 때 상태 리셋
   useEffect(() => {
@@ -59,7 +55,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   }, [visible]);
 
   const handleWatch = async () => {
-    if (!user || exhausted || Platform.OS === 'web') return;
+    if (exhausted || Platform.OS === 'web') return;
     setLoading(true);
     setError(null);
     earnedRef.current = false;
@@ -87,10 +83,10 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
       }
       // reward earned → grant
       try {
+        const { data: userData } = await supabase.auth.getUser();
+        if (!userData.user) throw new Error('missing_user');
         const { data, error: rpcErr } = await supabase.rpc('grant_rewarded_bonus', {
-          p_user_id: user.id,
-          p_amount: REWARD_AMOUNT,
-          p_max_bonus: DAILY_BONUS_CAP,
+          p_user_id: userData.user.id,
         });
         if (rpcErr || !data) throw rpcErr ?? new Error('grant_failed');
         const granted = (data as any).granted as number;
@@ -128,7 +124,9 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
           <Text style={[styles.title, { color: colors.text }]}>
             {grantedAmount !== null
               ? t('ads.rewardedGrantedTitle', { amount: grantedAmount })
-              : t('ads.rewardedTitle')}
+              : quotaExhausted
+                ? t('ads.rewardedTitle')
+                : t('ads.rewardedBenefitTitle')}
           </Text>
 
           <Text style={[styles.body, { color: colors.textSecondary }]}>
@@ -136,7 +134,9 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               ? t('ads.rewardedGrantedBody')
               : exhausted
                 ? t('ads.rewardedExhausted')
-                : t('ads.rewardedBody', { amount: REWARD_AMOUNT, used: status?.used ?? 0, limit: (status?.limit ?? 100) + (status?.bonus ?? 0) })}
+                : quotaExhausted
+                  ? t('ads.rewardedBody', { amount: rewardAmount, used: status?.used ?? 0, limit: (status?.limit ?? 0) + (status?.bonus ?? 0) })
+                  : t('ads.rewardedBenefitBody', { amount: rewardAmount })}
           </Text>
 
           {error && <Text style={[styles.error, { color: colors.error }]}>{error}</Text>}
@@ -162,7 +162,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
                   <ActivityIndicator size="small" color={colors.onPrimary} />
                 ) : (
                   <Text style={[styles.btnText, { color: colors.onPrimary }]}>
-                    {t('ads.rewardedCta')}
+                    {t('ads.rewardedCta', { amount: rewardAmount })}
                   </Text>
                 )}
               </Pressable>

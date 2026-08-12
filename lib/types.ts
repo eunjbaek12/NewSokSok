@@ -68,6 +68,7 @@ export type StudyMode = 'flashcards' | 'quiz' | 'examples';
 export type ThemeMode = 'classic' | 'dark' | 'y2k' | 'lab';
 
 export interface AutoFillResult {
+  enrichmentLevel?: 'basic' | 'full';
   definition: string;
   meaningKr: string;
   exampleEn: string;

@@ -26,7 +26,7 @@ import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
-import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
+import { useQuota, useQuotaStore, getProMode, getTrialDaysLeft, hasRewardViewsRemaining } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -107,7 +107,7 @@ export default function SettingsScreen() {
 
   // 로그인 사용자는 진입 시 한도 갱신 (계정 행 tier 칩 표시용)
   useEffect(() => {
-    if (isCloud) refreshQuota();
+    if (authMode !== 'none') refreshQuota();
   }, [authMode, refreshQuota]);
 
   const handleResetOnboarding = () => {
@@ -149,8 +149,11 @@ export default function SettingsScreen() {
   // 게스트는 quota 없음(로그인 유도), 로그인 직후 status 로딩 중이면 칩 생략.
   const accountTierChip = (() => {
     if (apiKey) return { label: t('settings.accountTierByok'), onPress: undefined as undefined | (() => void) };
-    if (!isCloud) return { label: t('settings.accountTierGuest'), onPress: () => handleGoogleUpgrade() };
     if (!quotaStatus) return null;
+    if (quotaStatus.tier === 'guest') return {
+      label: t('settings.accountTierGuest', { used: quotaStatus.used, limit: quotaStatus.limit + quotaStatus.bonus }),
+      onPress: () => handleGoogleUpgrade(),
+    };
     if (quotaStatus.tier === 'pro') {
       // 트라이얼과 유료를 구분 — 둘 다 서버 tier='pro'지만 사용자에겐 매우 다른 상태.
       const proMode = getProMode(quotaStatus);
@@ -226,6 +229,8 @@ export default function SettingsScreen() {
     );
   };
 
+  const rewardViewsRemaining = quotaStatus ? hasRewardViewsRemaining(quotaStatus) : false;
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
@@ -286,6 +291,34 @@ export default function SettingsScreen() {
               </View>
             )}
           </View>
+          {!apiKey && quotaStatus && quotaStatus.tier !== 'pro' && (
+            <Pressable
+              style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+              onPress={() => useQuotaStore.getState().notifyQuotaExceeded(quotaStatus)}
+              disabled={!rewardViewsRemaining}
+            >
+              <View style={styles.rowLeft}>
+                <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                  <Ionicons name="play-circle-outline" size={18} color={colors.primary} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={[styles.rowTitle, { color: colors.text }]}>
+                    {quotaStatus.ad_free_until && new Date(quotaStatus.ad_free_until).getTime() > Date.now()
+                      ? t('settings.adBenefitActive')
+                      : t('settings.adBenefitTitle')}
+                  </Text>
+                  <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
+                    {quotaStatus.ad_free_until && new Date(quotaStatus.ad_free_until).getTime() > Date.now()
+                      ? t('settings.adBenefitUntil', { time: new Date(quotaStatus.ad_free_until).toLocaleString() })
+                      : t('settings.adBenefitDesc', { amount: quotaStatus.reward_amount ?? (quotaStatus.tier === 'guest' ? 10 : 20) })}
+                  </Text>
+                </View>
+              </View>
+              {rewardViewsRemaining && (
+                <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+              )}
+            </Pressable>
+          )}
           {authMode === 'guest' && (
             <Pressable
               style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}

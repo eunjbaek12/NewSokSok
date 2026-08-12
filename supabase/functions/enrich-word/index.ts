@@ -14,6 +14,7 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { analyzeWord } from '../_shared/gemini-vertex.ts';
+import { translateMeaningOnly } from '../_shared/gemini-meaning.ts';
 import { checkRateLimit } from '../_shared/rate-limit.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -42,7 +43,9 @@ const COST_BY_MODE: Record<string, number> = {
 //     유의어로 바꿔 쓴 예문은 빈칸을 팔 자리가 없어 예문 학습에서 조용히 빠졌다
 //     (docs/backlog-examples-enrich.md P6). v6 캐시는 니모닉을 담고 있고 표제어 미포함
 //     예문이 섞여 있어 재생성.
-const PROMPT_VERSION = 7;
+// v8: 뜻 전용 경로가 "tooli"를 "tool"로 암묵 교정해 "도구"로 저장한 문제 수정.
+//     정확한 입력 철자를 독립적으로 검증하며 유사 단어 뜻을 빌리지 않도록 강화.
+const PROMPT_VERSION = 8;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 
@@ -102,31 +105,8 @@ Deno.serve(async (req) => {
   // service_role client: 캐시 + quota RPC + 환불용
   const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
-  // 공용 캐시 조회 — 히트면 Vertex를 안 부르므로 quota를 차감하지 않는다.
-  // (quota는 Vertex 호출 비용 상한이 목적 → 비용 0인 캐시 히트는 무차감)
-  try {
-    const { data: cached } = await svc
-      .from('enrich_cache')
-      .select('result')
-      .eq('source_lang', sourceLang)
-      .eq('target_lang', targetLang)
-      .eq('term', termKey)
-      .eq('prompt_version', PROMPT_VERSION)
-      .maybeSingle();
-    if (cached?.result) {
-      const { data: quotaStatus } = await svc.rpc('get_ai_quota_status', { p_user_id: userId });
-      // hit_count 증가는 응답을 막지 않도록 fire-and-forget
-      svc.rpc('increment_enrich_cache_hit', {
-        p_source_lang: sourceLang, p_target_lang: targetLang, p_term: termKey,
-      }).then(() => {}, () => {});
-      return json(200, { result: cached.result, quota: quotaStatus, cached: true });
-    }
-  } catch (e) {
-    // 캐시 조회 실패는 치명적이지 않음 — 정상 경로(quota → Vertex)로 계속
-    console.error('enrich_cache lookup failed', e);
-  }
-
-  // quota 차감 시도
+  // Entitlement is consumed before cache lookup. A cached full result is still
+  // a paid product lookup, even though it has no marginal Vertex cost.
   const { data: quotaData, error: quotaErr } =
     await svc.rpc('consume_ai_quota', { p_user_id: userId, p_cost: cost });
   if (quotaErr) {
@@ -137,13 +117,34 @@ Deno.serve(async (req) => {
     allowed: boolean; tier: string; used: number; limit: number;
     bonus: number; reset_at: string;
   };
+  const { data: cached } = await svc.from('enrich_cache').select('result,enrichment_level')
+    .eq('source_lang', sourceLang).eq('target_lang', targetLang).eq('term', termKey)
+    .eq('prompt_version', PROMPT_VERSION).maybeSingle();
   if (!quota.allowed) {
-    return json(429, { error: 'quota_exceeded', quota });
+    try {
+      const basic = cached?.result?.meaningKr
+        ? { term: termKey, definition: '', exampleEn: '', exampleKr: '', meaningKr: cached.result.meaningKr, pos: '', phonetic: '', isReal: cached.result.isReal }
+        : await translateMeaningOnly(termKey, sourceLang, targetLang);
+      if (!basic.meaningKr || basic.isReal === false) return json(404, { error: 'not_found', quota });
+      if (!cached?.result) await svc.from('enrich_cache').upsert({ source_lang: sourceLang, target_lang: targetLang, term: termKey, result: basic, enrichment_level: 'basic', prompt_version: PROMPT_VERSION, updated_at: new Date().toISOString() });
+      return json(200, { result: basic, quota, cached: !!cached?.result, enrichment_level: 'basic' });
+    } catch (e) {
+      console.error('basic meaning failed', e);
+      return json(500, { error: 'upstream_failure', quota });
+    }
+  }
+  if (cached?.result && cached.enrichment_level === 'full') {
+    svc.rpc('increment_enrich_cache_hit', { p_source_lang: sourceLang, p_target_lang: targetLang, p_term: termKey }).then(() => {}, () => {});
+    return json(200, { result: cached.result, quota, cached: true, enrichment_level: 'full' });
   }
 
   // Vertex AI 호출
   try {
     const result = await analyzeWord(termKey, sourceLang, targetLang);
+    if (result?.isReal === false || !result?.meaningKr) {
+      await svc.rpc('refund_ai_quota', { p_user_id: userId, p_cost: cost });
+      return json(404, { error: 'not_found', quota });
+    }
     // 공용 캐시에 기록 — 다음 사용자부터 즉시. 캐시 쓰기 실패가 응답을 깨지 않게 격리.
     //
     // 단, "실재하지 않는 단어"(isReal=false) 판정은 캐시하지 않는다 — 클라이언트
@@ -157,12 +158,13 @@ Deno.serve(async (req) => {
         target_lang: targetLang,
         term: termKey,
         result,
+        enrichment_level: 'full',
         prompt_version: PROMPT_VERSION,
         updated_at: new Date().toISOString(),
       });
       if (cacheErr) console.error('enrich_cache write failed', cacheErr);
     }
-    return json(200, { result, quota });
+    return json(200, { result, quota, enrichment_level: 'full' });
   } catch (e) {
     console.error('vertex call failed', e);
     // 차감 환불 — 사용자 잘못 아닌 실패는 한도 소모하지 않도록

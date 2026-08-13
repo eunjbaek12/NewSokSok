@@ -95,7 +95,7 @@ GEMINI_API_KEY                        # Optional — dev scripts only. Productio
 
 **Current (v1.1):** Three paths in `lib/translation-api.ts:enrichWord` (priority order):
 1. User has Gemini key (BYOK) → `lib/ai/gemini-client.ts:analyzeWord` (direct client → Google). No quota; user's own key.
-2. Logged-in + `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` → `lib/ai/edge-enrich.ts:enrichWordViaEdge` → Supabase Edge Function (`supabase/functions/enrich-word`) → Vertex AI Gemini. Quota-gated (Free 100단어/일, Pro 1,000단어/일, KST midnight reset).
+2. Logged-in + `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` → `lib/ai/edge-enrich.ts:enrichWordViaEdge` → Supabase Edge Function (`supabase/functions/enrich-word`) → Vertex AI Gemini. Quota-gated (Free 50단어/일, Pro 3,000단어/월·일일 제한 없음).
 3. Source = English → `dictionaryapi.dev` fallback (definition + example, no Korean).
 4. Other source language → empty result.
 
@@ -161,11 +161,11 @@ fixing the default over adding a rule here.
 
 3-tier model. Unit displayed to users is **"단어 수" (word count)**, not points.
 
-| Tier | Price | Ads | AI quota (per day) | Key |
+| Tier | Price | Ads | AI quota | Key |
 |---|---|---|---|---|
-| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300). **First 24h after signup: 300** | Operator (Vertex AI) |
+| Free | 0 | Banner (all screens) + rewarded on quota exceed | 50 단어/일 (+20 per ad view, max 2 views). **First 24h after signup: 300** | Operator (Vertex AI) |
 | BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
-| Pro | ₩3,900/month · yearly ₩36,000 (Play) / ₩35,900 (App Store) — ~23% off vs 12× monthly | None | 1,000 단어 | Operator (Vertex AI) |
+| Pro | ₩3,900/month · yearly ₩36,000 (Play) / ₩35,900 (App Store) — ~23% off vs 12× monthly | None | 3,000 단어/월, 일일 제한 없음 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
 **Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged):

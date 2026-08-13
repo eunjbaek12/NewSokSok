@@ -1152,6 +1152,23 @@ export default function AddWordScreen() {
                                                         blurOnSubmit={false}
                                                     />
                                                     <View style={styles.searchActions}>
+                                                        {term.length > 0 && (
+                                                            <Pressable
+                                                                onPress={() => {
+                                                                    if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                                    suggestionsDismissedRef.current = true;
+                                                                    setSuggestions([]);
+                                                                    setShowSuggestions(false);
+                                                                    setTerm('');
+                                                                }}
+                                                                accessibilityRole="button"
+                                                                accessibilityLabel={`${getWordLabel(sourceLang, t)} ${t('common.delete')}`}
+                                                                hitSlop={12}
+                                                                style={styles.searchIconButton}
+                                                            >
+                                                                <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                                                            </Pressable>
+                                                        )}
                                                         <SpeakerButton
                                                             text={getSpeakableText(term, phonetic, sourceLang)}
                                                             language={getTtsLang(sourceLang)}
@@ -1875,7 +1892,7 @@ const styles = StyleSheet.create({
     fallbackNoticeText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
-    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },
+    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 162 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
     searchIconButton: { padding: 8 },
     // 돋보기 ↔ 스피너가 번갈아 들어가는 자리. padding 방식(22+8*2)과 같은 38로 맞춰

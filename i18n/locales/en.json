@@ -70,21 +70,21 @@
       "It does not matter how slowly you go, as long as you do not stop — Confucius",
       "Well begun is half done — Aristotle",
       "An investment in knowledge pays the best interest — Franklin",
-      "Education is the most powerful weapon to change the world — Mandela",
+      "Import a word list you like from Explore and make it your own",
       "We are what we repeatedly do — Aristotle",
       "Live as if you were to die tomorrow; learn as if you were to live forever — Gandhi",
-      "Review tomorrow what you learned today — it lasts a lifetime",
+      "Type a word and AI can fill in its meaning, example, and pronunciation",
       "Reviewing just before you forget is most effective",
       "Short and often beats long and rare",
-      "Learn through example sentences — meaning sticks longer",
+      "Scan a textbook page to add its words all at once",
       "Use Custom Study to pick today's load",
       "Conquer the wrong words you've missed before",
       "Star ★ words to build your review set",
       "Study Plans pace your progress automatically",
-      "Quiz mode double-checks your memory",
+      "Sign in to keep your lists automatically synced across devices",
       "Words due for a refresh wait in Home's \"Today's Review\"",
       "Study one word a day and your streak keeps growing",
-      "Turn on review reminders in Settings for a gentle nudge",
+      "Pro gives you up to 3,000 AI words a month with no ads",
       "A Voca Do! Just one more step today"
     ],
     "customStudy": "Pick & Study",
@@ -146,7 +146,7 @@
     "createList": "Create List",
     "browseCuration": "Browse Collections",
     "tips": [
-      "Star ★ tough words to review them later",
+      "Use a list's filters to focus on starred or unmemorized words",
       "Split lists into chunks of 20 or fewer",
       "One more look before bed works wonders",
       "Example sentences make meaning stick",
@@ -161,11 +161,11 @@
       "Context beats definitions — read examples first",
       "Forgetting and relearning IS the learning",
       "10 words today becomes 100 words in a month",
-      "See your streak, calendar, and memorized words in \"My Learning\"",
+      "Long-press a list card to rename it or import and export CSV files",
       "Export a list as CSV to back it up or open it elsewhere",
-      "It does not matter how slowly you go — Confucius",
-      "Knowledge pays the best interest — Franklin",
-      "A thousand miles starts with one step — Lao Tzu"
+      "Search all your saved words by term, meaning, definition, or tag",
+      "Edit a list freely, or export it as a CSV backup",
+      "Keeping one topic per list makes it easier to find and remember words"
     ]
   },
   "curation": {
@@ -472,15 +472,17 @@
     "tierTrial": "Trial",
     "tierPro": "Pro",
     "currentUsageLabel": "Today's AI word quota",
+    "currentMonthlyUsageLabel": "This month's AI word quota",
     "currentUsageValue": "{{used}} / {{limit}} words",
     "currentResetNote": "Resets at midnight (KST)",
+    "currentMonthlyResetNote": "Resets monthly from your billing date",
     "currentByokTitle": "Your own key active",
     "currentByokDesc": "You're using your Gemini key from Advanced Settings. No app-level daily quota applies.",
     "currentGuestTitle": "Using as guest",
-    "currentGuestDesc": "Sign in with Google to get 100 free AI words every day.",
+    "currentGuestDesc": "Sign in with Google to get 50 free AI words every day.",
     "currentGuestCta": "Sign in with Google",
     "currentProTitle": "Pro subscription active",
-    "currentProDesc": "1,000 AI words/day · all ads removed",
+    "currentProDesc": "3,000 AI words/month · no daily limit · no ads",
     "planCardCurrent": "Current plan",
     "planCardTrial": "Trial · D-{{daysLeft}}",
     "recommendedBadge": "Recommended",
@@ -490,15 +492,15 @@
     "freeTitle": "Free",
     "freePrice": "₩0",
     "freeFeat1": "AI auto-complete, generate, photo scan",
-    "freeFeat2": "100 AI words / day",
-    "freeFeat3": "Watch ads for +50 (up to +200/day)",
+    "freeFeat2": "50 AI words / day",
+    "freeFeat3": "Watch ads for +20 (twice a day)",
     "freeIncludesAd": "Includes: banner ad at the bottom",
     "proTitle": "Pro",
     "priceOr": "or",
     "proPrice": "Monthly",
     "proSubPrice": "Yearly",
     "monthlyEquivalentSavings": "{{monthly}}/mo · save ~{{percent}}%",
-    "proFeat1": "1,000 AI words/day (10× Free)",
+    "proFeat1": "3,000 AI words/month · no daily limit",
     "proFeat2": "No ads",
     "proFeat3": "All features",
     "subscribeCta": "Subscribe to Pro",
@@ -540,7 +542,7 @@
     "loginRequiredTitle": "Login required",
     "loginRequiredMessage": "Please sign in with Google to start your Pro subscription.",
     "purchaseSuccessTitle": "Pro subscription activated",
-    "purchaseSuccessMessage": "Your AI quota has expanded to 1,000 words/day and all ads have been removed.",
+    "purchaseSuccessMessage": "You now have 3,000 AI words a month and no ads.",
     "purchaseFailedTitle": "Purchase failed",
     "purchaseFailedMessage": "Please try again, or tap \"Restore previous purchase\" if you've already paid.",
     "comingSoonTitle": "Coming Soon",
@@ -564,8 +566,8 @@
     "rewardedLoadFailed": "Failed to load ad. Please try again later.",
     "rewardedShowFailed": "Failed to show ad.",
     "rewardGrantFailed": "Failed to add quota. Please try again later.",
-    "proLimitTitle": "Daily Pro word limit reached",
-    "proLimitBody": "Used {{used}} of {{limit}} today. Your quota will reset automatically at midnight KST (00:00 Korea time)."
+    "proLimitTitle": "You've used this month's Pro words",
+    "proLimitBody": "You've used {{used}} of {{limit}} words this month. Your quota returns in your next monthly usage period."
   },
   "terms": {
     "title": "Terms of Service",
@@ -591,11 +593,11 @@
       },
       {
         "title": "AI Features & Daily Quota",
-        "body": "AI autocomplete, word generation, and photo scan are offered through two paths:\n\n1) Operator key (default): Signed-in users receive a daily quota — Free 100 words/day, Pro 1,000 words/day, resetting at midnight KST. Free users may watch optional rewarded ads to add +50 words each (up to +200/day).\n\n2) Bring-your-own-key (BYOK): Register your own Gemini API key under Settings → Advanced Settings. No quota applies, but you cover the API costs. The key is stored only in this device's SecureStore and never touches our servers.\n\nThe developer does not guarantee the accuracy of AI-generated content."
+        "body": "AI autocomplete, word generation, and photo scan are offered through two paths:\n\n1) Operator key (default): Guests receive 10 words/day, signed-in Free users receive 50 words/day, and Pro users receive 3,000 words/month. Guest and Free quotas reset at midnight KST; Pro resets monthly from the subscription billing date. Free users may watch up to two rewarded ads a day to add 20 words each.\n\n2) Bring-your-own-key (BYOK): Register your own Gemini API key under Settings → Advanced Settings. No quota applies, but you cover the API costs. The key is stored only in this device's SecureStore and never touches our servers.\n\nThe developer does not guarantee the accuracy of AI-generated content."
       },
       {
         "title": "Pro Subscription & Billing",
-        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen.\n\nFree trial: Any free trial is an offer from {{store}}, applied when you start a Pro subscription from the Plans screen. Whether it is offered, and for how long, is shown at store checkout. Cancel during the trial and you won't be charged; if you don't cancel, the first payment is taken when the trial ends.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
+        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen.\n\nFree trial: Any free trial is an offer from {{store}}, applied when you start a Pro subscription from the Plans screen. Whether it is offered, and for how long, is shown at store checkout. Cancel during the trial and you won't be charged; if you don't cancel, the first payment is taken when the trial ends.\n\nPro benefits: no ads and 3,000 AI words per month with no daily limit.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
       },
       {
         "title": "Advertising",
@@ -660,11 +662,11 @@
           },
           {
             "q": "How does AI auto-complete work?",
-            "a": "Type just the word and tap auto-complete — AI fills in the meaning, example, pronunciation, and part of speech. Edit or regenerate if you don't like the result.\n\nEach auto-complete call counts as 1 word against your daily quota."
+            "a": "Type just the word and tap auto-complete — AI fills in the meaning, example, pronunciation, and part of speech. Edit or regenerate if you don't like the result.\n\nEach auto-complete call counts as 1 word against your daily quota; for Pro, it also counts against the monthly quota."
           },
           {
             "q": "What about AI generate?",
-            "a": "Enter a topic like \"TOEIC business\" or \"100 travel English\" and AI creates a word list. Pick the words you like and import only those.\n\nOne AI-generate set (~20 words) counts as 20 words against your daily quota."
+            "a": "Enter a topic like \"TOEIC business\" or \"100 travel English\" and AI creates a word list. Pick the words you like and import only those.\n\nOne AI-generate set (~20 words) counts as 20 words against your daily quota; for Pro, it also counts against the monthly quota."
           },
           {
             "q": "What kinds of photos can be scanned?",
@@ -806,7 +808,7 @@
         "items": [
           {
             "q": "What do I need to use AI features?",
-            "a": "Nothing extra — AI auto-complete, generate, and photo scan work out of the box. The free tier includes a daily quota.\n\nIf you want more, you can upgrade to Pro, watch a rewarded ad to extend your daily quota, or register your own Gemini API key under Advanced Settings. See the \"Plans & Ads\" section for details."
+            "a": "Nothing extra — AI auto-complete, generate, and photo scan work out of the box. Guests get 10 AI words a day; signed-in Free users get 50 a day (300 during their first 24 hours after signing up).\n\nIf you want more, you can upgrade to Pro, watch a rewarded ad to extend your quota, or register your own Gemini API key under Advanced Settings. See the \"Plans & Ads\" section for details."
           },
           {
             "q": "How accurate are the AI results?",
@@ -822,7 +824,7 @@
           },
           {
             "q": "AI isn't returning results.",
-            "a": "1. Check your internet connection.\n2. You may have hit your daily quota — wait for the next reset, or watch a rewarded ad to extend it immediately.\n3. If you're using your own key (Advanced Settings), the key may be expired or rate-limited."
+            "a": "1. Check your internet connection.\n2. You may have hit your quota. Guest and Free quotas reset the next day; Pro resets in the next monthly usage period. Guests and Free users can also watch a rewarded ad for more quota.\n3. If you're using your own key (Advanced Settings), the key may be expired or over Google's limit."
           }
         ]
       },
@@ -831,19 +833,19 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Free — all study and management features. AI daily quota: 100 words (300 for your first 24 hours after signing up). A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
+            "a": "• Guest — AI quota of 10 words a day, with data stored only on this device.\n• Free — all study and management features, plus 50 AI words a day (300 during your first 24 hours after signing up). A small banner ad is shown at the bottom of the screen.\n• Pro — up to 3,000 AI words per month with no daily limit. All ads are removed, and annual billing saves ~23%. See the Plans screen for the exact localized price.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
           },
           {
             "q": "How is the \"word count\" measured?",
             "a": "AI calls are weighted by how heavy they are:\n• AI auto-complete: 1 word per call\n• AI generate (1 set, ~20 words): 20 words\n• Photo scan (1 image): 5 words extraction + 1 word per recognized word\n\nThe unit reflects Gemini API consumption, so one photo costs more than several auto-completes."
           },
           {
-            "q": "What happens when I hit the daily quota?",
-            "a": "AI calls pause for the rest of the day. Two options:\n\n1. Watch a rewarded ad to instantly add 50 words (up to 300 words per day).\n2. Upgrade to Pro for a 1,000-word daily quota plus no ads.\n\nNon-AI features (studying, editing) keep working regardless of quota."
+            "q": "What happens when I hit an AI quota?",
+            "a": "AI calls pause until the relevant limit resets.\n\n• Guest — watch one rewarded ad for 10 extra words.\n• Signed-in Free — watch up to two rewarded ads for 20 extra words each. Each rewarded ad also removes the banner for 24 hours.\n• Pro — use up to 3,000 words a month with no daily limit. The quota returns in the next billing-anchored monthly period.\n\nNon-AI features (studying, editing) keep working regardless of quota."
           },
           {
             "q": "How does the Pro free trial work?",
-            "a": "The store applies the free trial when you start a Pro subscription from the Plans screen. Whether it's offered, and for how long, is shown at checkout. During the trial there are no ads and your daily quota is the Pro one.\n\nCancel during the trial and you won't be charged. If you don't cancel, the first payment is taken when the trial ends.\n\nSeparately from any trial, your first 24 hours after signing up come with a larger 300-word AI quota."
+            "a": "The store applies the free trial when you start a Pro subscription from the Plans screen. Whether it's offered, and for how long, is shown at checkout. During the trial there are no ads and you can use up to 3,000 words a month with no daily limit.\n\nCancel during the trial and you won't be charged. If you don't cancel, the first payment is taken when the trial ends.\n\nSeparately from any trial, your first 24 hours after signing up come with a larger 300-word AI quota."
           },
           {
             "q": "How do I subscribe to or cancel Pro?",
@@ -851,11 +853,11 @@
           },
           {
             "q": "How are ads shown?",
-            "a": "On the Free tier, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your daily quota, you can opt in to watch a rewarded video ad on demand."
+            "a": "On the Guest and Free tiers, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your quota, you can opt in to watch a rewarded video ad on demand. It also hides the banner for 24 hours. Pro and Pro trials show no ads."
           },
           {
             "q": "Are there ads during the trial?",
-            "a": "No — a free trial is ad-free, exactly like Pro. Once the trial ends and you're back on Free, the banner ad returns. Staying on Pro removes ads entirely."
+            "a": "No — a free trial is ad-free, exactly like Pro. Once the trial ends and you're back on Free, the banner ad returns. Staying on Pro removes ads entirely. A rewarded ad can also hide the banner for 24 hours outside Pro."
           }
         ]
       },
@@ -897,7 +899,7 @@
           },
           {
             "q": "How do I change the app language?",
-            "a": "Settings → Language → App language. Pick Korean or English, independent of your device's system language."
+            "a": "Settings → Language → App language. Pick Korean, English, or Spanish, independent of your device's system language."
           },
           {
             "q": "How do I change my nickname?",
@@ -946,7 +948,7 @@
           },
           {
             "q": "AI calls keep failing.",
-            "a": "1. Check your internet connection.\n2. You may have hit your daily quota — watch a rewarded ad to extend it, or wait until reset.\n3. Very blurry photos or pages crammed with text can fail to scan.\n4. If you're on your own key (Advanced Settings), the key may be expired or over its rate limit."
+            "a": "1. Check your internet connection.\n2. You may have hit your AI quota. Guests and Free users can watch a rewarded ad for more quota; Pro users can check whether all 3,000 words for this month have been used.\n3. Very blurry photos or pages crammed with text can fail to scan.\n4. If you're on your own key (Advanced Settings), the key may be expired or over Google's limit."
           },
           {
             "q": "Ads feel too frequent.",

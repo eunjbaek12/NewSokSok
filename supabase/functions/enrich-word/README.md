@@ -138,7 +138,7 @@ Content-Type: application/json
 2. `trial_ends_at > now()` → Pro (7일 무료 체험)
 3. 그 외 → Free
 
-Free=100단어/일, Pro=1000단어/일. `rewarded_bonus`(보상형 광고)가 더해져 일 절대 상한 Free 300단어, Pro 1200단어.
+Guest=10단어/일, Free=50단어/일, Pro=3,000단어/월(일일 제한 없음). `rewarded_bonus`는 Guest에 하루 1회 +10, Free에 하루 최대 2회 +20씩 적용된다.
 
 ## 안전장치
 

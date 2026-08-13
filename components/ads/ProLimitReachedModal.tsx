@@ -1,13 +1,13 @@
-// Pro 한도 초과 안내 모달 — Pro 사용자가 일 1,000단어 한도 초과 시 표시.
+// Pro 한도 초과 안내 모달 — Pro 사용자가 월 3,000단어를 모두 사용하면 표시.
 //
-// Pro 약속 무결성: 광고를 보여주지 않음. KST 자정에 한도가 초기화된다는 안내만.
+// Pro 약속 무결성: 광고를 보여주지 않고 다음 월간 초기화 시점을 안내한다.
 //
 // 흐름:
 //   1. enrich 호출이 quota_exceeded 응답 + tier='pro' → notifyQuotaExceeded
 //   2. quota store가 tier 분기 → proLimitReachedAt 설정
 //   3. 본 모달이 _layout 글로벌 마운트 위치에서 표시
 //   4. 사용자가 확인 → dismissProLimitReached → 모달 닫힘
-//   5. 다음 KST 자정에 RPC 측 reset_at으로 한도 초기화
+//   5. 스토어가 확인한 결제일 기준 다음 월간 주기에 사용량 초기화
 
 import React from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -26,8 +26,8 @@ export function ProLimitReachedModal({ visible, onClose }: Props) {
   const { colors } = useTheme();
   const status = useQuotaStore((s) => s.status);
 
-  const limit = status?.limit ?? 1000;
-  const used = status?.used ?? limit;
+  const limit = status?.month_limit ?? 3000;
+  const used = status?.month_used ?? limit;
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>

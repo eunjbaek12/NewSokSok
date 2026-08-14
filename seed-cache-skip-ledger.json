@@ -22656,6 +22656,14 @@
     "updatedAt": "2026-08-12T13:43:32.701Z"
   },
   {
+    "sourceLang": "ja",
+    "targetLang": "ko",
+    "term": "偖",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:46:06.102Z"
+  },
+  {
     "sourceLang": "ko",
     "targetLang": "en",
     "term": "가하",
@@ -23662,5 +23670,61 @@
     "promptVersion": 7,
     "reason": "not-real",
     "updatedAt": "2026-08-12T14:49:25.654Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "栓q",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "bdjw",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "bhys",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "nbcs",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "ssfd",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "xjj",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
+  },
+  {
+    "sourceLang": "zh",
+    "targetLang": "ko",
+    "term": "zqsg",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-14T12:48:59.303Z"
   }
 ]

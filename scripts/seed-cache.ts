@@ -79,6 +79,9 @@ const CONCURRENCY = optNum('--concurrency', 2);
 const DRY_RUN = argv.includes('--dry-run');
 const INPUT_PATH = optStr('--input', '').trim();
 const INPUT_SOURCE_LANG = optStr('--source-lang', '').trim().toLowerCase();
+// 덱을 무시하고 --input 목록만 만든다. 사용자 단어장에서 뽑은 미스 몇십 건을 채우려는데
+// 덱 단어가 함께 딸려오면 규모가 열 배로 뛴다(ko>ko 97건을 넣으려다 2,574건이 잡혔다).
+const INPUT_ONLY = argv.includes('--input-only');
 // 언어쌍을 골라 돌린다 (예: --pairs en>ko,ko>en). 실사용이 en>ko 에 86.5% 몰려 있어
 // 30쌍을 한 번에 만들 이유가 없다 — 수요가 확인된 쌍부터 채우고 넓힌다.
 const PAIR_FILTER = (() => {
@@ -273,7 +276,14 @@ function isSeedableInput(term: string): boolean {
     case 'en':
       return /^[a-z]+(?:['’-][a-z]+)*(?: [a-z]+(?:['’-][a-z]+)*)*$/.test(term);
     case 'ko':
-      return term.length >= 2 && /^[가-힣]+(?: [가-힣]+)*$/.test(term);
+      // 기본(외부 말뭉치)에서는 한 음절을 뺀다 — 상위 항목이 이·는·을·하 같은 조사/어미
+      // 조각이고, 유용한 한 음절 기본어는 내장 학습 덱에서 이미 합쳐지기 때문이다.
+      // 다만 --input-only 는 "사용자 단어장에서 뽑은 목록"이라는 신호라 그 가정이 깨진다.
+      // 실제로 걸러진 29건이 전부 단위·수사·의존명사(개·권·명·번·원·월·억·조…)였고,
+      // 하이픈 항목(-든지·-ㄹ게)은 한국어 학습에서 가르치는 어미다. 그때는 통과시킨다.
+      return INPUT_ONLY
+        ? /^[가-힣ㄱ-ㅎㅏ-ㅣ-]+(?: [가-힣ㄱ-ㅎㅏ-ㅣ-]+)*$/.test(term)
+        : term.length >= 2 && /^[가-힣]+(?: [가-힣]+)*$/.test(term);
     case 'ja':
     case 'zh':
       return /[぀-ヿ㐀-䶿一-鿿]/.test(term);
@@ -284,18 +294,23 @@ function isSeedableInput(term: string): boolean {
 
 // ── 1. 덱에서 단어 추출 ──────────────────────────────────────────────────
 function collectJobs(): Job[] {
-  const src = readFileSync(CURATION_PATH, 'utf8');
-  // 첫 '['는 타입 선언 `VocaList[]` 의 것이라 '= [' 를 기준으로 잡는다.
-  const start = src.indexOf('[', src.indexOf('= ['));
-  const decks = JSON.parse(src.slice(start, src.lastIndexOf(']') + 1));
-
   const bySrc = new Map<string, Set<string>>();
-  for (const d of decks) {
-    const s = d.sourceLanguage ?? 'en';
-    if (!bySrc.has(s)) bySrc.set(s, new Set());
-    for (const w of d.words ?? []) {
-      const t = String(w.term ?? '').trim().toLowerCase();
-      if (t && t.length <= 100) bySrc.get(s)!.add(t);
+
+  if (INPUT_ONLY && !INPUT_PATH) throw new Error('--input-only 는 --input 과 함께 써야 합니다.');
+
+  if (!INPUT_ONLY) {
+    const src = readFileSync(CURATION_PATH, 'utf8');
+    // 첫 '['는 타입 선언 `VocaList[]` 의 것이라 '= [' 를 기준으로 잡는다.
+    const start = src.indexOf('[', src.indexOf('= ['));
+    const decks = JSON.parse(src.slice(start, src.lastIndexOf(']') + 1));
+
+    for (const d of decks) {
+      const s = d.sourceLanguage ?? 'en';
+      if (!bySrc.has(s)) bySrc.set(s, new Set());
+      for (const w of d.words ?? []) {
+        const t = String(w.term ?? '').trim().toLowerCase();
+        if (t && t.length <= 100) bySrc.get(s)!.add(t);
+      }
     }
   }
 
@@ -324,7 +339,8 @@ function collectJobs(): Job[] {
   // 오타 난 쌍 이름은 조용히 0건이 되어 "다 만들었다"는 착각을 부른다. 먼저 막는다.
   if (PAIR_FILTER) {
     const all = new Set<string>();
-    for (const s of bySrc.keys()) for (const t of LANGS) if (t !== s) all.add(`${s}>${t}`);
+    // 같은 언어쌍(ko>ko 등)도 "아는 쌍"으로 친다 — 아래에서 --pairs 로 명시했을 때만 만든다.
+    for (const s of bySrc.keys()) for (const t of LANGS) all.add(`${s}>${t}`);
     const unknown = [...PAIR_FILTER].filter(p => !all.has(p));
     if (unknown.length) {
       throw new Error(`--pairs 에 없는 언어쌍: ${unknown.join(', ')}\n  가능한 쌍: ${[...all].sort().join(', ')}`);
@@ -334,8 +350,11 @@ function collectJobs(): Job[] {
   const byPair = new Map<string, Job[]>();
   for (const [sourceLang, terms] of bySrc) {
     for (const targetLang of LANGS) {
-      if (targetLang === sourceLang) continue;   // 같은 언어쌍은 시딩 대상에서 제외
       const pair = `${sourceLang}>${targetLang}`;
+      // 같은 언어쌍(ko>ko = 쉬운 뜻풀이 모드)은 프롬프트가 v6부터 지원하지만, 전량 시딩
+      // 대상은 아니다 — 수요가 한두 쌍에만 있어 6쌍을 자동으로 늘리면 낭비가 된다.
+      // --pairs 로 명시했을 때만 만든다.
+      if (targetLang === sourceLang && !PAIR_FILTER?.has(pair)) continue;
       if (PAIR_FILTER && !PAIR_FILTER.has(pair)) continue;
       byPair.set(pair, [...terms].map(term => ({ term, sourceLang, targetLang })));
     }

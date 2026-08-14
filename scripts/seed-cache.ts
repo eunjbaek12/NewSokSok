@@ -51,15 +51,18 @@ const COST_PER_CALL = 0.75;  // ₩/건 (2026-08 실제 청구: 5만 건 생성 
 // 이 상수가 배포된 Edge 와 다르면 시딩이 통째로 헛돈다(조회는 Edge 버전으로 하므로
 // 전부 미스가 된다). 복사본을 믿지 말고 원본에서 읽어 대조한다.
 function assertVersionSync() {
-  const checks: [string, RegExp][] = [
-    ['supabase/functions/enrich-word/index.ts', /const PROMPT_VERSION = (\d+)/],
-    ['lib/enrich-cache-shared.ts', /SHARED_ENRICH_PROMPT_VERSION = (\d+)/],
+  const checks: [string, RegExp, string, () => number][] = [
+    ['supabase/functions/enrich-word/index.ts', /const PROMPT_VERSION = (\d+)/, '프롬프트 버전', () => PROMPT_VERSION],
+    ['lib/enrich-cache-shared.ts', /SHARED_ENRICH_PROMPT_VERSION = (\d+)/, '프롬프트 버전', () => PROMPT_VERSION],
+    // 폭주 상한도 Edge 와 같아야 한다 — 캐시에 쓰는 경로가 둘(이 스크립트 / 사용자
+    // 실시간 enrich-word)이라, 한쪽만 고치면 시딩은 막히는데 다른 쪽으로 그대로 들어온다.
+    ['supabase/functions/enrich-word/index.ts', /const RUNAWAY_MAX_LEN = (\d+)/, '폭주 상한', () => RUNAWAY_MAX_LEN],
   ];
-  for (const [path, re] of checks) {
+  for (const [path, re, label, expected] of checks) {
     const m = readFileSync(path, 'utf8').match(re);
-    if (!m) throw new Error(`${path} 에서 버전을 못 읽었습니다.`);
-    if (Number(m[1]) !== PROMPT_VERSION) {
-      throw new Error(`버전 불일치: ${path} = ${m[1]}, 이 스크립트 = ${PROMPT_VERSION}`);
+    if (!m) throw new Error(`${path} 에서 ${label}을 못 읽었습니다.`);
+    if (Number(m[1]) !== expected()) {
+      throw new Error(`${label} 불일치: ${path} = ${m[1]}, 이 스크립트 = ${expected()}`);
     }
   }
 }
@@ -218,6 +221,55 @@ function defectOf(r: SeedResult): string | null {
 
   return numberingViolation('뜻', res.meaningKr, senses.length)
     ?? numberingViolation('정의', res.definition, senses.length);
+}
+
+// ── 폭주 ─────────────────────────────────────────────────────────────────
+// 저장하느니 없는 게 나은 결함. defectOf 와 달리 재생성이 실패해도 저장하지 않는다.
+//
+// 두 판정을 나눈 이유: 일반 결함은 "어긋나도 그대로 저장" 이 옳다(본문 루프의 주석 참고).
+// 병기 번호가 하나 어긋나도 뜻·예문은 쓸 만하고, 안 넣으면 그 단어만 캐시가 없어진다.
+// 폭주는 정반대다 — 캐시가 비면 실시간 AI 가 제대로 된 답을 주는데, 폭주가 박혀 있으면
+// 그 쓰레기가 영구히 나간다. 실제로 84,512자짜리 definition 과 빈 줄 7,375개가
+// 2026-08-12 부터 캐시에 굳어 있었다(hit_count 는 0이라 사용자에게 나가기 전에 잡았다).
+//
+// 경계값 1,000자는 2026-08-15 캐시 81,628행 전수 실측에서 나왔다. 추측이 아니다.
+// 정상 최대는 526자(en>zh "let them cook" — 슬랭의 어원 설명)이고, senses 2·3 그룹
+// 33,756행은 max 499 에서 끝난다. 두 배로 잡았다. 걸린 16건은 전부 폭주였다.
+//
+// ⚠️ 개행 수는 폭주 지표가 아니다 — 규칙 후보였으나 실측이 뒤집었다. 개행 3~12개인
+//    15건을 전수로 보니 전부 정상이었다(ja>ko "流れる" 는 뜻 7개를 줄바꿈으로 나열한
+//    132자다). 게다가 개행이 n개면 길이가 최소 n자라 "개행 7,375개" 는 "길이 7,505자"
+//    로 이미 걸린다 — 개행 규칙이 단독으로 잡는 것은 짧은데 줄만 많은 경우뿐이고,
+//    그게 바로 정상이었다. 길이 규칙에 포함되는 조건을 따로 두지 말 것.
+//
+// ⚠️ 길이만으로 전부 가려지지도 않는다 — ja>es "恋愛"(같은 문장 15회 반복)와
+//    en>zh "let them cook"(정상)이 똑같이 526자였다. 그 둘은 다른 필드(뜻 1,348자)에서
+//    갈렸다. "같은 문장 3회 이상 반복" 이 남은 후보이나, 정상 데이터에 오탐이 없는지
+//    전수 검증하지 않아 넣지 않았다. 넣으려면 먼저 8만 행에 돌려서 오탐부터 셀 것.
+const RUNAWAY_MAX_LEN = 1000;
+
+function runawayOf(r: SeedResult): string | null {
+  const res = r.result ?? {};
+  const check = (label: string, v: unknown): string | null =>
+    typeof v === 'string' && v.length > RUNAWAY_MAX_LEN
+      ? `${label} ${v.length.toLocaleString()}자`
+      : null;
+
+  const top = check('정의', res.definition)
+    ?? check('뜻', res.meaningKr)
+    ?? check('예문', res.exampleEn)
+    ?? check('예문번역', res.exampleKr);
+  if (top) return top;
+
+  const senses = Array.isArray(res.senses) ? res.senses : [];
+  for (let i = 0; i < senses.length; i++) {
+    const s = senses[i] ?? {};
+    const v = check(`뜻${i + 1}`, s.meaningKr)
+      ?? check(`뜻${i + 1} 예문`, s.exampleEn)
+      ?? check(`뜻${i + 1} 예문번역`, s.exampleKr);
+    if (v) return v;
+  }
+  return null;
 }
 
 /**
@@ -552,7 +604,7 @@ async function main() {
   for (let i = 0; i < jobs.length; i += BATCH) batches.push(jobs.slice(i, i + BATCH));
 
   const stat = { done: 0, saved: 0, notReal: 0, clean: 0, defect: 0, retried: 0, recovered: 0,
-                 callFailed: 0, saveFailed: 0, senseMiss: 0, senseTotal: 0 };
+                 runaway: 0, callFailed: 0, saveFailed: 0, senseMiss: 0, senseTotal: 0 };
   const perPair = new Map<string, { n: number; defect: number; notReal: number }>();
   const callFailures: string[] = [];
   // 저장에 끝내 실패한 행은 이름만이 아니라 내용을 통째로 보관한다 — 이미 AI 를 불러
@@ -560,6 +612,7 @@ async function main() {
   const unsavedRows: any[] = [];
   const notRealList: string[] = [];
   const defectSamples: string[] = [];
+  const runawayList: string[] = [];
   let buffer: any[] = [];
   const started = Date.now();
   let ledgerDirty = false;
@@ -612,6 +665,17 @@ async function main() {
       if (notRealList.length < 300) notRealList.push(`${pair} ${r.term}`);
       return;
     }
+    // 폭주는 저장하지 않는다 — 사유는 runawayOf 주석. 아래 defect 분기보다 먼저 걸러야
+    // 한다(폭주는 "결함이어도 저장" 규칙의 예외다). skipLedger 에는 넣지 않는다 —
+    // 영구 제외가 아니라 다음 실행에서 다시 만들어 볼 대상이고, 실측 17건 규모라
+    // 재시도 비용이 무시할 만하다.
+    const runaway = runawayOf(r);
+    if (runaway) {
+      stat.runaway++;
+      if (runawayList.length < 100) runawayList.push(`${pair} ${r.term} — ${runaway}`);
+      return;
+    }
+
     const sm = senseBlankMisses(r);
     stat.senseMiss += sm.miss; stat.senseTotal += sm.total;
 
@@ -697,6 +761,7 @@ async function main() {
     (graded ? ` (${(stat.clean / graded * 100).toFixed(1)}%)` : ''));
   console.log(`  재생성 시도 ${stat.retried} → 회복 ${stat.recovered} · 끝내 결함 ${stat.defect}`);
   console.log(`  없는 단어로 판정(미저장) ${stat.notReal}`);
+  if (stat.runaway) console.log(`  ⚠ 폭주로 버림(미저장) ${stat.runaway} — 다음 실행에서 다시 시도합니다`);
   if (stat.senseTotal) {
     // 재생성하지 않는 참고 수치. 상당수는 활용형을 못 읽은 가짜 경보다.
     console.log(`  동음이의어 뜻별 예문 ${stat.senseTotal - stat.senseMiss}/${stat.senseTotal} ` +
@@ -714,11 +779,11 @@ async function main() {
   }
   console.log('='.repeat(64));
 
-  if (callFailures.length || notRealList.length || defectSamples.length) {
+  if (callFailures.length || notRealList.length || defectSamples.length || runawayList.length) {
     const path = 'seed-cache-report.json';
     writeFileSync(path, JSON.stringify({
       summary: { ...stat, perPair: Object.fromEntries(perPair) },
-      callFailures, notRealList, defectSamples,
+      callFailures, notRealList, defectSamples, runawayList,
     }, null, 2), 'utf8');
     console.log(`\n상세 내역을 ${path} 에 적었습니다.`);
   }

@@ -53,7 +53,11 @@
 
 ---
 
-## 2. 단어 언어쌍 오염 — 로컬 SQLite 마이그레이션
+## 2. 단어 언어쌍 오염 — 로컬 SQLite 마이그레이션 ✅ 구현 완료(2026-08-15)
+
+`lib/db/migrations/019_fix_curated_word_languages.ts` (SCHEMA_VERSION 18 → 19).
+실제 SQLite로 6가지 경우를 검증했다 — 오염/정상/사용자 리스트/삭제된 단어/NULL 언어,
+그리고 재실행 시 대상 0건(멱등). **남은 것은 실기 검증뿐이다**(아래 §확인할 것).
 
 ### 무엇이 잘못돼 있나
 
@@ -83,7 +87,10 @@ isCurated = true 인 리스트에 속하고,
 → 리스트 값으로 덮는다
 ```
 
-- 로컬을 고치면 dirty로 표시되어 **push로 서버까지 맞춰진다.**
+- 로컬을 고친 뒤 **dirty로 직접 마킹해야** push로 서버까지 맞춰진다. 🔴 이 문서가 처음
+  "고치면 dirty로 표시된다"고 적은 것은 **틀렸다** — dirty 집합은 SQLite가 아니라
+  AsyncStorage 기반 Zustand store(`features/sync/store.ts`)라, SQL만 돌리면 로컬만
+  바뀌고 서버는 영영 그대로다. 마이그레이션이 `markWordsDirty(ids)`까지 부른다.
 - **게스트도 고쳐진다** (서버 UPDATE는 게스트에 닿지 않는다).
 - `cloud_words.updated_at`을 인위로 올리지 않으므로 **운영 지표가 왜곡되지 않는다**
   (`docs/ops-analytics-queries.md` Q1이 그 컬럼으로 "오늘 활동한 사람"을 판정한다).

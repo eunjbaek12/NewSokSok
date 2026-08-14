@@ -31,6 +31,8 @@ interface TranslatedEntry {
   meaningEn?: string;  // KO: 영어 뜻 → meaningKr 슬롯
   romaja?: string;     // KO: 로마자 → phonetic 슬롯
   exampleKo?: string;  // KO: 한국어 예문 → exampleEn 슬롯(원어, ko TTS)
+  category?: string;   // TOPIK II: 주제 태그
+  levelBand?: string;  // TOPIK II: '3-4' 또는 '5-6'
 }
 
 interface ListMeta {
@@ -271,6 +273,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  topik2: {
+    id: 'curated-topik2-ko-1',
+    title: 'TOPIK II Essentials 300',
+    icon: '📝',
+    category: '시험',
+    level: 'intermediate',
+    description: 'A focused 300-word TOPIK II extension for learners who have completed TOPIK I. Balanced across society & relationships, education & work, economy & consumption, environment & science, culture & media, and abstract & logical language. Each card includes a TOPIK-level example and useful collocations. Headwords selected in-house from the app’s NIKL-based intermediate and advanced candidates; Korean→English; meanings & examples AI-generated.',
+    tags: ['Korean', 'TOPIK II', 'Exam'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   convenience: {
     id: 'curated-convenience-ko-1',
     title: 'Korean Convenience Store & Delivery 50',
@@ -482,7 +495,11 @@ function main() {
       exampleKr: w.exampleKr,
       isMemorized: false,
       isStarred: false,
-      tags: meta.tags,
+      tags: [...new Set([
+        ...meta.tags,
+        ...(LIST_NAME === 'topik2' && w.category ? [w.category] : []),
+        ...(LIST_NAME === 'topik2' && w.levelBand ? [`TOPIK ${w.levelBand}`] : []),
+      ])],
       phonetic: w.phonetic,
       pos: w.pos,
     })),

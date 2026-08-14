@@ -11,6 +11,10 @@ import type { AutoFillResult } from './types';
 //
 // SHARED_ENRICH_PROMPT_VERSION은 Edge Function의 PROMPT_VERSION과 반드시 동일해야 한다
 // (supabase/functions/enrich-word/index.ts). 한쪽만 bump하면 영영 미스가 난다.
+//
+// ⚠️ 이 상수를 올리면 스토어에 이미 나가 있는 앱들은 옛 값으로 조회하므로, 서버만 올려도
+// 앱만 올려도 그 사이 기간 동안 공용 캐시를 한 건도 못 읽는다. bump는 앱 릴리스와 묶어야
+// 한다. 8로 올렸다가 2026-08-14에 되돌린 경위는 enrich-word/index.ts의 주석 참조.
 export const SHARED_ENRICH_PROMPT_VERSION = 7;
 
 export async function fetchSharedEnrich(

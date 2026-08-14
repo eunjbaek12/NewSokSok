@@ -100,7 +100,7 @@ from user_subscriptions where tier='pro' order by updated_at desc limit 20;
 
 **어디서**: Edge Functions `enrich-word` / `generate-words` / `scan-image` Logs + `ai_usage_daily` 테이블.
 
-**정상**: Free 100단어/일, Pro·트라이얼 1000/일, 광고 보너스 최대 +200(절대 상한 300), **KST 자정 리셋**(`kst_today()`).
+**정상**: Free 50단어/일(광고 1회당 +20, 최대 2회), Pro·트라이얼 3,000단어/월·일일 제한 없음. Free는 **KST 자정**, Pro는 스토어가 확인한 **구독 결제일 기준 매월** 리셋.
 
 **경보 시그널**:
 - `consume_ai_quota` **allowed=false 급증** → 사용자가 한도에 막힘(보상형 광고 유도로 넘어가는지 확인).

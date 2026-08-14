@@ -300,9 +300,9 @@ export default function AddWordScreen() {
     const { authMode } = useAuth();
     const { status: quotaStatus, refresh: refreshQuota } = useQuota();
     // 화면 진입 시 1회 한도 갱신 (보상형 광고 + Edge 차감으로 carrier 갱신될 수 있음)
-    useEffect(() => { if (isCloudAuthMode(authMode)) refreshQuota(); }, [authMode, refreshQuota]);
+    useEffect(() => { if (authMode !== 'none') refreshQuota(); }, [authMode, refreshQuota]);
 
-    const showQuotaChip = isCloudAuthMode(authMode) && !apiKey && quotaStatus && quotaStatus.tier === 'free';
+    const showQuotaChip = authMode !== 'none' && !apiKey && !!quotaStatus && quotaStatus.tier !== 'pro';
 
     // 이 화면의 "유효 언어" — 전역 입력 설정이 아니라 편집 대상 단어(편집)/선택한
     // 단어장(신규)의 실제 언어를 따른다. 편집 레이블 정확화 + 저장 시 언어 보존의 핵심.
@@ -341,6 +341,7 @@ export default function AddWordScreen() {
         hasFillContent,
         handleAutoFill,
         handleAutoFillWithTerm,
+        handleEnrichFull,
         handleSaveWord,
         isPendingFill,
         pendingFillTerm,
@@ -349,6 +350,7 @@ export default function AddWordScreen() {
         autoFillFailedAt,
         autoFillNotFoundAt,
         enrichFallback,
+        enrichmentLevel,
         sensePicker,
         toggleSense,
         dismissSensePicker,
@@ -366,6 +368,9 @@ export default function AddWordScreen() {
     // 띄우므로 여기까지 안내하면 화면에 두 개가 겹친다.
     // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
     const fallbackNotice = useMemo(() => {
+        if (enrichmentLevel === 'basic') {
+            return { text: t('addWord.basicMeaningLoaded'), action: t('addWord.enrichWithAi'), onPress: handleEnrichFull };
+        }
         if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
         if (enrichFallback === 'guest') {
             return { text: t('addWord.fallbackGuest'), action: t('addWord.fallbackGuestAction'), onPress: () => router.push('/login') };
@@ -374,7 +379,7 @@ export default function AddWordScreen() {
             return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
         }
         return { text: t('addWord.fallbackServer'), action: null, onPress: null };
-    }, [enrichFallback, meaningKr, t]);
+    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -1147,6 +1152,23 @@ export default function AddWordScreen() {
                                                         blurOnSubmit={false}
                                                     />
                                                     <View style={styles.searchActions}>
+                                                        {term.length > 0 && (
+                                                            <Pressable
+                                                                onPress={() => {
+                                                                    if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                                    suggestionsDismissedRef.current = true;
+                                                                    setSuggestions([]);
+                                                                    setShowSuggestions(false);
+                                                                    setTerm('');
+                                                                }}
+                                                                accessibilityRole="button"
+                                                                accessibilityLabel={`${getWordLabel(sourceLang, t)} ${t('common.delete')}`}
+                                                                hitSlop={12}
+                                                                style={styles.searchIconButton}
+                                                            >
+                                                                <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                                                            </Pressable>
+                                                        )}
                                                         <SpeakerButton
                                                             text={getSpeakableText(term, phonetic, sourceLang)}
                                                             language={getTtsLang(sourceLang)}
@@ -1345,6 +1367,8 @@ export default function AddWordScreen() {
                                                     value={meaningKr}
                                                     maxLength={200}
                                                     onChangeText={(v: string) => { setMeaningKr(v); dismissSensePicker(); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                    onClear={() => { setMeaningKr(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getMeaningLabel(targetLang, t)} ${t('common.delete')}`}
                                                     error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                                 />
                                                 {fallbackNotice && (
@@ -1376,6 +1400,8 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.pos')}
                                                     value={pos}
                                                     onChangeText={(v: string) => { setPos(v); dismissSensePicker(); }}
+                                                    onClear={() => { setPos(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${t('addWord.pos')} ${t('common.delete')}`}
                                                     maxLength={60}
                                                 />
                                             </Animated.View>
@@ -1390,6 +1416,8 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.phonetic')}
                                                     value={phonetic}
                                                     onChangeText={(v: string) => { setPhonetic(v); dismissSensePicker(); }}
+                                                    onClear={() => { setPhonetic(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${t('addWord.phonetic')} ${t('common.delete')}`}
                                                     maxLength={80}
                                                 />
                                             </Animated.View>
@@ -1404,6 +1432,8 @@ export default function AddWordScreen() {
                                                     placeholder={getExampleLabel(sourceLang, t)}
                                                     value={exampleEn}
                                                     onChangeText={(v: string) => { setExampleEn(v); dismissSensePicker(); }}
+                                                    onClear={() => { setExampleEn(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getExampleLabel(sourceLang, t)} ${t('common.delete')}`}
                                                     maxLength={300}
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
@@ -1415,6 +1445,8 @@ export default function AddWordScreen() {
                                                         placeholder={getExampleTranslationLabel(targetLang, t)}
                                                         value={exampleKr}
                                                         onChangeText={(v: string) => { setExampleKr(v); dismissSensePicker(); }}
+                                                        onClear={() => { setExampleKr(''); dismissSensePicker(); }}
+                                                        clearAccessibilityLabel={`${getExampleTranslationLabel(targetLang, t)} ${t('common.delete')}`}
                                                         maxLength={300}
                                                         multiline
                                                     />
@@ -1431,6 +1463,8 @@ export default function AddWordScreen() {
                                                     placeholder={getDefinitionLabel(sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={(v: string) => { setDefinition(v); dismissSensePicker(); }}
+                                                    onClear={() => { setDefinition(''); dismissSensePicker(); }}
+                                                    clearAccessibilityLabel={`${getDefinitionLabel(sourceLang, t)} ${t('common.delete')}`}
                                                     maxLength={500}
                                                     multiline
                                                 />
@@ -1858,7 +1892,7 @@ const styles = StyleSheet.create({
     fallbackNoticeText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
-    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },
+    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 162 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
     searchIconButton: { padding: 8 },
     // 돋보기 ↔ 스피너가 번갈아 들어가는 자리. padding 방식(22+8*2)과 같은 38로 맞춰

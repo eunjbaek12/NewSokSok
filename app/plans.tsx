@@ -145,11 +145,14 @@ export default function PlansScreen() {
         })
       : null;
 
-  // 진행률 (Free/Pro 사용자만 의미 있음 — BYOK/게스트는 별도 표시)
-  const used = status?.used ?? 0;
-  const limit = status?.limit ?? 100;
-  const totalCap = limit + (status?.bonus ?? 0);
-  const progressRatio = totalCap > 0 ? Math.min(1, used / totalCap) : 0;
+  // Free는 일일 사용량(+광고 보너스), Pro는 월간 사용량을 표시한다.
+  // 서버 호환을 위해 month_*가 없는 구버전 응답에서는 기존 필드로 폴백한다.
+  const dailyUsed = status?.used ?? 0;
+  const dailyLimit = status?.limit ?? 50;
+  const freeTotalCap = dailyLimit + (status?.bonus ?? 0);
+  const usageUsed = isPro ? (status?.month_used ?? dailyUsed) : dailyUsed;
+  const usageLimit = isPro ? (status?.month_limit ?? dailyLimit) : freeTotalCap;
+  const progressRatio = usageLimit > 0 ? Math.min(1, usageUsed / usageLimit) : 0;
   const progressColor = progressRatio >= 0.9 ? colors.error : progressRatio >= 0.7 ? colors.warning : colors.primary;
 
   return (
@@ -197,16 +200,16 @@ export default function PlansScreen() {
           // Free/Pro: 사용량 미터 (한도 초과 진입 경로에서 중요)
           <View style={[styles.currentCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
             <Text style={[styles.usageLabel, { color: colors.textTertiary }]}>
-              {t('plans.currentUsageLabel')}
+              {t(isPro ? 'plans.currentMonthlyUsageLabel' : 'plans.currentUsageLabel')}
             </Text>
             <Text style={[styles.usageValue, { color: colors.text }]}>
-              {t('plans.currentUsageValue', { used, limit: isPro ? limit : totalCap })}
+              {t('plans.currentUsageValue', { used: usageUsed, limit: usageLimit })}
             </Text>
             <View style={[styles.progressTrack, { backgroundColor: colors.borderLight }]}>
               <View style={[styles.progressFill, { width: `${progressRatio * 100}%`, backgroundColor: progressColor }]} />
             </View>
             <Text style={[styles.usageNote, { color: colors.textTertiary }]}>
-              {t('plans.currentResetNote')}
+              {t(isPro ? 'plans.currentMonthlyResetNote' : 'plans.currentResetNote')}
             </Text>
           </View>
         )}

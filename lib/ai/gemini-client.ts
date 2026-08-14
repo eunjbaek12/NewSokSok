@@ -1,9 +1,8 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
+import { GEMINI_BYOK_MODEL } from '@/lib/ai/model';
 import { assembleTopText, normalizeSenses } from '@/lib/senses';
 import { fromZodError } from 'zod-validation-error';
-
-const MODEL_NAME = 'gemini-2.5-flash-lite';
 
 function getAIClient(apiKey: string): GoogleGenAI {
   return new GoogleGenAI({ apiKey });
@@ -155,7 +154,7 @@ export async function analyzeWord(
       - "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.` : '';
 
   const response = await withRetry(() => ai.models.generateContent({
-    model: MODEL_NAME,
+    model: GEMINI_BYOK_MODEL,
     contents: `Analyze the ${srcName} word/phrase "${word}".
 
       FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.

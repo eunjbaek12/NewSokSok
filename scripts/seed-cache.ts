@@ -22,6 +22,8 @@
  *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건). 4(=동시 80건)로 올리면 Vertex 가
  *                    429 를 쏟는다 — 실측 15,050건 중 46.8% 실패. 2 를 넘기지 말 것.
  *   --pairs a>b,c>d  언어쌍을 골라서만 (기본: 30쌍 전부). 없는 쌍을 적으면 즉시 실패한다
+ *   --input FILE     외부 빈도 목록 JSON. 문자열 배열 또는 term 필드가 있는 객체 배열
+ *   --source-lang L  --input 목록의 원본 언어(en 또는 ko)
  *   --dry-run        호출·저장 없이 대상 건수만 센다
  */
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -38,11 +40,12 @@ if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
 }
 
 const CURATION_PATH = 'constants/curationData.ts';
+const SKIP_LEDGER_PATH = 'seed-cache-skip-ledger.json';
 const LANGS = ['en', 'ko', 'ja', 'zh', 'vi', 'es'] as const;
 const BATCH = 20;            // seed-enrich 한 요청에 담는 건수 (함수의 MAX_ITEMS 와 동일)
 const UPSERT_CHUNK = 200;    // 캐시에 한 번에 밀어 넣는 행 수
 const PROMPT_VERSION = 7;
-const COST_PER_CALL = 0.4;   // ₩/건 (docs/pricing-decision.md 실측)
+const COST_PER_CALL = 0.75;  // ₩/건 (2026-08 실제 청구: 5만 건 생성 때 총 ₩37,412)
 
 // ── 버전 어긋남 방지 ─────────────────────────────────────────────────────
 // 이 상수가 배포된 Edge 와 다르면 시딩이 통째로 헛돈다(조회는 Edge 버전으로 하므로
@@ -74,6 +77,8 @@ const optStr = (name: string, dflt: string) => {
 const LIMIT = optNum('--limit', 0);
 const CONCURRENCY = optNum('--concurrency', 2);
 const DRY_RUN = argv.includes('--dry-run');
+const INPUT_PATH = optStr('--input', '').trim();
+const INPUT_SOURCE_LANG = optStr('--source-lang', '').trim().toLowerCase();
 // 언어쌍을 골라 돌린다 (예: --pairs en>ko,ko>en). 실사용이 en>ko 에 86.5% 몰려 있어
 // 30쌍을 한 번에 만들 이유가 없다 — 수요가 확인된 쌍부터 채우고 넓힌다.
 const PAIR_FILTER = (() => {
@@ -84,6 +89,14 @@ const PAIR_FILTER = (() => {
 
 interface Job { term: string; sourceLang: string; targetLang: string }
 interface SeedResult { term: string; sourceLang: string; targetLang: string; ok: boolean; result?: any; error?: string }
+interface SkipLedgerEntry {
+  sourceLang: string;
+  targetLang: string;
+  term: string;
+  promptVersion: number;
+  reason: 'not-real' | 'personal-name';
+  updatedAt: string;
+}
 
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 const pairOf = (x: { sourceLang: string; targetLang: string }) => `${x.sourceLang}>${x.targetLang}`;
@@ -223,6 +236,15 @@ function scrub<T>(v: T): T {
   return v;
 }
 
+/** 모델이 commonOnly 지시를 놓쳐 평범한 인명을 통과시키는 경우의 결정적 안전망. */
+function isPersonalNameOnly(r: SeedResult): boolean {
+  if (!INPUT_PATH || r.sourceLang !== 'en') return false;
+  const definition = String(r.result?.definition ?? '').toLowerCase();
+  // 뒤쪽 뜻에 인명이 하나 섞였을 뿐인 bob(움직임/머리 모양), dog 같은 일반어는 살린다.
+  // 첫 번째·주된 정의 자체가 이름인 경우만 제외한다.
+  return /^(?:①\s*)?(?:a |an |the )?(?:common )?(?:(?:male|female|masculine|feminine) )?(?:given name|first name|surname|family name)\b/.test(definition);
+}
+
 /** senses 예문에서 표제어 자리를 못 찾은 개수 — 재생성하지 않고 기록만 한다. */
 function senseBlankMisses(r: SeedResult): { miss: number; total: number } {
   const senses = Array.isArray(r.result?.senses) ? r.result.senses : [];
@@ -246,6 +268,34 @@ function collectJobs(): Job[] {
       const t = String(w.term ?? '').trim().toLowerCase();
       if (t && t.length <= 100) bySrc.get(s)!.add(t);
     }
+  }
+
+  if (INPUT_PATH) {
+    if (!['en', 'ko'].includes(INPUT_SOURCE_LANG)) {
+      throw new Error('--input 사용 시 --source-lang en 또는 --source-lang ko가 필요합니다.');
+    }
+    const raw: unknown = JSON.parse(readFileSync(INPUT_PATH, 'utf8'));
+    if (!Array.isArray(raw)) throw new Error(`${INPUT_PATH}가 JSON 배열이 아닙니다.`);
+    if (!bySrc.has(INPUT_SOURCE_LANG)) bySrc.set(INPUT_SOURCE_LANG, new Set());
+    const terms = bySrc.get(INPUT_SOURCE_LANG)!;
+    let rejected = 0;
+    for (const item of raw) {
+      const value = typeof item === 'string' ? item
+        : item && typeof item === 'object' ? (item as { term?: unknown }).term
+        : '';
+      const term = String(value ?? '').trim().toLowerCase();
+      // 빈도 목록의 URL, 사용자명, 숫자 조각, 깨진 토큰을 유료 호출 전에 제거한다.
+      const valid = INPUT_SOURCE_LANG === 'en'
+        ? /^[a-z]+(?:['’-][a-z]+)*(?: [a-z]+(?:['’-][a-z]+)*)*$/.test(term)
+        // 외부 한국어 말뭉치의 한 음절 상위 항목은 이·는·을·하 같은 조사/어미 조각이
+        // 대부분이다. 유용한 한 음절 기본어는 이미 내장 학습 덱에서 별도로 합쳐진다.
+        : term.length >= 2 && /^[가-힣]+(?: [가-힣]+)*$/.test(term);
+      if (!valid || term.length > 100) { rejected++; continue; }
+      terms.add(term);
+    }
+    console.log(`  외부 목록 ${raw.length.toLocaleString()}건: 형식 불량 ${rejected.toLocaleString()}건 제외`);
+  } else if (INPUT_SOURCE_LANG) {
+    throw new Error('--source-lang은 --input과 함께 사용해야 합니다.');
   }
 
   // 오타 난 쌍 이름은 조용히 0건이 되어 "다 만들었다"는 착각을 부른다. 먼저 막는다.
@@ -289,6 +339,11 @@ async function loadExistingKeys(db: any): Promise<Set<string>> {
       .from('enrich_cache')
       .select('source_lang,target_lang,term')
       .eq('prompt_version', PROMPT_VERSION)
+      // range 페이지네이션은 결정적 정렬 없이는 페이지 사이에 행이 이동·중복돼
+      // 기존 키를 누락할 수 있다. 실제 75,010행 중 46,779행만 읽어 재호출한 사고가 있었다.
+      .order('source_lang', { ascending: true })
+      .order('target_lang', { ascending: true })
+      .order('term', { ascending: true })
       .range(from, from + PAGE - 1);
     if (error) throw new Error(`기존 캐시 조회 실패: ${error.message}`);
     if (!data?.length) break;
@@ -305,6 +360,52 @@ const VERTEX_BACKOFF_MS = 5000;   // 5s → 10s → 15s
 const keyOf = (x: { sourceLang: string; targetLang: string; term: string }) =>
   `${x.sourceLang}|${x.targetLang}|${x.term}`;
 
+function loadSkipLedger(): Map<string, SkipLedgerEntry> {
+  try {
+    const raw: unknown = JSON.parse(readFileSync(SKIP_LEDGER_PATH, 'utf8'));
+    if (!Array.isArray(raw)) throw new Error('JSON 배열이 아님');
+    const entries = raw.filter((entry): entry is SkipLedgerEntry =>
+      !!entry && typeof entry === 'object'
+      && typeof entry.sourceLang === 'string'
+      && typeof entry.targetLang === 'string'
+      && typeof entry.term === 'string'
+      && entry.promptVersion === PROMPT_VERSION
+      && (entry.reason === 'not-real' || entry.reason === 'personal-name'),
+    );
+    return new Map(entries.map(entry => [keyOf(entry), entry]));
+  } catch (error: any) {
+    if (error?.code !== 'ENOENT') {
+      throw new Error(`${SKIP_LEDGER_PATH} 읽기 실패: ${error?.message ?? error}`);
+    }
+    // 장부 도입 전 마지막 보고서의 탈락 표본을 가능한 만큼 승계한다.
+    try {
+      const report = JSON.parse(readFileSync('seed-cache-report.json', 'utf8')) as {
+        notRealList?: unknown;
+      };
+      const ledger = new Map<string, SkipLedgerEntry>();
+      for (const line of Array.isArray(report.notRealList) ? report.notRealList : []) {
+        const match = String(line).match(/^([a-z]{2})>([a-z]{2}) (.+?)( \[personal-name\])?$/);
+        if (!match) continue;
+        const entry: SkipLedgerEntry = {
+          sourceLang: match[1], targetLang: match[2], term: match[3],
+          promptVersion: PROMPT_VERSION,
+          reason: match[4] ? 'personal-name' : 'not-real',
+          updatedAt: new Date().toISOString(),
+        };
+        ledger.set(keyOf(entry), entry);
+      }
+      return ledger;
+    } catch {
+      return new Map();
+    }
+  }
+}
+
+function saveSkipLedger(ledger: Map<string, SkipLedgerEntry>) {
+  const entries = [...ledger.values()].sort((a, b) => keyOf(a).localeCompare(keyOf(b)));
+  writeFileSync(SKIP_LEDGER_PATH, JSON.stringify(entries, null, 2), 'utf8');
+}
+
 /** Vertex 가 지금 바쁜 것뿐이라 다시 던지면 될 실패인가. */
 const isVertexBusy = (r: SeedResult) =>
   !r.ok && /\(429\)|RESOURCE_EXHAUSTED|\(5\d\d\)/.test(r.error ?? '');
@@ -315,7 +416,7 @@ async function postSeed(items: Job[], attempt = 1): Promise<SeedResult[]> {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/seed-enrich`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${SERVICE_ROLE_KEY}` },
-      body: JSON.stringify({ items }),
+      body: JSON.stringify({ items, commonOnly: Boolean(INPUT_PATH) }),
     });
     if (!res.ok) {
       const text = await res.text();
@@ -371,10 +472,16 @@ async function main() {
 
   console.log(`이미 만들어 둔 v${PROMPT_VERSION} 캐시 확인 중...`);
   const existing = await loadExistingKeys(db);
+  const skipLedger = loadSkipLedger();
+  saveSkipLedger(skipLedger);
   const before = jobs.length;
   jobs = jobs.filter(j => !existing.has(`${j.sourceLang}|${j.targetLang}|${j.term}`));
   console.log(`  v${PROMPT_VERSION} 캐시 ${existing.size.toLocaleString()}건 중 ` +
     `${(before - jobs.length).toLocaleString()}건이 대상과 겹쳐 제외 → 남은 작업 ${jobs.length.toLocaleString()}건`);
+  const beforeLedger = jobs.length;
+  jobs = jobs.filter(j => !skipLedger.has(keyOf(j)));
+  console.log(`  제외 장부 ${skipLedger.size.toLocaleString()}건 중 ` +
+    `${(beforeLedger - jobs.length).toLocaleString()}건 제외 → 남은 작업 ${jobs.length.toLocaleString()}건`);
 
   if (LIMIT > 0) { jobs = jobs.slice(0, LIMIT); console.log(`  --limit 적용 → ${jobs.length}건`); }
   if (DRY_RUN) { console.log('\n--dry-run 이라 여기서 멈춥니다.'); return; }
@@ -413,6 +520,19 @@ async function main() {
   const defectSamples: string[] = [];
   let buffer: any[] = [];
   const started = Date.now();
+  let ledgerDirty = false;
+
+  function skipPermanently(r: SeedResult, reason: SkipLedgerEntry['reason']) {
+    skipLedger.set(keyOf(r), {
+      sourceLang: r.sourceLang,
+      targetLang: r.targetLang,
+      term: r.term,
+      promptVersion: PROMPT_VERSION,
+      reason,
+      updatedAt: new Date().toISOString(),
+    });
+    ledgerDirty = true;
+  }
 
   async function flush() {
     if (!buffer.length) return;
@@ -435,11 +555,18 @@ async function main() {
     p.n++;
 
     const res = r.result ?? {};
+    if (isPersonalNameOnly(r)) {
+      stat.notReal++; p.notReal++;
+      skipPermanently(r, 'personal-name');
+      if (notRealList.length < 300) notRealList.push(`${pair} ${r.term} [personal-name]`);
+      return;
+    }
     // 모델이 "없는 단어"로 판정한 것은 저장하지 않는다 — 한 번 굳으면 그 단어는 모두에게
     // 영영 "없는 단어"가 된다(2026-08-08 에 고친 그 버그와 같은 이유).
     // 덱에 실린 단어가 이렇게 판정되는 것은 오판 신호이므로 목록을 남긴다.
     if (res.isReal === false) {
       stat.notReal++; p.notReal++;
+      skipPermanently(r, 'not-real');
       if (notRealList.length < 300) notRealList.push(`${pair} ${r.term}`);
       return;
     }
@@ -505,6 +632,7 @@ async function main() {
       stat.done += batch.length;
 
       if (buffer.length >= UPSERT_CHUNK) await flush();
+      if (ledgerDirty) { saveSkipLedger(skipLedger); ledgerDirty = false; }
 
       if (idx % 10 === 0 || stat.done >= jobs.length) {
         const pct = (stat.done / jobs.length * 100).toFixed(1);
@@ -517,6 +645,7 @@ async function main() {
     }
   }));
   await flush();
+  if (ledgerDirty) saveSkipLedger(skipLedger);
 
   const mins = ((Date.now() - started) / 60000).toFixed(1);
   const graded = stat.clean + stat.defect;

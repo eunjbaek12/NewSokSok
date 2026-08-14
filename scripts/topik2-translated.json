@@ -1,0 +1,4788 @@
+[
+  {
+    "rank": 1,
+    "term": "행동",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "옳은 행동",
+      "행동하다"
+    ],
+    "hint": "action, behavior; refers to the way someone acts or conducts themselves",
+    "meaningEn": "action, behavior",
+    "romaja": "haengdong",
+    "exampleKo": "그의 행동은 옳지 않았다.",
+    "exampleEn": "His behavior was not right."
+  },
+  {
+    "rank": 2,
+    "term": "역할",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "중요한 역할",
+      "역할을 하다"
+    ],
+    "hint": "role, part; refers to a function or position in a situation or group",
+    "meaningEn": "role, part",
+    "romaja": "yeokhal",
+    "exampleKo": "나는 이 팀에서 중요한 역할을 한다.",
+    "exampleEn": "I play an important role in this team."
+  },
+  {
+    "rank": 3,
+    "term": "열리다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "문이 열리다",
+      "회의가 열리다"
+    ],
+    "hint": "to be opened (door, window), to be held (an event, meeting)",
+    "meaningEn": "to be opened; to be held",
+    "romaja": "yeollida",
+    "exampleKo": "새로운 식당이 곧 열릴 거예요.",
+    "exampleEn": "A new restaurant will open soon."
+  },
+  {
+    "rank": 4,
+    "term": "믿다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "사람을 믿다",
+      "말을 믿다"
+    ],
+    "hint": "to believe (a fact, statement), to trust (a person, system)",
+    "meaningEn": "to believe; to trust",
+    "romaja": "mitda",
+    "exampleKo": "나는 그 사람의 말을 믿었다.",
+    "exampleEn": "I believed what that person said."
+  },
+  {
+    "rank": 5,
+    "term": "분위기",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "분위기가 좋다",
+      "어두운 분위기"
+    ],
+    "hint": "atmosphere, mood, ambiance (of a place, event, or situation)",
+    "meaningEn": "atmosphere, mood",
+    "romaja": "bunwigi",
+    "exampleKo": "파티 분위기가 아주 좋았다.",
+    "exampleEn": "The party atmosphere was very good."
+  },
+  {
+    "rank": 6,
+    "term": "성격",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "성격이 좋다",
+      "성격이 급하다"
+    ],
+    "hint": "personality, character; refers to an individual's traits and temperament",
+    "meaningEn": "personality, character",
+    "romaja": "seonggyeok",
+    "exampleKo": "그녀는 성격이 매우 좋다.",
+    "exampleEn": "She has a very good personality."
+  },
+  {
+    "rank": 7,
+    "term": "느낌",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "좋은 느낌",
+      "느낌이 들다"
+    ],
+    "hint": "feeling, sense, impression; often used to describe subjective experiences",
+    "meaningEn": "feeling, sense, impression",
+    "romaja": "neukkim",
+    "exampleKo": "나는 그에게서 좋은 느낌을 받았다.",
+    "exampleEn": "I got a good impression from him."
+  },
+  {
+    "rank": 8,
+    "term": "지키다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "약속을 지키다",
+      "환경을 지키다"
+    ],
+    "hint": "to protect/guard, to keep (a promise/rule), to defend",
+    "meaningEn": "to protect; to keep",
+    "romaja": "jikida",
+    "exampleKo": "우리는 약속을 꼭 지켜야 한다.",
+    "exampleEn": "We must keep our promises."
+  },
+  {
+    "rank": 9,
+    "term": "관심",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "관심을 갖다",
+      "관심사"
+    ],
+    "hint": "interest, concern (attention or curiosity about something)",
+    "meaningEn": "interest, concern",
+    "romaja": "gwansim",
+    "exampleKo": "나는 그 문제에 관심이 많다.",
+    "exampleEn": "I have a lot of interest in that problem."
+  },
+  {
+    "rank": 10,
+    "term": "활동",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "사회 활동",
+      "여가 활동"
+    ],
+    "hint": "activity, movement (purposeful action or engagement)",
+    "meaningEn": "activity, movement",
+    "romaja": "hwaldong",
+    "exampleKo": "학생들은 다양한 활동을 했다.",
+    "exampleEn": "The students did various activities."
+  },
+  {
+    "rank": 11,
+    "term": "느끼다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "감정을 느끼다",
+      "변화를 느끼다"
+    ],
+    "hint": "to feel (an emotion, sensation), to sense, to experience",
+    "meaningEn": "to feel; to sense",
+    "romaja": "neukkida",
+    "exampleKo": "나는 지금 매우 피곤함을 느낀다.",
+    "exampleEn": "I feel very tired right now."
+  },
+  {
+    "rank": 12,
+    "term": "지역",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "지역 사회",
+      "지역 경제"
+    ],
+    "hint": "region, area, district; used for geographical and administrative divisions",
+    "meaningEn": "region, area, district",
+    "romaja": "jiyeok",
+    "exampleKo": "이 지역은 공기가 맑다.",
+    "exampleEn": "The air in this region is clear."
+  },
+  {
+    "rank": 13,
+    "term": "관계",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "인간 관계",
+      "~와/과 관계없이"
+    ],
+    "hint": "relationship, connection, relation; crucial for describing interactions and links",
+    "meaningEn": "relationship, connection",
+    "romaja": "gwangye",
+    "exampleKo": "그들은 좋은 인간 관계를 맺었다.",
+    "exampleEn": "They formed good human relationships."
+  },
+  {
+    "rank": 14,
+    "term": "국가",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "국가 안보",
+      "국가 정책"
+    ],
+    "hint": "nation, country, state; used in formal and political contexts",
+    "meaningEn": "nation, country, state",
+    "romaja": "gukga",
+    "exampleKo": "국가 안보가 중요하다.",
+    "exampleEn": "National security is important."
+  },
+  {
+    "rank": 15,
+    "term": "세계",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "세계화",
+      "세계 경제"
+    ],
+    "hint": "world; used for global contexts and international topics",
+    "meaningEn": "world",
+    "romaja": "segye",
+    "exampleKo": "세계 경제는 매우 복잡하다.",
+    "exampleEn": "The world economy is very complex."
+  },
+  {
+    "rank": 16,
+    "term": "시대",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "현대 시대",
+      "시대 변화"
+    ],
+    "hint": "era, period, age; used to refer to historical or current times",
+    "meaningEn": "era, period, age",
+    "romaja": "sidae",
+    "exampleKo": "현대 시대에는 기술 발달이 빠르다.",
+    "exampleEn": "In the modern era, technological development is fast."
+  },
+  {
+    "rank": 17,
+    "term": "인간",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "인간 관계",
+      "인간 본성"
+    ],
+    "hint": "human being, humanity; often used in abstract or philosophical contexts",
+    "meaningEn": "human being, humanity",
+    "romaja": "in-gan",
+    "exampleKo": "인간은 사회적 동물이다.",
+    "exampleEn": "Humans are social animals."
+  },
+  {
+    "rank": 18,
+    "term": "자신",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "자신감",
+      "자신을 가지다"
+    ],
+    "hint": "oneself, self; also means confidence (자신감)",
+    "meaningEn": "oneself, self; confidence",
+    "romaja": "ja-sin",
+    "exampleKo": "자신을 믿고 도전하세요.",
+    "exampleEn": "Believe in yourself and take on the challenge."
+  },
+  {
+    "rank": 19,
+    "term": "따르다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "규칙을 따르다",
+      "유행을 따르다"
+    ],
+    "hint": "to follow (a person, rule, trend), to obey",
+    "meaningEn": "to follow, to obey",
+    "romaja": "tta-reu-da",
+    "exampleKo": "그는 선생님의 지시를 따랐다.",
+    "exampleEn": "He followed the teacher's instructions."
+  },
+  {
+    "rank": 20,
+    "term": "사회",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "사회 문제",
+      "사회 생활"
+    ],
+    "hint": "society; a fundamental concept in social studies and current affairs",
+    "meaningEn": "society",
+    "romaja": "sa-hoe",
+    "exampleKo": "사회 문제는 복잡하다.",
+    "exampleEn": "Social problems are complex."
+  },
+  {
+    "rank": 21,
+    "term": "대하다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "사람을 대하다",
+      "문제에 대하다"
+    ],
+    "hint": "to treat (people/things), to face (a situation), to be about (a topic)",
+    "meaningEn": "to treat, to face, to be about",
+    "romaja": "dae-ha-da",
+    "exampleKo": "그는 어려운 문제에 대했다.",
+    "exampleEn": "He faced a difficult problem."
+  },
+  {
+    "rank": 22,
+    "term": "발달",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "경제 발달",
+      "기술 발달"
+    ],
+    "hint": "development, growth (often used for societal or economic progress)",
+    "meaningEn": "development, growth",
+    "romaja": "bal-dal",
+    "exampleKo": "이 지역은 경제 발달이 더디다.",
+    "exampleEn": "Economic development is slow in this region."
+  },
+  {
+    "rank": 23,
+    "term": "적극적",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "적극적인 태도",
+      "적극적으로 참여하다"
+    ],
+    "hint": "Active, proactive; describes attitude or participation.",
+    "meaningEn": "active, proactive",
+    "romaja": "jeok-geuk-jeok",
+    "exampleKo": "그는 회의에 적극적으로 참여했다.",
+    "exampleEn": "He actively participated in the meeting."
+  },
+  {
+    "rank": 24,
+    "term": "심각하다",
+    "pos": "adjective",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "심각한 문제",
+      "심각한 상황"
+    ],
+    "hint": "to be serious, to be severe, to be grave; used to describe problems, situations, or consequences that are very important or dangerous.",
+    "meaningEn": "to be serious, severe",
+    "romaja": "sim-gak-ha-da",
+    "exampleKo": "환경 오염이 심각하다.",
+    "exampleEn": "Environmental pollution is serious."
+  },
+  {
+    "rank": 25,
+    "term": "참다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "화를 참다",
+      "고통을 참다"
+    ],
+    "hint": "to bear, endure, suppress (action)",
+    "meaningEn": "to bear, endure, suppress",
+    "romaja": "cham-da",
+    "exampleKo": "그는 고통을 참으며 견뎠다.",
+    "exampleEn": "He endured while bearing the pain."
+  },
+  {
+    "rank": 26,
+    "term": "조사하다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "설문 조사하다",
+      "사건을 조사하다"
+    ],
+    "hint": "to investigate, survey, examine; to look into something systematically.",
+    "meaningEn": "to investigate, survey",
+    "romaja": "jo-sa-ha-da",
+    "exampleKo": "경찰은 사건을 조사하고 있다.",
+    "exampleEn": "The police are investigating the case."
+  },
+  {
+    "rank": 27,
+    "term": "국제",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "국제 관계",
+      "국제 뉴스"
+    ],
+    "hint": "international; used for global affairs, organizations, or events.",
+    "meaningEn": "international",
+    "romaja": "guk-je",
+    "exampleKo": "국제 사회는 평화를 원한다.",
+    "exampleEn": "The international community wants peace."
+  },
+  {
+    "rank": 28,
+    "term": "책임",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "책임을 지다",
+      "책임감"
+    ],
+    "hint": "responsibility, duty; often used with '지다' (to bear/take responsibility)",
+    "meaningEn": "responsibility, duty",
+    "romaja": "chaegim",
+    "exampleKo": "그는 자신의 행동에 책임을 졌다.",
+    "exampleEn": "He took responsibility for his actions."
+  },
+  {
+    "rank": 29,
+    "term": "나누다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "이야기를 나누다",
+      "음식을 나누다"
+    ],
+    "hint": "to divide, to share (food, stories); to converse",
+    "meaningEn": "to divide, share, converse",
+    "romaja": "na-nu-da",
+    "exampleKo": "친구와 고민을 나누었다.",
+    "exampleEn": "I shared my worries with my friend."
+  },
+  {
+    "rank": 30,
+    "term": "세상",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "세상이 변하다",
+      "세상 사람"
+    ],
+    "hint": "world, society (the human world, general public)",
+    "meaningEn": "world, society",
+    "romaja": "se-sang",
+    "exampleKo": "세상은 빠르게 변하고 있다.",
+    "exampleEn": "The world is changing rapidly."
+  },
+  {
+    "rank": 31,
+    "term": "국민",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "국민의 권리",
+      "국민 정서"
+    ],
+    "hint": "citizens, people of a nation (often used in formal or public contexts)",
+    "meaningEn": "Citizens, people of a nation",
+    "romaja": "gungmin",
+    "exampleKo": "국민의 권리는 매우 중요합니다.",
+    "exampleEn": "The rights of the people are very important."
+  },
+  {
+    "rank": 32,
+    "term": "정치",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "정치에 참여하다",
+      "정치 문제"
+    ],
+    "hint": "politics, government (related to state affairs and public administration)",
+    "meaningEn": "Politics, government",
+    "romaja": "jeongchi",
+    "exampleKo": "많은 사람들이 정치에 참여합니다.",
+    "exampleEn": "Many people participate in politics."
+  },
+  {
+    "rank": 33,
+    "term": "위기",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "경제 위기",
+      "국가적 위기"
+    ],
+    "hint": "crisis, critical moment, danger; a turning point with potential negative outcomes.",
+    "meaningEn": "Crisis, critical moment",
+    "romaja": "wigi",
+    "exampleKo": "국가적 위기를 극복해야 합니다.",
+    "exampleEn": "We must overcome the national crisis."
+  },
+  {
+    "rank": 34,
+    "term": "참여",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "적극적인 참여",
+      "참여율 높이다"
+    ],
+    "hint": "participation, involvement. Often used with 'active' or to describe participation rates.",
+    "meaningEn": "Participation, involvement",
+    "romaja": "chamyeo",
+    "exampleKo": "행사에 적극적인 참여를 바랍니다.",
+    "exampleEn": "We hope for active participation in the event."
+  },
+  {
+    "rank": 35,
+    "term": "대책",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "문제 대책",
+      "대책 마련"
+    ],
+    "hint": "countermeasure, solution, plan; often used with 'problem' or 'plan'",
+    "meaningEn": "Countermeasure, solution, plan",
+    "romaja": "daechaek",
+    "exampleKo": "문제에 대한 대책을 마련해야 합니다.",
+    "exampleEn": "We need to prepare countermeasures for the problem."
+  },
+  {
+    "rank": 36,
+    "term": "규모",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "큰 규모",
+      "규모 확대"
+    ],
+    "hint": "scale, scope, size; describes the extent of something",
+    "meaningEn": "Scale, scope, size",
+    "romaja": "gyumo",
+    "exampleKo": "사업이 큰 규모로 진행됩니다.",
+    "exampleEn": "The project proceeds on a large scale."
+  },
+  {
+    "rank": 37,
+    "term": "현장",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "사고 현장",
+      "현장 조사"
+    ],
+    "hint": "scene, site, field; refers to the actual location where something happens",
+    "meaningEn": "Scene, site, field",
+    "romaja": "hyeonjang",
+    "exampleKo": "사고 현장에 많은 사람들이 모였습니다.",
+    "exampleEn": "Many people gathered at the accident scene."
+  },
+  {
+    "rank": 38,
+    "term": "잘못",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "3-4",
+    "collocations": [
+      "잘못을 저지르다",
+      "잘못을 인정하다"
+    ],
+    "hint": "mistake, fault, error (can be a noun or adverb)",
+    "meaningEn": "Mistake, fault, error",
+    "romaja": "jalmot",
+    "exampleKo": "그는 자신의 잘못을 인정했습니다.",
+    "exampleEn": "He admitted his mistake."
+  },
+  {
+    "rank": 39,
+    "term": "조직",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "조직 문화",
+      "조직 구성원"
+    ],
+    "hint": "organization, structure, system (refers to formal groups or their internal structure)",
+    "meaningEn": "Organization, structure",
+    "romaja": "jojik",
+    "exampleKo": "이 조직의 문화는 매우 좋습니다.",
+    "exampleEn": "The culture of this organization is very good."
+  },
+  {
+    "rank": 40,
+    "term": "실시하다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "정책을 실시하다"
+    ],
+    "hint": "to implement, to carry out, to put into practice; used for policies, plans, or measures",
+    "meaningEn": "To implement, carry out",
+    "romaja": "silsihada",
+    "exampleKo": "새로운 정책을 곧 실시할 것입니다.",
+    "exampleEn": "A new policy will be implemented soon."
+  },
+  {
+    "rank": 41,
+    "term": "갖추다",
+    "pos": "verb",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "시설을 갖추다"
+    ],
+    "hint": "to be equipped with, to furnish, to possess; refers to having necessary items or qualities",
+    "meaningEn": "To be equipped with, possess",
+    "romaja": "gatchuda",
+    "exampleKo": "안전 장비를 모두 갖추었습니다.",
+    "exampleEn": "We are equipped with all safety equipment."
+  },
+  {
+    "rank": 42,
+    "term": "건설",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "건설 현장"
+    ],
+    "hint": "construction, building; refers to the act or industry of building",
+    "meaningEn": "Construction, building",
+    "romaja": "geonseol",
+    "exampleKo": "새로운 건물이 건설되고 있습니다.",
+    "exampleEn": "A new building is under construction."
+  },
+  {
+    "rank": 43,
+    "term": "대응",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "적극적으로 대응하다",
+      "대응 전략"
+    ],
+    "hint": "response, reaction, countermeasure; acting in response to a situation.",
+    "meaningEn": "Response, reaction",
+    "romaja": "daeeung",
+    "exampleKo": "상황에 적극적으로 대응해야 합니다.",
+    "exampleEn": "We must respond actively to the situation."
+  },
+  {
+    "rank": 44,
+    "term": "협력",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "협력하다",
+      "긴밀한 협력"
+    ],
+    "hint": "cooperation, collaboration; essential for teamwork and international relations.",
+    "meaningEn": "Cooperation, collaboration",
+    "romaja": "hyeomnyeok",
+    "exampleKo": "두 나라 간의 협력이 중요합니다.",
+    "exampleEn": "Cooperation between the two countries is important."
+  },
+  {
+    "rank": 45,
+    "term": "정부",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "정부 정책",
+      "정부 발표"
+    ],
+    "hint": "government, administration (refers to the governing body of a state or country)",
+    "meaningEn": "Government, administration",
+    "romaja": "jeongbu",
+    "exampleKo": "정부 정책에 대한 발표가 있었습니다.",
+    "exampleEn": "There was an announcement about government policy."
+  },
+  {
+    "rank": 46,
+    "term": "삶",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "삶의 질",
+      "평범한 삶"
+    ],
+    "hint": "life, living (the state of existence, especially human existence)",
+    "meaningEn": "Life, living, existence",
+    "romaja": "sam",
+    "exampleKo": "그는 평범한 삶을 살고 싶어 했다.",
+    "exampleEn": "He wanted to live an ordinary life."
+  },
+  {
+    "rank": 47,
+    "term": "사건",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "중요한 사건",
+      "사회적 사건"
+    ],
+    "hint": "incident, event, case (an occurrence or happening, especially one of importance)",
+    "meaningEn": "Incident, event, case",
+    "romaja": "sageon",
+    "exampleKo": "그 사건은 사회에 큰 영향을 주었다.",
+    "exampleEn": "That incident had a big impact on society."
+  },
+  {
+    "rank": 48,
+    "term": "입장",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "입장을 밝히다",
+      "입장이 다르다"
+    ],
+    "hint": "stance, position, point of view (one's perspective on an issue)",
+    "meaningEn": "Stance, position, point of view",
+    "romaja": "ipjang",
+    "exampleKo": "그는 자신의 입장을 분명히 밝혔다.",
+    "exampleEn": "He clearly stated his position."
+  },
+  {
+    "rank": 49,
+    "term": "행위",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "부당한 행위",
+      "범죄 행위"
+    ],
+    "hint": "act, action, behavior; often used with adjectives describing the nature of the act (e.g., 부당한, 불법적인, 이기적인)",
+    "meaningEn": "Act, action, behavior",
+    "romaja": "haengwi",
+    "exampleKo": "그의 부당한 행위는 용납될 수 없다.",
+    "exampleEn": "His unfair act cannot be tolerated."
+  },
+  {
+    "rank": 50,
+    "term": "인물",
+    "pos": "noun",
+    "category": "사회·인간관계",
+    "levelBand": "5-6",
+    "collocations": [
+      "주요 인물",
+      "등장인물"
+    ],
+    "hint": "figure, person, character (refers to a notable person or a character in a story)",
+    "meaningEn": "Figure, person, character",
+    "romaja": "inmul",
+    "exampleKo": "이 소설의 주요 인물은 누구인가요?",
+    "exampleEn": "Who is the main character of this novel?"
+  },
+  {
+    "rank": 51,
+    "term": "노력하다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "노력하다",
+      "노력의 결과"
+    ],
+    "hint": "to make an effort, try hard; essential for discussing goals and achievements.",
+    "meaningEn": "To make an effort, try hard",
+    "romaja": "noryeokhada",
+    "exampleKo": "목표를 이루기 위해 노력해야 한다.",
+    "exampleEn": "You must try hard to achieve your goals."
+  },
+  {
+    "rank": 52,
+    "term": "세우다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "계획을 세우다",
+      "회사를 세우다"
+    ],
+    "hint": "to set up/establish (a plan, company), to stand (something) up",
+    "meaningEn": "To set up, establish, stand up",
+    "romaja": "seuda",
+    "exampleKo": "내년에 새로운 회사를 세울 것이다.",
+    "exampleEn": "I will establish a new company next year."
+  },
+  {
+    "rank": 53,
+    "term": "조사",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "시장 조사",
+      "설문 조사"
+    ],
+    "hint": "investigation, survey, research (often implies systematic inquiry)",
+    "meaningEn": "Investigation, survey, research",
+    "romaja": "josa",
+    "exampleKo": "정확한 시장 조사가 필요합니다.",
+    "exampleEn": "An accurate market survey is needed."
+  },
+  {
+    "rank": 54,
+    "term": "연구",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "연구를 진행하다",
+      "연구 결과"
+    ],
+    "hint": "research, study (systematic investigation to establish facts)",
+    "meaningEn": "Research, study",
+    "romaja": "yeongu",
+    "exampleKo": "그는 새로운 치료법을 연구 중이다.",
+    "exampleEn": "He is researching a new treatment method."
+  },
+  {
+    "rank": 55,
+    "term": "교육",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "교육 제도",
+      "교육 문제"
+    ],
+    "hint": "education, training; a central topic in social and personal development",
+    "meaningEn": "Education, training",
+    "romaja": "gyoyuk",
+    "exampleKo": "모든 아이들에게 공평한 교육 기회가 필요하다.",
+    "exampleEn": "Fair educational opportunities are needed for all children."
+  },
+  {
+    "rank": 56,
+    "term": "업무",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "업무 시간",
+      "업무 능력"
+    ],
+    "hint": "task, duty, work; often used in professional contexts.",
+    "meaningEn": "Task, duty, work",
+    "romaja": "eommu",
+    "exampleKo": "그는 맡은 업무를 성실히 수행했다.",
+    "exampleEn": "He faithfully performed his assigned duties."
+  },
+  {
+    "rank": 57,
+    "term": "기회",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "좋은 기회",
+      "기회를 잡다"
+    ],
+    "hint": "opportunity, chance; often used with '좋은' (good) or '잡다' (to seize)",
+    "meaningEn": "Opportunity, chance",
+    "romaja": "gihoe",
+    "exampleKo": "이것은 정말 좋은 기회입니다.",
+    "exampleEn": "This is a really good opportunity."
+  },
+  {
+    "rank": 58,
+    "term": "자료",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "참고 자료",
+      "수집 자료"
+    ],
+    "hint": "data, material, information (used in academic, professional, and research contexts)",
+    "meaningEn": "Data, material, information",
+    "romaja": "jaryo",
+    "exampleKo": "연구를 위해 많은 자료를 수집했다.",
+    "exampleEn": "I collected a lot of material for the research."
+  },
+  {
+    "rank": 59,
+    "term": "조건",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "필수 조건",
+      "요구 조건"
+    ],
+    "hint": "condition, term, requirement; essential for discussing agreements, requirements, or prerequisites.",
+    "meaningEn": "Condition, term, requirement",
+    "romaja": "jogeon",
+    "exampleKo": "참가하려면 몇 가지 필수 조건이 있습니다.",
+    "exampleEn": "There are a few essential conditions to participate."
+  },
+  {
+    "rank": 60,
+    "term": "수준",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "수준 향상",
+      "수준 이하"
+    ],
+    "hint": "level, standard, proficiency; applicable to skills, quality, and social standing.",
+    "meaningEn": "Level, standard, proficiency",
+    "romaja": "sujun",
+    "exampleKo": "그의 한국어 실력은 높은 수준이다.",
+    "exampleEn": "His Korean proficiency is at a high level."
+  },
+  {
+    "rank": 61,
+    "term": "전문가",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "전문가 의견",
+      "전문가 수준"
+    ],
+    "hint": "expert, specialist (a person with high skill or knowledge)",
+    "meaningEn": "expert, specialist",
+    "romaja": "jeonmunga",
+    "exampleKo": "이 분야의 전문가 의견을 듣고 싶어요.",
+    "exampleEn": "I want to hear the expert's opinion in this field."
+  },
+  {
+    "rank": 62,
+    "term": "기초",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "튼튼하다",
+      "다지다"
+    ],
+    "hint": "foundation, basics (essential for learning)",
+    "meaningEn": "foundation, basics",
+    "romaja": "gicho",
+    "exampleKo": "튼튼한 기초를 다지는 것이 중요해요.",
+    "exampleEn": "It's important to build a strong foundation."
+  },
+  {
+    "rank": 63,
+    "term": "발표",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "연구 결과",
+      "중간 보고"
+    ],
+    "hint": "announcement, presentation (formal)",
+    "meaningEn": "announcement, presentation",
+    "romaja": "balpyo",
+    "exampleKo": "연구 결과를 발표할 준비를 하고 있어요.",
+    "exampleEn": "I am preparing to present the research results."
+  },
+  {
+    "rank": 64,
+    "term": "높이다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "사기를 높이다",
+      "수준을 높이다"
+    ],
+    "hint": "to raise, increase (level, morale, price)",
+    "meaningEn": "to raise, increase",
+    "romaja": "nopida",
+    "exampleKo": "팀의 사기를 높이는 것이 급선무입니다.",
+    "exampleEn": "Raising the team's morale is the top priority."
+  },
+  {
+    "rank": 65,
+    "term": "직장",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "직장에 다니다",
+      "새로운 직장"
+    ],
+    "hint": "workplace, job (location/status)",
+    "meaningEn": "workplace, job",
+    "romaja": "jikjang",
+    "exampleKo": "새로운 직장에 다니기 시작했어요.",
+    "exampleEn": "I started working at a new workplace."
+  },
+  {
+    "rank": 66,
+    "term": "기본",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "기본 문법",
+      "기본 지식"
+    ],
+    "hint": "basic, fundamental; used for foundational knowledge or elements.",
+    "meaningEn": "basic, fundamental",
+    "romaja": "gibon",
+    "exampleKo": "기본 문법부터 다시 공부해야 해요.",
+    "exampleEn": "I need to study basic grammar again from the beginning."
+  },
+  {
+    "rank": 67,
+    "term": "능력",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "문제 해결 능력",
+      "뛰어난 능력"
+    ],
+    "hint": "ability, capability, competence; the power or skill to do something.",
+    "meaningEn": "ability, capability",
+    "romaja": "neungnyeok",
+    "exampleKo": "그는 뛰어난 문제 해결 능력을 가지고 있어요.",
+    "exampleEn": "He has outstanding problem-solving abilities."
+  },
+  {
+    "rank": 68,
+    "term": "지식",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "지식을 쌓다",
+      "지식을 얻다"
+    ],
+    "hint": "knowledge, information (abstract concept)",
+    "meaningEn": "knowledge, information",
+    "romaja": "jisik",
+    "exampleKo": "꾸준히 지식을 쌓는 것이 중요합니다.",
+    "exampleEn": "It is important to continuously accumulate knowledge."
+  },
+  {
+    "rank": 69,
+    "term": "뛰어나다",
+    "pos": "adjective",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "실력이 뛰어나다",
+      "재능이 뛰어나다"
+    ],
+    "hint": "to be outstanding, to be excellent, to excel. Describes superior ability or quality.",
+    "meaningEn": "to be outstanding, excellent",
+    "romaja": "ttwieonada",
+    "exampleKo": "그녀는 외국어 실력이 매우 뛰어납니다.",
+    "exampleEn": "Her foreign language skills are very outstanding."
+  },
+  {
+    "rank": 70,
+    "term": "익히다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "기술을 익히다",
+      "언어를 익히다"
+    ],
+    "hint": "to learn, to master, to become familiar with (skills, knowledge)",
+    "meaningEn": "to learn, master",
+    "romaja": "ikhida",
+    "exampleKo": "새로운 기술을 빨리 익혔어요.",
+    "exampleEn": "I quickly learned the new skill."
+  },
+  {
+    "rank": 71,
+    "term": "담당",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "담당하다",
+      "담당자"
+    ],
+    "hint": "charge, responsibility; used when someone is in charge of a task or role.",
+    "meaningEn": "charge, responsibility",
+    "romaja": "damdang",
+    "exampleKo": "이 프로젝트는 제가 담당하고 있어요.",
+    "exampleEn": "I am in charge of this project."
+  },
+  {
+    "rank": 72,
+    "term": "수행하다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "임무를 수행하다",
+      "업무를 수행하다"
+    ],
+    "hint": "to perform, carry out, conduct (tasks, duties, missions)",
+    "meaningEn": "to perform, carry out",
+    "romaja": "suhaenghada",
+    "exampleKo": "맡은 임무를 성실히 수행했습니다.",
+    "exampleEn": "I faithfully performed the assigned mission."
+  },
+  {
+    "rank": 73,
+    "term": "언어",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "언어 능력",
+      "언어 학습"
+    ],
+    "hint": "language, speech. Broadly applicable to linguistics, communication, and learning.",
+    "meaningEn": "language",
+    "romaja": "eoneo",
+    "exampleKo": "언어 학습은 꾸준함이 필요해요.",
+    "exampleEn": "Language learning requires consistency."
+  },
+  {
+    "rank": 74,
+    "term": "박사",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "박사 학위",
+      "박사 과정"
+    ],
+    "hint": "doctor (Ph.D.), expert (academic title)",
+    "meaningEn": "doctor (Ph.D.)",
+    "romaja": "baksa",
+    "exampleKo": "그는 박사 학위를 취득했어요.",
+    "exampleEn": "He obtained a doctoral degree."
+  },
+  {
+    "rank": 75,
+    "term": "가리키다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "손가락으로 가리키다",
+      "방향을 가리키다"
+    ],
+    "hint": "to point, to indicate. Used for physical pointing or showing direction/information.",
+    "meaningEn": "to point, indicate",
+    "romaja": "garikida",
+    "exampleKo": "직원이 길을 가리켜 주었습니다.",
+    "exampleEn": "The employee pointed out the way."
+  },
+  {
+    "rank": 76,
+    "term": "목표",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "목표를 달성하다",
+      "최종 목표"
+    ],
+    "hint": "goal, target, objective. What one aims to achieve.",
+    "meaningEn": "goal, target, objective",
+    "romaja": "mokpyo",
+    "exampleKo": "그는 최종 목표를 달성하기 위해 노력했습니다.",
+    "exampleEn": "He strove to achieve his final goal."
+  },
+  {
+    "rank": 77,
+    "term": "전문",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "전문 분야",
+      "전문 지식"
+    ],
+    "hint": "specialty, major; area of expertise",
+    "meaningEn": "specialty, major, area of expertise",
+    "romaja": "jeonmun",
+    "exampleKo": "저는 인공지능을 전문 분야로 연구하고 있어요.",
+    "exampleEn": "I am studying artificial intelligence as my field of expertise."
+  },
+  {
+    "rank": 78,
+    "term": "예정",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "일정 예정",
+      "계획 예정"
+    ],
+    "hint": "schedule, plan, expectation; noun indicating a future arrangement",
+    "meaningEn": "schedule, plan, expectation",
+    "romaja": "yejeong",
+    "exampleKo": "회의는 다음 주 화요일로 예정되어 있습니다.",
+    "exampleEn": "The meeting is scheduled for next Tuesday."
+  },
+  {
+    "rank": 79,
+    "term": "노동자",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "산업 노동자",
+      "건설 노동자"
+    ],
+    "hint": "worker, laborer",
+    "meaningEn": "worker, laborer",
+    "romaja": "nodongja",
+    "exampleKo": "건설 노동자들이 열심히 일하고 있습니다.",
+    "exampleEn": "Construction workers are working hard."
+  },
+  {
+    "rank": 80,
+    "term": "맡다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "책임을 맡다",
+      "업무를 맡다"
+    ],
+    "hint": "to take charge of, to undertake; implies accepting responsibility for a task or role.",
+    "meaningEn": "to take charge of, to undertake",
+    "romaja": "matda",
+    "exampleKo": "그녀는 새로운 프로젝트를 맡았습니다.",
+    "exampleEn": "She took charge of the new project."
+  },
+  {
+    "rank": 81,
+    "term": "강조하다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "중요성을 강조하다",
+      "다시 강조하다"
+    ],
+    "hint": "to emphasize, to stress; used when highlighting the importance of something.",
+    "meaningEn": "to emphasize, to stress",
+    "romaja": "gangjohada",
+    "exampleKo": "선생님은 숙제의 중요성을 강조하셨습니다.",
+    "exampleEn": "The teacher emphasized the importance of homework."
+  },
+  {
+    "rank": 82,
+    "term": "회장",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "동아리 회장",
+      "회사 회장"
+    ],
+    "hint": "president (of a company, club), chairman; often used in formal contexts related to organizations or companies.",
+    "meaningEn": "president, chairman",
+    "romaja": "hoejang",
+    "exampleKo": "동아리 회장이 회의를 시작했습니다.",
+    "exampleEn": "The club president started the meeting."
+  },
+  {
+    "rank": 83,
+    "term": "알아보다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "정보를 알아보다",
+      "미래를 알아보다"
+    ],
+    "hint": "to recognize, to find out, to look into (practical action of seeking information)",
+    "meaningEn": "to find out, to look into",
+    "romaja": "araboda",
+    "exampleKo": "새로운 일자리에 대해 알아보고 싶어요.",
+    "exampleEn": "I want to look into new job opportunities."
+  },
+  {
+    "rank": 84,
+    "term": "후보",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "대통령 후보",
+      "후보자 등록"
+    ],
+    "hint": "candidate, nominee. For elections, jobs, or awards.",
+    "meaningEn": "candidate, nominee",
+    "romaja": "hubo",
+    "exampleKo": "그는 대통령 후보로 등록했습니다.",
+    "exampleEn": "He registered as a presidential candidate."
+  },
+  {
+    "rank": 85,
+    "term": "체육",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "체육 시간",
+      "체육 활동"
+    ],
+    "hint": "physical education, sports (noun)",
+    "meaningEn": "physical education, sports",
+    "romaja": "cheyuk",
+    "exampleKo": "체육 시간에는 보통 축구를 합니다.",
+    "exampleEn": "We usually play soccer during physical education class."
+  },
+  {
+    "rank": 86,
+    "term": "과제",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "숙제를 하다",
+      "업무 과제"
+    ],
+    "hint": "assignment, task, challenge (can be academic or work-related)",
+    "meaningEn": "assignment, task, challenge",
+    "romaja": "gwaje",
+    "exampleKo": "이번 학기 과제가 너무 많아요.",
+    "exampleEn": "There are too many assignments this semester."
+  },
+  {
+    "rank": 87,
+    "term": "뽑다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "대표 선수",
+      "당첨자"
+    ],
+    "hint": "to pull out, pick, select (often for people or things)",
+    "meaningEn": "to pick, to select",
+    "romaja": "ppopda",
+    "exampleKo": "그는 팀의 대표 선수로 뽑혔습니다.",
+    "exampleEn": "He was selected as the team's representative player."
+  },
+  {
+    "rank": 88,
+    "term": "직원",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "직원 복지",
+      "직원 교육"
+    ],
+    "hint": "employee, staff member; refers to people working for a company.",
+    "meaningEn": "employee, staff member",
+    "romaja": "jigwon",
+    "exampleKo": "모든 직원은 회의에 참석해야 합니다.",
+    "exampleEn": "All employees must attend the meeting."
+  },
+  {
+    "rank": 89,
+    "term": "발표하다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "결과를 발표하다",
+      "연구를 발표하다"
+    ],
+    "hint": "to announce, to present, to publish (information or findings)",
+    "meaningEn": "to announce, to present",
+    "romaja": "balpyohada",
+    "exampleKo": "그는 연구 결과를 발표했습니다.",
+    "exampleEn": "He presented the research results."
+  },
+  {
+    "rank": 90,
+    "term": "꺼내다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "이야기를 꺼내다",
+      "물건을 꺼내다"
+    ],
+    "hint": "to take out, to pull out, to bring up (a topic)",
+    "meaningEn": "to take out, to bring up",
+    "romaja": "kkeonaeda",
+    "exampleKo": "가방에서 책을 꺼냈습니다.",
+    "exampleEn": "I took a book out of my bag."
+  },
+  {
+    "rank": 91,
+    "term": "마치다",
+    "pos": "verb",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "일을 마치다",
+      "공부를 마치다"
+    ],
+    "hint": "to finish, to complete; used for tasks, work, or studies",
+    "meaningEn": "to finish, to complete",
+    "romaja": "machida",
+    "exampleKo": "저는 오늘 일을 모두 마쳤습니다.",
+    "exampleEn": "I finished all the work today."
+  },
+  {
+    "rank": 92,
+    "term": "시설",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "편의 시설",
+      "운동 시설"
+    ],
+    "hint": "facility, equipment, installation; refers to structures or tools for a purpose.",
+    "meaningEn": "facility, equipment, installation",
+    "romaja": "siseol",
+    "exampleKo": "이 건물에는 편의 시설이 많습니다.",
+    "exampleEn": "This building has many convenience facilities."
+  },
+  {
+    "rank": 93,
+    "term": "대회",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "3-4",
+    "collocations": [
+      "말하기 대회",
+      "참가하다"
+    ],
+    "hint": "competition, convention, tournament; often used for academic or sports events.",
+    "meaningEn": "competition, convention, tournament",
+    "romaja": "daehoe",
+    "exampleKo": "그는 말하기 대회에서 우승했다.",
+    "exampleEn": "He won the speaking competition."
+  },
+  {
+    "rank": 94,
+    "term": "입시",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "입시 경쟁",
+      "입시 제도"
+    ],
+    "hint": "college entrance examination, university admission. Refers to the system and process.",
+    "meaningEn": "college entrance examination",
+    "romaja": "ipsi",
+    "exampleKo": "입시 경쟁이 매우 치열합니다.",
+    "exampleEn": "Competition for college entrance exams is very fierce."
+  },
+  {
+    "rank": 95,
+    "term": "수석",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "수석 연구원",
+      "수석 엔지니어"
+    ],
+    "hint": "chief, head, top (position) (often precedes job titles)",
+    "meaningEn": "chief, head, top position",
+    "romaja": "suseok",
+    "exampleKo": "그녀는 수석 연구원으로 승진했습니다.",
+    "exampleEn": "She was promoted to chief researcher."
+  },
+  {
+    "rank": 96,
+    "term": "제자",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "훌륭한 제자",
+      "제자 양성"
+    ],
+    "hint": "disciple, student; specifically a pupil under a teacher or master.",
+    "meaningEn": "disciple, student",
+    "romaja": "jeja",
+    "exampleKo": "그 스승은 훌륭한 제자를 많이 길렀다.",
+    "exampleEn": "That teacher raised many excellent disciples."
+  },
+  {
+    "rank": 97,
+    "term": "간부",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "핵심 간부",
+      "간부 회의"
+    ],
+    "hint": "executive, staff member, leader; refers to people in leadership positions within organizations.",
+    "meaningEn": "executive, staff member, leader",
+    "romaja": "ganbu",
+    "exampleKo": "핵심 간부들이 회의를 소집했습니다.",
+    "exampleEn": "Key executives convened a meeting."
+  },
+  {
+    "rank": 98,
+    "term": "지식인",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "엘리트 지식인",
+      "참여하는 지식인"
+    ],
+    "hint": "intellectual, learned person (emphasizes knowledge and critical thinking)",
+    "meaningEn": "intellectual, learned person",
+    "romaja": "jisigin",
+    "exampleKo": "그는 사회 문제에 대해 발언하는 지식인이다.",
+    "exampleEn": "He is an intellectual who speaks on social issues."
+  },
+  {
+    "rank": 99,
+    "term": "필자",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [],
+    "hint": "writer, author; refers to the person writing an article, book, or paper.",
+    "meaningEn": "writer, author",
+    "romaja": "pilja",
+    "exampleKo": "이 글의 필자는 누구인가요?",
+    "exampleEn": "Who is the author of this article?"
+  },
+  {
+    "rank": 100,
+    "term": "스승",
+    "pos": "noun",
+    "category": "교육·직업",
+    "levelBand": "5-6",
+    "collocations": [
+      "스승의 가르침",
+      "존경하는 스승"
+    ],
+    "hint": "teacher, master, mentor; implies deep respect.",
+    "meaningEn": "teacher, master, mentor",
+    "romaja": "seuseung",
+    "exampleKo": "저는 그분을 저의 스승으로 존경합니다.",
+    "exampleEn": "I respect him as my teacher."
+  },
+  {
+    "rank": 101,
+    "term": "국내",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "국내 시장",
+      "국내 여행"
+    ],
+    "hint": "domestic, internal; within the country (opposite of 해외)",
+    "meaningEn": "domestic, internal",
+    "romaja": "gungnae",
+    "exampleKo": "국내 시장의 경쟁이 치열해지고 있다.",
+    "exampleEn": "Competition in the domestic market is intensifying."
+  },
+  {
+    "rank": 102,
+    "term": "경제",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "경제 성장",
+      "세계 경제"
+    ],
+    "hint": "economy; a fundamental concept in current affairs and social studies",
+    "meaningEn": "economy",
+    "romaja": "gyeongje",
+    "exampleKo": "세계 경제는 불안정한 상태입니다.",
+    "exampleEn": "The world economy is in an unstable state."
+  },
+  {
+    "rank": 103,
+    "term": "줄이다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "비용을 줄이다",
+      "칼로리를 줄이다"
+    ],
+    "hint": "to reduce, decrease, shorten; to make something smaller in amount, size, or duration.",
+    "meaningEn": "to reduce, decrease, shorten",
+    "romaja": "jurida",
+    "exampleKo": "비용을 더 줄여야 할 것 같습니다.",
+    "exampleEn": "It seems we need to reduce costs further."
+  },
+  {
+    "rank": 104,
+    "term": "사업",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "사업 계획",
+      "사업가"
+    ],
+    "hint": "business, enterprise, project (refers to commercial activities or ventures)",
+    "meaningEn": "business, enterprise, project",
+    "romaja": "sa-eop",
+    "exampleKo": "그는 새로운 사업을 시작했습니다.",
+    "exampleEn": "He started a new business."
+  },
+  {
+    "rank": 105,
+    "term": "제품",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "신제품",
+      "제품 개발"
+    ],
+    "hint": "product, goods, item (refers to manufactured items for sale)",
+    "meaningEn": "product, goods, item",
+    "romaja": "jepum",
+    "exampleKo": "이 회사는 신제품 개발에 집중합니다.",
+    "exampleEn": "This company focuses on new product development."
+  },
+  {
+    "rank": 106,
+    "term": "광고",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "광고를 하다",
+      "TV 광고"
+    ],
+    "hint": "advertisement, commercial (promotional material for products or services)",
+    "meaningEn": "advertisement, commercial",
+    "romaja": "gwanggo",
+    "exampleKo": "이 제품은 TV 광고에 많이 나왔어요.",
+    "exampleEn": "This product appeared a lot in TV commercials."
+  },
+  {
+    "rank": 107,
+    "term": "이용하다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "대중교통을 이용하다",
+      "시설을 이용하다"
+    ],
+    "hint": "to use, to utilize (a tool, service, or opportunity)",
+    "meaningEn": "to use, to utilize",
+    "romaja": "iyonghada",
+    "exampleKo": "대중교통을 이용하면 편리해요.",
+    "exampleEn": "It is convenient to use public transportation."
+  },
+  {
+    "rank": 108,
+    "term": "지원",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "정부 지원",
+      "자금 지원"
+    ],
+    "hint": "support, backing, assistance (often financial or governmental)",
+    "meaningEn": "support, backing, assistance",
+    "romaja": "jiwon",
+    "exampleKo": "정부 지원으로 사업을 시작했어요.",
+    "exampleEn": "I started a business with government support."
+  },
+  {
+    "rank": 109,
+    "term": "경쟁",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "치열한 경쟁",
+      "경쟁 사회"
+    ],
+    "hint": "competition, rivalry; often describes market or social dynamics",
+    "meaningEn": "competition, rivalry",
+    "romaja": "gyeongjaeng",
+    "exampleKo": "그 회사들은 치열한 경쟁을 하고 있다.",
+    "exampleEn": "Those companies are in fierce competition."
+  },
+  {
+    "rank": 110,
+    "term": "판매",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "판매량 증가",
+      "판매 전략"
+    ],
+    "hint": "Sale, selling; related to business and commerce.",
+    "meaningEn": "sale, selling",
+    "romaja": "panmae",
+    "exampleKo": "새로운 전략으로 판매량이 늘었어요.",
+    "exampleEn": "Sales volume increased with the new strategy."
+  },
+  {
+    "rank": 111,
+    "term": "비용",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "교통 비용",
+      "생활 비용"
+    ],
+    "hint": "cost, expense",
+    "meaningEn": "cost, expense",
+    "romaja": "biyong",
+    "exampleKo": "교통 비용이 많이 들었어요.",
+    "exampleEn": "Transportation costs were high."
+  },
+  {
+    "rank": 112,
+    "term": "벌다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "돈을 벌다",
+      "수입을 벌다"
+    ],
+    "hint": "to earn (money), to make (money) (refers to acquiring income)",
+    "meaningEn": "to earn (money)",
+    "romaja": "beolda",
+    "exampleKo": "그는 열심히 일해서 돈을 벌어요.",
+    "exampleEn": "He earns money by working hard."
+  },
+  {
+    "rank": 113,
+    "term": "임금",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "임금을 인상하다",
+      "최저 임금"
+    ],
+    "hint": "wages, pay, salary (economic term)",
+    "meaningEn": "wages, pay, salary",
+    "romaja": "imgeum",
+    "exampleKo": "최저 임금이 인상될 예정입니다.",
+    "exampleEn": "The minimum wage is scheduled to be raised."
+  },
+  {
+    "rank": 114,
+    "term": "사용",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "사용 설명서",
+      "사용하다"
+    ],
+    "hint": "use, usage. Refers to the act of using something.",
+    "meaningEn": "use, usage",
+    "romaja": "sayong",
+    "exampleKo": "이 기계 사용법을 알려주세요.",
+    "exampleEn": "Please tell me how to use this machine."
+  },
+  {
+    "rank": 115,
+    "term": "발전하다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "국가가 발전하다",
+      "사업이 발전하다"
+    ],
+    "hint": "to develop, progress, advance (societal, economic, technological)",
+    "meaningEn": "to develop, progress, advance",
+    "romaja": "baljeonhada",
+    "exampleKo": "이 기술은 계속 발전하고 있어요.",
+    "exampleEn": "This technology is continuously developing."
+  },
+  {
+    "rank": 116,
+    "term": "가격",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "가격 인상",
+      "가격 비교"
+    ],
+    "hint": "price; often used in contexts of buying, selling, or comparing costs.",
+    "meaningEn": "price",
+    "romaja": "gagyeok",
+    "exampleKo": "어제 가격이 많이 올랐어요.",
+    "exampleEn": "The price went up a lot yesterday."
+  },
+  {
+    "rank": 117,
+    "term": "시키다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "주문하다",
+      "만들다"
+    ],
+    "hint": "to order (food); to make (someone do something); causative verb.",
+    "meaningEn": "to order; to make (do)",
+    "romaja": "sikida",
+    "exampleKo": "점심으로 피자를 시켰어요.",
+    "exampleEn": "I ordered pizza for lunch."
+  },
+  {
+    "rank": 118,
+    "term": "소비자",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "소비자 물가"
+    ],
+    "hint": "consumer; refers to people who buy goods or services",
+    "meaningEn": "consumer",
+    "romaja": "sobija",
+    "exampleKo": "소비자들은 더 좋은 품질을 원해요.",
+    "exampleEn": "Consumers want better quality."
+  },
+  {
+    "rank": 119,
+    "term": "소득",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "가계 소득",
+      "총 소득"
+    ],
+    "hint": "income, earnings, revenue. Money received, especially on a regular basis, for work or through investments.",
+    "meaningEn": "income, earnings, revenue",
+    "romaja": "sodeuk",
+    "exampleKo": "가계 소득이 줄어들고 있습니다.",
+    "exampleEn": "Household income is decreasing."
+  },
+  {
+    "rank": 120,
+    "term": "재정",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "국가 재정",
+      "재정 상태"
+    ],
+    "hint": "finance, financial affairs (government, corporate, personal)",
+    "meaningEn": "finance, financial affairs",
+    "romaja": "jaejeong",
+    "exampleKo": "국가 재정 상태가 좋지 않아요.",
+    "exampleEn": "The nation's financial condition is not good."
+  },
+  {
+    "rank": 121,
+    "term": "빌리다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "돈을 빌리다",
+      "책을 빌리다"
+    ],
+    "hint": "to borrow; used for items or money obtained temporarily from someone else.",
+    "meaningEn": "to borrow",
+    "romaja": "billida",
+    "exampleKo": "저는 친구에게서 돈을 빌렸어요.",
+    "exampleEn": "I borrowed money from my friend."
+  },
+  {
+    "rank": 122,
+    "term": "수출",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "수출 증가"
+    ],
+    "hint": "export",
+    "meaningEn": "export",
+    "romaja": "suchul",
+    "exampleKo": "한국의 수출이 증가했습니다.",
+    "exampleEn": "Korea's exports have increased."
+  },
+  {
+    "rank": 123,
+    "term": "벌이다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "사업을 벌이다",
+      "논쟁을 벌이다"
+    ],
+    "hint": "to start, to begin, to wage (a war), to set up (a business); implies initiating an activity, often significant.",
+    "meaningEn": "to start, to begin, to wage",
+    "romaja": "beorida",
+    "exampleKo": "그는 새로운 사업을 벌였습니다.",
+    "exampleEn": "He started a new business."
+  },
+  {
+    "rank": 124,
+    "term": "기업",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "대기업",
+      "중소기업"
+    ],
+    "hint": "enterprise, business, corporation. Refers to commercial organizations.",
+    "meaningEn": "enterprise, business, corporation",
+    "romaja": "gieop",
+    "exampleKo": "이 기업은 매우 성공적입니다.",
+    "exampleEn": "This corporation is very successful."
+  },
+  {
+    "rank": 125,
+    "term": "투자",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "투자를 하다",
+      "투자를 유치하다"
+    ],
+    "hint": "investment; refers to putting money into something with the expectation of profit",
+    "meaningEn": "investment",
+    "romaja": "tuja",
+    "exampleKo": "그는 주식에 투자를 했습니다.",
+    "exampleEn": "He made an investment in stocks."
+  },
+  {
+    "rank": 126,
+    "term": "부담",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "부담스럽다",
+      "부담을 느끼다"
+    ],
+    "hint": "burden, charge, pressure; can be financial, emotional, or task-related.",
+    "meaningEn": "burden, charge, pressure",
+    "romaja": "budam",
+    "exampleKo": "이것은 저에게 큰 부담입니다.",
+    "exampleEn": "This is a big burden for me."
+  },
+  {
+    "rank": 127,
+    "term": "예산",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "예산 부족",
+      "예산안 통과"
+    ],
+    "hint": "budget; refers to the financial plan for a period.",
+    "meaningEn": "budget",
+    "romaja": "yesan",
+    "exampleKo": "정부는 새 예산안을 발표했습니다.",
+    "exampleEn": "The government announced a new budget plan."
+  },
+  {
+    "rank": 128,
+    "term": "공급",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "수요 공급",
+      "공급망"
+    ],
+    "hint": "supply, provision, offering; relates to the availability of goods or services.",
+    "meaningEn": "supply, provision",
+    "romaja": "gonggeup",
+    "exampleKo": "수요와 공급의 법칙이 중요합니다.",
+    "exampleEn": "The law of supply and demand is important."
+  },
+  {
+    "rank": 129,
+    "term": "주식",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "주식 시장",
+      "주식 투자"
+    ],
+    "hint": "stock, shares, main dish. Primarily refers to financial stocks in economic contexts.",
+    "meaningEn": "stock, shares",
+    "romaja": "jusik",
+    "exampleKo": "그는 주식 시장에 관심이 많습니다.",
+    "exampleEn": "He is very interested in the stock market."
+  },
+  {
+    "rank": 130,
+    "term": "도입",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "기술 도입",
+      "제도 도입"
+    ],
+    "hint": "introduction, adoption, implementation. Often used for new systems, technologies, or policies.",
+    "meaningEn": "introduction, adoption",
+    "romaja": "doip",
+    "exampleKo": "새로운 기술 도입이 필요합니다.",
+    "exampleEn": "The introduction of new technology is necessary."
+  },
+  {
+    "rank": 131,
+    "term": "성장하다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "경제 성장",
+      "아이 성장"
+    ],
+    "hint": "to grow, to develop, to increase. Can refer to personal, economic, or physical growth.",
+    "meaningEn": "to grow, to develop",
+    "romaja": "seongjanghada",
+    "exampleKo": "이 아이는 매우 빨리 성장합니다.",
+    "exampleEn": "This child grows very quickly."
+  },
+  {
+    "rank": 132,
+    "term": "산업",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "첨단 산업",
+      "산업 발전"
+    ],
+    "hint": "industry, industrial (refers to economic sectors and production)",
+    "meaningEn": "industry",
+    "romaja": "saneop",
+    "exampleKo": "첨단 산업이 한국 경제를 이끌고 있습니다.",
+    "exampleEn": "High-tech industries are leading the Korean economy."
+  },
+  {
+    "rank": 133,
+    "term": "노동",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "노동 시장",
+      "노동력 부족"
+    ],
+    "hint": "labor, work, toil; often used in economic and social contexts.",
+    "meaningEn": "labor, work",
+    "romaja": "nodong",
+    "exampleKo": "노동 시장의 변화가 심합니다.",
+    "exampleEn": "There are significant changes in the labor market."
+  },
+  {
+    "rank": 134,
+    "term": "생산",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "생산 방식",
+      "생산 활동"
+    ],
+    "hint": "production, output, manufacturing. Often used with '방식' (method) or '활동' (activity).",
+    "meaningEn": "production, manufacturing",
+    "romaja": "saengsan",
+    "exampleKo": "이 공장은 자동차를 생산합니다.",
+    "exampleEn": "This factory produces cars."
+  },
+  {
+    "rank": 135,
+    "term": "개방",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "시장 개방",
+      "개방 정책"
+    ],
+    "hint": "opening, openness, liberalization (especially of markets or policies)",
+    "meaningEn": "opening, openness",
+    "romaja": "gaebang",
+    "exampleKo": "시장 개방은 경제에 영향을 줍니다.",
+    "exampleEn": "Market opening affects the economy."
+  },
+  {
+    "rank": 136,
+    "term": "안정",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "경제적 안정",
+      "심리적 안정"
+    ],
+    "hint": "stability, peace, calmness. Applicable to various contexts like economy, society, or personal feelings.",
+    "meaningEn": "Stability, peace, calmness",
+    "romaja": "anjeong",
+    "exampleKo": "경제적 안정을 위해 노력하고 있습니다.",
+    "exampleEn": "We are striving for economic stability."
+  },
+  {
+    "rank": 137,
+    "term": "전망",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "전망이 밝다",
+      "전망이 있다"
+    ],
+    "hint": "prospect, outlook, view. Often used for future possibilities, especially in economics or career.",
+    "meaningEn": "Prospect, outlook, view",
+    "romaja": "jeonmang",
+    "exampleKo": "내년 경제 전망이 매우 밝습니다.",
+    "exampleEn": "Next year's economic outlook is very bright."
+  },
+  {
+    "rank": 138,
+    "term": "수요",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "수요 증가",
+      "수요 예측"
+    ],
+    "hint": "demand, requirement; often used in economic or market contexts",
+    "meaningEn": "Demand, requirement",
+    "romaja": "suyo",
+    "exampleKo": "신제품에 대한 수요가 급증하고 있습니다.",
+    "exampleEn": "Demand for the new product is surging."
+  },
+  {
+    "rank": 139,
+    "term": "식량",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "식량 부족",
+      "식량 안보"
+    ],
+    "hint": "food, provisions, foodstuffs (often discussed in contexts of production, security, or shortage)",
+    "meaningEn": "Food, provisions, foodstuffs",
+    "romaja": "singnyang",
+    "exampleKo": "식량 부족 문제를 해결해야 합니다.",
+    "exampleEn": "We must solve the food shortage problem."
+  },
+  {
+    "rank": 140,
+    "term": "물가",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "물가 상승",
+      "물가 안정"
+    ],
+    "hint": "prices, cost of living; refers to the general level of prices for goods and services.",
+    "meaningEn": "Prices, cost of living",
+    "romaja": "mulga",
+    "exampleKo": "최근 물가 상승이 심각한 문제입니다.",
+    "exampleEn": "Recent price increases are a serious problem."
+  },
+  {
+    "rank": 141,
+    "term": "선진국",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "선진국 경제",
+      "선진국 시장"
+    ],
+    "hint": "developed country; often discussed in economic and political contexts.",
+    "meaningEn": "Developed country",
+    "romaja": "seonjinguk",
+    "exampleKo": "한국은 선진국 경제 대열에 합류했습니다.",
+    "exampleEn": "Korea has joined the ranks of developed economies."
+  },
+  {
+    "rank": 142,
+    "term": "소비",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "소비 심리",
+      "소비 지출"
+    ],
+    "hint": "consumption, spending; the act of using up goods or services.",
+    "meaningEn": "Consumption, spending",
+    "romaja": "sobi",
+    "exampleKo": "소비 심리가 위축되어 경제가 어렵습니다.",
+    "exampleEn": "Consumer sentiment has shrunk, making the economy difficult."
+  },
+  {
+    "rank": 143,
+    "term": "중소기업",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "중소기업 육성",
+      "중소기업 지원"
+    ],
+    "hint": "small and medium-sized enterprise (SME); businesses smaller than large corporations.",
+    "meaningEn": "Small and medium-sized enterprise (SME)",
+    "romaja": "jungso gieop",
+    "exampleKo": "정부는 중소기업 육성에 힘쓰고 있습니다.",
+    "exampleEn": "The government is focusing on fostering SMEs."
+  },
+  {
+    "rank": 144,
+    "term": "추진",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "5-6",
+    "collocations": [
+      "사업 추진",
+      "정책 추진"
+    ],
+    "hint": "drive, promotion; used for projects, policies, business",
+    "meaningEn": "Drive, promotion",
+    "romaja": "chujin",
+    "exampleKo": "새로운 사업 추진을 위해 준비 중입니다.",
+    "exampleEn": "We are preparing to push forward with a new business."
+  },
+  {
+    "rank": 145,
+    "term": "서비스",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "고객 서비스",
+      "무료 서비스"
+    ],
+    "hint": "service; refers to actions or work performed for others, especially in business.",
+    "meaningEn": "Service",
+    "romaja": "seobiseu",
+    "exampleKo": "이 식당은 고객 서비스가 매우 좋습니다.",
+    "exampleEn": "This restaurant has very good customer service."
+  },
+  {
+    "rank": 146,
+    "term": "무역",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "국제 무역",
+      "무역 회사"
+    ],
+    "hint": "trade, commerce",
+    "meaningEn": "Trade, commerce",
+    "romaja": "muyeok",
+    "exampleKo": "국제 무역 규모가 점점 커지고 있습니다.",
+    "exampleEn": "The scale of international trade is gradually increasing."
+  },
+  {
+    "rank": 147,
+    "term": "수입",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "수입이 늘다",
+      "수입을 올리다"
+    ],
+    "hint": "income, earnings; import (goods). Context is key.",
+    "meaningEn": "Income, earnings; import",
+    "romaja": "suip",
+    "exampleKo": "올해 수입이 작년보다 많이 늘었습니다.",
+    "exampleEn": "This year's income has increased significantly compared to last year."
+  },
+  {
+    "rank": 148,
+    "term": "내놓다",
+    "pos": "verb",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "신제품을 내놓다",
+      "결과를 내놓다"
+    ],
+    "hint": "to put out, to release, to present; often used for products, ideas, or results.",
+    "meaningEn": "To put out, release, present",
+    "romaja": "naenota",
+    "exampleKo": "회사는 곧 신제품을 내놓을 예정입니다.",
+    "exampleEn": "The company is scheduled to release a new product soon."
+  },
+  {
+    "rank": 149,
+    "term": "상품",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "상품을 사다",
+      "상품을 팔다"
+    ],
+    "hint": "product, goods (items for sale)",
+    "meaningEn": "Product, goods (for sale)",
+    "romaja": "sangpum",
+    "exampleKo": "이 상품은 품질이 아주 좋습니다.",
+    "exampleEn": "The quality of this product is very good."
+  },
+  {
+    "rank": 150,
+    "term": "재료",
+    "pos": "noun",
+    "category": "경제·소비",
+    "levelBand": "3-4",
+    "collocations": [
+      "요리 재료",
+      "건축 재료"
+    ],
+    "hint": "ingredient, material; refers to components used in cooking, building, etc.",
+    "meaningEn": "Ingredient, material",
+    "romaja": "jaeryo",
+    "exampleKo": "요리 재료를 시장에서 사 왔습니다.",
+    "exampleEn": "I bought the cooking ingredients at the market."
+  },
+  {
+    "rank": 151,
+    "term": "정보",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "정보를 얻다",
+      "정보 기술"
+    ],
+    "hint": "information, data; refers to facts or details about something",
+    "meaningEn": "Information, data",
+    "romaja": "jeongbo",
+    "exampleKo": "새로운 정보를 얻었습니다.",
+    "exampleEn": "I obtained new information."
+  },
+  {
+    "rank": 152,
+    "term": "발전",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "경제 발전",
+      "기술 발전"
+    ],
+    "hint": "development, progress, growth; often implies positive change",
+    "meaningEn": "Development, progress, growth",
+    "romaja": "baljeon",
+    "exampleKo": "기술 발전은 우리 삶을 바꿉니다.",
+    "exampleEn": "Technological development changes our lives."
+  },
+  {
+    "rank": 153,
+    "term": "자연",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "자연 환경",
+      "자연 보호"
+    ],
+    "hint": "nature (the physical world), natural (as in innate or spontaneous)",
+    "meaningEn": "Nature, natural",
+    "romaja": "jayeon",
+    "exampleKo": "자연 환경을 보호해야 합니다.",
+    "exampleEn": "We must protect the natural environment."
+  },
+  {
+    "rank": 154,
+    "term": "과학",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "과학 기술",
+      "과학 발전"
+    ],
+    "hint": "science; often combined with 기술 (technology)",
+    "meaningEn": "Science",
+    "romaja": "gwahak",
+    "exampleKo": "과학 기술은 계속 발전합니다.",
+    "exampleEn": "Science and technology continue to develop."
+  },
+  {
+    "rank": 155,
+    "term": "기술",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "기술 발전",
+      "최신 기술"
+    ],
+    "hint": "technology (as in IT, science), skill/technique (as in a craft or ability)",
+    "meaningEn": "Technology, skill",
+    "romaja": "gisul",
+    "exampleKo": "최신 기술을 배우고 싶습니다.",
+    "exampleEn": "I want to learn the latest technology."
+  },
+  {
+    "rank": 156,
+    "term": "환경",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "환경 보호",
+      "자연 환경"
+    ],
+    "hint": "environment, surroundings (natural world or conditions in which a person/thing lives)",
+    "meaningEn": "Environment, surroundings",
+    "romaja": "hwangyeong",
+    "exampleKo": "환경 보호는 중요한 문제입니다.",
+    "exampleEn": "Environmental protection is an important issue."
+  },
+  {
+    "rank": 157,
+    "term": "효과",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "긍정적인 효과",
+      "치료 효과"
+    ],
+    "hint": "effect, effectiveness; the result or consequence of an action or cause",
+    "meaningEn": "Effect, effectiveness",
+    "romaja": "hyogwa",
+    "exampleKo": "이 약은 치료 효과가 좋습니다.",
+    "exampleEn": "This medicine has good therapeutic effects."
+  },
+  {
+    "rank": 158,
+    "term": "기능",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "향상된 기능",
+      "기능을 수행하다"
+    ],
+    "hint": "function, faculty, performance; used for devices, organs, and abstract systems.",
+    "meaningEn": "Function, performance",
+    "romaja": "gineung",
+    "exampleKo": "이 기계는 향상된 기능을 가지고 있습니다.",
+    "exampleEn": "This machine has improved functions."
+  },
+  {
+    "rank": 159,
+    "term": "속도",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "속도를 높이다",
+      "속도를 줄이다"
+    ],
+    "hint": "speed, pace, velocity; refers to the rate of movement or progress.",
+    "meaningEn": "Speed, pace",
+    "romaja": "sokdo",
+    "exampleKo": "차가 너무 빠른 속도로 달렸습니다.",
+    "exampleEn": "The car drove at too fast a speed."
+  },
+  {
+    "rank": 160,
+    "term": "보호",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "환경 보호",
+      "보호하다"
+    ],
+    "hint": "protection, safeguard; often used with environment, rights, or people.",
+    "meaningEn": "Protection, safeguard",
+    "romaja": "boho",
+    "exampleKo": "동물 보호에 힘써야 합니다.",
+    "exampleEn": "We must strive for animal protection."
+  },
+  {
+    "rank": 161,
+    "term": "땅",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "땅을 파다",
+      "땅값"
+    ],
+    "hint": "land, ground (the solid surface of the earth)",
+    "meaningEn": "Land, ground",
+    "romaja": "ttang",
+    "exampleKo": "농부들이 땅을 갈고 있습니다.",
+    "exampleEn": "Farmers are plowing the land."
+  },
+  {
+    "rank": 162,
+    "term": "소리",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "큰 소리",
+      "소리를 내다"
+    ],
+    "hint": "sound, noise, voice",
+    "meaningEn": "Sound, noise, voice",
+    "romaja": "sori",
+    "exampleKo": "갑자기 큰 소리가 났습니다.",
+    "exampleEn": "Suddenly, a loud sound occurred."
+  },
+  {
+    "rank": 163,
+    "term": "원인",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "원인 분석",
+      "원인 규명"
+    ],
+    "hint": "cause, origin, reason. Fundamental for explaining phenomena.",
+    "meaningEn": "Cause, origin, reason",
+    "romaja": "wonin",
+    "exampleKo": "사고의 원인을 분석했습니다.",
+    "exampleEn": "We analyzed the cause of the accident."
+  },
+  {
+    "rank": 164,
+    "term": "개발하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "신기술을 개발하다",
+      "소프트웨어를 개발하다"
+    ],
+    "hint": "to develop, to create (used for technology, products, or skills)",
+    "meaningEn": "To develop, to create",
+    "romaja": "gaebalhada",
+    "exampleKo": "새로운 앱을 개발하고 있습니다.",
+    "exampleEn": "We are developing a new app."
+  },
+  {
+    "rank": 165,
+    "term": "발달하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "뇌가 발달하다",
+      "기술이 발달하다"
+    ],
+    "hint": "to develop, grow (physically, intellectually, technologically)",
+    "meaningEn": "To develop, grow",
+    "romaja": "baldalhada",
+    "exampleKo": "아이의 뇌가 잘 발달했습니다.",
+    "exampleEn": "The child's brain developed well."
+  },
+  {
+    "rank": 166,
+    "term": "심하다",
+    "pos": "adjective",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "미세먼지가 심하다"
+    ],
+    "hint": "to be severe, to be intense, to be extreme; used for negative conditions like pollution, illness, or criticism",
+    "meaningEn": "to be severe, intense, extreme (negative)",
+    "romaja": "simhada",
+    "exampleKo": "미세먼지가 너무 심해요.",
+    "exampleEn": "The fine dust is very severe."
+  },
+  {
+    "rank": 167,
+    "term": "발생하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "문제가 발생하다",
+      "사고가 발생하다"
+    ],
+    "hint": "to occur, to happen, to arise; used for events, especially problems or accidents",
+    "meaningEn": "to occur, happen, arise (problems)",
+    "romaja": "balsaenghada",
+    "exampleKo": "문제가 발생하지 않도록 주의해야 합니다.",
+    "exampleEn": "We must be careful to prevent problems from occurring."
+  },
+  {
+    "rank": 168,
+    "term": "오염",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "환경 오염",
+      "수질 오염"
+    ],
+    "hint": "pollution, contamination; refers to the act or state of being polluted.",
+    "meaningEn": "pollution, contamination",
+    "romaja": "oyeom",
+    "exampleKo": "환경 오염은 심각한 문제입니다.",
+    "exampleEn": "Environmental pollution is a serious problem."
+  },
+  {
+    "rank": 169,
+    "term": "생명",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "생명 존엄성",
+      "생명 과학"
+    ],
+    "hint": "life, living being (the condition that distinguishes animals and plants from inorganic matter, including the capacity for growth, reproduction, functional activity, and continual change preceding death)",
+    "meaningEn": "life, living being",
+    "romaja": "saengmyeong",
+    "exampleKo": "생명 존엄성은 매우 중요합니다.",
+    "exampleEn": "The dignity of life is very important."
+  },
+  {
+    "rank": 170,
+    "term": "현상",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "자연 현상",
+      "사회 현상"
+    ],
+    "hint": "phenomenon, appearance. An observable fact or event, often complex.",
+    "meaningEn": "phenomenon, appearance",
+    "romaja": "hyeonsang",
+    "exampleKo": "지구 온난화는 자연 현상입니다.",
+    "exampleEn": "Global warming is a natural phenomenon."
+  },
+  {
+    "rank": 171,
+    "term": "작용",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "작용하다",
+      "상호 작용"
+    ],
+    "hint": "action, effect, function (often in scientific or technical contexts)",
+    "meaningEn": "action, effect, function",
+    "romaja": "jagyong",
+    "exampleKo": "이 약은 위장에 작용합니다.",
+    "exampleEn": "This medicine acts on the stomach."
+  },
+  {
+    "rank": 172,
+    "term": "자원",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "천연 자원",
+      "자원 고갈"
+    ],
+    "hint": "resource, natural resource. Often used in contexts of scarcity or management.",
+    "meaningEn": "resource, natural resource",
+    "romaja": "jawon",
+    "exampleKo": "천연 자원을 아껴 써야 합니다.",
+    "exampleEn": "We must use natural resources sparingly."
+  },
+  {
+    "rank": 173,
+    "term": "작용하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "영향을 작용하다",
+      "효과가 작용하다"
+    ],
+    "hint": "to act, to function, to operate. Describes how something has an effect or works.",
+    "meaningEn": "to act, function, operate",
+    "romaja": "jagyonghada",
+    "exampleKo": "이 물질은 몸에 어떻게 작용하나요?",
+    "exampleEn": "How does this substance act in the body?"
+  },
+  {
+    "rank": 174,
+    "term": "생산하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "에너지를 생산하다",
+      "제품을 생산하다"
+    ],
+    "hint": "to produce, manufacture, generate; often used for goods, energy, or ideas",
+    "meaningEn": "to produce, manufacture, generate",
+    "romaja": "saengsanhada",
+    "exampleKo": "이 공장은 전기를 생산합니다.",
+    "exampleEn": "This factory produces electricity."
+  },
+  {
+    "rank": 175,
+    "term": "풍부하다",
+    "pos": "adjective",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "자원이 풍부하다",
+      "경험이 풍부하다"
+    ],
+    "hint": "to be abundant, plentiful, rich (often used with resources, experience, etc.)",
+    "meaningEn": "to be abundant, plentiful, rich",
+    "romaja": "pungbuhada",
+    "exampleKo": "우리나라는 자원이 풍부하지 않습니다.",
+    "exampleEn": "Our country is not rich in resources."
+  },
+  {
+    "rank": 176,
+    "term": "실험",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "임상 실험",
+      "과학 실험"
+    ],
+    "hint": "experiment, test, trial (common in scientific or research contexts)",
+    "meaningEn": "experiment, test, trial",
+    "romaja": "silheom",
+    "exampleKo": "과학 실험을 하러 갑니다.",
+    "exampleEn": "I am going to do a science experiment."
+  },
+  {
+    "rank": 177,
+    "term": "공사",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "도로 공사",
+      "공사 중"
+    ],
+    "hint": "construction, public works (refers to building or repair work)",
+    "meaningEn": "construction, public works",
+    "romaja": "gongsa",
+    "exampleKo": "지금 도로 공사 중입니다.",
+    "exampleEn": "It is currently under road construction."
+  },
+  {
+    "rank": 178,
+    "term": "심다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "나무를 심다",
+      "씨를 심다"
+    ],
+    "hint": "to plant, to sow; to put seeds or plants in the ground to grow.",
+    "meaningEn": "to plant, sow",
+    "romaja": "simda",
+    "exampleKo": "정원에 나무를 심었어요.",
+    "exampleEn": "I planted a tree in the garden."
+  },
+  {
+    "rank": 179,
+    "term": "바닥",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "바닥을 쓸다",
+      "바닥에 닿다"
+    ],
+    "hint": "floor, ground, bottom; refers to the lowest surface or part of something.",
+    "meaningEn": "floor, ground, bottom",
+    "romaja": "badak",
+    "exampleKo": "바닥이 매우 차갑습니다.",
+    "exampleEn": "The floor is very cold."
+  },
+  {
+    "rank": 180,
+    "term": "에너지",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "에너지를 얻다",
+      "에너지 절약"
+    ],
+    "hint": "energy (can be literal or figurative)",
+    "meaningEn": "energy",
+    "romaja": "eneoji",
+    "exampleKo": "에너지 절약이 중요합니다.",
+    "exampleEn": "Saving energy is important."
+  },
+  {
+    "rank": 181,
+    "term": "그치다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "비가 그치다",
+      "눈이 그치다"
+    ],
+    "hint": "to stop (rain, snow, etc.)",
+    "meaningEn": "to stop (rain, snow, etc.)",
+    "romaja": "geuchida",
+    "exampleKo": "비가 곧 그칠 것 같아요.",
+    "exampleEn": "It seems like the rain will stop soon."
+  },
+  {
+    "rank": 182,
+    "term": "숨",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "숨 쉬다",
+      "숨이 차다"
+    ],
+    "hint": "breath (refers to the act of breathing or the air inhaled/exhaled)",
+    "meaningEn": "breath",
+    "romaja": "sum",
+    "exampleKo": "숨 쉬기 힘들 정도로 더웠어요.",
+    "exampleEn": "It was so hot that it was hard to breathe."
+  },
+  {
+    "rank": 183,
+    "term": "냄새",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "좋은 냄새",
+      "나쁜 냄새"
+    ],
+    "hint": "smell, odor, scent; can be positive or negative, referring to the scent of food, places, or things.",
+    "meaningEn": "smell, odor, scent",
+    "romaja": "naemsae",
+    "exampleKo": "음식 냄새가 아주 좋아요.",
+    "exampleEn": "The food smells very good."
+  },
+  {
+    "rank": 184,
+    "term": "크기",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "크기를 재다",
+      "적당한 크기"
+    ],
+    "hint": "size, dimension (measurement)",
+    "meaningEn": "size, dimension",
+    "romaja": "keugi",
+    "exampleKo": "이 옷은 크기가 맞지 않아요.",
+    "exampleEn": "This clothing is not the right size."
+  },
+  {
+    "rank": 185,
+    "term": "기계",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "첨단 기계",
+      "기계 부품"
+    ],
+    "hint": "machine, machinery; refers to devices or apparatuses.",
+    "meaningEn": "machine, machinery",
+    "romaja": "gigye",
+    "exampleKo": "새로운 기계가 도입되었습니다.",
+    "exampleEn": "A new machine has been introduced."
+  },
+  {
+    "rank": 186,
+    "term": "발견하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "사실을 발견하다",
+      "새로운 것을 발견하다"
+    ],
+    "hint": "to discover, to find (often something previously unknown)",
+    "meaningEn": "to discover, to find",
+    "romaja": "balgyeonhada",
+    "exampleKo": "과학자들이 새로운 별을 발견했다.",
+    "exampleEn": "Scientists discovered a new star."
+  },
+  {
+    "rank": 187,
+    "term": "지구",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "지구 온난화"
+    ],
+    "hint": "Earth, globe; often used in contexts of environment, geography, and global issues",
+    "meaningEn": "Earth, globe",
+    "romaja": "jigu",
+    "exampleKo": "지구 온난화는 심각한 문제입니다.",
+    "exampleEn": "Global warming is a serious problem."
+  },
+  {
+    "rank": 188,
+    "term": "막다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "길을 막다",
+      "문을 막다"
+    ],
+    "hint": "to block, to stop, to prevent; can be used literally or figuratively",
+    "meaningEn": "to block, to stop, to prevent",
+    "romaja": "makda",
+    "exampleKo": "쓰레기가 하수구를 막고 있어요.",
+    "exampleEn": "Trash is blocking the drain."
+  },
+  {
+    "rank": 189,
+    "term": "흐르다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "시간이 흐르다",
+      "물이 흐르다"
+    ],
+    "hint": "to flow, to stream, to pass (time); used for liquids, time, or even emotions.",
+    "meaningEn": "to flow, to stream, to pass",
+    "romaja": "heureuda",
+    "exampleKo": "강물이 시원하게 흐르고 있다.",
+    "exampleEn": "The river is flowing refreshingly."
+  },
+  {
+    "rank": 190,
+    "term": "보호하다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "환경 보호",
+      "자신을 보호하다"
+    ],
+    "hint": "to protect, to defend; to keep safe from harm or danger.",
+    "meaningEn": "to protect, to defend",
+    "romaja": "bohohada",
+    "exampleKo": "우리는 환경을 보호해야 합니다.",
+    "exampleEn": "We must protect the environment."
+  },
+  {
+    "rank": 191,
+    "term": "줄어들다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "인구가 줄어들다",
+      "수입이 줄어들다"
+    ],
+    "hint": "to decrease, to shrink, to diminish. Opposite of 늘다.",
+    "meaningEn": "to decrease, to shrink, to diminish",
+    "romaja": "jureodeulda",
+    "exampleKo": "해마다 인구가 줄어들고 있다.",
+    "exampleEn": "The population is decreasing every year."
+  },
+  {
+    "rank": 192,
+    "term": "거대하다",
+    "pos": "adjective",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "거대한 자본",
+      "거대한 규모"
+    ],
+    "hint": "huge, enormous, gigantic - used to describe size or scale.",
+    "meaningEn": "huge, enormous, gigantic",
+    "romaja": "geodaehada",
+    "exampleKo": "그 도시는 거대한 규모를 자랑한다.",
+    "exampleEn": "That city boasts a huge scale."
+  },
+  {
+    "rank": 193,
+    "term": "비치다",
+    "pos": "verb",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "햇빛이 비치다",
+      "달빛이 비치다"
+    ],
+    "hint": "to shine, be reflected; describes light or images.",
+    "meaningEn": "to shine, be reflected",
+    "romaja": "bichida",
+    "exampleKo": "햇빛이 창문으로 비치고 있었다.",
+    "exampleEn": "Sunlight was shining through the window."
+  },
+  {
+    "rank": 194,
+    "term": "영양",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "3-4",
+    "collocations": [
+      "영양 이 풍부하다",
+      "영양 을 섭취하다"
+    ],
+    "hint": "nutrition, nourishment; essential for discussing health and diet.",
+    "meaningEn": "nutrition, nourishment",
+    "romaja": "yeongyang",
+    "exampleKo": "채소에는 영양소가 풍부하다.",
+    "exampleEn": "Vegetables are rich in nutrients."
+  },
+  {
+    "rank": 195,
+    "term": "법칙",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "자연의 법칙",
+      "물리 법칙"
+    ],
+    "hint": "law, rule, principle; often refers to natural or scientific laws.",
+    "meaningEn": "law, rule, principle",
+    "romaja": "beopchik",
+    "exampleKo": "자연의 법칙을 이해하는 것은 어렵다.",
+    "exampleEn": "Understanding the laws of nature is difficult."
+  },
+  {
+    "rank": 196,
+    "term": "감각",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "감각을 느끼다",
+      "예민한 감각"
+    ],
+    "hint": "sense, sensation, feeling. Can refer to physical senses or intuition.",
+    "meaningEn": "Sense, sensation, feeling",
+    "romaja": "gamgak",
+    "exampleKo": "그는 예민한 감각을 가지고 있다.",
+    "exampleEn": "He has a keen sense."
+  },
+  {
+    "rank": 197,
+    "term": "우주",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "우주 탐사",
+      "우주 공간"
+    ],
+    "hint": "universe, space, cosmos; the vast expanse beyond Earth.",
+    "meaningEn": "Universe, space, cosmos",
+    "romaja": "uju",
+    "exampleKo": "우주 탐사는 인류의 꿈이다.",
+    "exampleEn": "Space exploration is humanity's dream."
+  },
+  {
+    "rank": 198,
+    "term": "물질",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "물질적 풍요",
+      "유해 물질"
+    ],
+    "hint": "matter, substance, material (can be literal or figurative)",
+    "meaningEn": "Matter, substance, material",
+    "romaja": "muljil",
+    "exampleKo": "이것은 유해 물질인가요?",
+    "exampleEn": "Is this a harmful substance?"
+  },
+  {
+    "rank": 199,
+    "term": "물체",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "물체 탐지",
+      "미확인 비행 물체"
+    ],
+    "hint": "object, body, physical substance. Refers to tangible items, often in scientific or observational contexts.",
+    "meaningEn": "Object, body, physical substance",
+    "romaja": "mulche",
+    "exampleKo": "하늘에서 이상한 물체가 보였다.",
+    "exampleEn": "A strange object was seen in the sky."
+  },
+  {
+    "rank": 200,
+    "term": "핵",
+    "pos": "noun",
+    "category": "환경·과학",
+    "levelBand": "5-6",
+    "collocations": [
+      "핵 문제",
+      "핵 개발"
+    ],
+    "hint": "nucleus, core, center (can be literal in science or figurative for the central part of an issue)",
+    "meaningEn": "Nucleus, core, center",
+    "romaja": "haek",
+    "exampleKo": "핵 문제는 매우 심각하다.",
+    "exampleEn": "The nuclear issue is very serious."
+  },
+  {
+    "rank": 201,
+    "term": "문화",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "문화 차이",
+      "문화 생활"
+    ],
+    "hint": "culture; a key concept in social and global discussions",
+    "meaningEn": "Culture",
+    "romaja": "munhwa",
+    "exampleKo": "문화 차이를 이해하는 것이 중요하다.",
+    "exampleEn": "It is important to understand cultural differences."
+  },
+  {
+    "rank": 202,
+    "term": "전통",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "전통 문화",
+      "전통 음식"
+    ],
+    "hint": "tradition; customs, beliefs, or ways of behaving that have been passed down through generations.",
+    "meaningEn": "Tradition, custom",
+    "romaja": "jeontong",
+    "exampleKo": "한국의 전통 음식은 맛있다.",
+    "exampleEn": "Korean traditional food is delicious."
+  },
+  {
+    "rank": 203,
+    "term": "표현",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "감정 표현",
+      "관용적 표현"
+    ],
+    "hint": "expression, representation (how something is conveyed, verbally or non-verbally)",
+    "meaningEn": "Expression, representation",
+    "romaja": "pyohyeon",
+    "exampleKo": "그는 감정 표현에 서툴다.",
+    "exampleEn": "He is poor at expressing emotions."
+  },
+  {
+    "rank": 204,
+    "term": "프로그램",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "컴퓨터 프로그램",
+      "TV 프로그램"
+    ],
+    "hint": "program (computer, TV, event schedule)",
+    "meaningEn": "Program (TV, computer, event)",
+    "romaja": "peurogeuraem",
+    "exampleKo": "이 TV 프로그램은 재미있다.",
+    "exampleEn": "This TV program is interesting."
+  },
+  {
+    "rank": 205,
+    "term": "글",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "글을 쓰다",
+      "글을 읽다"
+    ],
+    "hint": "writing, text, article (any written material)",
+    "meaningEn": "Writing, text, article",
+    "romaja": "geul",
+    "exampleKo": "나는 매일 글을 쓴다.",
+    "exampleEn": "I write texts every day."
+  },
+  {
+    "rank": 206,
+    "term": "이미지",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "좋은 이미지",
+      "기업 이미지"
+    ],
+    "hint": "image, impression (a general feeling or idea about someone or something)",
+    "meaningEn": "Image, impression",
+    "romaja": "imiji",
+    "exampleKo": "그는 좋은 이미지를 가지고 있다.",
+    "exampleEn": "He has a good image."
+  },
+  {
+    "rank": 207,
+    "term": "공연",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "음악 공연",
+      "연극 공연"
+    ],
+    "hint": "performance, show; refers to artistic presentations like concerts, plays, musicals, etc.",
+    "meaningEn": "Performance, show",
+    "romaja": "gongyeon",
+    "exampleKo": "어제 음악 공연을 봤어요.",
+    "exampleEn": "I watched a music performance yesterday."
+  },
+  {
+    "rank": 208,
+    "term": "독특하다",
+    "pos": "adjective",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "독특한 매력",
+      "독특한 개성"
+    ],
+    "hint": "unique, peculiar, distinctive - used to describe something special or different.",
+    "meaningEn": "Unique, peculiar, distinctive",
+    "romaja": "dokteukada",
+    "exampleKo": "그녀는 독특한 개성을 가지고 있다.",
+    "exampleEn": "She has a unique personality."
+  },
+  {
+    "rank": 209,
+    "term": "보도",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "뉴스 보도",
+      "언론 보도"
+    ],
+    "hint": "report, coverage, news (media context)",
+    "meaningEn": "Report, coverage, news",
+    "romaja": "bodo",
+    "exampleKo": "뉴스 보도를 주의 깊게 봤다.",
+    "exampleEn": "I watched the news report carefully."
+  },
+  {
+    "rank": 210,
+    "term": "기사",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "신문 기사",
+      "뉴스 기사"
+    ],
+    "hint": "article (newspaper/magazine), driver, knight. Primarily used for written articles.",
+    "meaningEn": "Article, driver, knight",
+    "romaja": "gisa",
+    "exampleKo": "신문 기사를 읽어 보세요.",
+    "exampleEn": "Please read the newspaper article."
+  },
+  {
+    "rank": 211,
+    "term": "주인공",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "소설의 주인공",
+      "영화의 주인공"
+    ],
+    "hint": "protagonist, main character; refers to the central figure in a story or work.",
+    "meaningEn": "Protagonist, main character",
+    "romaja": "juingong",
+    "exampleKo": "이 소설의 주인공은 매우 흥미롭습니다.",
+    "exampleEn": "The protagonist of this novel is very interesting."
+  },
+  {
+    "rank": 212,
+    "term": "행사",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "문화 행사",
+      "기념 행사"
+    ],
+    "hint": "event, function, ceremony (a planned public or social occasion)",
+    "meaningEn": "Event, function, ceremony",
+    "romaja": "haengsa",
+    "exampleKo": "이번 주말에 큰 문화 행사가 열립니다.",
+    "exampleEn": "A big cultural event will be held this weekend."
+  },
+  {
+    "rank": 213,
+    "term": "대중",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "대중 문화",
+      "대중 교통"
+    ],
+    "hint": "the public, the masses",
+    "meaningEn": "The public, the masses",
+    "romaja": "daejung",
+    "exampleKo": "대중 문화는 많은 사람들에게 인기가 많습니다.",
+    "exampleEn": "Popular culture is popular with many people."
+  },
+  {
+    "rank": 214,
+    "term": "즐기다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "여가를 즐기다",
+      "음악을 즐기다"
+    ],
+    "hint": "to enjoy, to have fun. Expresses pleasure and satisfaction.",
+    "meaningEn": "To enjoy, to have fun",
+    "romaja": "jeulgida",
+    "exampleKo": "저는 친구들과 함께 여가를 즐깁니다.",
+    "exampleEn": "I enjoy my leisure time with my friends."
+  },
+  {
+    "rank": 215,
+    "term": "문학",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "문학 작품",
+      "한국 문학"
+    ],
+    "hint": "literature (written works, especially those considered to have artistic merit)",
+    "meaningEn": "Literature",
+    "romaja": "munhak",
+    "exampleKo": "그는 한국 문학에 대해 많이 알고 있습니다.",
+    "exampleEn": "He knows a lot about Korean literature."
+  },
+  {
+    "rank": 216,
+    "term": "예술",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "예술 작품",
+      "현대 예술"
+    ],
+    "hint": "art; refers to various forms of artistic expression",
+    "meaningEn": "Art",
+    "romaja": "yesul",
+    "exampleKo": "이 미술관에는 다양한 예술 작품이 있습니다.",
+    "exampleEn": "There are various works of art in this art museum."
+  },
+  {
+    "rank": 217,
+    "term": "언론",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "언론 보도",
+      "언론 자유"
+    ],
+    "hint": "the press, the media, journalism; refers to news organizations and their activities",
+    "meaningEn": "The press, the media",
+    "romaja": "eollon",
+    "exampleKo": "언론은 사회의 중요한 역할을 합니다.",
+    "exampleEn": "The media plays an important role in society."
+  },
+  {
+    "rank": 218,
+    "term": "제작",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "영화 제작",
+      "제품 제작"
+    ],
+    "hint": "production, manufacturing, creation. The act of making or producing something, especially on a large scale.",
+    "meaningEn": "Production, manufacturing",
+    "romaja": "jejak",
+    "exampleKo": "이 영화는 많은 제작비가 들었습니다.",
+    "exampleEn": "This movie cost a lot to produce."
+  },
+  {
+    "rank": 219,
+    "term": "작품",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "예술 작품",
+      "문학 작품"
+    ],
+    "hint": "work (of art, literature), creation (a thing produced by labor or effort, especially an artistic or literary creation)",
+    "meaningEn": "Work (of art, literature)",
+    "romaja": "jakpum",
+    "exampleKo": "그의 새로운 작품이 곧 발표될 예정입니다.",
+    "exampleEn": "His new work will be released soon."
+  },
+  {
+    "rank": 220,
+    "term": "문화재",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "문화재 보호",
+      "국가 문화재"
+    ],
+    "hint": "cultural property, heritage - refers to historical or cultural assets.",
+    "meaningEn": "Cultural property, heritage",
+    "romaja": "munhwajae",
+    "exampleKo": "문화재 보호는 우리 모두의 책임입니다.",
+    "exampleEn": "Protecting cultural heritage is everyone's responsibility."
+  },
+  {
+    "rank": 221,
+    "term": "소재",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "소재로 삼다",
+      "소재가 되다"
+    ],
+    "hint": "material, subject matter, topic. Refers to the content or theme of a work (book, movie, etc.).",
+    "meaningEn": "Material, subject matter",
+    "romaja": "sojae",
+    "exampleKo": "이 소설은 역사적 사건을 소재로 했습니다.",
+    "exampleEn": "This novel was based on a historical event."
+  },
+  {
+    "rank": 222,
+    "term": "화제",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "화제가 되다",
+      "화제를 모으다"
+    ],
+    "hint": "topic, subject, theme; something that is currently being talked about or is of interest.",
+    "meaningEn": "Topic, subject of talk",
+    "romaja": "hwaje",
+    "exampleKo": "그의 발언이 큰 화제가 되었습니다.",
+    "exampleEn": "His remarks became a hot topic."
+  },
+  {
+    "rank": 223,
+    "term": "보도하다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "뉴스 보도",
+      "사실을 보도하다"
+    ],
+    "hint": "to report, to inform; used by media or individuals conveying information.",
+    "meaningEn": "To report, to inform",
+    "romaja": "bodohada",
+    "exampleKo": "기자들은 사건의 전말을 보도했습니다.",
+    "exampleEn": "The reporters reported the whole story of the incident."
+  },
+  {
+    "rank": 224,
+    "term": "무용",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "현대 무용",
+      "무용 공연"
+    ],
+    "hint": "dance (art form, often ballet or modern dance)",
+    "meaningEn": "Dance",
+    "romaja": "muyong",
+    "exampleKo": "그녀는 현대 무용을 전공했습니다.",
+    "exampleEn": "She majored in modern dance."
+  },
+  {
+    "rank": 225,
+    "term": "곱다",
+    "pos": "adjective",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "마음이 곱다",
+      "날씨가 곱다"
+    ],
+    "hint": "to be beautiful, pretty, fine (texture); often used metaphorically for inner beauty.",
+    "meaningEn": "Beautiful, pretty, fine",
+    "romaja": "gopda",
+    "exampleKo": "그녀는 마음씨도 곱고 얼굴도 예쁩니다.",
+    "exampleEn": "She has a kind heart and a beautiful face."
+  },
+  {
+    "rank": 226,
+    "term": "기록하다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "일기를 기록하다",
+      "회의 내용을 기록하다"
+    ],
+    "hint": "to record, to document, to write down (used for information, events, or personal thoughts)",
+    "meaningEn": "to record, document, write down",
+    "romaja": "girokada",
+    "exampleKo": "일기를 매일 기록하다.",
+    "exampleEn": "I record my diary every day."
+  },
+  {
+    "rank": 227,
+    "term": "드라마",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "시청하다",
+      "한국 드라마"
+    ],
+    "hint": "drama (TV show, play)",
+    "meaningEn": "drama (TV show, play)",
+    "romaja": "deurama",
+    "exampleKo": "저는 한국 드라마를 자주 봅니다.",
+    "exampleEn": "I often watch Korean dramas."
+  },
+  {
+    "rank": 228,
+    "term": "배경",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "배경 음악",
+      "배경 지식"
+    ],
+    "hint": "background, setting; context (can be literal or figurative)",
+    "meaningEn": "background, setting, context",
+    "romaja": "baegyeong",
+    "exampleKo": "이 노래는 배경 음악이 좋습니다.",
+    "exampleEn": "This song has good background music."
+  },
+  {
+    "rank": 229,
+    "term": "썰다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "채소를 썰다",
+      "고기를 썰다"
+    ],
+    "hint": "to slice, to chop, to cut (to cut into pieces)",
+    "meaningEn": "to slice, chop, cut",
+    "romaja": "sseolda",
+    "exampleKo": "요리하기 위해 채소를 썰었어요.",
+    "exampleEn": "I sliced the vegetables to cook."
+  },
+  {
+    "rank": 230,
+    "term": "서양",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "서양 문화",
+      "서양식"
+    ],
+    "hint": "the West, Western countries (geographical/cultural)",
+    "meaningEn": "the West, Western countries",
+    "romaja": "seoyang",
+    "exampleKo": "서양 문화에 대해 배우고 싶어요.",
+    "exampleEn": "I want to learn about Western culture."
+  },
+  {
+    "rank": 231,
+    "term": "어울리다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "잘 어울리다",
+      "옷이 어울리다"
+    ],
+    "hint": "to suit, match; often used for clothes or people fitting in",
+    "meaningEn": "to suit, match, get along",
+    "romaja": "eoullida",
+    "exampleKo": "이 옷이 저에게 잘 어울려요.",
+    "exampleEn": "These clothes suit me well."
+  },
+  {
+    "rank": 232,
+    "term": "통신",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "정보 통신",
+      "통신 기술"
+    ],
+    "hint": "communication, telecommunication; refers to the exchange of information, especially via technology.",
+    "meaningEn": "communication, telecommunication",
+    "romaja": "tongsin",
+    "exampleKo": "정보 통신 기술이 발전했습니다.",
+    "exampleEn": "Information and communication technology has developed."
+  },
+  {
+    "rank": 233,
+    "term": "기자",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "특종 기자",
+      "현장 기자"
+    ],
+    "hint": "reporter, journalist; often used in news contexts.",
+    "meaningEn": "reporter, journalist",
+    "romaja": "gija",
+    "exampleKo": "그는 유명한 특종 기자입니다.",
+    "exampleEn": "He is a famous scoop reporter."
+  },
+  {
+    "rank": 234,
+    "term": "작가",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "유명한 작가",
+      "소설 작가"
+    ],
+    "hint": "writer, author; a person who writes books, articles, etc.",
+    "meaningEn": "writer, author",
+    "romaja": "jakga",
+    "exampleKo": "저는 유명한 소설 작가를 좋아해요.",
+    "exampleEn": "I like famous novelists."
+  },
+  {
+    "rank": 235,
+    "term": "방송",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "생방송",
+      "방송을 하다"
+    ],
+    "hint": "broadcast, broadcasting; refers to media content and its dissemination.",
+    "meaningEn": "broadcast, broadcasting",
+    "romaja": "bangsong",
+    "exampleKo": "그 뉴스는 생방송으로 나갔습니다.",
+    "exampleEn": "That news was broadcast live."
+  },
+  {
+    "rank": 236,
+    "term": "알려지다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "널리 알려지다",
+      "이름이 알려지다"
+    ],
+    "hint": "to be known, to be famous, to be reported; passive form of '알리다'.",
+    "meaningEn": "to be known, be famous",
+    "romaja": "allyeojida",
+    "exampleKo": "그의 이름은 널리 알려졌습니다.",
+    "exampleEn": "His name became widely known."
+  },
+  {
+    "rank": 237,
+    "term": "매체",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "대중 매체",
+      "미디어 매체"
+    ],
+    "hint": "medium, media (channels of communication)",
+    "meaningEn": "medium, media",
+    "romaja": "maeche",
+    "exampleKo": "대중 매체는 영향력이 큽니다.",
+    "exampleEn": "The mass media has great influence."
+  },
+  {
+    "rank": 238,
+    "term": "쓰이다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "널리 쓰이다",
+      "자료로 쓰이다"
+    ],
+    "hint": "to be used, to be written. Passive form of '쓰다'.",
+    "meaningEn": "to be used, be written",
+    "romaja": "sseuida",
+    "exampleKo": "이것은 중요한 자료로 쓰입니다.",
+    "exampleEn": "This is used as important data."
+  },
+  {
+    "rank": 239,
+    "term": "퍼지다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "소문이 퍼지다",
+      "냄새가 퍼지다"
+    ],
+    "hint": "to spread, to diffuse; used for information, rumors, smells, etc.",
+    "meaningEn": "to spread, diffuse",
+    "romaja": "peojida",
+    "exampleKo": "그 소문은 금방 퍼졌습니다.",
+    "exampleEn": "That rumor spread quickly."
+  },
+  {
+    "rank": 240,
+    "term": "화면",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "3-4",
+    "collocations": [
+      "화면 구성",
+      "화면 전환"
+    ],
+    "hint": "screen, display, scene; refers to visual displays or scenes in media.",
+    "meaningEn": "screen, display, scene",
+    "romaja": "hwamyeon",
+    "exampleKo": "컴퓨터 화면이 밝게 보입니다.",
+    "exampleEn": "The computer screen looks bright."
+  },
+  {
+    "rank": 241,
+    "term": "등장하다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "새롭게 등장하다",
+      "무대에 등장하다"
+    ],
+    "hint": "to appear, emerge, debut; used for new things or people coming into view",
+    "meaningEn": "to appear, emerge, debut",
+    "romaja": "deungjanghada",
+    "exampleKo": "새로운 캐릭터가 무대에 등장했습니다.",
+    "exampleEn": "A new character appeared on stage."
+  },
+  {
+    "rank": 242,
+    "term": "실리다",
+    "pos": "verb",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "신문에 실리다",
+      "잡지에 실리다"
+    ],
+    "hint": "to be published, to be carried (in print). Passive form related to media publication.",
+    "meaningEn": "to be published, to be carried (in print)",
+    "romaja": "sillida",
+    "exampleKo": "그의 글이 잡지에 실렸습니다.",
+    "exampleEn": "His writing was published in the magazine."
+  },
+  {
+    "rank": 243,
+    "term": "세계관",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "개인의 세계관",
+      "작품의 세계관"
+    ],
+    "hint": "worldview, view of the world; philosophical or cultural perspective",
+    "meaningEn": "worldview, view of the world",
+    "romaja": "segyegwan",
+    "exampleKo": "이 소설은 독특한 세계관을 가지고 있다.",
+    "exampleEn": "This novel has a unique worldview."
+  },
+  {
+    "rank": 244,
+    "term": "연극",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "연극 공연",
+      "연극 대본"
+    ],
+    "hint": "play, drama, theater; refers to the performance or the art form.",
+    "meaningEn": "play, drama, theater",
+    "romaja": "yeon-geuk",
+    "exampleKo": "우리는 어제 연극 공연을 보러 갔다.",
+    "exampleEn": "We went to see a play performance yesterday."
+  },
+  {
+    "rank": 245,
+    "term": "감독",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "영화 감독",
+      "감독 역할"
+    ],
+    "hint": "direction, supervision, management. Primarily used for film directors or project managers.",
+    "meaningEn": "director, supervision",
+    "romaja": "gamdok",
+    "exampleKo": "그 영화는 유명한 감독이 만들었다.",
+    "exampleEn": "That movie was made by a famous director."
+  },
+  {
+    "rank": 246,
+    "term": "무대",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "무대 공연",
+      "무대에 서다"
+    ],
+    "hint": "stage, scene, arena (physical platform for performance or a metaphorical setting)",
+    "meaningEn": "stage, scene, arena",
+    "romaja": "mudae",
+    "exampleKo": "가수가 무대에 올라 노래를 불렀다.",
+    "exampleEn": "The singer went on stage and sang a song."
+  },
+  {
+    "rank": 247,
+    "term": "미",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "미적 가치",
+      "아름다운 미"
+    ],
+    "hint": "beauty, beautifulness; often used in compound words related to aesthetics",
+    "meaningEn": "beauty, beautifulness",
+    "romaja": "mi",
+    "exampleKo": "그림에는 뛰어난 미가 담겨 있다.",
+    "exampleEn": "The painting contains outstanding beauty."
+  },
+  {
+    "rank": 248,
+    "term": "장면",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "영화 장면",
+      "극적인 장면"
+    ],
+    "hint": "scene, situation (often in movies, plays, or specific events)",
+    "meaningEn": "scene, situation",
+    "romaja": "jangmyeon",
+    "exampleKo": "영화의 마지막 장면이 인상 깊었다.",
+    "exampleEn": "The last scene of the movie was impressive."
+  },
+  {
+    "rank": 249,
+    "term": "동작",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "동작을 멈추다",
+      "몸짓 동작"
+    ],
+    "hint": "movement, motion, action; refers to physical actions or gestures.",
+    "meaningEn": "movement, motion, action",
+    "romaja": "dongjak",
+    "exampleKo": "그는 갑자기 동작을 멈추었다.",
+    "exampleEn": "He suddenly stopped his movement."
+  },
+  {
+    "rank": 250,
+    "term": "코드",
+    "pos": "noun",
+    "category": "문화·미디어",
+    "levelBand": "5-6",
+    "collocations": [
+      "컴퓨터 코드",
+      "암호 코드"
+    ],
+    "hint": "code (computer, secret); also cord, chord",
+    "meaningEn": "code, cord, chord",
+    "romaja": "kodeu",
+    "exampleKo": "이것은 비밀 암호 코드입니다.",
+    "exampleEn": "This is a secret cipher code."
+  },
+  {
+    "rank": 251,
+    "term": "이해",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "이해하다",
+      "이해 관계"
+    ],
+    "hint": "understanding, comprehension; crucial for academic and interpersonal contexts.",
+    "meaningEn": "understanding, comprehension",
+    "romaja": "ihae",
+    "exampleKo": "서로의 입장을 이해하는 것이 중요하다.",
+    "exampleEn": "It is important to understand each other's position."
+  },
+  {
+    "rank": 252,
+    "term": "예",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "예를 들다",
+      "좋은 예"
+    ],
+    "hint": "example, instance; used to illustrate a point or concept",
+    "meaningEn": "example, instance",
+    "romaja": "ye",
+    "exampleKo": "좋은 예를 들어 설명해 주세요.",
+    "exampleEn": "Please explain with a good example."
+  },
+  {
+    "rank": 253,
+    "term": "관련",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "관련 정보",
+      "~와 관련되다"
+    ],
+    "hint": "relation, connection, association; often used with ~와/과 관련하여/관련되다",
+    "meaningEn": "relation, connection, association",
+    "romaja": "gwallyeon",
+    "exampleKo": "이 사건과 관련된 정보를 찾고 있습니다.",
+    "exampleEn": "I am looking for information related to this incident."
+  },
+  {
+    "rank": 254,
+    "term": "걸리다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "시간이 걸리다",
+      "감기에 걸리다"
+    ],
+    "hint": "to take (time), to be hung, to catch (a disease), to be caught",
+    "meaningEn": "to take (time), to be hung, to catch",
+    "romaja": "geollida",
+    "exampleKo": "이 일을 끝내는 데 시간이 오래 걸립니다.",
+    "exampleEn": "It takes a long time to finish this work."
+  },
+  {
+    "rank": 255,
+    "term": "맞다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "답이 맞다",
+      "옷이 맞다"
+    ],
+    "hint": "to be correct/right, to fit (size, situation), to be suitable",
+    "meaningEn": "to be correct, to fit, to be suitable",
+    "romaja": "matda",
+    "exampleKo": "그의 주장이 사실과 맞지 않다.",
+    "exampleEn": "His claim does not match the facts."
+  },
+  {
+    "rank": 256,
+    "term": "이루어지다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "꿈이 이루어지다",
+      "~으로 이루어지다"
+    ],
+    "hint": "to be achieved/realized (dreams, goals), to be formed/composed of",
+    "meaningEn": "to be achieved/realized; to be formed/composed of",
+    "romaja": "irueojida",
+    "exampleKo": "그의 꿈은 마침내 이루어졌어요.",
+    "exampleEn": "His dream was finally realized."
+  },
+  {
+    "rank": 257,
+    "term": "얻다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "결과를 얻다",
+      "정보를 얻다"
+    ],
+    "hint": "to get, obtain, gain (often abstract things like results, information, experience)",
+    "meaningEn": "to get, obtain, gain (abstract)",
+    "romaja": "eotda",
+    "exampleKo": "많은 경험을 얻을 수 있었어요.",
+    "exampleEn": "I was able to gain a lot of experience."
+  },
+  {
+    "rank": 258,
+    "term": "이루다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "꿈을 이루다",
+      "목표를 이루다"
+    ],
+    "hint": "to achieve, to accomplish (a goal, dream); to form, to constitute (a group, harmony)",
+    "meaningEn": "to achieve, accomplish; to form",
+    "romaja": "iruda",
+    "exampleKo": "그는 목표를 꼭 이루고 싶어해요.",
+    "exampleEn": "He really wants to achieve his goal."
+  },
+  {
+    "rank": 259,
+    "term": "변화",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "사회 변화",
+      "변화를 겪다"
+    ],
+    "hint": "change, transformation (an alteration or modification)",
+    "meaningEn": "change, transformation",
+    "romaja": "byeonhwa",
+    "exampleKo": "사회 변화는 매우 중요합니다.",
+    "exampleEn": "Social change is very important."
+  },
+  {
+    "rank": 260,
+    "term": "밝히다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "진실을 밝히다",
+      "원인을 밝히다"
+    ],
+    "hint": "to reveal (truth, fact), to clarify; to light up (a place)",
+    "meaningEn": "to reveal, clarify; to light up",
+    "romaja": "balkida",
+    "exampleKo": "경찰은 사건의 원인을 밝혔어요.",
+    "exampleEn": "The police revealed the cause of the incident."
+  },
+  {
+    "rank": 261,
+    "term": "의미",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "의미를 부여하다",
+      "중요한 의미"
+    ],
+    "hint": "meaning, significance, sense; crucial for interpreting and conveying ideas",
+    "meaningEn": "meaning, significance",
+    "romaja": "uimi",
+    "exampleKo": "이 단어의 의미를 모르겠어요.",
+    "exampleEn": "I don't know the meaning of this word."
+  },
+  {
+    "rank": 262,
+    "term": "내용",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "내용을 이해하다",
+      "주요 내용"
+    ],
+    "hint": "content, substance, details; refers to what is contained or expressed",
+    "meaningEn": "content, substance, details",
+    "romaja": "naeyong",
+    "exampleKo": "책의 주요 내용을 요약했어요.",
+    "exampleEn": "I summarized the main content of the book."
+  },
+  {
+    "rank": 263,
+    "term": "결과",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "결과를 얻다",
+      "결과적으로"
+    ],
+    "hint": "result, outcome, consequence; crucial for cause-and-effect discussions",
+    "meaningEn": "result, outcome, consequence",
+    "romaja": "gyeolgwa",
+    "exampleKo": "시험 결과가 좋게 나왔어요.",
+    "exampleEn": "The test results came out well."
+  },
+  {
+    "rank": 264,
+    "term": "이상",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "10개 이상",
+      "이상적인"
+    ],
+    "hint": "more than, above (quantity); ideal (as a noun or adjective form 이상적)",
+    "meaningEn": "more than, above (quantity); ideal",
+    "romaja": "isang",
+    "exampleKo": "사과는 열 개 이상 샀어요.",
+    "exampleEn": "I bought more than ten apples."
+  },
+  {
+    "rank": 265,
+    "term": "방법",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "해결 방법",
+      "좋은 방법"
+    ],
+    "hint": "method, way, means; crucial for problem-solving and explanations",
+    "meaningEn": "method, way, means",
+    "romaja": "bangbeop",
+    "exampleKo": "이 문제를 해결할 좋은 방법이 있어요.",
+    "exampleEn": "There is a good way to solve this problem."
+  },
+  {
+    "rank": 266,
+    "term": "없이",
+    "pos": "adverb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "~도 없이",
+      "~을/를 없이"
+    ],
+    "hint": "without (something); often used with nouns or verb stems",
+    "meaningEn": "without",
+    "romaja": "eopsi",
+    "exampleKo": "물 없이 살 수는 없어요.",
+    "exampleEn": "We cannot live without water."
+  },
+  {
+    "rank": 267,
+    "term": "나타나다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "결과가 나타나다",
+      "증상이 나타나다"
+    ],
+    "hint": "to appear, to emerge, to manifest; used for physical and abstract appearances",
+    "meaningEn": "to appear, emerge, manifest",
+    "romaja": "natanada",
+    "exampleKo": "갑자기 이상한 소리가 나타났어요.",
+    "exampleEn": "A strange sound suddenly appeared."
+  },
+  {
+    "rank": 268,
+    "term": "의하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "~에 의하여",
+      "~에 의하면"
+    ],
+    "hint": "to be based on, to be due to; often used in the form ~에 의하여/의해",
+    "meaningEn": "to be based on, to be due to",
+    "romaja": "uihada",
+    "exampleKo": "이것은 전문가의 의견에 의합니다.",
+    "exampleEn": "This is based on the expert's opinion."
+  },
+  {
+    "rank": 269,
+    "term": "점",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "장점",
+      "~라는 점"
+    ],
+    "hint": "point, aspect, feature; often used to discuss pros/cons or specific points",
+    "meaningEn": "point, aspect, feature",
+    "romaja": "jeom",
+    "exampleKo": "그것은 매우 중요한 점이에요.",
+    "exampleEn": "That is a very important point."
+  },
+  {
+    "rank": 270,
+    "term": "사실",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "사실은",
+      "사실대로"
+    ],
+    "hint": "fact, truth; often used as an adverbial phrase (사실은, 사실대로)",
+    "meaningEn": "fact, truth",
+    "romaja": "sasil",
+    "exampleKo": "사실은 제가 먼저 도착했어요.",
+    "exampleEn": "Actually, I arrived first."
+  },
+  {
+    "rank": 271,
+    "term": "보이다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "잘 보이다",
+      "~으로 보이다"
+    ],
+    "hint": "to be seen, to appear; also to show (something to someone)",
+    "meaningEn": "to be seen, to appear; to show",
+    "romaja": "boida",
+    "exampleKo": "그 영화는 정말 잘 보여요.",
+    "exampleEn": "That movie is really well shown."
+  },
+  {
+    "rank": 272,
+    "term": "정도",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "~할 정도이다",
+      "어느 정도"
+    ],
+    "hint": "degree, extent, level; often used with ~ㄹ/을 정도",
+    "meaningEn": "degree, extent, level",
+    "romaja": "jeongdo",
+    "exampleKo": "어느 정도는 이해할 수 있어요.",
+    "exampleEn": "I can understand it to some extent."
+  },
+  {
+    "rank": 273,
+    "term": "통하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "대화를 통하다",
+      "~을/를 통하여"
+    ],
+    "hint": "to go through, to communicate, to be understood; often used as ~을/를 통해(서)",
+    "meaningEn": "to go through, communicate",
+    "romaja": "tonghada",
+    "exampleKo": "대화를 통하여 서로를 이해해요.",
+    "exampleEn": "We understand each other through conversation."
+  },
+  {
+    "rank": 274,
+    "term": "경우",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "~의 경우",
+      "어떤 경우에도"
+    ],
+    "hint": "case, instance, situation; often used with ~는 경우",
+    "meaningEn": "case, instance, situation",
+    "romaja": "gyeongu",
+    "exampleKo": "이런 경우를 본 적이 없어요.",
+    "exampleEn": "I have never seen this kind of case."
+  },
+  {
+    "rank": 275,
+    "term": "위하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "~을/를 위하다",
+      "~을/를 위하여"
+    ],
+    "hint": "to do for, to be for the sake of (someone/something); often used as ~을/를 위해(서)",
+    "meaningEn": "to do for, for the sake of",
+    "romaja": "wihada",
+    "exampleKo": "가족을 위하여 열심히 일해요.",
+    "exampleEn": "I work hard for my family."
+  },
+  {
+    "rank": 276,
+    "term": "가치",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "가치관 형성",
+      "높은 가치"
+    ],
+    "hint": "value, worth, merit; can be economic, ethical, or personal.",
+    "meaningEn": "value, worth, merit",
+    "romaja": "gachi",
+    "exampleKo": "그 물건은 높은 가치가 있어요.",
+    "exampleEn": "That item has high value."
+  },
+  {
+    "rank": 277,
+    "term": "자꾸",
+    "pos": "adverb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "자꾸 하다",
+      "자꾸 듣다"
+    ],
+    "hint": "repeatedly, again and again (adverb)",
+    "meaningEn": "repeatedly, again and again",
+    "romaja": "jakku",
+    "exampleKo": "그는 자꾸 실수를 해요.",
+    "exampleEn": "He makes mistakes again and again."
+  },
+  {
+    "rank": 278,
+    "term": "미래",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "미래 계획",
+      "미래 사회"
+    ],
+    "hint": "Future; refers to time ahead.",
+    "meaningEn": "future",
+    "romaja": "mirae",
+    "exampleKo": "미래 계획을 세우는 것이 중요해요.",
+    "exampleEn": "It is important to make future plans."
+  },
+  {
+    "rank": 279,
+    "term": "관련되다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "관련된 정보",
+      "관련이 있다"
+    ],
+    "hint": "To be related to, involved in; connects concepts or people.",
+    "meaningEn": "to be related to, involved in",
+    "romaja": "gwallyeondoeda",
+    "exampleKo": "이것은 그 사건과 관련돼요.",
+    "exampleEn": "This is related to that incident."
+  },
+  {
+    "rank": 280,
+    "term": "포함하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "가격을 포함하다",
+      "내용을 포함하다"
+    ],
+    "hint": "to include, to contain; used when something is part of a larger whole.",
+    "meaningEn": "to include, to contain",
+    "romaja": "pohamhada",
+    "exampleKo": "이 가격은 세금을 포함해요.",
+    "exampleEn": "This price includes tax."
+  },
+  {
+    "rank": 281,
+    "term": "찾아보다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "정보를 찾아보다",
+      "사전을 찾아보다"
+    ],
+    "hint": "to look for, to search for, to visit; implies active searching for information or places.",
+    "meaningEn": "to look for, search for, visit",
+    "romaja": "chajaboda",
+    "exampleKo": "정보를 찾아보는 중이에요.",
+    "exampleEn": "I am in the middle of looking for information."
+  },
+  {
+    "rank": 282,
+    "term": "주요",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "주요 사건",
+      "주요 원인"
+    ],
+    "hint": "main, principal, major; often modifies nouns like 'events', 'reasons', 'factors'.",
+    "meaningEn": "main, principal, major",
+    "romaja": "juyo",
+    "exampleKo": "그것이 주요 원인입니다.",
+    "exampleEn": "That is the main cause."
+  },
+  {
+    "rank": 283,
+    "term": "미치다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "영향을 미치다",
+      "범위가 미치다"
+    ],
+    "hint": "to reach, extend, affect (often used with '영향')",
+    "meaningEn": "to reach, extend, affect",
+    "romaja": "michida",
+    "exampleKo": "그 소식은 전국에 미쳤어요.",
+    "exampleEn": "The news reached the whole country."
+  },
+  {
+    "rank": 284,
+    "term": "우선",
+    "pos": "adverb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "우선적으로",
+      "우선 ~하다"
+    ],
+    "hint": "first, primarily, for now; indicates the first or most important action/consideration",
+    "meaningEn": "first, primarily, for now",
+    "romaja": "useon",
+    "exampleKo": "우선 이것부터 처리합시다.",
+    "exampleEn": "Let's handle this first."
+  },
+  {
+    "rank": 285,
+    "term": "현재",
+    "pos": "adverb",
+    "category": "추상어·논리",
+    "levelBand": "3-4",
+    "collocations": [
+      "현재 상황",
+      "현재 시간"
+    ],
+    "hint": "currently, at present; refers to the present time or state",
+    "meaningEn": "currently, at present",
+    "romaja": "hyeonjae",
+    "exampleKo": "현재 상황이 매우 심각해요.",
+    "exampleEn": "The current situation is very serious."
+  },
+  {
+    "rank": 286,
+    "term": "자체",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "그 자체로",
+      "문제 자체"
+    ],
+    "hint": "itself, inherent (emphasizing the thing in question, distinct from external factors)",
+    "meaningEn": "itself, inherent",
+    "romaja": "jache",
+    "exampleKo": "이것은 문제 자체입니다.",
+    "exampleEn": "This is the problem itself."
+  },
+  {
+    "rank": 287,
+    "term": "면",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "경제적 면",
+      "사회적 면"
+    ],
+    "hint": "face, surface, aspect. Used to refer to different sides or aspects of a topic.",
+    "meaningEn": "face, surface, aspect",
+    "romaja": "myeon",
+    "exampleKo": "경제적 면에서 어려움이 있습니다.",
+    "exampleEn": "There are difficulties in terms of the economy."
+  },
+  {
+    "rank": 288,
+    "term": "현실적",
+    "pos": "adjective",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "현실적인 목표",
+      "현실적인 조언"
+    ],
+    "hint": "realistic, practical; describes something grounded in reality and achievable.",
+    "meaningEn": "realistic, practical",
+    "romaja": "hyeonsiljeok",
+    "exampleKo": "현실적인 목표를 세워야 합니다.",
+    "exampleEn": "We must set realistic goals."
+  },
+  {
+    "rank": 289,
+    "term": "과정",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "학습 과정",
+      "문제 해결 과정"
+    ],
+    "hint": "process, course, procedure (a series of actions or steps taken to achieve a particular end)",
+    "meaningEn": "process, course",
+    "romaja": "gwajeong",
+    "exampleKo": "학습 과정은 매우 중요합니다.",
+    "exampleEn": "The learning process is very important."
+  },
+  {
+    "rank": 290,
+    "term": "상황",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "현재 상황",
+      "긴급 상황"
+    ],
+    "hint": "situation, state of affairs, circumstances (a set of conditions or circumstances)",
+    "meaningEn": "situation, circumstances",
+    "romaja": "sanghwang",
+    "exampleKo": "현재 상황을 파악해야 합니다.",
+    "exampleEn": "We need to grasp the current situation."
+  },
+  {
+    "rank": 291,
+    "term": "구조",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "경제 구조",
+      "사회 구조"
+    ],
+    "hint": "structure, organization, framework. The way something is arranged or organized.",
+    "meaningEn": "structure, organization",
+    "romaja": "gujo",
+    "exampleKo": "사회 구조는 복잡합니다.",
+    "exampleEn": "The social structure is complex."
+  },
+  {
+    "rank": 292,
+    "term": "의식",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "의식이 있다",
+      "사회적 의식"
+    ],
+    "hint": "consciousness, awareness, mind (abstract concept related to perception and thought)",
+    "meaningEn": "consciousness, awareness",
+    "romaja": "uisik",
+    "exampleKo": "사회적 의식이 필요합니다.",
+    "exampleEn": "Social awareness is necessary."
+  },
+  {
+    "rank": 293,
+    "term": "주장",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "주장하다",
+      "자신의 주장"
+    ],
+    "hint": "claim, assertion, argument (a statement put forward as true or right)",
+    "meaningEn": "claim, assertion",
+    "romaja": "jujang",
+    "exampleKo": "그는 자신의 주장을 굽히지 않았다.",
+    "exampleEn": "He did not yield his own claim."
+  },
+  {
+    "rank": 294,
+    "term": "인하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "원인으로 인하다",
+      "결과로 인하다"
+    ],
+    "hint": "to be caused by, to result from, to stem from (indicates causality)",
+    "meaningEn": "to be caused by, to stem from",
+    "romaja": "inhada",
+    "exampleKo": "이 문제는 여러 요인으로 인합니다.",
+    "exampleEn": "This problem stems from various factors."
+  },
+  {
+    "rank": 295,
+    "term": "존재하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [],
+    "hint": "to exist, to be; states the fact of existence",
+    "meaningEn": "to exist, to be",
+    "romaja": "jonjaehada",
+    "exampleKo": "이 세상에 많은 문제가 존재합니다.",
+    "exampleEn": "Many problems exist in this world."
+  },
+  {
+    "rank": 296,
+    "term": "관점",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "다른 관점",
+      "새로운 관점"
+    ],
+    "hint": "viewpoint, perspective, standpoint",
+    "meaningEn": "viewpoint, perspective",
+    "romaja": "gwanjeom",
+    "exampleKo": "다른 관점에서 생각해 봅시다.",
+    "exampleEn": "Let's think from a different viewpoint."
+  },
+  {
+    "rank": 297,
+    "term": "불구하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "~에도 불구하고"
+    ],
+    "hint": "to not mind, to disregard, to despite; used in ~에도 불구하고",
+    "meaningEn": "to disregard, to despite",
+    "romaja": "bulguhada",
+    "exampleKo": "어려움에도 불구하고 그는 성공했다.",
+    "exampleEn": "Despite the difficulties, he succeeded."
+  },
+  {
+    "rank": 298,
+    "term": "파악하다",
+    "pos": "verb",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "상황을 파악하다",
+      "문제점을 파악하다"
+    ],
+    "hint": "to grasp, understand, figure out (implies deep understanding or analysis)",
+    "meaningEn": "to grasp, understand",
+    "romaja": "paakhada",
+    "exampleKo": "문제점을 정확히 파악해야 합니다.",
+    "exampleEn": "We must accurately grasp the problem."
+  },
+  {
+    "rank": 299,
+    "term": "실천",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "실천 방안",
+      "실천하다"
+    ],
+    "hint": "practice, action, implementation; often used with 'plan' or 'method'",
+    "meaningEn": "practice, action",
+    "romaja": "silcheon",
+    "exampleKo": "이론을 실천으로 옮겨야 합니다.",
+    "exampleEn": "We must put theory into practice."
+  },
+  {
+    "rank": 300,
+    "term": "방안",
+    "pos": "noun",
+    "category": "추상어·논리",
+    "levelBand": "5-6",
+    "collocations": [
+      "실천 방안",
+      "해결 방안"
+    ],
+    "hint": "plan, measure, proposal; often refers to a method or solution",
+    "meaningEn": "plan, measure",
+    "romaja": "bangan",
+    "exampleKo": "해결 방안을 모색해야 합니다.",
+    "exampleEn": "We need to seek a solution plan."
+  }
+]

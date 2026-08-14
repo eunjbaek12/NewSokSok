@@ -16,6 +16,8 @@ export interface AppleTransactionInfo {
   productId?: string;
   transactionId?: string;
   originalTransactionId?: string;
+  /** epoch ms. 최초 구독 결제일 — 월간 AI 한도의 결제주기 기준점. */
+  originalPurchaseDate?: number;
   /** epoch ms. 자동 갱신 구독의 만료 시각. */
   expiresDate?: number;
   /** epoch ms. 환불된 경우만 set. */
@@ -23,6 +25,7 @@ export interface AppleTransactionInfo {
   /** "Auto-Renewable Subscription" 등 */
   type?: string;
   inAppOwnershipType?: string;
+  appAccountToken?: string;
 }
 
 export interface FetchTransactionResult {

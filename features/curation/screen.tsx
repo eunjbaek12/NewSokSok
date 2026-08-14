@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { useTheme } from '@/features/theme';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
@@ -172,15 +173,17 @@ const generateViaByok = async (
     excludeTerms?: string[],
     signal?: AbortSignal,
 ): Promise<unknown> => {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
+    const url = byokGenerateContentUrl(apiKey);
     const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
 
     const payload = {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
-            temperature: 0.7,
             responseMimeType: 'application/json',
-            thinkingConfig: { thinkingBudget: 0 },
+            // Gemini 3.x는 숫자 thinkingBudget 대신 thinkingLevel을 쓴다. Flash-Lite는
+            // thinking 완전 비활성화를 지원하지 않으므로 가장 낮은 minimal로 비용·지연을
+            // 줄인다. temperature도 3.x 권장대로 기본값을 유지한다.
+            thinkingConfig: { thinkingLevel: 'minimal' },
         },
     };
 
@@ -223,10 +226,15 @@ const generateViaByok = async (
             if (status === 'PERMISSION_DENIED' || response.status === 403) {
                 throw new AiGenerateError('permissionDenied');
             }
-            if (status === 'INVALID_ARGUMENT' || response.status === 400) {
+            // 400/INVALID_ARGUMENT은 payload·스키마 오류일 수도 있다. 예전에는 전부 키
+            // 오류로 단정해, 2.5용 thinkingBudget이 3.5에서 거부된 것도 "키가 올바르지
+            // 않다"고 표시했다. 메시지가 실제 키를 가리킬 때만 키 오류로 분류한다.
+            if (/API_KEY_INVALID|API key not valid|api key expired/i.test(message ?? '')) {
                 throw new AiGenerateError('invalidKey');
             }
-            throw new AiGenerateError('failed', message || `HTTP ${response.status}`);
+            // 원문은 위 진단 로그에만 남긴다. Google의 영어 내부 메시지를 UI로 내보내면
+            // 정상적인 요청 거절도 개발자용 오류처럼 보인다.
+            throw new AiGenerateError('failed');
         }
         data = await response.json();
     } catch (e: any) {
@@ -393,6 +401,7 @@ export default function CurationScreen() {
     const { sourceLang: aiSourceLang, targetLang: aiTargetLang, difficulty: aiDifficulty, wordCount: aiWordCount } = aiCurationSettings;
     const [aiModalVisible, setAiModalVisible] = useState(false);
     const [aiTopic, setAiTopic] = useState('');
+    const [aiModalError, setAiModalError] = useState<{ title: string; message: string } | null>(null);
     const [aiSourceLangPickerOpen, setAiSourceLangPickerOpen] = useState(false);
     const [aiTargetLangPickerOpen, setAiTargetLangPickerOpen] = useState(false);
     // 목록 끝의 "뜻 언어" 줄에서 여는 시트. AI 모달 안의 도착어 피커와 같은 값을
@@ -698,6 +707,7 @@ export default function CurationScreen() {
             return;
         }
         setAiTopic(searchQuery);
+        setAiModalError(null);
         setAiModalVisible(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
@@ -709,6 +719,7 @@ export default function CurationScreen() {
         }
         const controller = new AbortController();
         genAbortRef.current = controller;
+        setAiModalError(null);
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         const topic = aiTopic.trim();
@@ -742,7 +753,17 @@ export default function CurationScreen() {
         } catch (e: any) {
             // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
             if (e?.name === 'AbortError' || controller.signal.aborted) return;
-            setSnackbar({ visible: true, message: aiErrorMessage(e, t) });
+            const isByokQuota = e instanceof AiGenerateError
+                && (e.code === 'dailyQuota' || e.code === 'perMinuteQuota' || e.code === 'quotaReached');
+            setAiModalError(isByokQuota
+                ? {
+                    title: t('scanError.quotaTitle'),
+                    message: t('scanError.byokQuotaExceeded'),
+                }
+                : {
+                    title: t('common.error'),
+                    message: aiErrorMessage(e, t),
+                });
         } finally {
             // abort된 요청은 cancel 핸들러가 이미 generating=false로 만들었으니 덮어쓰지 않는다.
             if (!controller.signal.aborted) setGenerating(false);
@@ -1459,6 +1480,23 @@ export default function CurationScreen() {
                     </View>
                 ) : (
                 <View style={{ gap: 16, paddingBottom: 8 }}>
+                    {aiModalError && (
+                        <View style={{
+                            flexDirection: 'row', gap: 10, alignItems: 'flex-start',
+                            padding: 12, borderRadius: 12,
+                            backgroundColor: colors.warningLight,
+                        }}>
+                            <Ionicons name="information-circle" size={20} color={colors.warning} />
+                            <View style={{ flex: 1, gap: 3 }}>
+                                <Text style={{ fontSize: 14, fontFamily: 'Pretendard_700Bold', color: colors.text }}>
+                                    {aiModalError.title}
+                                </Text>
+                                <Text style={{ fontSize: 13, lineHeight: 18, fontFamily: 'Pretendard_400Regular', color: colors.textSecondary }}>
+                                    {aiModalError.message}
+                                </Text>
+                            </View>
+                        </View>
+                    )}
                     <View style={{ gap: 6 }}>
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiTopicLabel')}</Text>
                         <TextInput
@@ -1468,7 +1506,10 @@ export default function CurationScreen() {
                                 color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border,
                             }}
                             value={aiTopic}
-                            onChangeText={setAiTopic}
+                            onChangeText={(value) => {
+                                setAiTopic(value);
+                                if (aiModalError) setAiModalError(null);
+                            }}
                             placeholder={t('curation.aiTopicPlaceholder')}
                             placeholderTextColor={colors.textTertiary}
                             autoFocus

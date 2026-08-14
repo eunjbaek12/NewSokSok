@@ -14,6 +14,9 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { analyzeWord } from '../_shared/gemini-vertex.ts';
+// ⚠️ _shared/gemini-meaning.ts(뜻 전용 basic 응답)는 남겨 두되 지금은 부르지 않는다.
+//    한도 초과 시 basic 을 주는 정책은 다음 앱 릴리스와 함께 켠다 — 아래 캐시 조회
+//    주석과 20260814000000_revert_to_shipped_quota_policy.sql 참조.
 import { checkRateLimit } from '../_shared/rate-limit.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -42,6 +45,16 @@ const COST_BY_MODE: Record<string, number> = {
 //     유의어로 바꿔 쓴 예문은 빈칸을 팔 자리가 없어 예문 학습에서 조용히 빠졌다
 //     (docs/backlog-examples-enrich.md P6). v6 캐시는 니모닉을 담고 있고 표제어 미포함
 //     예문이 섞여 있어 재생성.
+// v8: 2026-08-14 되돌림 — 7로 복귀.
+//     뜻 전용(basic) 경로가 "tooli"를 "tool"로 암묵 교정해 "도구"로 저장한 문제를 고치며
+//     bump했는데, 그 수정은 _shared/gemini-meaning.ts(basic 전용)에 있고 full enrich
+//     프롬프트(_shared/gemini-vertex.ts)는 한 글자도 바뀌지 않았다. 그래서 v7 캐시
+//     80,714행(생성비 ₩37,412)이 이유 없이 통째로 미스 처리되고 있었다.
+//     이미 굳어 있던 오답은 그 1행(en>ko "tooli", basic, hit 0)을 DELETE해서 처리했다.
+//     basic 프롬프트 강화는 버전 숫자와 무관하게 그대로 작동한다.
+// 🔑 캐시를 버려야 하는 변경은 _shared/gemini-vertex.ts의 프롬프트나 AIWordResult 구조가
+//    바뀔 때뿐이다. 저장된 오답 몇 건을 없애려는 것이라면 bump가 아니라 그 행을 지울 것 —
+//    bump는 8만 행을 함께 버리고, 스토어에 나가 있는 앱(이 상수의 값으로 조회)과도 어긋난다.
 const PROMPT_VERSION = 7;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
@@ -104,6 +117,11 @@ Deno.serve(async (req) => {
 
   // 공용 캐시 조회 — 히트면 Vertex를 안 부르므로 quota를 차감하지 않는다.
   // (quota는 Vertex 호출 비용 상한이 목적 → 비용 0인 캐시 히트는 무차감)
+  //
+  // ⚠️ 2026-08-13에 "캐시 히트도 차감 + 한도 초과 시 뜻만 주는 basic 응답"으로 바꿨다가
+  //    2026-08-14에 되돌렸다. 그 정책은 아직 심사·배포 전인 앱과 짝이라, 출시된 1.4.0은
+  //    한도 초과 시 429를 받아야 보상형 광고 모달을 띄운다. 새 정책은 앱 릴리스 이후
+  //    다시 켠다(supabase/migrations/20260814000000_revert_to_shipped_quota_policy.sql).
   try {
     const { data: cached } = await svc
       .from('enrich_cache')
@@ -144,6 +162,10 @@ Deno.serve(async (req) => {
   // Vertex AI 호출
   try {
     const result = await analyzeWord(termKey, sourceLang, targetLang);
+    if (result?.isReal === false || !result?.meaningKr) {
+      await svc.rpc('refund_ai_quota', { p_user_id: userId, p_cost: cost });
+      return json(404, { error: 'not_found', quota });
+    }
     // 공용 캐시에 기록 — 다음 사용자부터 즉시. 캐시 쓰기 실패가 응답을 깨지 않게 격리.
     //
     // 단, "실재하지 않는 단어"(isReal=false) 판정은 캐시하지 않는다 — 클라이언트
@@ -157,12 +179,13 @@ Deno.serve(async (req) => {
         target_lang: targetLang,
         term: termKey,
         result,
+        enrichment_level: 'full',
         prompt_version: PROMPT_VERSION,
         updated_at: new Date().toISOString(),
       });
       if (cacheErr) console.error('enrich_cache write failed', cacheErr);
     }
-    return json(200, { result, quota });
+    return json(200, { result, quota, enrichment_level: 'full' });
   } catch (e) {
     console.error('vertex call failed', e);
     // 차감 환불 — 사용자 잘못 아닌 실패는 한도 소모하지 않도록

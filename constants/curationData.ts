@@ -2,6 +2,5721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-topik2-ko-1",
+    "title": "TOPIK II Essentials 300",
+    "icon": "📝",
+    "isCurated": true,
+    "category": "시험",
+    "level": "intermediate",
+    "description": "A focused 300-word TOPIK II extension for learners who have completed TOPIK I. Balanced across society & relationships, education & work, economy & consumption, environment & science, culture & media, and abstract & logical language. Each card includes a TOPIK-level example and useful collocations. Headwords selected in-house from the app’s NIKL-based intermediate and advanced candidates; Korean→English; meanings & examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1786687436944,
+    "words": [
+      {
+        "id": "word-topik2-0-1786687436944",
+        "term": "행동",
+        "definition": "action, behavior",
+        "meaningKr": "action, behavior",
+        "exampleEn": "그의 행동은 옳지 않았다.",
+        "exampleKr": "His behavior was not right.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "haengdong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-1-1786687436944",
+        "term": "역할",
+        "definition": "role, part",
+        "meaningKr": "role, part",
+        "exampleEn": "나는 이 팀에서 중요한 역할을 한다.",
+        "exampleKr": "I play an important role in this team.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yeokhal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-2-1786687436944",
+        "term": "열리다",
+        "definition": "to be opened; to be held",
+        "meaningKr": "to be opened; to be held",
+        "exampleEn": "새로운 식당이 곧 열릴 거예요.",
+        "exampleKr": "A new restaurant will open soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yeollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-3-1786687436944",
+        "term": "믿다",
+        "definition": "to believe; to trust",
+        "meaningKr": "to believe; to trust",
+        "exampleEn": "나는 그 사람의 말을 믿었다.",
+        "exampleKr": "I believed what that person said.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "mitda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-4-1786687436944",
+        "term": "분위기",
+        "definition": "atmosphere, mood",
+        "meaningKr": "atmosphere, mood",
+        "exampleEn": "파티 분위기가 아주 좋았다.",
+        "exampleKr": "The party atmosphere was very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bunwigi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-5-1786687436944",
+        "term": "성격",
+        "definition": "personality, character",
+        "meaningKr": "personality, character",
+        "exampleEn": "그녀는 성격이 매우 좋다.",
+        "exampleKr": "She has a very good personality.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "seonggyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-6-1786687436944",
+        "term": "느낌",
+        "definition": "feeling, sense, impression",
+        "meaningKr": "feeling, sense, impression",
+        "exampleEn": "나는 그에게서 좋은 느낌을 받았다.",
+        "exampleKr": "I got a good impression from him.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "neukkim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-7-1786687436944",
+        "term": "지키다",
+        "definition": "to protect; to keep",
+        "meaningKr": "to protect; to keep",
+        "exampleEn": "우리는 약속을 꼭 지켜야 한다.",
+        "exampleKr": "We must keep our promises.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-8-1786687436944",
+        "term": "관심",
+        "definition": "interest, concern",
+        "meaningKr": "interest, concern",
+        "exampleEn": "나는 그 문제에 관심이 많다.",
+        "exampleKr": "I have a lot of interest in that problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwansim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-9-1786687436944",
+        "term": "활동",
+        "definition": "activity, movement",
+        "meaningKr": "activity, movement",
+        "exampleEn": "학생들은 다양한 활동을 했다.",
+        "exampleKr": "The students did various activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hwaldong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-10-1786687436944",
+        "term": "느끼다",
+        "definition": "to feel; to sense",
+        "meaningKr": "to feel; to sense",
+        "exampleEn": "나는 지금 매우 피곤함을 느낀다.",
+        "exampleKr": "I feel very tired right now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "neukkida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-11-1786687436944",
+        "term": "지역",
+        "definition": "region, area, district",
+        "meaningKr": "region, area, district",
+        "exampleEn": "이 지역은 공기가 맑다.",
+        "exampleKr": "The air in this region is clear.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jiyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-12-1786687436944",
+        "term": "관계",
+        "definition": "relationship, connection",
+        "meaningKr": "relationship, connection",
+        "exampleEn": "그들은 좋은 인간 관계를 맺었다.",
+        "exampleKr": "They formed good human relationships.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwangye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-13-1786687436944",
+        "term": "국가",
+        "definition": "nation, country, state",
+        "meaningKr": "nation, country, state",
+        "exampleEn": "국가 안보가 중요하다.",
+        "exampleKr": "National security is important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gukga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-14-1786687436944",
+        "term": "세계",
+        "definition": "world",
+        "meaningKr": "world",
+        "exampleEn": "세계 경제는 매우 복잡하다.",
+        "exampleKr": "The world economy is very complex.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "segye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-15-1786687436944",
+        "term": "시대",
+        "definition": "era, period, age",
+        "meaningKr": "era, period, age",
+        "exampleEn": "현대 시대에는 기술 발달이 빠르다.",
+        "exampleKr": "In the modern era, technological development is fast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sidae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-16-1786687436944",
+        "term": "인간",
+        "definition": "human being, humanity",
+        "meaningKr": "human being, humanity",
+        "exampleEn": "인간은 사회적 동물이다.",
+        "exampleKr": "Humans are social animals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "in-gan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-17-1786687436944",
+        "term": "자신",
+        "definition": "oneself, self; confidence",
+        "meaningKr": "oneself, self; confidence",
+        "exampleEn": "자신을 믿고 도전하세요.",
+        "exampleKr": "Believe in yourself and take on the challenge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ja-sin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-18-1786687436944",
+        "term": "따르다",
+        "definition": "to follow, to obey",
+        "meaningKr": "to follow, to obey",
+        "exampleEn": "그는 선생님의 지시를 따랐다.",
+        "exampleKr": "He followed the teacher's instructions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "tta-reu-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-19-1786687436944",
+        "term": "사회",
+        "definition": "society",
+        "meaningKr": "society",
+        "exampleEn": "사회 문제는 복잡하다.",
+        "exampleKr": "Social problems are complex.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sa-hoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-20-1786687436944",
+        "term": "대하다",
+        "definition": "to treat, to face, to be about",
+        "meaningKr": "to treat, to face, to be about",
+        "exampleEn": "그는 어려운 문제에 대했다.",
+        "exampleKr": "He faced a difficult problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "dae-ha-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-21-1786687436944",
+        "term": "발달",
+        "definition": "development, growth",
+        "meaningKr": "development, growth",
+        "exampleEn": "이 지역은 경제 발달이 더디다.",
+        "exampleKr": "Economic development is slow in this region.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bal-dal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-22-1786687436944",
+        "term": "적극적",
+        "definition": "active, proactive",
+        "meaningKr": "active, proactive",
+        "exampleEn": "그는 회의에 적극적으로 참여했다.",
+        "exampleKr": "He actively participated in the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeok-geuk-jeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-23-1786687436944",
+        "term": "심각하다",
+        "definition": "to be serious, severe",
+        "meaningKr": "to be serious, severe",
+        "exampleEn": "환경 오염이 심각하다.",
+        "exampleKr": "Environmental pollution is serious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sim-gak-ha-da",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-24-1786687436944",
+        "term": "참다",
+        "definition": "to bear, endure, suppress",
+        "meaningKr": "to bear, endure, suppress",
+        "exampleEn": "그는 고통을 참으며 견뎠다.",
+        "exampleKr": "He endured while bearing the pain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "cham-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-25-1786687436944",
+        "term": "조사하다",
+        "definition": "to investigate, survey",
+        "meaningKr": "to investigate, survey",
+        "exampleEn": "경찰은 사건을 조사하고 있다.",
+        "exampleKr": "The police are investigating the case.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jo-sa-ha-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-26-1786687436944",
+        "term": "국제",
+        "definition": "international",
+        "meaningKr": "international",
+        "exampleEn": "국제 사회는 평화를 원한다.",
+        "exampleKr": "The international community wants peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "guk-je",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-27-1786687436944",
+        "term": "책임",
+        "definition": "responsibility, duty",
+        "meaningKr": "responsibility, duty",
+        "exampleEn": "그는 자신의 행동에 책임을 졌다.",
+        "exampleKr": "He took responsibility for his actions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "chaegim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-28-1786687436944",
+        "term": "나누다",
+        "definition": "to divide, share, converse",
+        "meaningKr": "to divide, share, converse",
+        "exampleEn": "친구와 고민을 나누었다.",
+        "exampleKr": "I shared my worries with my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "na-nu-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-29-1786687436944",
+        "term": "세상",
+        "definition": "world, society",
+        "meaningKr": "world, society",
+        "exampleEn": "세상은 빠르게 변하고 있다.",
+        "exampleKr": "The world is changing rapidly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "se-sang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-30-1786687436944",
+        "term": "국민",
+        "definition": "Citizens, people of a nation",
+        "meaningKr": "Citizens, people of a nation",
+        "exampleEn": "국민의 권리는 매우 중요합니다.",
+        "exampleKr": "The rights of the people are very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gungmin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-31-1786687436944",
+        "term": "정치",
+        "definition": "Politics, government",
+        "meaningKr": "Politics, government",
+        "exampleEn": "많은 사람들이 정치에 참여합니다.",
+        "exampleKr": "Many people participate in politics.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeongchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-32-1786687436944",
+        "term": "위기",
+        "definition": "Crisis, critical moment",
+        "meaningKr": "Crisis, critical moment",
+        "exampleEn": "국가적 위기를 극복해야 합니다.",
+        "exampleKr": "We must overcome the national crisis.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "wigi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-33-1786687436944",
+        "term": "참여",
+        "definition": "Participation, involvement",
+        "meaningKr": "Participation, involvement",
+        "exampleEn": "행사에 적극적인 참여를 바랍니다.",
+        "exampleKr": "We hope for active participation in the event.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "chamyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-34-1786687436944",
+        "term": "대책",
+        "definition": "Countermeasure, solution, plan",
+        "meaningKr": "Countermeasure, solution, plan",
+        "exampleEn": "문제에 대한 대책을 마련해야 합니다.",
+        "exampleKr": "We need to prepare countermeasures for the problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "daechaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-35-1786687436944",
+        "term": "규모",
+        "definition": "Scale, scope, size",
+        "meaningKr": "Scale, scope, size",
+        "exampleEn": "사업이 큰 규모로 진행됩니다.",
+        "exampleKr": "The project proceeds on a large scale.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gyumo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-36-1786687436944",
+        "term": "현장",
+        "definition": "Scene, site, field",
+        "meaningKr": "Scene, site, field",
+        "exampleEn": "사고 현장에 많은 사람들이 모였습니다.",
+        "exampleKr": "Many people gathered at the accident scene.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hyeonjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-37-1786687436944",
+        "term": "잘못",
+        "definition": "Mistake, fault, error",
+        "meaningKr": "Mistake, fault, error",
+        "exampleEn": "그는 자신의 잘못을 인정했습니다.",
+        "exampleKr": "He admitted his mistake.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jalmot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-38-1786687436944",
+        "term": "조직",
+        "definition": "Organization, structure",
+        "meaningKr": "Organization, structure",
+        "exampleEn": "이 조직의 문화는 매우 좋습니다.",
+        "exampleKr": "The culture of this organization is very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jojik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-39-1786687436944",
+        "term": "실시하다",
+        "definition": "To implement, carry out",
+        "meaningKr": "To implement, carry out",
+        "exampleEn": "새로운 정책을 곧 실시할 것입니다.",
+        "exampleKr": "A new policy will be implemented soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "silsihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-40-1786687436944",
+        "term": "갖추다",
+        "definition": "To be equipped with, possess",
+        "meaningKr": "To be equipped with, possess",
+        "exampleEn": "안전 장비를 모두 갖추었습니다.",
+        "exampleKr": "We are equipped with all safety equipment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gatchuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-41-1786687436944",
+        "term": "건설",
+        "definition": "Construction, building",
+        "meaningKr": "Construction, building",
+        "exampleEn": "새로운 건물이 건설되고 있습니다.",
+        "exampleKr": "A new building is under construction.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "geonseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-42-1786687436944",
+        "term": "대응",
+        "definition": "Response, reaction",
+        "meaningKr": "Response, reaction",
+        "exampleEn": "상황에 적극적으로 대응해야 합니다.",
+        "exampleKr": "We must respond actively to the situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "daeeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-43-1786687436944",
+        "term": "협력",
+        "definition": "Cooperation, collaboration",
+        "meaningKr": "Cooperation, collaboration",
+        "exampleEn": "두 나라 간의 협력이 중요합니다.",
+        "exampleKr": "Cooperation between the two countries is important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hyeomnyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-44-1786687436944",
+        "term": "정부",
+        "definition": "Government, administration",
+        "meaningKr": "Government, administration",
+        "exampleEn": "정부 정책에 대한 발표가 있었습니다.",
+        "exampleKr": "There was an announcement about government policy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jeongbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-45-1786687436944",
+        "term": "삶",
+        "definition": "Life, living, existence",
+        "meaningKr": "Life, living, existence",
+        "exampleEn": "그는 평범한 삶을 살고 싶어 했다.",
+        "exampleKr": "He wanted to live an ordinary life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-46-1786687436944",
+        "term": "사건",
+        "definition": "Incident, event, case",
+        "meaningKr": "Incident, event, case",
+        "exampleEn": "그 사건은 사회에 큰 영향을 주었다.",
+        "exampleKr": "That incident had a big impact on society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sageon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-47-1786687436944",
+        "term": "입장",
+        "definition": "Stance, position, point of view",
+        "meaningKr": "Stance, position, point of view",
+        "exampleEn": "그는 자신의 입장을 분명히 밝혔다.",
+        "exampleKr": "He clearly stated his position.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "ipjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-48-1786687436944",
+        "term": "행위",
+        "definition": "Act, action, behavior",
+        "meaningKr": "Act, action, behavior",
+        "exampleEn": "그의 부당한 행위는 용납될 수 없다.",
+        "exampleKr": "His unfair act cannot be tolerated.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "haengwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-49-1786687436944",
+        "term": "인물",
+        "definition": "Figure, person, character",
+        "meaningKr": "Figure, person, character",
+        "exampleEn": "이 소설의 주요 인물은 누구인가요?",
+        "exampleKr": "Who is the main character of this novel?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "사회·인간관계",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "inmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-50-1786687436944",
+        "term": "노력하다",
+        "definition": "To make an effort, try hard",
+        "meaningKr": "To make an effort, try hard",
+        "exampleEn": "목표를 이루기 위해 노력해야 한다.",
+        "exampleKr": "You must try hard to achieve your goals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "noryeokhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-51-1786687436944",
+        "term": "세우다",
+        "definition": "To set up, establish, stand up",
+        "meaningKr": "To set up, establish, stand up",
+        "exampleEn": "내년에 새로운 회사를 세울 것이다.",
+        "exampleKr": "I will establish a new company next year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "seuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-52-1786687436944",
+        "term": "조사",
+        "definition": "Investigation, survey, research",
+        "meaningKr": "Investigation, survey, research",
+        "exampleEn": "정확한 시장 조사가 필요합니다.",
+        "exampleKr": "An accurate market survey is needed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "josa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-53-1786687436944",
+        "term": "연구",
+        "definition": "Research, study",
+        "meaningKr": "Research, study",
+        "exampleEn": "그는 새로운 치료법을 연구 중이다.",
+        "exampleKr": "He is researching a new treatment method.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yeongu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-54-1786687436944",
+        "term": "교육",
+        "definition": "Education, training",
+        "meaningKr": "Education, training",
+        "exampleEn": "모든 아이들에게 공평한 교육 기회가 필요하다.",
+        "exampleKr": "Fair educational opportunities are needed for all children.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gyoyuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-55-1786687436944",
+        "term": "업무",
+        "definition": "Task, duty, work",
+        "meaningKr": "Task, duty, work",
+        "exampleEn": "그는 맡은 업무를 성실히 수행했다.",
+        "exampleKr": "He faithfully performed his assigned duties.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eommu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-56-1786687436944",
+        "term": "기회",
+        "definition": "Opportunity, chance",
+        "meaningKr": "Opportunity, chance",
+        "exampleEn": "이것은 정말 좋은 기회입니다.",
+        "exampleKr": "This is a really good opportunity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gihoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-57-1786687436944",
+        "term": "자료",
+        "definition": "Data, material, information",
+        "meaningKr": "Data, material, information",
+        "exampleEn": "연구를 위해 많은 자료를 수집했다.",
+        "exampleKr": "I collected a lot of material for the research.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jaryo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-58-1786687436944",
+        "term": "조건",
+        "definition": "Condition, term, requirement",
+        "meaningKr": "Condition, term, requirement",
+        "exampleEn": "참가하려면 몇 가지 필수 조건이 있습니다.",
+        "exampleKr": "There are a few essential conditions to participate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jogeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-59-1786687436944",
+        "term": "수준",
+        "definition": "Level, standard, proficiency",
+        "meaningKr": "Level, standard, proficiency",
+        "exampleEn": "그의 한국어 실력은 높은 수준이다.",
+        "exampleKr": "His Korean proficiency is at a high level.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sujun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-60-1786687436944",
+        "term": "전문가",
+        "definition": "expert, specialist",
+        "meaningKr": "expert, specialist",
+        "exampleEn": "이 분야의 전문가 의견을 듣고 싶어요.",
+        "exampleKr": "I want to hear the expert's opinion in this field.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeonmunga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-61-1786687436944",
+        "term": "기초",
+        "definition": "foundation, basics",
+        "meaningKr": "foundation, basics",
+        "exampleEn": "튼튼한 기초를 다지는 것이 중요해요.",
+        "exampleKr": "It's important to build a strong foundation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gicho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-62-1786687436944",
+        "term": "발표",
+        "definition": "announcement, presentation",
+        "meaningKr": "announcement, presentation",
+        "exampleEn": "연구 결과를 발표할 준비를 하고 있어요.",
+        "exampleKr": "I am preparing to present the research results.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "balpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-63-1786687436944",
+        "term": "높이다",
+        "definition": "to raise, increase",
+        "meaningKr": "to raise, increase",
+        "exampleEn": "팀의 사기를 높이는 것이 급선무입니다.",
+        "exampleKr": "Raising the team's morale is the top priority.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "nopida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-64-1786687436944",
+        "term": "직장",
+        "definition": "workplace, job",
+        "meaningKr": "workplace, job",
+        "exampleEn": "새로운 직장에 다니기 시작했어요.",
+        "exampleKr": "I started working at a new workplace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jikjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-65-1786687436944",
+        "term": "기본",
+        "definition": "basic, fundamental",
+        "meaningKr": "basic, fundamental",
+        "exampleEn": "기본 문법부터 다시 공부해야 해요.",
+        "exampleKr": "I need to study basic grammar again from the beginning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gibon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-66-1786687436944",
+        "term": "능력",
+        "definition": "ability, capability",
+        "meaningKr": "ability, capability",
+        "exampleEn": "그는 뛰어난 문제 해결 능력을 가지고 있어요.",
+        "exampleKr": "He has outstanding problem-solving abilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "neungnyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-67-1786687436944",
+        "term": "지식",
+        "definition": "knowledge, information",
+        "meaningKr": "knowledge, information",
+        "exampleEn": "꾸준히 지식을 쌓는 것이 중요합니다.",
+        "exampleKr": "It is important to continuously accumulate knowledge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jisik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-68-1786687436944",
+        "term": "뛰어나다",
+        "definition": "to be outstanding, excellent",
+        "meaningKr": "to be outstanding, excellent",
+        "exampleEn": "그녀는 외국어 실력이 매우 뛰어납니다.",
+        "exampleKr": "Her foreign language skills are very outstanding.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ttwieonada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-69-1786687436944",
+        "term": "익히다",
+        "definition": "to learn, master",
+        "meaningKr": "to learn, master",
+        "exampleEn": "새로운 기술을 빨리 익혔어요.",
+        "exampleKr": "I quickly learned the new skill.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ikhida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-70-1786687436944",
+        "term": "담당",
+        "definition": "charge, responsibility",
+        "meaningKr": "charge, responsibility",
+        "exampleEn": "이 프로젝트는 제가 담당하고 있어요.",
+        "exampleKr": "I am in charge of this project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "damdang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-71-1786687436944",
+        "term": "수행하다",
+        "definition": "to perform, carry out",
+        "meaningKr": "to perform, carry out",
+        "exampleEn": "맡은 임무를 성실히 수행했습니다.",
+        "exampleKr": "I faithfully performed the assigned mission.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "suhaenghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-72-1786687436944",
+        "term": "언어",
+        "definition": "language",
+        "meaningKr": "language",
+        "exampleEn": "언어 학습은 꾸준함이 필요해요.",
+        "exampleKr": "Language learning requires consistency.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "eoneo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-73-1786687436944",
+        "term": "박사",
+        "definition": "doctor (Ph.D.)",
+        "meaningKr": "doctor (Ph.D.)",
+        "exampleEn": "그는 박사 학위를 취득했어요.",
+        "exampleKr": "He obtained a doctoral degree.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "baksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-74-1786687436944",
+        "term": "가리키다",
+        "definition": "to point, indicate",
+        "meaningKr": "to point, indicate",
+        "exampleEn": "직원이 길을 가리켜 주었습니다.",
+        "exampleKr": "The employee pointed out the way.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "garikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-75-1786687436944",
+        "term": "목표",
+        "definition": "goal, target, objective",
+        "meaningKr": "goal, target, objective",
+        "exampleEn": "그는 최종 목표를 달성하기 위해 노력했습니다.",
+        "exampleKr": "He strove to achieve his final goal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "mokpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-76-1786687436944",
+        "term": "전문",
+        "definition": "specialty, major, area of expertise",
+        "meaningKr": "specialty, major, area of expertise",
+        "exampleEn": "저는 인공지능을 전문 분야로 연구하고 있어요.",
+        "exampleKr": "I am studying artificial intelligence as my field of expertise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeonmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-77-1786687436944",
+        "term": "예정",
+        "definition": "schedule, plan, expectation",
+        "meaningKr": "schedule, plan, expectation",
+        "exampleEn": "회의는 다음 주 화요일로 예정되어 있습니다.",
+        "exampleKr": "The meeting is scheduled for next Tuesday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yejeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-78-1786687436944",
+        "term": "노동자",
+        "definition": "worker, laborer",
+        "meaningKr": "worker, laborer",
+        "exampleEn": "건설 노동자들이 열심히 일하고 있습니다.",
+        "exampleKr": "Construction workers are working hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "nodongja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-79-1786687436944",
+        "term": "맡다",
+        "definition": "to take charge of, to undertake",
+        "meaningKr": "to take charge of, to undertake",
+        "exampleEn": "그녀는 새로운 프로젝트를 맡았습니다.",
+        "exampleKr": "She took charge of the new project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "matda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-80-1786687436944",
+        "term": "강조하다",
+        "definition": "to emphasize, to stress",
+        "meaningKr": "to emphasize, to stress",
+        "exampleEn": "선생님은 숙제의 중요성을 강조하셨습니다.",
+        "exampleKr": "The teacher emphasized the importance of homework.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gangjohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-81-1786687436944",
+        "term": "회장",
+        "definition": "president, chairman",
+        "meaningKr": "president, chairman",
+        "exampleEn": "동아리 회장이 회의를 시작했습니다.",
+        "exampleKr": "The club president started the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hoejang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-82-1786687436944",
+        "term": "알아보다",
+        "definition": "to find out, to look into",
+        "meaningKr": "to find out, to look into",
+        "exampleEn": "새로운 일자리에 대해 알아보고 싶어요.",
+        "exampleKr": "I want to look into new job opportunities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "araboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-83-1786687436944",
+        "term": "후보",
+        "definition": "candidate, nominee",
+        "meaningKr": "candidate, nominee",
+        "exampleEn": "그는 대통령 후보로 등록했습니다.",
+        "exampleKr": "He registered as a presidential candidate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hubo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-84-1786687436944",
+        "term": "체육",
+        "definition": "physical education, sports",
+        "meaningKr": "physical education, sports",
+        "exampleEn": "체육 시간에는 보통 축구를 합니다.",
+        "exampleKr": "We usually play soccer during physical education class.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "cheyuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-85-1786687436944",
+        "term": "과제",
+        "definition": "assignment, task, challenge",
+        "meaningKr": "assignment, task, challenge",
+        "exampleEn": "이번 학기 과제가 너무 많아요.",
+        "exampleKr": "There are too many assignments this semester.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwaje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-86-1786687436944",
+        "term": "뽑다",
+        "definition": "to pick, to select",
+        "meaningKr": "to pick, to select",
+        "exampleEn": "그는 팀의 대표 선수로 뽑혔습니다.",
+        "exampleKr": "He was selected as the team's representative player.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ppopda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-87-1786687436944",
+        "term": "직원",
+        "definition": "employee, staff member",
+        "meaningKr": "employee, staff member",
+        "exampleEn": "모든 직원은 회의에 참석해야 합니다.",
+        "exampleKr": "All employees must attend the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jigwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-88-1786687436944",
+        "term": "발표하다",
+        "definition": "to announce, to present",
+        "meaningKr": "to announce, to present",
+        "exampleEn": "그는 연구 결과를 발표했습니다.",
+        "exampleKr": "He presented the research results.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "balpyohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-89-1786687436944",
+        "term": "꺼내다",
+        "definition": "to take out, to bring up",
+        "meaningKr": "to take out, to bring up",
+        "exampleEn": "가방에서 책을 꺼냈습니다.",
+        "exampleKr": "I took a book out of my bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "kkeonaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-90-1786687436944",
+        "term": "마치다",
+        "definition": "to finish, to complete",
+        "meaningKr": "to finish, to complete",
+        "exampleEn": "저는 오늘 일을 모두 마쳤습니다.",
+        "exampleKr": "I finished all the work today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "machida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-91-1786687436944",
+        "term": "시설",
+        "definition": "facility, equipment, installation",
+        "meaningKr": "facility, equipment, installation",
+        "exampleEn": "이 건물에는 편의 시설이 많습니다.",
+        "exampleKr": "This building has many convenience facilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "siseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-92-1786687436944",
+        "term": "대회",
+        "definition": "competition, convention, tournament",
+        "meaningKr": "competition, convention, tournament",
+        "exampleEn": "그는 말하기 대회에서 우승했다.",
+        "exampleKr": "He won the speaking competition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "daehoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-93-1786687436944",
+        "term": "입시",
+        "definition": "college entrance examination",
+        "meaningKr": "college entrance examination",
+        "exampleEn": "입시 경쟁이 매우 치열합니다.",
+        "exampleKr": "Competition for college entrance exams is very fierce.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "ipsi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-94-1786687436944",
+        "term": "수석",
+        "definition": "chief, head, top position",
+        "meaningKr": "chief, head, top position",
+        "exampleEn": "그녀는 수석 연구원으로 승진했습니다.",
+        "exampleKr": "She was promoted to chief researcher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "suseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-95-1786687436944",
+        "term": "제자",
+        "definition": "disciple, student",
+        "meaningKr": "disciple, student",
+        "exampleEn": "그 스승은 훌륭한 제자를 많이 길렀다.",
+        "exampleKr": "That teacher raised many excellent disciples.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jeja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-96-1786687436944",
+        "term": "간부",
+        "definition": "executive, staff member, leader",
+        "meaningKr": "executive, staff member, leader",
+        "exampleEn": "핵심 간부들이 회의를 소집했습니다.",
+        "exampleKr": "Key executives convened a meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "ganbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-97-1786687436944",
+        "term": "지식인",
+        "definition": "intellectual, learned person",
+        "meaningKr": "intellectual, learned person",
+        "exampleEn": "그는 사회 문제에 대해 발언하는 지식인이다.",
+        "exampleKr": "He is an intellectual who speaks on social issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jisigin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-98-1786687436944",
+        "term": "필자",
+        "definition": "writer, author",
+        "meaningKr": "writer, author",
+        "exampleEn": "이 글의 필자는 누구인가요?",
+        "exampleKr": "Who is the author of this article?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "pilja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-99-1786687436944",
+        "term": "스승",
+        "definition": "teacher, master, mentor",
+        "meaningKr": "teacher, master, mentor",
+        "exampleEn": "저는 그분을 저의 스승으로 존경합니다.",
+        "exampleKr": "I respect him as my teacher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "교육·직업",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "seuseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-100-1786687436944",
+        "term": "국내",
+        "definition": "domestic, internal",
+        "meaningKr": "domestic, internal",
+        "exampleEn": "국내 시장의 경쟁이 치열해지고 있다.",
+        "exampleKr": "Competition in the domestic market is intensifying.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gungnae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-101-1786687436944",
+        "term": "경제",
+        "definition": "economy",
+        "meaningKr": "economy",
+        "exampleEn": "세계 경제는 불안정한 상태입니다.",
+        "exampleKr": "The world economy is in an unstable state.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gyeongje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-102-1786687436944",
+        "term": "줄이다",
+        "definition": "to reduce, decrease, shorten",
+        "meaningKr": "to reduce, decrease, shorten",
+        "exampleEn": "비용을 더 줄여야 할 것 같습니다.",
+        "exampleKr": "It seems we need to reduce costs further.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-103-1786687436944",
+        "term": "사업",
+        "definition": "business, enterprise, project",
+        "meaningKr": "business, enterprise, project",
+        "exampleEn": "그는 새로운 사업을 시작했습니다.",
+        "exampleKr": "He started a new business.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sa-eop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-104-1786687436944",
+        "term": "제품",
+        "definition": "product, goods, item",
+        "meaningKr": "product, goods, item",
+        "exampleEn": "이 회사는 신제품 개발에 집중합니다.",
+        "exampleKr": "This company focuses on new product development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jepum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-105-1786687436944",
+        "term": "광고",
+        "definition": "advertisement, commercial",
+        "meaningKr": "advertisement, commercial",
+        "exampleEn": "이 제품은 TV 광고에 많이 나왔어요.",
+        "exampleKr": "This product appeared a lot in TV commercials.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwanggo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-106-1786687436944",
+        "term": "이용하다",
+        "definition": "to use, to utilize",
+        "meaningKr": "to use, to utilize",
+        "exampleEn": "대중교통을 이용하면 편리해요.",
+        "exampleKr": "It is convenient to use public transportation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "iyonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-107-1786687436944",
+        "term": "지원",
+        "definition": "support, backing, assistance",
+        "meaningKr": "support, backing, assistance",
+        "exampleEn": "정부 지원으로 사업을 시작했어요.",
+        "exampleKr": "I started a business with government support.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jiwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-108-1786687436944",
+        "term": "경쟁",
+        "definition": "competition, rivalry",
+        "meaningKr": "competition, rivalry",
+        "exampleEn": "그 회사들은 치열한 경쟁을 하고 있다.",
+        "exampleKr": "Those companies are in fierce competition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gyeongjaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-109-1786687436944",
+        "term": "판매",
+        "definition": "sale, selling",
+        "meaningKr": "sale, selling",
+        "exampleEn": "새로운 전략으로 판매량이 늘었어요.",
+        "exampleKr": "Sales volume increased with the new strategy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "panmae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-110-1786687436944",
+        "term": "비용",
+        "definition": "cost, expense",
+        "meaningKr": "cost, expense",
+        "exampleEn": "교통 비용이 많이 들었어요.",
+        "exampleKr": "Transportation costs were high.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "biyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-111-1786687436944",
+        "term": "벌다",
+        "definition": "to earn (money)",
+        "meaningKr": "to earn (money)",
+        "exampleEn": "그는 열심히 일해서 돈을 벌어요.",
+        "exampleKr": "He earns money by working hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "beolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-112-1786687436944",
+        "term": "임금",
+        "definition": "wages, pay, salary",
+        "meaningKr": "wages, pay, salary",
+        "exampleEn": "최저 임금이 인상될 예정입니다.",
+        "exampleKr": "The minimum wage is scheduled to be raised.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "imgeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-113-1786687436944",
+        "term": "사용",
+        "definition": "use, usage",
+        "meaningKr": "use, usage",
+        "exampleEn": "이 기계 사용법을 알려주세요.",
+        "exampleKr": "Please tell me how to use this machine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sayong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-114-1786687436944",
+        "term": "발전하다",
+        "definition": "to develop, progress, advance",
+        "meaningKr": "to develop, progress, advance",
+        "exampleEn": "이 기술은 계속 발전하고 있어요.",
+        "exampleKr": "This technology is continuously developing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "baljeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-115-1786687436944",
+        "term": "가격",
+        "definition": "price",
+        "meaningKr": "price",
+        "exampleEn": "어제 가격이 많이 올랐어요.",
+        "exampleKr": "The price went up a lot yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gagyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-116-1786687436944",
+        "term": "시키다",
+        "definition": "to order; to make (do)",
+        "meaningKr": "to order; to make (do)",
+        "exampleEn": "점심으로 피자를 시켰어요.",
+        "exampleKr": "I ordered pizza for lunch.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-117-1786687436944",
+        "term": "소비자",
+        "definition": "consumer",
+        "meaningKr": "consumer",
+        "exampleEn": "소비자들은 더 좋은 품질을 원해요.",
+        "exampleKr": "Consumers want better quality.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sobija",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-118-1786687436944",
+        "term": "소득",
+        "definition": "income, earnings, revenue",
+        "meaningKr": "income, earnings, revenue",
+        "exampleEn": "가계 소득이 줄어들고 있습니다.",
+        "exampleKr": "Household income is decreasing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sodeuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-119-1786687436944",
+        "term": "재정",
+        "definition": "finance, financial affairs",
+        "meaningKr": "finance, financial affairs",
+        "exampleEn": "국가 재정 상태가 좋지 않아요.",
+        "exampleKr": "The nation's financial condition is not good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jaejeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-120-1786687436944",
+        "term": "빌리다",
+        "definition": "to borrow",
+        "meaningKr": "to borrow",
+        "exampleEn": "저는 친구에게서 돈을 빌렸어요.",
+        "exampleKr": "I borrowed money from my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "billida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-121-1786687436944",
+        "term": "수출",
+        "definition": "export",
+        "meaningKr": "export",
+        "exampleEn": "한국의 수출이 증가했습니다.",
+        "exampleKr": "Korea's exports have increased.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "suchul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-122-1786687436944",
+        "term": "벌이다",
+        "definition": "to start, to begin, to wage",
+        "meaningKr": "to start, to begin, to wage",
+        "exampleEn": "그는 새로운 사업을 벌였습니다.",
+        "exampleKr": "He started a new business.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "beorida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-123-1786687436944",
+        "term": "기업",
+        "definition": "enterprise, business, corporation",
+        "meaningKr": "enterprise, business, corporation",
+        "exampleEn": "이 기업은 매우 성공적입니다.",
+        "exampleKr": "This corporation is very successful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gieop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-124-1786687436944",
+        "term": "투자",
+        "definition": "investment",
+        "meaningKr": "investment",
+        "exampleEn": "그는 주식에 투자를 했습니다.",
+        "exampleKr": "He made an investment in stocks.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "tuja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-125-1786687436944",
+        "term": "부담",
+        "definition": "burden, charge, pressure",
+        "meaningKr": "burden, charge, pressure",
+        "exampleEn": "이것은 저에게 큰 부담입니다.",
+        "exampleKr": "This is a big burden for me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "budam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-126-1786687436944",
+        "term": "예산",
+        "definition": "budget",
+        "meaningKr": "budget",
+        "exampleEn": "정부는 새 예산안을 발표했습니다.",
+        "exampleKr": "The government announced a new budget plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yesan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-127-1786687436944",
+        "term": "공급",
+        "definition": "supply, provision",
+        "meaningKr": "supply, provision",
+        "exampleEn": "수요와 공급의 법칙이 중요합니다.",
+        "exampleKr": "The law of supply and demand is important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gonggeup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-128-1786687436944",
+        "term": "주식",
+        "definition": "stock, shares",
+        "meaningKr": "stock, shares",
+        "exampleEn": "그는 주식 시장에 관심이 많습니다.",
+        "exampleKr": "He is very interested in the stock market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jusik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-129-1786687436944",
+        "term": "도입",
+        "definition": "introduction, adoption",
+        "meaningKr": "introduction, adoption",
+        "exampleEn": "새로운 기술 도입이 필요합니다.",
+        "exampleKr": "The introduction of new technology is necessary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "doip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-130-1786687436944",
+        "term": "성장하다",
+        "definition": "to grow, to develop",
+        "meaningKr": "to grow, to develop",
+        "exampleEn": "이 아이는 매우 빨리 성장합니다.",
+        "exampleKr": "This child grows very quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "seongjanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-131-1786687436944",
+        "term": "산업",
+        "definition": "industry",
+        "meaningKr": "industry",
+        "exampleEn": "첨단 산업이 한국 경제를 이끌고 있습니다.",
+        "exampleKr": "High-tech industries are leading the Korean economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "saneop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-132-1786687436944",
+        "term": "노동",
+        "definition": "labor, work",
+        "meaningKr": "labor, work",
+        "exampleEn": "노동 시장의 변화가 심합니다.",
+        "exampleKr": "There are significant changes in the labor market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "nodong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-133-1786687436944",
+        "term": "생산",
+        "definition": "production, manufacturing",
+        "meaningKr": "production, manufacturing",
+        "exampleEn": "이 공장은 자동차를 생산합니다.",
+        "exampleKr": "This factory produces cars.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "saengsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-134-1786687436944",
+        "term": "개방",
+        "definition": "opening, openness",
+        "meaningKr": "opening, openness",
+        "exampleEn": "시장 개방은 경제에 영향을 줍니다.",
+        "exampleKr": "Market opening affects the economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gaebang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-135-1786687436944",
+        "term": "안정",
+        "definition": "Stability, peace, calmness",
+        "meaningKr": "Stability, peace, calmness",
+        "exampleEn": "경제적 안정을 위해 노력하고 있습니다.",
+        "exampleKr": "We are striving for economic stability.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "anjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-136-1786687436944",
+        "term": "전망",
+        "definition": "Prospect, outlook, view",
+        "meaningKr": "Prospect, outlook, view",
+        "exampleEn": "내년 경제 전망이 매우 밝습니다.",
+        "exampleKr": "Next year's economic outlook is very bright.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jeonmang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-137-1786687436944",
+        "term": "수요",
+        "definition": "Demand, requirement",
+        "meaningKr": "Demand, requirement",
+        "exampleEn": "신제품에 대한 수요가 급증하고 있습니다.",
+        "exampleKr": "Demand for the new product is surging.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "suyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-138-1786687436944",
+        "term": "식량",
+        "definition": "Food, provisions, foodstuffs",
+        "meaningKr": "Food, provisions, foodstuffs",
+        "exampleEn": "식량 부족 문제를 해결해야 합니다.",
+        "exampleKr": "We must solve the food shortage problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "singnyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-139-1786687436944",
+        "term": "물가",
+        "definition": "Prices, cost of living",
+        "meaningKr": "Prices, cost of living",
+        "exampleEn": "최근 물가 상승이 심각한 문제입니다.",
+        "exampleKr": "Recent price increases are a serious problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "mulga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-140-1786687436944",
+        "term": "선진국",
+        "definition": "Developed country",
+        "meaningKr": "Developed country",
+        "exampleEn": "한국은 선진국 경제 대열에 합류했습니다.",
+        "exampleKr": "Korea has joined the ranks of developed economies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "seonjinguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-141-1786687436944",
+        "term": "소비",
+        "definition": "Consumption, spending",
+        "meaningKr": "Consumption, spending",
+        "exampleEn": "소비 심리가 위축되어 경제가 어렵습니다.",
+        "exampleKr": "Consumer sentiment has shrunk, making the economy difficult.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sobi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-142-1786687436944",
+        "term": "중소기업",
+        "definition": "Small and medium-sized enterprise (SME)",
+        "meaningKr": "Small and medium-sized enterprise (SME)",
+        "exampleEn": "정부는 중소기업 육성에 힘쓰고 있습니다.",
+        "exampleKr": "The government is focusing on fostering SMEs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jungso gieop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-143-1786687436944",
+        "term": "추진",
+        "definition": "Drive, promotion",
+        "meaningKr": "Drive, promotion",
+        "exampleEn": "새로운 사업 추진을 위해 준비 중입니다.",
+        "exampleKr": "We are preparing to push forward with a new business.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "chujin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-144-1786687436944",
+        "term": "서비스",
+        "definition": "Service",
+        "meaningKr": "Service",
+        "exampleEn": "이 식당은 고객 서비스가 매우 좋습니다.",
+        "exampleKr": "This restaurant has very good customer service.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "seobiseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-145-1786687436944",
+        "term": "무역",
+        "definition": "Trade, commerce",
+        "meaningKr": "Trade, commerce",
+        "exampleEn": "국제 무역 규모가 점점 커지고 있습니다.",
+        "exampleKr": "The scale of international trade is gradually increasing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "muyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-146-1786687436944",
+        "term": "수입",
+        "definition": "Income, earnings; import",
+        "meaningKr": "Income, earnings; import",
+        "exampleEn": "올해 수입이 작년보다 많이 늘었습니다.",
+        "exampleKr": "This year's income has increased significantly compared to last year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "suip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-147-1786687436944",
+        "term": "내놓다",
+        "definition": "To put out, release, present",
+        "meaningKr": "To put out, release, present",
+        "exampleEn": "회사는 곧 신제품을 내놓을 예정입니다.",
+        "exampleKr": "The company is scheduled to release a new product soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "naenota",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-148-1786687436944",
+        "term": "상품",
+        "definition": "Product, goods (for sale)",
+        "meaningKr": "Product, goods (for sale)",
+        "exampleEn": "이 상품은 품질이 아주 좋습니다.",
+        "exampleKr": "The quality of this product is very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sangpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-149-1786687436944",
+        "term": "재료",
+        "definition": "Ingredient, material",
+        "meaningKr": "Ingredient, material",
+        "exampleEn": "요리 재료를 시장에서 사 왔습니다.",
+        "exampleKr": "I bought the cooking ingredients at the market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "경제·소비",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jaeryo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-150-1786687436944",
+        "term": "정보",
+        "definition": "Information, data",
+        "meaningKr": "Information, data",
+        "exampleEn": "새로운 정보를 얻었습니다.",
+        "exampleKr": "I obtained new information.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeongbo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-151-1786687436944",
+        "term": "발전",
+        "definition": "Development, progress, growth",
+        "meaningKr": "Development, progress, growth",
+        "exampleEn": "기술 발전은 우리 삶을 바꿉니다.",
+        "exampleKr": "Technological development changes our lives.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "baljeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-152-1786687436944",
+        "term": "자연",
+        "definition": "Nature, natural",
+        "meaningKr": "Nature, natural",
+        "exampleEn": "자연 환경을 보호해야 합니다.",
+        "exampleKr": "We must protect the natural environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jayeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-153-1786687436944",
+        "term": "과학",
+        "definition": "Science",
+        "meaningKr": "Science",
+        "exampleEn": "과학 기술은 계속 발전합니다.",
+        "exampleKr": "Science and technology continue to develop.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwahak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-154-1786687436944",
+        "term": "기술",
+        "definition": "Technology, skill",
+        "meaningKr": "Technology, skill",
+        "exampleEn": "최신 기술을 배우고 싶습니다.",
+        "exampleKr": "I want to learn the latest technology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gisul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-155-1786687436944",
+        "term": "환경",
+        "definition": "Environment, surroundings",
+        "meaningKr": "Environment, surroundings",
+        "exampleEn": "환경 보호는 중요한 문제입니다.",
+        "exampleKr": "Environmental protection is an important issue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hwangyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-156-1786687436944",
+        "term": "효과",
+        "definition": "Effect, effectiveness",
+        "meaningKr": "Effect, effectiveness",
+        "exampleEn": "이 약은 치료 효과가 좋습니다.",
+        "exampleKr": "This medicine has good therapeutic effects.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hyogwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-157-1786687436944",
+        "term": "기능",
+        "definition": "Function, performance",
+        "meaningKr": "Function, performance",
+        "exampleEn": "이 기계는 향상된 기능을 가지고 있습니다.",
+        "exampleKr": "This machine has improved functions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gineung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-158-1786687436944",
+        "term": "속도",
+        "definition": "Speed, pace",
+        "meaningKr": "Speed, pace",
+        "exampleEn": "차가 너무 빠른 속도로 달렸습니다.",
+        "exampleKr": "The car drove at too fast a speed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sokdo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-159-1786687436944",
+        "term": "보호",
+        "definition": "Protection, safeguard",
+        "meaningKr": "Protection, safeguard",
+        "exampleEn": "동물 보호에 힘써야 합니다.",
+        "exampleKr": "We must strive for animal protection.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "boho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-160-1786687436944",
+        "term": "땅",
+        "definition": "Land, ground",
+        "meaningKr": "Land, ground",
+        "exampleEn": "농부들이 땅을 갈고 있습니다.",
+        "exampleKr": "Farmers are plowing the land.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ttang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-161-1786687436944",
+        "term": "소리",
+        "definition": "Sound, noise, voice",
+        "meaningKr": "Sound, noise, voice",
+        "exampleEn": "갑자기 큰 소리가 났습니다.",
+        "exampleKr": "Suddenly, a loud sound occurred.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-162-1786687436944",
+        "term": "원인",
+        "definition": "Cause, origin, reason",
+        "meaningKr": "Cause, origin, reason",
+        "exampleEn": "사고의 원인을 분석했습니다.",
+        "exampleKr": "We analyzed the cause of the accident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "wonin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-163-1786687436944",
+        "term": "개발하다",
+        "definition": "To develop, to create",
+        "meaningKr": "To develop, to create",
+        "exampleEn": "새로운 앱을 개발하고 있습니다.",
+        "exampleKr": "We are developing a new app.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gaebalhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-164-1786687436944",
+        "term": "발달하다",
+        "definition": "To develop, grow",
+        "meaningKr": "To develop, grow",
+        "exampleEn": "아이의 뇌가 잘 발달했습니다.",
+        "exampleKr": "The child's brain developed well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "baldalhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-165-1786687436944",
+        "term": "심하다",
+        "definition": "to be severe, intense, extreme (negative)",
+        "meaningKr": "to be severe, intense, extreme (negative)",
+        "exampleEn": "미세먼지가 너무 심해요.",
+        "exampleKr": "The fine dust is very severe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "simhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-166-1786687436944",
+        "term": "발생하다",
+        "definition": "to occur, happen, arise (problems)",
+        "meaningKr": "to occur, happen, arise (problems)",
+        "exampleEn": "문제가 발생하지 않도록 주의해야 합니다.",
+        "exampleKr": "We must be careful to prevent problems from occurring.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "balsaenghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-167-1786687436944",
+        "term": "오염",
+        "definition": "pollution, contamination",
+        "meaningKr": "pollution, contamination",
+        "exampleEn": "환경 오염은 심각한 문제입니다.",
+        "exampleKr": "Environmental pollution is a serious problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "oyeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-168-1786687436944",
+        "term": "생명",
+        "definition": "life, living being",
+        "meaningKr": "life, living being",
+        "exampleEn": "생명 존엄성은 매우 중요합니다.",
+        "exampleKr": "The dignity of life is very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "saengmyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-169-1786687436944",
+        "term": "현상",
+        "definition": "phenomenon, appearance",
+        "meaningKr": "phenomenon, appearance",
+        "exampleEn": "지구 온난화는 자연 현상입니다.",
+        "exampleKr": "Global warming is a natural phenomenon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hyeonsang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-170-1786687436944",
+        "term": "작용",
+        "definition": "action, effect, function",
+        "meaningKr": "action, effect, function",
+        "exampleEn": "이 약은 위장에 작용합니다.",
+        "exampleKr": "This medicine acts on the stomach.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jagyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-171-1786687436944",
+        "term": "자원",
+        "definition": "resource, natural resource",
+        "meaningKr": "resource, natural resource",
+        "exampleEn": "천연 자원을 아껴 써야 합니다.",
+        "exampleKr": "We must use natural resources sparingly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jawon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-172-1786687436944",
+        "term": "작용하다",
+        "definition": "to act, function, operate",
+        "meaningKr": "to act, function, operate",
+        "exampleEn": "이 물질은 몸에 어떻게 작용하나요?",
+        "exampleKr": "How does this substance act in the body?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jagyonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-173-1786687436944",
+        "term": "생산하다",
+        "definition": "to produce, manufacture, generate",
+        "meaningKr": "to produce, manufacture, generate",
+        "exampleEn": "이 공장은 전기를 생산합니다.",
+        "exampleKr": "This factory produces electricity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "saengsanhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-174-1786687436944",
+        "term": "풍부하다",
+        "definition": "to be abundant, plentiful, rich",
+        "meaningKr": "to be abundant, plentiful, rich",
+        "exampleEn": "우리나라는 자원이 풍부하지 않습니다.",
+        "exampleKr": "Our country is not rich in resources.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "pungbuhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-175-1786687436944",
+        "term": "실험",
+        "definition": "experiment, test, trial",
+        "meaningKr": "experiment, test, trial",
+        "exampleEn": "과학 실험을 하러 갑니다.",
+        "exampleKr": "I am going to do a science experiment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "silheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-176-1786687436944",
+        "term": "공사",
+        "definition": "construction, public works",
+        "meaningKr": "construction, public works",
+        "exampleEn": "지금 도로 공사 중입니다.",
+        "exampleKr": "It is currently under road construction.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gongsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-177-1786687436944",
+        "term": "심다",
+        "definition": "to plant, sow",
+        "meaningKr": "to plant, sow",
+        "exampleEn": "정원에 나무를 심었어요.",
+        "exampleKr": "I planted a tree in the garden.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "simda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-178-1786687436944",
+        "term": "바닥",
+        "definition": "floor, ground, bottom",
+        "meaningKr": "floor, ground, bottom",
+        "exampleEn": "바닥이 매우 차갑습니다.",
+        "exampleKr": "The floor is very cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "badak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-179-1786687436944",
+        "term": "에너지",
+        "definition": "energy",
+        "meaningKr": "energy",
+        "exampleEn": "에너지 절약이 중요합니다.",
+        "exampleKr": "Saving energy is important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eneoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-180-1786687436944",
+        "term": "그치다",
+        "definition": "to stop (rain, snow, etc.)",
+        "meaningKr": "to stop (rain, snow, etc.)",
+        "exampleEn": "비가 곧 그칠 것 같아요.",
+        "exampleKr": "It seems like the rain will stop soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "geuchida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-181-1786687436944",
+        "term": "숨",
+        "definition": "breath",
+        "meaningKr": "breath",
+        "exampleEn": "숨 쉬기 힘들 정도로 더웠어요.",
+        "exampleKr": "It was so hot that it was hard to breathe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-182-1786687436944",
+        "term": "냄새",
+        "definition": "smell, odor, scent",
+        "meaningKr": "smell, odor, scent",
+        "exampleEn": "음식 냄새가 아주 좋아요.",
+        "exampleKr": "The food smells very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "naemsae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-183-1786687436944",
+        "term": "크기",
+        "definition": "size, dimension",
+        "meaningKr": "size, dimension",
+        "exampleEn": "이 옷은 크기가 맞지 않아요.",
+        "exampleKr": "This clothing is not the right size.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "keugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-184-1786687436944",
+        "term": "기계",
+        "definition": "machine, machinery",
+        "meaningKr": "machine, machinery",
+        "exampleEn": "새로운 기계가 도입되었습니다.",
+        "exampleKr": "A new machine has been introduced.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gigye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-185-1786687436944",
+        "term": "발견하다",
+        "definition": "to discover, to find",
+        "meaningKr": "to discover, to find",
+        "exampleEn": "과학자들이 새로운 별을 발견했다.",
+        "exampleKr": "Scientists discovered a new star.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "balgyeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-186-1786687436944",
+        "term": "지구",
+        "definition": "Earth, globe",
+        "meaningKr": "Earth, globe",
+        "exampleEn": "지구 온난화는 심각한 문제입니다.",
+        "exampleKr": "Global warming is a serious problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jigu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-187-1786687436944",
+        "term": "막다",
+        "definition": "to block, to stop, to prevent",
+        "meaningKr": "to block, to stop, to prevent",
+        "exampleEn": "쓰레기가 하수구를 막고 있어요.",
+        "exampleKr": "Trash is blocking the drain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "makda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-188-1786687436944",
+        "term": "흐르다",
+        "definition": "to flow, to stream, to pass",
+        "meaningKr": "to flow, to stream, to pass",
+        "exampleEn": "강물이 시원하게 흐르고 있다.",
+        "exampleKr": "The river is flowing refreshingly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "heureuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-189-1786687436944",
+        "term": "보호하다",
+        "definition": "to protect, to defend",
+        "meaningKr": "to protect, to defend",
+        "exampleEn": "우리는 환경을 보호해야 합니다.",
+        "exampleKr": "We must protect the environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bohohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-190-1786687436944",
+        "term": "줄어들다",
+        "definition": "to decrease, to shrink, to diminish",
+        "meaningKr": "to decrease, to shrink, to diminish",
+        "exampleEn": "해마다 인구가 줄어들고 있다.",
+        "exampleKr": "The population is decreasing every year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jureodeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-191-1786687436944",
+        "term": "거대하다",
+        "definition": "huge, enormous, gigantic",
+        "meaningKr": "huge, enormous, gigantic",
+        "exampleEn": "그 도시는 거대한 규모를 자랑한다.",
+        "exampleKr": "That city boasts a huge scale.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "geodaehada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-192-1786687436944",
+        "term": "비치다",
+        "definition": "to shine, be reflected",
+        "meaningKr": "to shine, be reflected",
+        "exampleEn": "햇빛이 창문으로 비치고 있었다.",
+        "exampleKr": "Sunlight was shining through the window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bichida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-193-1786687436944",
+        "term": "영양",
+        "definition": "nutrition, nourishment",
+        "meaningKr": "nutrition, nourishment",
+        "exampleEn": "채소에는 영양소가 풍부하다.",
+        "exampleKr": "Vegetables are rich in nutrients.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yeongyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-194-1786687436944",
+        "term": "법칙",
+        "definition": "law, rule, principle",
+        "meaningKr": "law, rule, principle",
+        "exampleEn": "자연의 법칙을 이해하는 것은 어렵다.",
+        "exampleKr": "Understanding the laws of nature is difficult.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "beopchik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-195-1786687436944",
+        "term": "감각",
+        "definition": "Sense, sensation, feeling",
+        "meaningKr": "Sense, sensation, feeling",
+        "exampleEn": "그는 예민한 감각을 가지고 있다.",
+        "exampleKr": "He has a keen sense.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gamgak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-196-1786687436944",
+        "term": "우주",
+        "definition": "Universe, space, cosmos",
+        "meaningKr": "Universe, space, cosmos",
+        "exampleEn": "우주 탐사는 인류의 꿈이다.",
+        "exampleKr": "Space exploration is humanity's dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "uju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-197-1786687436944",
+        "term": "물질",
+        "definition": "Matter, substance, material",
+        "meaningKr": "Matter, substance, material",
+        "exampleEn": "이것은 유해 물질인가요?",
+        "exampleKr": "Is this a harmful substance?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "muljil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-198-1786687436944",
+        "term": "물체",
+        "definition": "Object, body, physical substance",
+        "meaningKr": "Object, body, physical substance",
+        "exampleEn": "하늘에서 이상한 물체가 보였다.",
+        "exampleKr": "A strange object was seen in the sky.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "mulche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-199-1786687436944",
+        "term": "핵",
+        "definition": "Nucleus, core, center",
+        "meaningKr": "Nucleus, core, center",
+        "exampleEn": "핵 문제는 매우 심각하다.",
+        "exampleKr": "The nuclear issue is very serious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "환경·과학",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "haek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-200-1786687436944",
+        "term": "문화",
+        "definition": "Culture",
+        "meaningKr": "Culture",
+        "exampleEn": "문화 차이를 이해하는 것이 중요하다.",
+        "exampleKr": "It is important to understand cultural differences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "munhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-201-1786687436944",
+        "term": "전통",
+        "definition": "Tradition, custom",
+        "meaningKr": "Tradition, custom",
+        "exampleEn": "한국의 전통 음식은 맛있다.",
+        "exampleKr": "Korean traditional food is delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeontong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-202-1786687436944",
+        "term": "표현",
+        "definition": "Expression, representation",
+        "meaningKr": "Expression, representation",
+        "exampleEn": "그는 감정 표현에 서툴다.",
+        "exampleKr": "He is poor at expressing emotions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "pyohyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-203-1786687436944",
+        "term": "프로그램",
+        "definition": "Program (TV, computer, event)",
+        "meaningKr": "Program (TV, computer, event)",
+        "exampleEn": "이 TV 프로그램은 재미있다.",
+        "exampleKr": "This TV program is interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "peurogeuraem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-204-1786687436944",
+        "term": "글",
+        "definition": "Writing, text, article",
+        "meaningKr": "Writing, text, article",
+        "exampleEn": "나는 매일 글을 쓴다.",
+        "exampleKr": "I write texts every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "geul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-205-1786687436944",
+        "term": "이미지",
+        "definition": "Image, impression",
+        "meaningKr": "Image, impression",
+        "exampleEn": "그는 좋은 이미지를 가지고 있다.",
+        "exampleKr": "He has a good image.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "imiji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-206-1786687436944",
+        "term": "공연",
+        "definition": "Performance, show",
+        "meaningKr": "Performance, show",
+        "exampleEn": "어제 음악 공연을 봤어요.",
+        "exampleKr": "I watched a music performance yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gongyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-207-1786687436944",
+        "term": "독특하다",
+        "definition": "Unique, peculiar, distinctive",
+        "meaningKr": "Unique, peculiar, distinctive",
+        "exampleEn": "그녀는 독특한 개성을 가지고 있다.",
+        "exampleKr": "She has a unique personality.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "dokteukada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-208-1786687436944",
+        "term": "보도",
+        "definition": "Report, coverage, news",
+        "meaningKr": "Report, coverage, news",
+        "exampleEn": "뉴스 보도를 주의 깊게 봤다.",
+        "exampleKr": "I watched the news report carefully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bodo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-209-1786687436944",
+        "term": "기사",
+        "definition": "Article, driver, knight",
+        "meaningKr": "Article, driver, knight",
+        "exampleEn": "신문 기사를 읽어 보세요.",
+        "exampleKr": "Please read the newspaper article.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gisa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-210-1786687436944",
+        "term": "주인공",
+        "definition": "Protagonist, main character",
+        "meaningKr": "Protagonist, main character",
+        "exampleEn": "이 소설의 주인공은 매우 흥미롭습니다.",
+        "exampleKr": "The protagonist of this novel is very interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "juingong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-211-1786687436944",
+        "term": "행사",
+        "definition": "Event, function, ceremony",
+        "meaningKr": "Event, function, ceremony",
+        "exampleEn": "이번 주말에 큰 문화 행사가 열립니다.",
+        "exampleKr": "A big cultural event will be held this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "haengsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-212-1786687436944",
+        "term": "대중",
+        "definition": "The public, the masses",
+        "meaningKr": "The public, the masses",
+        "exampleEn": "대중 문화는 많은 사람들에게 인기가 많습니다.",
+        "exampleKr": "Popular culture is popular with many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "daejung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-213-1786687436944",
+        "term": "즐기다",
+        "definition": "To enjoy, to have fun",
+        "meaningKr": "To enjoy, to have fun",
+        "exampleEn": "저는 친구들과 함께 여가를 즐깁니다.",
+        "exampleKr": "I enjoy my leisure time with my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeulgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-214-1786687436944",
+        "term": "문학",
+        "definition": "Literature",
+        "meaningKr": "Literature",
+        "exampleEn": "그는 한국 문학에 대해 많이 알고 있습니다.",
+        "exampleKr": "He knows a lot about Korean literature.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "munhak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-215-1786687436944",
+        "term": "예술",
+        "definition": "Art",
+        "meaningKr": "Art",
+        "exampleEn": "이 미술관에는 다양한 예술 작품이 있습니다.",
+        "exampleKr": "There are various works of art in this art museum.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "yesul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-216-1786687436944",
+        "term": "언론",
+        "definition": "The press, the media",
+        "meaningKr": "The press, the media",
+        "exampleEn": "언론은 사회의 중요한 역할을 합니다.",
+        "exampleKr": "The media plays an important role in society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eollon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-217-1786687436944",
+        "term": "제작",
+        "definition": "Production, manufacturing",
+        "meaningKr": "Production, manufacturing",
+        "exampleEn": "이 영화는 많은 제작비가 들었습니다.",
+        "exampleKr": "This movie cost a lot to produce.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jejak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-218-1786687436944",
+        "term": "작품",
+        "definition": "Work (of art, literature)",
+        "meaningKr": "Work (of art, literature)",
+        "exampleEn": "그의 새로운 작품이 곧 발표될 예정입니다.",
+        "exampleKr": "His new work will be released soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jakpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-219-1786687436944",
+        "term": "문화재",
+        "definition": "Cultural property, heritage",
+        "meaningKr": "Cultural property, heritage",
+        "exampleEn": "문화재 보호는 우리 모두의 책임입니다.",
+        "exampleKr": "Protecting cultural heritage is everyone's responsibility.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "munhwajae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-220-1786687436944",
+        "term": "소재",
+        "definition": "Material, subject matter",
+        "meaningKr": "Material, subject matter",
+        "exampleEn": "이 소설은 역사적 사건을 소재로 했습니다.",
+        "exampleKr": "This novel was based on a historical event.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sojae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-221-1786687436944",
+        "term": "화제",
+        "definition": "Topic, subject of talk",
+        "meaningKr": "Topic, subject of talk",
+        "exampleEn": "그의 발언이 큰 화제가 되었습니다.",
+        "exampleKr": "His remarks became a hot topic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hwaje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-222-1786687436944",
+        "term": "보도하다",
+        "definition": "To report, to inform",
+        "meaningKr": "To report, to inform",
+        "exampleEn": "기자들은 사건의 전말을 보도했습니다.",
+        "exampleKr": "The reporters reported the whole story of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "bodohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-223-1786687436944",
+        "term": "무용",
+        "definition": "Dance",
+        "meaningKr": "Dance",
+        "exampleEn": "그녀는 현대 무용을 전공했습니다.",
+        "exampleKr": "She majored in modern dance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "muyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-224-1786687436944",
+        "term": "곱다",
+        "definition": "Beautiful, pretty, fine",
+        "meaningKr": "Beautiful, pretty, fine",
+        "exampleEn": "그녀는 마음씨도 곱고 얼굴도 예쁩니다.",
+        "exampleKr": "She has a kind heart and a beautiful face.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-225-1786687436944",
+        "term": "기록하다",
+        "definition": "to record, document, write down",
+        "meaningKr": "to record, document, write down",
+        "exampleEn": "일기를 매일 기록하다.",
+        "exampleKr": "I record my diary every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "girokada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-226-1786687436944",
+        "term": "드라마",
+        "definition": "drama (TV show, play)",
+        "meaningKr": "drama (TV show, play)",
+        "exampleEn": "저는 한국 드라마를 자주 봅니다.",
+        "exampleKr": "I often watch Korean dramas.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "deurama",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-227-1786687436944",
+        "term": "배경",
+        "definition": "background, setting, context",
+        "meaningKr": "background, setting, context",
+        "exampleEn": "이 노래는 배경 음악이 좋습니다.",
+        "exampleKr": "This song has good background music.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "baegyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-228-1786687436944",
+        "term": "썰다",
+        "definition": "to slice, chop, cut",
+        "meaningKr": "to slice, chop, cut",
+        "exampleEn": "요리하기 위해 채소를 썰었어요.",
+        "exampleKr": "I sliced the vegetables to cook.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sseolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-229-1786687436944",
+        "term": "서양",
+        "definition": "the West, Western countries",
+        "meaningKr": "the West, Western countries",
+        "exampleEn": "서양 문화에 대해 배우고 싶어요.",
+        "exampleKr": "I want to learn about Western culture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "seoyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-230-1786687436944",
+        "term": "어울리다",
+        "definition": "to suit, match, get along",
+        "meaningKr": "to suit, match, get along",
+        "exampleEn": "이 옷이 저에게 잘 어울려요.",
+        "exampleKr": "These clothes suit me well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eoullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-231-1786687436944",
+        "term": "통신",
+        "definition": "communication, telecommunication",
+        "meaningKr": "communication, telecommunication",
+        "exampleEn": "정보 통신 기술이 발전했습니다.",
+        "exampleKr": "Information and communication technology has developed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "tongsin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-232-1786687436944",
+        "term": "기자",
+        "definition": "reporter, journalist",
+        "meaningKr": "reporter, journalist",
+        "exampleEn": "그는 유명한 특종 기자입니다.",
+        "exampleKr": "He is a famous scoop reporter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gija",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-233-1786687436944",
+        "term": "작가",
+        "definition": "writer, author",
+        "meaningKr": "writer, author",
+        "exampleEn": "저는 유명한 소설 작가를 좋아해요.",
+        "exampleKr": "I like famous novelists.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jakga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-234-1786687436944",
+        "term": "방송",
+        "definition": "broadcast, broadcasting",
+        "meaningKr": "broadcast, broadcasting",
+        "exampleEn": "그 뉴스는 생방송으로 나갔습니다.",
+        "exampleKr": "That news was broadcast live.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bangsong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-235-1786687436944",
+        "term": "알려지다",
+        "definition": "to be known, be famous",
+        "meaningKr": "to be known, be famous",
+        "exampleEn": "그의 이름은 널리 알려졌습니다.",
+        "exampleKr": "His name became widely known.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "allyeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-236-1786687436944",
+        "term": "매체",
+        "definition": "medium, media",
+        "meaningKr": "medium, media",
+        "exampleEn": "대중 매체는 영향력이 큽니다.",
+        "exampleKr": "The mass media has great influence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "maeche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-237-1786687436944",
+        "term": "쓰이다",
+        "definition": "to be used, be written",
+        "meaningKr": "to be used, be written",
+        "exampleEn": "이것은 중요한 자료로 쓰입니다.",
+        "exampleKr": "This is used as important data.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sseuida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-238-1786687436944",
+        "term": "퍼지다",
+        "definition": "to spread, diffuse",
+        "meaningKr": "to spread, diffuse",
+        "exampleEn": "그 소문은 금방 퍼졌습니다.",
+        "exampleKr": "That rumor spread quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "peojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-239-1786687436944",
+        "term": "화면",
+        "definition": "screen, display, scene",
+        "meaningKr": "screen, display, scene",
+        "exampleEn": "컴퓨터 화면이 밝게 보입니다.",
+        "exampleKr": "The computer screen looks bright.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hwamyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-240-1786687436944",
+        "term": "등장하다",
+        "definition": "to appear, emerge, debut",
+        "meaningKr": "to appear, emerge, debut",
+        "exampleEn": "새로운 캐릭터가 무대에 등장했습니다.",
+        "exampleKr": "A new character appeared on stage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "deungjanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-241-1786687436944",
+        "term": "실리다",
+        "definition": "to be published, to be carried (in print)",
+        "meaningKr": "to be published, to be carried (in print)",
+        "exampleEn": "그의 글이 잡지에 실렸습니다.",
+        "exampleKr": "His writing was published in the magazine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sillida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-242-1786687436944",
+        "term": "세계관",
+        "definition": "worldview, view of the world",
+        "meaningKr": "worldview, view of the world",
+        "exampleEn": "이 소설은 독특한 세계관을 가지고 있다.",
+        "exampleKr": "This novel has a unique worldview.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "segyegwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-243-1786687436944",
+        "term": "연극",
+        "definition": "play, drama, theater",
+        "meaningKr": "play, drama, theater",
+        "exampleEn": "우리는 어제 연극 공연을 보러 갔다.",
+        "exampleKr": "We went to see a play performance yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "yeon-geuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-244-1786687436944",
+        "term": "감독",
+        "definition": "director, supervision",
+        "meaningKr": "director, supervision",
+        "exampleEn": "그 영화는 유명한 감독이 만들었다.",
+        "exampleKr": "That movie was made by a famous director.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gamdok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-245-1786687436944",
+        "term": "무대",
+        "definition": "stage, scene, arena",
+        "meaningKr": "stage, scene, arena",
+        "exampleEn": "가수가 무대에 올라 노래를 불렀다.",
+        "exampleKr": "The singer went on stage and sang a song.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "mudae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-246-1786687436944",
+        "term": "미",
+        "definition": "beauty, beautifulness",
+        "meaningKr": "beauty, beautifulness",
+        "exampleEn": "그림에는 뛰어난 미가 담겨 있다.",
+        "exampleKr": "The painting contains outstanding beauty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "mi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-247-1786687436944",
+        "term": "장면",
+        "definition": "scene, situation",
+        "meaningKr": "scene, situation",
+        "exampleEn": "영화의 마지막 장면이 인상 깊었다.",
+        "exampleKr": "The last scene of the movie was impressive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jangmyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-248-1786687436944",
+        "term": "동작",
+        "definition": "movement, motion, action",
+        "meaningKr": "movement, motion, action",
+        "exampleEn": "그는 갑자기 동작을 멈추었다.",
+        "exampleKr": "He suddenly stopped his movement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "dongjak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-249-1786687436944",
+        "term": "코드",
+        "definition": "code, cord, chord",
+        "meaningKr": "code, cord, chord",
+        "exampleEn": "이것은 비밀 암호 코드입니다.",
+        "exampleKr": "This is a secret cipher code.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "문화·미디어",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "kodeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-250-1786687436944",
+        "term": "이해",
+        "definition": "understanding, comprehension",
+        "meaningKr": "understanding, comprehension",
+        "exampleEn": "서로의 입장을 이해하는 것이 중요하다.",
+        "exampleKr": "It is important to understand each other's position.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ihae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-251-1786687436944",
+        "term": "예",
+        "definition": "example, instance",
+        "meaningKr": "example, instance",
+        "exampleEn": "좋은 예를 들어 설명해 주세요.",
+        "exampleKr": "Please explain with a good example.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "ye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-252-1786687436944",
+        "term": "관련",
+        "definition": "relation, connection, association",
+        "meaningKr": "relation, connection, association",
+        "exampleEn": "이 사건과 관련된 정보를 찾고 있습니다.",
+        "exampleKr": "I am looking for information related to this incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwallyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-253-1786687436944",
+        "term": "걸리다",
+        "definition": "to take (time), to be hung, to catch",
+        "meaningKr": "to take (time), to be hung, to catch",
+        "exampleEn": "이 일을 끝내는 데 시간이 오래 걸립니다.",
+        "exampleKr": "It takes a long time to finish this work.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "geollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-254-1786687436944",
+        "term": "맞다",
+        "definition": "to be correct, to fit, to be suitable",
+        "meaningKr": "to be correct, to fit, to be suitable",
+        "exampleEn": "그의 주장이 사실과 맞지 않다.",
+        "exampleKr": "His claim does not match the facts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "matda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-255-1786687436944",
+        "term": "이루어지다",
+        "definition": "to be achieved/realized; to be formed/composed of",
+        "meaningKr": "to be achieved/realized; to be formed/composed of",
+        "exampleEn": "그의 꿈은 마침내 이루어졌어요.",
+        "exampleKr": "His dream was finally realized.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "irueojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-256-1786687436944",
+        "term": "얻다",
+        "definition": "to get, obtain, gain (abstract)",
+        "meaningKr": "to get, obtain, gain (abstract)",
+        "exampleEn": "많은 경험을 얻을 수 있었어요.",
+        "exampleKr": "I was able to gain a lot of experience.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eotda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-257-1786687436944",
+        "term": "이루다",
+        "definition": "to achieve, accomplish; to form",
+        "meaningKr": "to achieve, accomplish; to form",
+        "exampleEn": "그는 목표를 꼭 이루고 싶어해요.",
+        "exampleKr": "He really wants to achieve his goal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "iruda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-258-1786687436944",
+        "term": "변화",
+        "definition": "change, transformation",
+        "meaningKr": "change, transformation",
+        "exampleEn": "사회 변화는 매우 중요합니다.",
+        "exampleKr": "Social change is very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "byeonhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-259-1786687436944",
+        "term": "밝히다",
+        "definition": "to reveal, clarify; to light up",
+        "meaningKr": "to reveal, clarify; to light up",
+        "exampleEn": "경찰은 사건의 원인을 밝혔어요.",
+        "exampleKr": "The police revealed the cause of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "balkida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-260-1786687436944",
+        "term": "의미",
+        "definition": "meaning, significance",
+        "meaningKr": "meaning, significance",
+        "exampleEn": "이 단어의 의미를 모르겠어요.",
+        "exampleKr": "I don't know the meaning of this word.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "uimi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-261-1786687436944",
+        "term": "내용",
+        "definition": "content, substance, details",
+        "meaningKr": "content, substance, details",
+        "exampleEn": "책의 주요 내용을 요약했어요.",
+        "exampleKr": "I summarized the main content of the book.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "naeyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-262-1786687436944",
+        "term": "결과",
+        "definition": "result, outcome, consequence",
+        "meaningKr": "result, outcome, consequence",
+        "exampleEn": "시험 결과가 좋게 나왔어요.",
+        "exampleKr": "The test results came out well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gyeolgwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-263-1786687436944",
+        "term": "이상",
+        "definition": "more than, above (quantity); ideal",
+        "meaningKr": "more than, above (quantity); ideal",
+        "exampleEn": "사과는 열 개 이상 샀어요.",
+        "exampleKr": "I bought more than ten apples.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "isang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-264-1786687436944",
+        "term": "방법",
+        "definition": "method, way, means",
+        "meaningKr": "method, way, means",
+        "exampleEn": "이 문제를 해결할 좋은 방법이 있어요.",
+        "exampleKr": "There is a good way to solve this problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "bangbeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-265-1786687436944",
+        "term": "없이",
+        "definition": "without",
+        "meaningKr": "without",
+        "exampleEn": "물 없이 살 수는 없어요.",
+        "exampleKr": "We cannot live without water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "eopsi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-topik2-266-1786687436944",
+        "term": "나타나다",
+        "definition": "to appear, emerge, manifest",
+        "meaningKr": "to appear, emerge, manifest",
+        "exampleEn": "갑자기 이상한 소리가 나타났어요.",
+        "exampleKr": "A strange sound suddenly appeared.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "natanada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-267-1786687436944",
+        "term": "의하다",
+        "definition": "to be based on, to be due to",
+        "meaningKr": "to be based on, to be due to",
+        "exampleEn": "이것은 전문가의 의견에 의합니다.",
+        "exampleKr": "This is based on the expert's opinion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "uihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-268-1786687436944",
+        "term": "점",
+        "definition": "point, aspect, feature",
+        "meaningKr": "point, aspect, feature",
+        "exampleEn": "그것은 매우 중요한 점이에요.",
+        "exampleKr": "That is a very important point.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-269-1786687436944",
+        "term": "사실",
+        "definition": "fact, truth",
+        "meaningKr": "fact, truth",
+        "exampleEn": "사실은 제가 먼저 도착했어요.",
+        "exampleKr": "Actually, I arrived first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "sasil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-270-1786687436944",
+        "term": "보이다",
+        "definition": "to be seen, to appear; to show",
+        "meaningKr": "to be seen, to appear; to show",
+        "exampleEn": "그 영화는 정말 잘 보여요.",
+        "exampleKr": "That movie is really well shown.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "boida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-271-1786687436944",
+        "term": "정도",
+        "definition": "degree, extent, level",
+        "meaningKr": "degree, extent, level",
+        "exampleEn": "어느 정도는 이해할 수 있어요.",
+        "exampleKr": "I can understand it to some extent.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jeongdo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-272-1786687436944",
+        "term": "통하다",
+        "definition": "to go through, communicate",
+        "meaningKr": "to go through, communicate",
+        "exampleEn": "대화를 통하여 서로를 이해해요.",
+        "exampleKr": "We understand each other through conversation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "tonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-273-1786687436944",
+        "term": "경우",
+        "definition": "case, instance, situation",
+        "meaningKr": "case, instance, situation",
+        "exampleEn": "이런 경우를 본 적이 없어요.",
+        "exampleKr": "I have never seen this kind of case.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gyeongu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-274-1786687436944",
+        "term": "위하다",
+        "definition": "to do for, for the sake of",
+        "meaningKr": "to do for, for the sake of",
+        "exampleEn": "가족을 위하여 열심히 일해요.",
+        "exampleKr": "I work hard for my family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "wihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-275-1786687436944",
+        "term": "가치",
+        "definition": "value, worth, merit",
+        "meaningKr": "value, worth, merit",
+        "exampleEn": "그 물건은 높은 가치가 있어요.",
+        "exampleKr": "That item has high value.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gachi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-276-1786687436944",
+        "term": "자꾸",
+        "definition": "repeatedly, again and again",
+        "meaningKr": "repeatedly, again and again",
+        "exampleEn": "그는 자꾸 실수를 해요.",
+        "exampleKr": "He makes mistakes again and again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "jakku",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-topik2-277-1786687436944",
+        "term": "미래",
+        "definition": "future",
+        "meaningKr": "future",
+        "exampleEn": "미래 계획을 세우는 것이 중요해요.",
+        "exampleKr": "It is important to make future plans.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "mirae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-278-1786687436944",
+        "term": "관련되다",
+        "definition": "to be related to, involved in",
+        "meaningKr": "to be related to, involved in",
+        "exampleEn": "이것은 그 사건과 관련돼요.",
+        "exampleKr": "This is related to that incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "gwallyeondoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-279-1786687436944",
+        "term": "포함하다",
+        "definition": "to include, to contain",
+        "meaningKr": "to include, to contain",
+        "exampleEn": "이 가격은 세금을 포함해요.",
+        "exampleKr": "This price includes tax.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "pohamhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-280-1786687436944",
+        "term": "찾아보다",
+        "definition": "to look for, search for, visit",
+        "meaningKr": "to look for, search for, visit",
+        "exampleEn": "정보를 찾아보는 중이에요.",
+        "exampleKr": "I am in the middle of looking for information.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "chajaboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-281-1786687436944",
+        "term": "주요",
+        "definition": "main, principal, major",
+        "meaningKr": "main, principal, major",
+        "exampleEn": "그것이 주요 원인입니다.",
+        "exampleKr": "That is the main cause.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "juyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-282-1786687436944",
+        "term": "미치다",
+        "definition": "to reach, extend, affect",
+        "meaningKr": "to reach, extend, affect",
+        "exampleEn": "그 소식은 전국에 미쳤어요.",
+        "exampleKr": "The news reached the whole country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "michida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-283-1786687436944",
+        "term": "우선",
+        "definition": "first, primarily, for now",
+        "meaningKr": "first, primarily, for now",
+        "exampleEn": "우선 이것부터 처리합시다.",
+        "exampleKr": "Let's handle this first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "useon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-topik2-284-1786687436944",
+        "term": "현재",
+        "definition": "currently, at present",
+        "meaningKr": "currently, at present",
+        "exampleEn": "현재 상황이 매우 심각해요.",
+        "exampleKr": "The current situation is very serious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 3-4"
+        ],
+        "phonetic": "hyeonjae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-topik2-285-1786687436944",
+        "term": "자체",
+        "definition": "itself, inherent",
+        "meaningKr": "itself, inherent",
+        "exampleEn": "이것은 문제 자체입니다.",
+        "exampleKr": "This is the problem itself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jache",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-286-1786687436944",
+        "term": "면",
+        "definition": "face, surface, aspect",
+        "meaningKr": "face, surface, aspect",
+        "exampleEn": "경제적 면에서 어려움이 있습니다.",
+        "exampleKr": "There are difficulties in terms of the economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "myeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-287-1786687436944",
+        "term": "현실적",
+        "definition": "realistic, practical",
+        "meaningKr": "realistic, practical",
+        "exampleEn": "현실적인 목표를 세워야 합니다.",
+        "exampleKr": "We must set realistic goals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "hyeonsiljeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-topik2-288-1786687436944",
+        "term": "과정",
+        "definition": "process, course",
+        "meaningKr": "process, course",
+        "exampleEn": "학습 과정은 매우 중요합니다.",
+        "exampleKr": "The learning process is very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gwajeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-289-1786687436944",
+        "term": "상황",
+        "definition": "situation, circumstances",
+        "meaningKr": "situation, circumstances",
+        "exampleEn": "현재 상황을 파악해야 합니다.",
+        "exampleKr": "We need to grasp the current situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "sanghwang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-290-1786687436944",
+        "term": "구조",
+        "definition": "structure, organization",
+        "meaningKr": "structure, organization",
+        "exampleEn": "사회 구조는 복잡합니다.",
+        "exampleKr": "The social structure is complex.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gujo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-291-1786687436944",
+        "term": "의식",
+        "definition": "consciousness, awareness",
+        "meaningKr": "consciousness, awareness",
+        "exampleEn": "사회적 의식이 필요합니다.",
+        "exampleKr": "Social awareness is necessary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "uisik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-292-1786687436944",
+        "term": "주장",
+        "definition": "claim, assertion",
+        "meaningKr": "claim, assertion",
+        "exampleEn": "그는 자신의 주장을 굽히지 않았다.",
+        "exampleKr": "He did not yield his own claim.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jujang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-293-1786687436944",
+        "term": "인하다",
+        "definition": "to be caused by, to stem from",
+        "meaningKr": "to be caused by, to stem from",
+        "exampleEn": "이 문제는 여러 요인으로 인합니다.",
+        "exampleKr": "This problem stems from various factors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "inhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-294-1786687436944",
+        "term": "존재하다",
+        "definition": "to exist, to be",
+        "meaningKr": "to exist, to be",
+        "exampleEn": "이 세상에 많은 문제가 존재합니다.",
+        "exampleKr": "Many problems exist in this world.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "jonjaehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-295-1786687436944",
+        "term": "관점",
+        "definition": "viewpoint, perspective",
+        "meaningKr": "viewpoint, perspective",
+        "exampleEn": "다른 관점에서 생각해 봅시다.",
+        "exampleKr": "Let's think from a different viewpoint.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "gwanjeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-296-1786687436944",
+        "term": "불구하다",
+        "definition": "to disregard, to despite",
+        "meaningKr": "to disregard, to despite",
+        "exampleEn": "어려움에도 불구하고 그는 성공했다.",
+        "exampleKr": "Despite the difficulties, he succeeded.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "bulguhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-297-1786687436944",
+        "term": "파악하다",
+        "definition": "to grasp, understand",
+        "meaningKr": "to grasp, understand",
+        "exampleEn": "문제점을 정확히 파악해야 합니다.",
+        "exampleKr": "We must accurately grasp the problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "paakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-topik2-298-1786687436944",
+        "term": "실천",
+        "definition": "practice, action",
+        "meaningKr": "practice, action",
+        "exampleEn": "이론을 실천으로 옮겨야 합니다.",
+        "exampleKr": "We must put theory into practice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "silcheon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-topik2-299-1786687436944",
+        "term": "방안",
+        "definition": "plan, measure",
+        "meaningKr": "plan, measure",
+        "exampleEn": "해결 방안을 모색해야 합니다.",
+        "exampleKr": "We need to seek a solution plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK II",
+          "Exam",
+          "추상어·논리",
+          "TOPIK 5-6"
+        ],
+        "phonetic": "bangan",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-topik1-ko-1",
     "title": "TOPIK I Essentials 350",
     "icon": "📝",

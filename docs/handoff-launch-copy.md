@@ -27,8 +27,8 @@
 6. 안티: 스트릭 압박·팡파레·교과서 톤 없음
 
 **가격 (정확히)**
-- 무료: AI 하루 100단어 + 광고 시 +50(최대 300/일)
-- Pro: 광고 없이 하루 1,000단어 — ₩3,900/월, 연간 ₩36,000(Play) · ₩35,900(App Store), 연 23%↓ / ≈ $2.99/mo, $27.99/yr
+- 무료: AI 하루 50단어 + 광고 1회당 +20(하루 최대 2회)
+- Pro: 광고 없이 월 3,000단어·일일 제한 없음 — ₩3,900/월, 연간 ₩36,000(Play) · ₩35,900(App Store), 연 23%↓ / ≈ $2.99/mo, $27.99/yr
 - BYOK: 본인 Gemini API 키로 무제한 무료(Google AI Studio 무료 발급)
 - 가입 첫 24시간은 하루 300단어
 - Pro 구독 시작 시 7일 무료 체험 (체험 중 해지하면 청구 없음)
@@ -295,7 +295,7 @@ Would love your feedback — what language/curation should I add next?
 
 기본 제공 단어장도 있어요(NGSL 기초, 비즈니스, 학술/시험). 스트릭 압박이나 요란한 애니메이션 없이 깔끔한 게 마음에 들어서요.
 
-무료로 쓸 수 있고(하루 AI 100단어), 본인 Gemini 키 넣으면 무제한 무료예요.
+무료로 쓸 수 있고(하루 AI 50단어), 본인 Gemini 키를 넣으면 무제한 무료예요.
 안드로이드: https://play.google.com/store/apps/details?id=com.soksokvoca
 아이폰: https://apps.apple.com/app/id6776714408
 ```

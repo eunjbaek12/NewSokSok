@@ -63,6 +63,8 @@ export interface SubscriptionRow {
   /** Android purchaseToken or iOS originalTransactionId — provider 무관 unique id. */
   play_purchase_token: string;
   play_product_id: string;
+  /** Store-verified original subscription date. Anchors monthly AI quota. */
+  quota_anchor_at: string;
   updated_at: string;
 }
 
@@ -136,17 +138,20 @@ export function createVerifyHandler(deps: VerifyDeps) {
 
     // 4~6. 플랫폼별 검증
     let expiryTime: string;
+    let quotaAnchorAt: string;
     let storedToken: string = purchaseToken;
     let storeAccountId: string | undefined;
     if (platform === 'android') {
       const result = await verifyAndroid(deps, productId, purchaseToken);
       if (!result.ok) return result.response;
       expiryTime = result.expiryTime;
+      quotaAnchorAt = result.quotaAnchorAt;
       storeAccountId = result.storeAccountId;
     } else {
       const result = await verifyApple(deps, productId, purchaseToken);
       if (!result.ok) return result.response;
       expiryTime = result.expiryTime;
+      quotaAnchorAt = result.quotaAnchorAt;
       // iOS는 originalTransactionId를 안정 키로 저장 (구독 갱신마다 transactionId가
       // 바뀌지만 originalTransactionId는 동일). 환불·취소 추적 시 일관성.
       storedToken = result.originalTransactionId;
@@ -190,6 +195,7 @@ export function createVerifyHandler(deps: VerifyDeps) {
       pro_until: expiryTime,
       play_purchase_token: storedToken,
       play_product_id: productId,
+      quota_anchor_at: quotaAnchorAt,
       updated_at: new Date().toISOString(),
     });
     if (upsertErr) {
@@ -214,6 +220,7 @@ type VerifyOutcome =
   | {
       ok: true;
       expiryTime: string;
+      quotaAnchorAt: string;
       originalTransactionId: string;
       /**
        * 구매 시점에 각인된 앱 계정 id — Play/Apple이 확인해 돌려준 값이다.
@@ -270,6 +277,9 @@ async function verifyAndroid(
   return {
     ok: true,
     expiryTime: evaluation.expiryTime,
+    // Active subscriptions normally include startTime. expiryTime has the same
+    // renewal day and is a stable fallback for older/sandbox responses.
+    quotaAnchorAt: playData.startTime ?? evaluation.expiryTime,
     originalTransactionId: purchaseToken,
     storeAccountId: playData.externalAccountIdentifiers?.obfuscatedExternalAccountId,
   };
@@ -320,6 +330,9 @@ async function verifyApple(
   return {
     ok: true,
     expiryTime: evaluation.expiryTime,
+    quotaAnchorAt: txResult.payload.originalPurchaseDate
+      ? new Date(txResult.payload.originalPurchaseDate).toISOString()
+      : evaluation.expiryTime,
     originalTransactionId,
     storeAccountId: txResult.payload.appAccountToken,
   };

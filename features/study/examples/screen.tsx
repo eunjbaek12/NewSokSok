@@ -180,6 +180,10 @@ export default function ExamplesScreen() {
             enriched = null;
           }
           if (enriched?.exampleEn) break;
+          // A basic quota-exhausted result is intentionally usable for other
+          // study modes but cannot produce an example. Do not repeatedly call
+          // Edge trying to auto-upgrade it in the background.
+          if (enriched?.enrichmentLevel === 'basic') break;
           if (attempt < MAX_ATTEMPTS - 1) {
             const backoff = Math.min(1500 * Math.pow(2, attempt), 8000);
             await new Promise(r => setTimeout(r, backoff));

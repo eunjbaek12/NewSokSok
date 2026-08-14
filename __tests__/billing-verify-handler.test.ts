@@ -11,6 +11,8 @@ import {
 
 const FUTURE = new Date('2026-12-31T00:00:00Z').toISOString();
 const FUTURE_MS = new Date(FUTURE).getTime();
+const QUOTA_ANCHOR = new Date('2026-01-31T00:00:00Z').toISOString();
+const QUOTA_ANCHOR_MS = new Date(QUOTA_ANCHOR).getTime();
 const PRODUCT = 'pro_monthly';
 const PKG = 'com.soksokvoca';
 const BUNDLE = 'com.soksokvoca';
@@ -19,6 +21,7 @@ const APPLE_TX = 'tx-renewal-1';
 
 const activePlayData = {
   subscriptionState: 'SUBSCRIPTION_STATE_ACTIVE',
+  startTime: QUOTA_ANCHOR,
   lineItems: [{ productId: PRODUCT, expiryTime: FUTURE }],
 };
 
@@ -27,6 +30,7 @@ const activeApplePayload = {
   productId: PRODUCT,
   transactionId: APPLE_TX,
   originalTransactionId: APPLE_ORIGINAL_TX,
+  originalPurchaseDate: QUOTA_ANCHOR_MS,
   expiresDate: FUTURE_MS,
 };
 
@@ -74,6 +78,7 @@ describe('verify-purchase 핸들러 — 성공 경로', () => {
     expect(row).toMatchObject({
       user_id: 'user-1', tier: 'pro', pro_until: FUTURE,
       play_purchase_token: 'tok-123', play_product_id: PRODUCT,
+      quota_anchor_at: QUOTA_ANCHOR,
     });
   });
 
@@ -177,6 +182,7 @@ describe('verify-purchase 핸들러 — iOS 경로', () => {
       pro_until: FUTURE,
       play_purchase_token: APPLE_ORIGINAL_TX,
       play_product_id: PRODUCT,
+      quota_anchor_at: QUOTA_ANCHOR,
     });
     expect(deps.fetchPlay).not.toHaveBeenCalled();
   });

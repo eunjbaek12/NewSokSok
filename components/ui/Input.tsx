@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import { TextInput, View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { TextInput, View, Text, StyleSheet, ViewStyle, TextStyle, Pressable } from 'react-native';
 import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { Radius } from '@/constants/tokens';
@@ -10,6 +10,8 @@ interface InputProps extends ComponentProps<typeof TextInput> {
     leftIcon?: keyof typeof Ionicons.glyphMap;
     containerStyle?: ViewStyle | ViewStyle[];
     labelStyle?: TextStyle;
+    onClear?: () => void;
+    clearAccessibilityLabel?: string;
     ref?: React.Ref<TextInput>;
 }
 
@@ -20,6 +22,8 @@ export function Input({
     leftIcon,
     containerStyle,
     labelStyle,
+    onClear,
+    clearAccessibilityLabel,
     style,
     multiline,
     ...props
@@ -64,6 +68,17 @@ export function Input({
                     textAlignVertical={multiline ? 'top' : 'auto'}
                     {...props}
                 />
+                {onClear && typeof props.value === 'string' && props.value.length > 0 && (
+                    <Pressable
+                        onPress={onClear}
+                        accessibilityRole="button"
+                        accessibilityLabel={clearAccessibilityLabel}
+                        hitSlop={12}
+                        style={styles.clearButton}
+                    >
+                        <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                    </Pressable>
+                )}
             </View>
             {error && (
                 <Text style={[styles.errorText, { color: colors.error }]}>
@@ -102,6 +117,15 @@ const styles = StyleSheet.create({
     multilineInput: {
         minHeight: 80,
         paddingTop: 12,
+    },
+    clearButton: {
+        width: 40,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        marginRight: -10,
+        marginTop: 2,
     },
     errorText: {
         fontSize: 12,

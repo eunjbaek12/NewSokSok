@@ -180,7 +180,21 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     const loaded = await authStore.load();
     const { data: { session } } = await supabase.auth.getSession();
 
-    if (isCloudAuthMode(loaded.mode) && session?.user) {
+    if (loaded.mode === 'guest' && session?.user?.is_anonymous) {
+      // Guest data remains local-only, but the anonymous Supabase session owns
+      // server quota and rewarded-ad state.
+      set({ mode: 'guest', user: null });
+    } else if (loaded.mode === 'guest') {
+      // Upgrade legacy device-only guests on first launch after this policy.
+      // Local vocabulary stays untouched; only a server identity for quota and
+      // rewarded-ad state is added.
+      if (session) await supabase.auth.signOut({ scope: 'local' });
+      const { error } = await supabase.auth.signInAnonymously();
+      if (error) {
+        console.warn('[auth] anonymous guest session failed:', error.message);
+      }
+      set({ mode: 'guest', user: null });
+    } else if (isCloudAuthMode(loaded.mode) && session?.user && !session.user.is_anonymous) {
       const user = await buildUser(session.user);
       await persist({ mode: loaded.mode, user }, set);
     } else if (isCloudAuthMode(loaded.mode)) {
@@ -189,7 +203,8 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       await authStore.remove();
       set({ mode: 'none', user: null });
     } else {
-      // Intent is 'none' or 'guest'. Honor it, and proactively clear any orphan
+      // Intent is 'none' (or a legacy guest without an anonymous session).
+      // Honor it, and proactively clear any orphan
       // session a failed signOut left behind so it can't resurrect later.
       if (session) {
         try { await supabase.auth.signOut({ scope: 'local' }); } catch {}
@@ -213,6 +228,13 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
           await persist({ mode: 'none', user: null }, set);
         }
       } else if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
+        if (session.user.is_anonymous) {
+          // Anonymous SIGNED_IN belongs to guest mode. Never interpret it as a
+          // Google login and never attach a cloud-sync user to it.
+          if (useAuthStore.getState().mode === 'guest') return;
+          await persist({ mode: 'guest', user: null }, set);
+          return;
+        }
         // Preserve current mode (could be 'apple' from a fresh signInWithApple
         // call). Default to 'google' for backward compatibility with any token
         // refresh that fires before our explicit signIn* set the mode.
@@ -225,6 +247,12 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   },
 
   loginAsGuest: async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.user?.is_anonymous) {
+      if (session) await supabase.auth.signOut({ scope: 'local' });
+      const { error } = await supabase.auth.signInAnonymously();
+      if (error) throw error;
+    }
     await persist({ mode: 'guest', user: null }, set);
   },
 

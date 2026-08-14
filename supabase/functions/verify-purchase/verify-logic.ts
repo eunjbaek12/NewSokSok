@@ -11,6 +11,8 @@ export const VALID_SUBSCRIPTION_STATES = new Set([
 
 export interface PlaySubscriptionV2Response {
   subscriptionState?: string;
+  /** Subscription grant time. Used as the monthly AI-quota billing anchor. */
+  startTime?: string;
   lineItems?: Array<{
     productId: string;
     expiryTime?: string;
@@ -72,6 +74,8 @@ export interface AppleTransactionPayload {
   productId?: string;
   transactionId?: string;
   originalTransactionId?: string;
+  /** Original transaction purchase time (epoch ms). Monthly AI-quota anchor. */
+  originalPurchaseDate?: number;
   expiresDate?: number;       // epoch ms
   revocationDate?: number;    // epoch ms — 환불 시
   type?: string;              // "Auto-Renewable Subscription"

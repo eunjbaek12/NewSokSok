@@ -32,7 +32,13 @@ pnpm run lint         # Run ESLint
 pnpm run lint:fix     # Auto-fix lint issues
 ```
 
-There is no configured test script. Jest and ts-jest are in devDependencies with test files in `__tests__/`.
+`pnpm test` runs Jest (`jest.config.js`, tests in `__tests__/`). ~980 tests, all passing.
+
+⚠️ Three suites fail to *run* (not assertion failures) and have for a while:
+`vocab-db` / `word-unique-target` need the `sqlite3` npm package (not installed);
+`photo-import-pipeline` hits a Jest parse error. Migration tests use Node's built-in
+`node:sqlite` instead and do run — see `__tests__/migration-018-review-seed.test.ts`
+for the pattern (replay the 001→N ladder on a real engine).
 
 ## Architecture Overview
 

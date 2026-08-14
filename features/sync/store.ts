@@ -42,6 +42,15 @@ interface SyncStoreState {
   markWordDirty: (id: string) => void;
   markListsDirty: (ids: string[]) => void;
   markWordsDirty: (ids: string[]) => void;
+  /**
+   * hydrate 이전에도 안전한 마킹. 저장된 값을 읽어 **합집합**으로 다시 쓴다.
+   *
+   * 평소 경로(`markWordsDirty`)는 메모리 Set을 정본으로 보고 AsyncStorage를 통째로
+   * 덮어쓴다 — hydrate가 끝난 뒤라면 맞다. 하지만 DB 마이그레이션처럼 `hydrateDirty()`
+   * 보다 먼저 도는 코드에서 부르면 메모리가 빈 Set이라, **아직 읽지 않은 기존 dirty를
+   * 지워 버린다**(오프라인에서 고친 단어가 서버에 영영 못 올라간다).
+   */
+  markWordsDirtyDurable: (ids: string[]) => Promise<void>;
   markStatDatesDirty: (dates: string[]) => void;
 
   clearDirtyLists: (ids?: string[]) => void;
@@ -85,6 +94,28 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
     for (const id of ids) next.add(id);
     set({ dirtyWordIds: next });
     persistSet(DIRTY_WORDS_KEY, next);
+  },
+  markWordsDirtyDurable: async (ids) => {
+    // 저장값 ∪ 메모리 ∪ 새 id. 읽기에 실패하면 저장된 것을 모르는 상태이므로 덮어쓰지
+    // 않고 메모리에만 반영한다 — 나중 hydrate가 저장값과 합쳐 주므로 잃지 않는다.
+    let stored: string[];
+    try {
+      stored = parseStoredIds(await AsyncStorage.getItem(DIRTY_WORDS_KEY));
+    } catch {
+      const memoryOnly = new Set(get().dirtyWordIds);
+      for (const id of ids) memoryOnly.add(id);
+      set({ dirtyWordIds: memoryOnly });
+      return;
+    }
+    const next = new Set(stored);
+    for (const id of get().dirtyWordIds) next.add(id);
+    for (const id of ids) next.add(id);
+    set({ dirtyWordIds: next });
+    try {
+      await AsyncStorage.setItem(DIRTY_WORDS_KEY, JSON.stringify([...next]));
+    } catch {
+      // 메모리에는 남아 있으므로 이번 실행의 push는 정상. 다음 실행에서 다시 마킹된다.
+    }
   },
   markStatDatesDirty: (dates) => {
     const next = new Set(get().dirtyStatDates);

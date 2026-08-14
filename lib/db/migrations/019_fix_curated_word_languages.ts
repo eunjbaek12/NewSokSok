@@ -25,8 +25,18 @@ import { useSyncStore } from '@/features/sync/store';
  *
  * 🔑 dirty 마킹이 이 마이그레이션의 절반이다. dirty 집합은 SQLite 가 아니라 AsyncStorage
  * 기반 Zustand store 라, SQL 로 고치기만 하면 **로컬만 바뀌고 서버는 영영 그대로**다.
- * `hydrateDirty()` 가 저장된 값과 합집합을 취하므로(features/sync/store.ts) 여기서 먼저
- * 마킹해도 나중 hydrate 가 지우지 않는다.
+ *
+ * 🔴 그래서 `markWordsDirty` 가 아니라 `markWordsDirtyDurable` 을 쓴다. 평소 경로는 메모리
+ * Set 을 정본으로 보고 AsyncStorage 를 통째로 덮어쓰는데, 마이그레이션은 DB 초기화 시점이라
+ * `hydrateDirty()` 보다 먼저 돌 수 있다(초기화 순서는 보장돼 있지 않다 — hydrate 는
+ * `features/vocab/use-bootstrap.ts` 에서, DB 는 `getDb()` 를 처음 부르는 쪽에서 lazy 하게
+ * 열린다). 그때 메모리는 빈 Set 이라 **오프라인에서 고쳐 둔 기존 dirty 가 통째로 날아간다.**
+ *
+ * ⚠️ 남는 한계: 마이그레이션은 `withTransactionAsync` 안에서 돌지만(lib/db/index.ts) dirty
+ * 쓰기는 AsyncStorage 라 롤백되지 않는다. 뒤따르는 마이그레이션이 실패하면 로컬은 안 고쳐진
+ * 채 dirty 만 남아 오염된 값이 한 번 push 될 수 있다. 다만 롤백되면 user_version 이 안
+ * 올라가 다음 실행에서 이 마이그레이션이 다시 돌고, 고쳐진 값이 다시 push 되므로 스스로
+ * 회복된다. 019 뒤에 다른 마이그레이션이 생기면 이 트레이드오프를 다시 볼 것.
  */
 const migration: Migration = {
   version: 19,
@@ -60,7 +70,7 @@ const migration: Migration = {
     // 이 마이그레이션은 다시 돌지 않으므로, 최악의 경우 로컬만 고쳐지고 서버가 남는다 —
     // 앱이 안 뜨는 것보다 낫다.
     try {
-      useSyncStore.getState().markWordsDirty(rows.map(r => r.id));
+      await useSyncStore.getState().markWordsDirtyDurable(rows.map(r => r.id));
     } catch (e) {
       console.warn('[migration 019] dirty 마킹 실패 — 로컬만 정정됨', e);
     }

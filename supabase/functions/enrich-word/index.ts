@@ -43,9 +43,17 @@ const COST_BY_MODE: Record<string, number> = {
 //     유의어로 바꿔 쓴 예문은 빈칸을 팔 자리가 없어 예문 학습에서 조용히 빠졌다
 //     (docs/backlog-examples-enrich.md P6). v6 캐시는 니모닉을 담고 있고 표제어 미포함
 //     예문이 섞여 있어 재생성.
-// v8: 뜻 전용 경로가 "tooli"를 "tool"로 암묵 교정해 "도구"로 저장한 문제 수정.
-//     정확한 입력 철자를 독립적으로 검증하며 유사 단어 뜻을 빌리지 않도록 강화.
-const PROMPT_VERSION = 8;
+// v8: 2026-08-14 되돌림 — 7로 복귀.
+//     뜻 전용(basic) 경로가 "tooli"를 "tool"로 암묵 교정해 "도구"로 저장한 문제를 고치며
+//     bump했는데, 그 수정은 _shared/gemini-meaning.ts(basic 전용)에 있고 full enrich
+//     프롬프트(_shared/gemini-vertex.ts)는 한 글자도 바뀌지 않았다. 그래서 v7 캐시
+//     80,714행(생성비 ₩37,412)이 이유 없이 통째로 미스 처리되고 있었다.
+//     이미 굳어 있던 오답은 그 1행(en>ko "tooli", basic, hit 0)을 DELETE해서 처리했다.
+//     basic 프롬프트 강화는 버전 숫자와 무관하게 그대로 작동한다.
+// 🔑 캐시를 버려야 하는 변경은 _shared/gemini-vertex.ts의 프롬프트나 AIWordResult 구조가
+//    바뀔 때뿐이다. 저장된 오답 몇 건을 없애려는 것이라면 bump가 아니라 그 행을 지울 것 —
+//    bump는 8만 행을 함께 버리고, 스토어에 나가 있는 앱(이 상수의 값으로 조회)과도 어긋난다.
+const PROMPT_VERSION = 7;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 

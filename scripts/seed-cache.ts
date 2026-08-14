@@ -253,6 +253,35 @@ function senseBlankMisses(r: SeedResult): { miss: number; total: number } {
   return { miss, total: senses.length };
 }
 
+/**
+ * `--input` 목록에서 유료 호출을 낭비할 항목을 미리 거른다.
+ *
+ * 출발어별로 규칙이 다른 이유는 목록의 출처가 다르기 때문이다.
+ *  - en: 외부 빈도 목록에 URL·사용자명·숫자 조각·깨진 토큰이 섞여 온다.
+ *  - ko: 말뭉치 상위의 한 음절은 이·는·을·하 같은 조사/어미 조각이 대부분이다.
+ *        유용한 한 음절 기본어는 내장 학습 덱에서 이미 합쳐진다.
+ *  - ja/zh: 사용자 단어장에서 뽑은 목록이라 형식은 깨끗하지만, 언어쌍 오염
+ *        (`zh>ko` 칸에 든 베트남어)과 라틴 약자 슬랭(`zqsg`·`nbcs`·`xjj` …)이 섞인다.
+ *        후자는 프롬프트가 "실재하지 않는 단어"로 판정해 저장되지 않는 알려진 항목이라
+ *        (docs 및 seed-cache-skip-ledger.json 참조) 부르는 만큼 그대로 돈만 나간다.
+ *        → CJK 문자를 하나도 포함하지 않으면 제외한다.
+ *  - vi/es: 라틴 문자 기반이라 en 규칙(발음 부호 포함)으로 본다.
+ */
+function isSeedableInput(term: string): boolean {
+  if (!term || term.length > 100) return false;
+  switch (INPUT_SOURCE_LANG) {
+    case 'en':
+      return /^[a-z]+(?:['’-][a-z]+)*(?: [a-z]+(?:['’-][a-z]+)*)*$/.test(term);
+    case 'ko':
+      return term.length >= 2 && /^[가-힣]+(?: [가-힣]+)*$/.test(term);
+    case 'ja':
+    case 'zh':
+      return /[぀-ヿ㐀-䶿一-鿿]/.test(term);
+    default:
+      return /^[\p{Letter}]+(?:['’-][\p{Letter}]+)*(?: [\p{Letter}]+(?:['’-][\p{Letter}]+)*)*$/u.test(term);
+  }
+}
+
 // ── 1. 덱에서 단어 추출 ──────────────────────────────────────────────────
 function collectJobs(): Job[] {
   const src = readFileSync(CURATION_PATH, 'utf8');
@@ -271,8 +300,8 @@ function collectJobs(): Job[] {
   }
 
   if (INPUT_PATH) {
-    if (!['en', 'ko'].includes(INPUT_SOURCE_LANG)) {
-      throw new Error('--input 사용 시 --source-lang en 또는 --source-lang ko가 필요합니다.');
+    if (!LANGS.includes(INPUT_SOURCE_LANG as typeof LANGS[number])) {
+      throw new Error(`--input 사용 시 --source-lang 은 ${LANGS.join('/')} 중 하나여야 합니다.`);
     }
     const raw: unknown = JSON.parse(readFileSync(INPUT_PATH, 'utf8'));
     if (!Array.isArray(raw)) throw new Error(`${INPUT_PATH}가 JSON 배열이 아닙니다.`);
@@ -284,13 +313,7 @@ function collectJobs(): Job[] {
         : item && typeof item === 'object' ? (item as { term?: unknown }).term
         : '';
       const term = String(value ?? '').trim().toLowerCase();
-      // 빈도 목록의 URL, 사용자명, 숫자 조각, 깨진 토큰을 유료 호출 전에 제거한다.
-      const valid = INPUT_SOURCE_LANG === 'en'
-        ? /^[a-z]+(?:['’-][a-z]+)*(?: [a-z]+(?:['’-][a-z]+)*)*$/.test(term)
-        // 외부 한국어 말뭉치의 한 음절 상위 항목은 이·는·을·하 같은 조사/어미 조각이
-        // 대부분이다. 유용한 한 음절 기본어는 이미 내장 학습 덱에서 별도로 합쳐진다.
-        : term.length >= 2 && /^[가-힣]+(?: [가-힣]+)*$/.test(term);
-      if (!valid || term.length > 100) { rejected++; continue; }
+      if (!isSeedableInput(term)) { rejected++; continue; }
       terms.add(term);
     }
     console.log(`  외부 목록 ${raw.length.toLocaleString()}건: 형식 불량 ${rejected.toLocaleString()}건 제외`);

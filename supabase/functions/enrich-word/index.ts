@@ -2,21 +2,25 @@
 // Body: { term: string, sourceLang: string, targetLang: string, mode?: 'autocomplete'|'generate'|'photo' }
 // Headers: Authorization: Bearer <supabase JWT>
 //
-// 흐름: JWT 검증 → rate-limit → consume_ai_quota RPC → Vertex AI 호출
+// 흐름: JWT 검증 → rate-limit → consume_ai_quota RPC → 공용 캐시 조회 → Vertex AI 호출
 //      → 실패 시 quota 환불(refund_ai_quota) → 결과 반환
 //
+// ⚠️ 차감이 캐시 조회보다 먼저다. 캐시 히트도 차감한다 — 사용자는 어떤 단어가 캐시에
+//    있는지 보지도 예측하지도 못하므로, 무차감은 "AI 가 채워준 단어 수만큼 깎인다"는
+//    안내와 어긋나고 한도를 예측 불가능하게 만든다. 캐시 히트는 서빙 원가가 0 이라
+//    차감분이 그대로 마진이 되고, 캐시가 두꺼워진 뒤에도 일일 한도가 의미를 유지한다.
+//
 // 응답:
-//   200 { result: {...}, quota: { tier, used, limit, bonus, reset_at } }
+//   200 { result: {...}, quota: {...}, enrichment_level: 'full' | 'basic' }
 //   400 { error: 'invalid_request' }
 //   401 { error: 'unauthorized' }
+//   404 { error: 'not_found', quota }
 //   429 { error: 'rate_limited' | 'quota_exceeded', quota?, retry_after? }
 //   500 { error: 'upstream_failure' | 'internal_error' }
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { analyzeWord } from '../_shared/gemini-vertex.ts';
-// ⚠️ _shared/gemini-meaning.ts(뜻 전용 basic 응답)는 남겨 두되 지금은 부르지 않는다.
-//    한도 초과 시 basic 을 주는 정책은 다음 앱 릴리스와 함께 켠다 — 아래 캐시 조회
-//    주석과 20260814000000_revert_to_shipped_quota_policy.sql 참조.
+import { translateMeaningOnly } from '../_shared/gemini-meaning.ts';
 import { checkRateLimit } from '../_shared/rate-limit.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -25,8 +29,8 @@ const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const COST_BY_MODE: Record<string, number> = {
   autocomplete: 1,
   generate: 20,
-  // 사진: 추출 오버헤드는 scan-image가 장당 5로 별도 차감하고, 추출된 단어의 보강은
-  // 단어당 1(자동완성과 동일). 캐시 히트는 무차감.
+  // 사진: 장당 오버헤드는 없다(scan-image 는 잔량 확인만 하고 0 을 차감한다). 추출된
+  // 단어의 보강만 단어당 1 — 사용자가 받은 단어 수와 깎인 수가 정확히 일치한다.
   photo: 1,
 };
 
@@ -146,36 +150,7 @@ Deno.serve(async (req) => {
   // service_role client: 캐시 + quota RPC + 환불용
   const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
-  // 공용 캐시 조회 — 히트면 Vertex를 안 부르므로 quota를 차감하지 않는다.
-  // (quota는 Vertex 호출 비용 상한이 목적 → 비용 0인 캐시 히트는 무차감)
-  //
-  // ⚠️ 2026-08-13에 "캐시 히트도 차감 + 한도 초과 시 뜻만 주는 basic 응답"으로 바꿨다가
-  //    2026-08-14에 되돌렸다. 그 정책은 아직 심사·배포 전인 앱과 짝이라, 출시된 1.4.0은
-  //    한도 초과 시 429를 받아야 보상형 광고 모달을 띄운다. 새 정책은 앱 릴리스 이후
-  //    다시 켠다(supabase/migrations/20260814000000_revert_to_shipped_quota_policy.sql).
-  try {
-    const { data: cached } = await svc
-      .from('enrich_cache')
-      .select('result')
-      .eq('source_lang', sourceLang)
-      .eq('target_lang', targetLang)
-      .eq('term', termKey)
-      .eq('prompt_version', PROMPT_VERSION)
-      .maybeSingle();
-    if (cached?.result) {
-      const { data: quotaStatus } = await svc.rpc('get_ai_quota_status', { p_user_id: userId });
-      // hit_count 증가는 응답을 막지 않도록 fire-and-forget
-      svc.rpc('increment_enrich_cache_hit', {
-        p_source_lang: sourceLang, p_target_lang: targetLang, p_term: termKey,
-      }).then(() => {}, () => {});
-      return json(200, { result: cached.result, quota: quotaStatus, cached: true });
-    }
-  } catch (e) {
-    // 캐시 조회 실패는 치명적이지 않음 — 정상 경로(quota → Vertex)로 계속
-    console.error('enrich_cache lookup failed', e);
-  }
-
-  // quota 차감 시도
+  // quota 차감 — 캐시 조회보다 **먼저**(파일 상단 주석 참조. 캐시 히트도 차감한다).
   const { data: quotaData, error: quotaErr } =
     await svc.rpc('consume_ai_quota', { p_user_id: userId, p_cost: cost });
   if (quotaErr) {
@@ -186,8 +161,79 @@ Deno.serve(async (req) => {
     allowed: boolean; tier: string; used: number; limit: number;
     bonus: number; reset_at: string;
   };
-  if (!quota.allowed) {
+
+  // 한도 초과 시의 동작은 mode 로 갈린다 — 의도한 비대칭이다.
+  //   autocomplete → 아래에서 뜻만 담은 basic 200. 단어 하나를 찾다가 아무것도 못 받는
+  //     막다른 길을 없앤다(예문·발음은 나중에 단어 상세의 AI 자동완성으로 채운다).
+  //   photo / generate → 여기서 429. 대량 획득 기능이라 한도 너머까지 채워 주면
+  //     보상형 광고를 볼 이유도 Pro 로 올라갈 이유도 함께 사라진다.
+  // 🔴 2026-08-13 판에는 이 mode 조건이 없어 사진 스캔까지 뜻만 채워 나갔다.
+  if (!quota.allowed && mode !== 'autocomplete') {
     return json(429, { error: 'quota_exceeded', quota });
+  }
+
+  // 공용 캐시 조회. 히트여도 위에서 이미 차감했다 — 여기서 아끼는 것은 Vertex 호출뿐이다.
+  let cached: { result?: any; enrichment_level?: string } | null = null;
+  try {
+    const { data } = await svc
+      .from('enrich_cache')
+      .select('result,enrichment_level')
+      .eq('source_lang', sourceLang)
+      .eq('target_lang', targetLang)
+      .eq('term', termKey)
+      .eq('prompt_version', PROMPT_VERSION)
+      .maybeSingle();
+    cached = data ?? null;
+  } catch (e) {
+    // 캐시 조회 실패는 치명적이지 않음 — 정상 경로(Vertex)로 계속
+    console.error('enrich_cache lookup failed', e);
+  }
+
+  // 한도 초과 + 자동완성 → 뜻만(basic).
+  if (!quota.allowed) {
+    try {
+      // 캐시에 뜻이 이미 있으면 그것을 깎아 쓴다 — full 캐시라도 뜻만 준다. 한도 초과
+      // 사용자가 받는 것이 캐시 유무에 따라 달라지면 안 된다.
+      const basic = cached?.result?.meaningKr
+        ? {
+            term: termKey, definition: '', exampleEn: '', exampleKr: '',
+            meaningKr: cached.result.meaningKr, pos: '', phonetic: '',
+            isReal: cached.result.isReal,
+          }
+        : await translateMeaningOnly(termKey, sourceLang, targetLang);
+      if (!basic.meaningKr || basic.isReal === false) {
+        return json(404, { error: 'not_found', quota });
+      }
+      const basicRunaway = runawayFieldOf(basic);
+      if (basicRunaway) {
+        console.error('runaway output discarded (basic)', { term: termKey, sourceLang, targetLang, detail: basicRunaway });
+        return json(500, { error: 'upstream_failure', quota });
+      }
+      // 캐시가 아예 없을 때만 basic 을 굳힌다. full 행을 basic 으로 덮으면 그 단어는
+      // 한도가 남은 사용자·Pro 에게도 영영 뜻만 나간다.
+      if (!cached?.result) {
+        const { error: cacheErr } = await svc.from('enrich_cache').upsert({
+          source_lang: sourceLang, target_lang: targetLang, term: termKey,
+          result: basic, enrichment_level: 'basic',
+          prompt_version: PROMPT_VERSION, updated_at: new Date().toISOString(),
+        });
+        if (cacheErr) console.error('enrich_cache write failed', cacheErr);
+      }
+      return json(200, { result: basic, quota, cached: !!cached?.result, enrichment_level: 'basic' });
+    } catch (e) {
+      console.error('basic meaning failed', e);
+      return json(500, { error: 'upstream_failure', quota });
+    }
+  }
+
+  // 캐시 히트는 **full 일 때만**이다. basic 행(위에서 굳은 뜻만 결과)을 히트로 치면
+  // 한도가 남은 사용자에게도 예문 없는 결과가 나간다 — 그때는 Vertex 를 부른다.
+  if (cached?.result && cached.enrichment_level === 'full') {
+    // hit_count 증가는 응답을 막지 않도록 fire-and-forget
+    svc.rpc('increment_enrich_cache_hit', {
+      p_source_lang: sourceLang, p_target_lang: targetLang, p_term: termKey,
+    }).then(() => {}, () => {});
+    return json(200, { result: cached.result, quota, cached: true, enrichment_level: 'full' });
   }
 
   // Vertex AI 호출

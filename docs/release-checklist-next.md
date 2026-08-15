@@ -54,9 +54,9 @@
 |---|---|---|
 | `20260813020000_pro_3000_monthly_pool.sql` | ✅ 작성 · ⏳ 미적용 | 한도·티어 (Free 50 · 게스트 10 · Pro 월 3,000) |
 | `20260815020000_rewarded_bonus_new_policy.sql` | ✅ 작성 · ⏳ 미적용 | 보상 지급을 `ai_effective_plan` 기반으로 (+20 · 2회) |
-| `enrich-word` | 🟡 `4f76395^` 에 있음 · **단순 복구 불가** | 캐시 히트 차감 + 한도 초과 시 basic |
-| `scan-image` | ❌ **미작성** | 추출 오버헤드 5 제거 (단, 잔량 확인은 남긴다 — 아래) |
-| `generate-words` | ❌ **미작성** | 요청 N 보다 적게 오면 차액 환불 |
+| `enrich-word` | ✅ 작성(2026-08-16) · ⏳ 미배포 | 캐시 히트 차감 + 한도 초과 시 basic |
+| `scan-image` | ✅ 작성(2026-08-16) · ⏳ 미배포 | 추출 오버헤드 5 제거 (단, 잔량 확인은 남긴다 — 아래) |
+| `generate-words` | ✅ 작성(2026-08-16) · ⏳ 미배포 | 요청 N 보다 적게 오면 차액 환불 |
 
 `scan-image` 는 `EXTRACT_COST` 가 0 이었던 커밋이 이력에 없고(`git log -S`), `generate-words`
 는 실패 시 전액 환불만 있다. **1.5.0 앱은 이 둘이 이미 반영된 것으로 안내한다** — `3943e3c`
@@ -65,38 +65,51 @@
 자르므로, 서버가 몰래 5 를 더 떼면 계산이 어긋나 뒷장 몇 개가 조용히 실패한다. **게스트
 한도 10 에서 5 는 절반이다.**
 
-### Phase 0 — 앱 출시 전에 해도 안전한 것 (배포·push 만 안 하면 된다)
+### Phase 0 — ✅ 완료 (2026-08-16, 배포·push 는 안 했다)
 
 **① `enrich-word/index.ts`** — 새 정책을 **손으로 병합**한다.
 
-- [ ] 참고 원본은 `git show 4f76395^:supabase/functions/enrich-word/index.ts`
+- [x] 참고 원본은 `git show 4f76395^:supabase/functions/enrich-word/index.ts`
   - 🔴 `git revert 4f76395` 금지 — Edge 와 마이그레이션을 함께 바꾼 커밋이라 이미 적용된 `20260814000000` 파일이 사라진다
   - 🔴 `git checkout 4f76395^ -- <path>` **도 금지** — 그 뒤 `d71f4d7`(8/15, 폭주 차단 v43)이 같은 파일에 얹혔다. 통째로 덮으면 `runawayFieldOf` 가 날아간다
   - 🔑 더 앞의 `482ab4a`(정책 최초 구현)가 아니라 **`4f76395^` 를 볼 것.** 그 사이에 `69c6e4f` 가 `PROMPT_VERSION` 을 8 → 7 로 되돌려 놨다. `482ab4a` 를 베끼면 8 이 딸려 와 **캐시 8만 행이 통째로 무효**가 된다
-- [ ] 캐시 조회를 quota 차감 **뒤로** — 캐시 히트도 차감
-- [ ] 한도 초과 시 basic(뜻만) 응답은 **`mode === 'autocomplete'` 일 때만**
+- [x] 캐시 조회를 quota 차감 **뒤로** — 캐시 히트도 차감
+- [x] 한도 초과 시 basic(뜻만) 응답은 **`mode === 'autocomplete'` 일 때만**
   - 🔴 8/13 원본엔 mode 조건이 없어 photo 까지 뜻이 채워진다. 스캔·생성은 **429 를 유지**해야 광고·Pro 압력이 산다
-- [ ] full 캐시 조회는 `enrichment_level === 'full'` 로만 히트 판정, basic 결과는 `'basic'` 으로 저장
+- [x] full 캐시 조회는 `enrichment_level === 'full'` 로만 히트 판정, basic 결과는 `'basic'` 으로 저장
   — 뜻만 결과가 캐시에 굳어 Pro 까지 뜻만 받는 것을 막는다. ✅ 컬럼은 서버에 이미 있다(8/15 실측, 마이그레이션 불필요)
-- [ ] `_shared/gemini-meaning.ts`(`translateMeaningOnly`)는 남아 있다 — 호출부만 다시 켜면 된다
+- [x] `_shared/gemini-meaning.ts`(`translateMeaningOnly`)는 남아 있다 — 호출부만 다시 켜면 된다
+- [x] 8/13 판에 없던 것 두 가지를 얹었다:
+  - `runawayFieldOf` 를 basic 경로에도 적용 — 폭주 가드(`d71f4d7`)는 full 경로에만 있었다
+  - basic upsert 는 **캐시가 아예 없을 때만** — full 행을 basic 으로 덮으면 그 단어는 Pro 에게도 영영 뜻만 나간다
 
 **② `scan-image/index.ts`** — 추출 오버헤드 제거.
 
-- [ ] `consume_ai_quota(cost=5)` → **`get_ai_quota_status` 로 잔량 확인만**, 0 이면 429
-- [ ] 실패 시 환불 코드도 함께 제거 (차감이 없으니 환불할 것도 없다)
-- [ ] 헤더 주석의 "장당 고정 5"도 수정
+- [x] `consume_ai_quota(cost=5)` → **`get_ai_quota_status` 로 잔량 확인만**, 0 이면 429
+  - 🔑 Pro 는 `day_limit == month_limit == 3000` 이라 일일 잔량만 보면 월 소진자를 못 막는다 → **월 잔량도 함께** 본다
+- [x] 실패 시 환불 코드도 함께 제거 (차감이 없으니 환불할 것도 없다)
+- [x] 헤더 주석의 "장당 고정 5"도 수정
   - 🔴 **차감만 0 으로 두고 확인을 빼면 안 된다** — 한도를 다 쓴 사용자가 vision 을 무한히 부를 수 있다. rate limit 은 분당 제한이라 하루 총량을 못 막는다
 
 **③ `generate-words/index.ts`** — 차액 환불.
 
-- [ ] `result.length < wordCount` → `refund_ai_quota(wordCount - result.length)`
+- [x] `result.length < wordCount` → `refund_ai_quota(wordCount - result.length)`
   - ⚠️ 클라이언트 검증에서 떨어진 몫까지 환불하려면 클라가 개수를 보내야 하는데, 그건 한도를 무한히 얻는 구멍이 된다. **서버가 스스로 아는 범위까지만.**
+  - 응답의 `quota.used`(·Pro 는 `month_used`)도 환불분만큼 되돌린다 — 차감 직후 값을 그대로 주면 앱 표시와 서버가 어긋난다
 
-- [ ] `pnpm test` · `pnpm run lint`
+- [x] `pnpm test` · `pnpm run lint` — 981 통과. 실패는 전부 기존 것(수트 3개 실행 실패, lint 15 에러 모두 hex 색·import 규칙)이고 Edge 3함수는 하나도 없다
+  - ⚠️ **Deno 타입 검사는 못 했다**(로컬에 Deno CLI 없음). 문법·타입 검증은 `functions deploy` 시점이 처음이다
+
+**🔑 착수 전 확인해 둔 것 — 앱은 이미 새 정책을 받을 준비가 돼 있다**
+
+- `enrichment_level: 'basic'` 을 1.5.0 이 이해한다 → `app/add-word.tsx:371` 이 "뜻만 채웠다 + AI 로 채우기" 안내를 띄운다
+- **basic 결과가 기기에 굳어 영구히 뜻만 나오는 사고는 없다.** `lib/enrich-cache.ts` 는 레벨을 안 보고 저장하지만, `lib/translation-api.ts:88` 이 `apiKey ? getCachedEnrich(...) : null` 이라 **운영자 경로는 로컬 캐시를 아예 조회하지 않는다**(BYOK 전용). BYOK 사용자는 한도가 없어 basic 을 받을 일이 없다
+- 한도 초과 basic 응답의 `quota` 는 `used >= limit + bonus` 상태로 나가고 `applyEdgeQuota` 로 store 에 반영된다 → 다음 호출은 `hooks/useAddWord.ts:213` 의 사전 검사에서 광고 모달로 간다
+- ⚠️ 남는 구멍: 한도 초과 사용자의 basic 호출은 **차감이 없어** 서로 다른 단어로 무한히 부를 수 있다(원가는 flash-lite 극소, 분당 rate-limit 은 걸린다). 8/13 판에서 물려받은 성질이라 이번에 바꾸지 않았다
 
 ### Phase 1 — 게이트: 넘기 전엔 서버에 아무것도 올리지 않는다
 
-- [ ] 1.5.0 이 **두 스토어 모두** 공개 (Play 단계적 출시면 100% 인지)
+- [x] 1.5.0 이 **두 스토어 모두** 공개 (Play 단계적 출시면 100% 인지) — 2026-08-16 확인
 - [ ] 즉시 전환할지, 채택률이 오를 때까지 며칠 둘지 판단
 
 리워드 시그니처 문제는 `20260815010000` 로 해소됐지만(위 참조), **구 앱이 무사한 것과

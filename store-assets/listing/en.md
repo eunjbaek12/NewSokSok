@@ -13,10 +13,30 @@ Avocado — Vocabulary Builder
 ## Short description (max 80 chars)
 
 ```
-AI flashcards, 6 languages. Gentle review before you forget — photo, CSV, K-pop.
+Korean, Japanese, Spanish vocabulary with AI. Flashcards, photo import, review.
 ```
 
-> ~80 chars (80 limit). ⚠️ On **Play, the short & full description ARE indexed for search** (unlike the App Store), so the 1.2.0 headline keyword "review" is placed up front alongside flashcards / languages / photo.
+> 79 chars (80 limit). ⚠️ On **Play, the short & full description ARE indexed for search** (unlike the App Store).
+>
+> 🔑 **2026-08-16 replaced — `6 languages` was not a searchable phrase.** Nobody types
+> "6 languages"; they type "Spanish vocabulary". The old line named zero languages, so an
+> English-speaking learner of Spanish or Japanese had no way to find this app. Same fix as
+> the Korean listing (see `ko.md` §검색 실측).
+>
+> **What was dropped and why it is safe** — Play indexes the full description too, and
+> `K-pop`, `CSV`, `Gentle`, `photo`, `review` and `Flashcards` all still appear there. The
+> only thing that would have vanished entirely is `flashcards`, which is why it stayed in
+> this box (higher-weighted field). ⚠️ Watch the case: the full description has
+> `Flashcards:` capitalized — a lowercase grep says 0 matches and it is wrong.
+>
+> ⚠️ **The English market is not the Korean one.** In Korea `스페인어 단어장` had only 3
+> competing apps; in en-US **every language is crowded** (`spanish vocabulary` 25,
+> `korean vocabulary` 24, `japanese vocabulary` 23) and we appear in none of them —
+> not even under plain `vocabulary`. So this change buys presence, not rank.
+>
+> 🔑 **Our real asset in en is Korean** — 14 of the 14 curated decks whose meaning language
+> is English are ko→en. Spanish/Japanese/Chinese decks do not exist for this locale, so the
+> copy promises **AI filling words in**, never a deck.
 
 ## Full description (max 4000 chars)
 
@@ -73,9 +93,9 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - Share your own lists to help the community
 
 • Six languages, every direction
-- English, Korean, Japanese, Chinese, Vietnamese, Spanish
-- Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
-- Built equally for learners coming from any language to any language
+- Korean vocabulary, Japanese vocabulary, Spanish vocabulary, Chinese, Vietnamese, English
+- Add a word in any of them — AI fills in meaning, example and pronunciation
+- Mix any input and meaning language (EN-KR, KR-JP, ES-EN — any pair)
 
 • Make it yours with skins
 - Classic, Dark, Y2K, Lab, Summer Sea, and more themes to choose from

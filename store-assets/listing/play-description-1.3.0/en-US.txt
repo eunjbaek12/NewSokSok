@@ -50,9 +50,9 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - Share your own lists to help the community
 
 • Six languages, every direction
-- English, Korean, Japanese, Chinese, Vietnamese, Spanish
-- Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
-- Built equally for learners coming from any language to any language
+- Korean vocabulary, Japanese vocabulary, Spanish vocabulary, Chinese, Vietnamese, English
+- Add a word in any of them — AI fills in meaning, example and pronunciation
+- Mix any input and meaning language (EN-KR, KR-JP, ES-EN — any pair)
 
 • Make it yours with skins
 - Classic, Dark, Y2K, Lab, Summer Sea, and more themes to choose from

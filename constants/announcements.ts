@@ -41,7 +41,7 @@ export interface Announcement {
 export const ANNOUNCEMENTS: Announcement[] = [
   {
     version: '1.5.0',
-    date: '2026-08-18',
+    date: '2026-08-16',
     // 🔑 사용자 제안에서 나온 것을 맨 위에 둔다(은정님 방침). 이번 1번은 2026-08-12
     // 문의 "한국어 뜻만 한꺼번에 지울 수 있는 버튼이 있으면 좋겠습니다" 가 그대로
     // 구현된 것이고(`2c40670`), 마지막 줄로 다음 제안을 청한다 — 감사와 참여 요청이

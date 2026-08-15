@@ -68,7 +68,8 @@ function cleanPhonetics(r: AutoFillResult, sourceLang: string, term: string): Au
 //   4. 그 외 → null
 //
 // 단일 추가 흐름(useAddWord.runAutoFill)과 사진 흐름이 공유하는 단일 진입점.
-// 사진 흐름은 mode='photo'를 명시해 단어당 15단어 가중치를 적용.
+// 사진 흐름은 mode='photo'를 명시한다 — 차감은 자동완성과 같은 단어당 1이다
+// (COST_BY_MODE, supabase/functions/enrich-word/index.ts).
 export async function enrichWord(
   term: string,
   sourceLang: string,

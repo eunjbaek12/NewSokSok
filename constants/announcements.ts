@@ -40,6 +40,29 @@ export interface Announcement {
 //    안 띄우는 편이 낫다).
 export const ANNOUNCEMENTS: Announcement[] = [
   {
+    version: '1.5.0',
+    date: '2026-08-18',
+    // 🔑 사용자 제안에서 나온 것을 맨 위에 둔다(은정님 방침). 이번 1번은 2026-08-12
+    // 문의 "한국어 뜻만 한꺼번에 지울 수 있는 버튼이 있으면 좋겠습니다" 가 그대로
+    // 구현된 것이고(`2c40670`), 마지막 줄로 다음 제안을 청한다 — 감사와 참여 요청이
+    // 한 시트 안에서 짝을 이룬다.
+    //
+    // 4·5번(배너 면제·무료 한도)은 서버 정책과 짝이다 — 20260813020000 +
+    // 20260815020000 을 적용해야 실제로 그렇게 동작한다. 스토어 공개를 확인한 직후
+    // 적용하기로 했으므로 시차는 하루 이내다. 절차는 docs/release-checklist-next.md §1.
+    //
+    // 2번에 "뜻 언어를 영어로" 를 붙인 이유: TOPIK II 덱은 ko→en 이라 뜻 언어가 en 인
+    // 사용자에게만 큐레이션 목록에 뜬다. 안 붙이면 한국어 사용자에게 "왔다는데 없다" 가 된다.
+    items: [
+      { key: 'whatsNew.v150_1', icon: 'bulb' },
+      { key: 'whatsNew.v150_2', icon: 'school' },
+      { key: 'whatsNew.v150_3', icon: 'language' },
+      { key: 'whatsNew.v150_4', icon: 'eye-off' },
+      { key: 'whatsNew.v150_5', icon: 'information-circle' },
+      { key: 'whatsNew.v150_6', icon: 'chatbubble-ellipses' },
+    ],
+  },
+  {
     version: '1.4.0',
     date: '2026-08-06',
     // 앞 세 줄은 1.3.0 에 실었던 소식이다. 1.3.0 에서는 아무에게도 뜨지 않았다 —

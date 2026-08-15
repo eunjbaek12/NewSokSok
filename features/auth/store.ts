@@ -350,7 +350,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // copy of their words and nickname — and the guest logout prompt explicitly
     // promises "저장된 단어는 이 기기에 유지됩니다". So guests must keep their
     // local data.
-    const wasCloudAuth = isCloudAuthMode(useAuthStore.getState().mode);
+    // 로그아웃을 시작한 시점의 모드. 아래 3)·4)는 "이 세션"에 속한 부수효과라,
+    // 그 사이 사용자가 다른 세션을 시작했다면 실행해선 안 된다 — 각 가드 참고.
+    const startingMode = useAuthStore.getState().mode;
+    const wasCloudAuth = isCloudAuthMode(startingMode);
 
     // 1) Flush pending changes while still authenticated (RLS passes), with
     //    retries. The destructive wipe in step 2 is GATED on this succeeding —
@@ -420,7 +423,18 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    관리자 메모도 버린다. 캐시 키가 user id라 계정 전환은 어차피 미스지만,
     //    권한이 바뀐 같은 계정은 재로그인으로 갱신할 수 있어야 한다.
     clearAdminCache();
-    await persist({ mode: 'none', user: null }, set);
+    //    ⚠️ 단, 그 사이 사용자가 이미 다른 세션을 시작했다면 덮어써선 안 된다. 호출부
+    //    (app/(tabs)/settings.tsx)는 logout()을 기다리지 않고 곧장 /login으로 넘어가는데,
+    //    위 1)·2)는 flush 재시도(최대 3회 × 400ms + 네트워크)와 SQLite 전체 삭제를 거치느라
+    //    수백 ms~수 초가 걸린다. 그 사이 "게스트로 시작"을 누르면 새 세션이 이미 살아 있고,
+    //    여기서 'none'을 덮어쓰면 그 세션이 무효가 된다 — 로그인 화면으로 되튕겨 게스트를
+    //    두 번 눌러야 하고, 탭 네비게이터가 언마운트·재마운트되면서 react-navigation이
+    //    죽기도 한다(getRehydratedState(undefined), upstream #13011). SIGNED_OUT 핸들러가
+    //    같은 이유로 두는 가드를 여기에도 둔다.
+    const stillOurSession = useAuthStore.getState().mode === startingMode;
+    if (stillOurSession) {
+      await persist({ mode: 'none', user: null }, set);
+    }
 
     // 4) Sign out of provider + Supabase (best-effort). scope:'local' wipes the
     //    local session without depending on a server round-trip that could fail
@@ -428,9 +442,18 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    'none' intent and clears any orphan session. (No-ops for a guest.)
     //    Apple has no client-side signOut equivalent — only Google needs the
     //    provider-side call.
+    //
+    //    GoogleSignin.signOut()은 네이티브 구글 세션만 건드리므로 무조건 실행해도 안전하다
+    //    (게스트 세션과 무관하고, 다음 구글 로그인의 계정 선택을 위해 지워두는 게 맞다).
     try { await GoogleSignin.signOut(); } catch {}
-    try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
-      console.warn('[auth] supabase signOut failed:', e?.message ?? e);
+    //    반면 supabase 세션 제거는 "지금 로그아웃 상태일 때만" 안전하다. 위 가드가 걸렸거나
+    //    GoogleSignin.signOut()을 기다리는 사이에 게스트가 시작됐다면, 이 호출은 그 게스트의
+    //    익명 세션까지 지워 버린다 — 서버엔 익명 계정만 남고 앱은 세션을 잃어, 다시 누르면
+    //    익명 계정이 또 만들어진다(실제로 12초 간격 2건 관측).
+    if (useAuthStore.getState().mode === 'none') {
+      try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
+        console.warn('[auth] supabase signOut failed:', e?.message ?? e);
+      }
     }
   },
 

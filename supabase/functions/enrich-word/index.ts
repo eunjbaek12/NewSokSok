@@ -59,6 +59,37 @@ const PROMPT_VERSION = 7;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 
+// ── 폭주 산출물 판정 ─────────────────────────────────────────────────────
+// scripts/seed-cache.ts 의 runawayOf 와 같은 규칙이다. 두 곳에 두는 이유는 캐시에
+// 쓰는 경로가 둘이기 때문이고(시딩 / 사용자 실시간), 한쪽만 막으면 다른 쪽으로 그대로
+// 들어온다. 상수가 어긋나면 seed-cache.ts 의 assertVersionSync 가 실행을 막는다.
+//
+// 1,000자는 2026-08-15 캐시 81,628행 전수 실측에서 나왔다. 정상 최대는 526자이고
+// senses 2·3 그룹 33,756행은 max 499 에서 끝난다. 개행 수는 폭주 지표가 아니다 —
+// 정상 데이터도 뜻을 줄바꿈으로 나열한다(자세한 근거는 seed-cache.ts 주석).
+const RUNAWAY_MAX_LEN = 1000;
+
+function runawayFieldOf(result: any): string | null {
+  const check = (label: string, v: unknown): string | null =>
+    typeof v === 'string' && v.length > RUNAWAY_MAX_LEN ? `${label} ${v.length}자` : null;
+
+  const top = check('definition', result?.definition)
+    ?? check('meaningKr', result?.meaningKr)
+    ?? check('exampleEn', result?.exampleEn)
+    ?? check('exampleKr', result?.exampleKr);
+  if (top) return top;
+
+  const senses = Array.isArray(result?.senses) ? result.senses : [];
+  for (let i = 0; i < senses.length; i++) {
+    const s = senses[i] ?? {};
+    const v = check(`senses[${i}].meaningKr`, s.meaningKr)
+      ?? check(`senses[${i}].exampleEn`, s.exampleEn)
+      ?? check(`senses[${i}].exampleKr`, s.exampleKr);
+    if (v) return v;
+  }
+  return null;
+}
+
 function json(status: number, body: unknown) {
   return new Response(JSON.stringify(body), {
     status,
@@ -165,6 +196,21 @@ Deno.serve(async (req) => {
     if (result?.isReal === false || !result?.meaningKr) {
       await svc.rpc('refund_ai_quota', { p_user_id: userId, p_cost: cost });
       return json(404, { error: 'not_found', quota });
+    }
+    // 폭주 산출물은 캐시에도 안 쓰고 사용자에게도 주지 않는다. 모델이 반복 루프에 빠져
+    // 같은 문장을 수만 자 뱉는 일이 실측 0.02% 비율로 있고, JSON 이 우연히 닫히면
+    // 파싱을 통과해 그대로 저장된다 — 2026-08-15 에 그렇게 굳은 16건(최대 84,512자)을
+    // 지웠다. 한 번 캐시에 들어가면 그 단어를 찾는 모든 사용자에게 영구히 나간다.
+    //
+    // 실패로 돌려보내는 쪽을 택한 이유: 같은 단어를 다시 부르면 대부분 정상이 나온다
+    // (그 16건을 재생성하니 14건이 정상 크기였다). 8만 자를 화면에 뿌리는 것보다
+    // 사용자가 다시 시도하는 편이 낫다. 한도는 환불한다 — 사용자 잘못이 아니다.
+    const runaway = runawayFieldOf(result);
+    if (runaway) {
+      console.error('runaway output discarded', { term: termKey, sourceLang, targetLang, detail: runaway });
+      const { error: refundErr } = await svc.rpc('refund_ai_quota', { p_user_id: userId, p_cost: cost });
+      if (refundErr) console.error('quota refund failed', refundErr);
+      return json(500, { error: 'upstream_failure' });
     }
     // 공용 캐시에 기록 — 다음 사용자부터 즉시. 캐시 쓰기 실패가 응답을 깨지 않게 격리.
     //

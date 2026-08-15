@@ -1,0 +1,94 @@
+App Store Connect 1.5.0 제출용 텍스트
+=====================================
+주의: App Store는 특수문자에 예민하다. 과거 ▸ 와 ★ 가 거부됐다.
+      안전한 문자는 • · — 뿐이고, 이모지는 쓰지 않는다(Play 노트와 갈리는 지점).
+      프로모션 텍스트는 170자 제한 · 앱 업데이트 없이 언제든 교체 가능.
+
+로케일: ASC 등록은 ko · en · es 셋이다(es 는 2026-08-05 제출과 함께 신설).
+      ja · vi · zh 는 미등록이라 그 지역은 ko 또는 en 을 본다.
+
+TOPIK II 덱은 en 에만 적는다 — ko→en 덱이라 **뜻 언어가 en 인 사용자에게만** 목록에
+      뜬다. 한국어 UI 사용자는 뜻 언어가 ko 라 보이지 않고, 스페인어 사용자는 뜻 언어가
+      es 라 역시 보이지 않는다. 1.3.1 에서 같은 함정을 겪었다.
+
+🔴 무료 한도 50 은 서버 정책과 짝이다. 20260813020000 + 20260815020000 을 적용해야
+      실제로 그렇게 동작한다 — 스토어 공개 확인 직후 적용한다.
+      (docs/release-checklist-next.md §1)
+
+
+===== 이번 버전의 새로운 기능 / What's New =====
+
+--- ko ---
+1.5.0 업데이트
+
+광고 한 번이면 24시간 배너 없이
+
+보상형 광고를 보면 그날 하루 배너 광고가 사라지고, 단어 한도도 함께 늘어납니다.
+
+한도를 넘어도 뜻은 볼 수 있어요
+
+하루 한도를 다 써도 단어의 뜻은 계속 확인할 수 있습니다. 무료 한도는 하루 50단어이고,
+광고를 보면 더 늘릴 수 있습니다.
+
+일본어 발음 표기가 정확해졌어요
+
+후리가나 자리에 한글 전사가 들어가던 문제를 고쳤습니다. 음성 읽기도 이 값을 쓰기 때문에
+발음까지 함께 어긋나 있었습니다.
+
+그 밖에
+• 단어를 고칠 때 입력칸을 한 번에 비울 수 있습니다.
+• 뜻이 여러 개인 단어의 번호 표시가 어긋나지 않습니다.
+
+--- en ---
+1.5.0
+
+TOPIK II Essentials 300
+
+300 intermediate Korean words for learners who have finished TOPIK I, with a
+TOPIK-level example and useful collocations on every card. Set your meaning
+language to English to find it in the curated lists.
+
+One ad, no banners for 24 hours
+
+A rewarded ad clears banner ads for the rest of the day and adds to your word
+limit at the same time.
+
+Meanings still show past the limit
+
+Even after the daily limit is used up, you can keep seeing what a word means.
+The free limit is 50 words a day, and an ad raises it.
+
+Also
+• Clear an input field in one tap while editing a word.
+• Japanese pronunciation now shows furigana instead of a Hangul transcription —
+  the read-aloud voice used that field too, so it was mispronouncing words.
+
+--- es ---
+1.5.0
+
+Un anuncio, 24 horas sin banners
+
+Al ver un anuncio con recompensa, los banners desaparecen por el resto del día
+y tu límite de palabras aumenta al mismo tiempo.
+
+Los significados siguen visibles al superar el límite
+
+Aunque agotes el límite diario, puedes seguir viendo el significado de las
+palabras. El límite gratuito es de 50 palabras al día y un anuncio lo amplía.
+
+Además
+• Vacía un campo de un toque al editar una palabra.
+• La pronunciación japonesa ahora usa furigana en vez de una transcripción en
+  hangul — la lectura en voz alta también usaba ese campo.
+
+
+===== 프로모션 텍스트 / Promotional Text (170자 제한) =====
+
+--- ko ---
+광고 한 번이면 하루 종일 배너가 사라집니다. 한도를 다 써도 단어의 뜻은 계속 볼 수 있고, 일본어 발음 표기도 정확해졌어요.
+
+--- en ---
+One rewarded ad clears banners for the day. Past the daily limit you can still see what a word means, and Japanese now shows proper furigana.
+
+--- es ---
+Un anuncio deja el día sin banners. Al superar el límite diario puedes seguir viendo significados, y el japonés ya muestra furigana correcto.

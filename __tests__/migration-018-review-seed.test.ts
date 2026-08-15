@@ -45,10 +45,13 @@ async function migrateTo(db: Db, to: number, from = 0) {
 const DAY = 86400000;
 
 describeIfSqlite('migration 018 — gentle SRS 시드', () => {
-  test('레지스트리는 1..N 연속이고 018이 마지막', () => {
+  // SCHEMA_VERSION 을 정확한 값으로 못 박지 않는다 — 마이그레이션을 하나 추가할 때마다
+  // 이 테스트가 깨지는데, 그 실패는 018 에 대해 아무것도 말해 주지 않는다(019 를 넣을 때
+  // 실제로 깨졌다). 연속성은 assertContiguous 가, 값은 MIGRATIONS.length 가 보장한다.
+  test('레지스트리는 1..N 연속이고 018이 제자리에 있다', () => {
     expect(() => assertContiguous()).not.toThrow();
-    expect(SCHEMA_VERSION).toBe(18);
     expect(MIGRATIONS[17].version).toBe(18);
+    expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(18);
   });
 
   test('사다리 001→018이 실제 SQLite에서 끝까지 실행된다', async () => {

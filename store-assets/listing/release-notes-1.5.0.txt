@@ -1,0 +1,113 @@
+＊ 로케일마다 내용이 다르다. 이유는 뜻 언어 필터다 —
+＊ TOPIK II 덱은 ko→en 이라 **뜻 언어가 en 인 사용자에게만** 큐레이션 목록에 뜬다.
+＊ 한국어 UI 사용자는 뜻 언어가 ko 라 그 덱이 보이지 않으므로 ko-KR 노트에 적으면 거짓이 된다.
+＊ (1.3.1 에서 같은 함정을 겪었다. 홍보 문구는 "그 로케일 사용자가 앱을 열면 실제로
+＊ 보이는가"를 먼저 확인할 것.) → 덱은 en-US 에만.
+＊
+＊ 후리가나 수정은 일본어를 배우는 사람에게만 의미가 있어 ko-KR·ja-JP·en-US 에만 넣었다.
+＊
+＊ 광고 후 24시간 배너 제거 / 한도 초과 시 뜻 제공 / 무료 한도 50 은 전 로케일 공통이다.
+＊ 🔴 무료 한도는 **서버 정책과 짝**이다. 20260813020000 + 20260815020000 을 적용해야
+＊ 실제로 그렇게 동작한다 — 스토어 공개 확인 직후 적용한다(docs/release-checklist-next.md §1).
+＊
+＊ 🔴 Play 출시 노트는 로케일마다 500자 제한이다. 1.4.0 때 en-US 가 530자로 넘어 있었다.
+＊ 붙여넣기 전에 로케일마다 `[...s].length` 로 셀 것.
+＊ 실측: ko-KR 257 · en-US 485 · ja-JP 193 · vi 350 · zh-CN 122 · es-ES/es-419 각 389.
+＊ (en-US 는 처음 쓴 565자에서 줄인 것이다 — 1.4.0 때와 똑같이 영어가 먼저 넘쳤다.)
+＊ 스페인어는 영어보다 20~25% 길어지므로 같은 구조로 옮기면 넘친다.
+
+<ko-KR>
+1.5.0 업데이트
+
+📺 광고 한 번이면 24시간 배너 없이
+광고를 보면 하루 동안 배너가 사라지고 단어 한도도 늘어나요.
+
+💡 한도를 넘어도 뜻은 볼 수 있어요
+하루 한도를 다 써도 단어의 뜻은 계속 확인할 수 있어요. 무료 한도는 하루 50단어입니다.
+
+🔤 일본어 발음이 정확해졌어요
+후리가나 자리에 한글이 들어가던 문제를 고쳤어요.
+
+그 밖에
+- 단어를 고칠 때 입력칸을 한 번에 비울 수 있어요.
+- 뜻이 여러 개인 단어의 번호 표시가 어긋나지 않아요.
+
+<en-US>
+1.5.0 update
+
+📚 TOPIK II Essentials 300
+300 intermediate Korean words with examples and collocations. Set your meaning language to English to see it.
+
+📺 One ad, no banners for 24 hours
+An ad clears banners for a day and adds to your word limit.
+
+💡 Meanings still show past the limit
+Past the daily limit you can still see what a word means. The free limit is 50 words a day.
+
+Also
+- Clear an input field in one tap while editing.
+- Japanese pronunciation now uses furigana, not Hangul.
+
+<ja-JP>
+1.5.0 アップデート
+
+🔤 日本語の発音表記が正確に
+ふりがな欄にハングルが入る問題を修正しました。
+
+📺 広告1回で24時間バナーなし
+広告を見るとその日はバナー広告が消え、単語の上限も増えます。
+
+💡 上限を超えても意味は見られます
+1日の上限を使い切っても、単語の意味は確認できます。無料の上限は1日50単語です。
+
+そのほか
+- 単語の編集中に入力欄をワンタップで消せます。
+
+<vi>
+Cập nhật 1.5.0
+
+📺 Xem một quảng cáo, 24 giờ không banner
+Xem quảng cáo sẽ ẩn banner trong một ngày và tăng thêm hạn mức từ.
+
+💡 Vượt hạn mức vẫn xem được nghĩa
+Dùng hết hạn mức trong ngày, bạn vẫn xem được nghĩa của từ. Hạn mức miễn phí là 50 từ mỗi ngày.
+
+Khác
+- Xóa nhanh ô nhập bằng một chạm khi sửa từ.
+- Sửa lỗi đánh số khi một từ có nhiều nghĩa.
+
+<zh-CN>
+1.5.0 更新
+
+📺 看一次广告，24 小时无横幅
+看广告后当天不再显示横幅广告，单词额度也会增加。
+
+💡 超出额度仍可查看词义
+用完每日额度后，仍然可以查看单词的意思。免费额度为每天 50 个单词。
+
+其他
+- 编辑单词时可一键清空输入框。
+
+<es-ES>
+Actualización 1.5.0
+
+📺 Un anuncio, 24 horas sin banners
+Al ver un anuncio, los banners desaparecen por un día y tu límite de palabras aumenta.
+
+💡 Los significados siguen visibles al superar el límite
+Aunque agotes el límite diario, puedes seguir viendo el significado de las palabras. El límite gratuito es de 50 palabras al día.
+
+Además
+- Vacía un campo de un toque al editar una palabra.
+
+<es-419>
+Actualización 1.5.0
+
+📺 Un anuncio, 24 horas sin banners
+Al ver un anuncio, los banners desaparecen por un día y tu límite de palabras aumenta.
+
+💡 Los significados siguen visibles al superar el límite
+Aunque agotes el límite diario, puedes seguir viendo el significado de las palabras. El límite gratuito es de 50 palabras al día.
+
+Además
+- Vacía un campo de un toque al editar una palabra.

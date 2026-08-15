@@ -47,7 +47,7 @@ import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
-import { useAuth, isCloudAuthMode } from '@/features/auth';
+import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
 import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getWordLabel, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
@@ -794,8 +794,9 @@ export default function AddWordScreen() {
         handleAutoFill();
     };
 
-    // 사진 스캔 진입: BYOK 키 또는 로그인+Edge면 허용. 그 외(게스트·키없음)는 안내.
-    const canScanPhoto = !!apiKey || (isCloudAuthMode(authMode) && EDGE_ENABLED);
+    // 사진 스캔 진입: BYOK 키 또는 세션(게스트 포함)+Edge면 허용. 게스트도 한도(10/일)
+    // 안에서 쓸 수 있고, 넘으면 보상형 광고로 이어진다 — 자동완성과 같은 기준이다.
+    const canScanPhoto = !!apiKey || (authMode !== 'none' && EDGE_ENABLED);
     const openPhotoScan = (src: 'camera' | 'gallery') => {
         if (!canScanPhoto) {
             Alert.alert(

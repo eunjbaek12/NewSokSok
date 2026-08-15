@@ -26,7 +26,7 @@ AI flashcards · K-pop Korean
 ## Promotional Text (max 170 chars, editable without resubmission)
 
 ```
-✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 100 a day stays free after that.
+✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 50 a day stays free after that.
 ```
 
 > The only field you can change anytime without going through review. Use it for seasonal pushes / new features.

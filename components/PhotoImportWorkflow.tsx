@@ -81,6 +81,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     // 광고 보상 후 다시 부를 때 오래된 클로저(그 시점의 pendingTerms)를 잡지 않도록
     // 항상 최신 handleLoadMore를 가리킨다. 할당은 정의 직후에 한다.
     const loadMoreRef = useRef<() => void>(() => {});
+    // store에 넣어 둔 재시도의 신원. 언마운트 때 "내가 넣은 것"일 때만 거두려고 들고 있다
+    // (남의 등록을 지우면 그 화면의 광고 보상이 이어지지 않는다). useAddWord와 같은 패턴.
+    const myRetryRef = useRef<(() => void) | null>(null);
 
     const handleEnrichUpdate = (id: string, result: any) => {
         // 추출 모델이 다른 언어 단어를 잘못 뽑은 경우 — 사전 조회가 "실재하지 않는
@@ -121,7 +124,16 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
     useEffect(() => {
         launchSource(source);
-        return () => { abortControllerRef.current?.abort(); };
+        // 화면을 떠날 때 진행 중인 보강을 끊고, 광고 보상 재시도 등록도 함께 거둔다.
+        // 남겨 두면 다른 화면(AI 단어 생성 등)에서 광고를 봤을 때 이미 사라진 이 화면의
+        // 재시도가 대신 소비된다 — 그 화면은 이어지지 않고, 사용자는 광고만 본 셈이 된다.
+        return () => {
+            abortControllerRef.current?.abort();
+            const quota = useQuotaStore.getState();
+            if (myRetryRef.current && quota.retryAfterReward === myRetryRef.current) {
+                quota.setRetryAfterReward(null);
+            }
+        };
     }, []);
 
     const launchSource = async (src: 'camera' | 'gallery') => {
@@ -244,7 +256,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             // 한도 소진 — 여기서 조용히 실패시키지 않고 보상형 광고를 권한다. 보상을 받으면
             // 아래 등록한 콜백이 이 함수를 다시 불러 이어서 채운다(ref로 최신 상태를 본다).
             const quota = useQuotaStore.getState();
-            quota.setRetryAfterReward(() => loadMoreRef.current());
+            const retry = () => loadMoreRef.current();
+            myRetryRef.current = retry;
+            quota.setRetryAfterReward(retry);
             quota.notifyQuotaExceeded();
             return;
         }

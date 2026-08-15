@@ -416,7 +416,12 @@
     "v140_2": "La búsqueda de palabras y la selección para estudiar ahora están en una sola pantalla.",
     "v140_3": "Puedes contactarnos desde Ajustes y leer la respuesta en la app.",
     "v140_4": "Ya puedes usar la app en español.",
-    "v140_5": "Hay un nuevo aspecto, Mar de Verano, con sombrero de paja incluido."
+    "v140_5": "Hay un nuevo aspecto, Mar de Verano, con sombrero de paja incluido.",
+    "v150_1": "Llegaron 300 palabras esenciales de TOPIK intermedio como lista nueva.",
+    "v150_2": "Ahora puedes vaciar un campo de un toque al editar una palabra.",
+    "v150_3": "La pronunciación japonesa ahora usa furigana en vez de hangul.",
+    "v150_4": "Mira un anuncio y los banners desaparecen durante 24 horas.",
+    "v150_5": "El límite diario gratuito pasa a 50 palabras, y los significados siguen apareciendo al superarlo."
   },
   "licenses": {
     "title": "Código abierto y fuentes de datos",

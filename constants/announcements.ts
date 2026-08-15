@@ -40,6 +40,20 @@ export interface Announcement {
 //    안 띄우는 편이 낫다).
 export const ANNOUNCEMENTS: Announcement[] = [
   {
+    version: '1.5.0',
+    date: '2026-08-18',
+    // 마지막 줄(무료 한도)은 서버 정책과 짝이다 — 20260813020000 + 20260815020000 을
+    // 적용해야 실제로 그렇게 동작한다. 스토어 공개를 확인한 직후 적용하기로 했으므로
+    // 시차는 하루 이내다. 순서와 절차는 docs/release-checklist-next.md §1.
+    items: [
+      { key: 'whatsNew.v150_1', icon: 'school' },
+      { key: 'whatsNew.v150_2', icon: 'create' },
+      { key: 'whatsNew.v150_3', icon: 'language' },
+      { key: 'whatsNew.v150_4', icon: 'eye-off' },
+      { key: 'whatsNew.v150_5', icon: 'information-circle' },
+    ],
+  },
+  {
     version: '1.4.0',
     date: '2026-08-06',
     // 앞 세 줄은 1.3.0 에 실었던 소식이다. 1.3.0 에서는 아무에게도 뜨지 않았다 —

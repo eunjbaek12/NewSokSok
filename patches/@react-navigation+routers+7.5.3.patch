@@ -1,0 +1,22 @@
+diff --git a/node_modules/@react-navigation/routers/lib/module/TabRouter.js b/node_modules/@react-navigation/routers/lib/module/TabRouter.js
+--- a/node_modules/@react-navigation/routers/lib/module/TabRouter.js
++++ b/node_modules/@react-navigation/routers/lib/module/TabRouter.js
+@@ -118,6 +118,18 @@
+       routeNames,
+       routeParamList
+     }) {
++      // PATCH (soksok): useNavigationBuilder는 부모 route의 nested params가 이미 소비
++      // 표식(CONSUMED_PARAMS)을 단 상태에서 부모의 route.state가 비어 있으면 여기로
++      // undefined를 넘긴다 — 탭 네비게이터가 조건부 렌더로 언마운트·재마운트될 때 성립한다.
++      // 그대로 두면 아래 state.stale 접근에서 "Cannot read property 'stale' of undefined"로
++      // 앱이 죽는다. upstream 이슈 #13011은 "needs repro"로 닫힌 채 미수정.
++      // 복원할 상태가 없다는 뜻이므로 초기 상태를 만들어 주는 것이 의미상 옳다.
++      if (partialState == null) {
++        return router.getInitialState({
++          routeNames,
++          routeParamList
++        });
++      }
+       const state = partialState;
+       if (state.stale === false) {
+         return state;

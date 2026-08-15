@@ -14,7 +14,7 @@ import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { useTheme } from '@/features/theme';
-import { useAuth, isCloudAuthMode } from '@/features/auth';
+import { useAuth } from '@/features/auth';
 import {
   useLists,
   useFetchCloudCurations,
@@ -688,8 +688,11 @@ export default function CurationScreen() {
     }, [t, deleteCloudCuration, selectedTheme]);
 
     const hasApiKey = !!apiKey;
-    // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성 가능. 게스트(미로그인)·키없음만 차단.
-    const canGenerateAi = hasApiKey || (isCloudAuthMode(authMode) && EDGE_ENABLED);
+    // 게스트도 익명 세션이 있어 Edge를 부를 수 있으므로 자동완성과 같은 기준(세션 존재)을
+    // 쓴다 — 게스트는 한도가 작을 뿐(10/일) 기능 자체를 막지 않는다. 한도를 넘으면 보상형
+    // 광고로 이어지고, 그게 로그인·Pro 전환 지점이 된다. 예전에는 isCloudAuthMode 로 막아
+    // 게스트가 기능을 아예 못 봤고, 안내마저 "API 키를 발급받으라"는 BYOK 쪽을 가리켰다.
+    const canGenerateAi = hasApiKey || (authMode !== 'none' && EDGE_ENABLED);
 
     const handleOpenAiModal = () => {
         if (!canGenerateAi) {

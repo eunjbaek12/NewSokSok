@@ -187,10 +187,22 @@ fixing the default over adding a rule here.
 | Pro | ₩3,900/month · yearly ₩36,000 (Play) / ₩35,900 (App Store) — ~23% off vs 12× monthly | None | 3,000 단어/월, 일일 제한 없음 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
-**Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged):
+**Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged).
+The rule users are told is one sentence: **"you're charged for the words AI fills in for you."**
 - Auto-complete 1 word = 1 단어 (`enrich-word`, mode `autocomplete`)
-- AI word generation = 1 단어 per generated word, charged by requested count (`generate-words`, e.g. 20-word set = 20)
-- Photo scan = 5 단어 extraction overhead per image (`scan-image`) + 1 단어 per enriched word (`enrich-word` mode `photo`, cache hits free)
+- AI word generation = 1 단어 per generated word (`generate-words`, e.g. 20-word set = 20). The
+  over-generate buffer (+3~6, absorbed by the operator) is **not** charged; a short return refunds the gap.
+- Photo scan = 1 단어 per recognized word (`enrich-word` mode `photo`). **No per-image overhead** —
+  `scan-image` checks that quota remains but charges 0, so the count matches what the user receives.
+- **Cache hits are charged too.** The user can neither see nor predict whether a word was cached, so
+  free cache hits made usage unpredictable; charging keeps the rule above true and, since a hit costs
+  nothing to serve, it is pure margin. This also keeps the daily limit meaningful after cache seeding.
+
+**Quota exhaustion** differs by feature, on purpose:
+- Auto-complete → still returns the **meaning only** (`enrichment_level: 'basic'`), so a single lookup
+  never dead-ends. Examples/pronunciation are filled later via the word detail's AI auto-complete.
+- Photo scan / AI generation → **hard stop at the limit** with a rewarded-ad prompt. These are bulk
+  acquisition features; filling them past the limit would erase both the ad and the Pro incentive.
 
 **Free trial:** store offer only (Play/ASC), applied at checkout — **not** granted on signup.
 The server-side 7-day signup trial was removed 2026-07-27

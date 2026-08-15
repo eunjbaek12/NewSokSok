@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/Button';
 import { fetchWordsFromImage, ScanError } from '@/lib/gemini-api';
 import { filterExtractedWords } from '@/lib/stopwords';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
+import { useQuotaStore } from '@/features/quota';
 import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 
 export type ScannedWord = {
@@ -64,6 +65,22 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     const [isSaving, setIsSaving] = useState(false);
 
     const { enrichBatch, enrichingCount } = useEnrichQueue(sourceLang, targetLang, apiKey || undefined, CONCURRENCY, 'photo');
+
+    // 한 번에 보강할 개수는 "남은 AI 한도"로 자른다. 한도를 넘겨 요청하면 초과분이 조용히
+    // 실패하고 광고 모달만 맥락 없이 뜬다. 대신 한도까지만 채우고 나머지는 "더 보기"로
+    // 남겨, 사용자가 요청할 때 광고를 거쳐 이어가게 한다.
+    // BYOK 사용자는 앱 차원의 한도가 없으므로 종전 페이지 크기를 그대로 쓴다.
+    const quotaStatus = useQuotaStore(s => s.status);
+    const quotaLeftOf = (s: typeof quotaStatus): number =>
+        s ? Math.max(0, s.limit + (s.bonus ?? 0) - s.used) : PAGE_SIZE;
+    // 렌더용(구독) — 버튼 문구를 광고 안내로 바꿀지 판단한다.
+    const quotaLeftForUi = apiKey ? PAGE_SIZE : quotaLeftOf(quotaStatus);
+    // 로직용 — 보강이 도는 동안 계속 줄어들므로 호출 시점의 최신값을 읽는다.
+    const currentQuotaLeft = (): number =>
+        apiKey ? PAGE_SIZE : quotaLeftOf(useQuotaStore.getState().status);
+    // 광고 보상 후 다시 부를 때 오래된 클로저(그 시점의 pendingTerms)를 잡지 않도록
+    // 항상 최신 handleLoadMore를 가리킨다. 할당은 정의 직후에 한다.
+    const loadMoreRef = useRef<() => void>(() => {});
 
     const handleEnrichUpdate = (id: string, result: any) => {
         // 추출 모델이 다른 언어 단어를 잘못 뽑은 경우 — 사전 조회가 "실재하지 않는
@@ -182,8 +199,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                 return;
             }
 
-            const firstPage = filtered.slice(0, PAGE_SIZE);
-            const rest = filtered.slice(PAGE_SIZE);
+            const pageSize = Math.min(PAGE_SIZE, currentQuotaLeft());
+            const firstPage = filtered.slice(0, pageSize);
+            const rest = filtered.slice(pageSize);
 
             const baseTs = Date.now();
             const cards: ScannedWord[] = firstPage.map((term, i) => ({
@@ -221,8 +239,18 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
     const handleLoadMore = () => {
         if (pendingTerms.length === 0) return;
-        const next = pendingTerms.slice(0, PAGE_SIZE);
-        const rest = pendingTerms.slice(PAGE_SIZE);
+        const left = currentQuotaLeft();
+        if (left <= 0) {
+            // 한도 소진 — 여기서 조용히 실패시키지 않고 보상형 광고를 권한다. 보상을 받으면
+            // 아래 등록한 콜백이 이 함수를 다시 불러 이어서 채운다(ref로 최신 상태를 본다).
+            const quota = useQuotaStore.getState();
+            quota.setRetryAfterReward(() => loadMoreRef.current());
+            quota.notifyQuotaExceeded();
+            return;
+        }
+        const size = Math.min(PAGE_SIZE, left);
+        const next = pendingTerms.slice(0, size);
+        const rest = pendingTerms.slice(size);
         const baseTs = Date.now();
         const cards: ScannedWord[] = next.map((term, i) => ({
             id: `${baseTs}-more-${i}`,
@@ -242,6 +270,8 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         abortControllerRef.current = controller;
         enrichBatch(cards.map(c => ({ id: c.id, term: c.term })), handleEnrichUpdate, controller.signal);
     };
+
+    loadMoreRef.current = handleLoadMore;
 
     const handleCancelAnalysis = () => {
         abortControllerRef.current?.abort();
@@ -321,7 +351,10 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
                 <View style={styles.subheader}>
                     <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-                        {t('photoImport.reviewDesc', { count: scannedWords.length })}
+                        {/* 카드로 띄운 것만이 아니라 "이 사진에서 찾은 후보 전체"를 센다 —
+                            한도나 페이지 크기 때문에 아직 안 채운 몫(pendingTerms)이 있어도
+                            찾은 개수는 그대로여야 한다. */}
+                        {t('photoImport.reviewDesc', { count: scannedWords.length + pendingTerms.length })}
                     </Text>
                     {excludedCount > 0 && (
                         <Text style={[styles.subtitle, { color: colors.textTertiary }]}>
@@ -396,9 +429,15 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                             onPress={handleLoadMore}
                             style={[styles.loadMoreBtn, { borderColor: colors.border, backgroundColor: colors.surface }]}
                         >
-                            <Ionicons name="add-circle-outline" size={18} color={colors.primary} />
+                            <Ionicons
+                                name={quotaLeftForUi > 0 ? 'add-circle-outline' : 'play-circle-outline'}
+                                size={18}
+                                color={colors.primary}
+                            />
                             <Text style={[styles.loadMoreText, { color: colors.primary }]}>
-                                {t('photoImport.loadMore', { count: pendingTerms.length })}
+                                {quotaLeftForUi > 0
+                                    ? t('photoImport.loadMore', { count: pendingTerms.length })
+                                    : t('photoImport.loadMoreWithAd', { count: pendingTerms.length })}
                             </Text>
                         </Pressable>
                     )}

@@ -676,7 +676,7 @@
           },
           {
             "q": "What kinds of photos can be scanned?",
-            "a": "Both printed lists/textbooks and handwritten notes work. English, Korean, Japanese, and Chinese pages are all supported, and AI fills in the word, meaning, example, and pronunciation together.\n\nBlurry photos or pages packed with too many words reduce accuracy. A photo scan costs 5 words for extraction plus 1 word per recognized word against your daily quota (common words you already have are free)."
+            "a": "Both printed lists/textbooks and handwritten notes work. English, Korean, Japanese, and Chinese pages are all supported, and AI fills in the word, meaning, example, and pronunciation together.\n\nBlurry photos or pages packed with too many words reduce accuracy. A photo scan costs 1 word per recognized word against your daily quota."
           },
           {
             "q": "How does spreadsheet paste work?",
@@ -843,11 +843,11 @@
           },
           {
             "q": "How is the \"word count\" measured?",
-            "a": "AI calls are weighted by how heavy they are:\n• AI auto-complete: 1 word per call\n• AI generate (1 set, ~20 words): 20 words\n• Photo scan (1 image): 5 words extraction + 1 word per recognized word\n\nThe unit reflects Gemini API consumption, so one photo costs more than several auto-completes."
+            "a": "Your quota is charged by the number of words AI fills in for you:\n• AI auto-complete: 1 word\n• AI generate (1 set of 20): 20 words\n• Photo scan: 1 word per recognized word\n\nIn all three cases it is simply the number of words you receive."
           },
           {
             "q": "What happens when I hit an AI quota?",
-            "a": "AI calls pause until the relevant limit resets.\n\n• Guest — watch one rewarded ad for 10 extra words.\n• Signed-in Free — watch up to two rewarded ads for 20 extra words each. Each rewarded ad also removes the banner for 24 hours.\n• Pro — use up to 3,000 words a month with no daily limit. The quota returns in the next billing-anchored monthly period.\n\nNon-AI features (studying, editing) keep working regardless of quota."
+            "a": "AI calls pause until the relevant limit resets.\n\n• Guest — watch one rewarded ad for 10 extra words.\n• Signed-in Free — watch up to two rewarded ads for 20 extra words each. Each rewarded ad also removes the banner for 24 hours.\n• Pro — use up to 3,000 words a month with no daily limit. The quota returns in the next billing-anchored monthly period.\n\nEven past the limit you still get each word's meaning. Examples, pronunciation, and part of speech are left empty — reopen the word and tap AI auto-complete once your quota resets to fill them in.\n\nNon-AI features (studying, editing) keep working regardless of quota."
           },
           {
             "q": "How does the Pro free trial work?",
@@ -1469,6 +1469,7 @@
     "lookingUp": "Looking up in dictionary…",
     "lookupFailed": "Not found in dictionary. Please enter manually.",
     "loadMore": "Load {{count}} more words",
+    "loadMoreWithAd": "Watch an ad to continue · {{count}} left",
     "savedWithSkip": "{{added}} saved ({{skipped}} already existed)",
     "phoneticLabel": "Pronunciation"
   },

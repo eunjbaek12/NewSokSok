@@ -1,6 +1,6 @@
 Crea la lista de palabras que quieres. Encuentra la que estabas buscando. Y memoriza cualquiera de las dos de la forma más limpia.
 
-Avocado es una herramienta personal de vocabulario para seis idiomas — español, inglés, coreano, japonés, chino y vietnamita — pensada para que cada rato libre cuente. Sea cual sea tu idioma y lo que estudies, combina las direcciones como quieras.
+Avocado es una herramienta personal de vocabulario pensada para que cada rato libre cuente: vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita, en cualquier dirección y sea cual sea tu idioma.
 
 • Cuatro modos de estudio
 - Tarjetas: una a una, como mejor se te queda
@@ -37,8 +37,9 @@ Avocado es una herramienta personal de vocabulario para seis idiomas — españo
 - Añade una palabra y la IA completa pronunciación, significado, ejemplos y sinónimos
 - Elige par de idiomas, dificultad y número de palabras
 
-• Seis idiomas, en cualquier dirección
-- Español, inglés, coreano, japonés, chino y vietnamita
+• Vocabulario en seis idiomas, en cualquier dirección
+- Vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita en una sola app
+- Escribe una palabra en cualquiera de ellos y la IA rellena significado, ejemplo y pronunciación
 - Combina el idioma de origen y el del significado como quieras (ES-EN, EN-KO, ES-JA, cualquier par)
 - La app habla español, inglés y coreano
 

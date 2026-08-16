@@ -6,6 +6,19 @@
 -- consume_ai_quota still checks both day_limit and month_limit. Setting the Pro
 -- day limit equal to the monthly limit removes the user-facing daily cap while
 -- preserving the existing schema and monthly hard cost ceiling.
+--
+-- 🔴 2026-08-16 추가 — drop 없이는 이 파일이 적용되지 않는다(42P13).
+-- 이 파일은 8/13 에 작성될 때 20260813000000 이 만들어 둔 **5컬럼** ai_effective_plan 위에
+-- 얹히는 것을 전제로 `create or replace` 만 썼다. 그런데 8/14 되돌림(20260814000000)이
+-- 그 함수를 **2컬럼**(tier, day_limit)으로 낮춰 놔서 전제가 깨졌다 — Postgres 는
+-- create or replace 로 함수의 테이블 반환 형태를 바꾸지 못한다.
+--
+-- ⚠️ `cascade` 는 붙이지 않는다. 8/13 원본은 cascade 를 썼지만, 2026-08-16 실측에서
+-- 이 함수에 걸린 pg_depend 의존 객체는 **0건**이다(쿼터 함수들이 전부 plpgsql 이라
+-- 본문 참조가 의존성으로 추적되지 않는다). cascade 를 쓰면 지워질 범위를 우리가 통제하지
+-- 못하고, 특히 **grant_rewarded_bonus 3인자**가 딸려 지워지면 아직 1.4.0 을 쓰는 사용자의
+-- 보상형 광고가 2026-08-13 사고 그대로 무효가 된다.
+drop function if exists public.ai_effective_plan(uuid);
 create or replace function public.ai_effective_plan(p_user_id uuid)
 returns table (tier text, day_limit integer, month_limit integer, reward_amount integer, reward_max_views integer)
 language sql stable security definer set search_path = public

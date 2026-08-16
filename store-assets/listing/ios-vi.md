@@ -25,7 +25,7 @@ Từ vựng, TOPIK, flashcard, K-POP
 ## 홍보 텍스트 (Promotional Text, 최대 170자, 심사 없이 수시 변경)
 
 ```
-AI tự động tạo nghĩa, phát âm và câu ví dụ cho từ vựng tiếng Hàn. Quét một tấm ảnh để thêm cả bộ thẻ. Ngày đầu tiên có 300 từ, sau đó mỗi ngày 100 từ vẫn miễn phí.
+AI tự động tạo nghĩa, phát âm và câu ví dụ cho từ vựng tiếng Hàn. Quét một tấm ảnh để thêm cả bộ thẻ. Ngày đầu tiên có 300 từ, sau đó mỗi ngày 50 từ vẫn miễn phí.
 ```
 
 > 1.3.1 갱신(2026-08-02). 전환 문구를 "Pro 7일 무료 체험"에서 **가입 첫날 300단어**로 바꿨다.
@@ -51,7 +51,7 @@ Avocado là ứng dụng học từ vựng gọn gàng — tự tạo bộ thẻ
 - ※ Trung cấp, cao cấp sẽ bổ sung dần
 
 ▸ 4 chế độ học / AI tạo từ vựng / Đồng bộ đám mây · ưu tiên ngoại tuyến
-▸ Miễn phí là đủ dùng. Pro (không quảng cáo · 1.000 từ/ngày) giá theo cửa hàng.
+▸ Miễn phí là đủ dùng. Pro (không quảng cáo · 3.000 từ/tháng · không giới hạn theo ngày) giá theo cửa hàng.
 ▸ 24 giờ đầu sau khi đăng ký: 300 từ mỗi ngày. Pro có 7 ngày dùng thử miễn phí khi bắt đầu đăng ký (huỷ trong thời gian dùng thử sẽ không bị tính phí).
 ```
 

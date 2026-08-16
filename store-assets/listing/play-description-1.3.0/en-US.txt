@@ -1,12 +1,12 @@
 The word list you want. The word list you've been looking for. And the cleanest way to memorize either.
 
-Avocado is a personal vocabulary learning tool for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
+Avocado is a personal vocabulary learning tool built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
 • Four study modes
 - Flashcards: one card at a time, the way you remember best
 - Quiz: multiple choice and short answer
 - Example sentences: learn words in context
-- Autoplay & shadowing: listen and speak along for pronunciation and listening practice
+- Autoplay & shadowing: listen and speak along
 
 • A daily learning flow that fits you
 - Set a daily target and Avocado distributes the words for you
@@ -14,9 +14,9 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Words you've nailed and words that trip you up are tracked separately
 - Star a word or revisit only the ones you got wrong
 
-• Gentle Review — right before you forget (NEW)
+• Gentle Review — right before you forget
 - Memorized words quietly resurface right when you're about to forget them
-- Words you know well come back rarely; ones you keep missing come back sooner — spaced repetition that stays kind
+- Words you know well come back rarely; ones you keep missing come back sooner
 - Each day's review is capped, so nothing piles up even if you skip a few days
 - A soft reminder once a day, only when there's something to review
 
@@ -36,7 +36,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   e.g. "Renting an apartment in the US", "Ordering at a cafe", "TOEIC verbs"
 - Add a single word and AI auto-fills pronunciation, meaning, examples, and synonyms
 - Choose language pair, difficulty, and word count
-- Keep only the words you like, regenerate fresh ones on the same topic for more
+- Keep only the words you like, or regenerate on the same topic
 
 • Find what others have built
 - Browse word lists shared by other learners and import the ones you love
@@ -44,14 +44,15 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
   · Japanese — Basic 500 · JLPT N3
   · Chinese — HSK 1
-  · Korean — TOPIK Basic · Intermediate · Advanced full series (built on NIKL A/B/C frequency, for English speakers — perfect for K-pop, Hallyu, and study-abroad learners)
+  · Korean — TOPIK Basic · Intermediate · Advanced (NIKL A/B/C frequency — great for K-pop, Hallyu, and study-abroad learners)
+  · Korean — TOPIK II Essentials 300 (intermediate, with examples and collocations)
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
 • Six languages, every direction
-- English, Korean, Japanese, Chinese, Vietnamese, Spanish
-- Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
-- Built equally for learners coming from any language to any language — including Korean for K-pop and Hallyu fans worldwide
+- Korean vocabulary, Japanese vocabulary, Spanish vocabulary, Chinese, Vietnamese, English
+- Add a word in any of them — AI fills in meaning, example and pronunciation
+- Mix any input and meaning language (EN-KR, KR-JP, ES-EN — any pair)
 
 • Make it yours with skins
 - Classic, Dark, Y2K, Lab, Summer Sea, and more themes to choose from
@@ -63,11 +64,14 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Or use guest mode and start instantly
 
 • Fair pricing — free is generous
-- Free: 50 AI words per day +20 per rewarded ad (up to twice a day)
+- Guest: start instantly without an account — 10 AI words per day
+- Free: 50 AI words per day, +20 per rewarded ad (up to twice a day)
+- One rewarded ad also clears banner ads for 24 hours
+- Past the daily limit you can still see what a word means
 - Pro: ad-free, 3,000 words per month with no daily limit — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - A larger 300-word quota for your first 24 hours after signing up
-- 7-day free trial when you start Pro (cancel during the trial and you won't be charged)
+- 7-day free trial when you start Pro (cancel anytime, no charge)
 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)

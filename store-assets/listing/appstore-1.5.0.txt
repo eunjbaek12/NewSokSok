@@ -27,8 +27,8 @@ TOPIK II 덱은 en 에만 적는다 — ko→en 덱이라 **뜻 언어가 en 인
 
 한도를 넘어도 뜻은 볼 수 있어요
 
-하루 한도를 다 써도 단어의 뜻은 계속 확인할 수 있습니다. 무료 한도는 하루 50단어이고,
-광고를 보면 더 늘릴 수 있습니다.
+하루 한도를 다 써도 단어의 뜻은 계속 확인할 수 있습니다. 무료(Free) 요금제의 AI 한도는
+하루 50단어이고, 광고를 보면 더 늘릴 수 있습니다.
 
 일본어 발음 표기가 정확해졌어요
 
@@ -37,7 +37,7 @@ TOPIK II 덱은 en 에만 적는다 — ko→en 덱이라 **뜻 언어가 en 인
 
 그 밖에
 • 단어를 고칠 때 입력칸을 한 번에 비울 수 있습니다.
-• 뜻이 여러 개인 단어의 번호 표시가 어긋나지 않습니다.
+• 뜻이 여러 개인 단어에서 일부 뜻이 빠지거나 번호가 겹치던 문제를 고쳤습니다.
 
 --- en ---
 1.5.0
@@ -56,7 +56,7 @@ limit at the same time.
 Meanings still show past the limit
 
 Even after the daily limit is used up, you can keep seeing what a word means.
-The free limit is 50 words a day, and an ad raises it.
+The Free plan gets 50 AI words a day, and an ad raises it.
 
 Also
 • Clear an input field in one tap while editing a word.
@@ -74,7 +74,7 @@ y tu límite de palabras aumenta al mismo tiempo.
 Los significados siguen visibles al superar el límite
 
 Aunque agotes el límite diario, puedes seguir viendo el significado de las
-palabras. El límite gratuito es de 50 palabras al día y un anuncio lo amplía.
+palabras. El plan Gratis (Free) incluye 50 palabras de IA al día y un anuncio lo amplía.
 
 Además
 • Vacía un campo de un toque al editar una palabra.

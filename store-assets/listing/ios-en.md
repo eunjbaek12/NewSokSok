@@ -26,7 +26,7 @@ AI flashcards · K-pop Korean
 ## Promotional Text (max 170 chars, editable without resubmission)
 
 ```
-✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 100 a day stays free after that.
+✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 50 a day stays free after that.
 ```
 
 > The only field you can change anytime without going through review. Use it for seasonal pushes / new features.
@@ -51,13 +51,13 @@ hangul,topik,toeic,jlpt,hsk,vocab,kdrama,esl,memorize,japanese,chinese,review,qu
 ```
 The word list you want. The word list you've been looking for. And the cleanest way to memorize either.
 
-Avocado is a personal vocabulary learning tool for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
+Avocado is a personal vocabulary learning tool built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
 • Four study modes
 - Flashcards: one card at a time, the way you remember best
 - Quiz: multiple choice and short answer
 - Example sentences: learn words in context
-- Autoplay & shadowing: listen and speak along for pronunciation and listening practice
+- Autoplay & shadowing: listen and speak along
 
 • A daily learning flow that fits you
 - Set a daily target and Avocado distributes the words for you
@@ -67,7 +67,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 
 • Gentle Review — right before you forget
 - Memorized words quietly resurface right when you're about to forget them
-- Words you know well come back rarely; ones you keep missing come back sooner — spaced repetition that stays kind
+- Words you know well come back rarely; ones you keep missing come back sooner
 - Each day's review is capped, so nothing piles up even if you skip a few days
 - A soft reminder once a day, only when there's something to review
 
@@ -90,15 +90,15 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 
 • Find what others have built
 - Browse word lists shared by other learners and import the ones you love
-- A rich set of official curated lists, ready to study
+- Official curated lists, ready to study
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
   · Japanese — Basic 500 · JLPT N3
   · Chinese — HSK 1
   · Korean (for English speakers) — Basic · Intermediate · Advanced 500 series,
-    TOPIK I Essentials 350, Onomatopoeia & Mimetic Words 100,
+    TOPIK I Essentials 350, TOPIK II Essentials 300,
+    Onomatopoeia & Mimetic Words 100,
     Untranslatable Korean 50, Convenience Store & Delivery 50,
-    Sageuk (historical drama) 100, K-pop stan slang 100
-    (perfect for K-pop, Hallyu, and study-abroad learners)
+    Sageuk (historical drama) 100, K-pop stan slang 100
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
@@ -116,11 +116,14 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Or use guest mode and start instantly
 
 • Fair pricing — free is generous
-- Free: 50 AI words per day +20 per rewarded ad (up to twice a day)
+- Guest: start instantly without an account — 10 AI words per day
+- Free: 50 AI words per day, +20 per rewarded ad (up to twice a day)
+- One rewarded ad also clears banner ads for 24 hours
+- Past the daily limit you can still see what a word means
 - Pro: ad-free, 3,000 words per month with no daily limit — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - A larger 300-word quota for your first 24 hours after signing up
-- 7-day free trial when you start Pro (cancel during the trial and you won't be charged)
+- 7-day free trial when you start Pro (cancel anytime, no charge)
 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)

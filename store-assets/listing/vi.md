@@ -41,7 +41,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 - Học câu ví dụ: nắm cách dùng từ trong câu
 - Tự động phát · Shadowing: nghe và nói theo, luyện phát âm và nghe cùng lúc
 
-• Ôn tập nhẹ nhàng — đúng lúc bạn sắp quên (NEW)
+• Ôn tập nhẹ nhàng — đúng lúc bạn sắp quên
 - Những từ đã thuộc sẽ tự động quay lại đúng lúc bạn sắp quên
 - Từ nhớ kỹ xuất hiện thưa, từ hay quên xuất hiện dày — lặp lại ngắt quãng không gây áp lực
 - Mỗi ngày có giới hạn, nghỉ vài ngày cũng không bị dồn ứ
@@ -66,8 +66,11 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 - Chế độ khách: bắt đầu ngay, không cần đăng ký
 
 • Gói cước — miễn phí là đủ dùng
-- Miễn phí: 100 từ AI/ngày + xem quảng cáo +50 từ (tối đa 300 từ/ngày)
-- Pro: không quảng cáo, 1.000 từ/ngày (giá theo cửa hàng, gói năm ưu đãi hơn)
+- Khách: bắt đầu ngay không cần đăng ký — 10 từ AI/ngày
+- Miễn phí: 50 từ AI/ngày + xem quảng cáo +20 từ (tối đa 2 lần/ngày)
+- Xem một quảng cáo còn ẩn banner quảng cáo trong 24 giờ
+- Vượt hạn mức vẫn xem được nghĩa của từ
+- Pro: không quảng cáo, 3.000 từ/tháng, không giới hạn theo ngày (giá theo cửa hàng, gói năm ưu đãi hơn)
 - 300 từ/ngày trong 24 giờ đầu sau khi đăng ký
 - Dùng thử Pro miễn phí 7 ngày khi bắt đầu đăng ký (hủy trong thời gian dùng thử sẽ không bị tính phí)
 

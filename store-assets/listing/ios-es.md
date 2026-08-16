@@ -43,7 +43,7 @@ Tarjetas para aprender inglés
 ## 홍보 텍스트 (Promotional Text, 최대 170자) — 163자
 
 ```
-📸 Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 100 al día gratis.
+📸 Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 50 al día gratis.
 ```
 
 > 심사를 안 거치는 유일한 칸이라 이모지가 안전하다(ko 의 📸도 그렇게 들어갔다).
@@ -119,8 +119,11 @@ Avocado es una herramienta personal de vocabulario para seis idiomas — españo
 - O entra como invitado y empieza al instante
 
 • Precios justos — lo gratis da para mucho
-- Gratis: 100 palabras al día con IA, y un anuncio te da +50 (hasta 300 al día)
-- Pro: sin anuncios y 1.000 palabras al día — suscripción mensual o anual (la anual ahorra un 23 %)
+- Invitado: empieza sin cuenta — 10 palabras al día con IA
+- Gratis: 50 palabras al día con IA, y cada anuncio te da +20 (hasta 2 al día)
+- Un anuncio también quita los banners durante 24 horas
+- Aunque agotes el límite, sigues viendo el significado de las palabras
+- Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)
 - BYOK: usa tu propia clave de Gemini y no hay límite (la de Google AI Studio es gratuita)
 - Las primeras 24 horas tras registrarte tienes 300 palabras al día
 - Prueba gratuita de 7 días al empezar Pro (si cancelas durante la prueba, no se cobra nada)

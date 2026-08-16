@@ -1,0 +1,73 @@
+Crea la lista de palabras que quieres. Encuentra la que estabas buscando. Y memoriza cualquiera de las dos de la forma más limpia.
+
+Avocado es una herramienta personal de vocabulario para seis idiomas — español, inglés, coreano, japonés, chino y vietnamita — pensada para que cada rato libre cuente. Sea cual sea tu idioma y lo que estudies, combina las direcciones como quieras.
+
+• Cuatro modos de estudio
+- Tarjetas: una a una, como mejor se te queda
+- Cuestionario: opción múltiple y respuesta corta
+- Ejemplos: aprende cada palabra en contexto
+- Reproducción automática y shadowing: escucha y repite para trabajar pronunciación y comprensión
+
+• Un ritmo diario que se adapta a ti
+- Marca cuántas palabras quieres al día y Avocado las reparte por ti
+- Gráficas claras de avance y dominio
+- Las palabras que ya dominas y las que se te resisten se llevan por separado
+- Marca una palabra con estrella o repasa solo las que fallaste
+
+• Repaso amable — justo antes de que se te olvide
+- Las palabras memorizadas vuelven solas justo cuando estás a punto de olvidarlas
+- Las que sabes bien vuelven poco; las que fallas, antes — repetición espaciada y sin culpa
+- Cada día tiene un tope, así que nada se acumula aunque te saltes unos días
+- Un aviso suave al día, y solo si hay algo que repasar
+
+• Rachas y estadísticas
+- Racha de días, calendario y palabras aprendidas en "Mi aprendizaje"
+- Mira crecer las palabras de hoy, de esta semana y del total
+- Comparte tu progreso como imagen
+
+• Añade palabras con una foto o una hoja de cálculo
+- Escanea una foto y trae todas las palabras de golpe
+- Pega o importa un archivo CSV tal cual
+- Pegado masivo: suelta una lista con saltos de línea y listo
+- También hay dictado por voz y entrada manual
+
+• Generación y análisis con IA
+- Escribe un tema y la IA te construye la lista entera
+  ej.: "Alquilar un apartamento en EE. UU.", "Pedir en una cafetería", "Verbos del TOEIC"
+- Añade una palabra y la IA completa pronunciación, significado, ejemplos y sinónimos
+- Elige par de idiomas, dificultad y número de palabras
+
+• Seis idiomas, en cualquier dirección
+- Español, inglés, coreano, japonés, chino y vietnamita
+- Combina el idioma de origen y el del significado como quieras (ES-EN, EN-KO, ES-JA, cualquier par)
+- La app habla español, inglés y coreano
+
+• Listas compartidas por la comunidad
+- Explora las listas que comparten otras personas e importa las que te gusten
+- Comparte las tuyas para echar una mano
+
+• Ponle tu estilo con los temas
+- Clásico, Oscuro, Y2K, Laboratorio, Mar de Verano y más
+
+• Sin conexión primero, con copia en la nube
+- Tus datos viven en tu dispositivo: estudia sin internet
+- Inicia sesión con Apple o Google para sincronizar
+- O entra como invitado y empieza al instante
+
+• Precios justos — lo gratis da para mucho
+- Invitado: empieza sin cuenta — 10 palabras al día con IA
+- Gratis: 50 palabras al día con IA, y cada anuncio te da +20 (hasta 2 al día)
+- Un anuncio también quita los banners durante 24 horas
+- Aunque agotes el límite, sigues viendo el significado de las palabras
+- Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)
+- BYOK: usa tu propia clave de Gemini y no hay límite (la de Google AI Studio es gratuita)
+- Las primeras 24 horas tras registrarte tienes 300 palabras al día
+- Prueba gratuita de 7 días al empezar Pro (si cancelas durante la prueba, no se cobra nada)
+
+• Privacidad transparente
+- Los anuncios solo se muestran a quien no ha iniciado sesión y a usuarios gratuitos (Pro no tiene)
+- El único permiso que pedimos es el micrófono, para el dictado
+
+Crea la lista que quieres. Memorízala de la forma más cuidada.
+
+Política de privacidad: https://eunjbaek12.github.io/NewSokSok/privacy-policy

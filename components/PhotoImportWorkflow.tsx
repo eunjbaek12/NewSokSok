@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/Button';
 import { fetchWordsFromImage, ScanError } from '@/lib/gemini-api';
 import { filterExtractedWords } from '@/lib/stopwords';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
-import { useQuotaStore } from '@/features/quota';
+import { useQuotaStore, getQuotaLeft, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
 import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 
 export type ScannedWord = {
@@ -71,8 +71,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     // 남겨, 사용자가 요청할 때 광고를 거쳐 이어가게 한다.
     // BYOK 사용자는 앱 차원의 한도가 없으므로 종전 페이지 크기를 그대로 쓴다.
     const quotaStatus = useQuotaStore(s => s.status);
-    const quotaLeftOf = (s: typeof quotaStatus): number =>
-        s ? Math.max(0, s.limit + (s.bonus ?? 0) - s.used) : PAGE_SIZE;
+    // Pro는 일일이 아니라 월 잔량이 실제 한도다 — getQuotaLeft가 둘 중 작은 쪽을 준다.
+    // status가 없으면(아직 안 옴) 종전대로 페이지 크기를 그대로 쓴다.
+    const quotaLeftOf = (s: typeof quotaStatus): number => getQuotaLeft(s) ?? PAGE_SIZE;
     // 렌더용(구독) — 버튼 문구를 광고 안내로 바꿀지 판단한다.
     const quotaLeftForUi = apiKey ? PAGE_SIZE : quotaLeftOf(quotaStatus);
     // 로직용 — 보강이 도는 동안 계속 줄어들므로 호출 시점의 최신값을 읽는다.
@@ -81,9 +82,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     // 광고 보상 후 다시 부를 때 오래된 클로저(그 시점의 pendingTerms)를 잡지 않도록
     // 항상 최신 handleLoadMore를 가리킨다. 할당은 정의 직후에 한다.
     const loadMoreRef = useRef<() => void>(() => {});
-    // store에 넣어 둔 재시도의 신원. 언마운트 때 "내가 넣은 것"일 때만 거두려고 들고 있다
-    // (남의 등록을 지우면 그 화면의 광고 보상이 이어지지 않는다). useAddWord와 같은 패턴.
-    const myRetryRef = useRef<(() => void) | null>(null);
+    // 광고는 이 화면이 직접 튼다(전역 모달을 못 쓰는 자리 — 아래 handleLoadMore 참고).
+    // 보상이 들어오면 곧바로 이어서 채운다.
+    const rewarded = useRewardedAd({ onGranted: () => loadMoreRef.current() });
 
     const handleEnrichUpdate = (id: string, result: any) => {
         // 추출 모델이 다른 언어 단어를 잘못 뽑은 경우 — 사전 조회가 "실재하지 않는
@@ -124,15 +125,17 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
     useEffect(() => {
         launchSource(source);
-        // 화면을 떠날 때 진행 중인 보강을 끊고, 광고 보상 재시도 등록도 함께 거둔다.
-        // 남겨 두면 다른 화면(AI 단어 생성 등)에서 광고를 봤을 때 이미 사라진 이 화면의
-        // 재시도가 대신 소비된다 — 그 화면은 이어지지 않고, 사용자는 광고만 본 셈이 된다.
+        // 이 화면은 RN Modal 안에서 돈다 — 한도 초과 시 앱 루트의 보상형 광고 모달을 띄우면
+        // iOS가 형제 Modal을 present하지 못해 앱이 강제 종료 전까지 먹통이 된다
+        // (features/quota/store.ts의 inlineQuotaHandler 주석). 그래서 안내를 이 화면이
+        // 맡겠다고 등록한다. 보강 중 초과는 조용히 삼키고, 다음 행동은 아래 "더 불러오기"
+        // 버튼이 광고 문구로 바뀌며 안내한다.
+        const handler = (_info: QuotaBlockInfo) => { /* 전역 모달 억제 */ };
+        useQuotaStore.getState().setInlineQuotaHandler(handler);
         return () => {
             abortControllerRef.current?.abort();
             const quota = useQuotaStore.getState();
-            if (myRetryRef.current && quota.retryAfterReward === myRetryRef.current) {
-                quota.setRetryAfterReward(null);
-            }
+            if (quota.inlineQuotaHandler === handler) quota.setInlineQuotaHandler(null);
         };
     }, []);
 
@@ -251,15 +254,26 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
     const handleLoadMore = () => {
         if (pendingTerms.length === 0) return;
+        if (rewarded.loading) return;
         const left = currentQuotaLeft();
         if (left <= 0) {
-            // 한도 소진 — 여기서 조용히 실패시키지 않고 보상형 광고를 권한다. 보상을 받으면
-            // 아래 등록한 콜백이 이 함수를 다시 불러 이어서 채운다(ref로 최신 상태를 본다).
-            const quota = useQuotaStore.getState();
-            const retry = () => loadMoreRef.current();
-            myRetryRef.current = retry;
-            quota.setRetryAfterReward(retry);
-            quota.notifyQuotaExceeded();
+            // 한도 소진 — 조용히 실패시키지 않고 광고를 바로 튼다. 광고 자체는 모달 위에서도
+            // 정상 재생된다(AdMob은 최상위 present VC를 찾는다). 보상이 들어오면 훅의
+            // onGranted가 이 함수를 다시 불러 이어서 채운다.
+            const status = useQuotaStore.getState().status;
+            if (status?.tier === 'pro') {
+                // Pro에게는 광고를 보이지 않는다(Pro 약속 무결성) — 초기화 시점만 알린다.
+                Alert.alert(
+                    t('ads.proLimitTitle'),
+                    t('ads.proLimitBody', { used: status.month_used ?? 0, limit: status.month_limit ?? 0 }),
+                );
+                return;
+            }
+            if (!rewarded.canWatch) {
+                Alert.alert(t('ads.rewardedTitle'), t('ads.rewardedExhausted'));
+                return;
+            }
+            rewarded.watch();
             return;
         }
         const size = Math.min(PAGE_SIZE, left);
@@ -441,19 +455,30 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                     {pendingTerms.length > 0 && (
                         <Pressable
                             onPress={handleLoadMore}
-                            style={[styles.loadMoreBtn, { borderColor: colors.border, backgroundColor: colors.surface }]}
+                            style={[styles.loadMoreBtn, { borderColor: colors.border, backgroundColor: colors.surface, opacity: rewarded.loading ? 0.6 : 1 }]}
                         >
-                            <Ionicons
-                                name={quotaLeftForUi > 0 ? 'add-circle-outline' : 'play-circle-outline'}
-                                size={18}
-                                color={colors.primary}
-                            />
-                            <Text style={[styles.loadMoreText, { color: colors.primary }]}>
-                                {quotaLeftForUi > 0
-                                    ? t('photoImport.loadMore', { count: pendingTerms.length })
-                                    : t('photoImport.loadMoreWithAd', { count: pendingTerms.length })}
-                            </Text>
+                            {rewarded.loading ? (
+                                <ActivityIndicator size="small" color={colors.primary} />
+                            ) : (
+                                <>
+                                    <Ionicons
+                                        name={quotaLeftForUi > 0 ? 'add-circle-outline' : 'play-circle-outline'}
+                                        size={18}
+                                        color={colors.primary}
+                                    />
+                                    <Text style={[styles.loadMoreText, { color: colors.primary }]}>
+                                        {quotaLeftForUi > 0
+                                            ? t('photoImport.loadMore', { count: pendingTerms.length })
+                                            : t('photoImport.loadMoreWithAd', { count: pendingTerms.length })}
+                                    </Text>
+                                </>
+                            )}
                         </Pressable>
+                    )}
+                    {!!rewarded.error && (
+                        <Text style={[styles.failedText, { color: colors.error, textAlign: 'center' }]}>
+                            {rewarded.error}
+                        </Text>
                     )}
 
                     <View style={{ height: 16 }} />

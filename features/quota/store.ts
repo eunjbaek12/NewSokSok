@@ -28,6 +28,11 @@ export interface QuotaStatus {
   ad_free_until?: string | null;
 }
 
+/** 한도에 막힌 이유. 'ad' = 광고로 채울 수 있음(Free·게스트), 'pro' = 월 한도(광고 없음). */
+export interface QuotaBlockInfo {
+  kind: 'ad' | 'pro';
+}
+
 interface QuotaState {
   status: QuotaStatus | null;
   /** 구독 상품 ID(play_product_id). 결제 주기(월간/연간) 표시용. 유료 Pro에만 존재. */
@@ -51,6 +56,25 @@ interface QuotaState {
   retryAfterReward: (() => void) | null;
   setRetryAfterReward: (fn: (() => void) | null) => void;
 
+  /**
+   * 한도 초과를 **전역 모달 대신 화면 안에서** 안내하겠다고 등록한 핸들러.
+   *
+   * 🔴 iOS는 이미 떠 있는 RN Modal 위에 형제 Modal을 present하지 못한다. 그런데
+   * 보상형 광고 모달(RewardedAdModal)·Pro 안내 모달은 앱 루트에 있어 언제나 형제다 —
+   * AI 단어 생성처럼 **모달 안에서** 한도를 넘으면 그 present가 실패하고, RN은 실패를
+   * 모른 채 "떠 있음"으로 기록해 두 번 다시 띄우지도 닫지도 않는다. 결과는 앱이
+   * 강제 종료 전까지 터치를 받지 못하는 상태였다(2026-08-17 실기 확인, iOS 전용).
+   *
+   * 그래서 모달 안에서 도는 화면은 자기가 직접 안내하겠다고 여기에 등록한다. 등록이
+   * 있으면 notifyQuotaExceeded는 전역 모달을 켜지 않고 이 핸들러만 부른다.
+   *
+   * ⚠️ retryAfterReward와 같은 규칙: 등록한 화면이 사라지면 반드시 거둔다. 남의 등록을
+   * 지우지 않도록 "내가 넣은 것일 때만" 비울 것. 거두지 못해도 최악이 지금 동작(전역
+   * 모달이 안 뜸)이라 먹통으로는 돌아가지 않는다.
+   */
+  inlineQuotaHandler: ((info: QuotaBlockInfo) => void) | null;
+  setInlineQuotaHandler: (fn: ((info: QuotaBlockInfo) => void) | null) => void;
+
   refresh: (force?: boolean) => Promise<void>;
   set: (s: QuotaStatus) => void;
   /** enrich/generate/scan 성공 응답의 quota를 즉시 반영. RPC 없이 카운터 갱신. */
@@ -71,8 +95,10 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   quotaExceededAt: 0,
   proLimitReachedAt: 0,
   retryAfterReward: null,
+  inlineQuotaHandler: null,
 
   setRetryAfterReward: (fn) => set({ retryAfterReward: fn }),
+  setInlineQuotaHandler: (fn) => set({ inlineQuotaHandler: fn }),
 
   refresh: async (force = false) => {
     if (!force && Date.now() - get().lastFetchedAt < STALE_MS) return;
@@ -120,12 +146,18 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
       lastFetchedAt: Date.now(),
     });
   },
-  clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0, retryAfterReward: null }),
+  clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0, retryAfterReward: null, inlineQuotaHandler: null }),
   notifyQuotaExceeded: (status) => {
     const current = get().status;
     const tier = status?.tier ?? current?.tier ?? 'free';
-    const next: Partial<QuotaState> =
-      tier === 'pro' ? { proLimitReachedAt: Date.now() } : { quotaExceededAt: Date.now() };
+    const kind: QuotaBlockInfo['kind'] = tier === 'pro' ? 'pro' : 'ad';
+    const handler = get().inlineQuotaHandler;
+    // 화면이 직접 안내하겠다고 등록했으면 전역 모달은 켜지 않는다(위 슬롯 주석 참고).
+    const next: Partial<QuotaState> = handler
+      ? {}
+      : kind === 'pro'
+        ? { proLimitReachedAt: Date.now() }
+        : { quotaExceededAt: Date.now() };
     if (status) {
       // Edge 응답 quota는 trial_ends_at/pro_until 미포함 → 기존 값과 머지
       next.status = {
@@ -136,6 +168,8 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
       next.lastFetchedAt = Date.now();
     }
     set(next);
+    // status를 반영한 뒤에 부른다 — 핸들러가 남은 한도를 곧바로 다시 읽는다.
+    handler?.({ kind });
   },
   dismissQuotaExceeded: () => set({ quotaExceededAt: 0 }),
   dismissProLimitReached: () => set({ proLimitReachedAt: 0 }),

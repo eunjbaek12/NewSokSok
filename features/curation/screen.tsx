@@ -23,8 +23,9 @@ import {
   addBatchWords,
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
+import { useQuotaStore, getQuotaLeft, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
 import { VocaList, Word } from '@/lib/types';
-import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty } from '@shared/contracts';
+import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty, type AiWordCount } from '@shared/contracts';
 import { displayTag } from '@/lib/tag-display';
 import { cleanPhonetic } from '@/lib/phonetic';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
@@ -415,6 +416,19 @@ export default function CurationScreen() {
     // 경과 시간에 맞춰 안내 문구를 단계적으로 바꿔 "멈춘 게 아니라 작업 중"임을 보여준다.
     const [genStep, setGenStep] = useState(0);
 
+    // ---- AI 생성 한도 ----
+    //
+    // 서버는 "전부 아니면 실패"다(consume_ai_quota: used+cost <= limit+bonus). 남은 한도가
+    // 15인데 20을 요청하면 부분 생성이 아니라 아무것도 못 받고 429가 나는데, 그 판정이
+    // 서버에서 나므로 사용자는 20~25초를 기다린 뒤에야 실패를 본다. 앱은 잔량을 이미
+    // 알고 있으니 기다릴 이유가 없는 실패다 — 넘치는 선택지는 미리 잠근다.
+    // (사진 스캔은 같은 이유로 이미 한도만큼만 잘라 보낸다: PhotoImportWorkflow.tsx:69)
+    const quotaStatus = useQuotaStore(s => s.status);
+    // BYOK는 앱 차원의 한도가 없다 → null(=제한 UI를 그리지 않음).
+    const quotaLeft = apiKey ? null : getQuotaLeft(quotaStatus);
+    // 한도에 막혔을 때의 인라인 안내. want = 사용자가 만들려던 개수.
+    const [quotaBlock, setQuotaBlock] = useState<{ kind: QuotaBlockInfo['kind']; want: AiWordCount } | null>(null);
+
     useEffect(() => {
         let mounted = true;
         setIsCommunityLoading(true);
@@ -711,25 +725,42 @@ export default function CurationScreen() {
         }
         setAiTopic(searchQuery);
         setAiModalError(null);
+        setQuotaBlock(null);
         setAiModalVisible(true);
+        // 잔량으로 선택지를 잠글 참이라 값이 묵으면 안 된다(STALE 90초). 열 때 한 번 갱신.
+        void useQuotaStore.getState().refresh();
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
 
-    const handleGenerateAI = async () => {
+    const handleGenerateAI = async (overrides?: { wordCount?: AiWordCount }) => {
         if (!aiTopic.trim()) {
             setSnackbar({ visible: true, message: t('curation.enterSearchFirst') });
             return;
         }
+        // 광고 보상 직후의 재시도는 갓 고른 개수를 넘겨받는다 — 설정 반영은 다음 렌더라
+        // aiWordCount를 그대로 읽으면 이전 값으로 생성된다.
+        const wordCount = overrides?.wordCount ?? aiWordCount;
+        // 모자란 걸 이미 아는데 20초를 기다리게 하지 않는다. 칩 잠금이 대부분 걸러 주지만,
+        // 이미 고른 뒤에 한도가 줄어든 경우(다른 화면에서 소진)는 여기서만 잡힌다.
+        if (!apiKey) {
+            const q = useQuotaStore.getState();
+            const left = getQuotaLeft(q.status);
+            if (left !== null && wordCount > left) {
+                setQuotaBlock({ kind: q.status?.tier === 'pro' ? 'pro' : 'ad', want: wordCount });
+                return;
+            }
+        }
         const controller = new AbortController();
         genAbortRef.current = controller;
         setAiModalError(null);
+        setQuotaBlock(null);
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         const topic = aiTopic.trim();
         const sourceLang = aiSourceLang;
         const targetLang = aiTargetLang;
         try {
-            const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
+            const { words, droppedCount } = await generateAIWords(topic, apiKey, wordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
             // supabase.functions.invoke의 signal이 fetch까지 전파되지 않는 환경이 있어,
             // abort 후 응답이 늦게 도착할 수 있다. abort된 요청의 결과는 버린다.
             if (controller.signal.aborted) return;
@@ -744,7 +775,7 @@ export default function CurationScreen() {
                 sourceLanguage: sourceLang,
                 targetLanguage: targetLang,
             };
-            setLastGenParams({ topic, difficulty: aiDifficulty, wordCount: aiWordCount, sourceLang, targetLang });
+            setLastGenParams({ topic, difficulty: aiDifficulty, wordCount, sourceLang, targetLang });
             setAiModalVisible(false);
             setSelectedTheme(newTheme);
             if (droppedCount > 0) {
@@ -756,6 +787,15 @@ export default function CurationScreen() {
         } catch (e: any) {
             // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
             if (e?.name === 'AbortError' || controller.signal.aborted) return;
+            // 운영자 키 경로의 한도 초과는 아래 인라인 배너가 광고 CTA와 함께 안내한다
+            // (edge-generate → notifyQuotaExceeded → inlineQuotaHandler). 여기서 또 문구를
+            // 띄우면 같은 말이 두 번 나온다 — lib/translation-api.ts:18이 못박아 둔 규칙.
+            // 핸들러가 없어 배너가 안 켜졌을 때만 여기서 채운다.
+            if (e instanceof AiGenerateError && e.code === 'quotaExceeded') {
+                const tier = useQuotaStore.getState().status?.tier;
+                setQuotaBlock(prev => prev ?? { kind: tier === 'pro' ? 'pro' : 'ad', want: wordCount });
+                return;
+            }
             const isByokQuota = e instanceof AiGenerateError
                 && (e.code === 'dailyQuota' || e.code === 'perMinuteQuota' || e.code === 'quotaReached');
             setAiModalError(isByokQuota
@@ -773,6 +813,49 @@ export default function CurationScreen() {
             if (genAbortRef.current === controller) genAbortRef.current = null;
         }
     };
+
+    // 광고 콜백은 몇 초 뒤에 돌아온다 — 그때의 최신 값을 읽으려고 ref로 미러링한다
+    // (PhotoImportWorkflow의 loadMoreRef와 같은 이유).
+    const aiTopicRef = useRef(aiTopic);
+    aiTopicRef.current = aiTopic;
+    const aiWordCountRef = useRef(aiWordCount);
+    aiWordCountRef.current = aiWordCount;
+    const quotaBlockRef = useRef(quotaBlock);
+    quotaBlockRef.current = quotaBlock;
+    const generateRef = useRef(handleGenerateAI);
+    generateRef.current = handleGenerateAI;
+
+    // 보상이 들어오면 원하던 개수를 만들 수 있게 됐는지 다시 재고, 되면 이어서 생성한다.
+    const handleRewardGranted = () => {
+        const want = quotaBlockRef.current?.want ?? aiWordCountRef.current;
+        const left = getQuotaLeft(useQuotaStore.getState().status);
+        if (left !== null && left < want) {
+            // 한 번으로 모자란 경우(5 남았는데 30을 원함) — 안내를 유지한다. 광고를 더 볼 수
+            // 있으면 버튼도 그대로 남아 한 번 더 채울 수 있다.
+            setQuotaBlock({ kind: 'ad', want });
+            return;
+        }
+        setQuotaBlock(null);
+        if (want !== aiWordCountRef.current) void updateAiCurationSettings({ wordCount: want });
+        // 주제가 비어 있으면 잠금만 풀고 기다린다 — 빈 주제로 생성을 시작할 수는 없다.
+        if (aiTopicRef.current.trim()) void generateRef.current({ wordCount: want });
+    };
+
+    const rewarded = useRewardedAd({ onGranted: handleRewardGranted });
+
+    // 모달이 열려 있는 동안에는 한도 안내를 이 화면이 맡는다 — 전역 모달을 모달 위에
+    // 띄우면 iOS가 앱을 강제 종료 전까지 먹통으로 만든다(store.ts의 슬롯 주석).
+    useEffect(() => {
+        if (!aiModalVisible) return;
+        const handler = (info: QuotaBlockInfo) => {
+            setQuotaBlock({ kind: info.kind, want: aiWordCountRef.current });
+        };
+        useQuotaStore.getState().setInlineQuotaHandler(handler);
+        return () => {
+            const q = useQuotaStore.getState();
+            if (q.inlineQuotaHandler === handler) q.setInlineQuotaHandler(null);
+        };
+    }, [aiModalVisible]);
 
     // 진행 중 닫기 시도 → 중단 확인. "중단" 누르면 UI는 즉시 정리하고, 백엔드 요청은
     // best-effort로 abort. supabase.functions.invoke의 signal이 fetch까지 전파되지 않는
@@ -1452,7 +1535,7 @@ export default function CurationScreen() {
                 scrollable={true}
                 footer={generating ? null : (
                     <Pressable
-                        onPress={handleGenerateAI}
+                        onPress={() => handleGenerateAI()}
                         disabled={!aiTopic.trim()}
                         style={{
                             flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -1483,6 +1566,77 @@ export default function CurationScreen() {
                     </View>
                 ) : (
                 <View style={{ gap: 16, paddingBottom: 8 }}>
+                    {quotaBlock && (
+                        <View style={{
+                            gap: 10,
+                            padding: 12, borderRadius: 12,
+                            backgroundColor: colors.warningLight,
+                        }}>
+                            <View style={{ flexDirection: 'row', gap: 10, alignItems: 'flex-start' }}>
+                                <Ionicons name="information-circle" size={20} color={colors.warning} />
+                                <View style={{ flex: 1, gap: 3 }}>
+                                    <Text style={{ fontSize: 14, fontFamily: 'Pretendard_700Bold', color: colors.text }}>
+                                        {quotaBlock.kind === 'pro' ? t('ads.proLimitTitle') : t('curation.aiQuotaExhausted')}
+                                    </Text>
+                                    <Text style={{ fontSize: 13, lineHeight: 18, fontFamily: 'Pretendard_400Regular', color: colors.textSecondary }}>
+                                        {quotaBlock.kind === 'pro'
+                                            ? t('ads.proLimitBody', {
+                                                used: quotaStatus?.month_used ?? 0,
+                                                limit: quotaStatus?.month_limit ?? 0,
+                                            })
+                                            : (quotaLeft ?? 0) > 0
+                                                ? t('curation.aiQuotaShort', { count: quotaBlock.want, need: quotaBlock.want - (quotaLeft ?? 0) })
+                                                : t('curation.aiQuotaEmpty')}
+                                    </Text>
+                                    {!!rewarded.error && (
+                                        <Text style={{ fontSize: 12, fontFamily: 'Pretendard_500Medium', color: colors.error }}>
+                                            {rewarded.error}
+                                        </Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            {/* Pro는 광고를 보지 않는다(Pro 약속 무결성) — 안내 문구로 끝낸다. */}
+                            {quotaBlock.kind === 'ad' && (
+                                <Pressable
+                                    onPress={() => {
+                                        if (rewarded.loading) return;
+                                        if (rewarded.canWatch) {
+                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                            rewarded.watch();
+                                            return;
+                                        }
+                                        // 오늘 볼 수 있는 광고를 다 봤다 — 남은 길은 Pro뿐이다.
+                                        setAiModalVisible(false);
+                                        router.push('/plans' as any);
+                                    }}
+                                    style={{
+                                        flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                        paddingVertical: 12, borderRadius: 12,
+                                        backgroundColor: colors.primaryButton,
+                                        opacity: rewarded.loading ? 0.6 : 1,
+                                    }}
+                                >
+                                    {rewarded.loading ? (
+                                        <ActivityIndicator size="small" color={colors.onPrimary} />
+                                    ) : (
+                                        <>
+                                            <Ionicons
+                                                name={rewarded.canWatch ? 'play-circle' : 'sparkles'}
+                                                size={18}
+                                                color={colors.onPrimary}
+                                            />
+                                            <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.onPrimary }}>
+                                                {rewarded.canWatch
+                                                    ? t('ads.rewardedCta', { amount: rewarded.rewardAmount })
+                                                    : t('ads.rewardedExhaustedProCta')}
+                                            </Text>
+                                        </>
+                                    )}
+                                </Pressable>
+                            )}
+                        </View>
+                    )}
                     {aiModalError && (
                         <View style={{
                             flexDirection: 'row', gap: 10, alignItems: 'flex-start',
@@ -1579,15 +1733,39 @@ export default function CurationScreen() {
                     </View>
 
                     <View style={{ gap: 6 }}>
-                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                            <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
+                            {quotaLeft !== null && (
+                                <Text
+                                    numberOfLines={1}
+                                    style={{ flexShrink: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', color: colors.textTertiary }}
+                                >
+                                    {t('curation.aiQuotaLeft', { count: quotaLeft })}
+                                </Text>
+                            )}
+                        </View>
                         <View style={{ flexDirection: 'row', gap: 8 }}>
-                            {([10, 20, 30, 50] as const).map(n => (
+                            {([10, 20, 30, 50] as const).map(n => {
+                                // 잠긴 칩도 눌리긴 한다. 회색으로 죽어 있기만 하면 "왜 안 눌리지"로
+                                // 끝나지만, 누르면 부족한 양과 채우는 법이 위 배너에 나온다.
+                                const locked = quotaLeft !== null && n > quotaLeft;
+                                return (
                                 <Pressable
                                     key={n}
-                                    onPress={() => !generating && updateAiCurationSettings({ wordCount: n })}
+                                    onPress={() => {
+                                        if (generating) return;
+                                        if (locked) {
+                                            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+                                            setQuotaBlock({ kind: quotaStatus?.tier === 'pro' ? 'pro' : 'ad', want: n });
+                                            return;
+                                        }
+                                        setQuotaBlock(null);
+                                        updateAiCurationSettings({ wordCount: n });
+                                    }}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
                                         backgroundColor: aiWordCount === n ? colors.primaryButton : colors.surfaceSecondary,
+                                        opacity: locked ? 0.45 : 1,
                                     }}
                                 >
                                     <Text style={{
@@ -1596,7 +1774,8 @@ export default function CurationScreen() {
                                         textAlign: 'center',
                                     }}>{n}</Text>
                                 </Pressable>
-                            ))}
+                                );
+                            })}
                         </View>
                     </View>
                 </View>

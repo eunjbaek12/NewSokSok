@@ -253,6 +253,10 @@
     "aiLanguagePairLabel": "Language pair",
     "aiDifficultyLabel": "Difficulty",
     "aiWordCount": "Word Count",
+    "aiQuotaLeft": "{{count}} left today",
+    "aiQuotaShort": "You need {{need}} more to generate {{count}}.",
+    "aiQuotaExhausted": "Not enough AI quota",
+    "aiQuotaEmpty": "You've used all of today's AI words.",
     "report": {
       "title": "Report Collection",
       "targetPrefix": "Target: ",

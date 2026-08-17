@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
 import { enrichWord, type EnrichFallback } from '@/lib/translation-api';
-import { useQuotaStore } from '@/features/quota';
+import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
 import type { AutoFillResult } from '@/lib/types';
@@ -207,14 +207,24 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
 
     const handleAutoFill = () => runAutoFill(term);
     const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
+    // "뜻만 채워졌어요" 안내에서 상세를 마저 채우려 할 때. 이 버튼이 보인다는 것 자체가
+    // 서버의 한도 초과 판정이므로(enrich-word/index.ts:193 — basic 은 !quota.allowed 분기에서만
+    // 나간다) 한도를 처음부터 다시 셀 이유가 없다. 여기서 확인할 것은 "그 사이에 한도가
+    // 풀렸는가" 하나뿐이다.
+    //
+    // 🔴 그 판정은 반드시 getQuotaLeft 로 한다. 예전에는 `used >= limit + bonus` 를 손으로
+    // 적어 뒀는데, Pro 는 일일 한도와 월 한도가 3,000 으로 같아서 이번 달 풀을 다 쓴 날에도
+    // 그날 사용량은 0 이다 — 판정이 늘 "여유 있음"으로 떨어져 같은 basic 검색만 무한히
+    // 반복하고 월 한도 안내에는 영영 닿지 못했다. getQuotaLeft 는 둘 중 빡빡한 쪽을 준다.
     const handleEnrichFull = () => {
         const quota = useQuotaStore.getState();
-        const status = quota.status;
-        if (status && status.used >= status.limit + status.bonus) {
+        const left = getQuotaLeft(quota.status);
+        // left === null 은 "모른다"(status 미도착)라 막지 않는다 — 그냥 재검색해 서버에 묻는다.
+        if (left !== null && left <= 0) {
             const retry = () => { void runAutoFillRef.current(termRef.current.trim()); };
             myRetryRef.current = retry;
             quota.setRetryAfterReward(retry);
-            quota.notifyQuotaExceeded(status);
+            quota.notifyQuotaExceeded(quota.status);
             return;
         }
         void runAutoFill(termRef.current.trim());

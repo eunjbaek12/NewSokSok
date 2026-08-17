@@ -46,7 +46,7 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
-import { useQuota } from '@/features/quota';
+import { useQuota, pickBasicNoticeCopy } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -369,7 +369,14 @@ export default function AddWordScreen() {
     // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
     const fallbackNotice = useMemo(() => {
         if (enrichmentLevel === 'basic') {
-            return { text: t('addWord.basicMeaningLoaded'), action: t('addWord.enrichWithAi'), onPress: handleEnrichFull };
+            // 문구·액션은 pickBasicNoticeCopy 한 곳에서 고른다 — 뒤이어 뜨는 보상형 모달과
+            // 같은 판정을 두 번 계산하지 않기 위해서다(features/quota/basic-notice-copy.ts 주석).
+            const copy = pickBasicNoticeCopy(quotaStatus);
+            return {
+                text: t(copy.textKey),
+                action: copy.actionKey ? t(copy.actionKey) : null,
+                onPress: copy.action ? handleEnrichFull : null,
+            };
         }
         if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
         if (enrichFallback === 'guest') {
@@ -379,7 +386,7 @@ export default function AddWordScreen() {
             return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
         }
         return { text: t('addWord.fallbackServer'), action: null, onPress: null };
-    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull]);
+    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull, quotaStatus]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -1372,23 +1379,38 @@ export default function AddWordScreen() {
                                                     clearAccessibilityLabel={`${getMeaningLabel(targetLang, t)} ${t('common.delete')}`}
                                                     error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                                 />
-                                                {fallbackNotice && (
-                                                    <View style={styles.fallbackNotice}>
-                                                        <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} style={styles.fallbackNoticeIcon} />
-                                                        <Text style={[styles.fallbackNoticeText, { color: colors.textTertiary }]}>
-                                                            {fallbackNotice.text}
-                                                            {fallbackNotice.action ? ' ' : ''}
-                                                            {fallbackNotice.action && (
-                                                                <Text
-                                                                    onPress={fallbackNotice.onPress ?? undefined}
-                                                                    style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}
-                                                                >
-                                                                    {fallbackNotice.action}
-                                                                </Text>
-                                                            )}
-                                                        </Text>
-                                                    </View>
-                                                )}
+                                                {fallbackNotice && (() => {
+                                                    // 탭 영역은 안내 줄 **전체**다. 액션만 누르게 두면 12px 글자 한 낱말이
+                                                    // 유일한 과녁이 되는데, RN 의 Text 에는 hitSlop 이 없어(0.81 기준
+                                                    // pressRetentionOffset 뿐) 넓힐 방법도 없다.
+                                                    const body = (
+                                                        <>
+                                                            <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} style={styles.fallbackNoticeIcon} />
+                                                            <Text style={[styles.fallbackNoticeText, { color: colors.textTertiary }]}>
+                                                                {fallbackNotice.text}
+                                                                {fallbackNotice.action ? ' ' : ''}
+                                                                {fallbackNotice.action && (
+                                                                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                                                        {fallbackNotice.action}
+                                                                    </Text>
+                                                                )}
+                                                            </Text>
+                                                        </>
+                                                    );
+                                                    if (!fallbackNotice.onPress) {
+                                                        return <View style={styles.fallbackNotice}>{body}</View>;
+                                                    }
+                                                    return (
+                                                        <Pressable
+                                                            onPress={fallbackNotice.onPress}
+                                                            accessibilityRole="button"
+                                                            accessibilityLabel={`${fallbackNotice.text} ${fallbackNotice.action ?? ''}`.trim()}
+                                                            style={({ pressed }) => [styles.fallbackNotice, styles.fallbackNoticeTappable, pressed && { opacity: 0.6 }]}
+                                                        >
+                                                            {body}
+                                                        </Pressable>
+                                                    );
+                                                })()}
                                             </View>
                                         );
                                     }
@@ -1889,6 +1911,9 @@ const styles = StyleSheet.create({
     // 부모 fieldsContainer의 gap:10이 준다. 그래서 위로만 6을 띄우고 아래는 두지 않는다
     // — 음수 마진을 주면 입력칸을 파고들고, 아래 마진을 주면 부모 gap과 겹쳐 벌어진다.
     fallbackNotice: { flexDirection: 'row', alignItems: 'flex-start', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    // 누를 수 있는 안내는 위 여백 일부를 padding으로 옮겨 과녁을 키운다(글자 높이 17 → 29+).
+    // 위치는 그대로 두려고 marginTop을 그만큼 줄인다 — 총 여백 6 → 8.
+    fallbackNoticeTappable: { marginTop: 2, paddingVertical: 6 },
     fallbackNoticeIcon: { marginTop: 1 },
     fallbackNoticeText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },

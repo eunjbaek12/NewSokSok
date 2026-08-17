@@ -1117,12 +1117,6 @@ export default function CurationScreen() {
                                         {t('curation.aiGeneratedNote')}
                                     </Text>
                                 )}
-                                {(selectedTheme.downloadCount ?? 0) > 0 && (
-                                    <View style={styles.downloadRow}>
-                                        <Ionicons name="download-outline" size={14} color={colors.textTertiary} />
-                                        <Text style={{ fontSize: 12, color: colors.textTertiary, fontFamily: 'Pretendard_500Medium' }}>{selectedTheme.downloadCount}</Text>
-                                    </View>
-                                )}
                                 {(() => {
                                     const tags = getTopTags(selectedTheme);
                                     return tags.length > 0 ? (
@@ -1437,12 +1431,6 @@ export default function CurationScreen() {
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                                         {theme.creatorName && (
                                                             <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
-                                                        )}
-                                                        {activeTab === 'community' && (theme.downloadCount ?? 0) > 0 && (
-                                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
-                                                                <Ionicons name="download-outline" size={12} color={colors.textTertiary} />
-                                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>{theme.downloadCount}</Text>
-                                                            </View>
                                                         )}
                                                     </View>
                                                 </View>
@@ -1921,7 +1909,6 @@ const styles = StyleSheet.create({
     heroContent: { position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center', opacity: 0.1 },
     heroTextContainer: { zIndex: 1, alignItems: 'flex-end' },
     heroMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2, flexWrap: 'wrap', justifyContent: 'flex-end' },
-    downloadRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
     detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4, textAlign: 'right' },
     detailDesc: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     detailDescription: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6, textAlign: 'right', lineHeight: 18 },

@@ -244,7 +244,9 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             const message = error instanceof ScanError
                 ? t(`scanError.${error.code}`, { detail: error.detail ?? '' })
                 : (error?.message || t('photoImport.saveError'));
-            const title = error instanceof ScanError && error.code === 'byokQuotaExceeded'
+            // 한도 관련은 장애가 아니라 정상 상태라 "오류"가 아닌 한도 제목을 쓴다.
+            const title = error instanceof ScanError
+                && (error.code === 'byokQuotaExceeded' || error.code === 'byokPerMinuteQuota')
                 ? t('scanError.quotaTitle')
                 : t('common.error');
             Alert.alert(title, message);

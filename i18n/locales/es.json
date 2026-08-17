@@ -1165,6 +1165,7 @@
   "scanError": {
     "quotaTitle": "Límite de uso alcanzado",
     "byokQuotaExceeded": "Esta clave de la API de Gemini ha alcanzado su límite de uso actual. Inténtalo de nuevo cuando se restablezca. El momento depende del plan de la clave y de la configuración de Google AI Studio.",
+    "byokPerMinuteQuota": "Límite de solicitudes por minuto excedido. Inténtalo de nuevo en aproximadamente un minuto.",
     "quotaExceeded": "Has agotado el límite diario de IA. Mira un anuncio o inténtalo de nuevo más tarde.",
     "rateLimited": "Demasiadas solicitudes. Por favor, inténtalo de nuevo en un momento.",
     "unauthorized": "Por favor, inicia sesión de nuevo e inténtalo.",

@@ -36,6 +36,7 @@ import ReportCurationModal from './ReportCurationModal';
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
 import { SUPPORTED_LANGUAGES, getAiLanguageName, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
+import { classifyGeminiQuotaError, quotaMetricOf } from '@/lib/ai/gemini-quota';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
@@ -233,16 +234,18 @@ const generateViaByok = async (
             const error = errorBody?.error;
             const status: string | undefined = error?.status;
             const message: string | undefined = error?.message;
-            const quotaViolations = error?.details?.find((d: any) => typeof d?.['@type'] === 'string' && d['@type'].includes('QuotaFailure'))?.violations;
-            const quotaMetric: string = quotaViolations?.[0]?.quotaMetric || '';
+            // 한도 종류 판정은 lib/ai/gemini-quota.ts 한 곳에서 한다 — 사진 스캔도 같은
+            // 함수를 쓴다. 정규식을 화면마다 복제하면 같은 429 에 다른 안내가 나간다.
+            const quotaMetric = quotaMetricOf(error);
 
-            console.log('[gemini:curation] error', response.status, { status, message, quotaMetric, violations: quotaViolations });
+            console.log('[gemini:curation] error', response.status, { status, message, quotaMetric });
 
             if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
-                if (/per_?day|PerDay/i.test(quotaMetric)) {
+                const kind = classifyGeminiQuotaError(error);
+                if (kind === 'perDay') {
                     throw new AiGenerateError('dailyQuota');
                 }
-                if (/per_?minute|PerMinute/i.test(quotaMetric)) {
+                if (kind === 'perMinute') {
                     throw new AiGenerateError('perMinuteQuota');
                 }
                 throw new AiGenerateError('quotaReached', quotaMetric || undefined);

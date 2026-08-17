@@ -1,6 +1,7 @@
 import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contracts';
 import { scanImageViaEdge } from '@/lib/ai/edge-scan';
 import { byokGenerateContentUrl } from '@/lib/ai/model';
+import { classifyGeminiQuotaError, type GeminiQuotaKind } from '@/lib/ai/gemini-quota';
 
 const LANG_NAMES: Record<string, string> = {
     en: 'English',
@@ -31,6 +32,7 @@ function buildExtractPrompt(langName: string, sourceLang: string): string {
  */
 export type ScanErrorCode =
     | 'byokQuotaExceeded'
+    | 'byokPerMinuteQuota'  // 1분이면 풀린다 — 위와 뭉개면 "오늘은 끝났다"로 읽힌다
     | 'quotaExceeded'
     | 'rateLimited'
     | 'unauthorized'
@@ -122,6 +124,7 @@ export const fetchWordsFromImage = async (
                 const errorText = await response.text();
                 let detail: string | undefined;
                 let status: string | undefined;
+                let quotaKind: GeminiQuotaKind = 'other';
 
                 try {
                     const errJson = JSON.parse(errorText);
@@ -129,6 +132,7 @@ export const fetchWordsFromImage = async (
                         detail = errJson.error.message;
                     }
                     status = errJson.error?.status;
+                    quotaKind = classifyGeminiQuotaError(errJson.error);
                 } catch (e) {
                     // parsing failed — detail 없이 코드만으로 안내한다
                 }
@@ -137,8 +141,13 @@ export const fetchWordsFromImage = async (
                 // Google 원문은 영어이며 요금제별 상세까지 섞여 있으므로 사용자에게 노출하지
                 // 않고, 화면이 현지화된 정식 안내를 만들 수 있도록 코드만 전달한다.
                 // 같은 요청을 재시도해도 풀리지 않아 불필요한 호출도 즉시 멈춘다.
+                //
+                // 🔴 분당 한도는 1분이면 풀린다 — 일일 한도와 같은 코드로 뭉개면 화면이
+                // "갱신 시점은 요금제와 설정에 따라 달라질 수 있어요"라고 안내해 오늘 못 쓴다고
+                // 읽힌다. AI 단어 생성은 이미 갈라 던지고 있었는데 스캔만 429 를 구분하지 않아
+                // 같은 상황에 두 화면이 다른 안내를 했다. 판정은 lib/ai/gemini-quota.ts 공용.
                 if (response.status === 429 || status === 'RESOURCE_EXHAUSTED') {
-                    throw new ScanError('byokQuotaExceeded');
+                    throw new ScanError(quotaKind === 'perMinute' ? 'byokPerMinuteQuota' : 'byokQuotaExceeded');
                 }
 
                 // If it's a 400 Bad Request (likely a malformed payload or unrecoverable client error) don't retry,
@@ -175,7 +184,9 @@ export const fetchWordsFromImage = async (
 
             // 사용량 소진은 재시도로 회복되지 않는다. Google에 같은 요청을 반복해
             // 지연시키지 말고 화면의 현지화 안내로 즉시 넘긴다.
-            if (error instanceof ScanError && error.code === 'byokQuotaExceeded') throw error;
+            // 분당 한도도 마찬가지다 — 백오프가 1·2·4초라 최대 7초뿐이라 60초 창을 못 넘는다.
+            if (error instanceof ScanError
+                && (error.code === 'byokQuotaExceeded' || error.code === 'byokPerMinuteQuota')) throw error;
 
             // 400은 payload 문제라 같은 요청을 다시 보내도 결과가 같다 — 즉시 포기.
             if (error.isBadRequest) throw error;

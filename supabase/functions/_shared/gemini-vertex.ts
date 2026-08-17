@@ -14,6 +14,24 @@ const LANG_NAME: Record<string, string> = {
   en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
 };
 
+// 예문의 화계(speech level). 지시가 없으면 모델이 문장마다 임의로 고르고, 초급 학습자는
+// 교재가 먼저 가르치는 화계와 어긋난 예문을 받는다(2026-08-17 제보: 세종한국어 교재로
+// 공부하는 ko>en 학습자 — 이 앱의 2위 언어쌍이다).
+// 화계가 문법적으로 필수인 언어만 넣는다. 영어·중국어는 필수가 아니고, 스페인어(tú/usted)는
+// UI 번역을 tú로 통일해 둔 터라 예문만 usted로 갈라지면 오히려 어긋난다.
+// ⚠️ 같은 함수가 4개 파일에 복제돼 있다 — __tests__/register-note-sync.test.ts 가 강제한다.
+const REGISTER_LEVEL: Record<string, string> = {
+  ko: 'Korean 해요체 (-아요/-어요/-예요/-세요) — never 합쇼체 (-습니다/-ㅂ니다) and never 반말',
+  ja: 'Japanese です/ます — never 常体 (だ/である)',
+};
+
+function buildRegisterNote(sourceLang: string): string {
+  const level = REGISTER_LEVEL[sourceLang];
+  if (!level) return '';
+  return `
+REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
+}
+
 // 동음이의어 뜻 후보 1개(단일 뜻 기준, 내부 번호 없음). 클라이언트 WordSenseSchema와 동일 형태.
 export interface AnalyzedSense {
   meaningKr: string;
@@ -53,6 +71,7 @@ export async function analyzeWord(
   const tgtName = LANG_NAME[targetLang] ?? targetLang;
   // 검색(enrich)도 생성과 동일한 언어별 발음 표기 규칙을 따르게 통일.
   const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기 (IPA)';
+  const registerNote = buildRegisterNote(sourceLang);
 
   const token = await getVertexAccessToken();
 
@@ -60,7 +79,7 @@ export async function analyzeWord(
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
     `/locations/${location}/publishers/google/models/${model}:generateContent`;
 
-  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr, allowProperNouns);
+  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr, allowProperNouns, registerNote);
 
   const body = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -147,6 +166,7 @@ function buildPrompt(
   tgtName: string,
   phoneticInstr: string,
   allowProperNouns: boolean,
+  registerNote: string,
 ): string {
   const sameLang = srcName === tgtName;
   // 같은 언어쌍은 "번역" 지시가 무의미(no-op)해서 모델이 영어로 이탈하는 실측
@@ -177,6 +197,7 @@ When isReal is true, provide:
 4. The part of speech (pos), ALWAYS written in English: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom. The app groups and filters words by these exact English terms, so a translated label ("sustantivo", "名詞", "danh từ", "명사") is unusable. This applies to every "pos" inside "senses" too.
 5. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 6. A translation of the example sentence in ${tgtName}.
+${registerNote}
 
 HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
 - FIRST fix N, the number of distinct senses you will report (2 or 3). N then binds every field: the "senses" array MUST hold exactly N entries, and the numbered lists in "definition" and "meaningKr" MUST hold exactly N items in the same order. The app draws one chip per array entry and shows the numbered text beside them, so 3 entries with only ①② written out leaves a chip that nothing explains.
@@ -315,7 +336,7 @@ function buildGeneratePrompt(
   - exampleKr: 위 예문의 ${tgtLabel} 번역
   - tags: 주제 태그 배열
   포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]
-${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
+${buildRegisterNote(sourceLang)}${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
 }
 
 // ────────────────────────────────────────────────────────────

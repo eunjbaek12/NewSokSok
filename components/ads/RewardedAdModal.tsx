@@ -19,7 +19,7 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@/features/theme';
-import { hasRewardViewsRemaining, isAiQuotaExhausted, useQuotaStore, useRewardedAd } from '@/features/quota';
+import { pickRewardedCopy, useQuotaStore, useRewardedAd } from '@/features/quota';
 
 interface Props {
   visible: boolean;
@@ -39,8 +39,9 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
     onGranted: () => onGranted(),
   });
 
-  const exhausted = !!status && !hasRewardViewsRemaining(status);
-  const quotaExhausted = isAiQuotaExhausted(status);
+  // 제목·본문·버튼·아이콘은 한 곳에서 함께 고른다 — 예전에 제목만 광고 소진 분기를
+  // 빠뜨려 서로 모순되는 화면이 나갔다(features/quota/rewarded-copy.ts 주석).
+  const copy = pickRewardedCopy(status, grantedAmount);
 
   // 모달 닫힐 때 상태 리셋
   useEffect(() => {
@@ -48,7 +49,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   }, [visible, reset]);
 
   const handleWatch = () => {
-    if (exhausted) return;
+    if (copy.cta !== 'watch') return;
     watch();
   };
 
@@ -58,26 +59,20 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
         <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
           <View style={styles.iconRow}>
             <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-              <Ionicons name="play-circle" size={28} color={colors.primary} />
+              <Ionicons name={copy.icon} size={28} color={colors.primary} />
             </View>
           </View>
 
           <Text style={[styles.title, { color: colors.text }]}>
-            {grantedAmount !== null
-              ? t('ads.rewardedGrantedTitle', { amount: grantedAmount })
-              : quotaExhausted
-                ? t('ads.rewardedTitle')
-                : t('ads.rewardedBenefitTitle')}
+            {t(copy.titleKey, { amount: grantedAmount ?? rewardAmount })}
           </Text>
 
           <Text style={[styles.body, { color: colors.textSecondary }]}>
-            {grantedAmount !== null
-              ? t('ads.rewardedGrantedBody')
-              : exhausted
-                ? t('ads.rewardedExhausted')
-                : quotaExhausted
-                  ? t('ads.rewardedBody', { amount: rewardAmount, used: status?.used ?? 0, limit: (status?.limit ?? 0) + (status?.bonus ?? 0) })
-                  : t('ads.rewardedBenefitBody', { amount: rewardAmount })}
+            {t(copy.bodyKey, {
+              amount: rewardAmount,
+              used: status?.used ?? 0,
+              limit: (status?.limit ?? 0) + (status?.bonus ?? 0),
+            })}
           </Text>
 
           {error && <Text style={[styles.error, { color: colors.error }]}>{error}</Text>}
@@ -93,7 +88,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               </Text>
             </Pressable>
 
-            {grantedAmount === null && !exhausted && (
+            {copy.cta === 'watch' && (
               <Pressable
                 onPress={handleWatch}
                 style={[styles.btn, styles.btnPrimary, { backgroundColor: colors.primaryButton, opacity: loading ? 0.6 : 1 }]}
@@ -109,7 +104,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               </Pressable>
             )}
 
-            {grantedAmount === null && exhausted && (
+            {copy.cta === 'pro' && (
               <Pressable
                 onPress={() => {
                   onClose();

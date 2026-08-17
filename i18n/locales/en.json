@@ -565,6 +565,7 @@
   },
   "ads": {
     "rewardedTitle": "You've used today's word quota",
+    "rewardedShortTitle": "Not enough words left",
     "rewardedBody": "Watch a short ad to add +{{amount}} words to today's quota. (Currently {{used}} / {{limit}})",
     "rewardedBenefitTitle": "Watch an ad for benefits",
     "rewardedBenefitBody": "Watch an ad to add {{amount}} AI completions and hide banner ads for 24 hours.",

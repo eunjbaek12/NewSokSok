@@ -565,6 +565,7 @@
   },
   "ads": {
     "rewardedTitle": "오늘의 단어 한도를 모두 사용했어요",
+    "rewardedShortTitle": "남은 단어가 부족해요",
     "rewardedBody": "광고를 한 번 보면 단어 한도가 +{{amount}} 추가돼요. (현재 {{used}} / {{limit}}단어)",
     "rewardedBenefitTitle": "광고 보고 혜택 받기",
     "rewardedBenefitBody": "광고를 보면 AI 자동완성 {{amount}}개가 추가되고 24시간 동안 배너 광고가 사라져요.",

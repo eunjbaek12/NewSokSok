@@ -528,6 +528,7 @@
   },
   "ads": {
     "rewardedTitle": "Has usado tu límite de palabras de hoy",
+    "rewardedShortTitle": "No te quedan palabras suficientes",
     "rewardedBody": "Mira un anuncio corto para añadir +{{amount}} palabras a tu límite de hoy. (Actualmente {{used}} / {{limit}} palabras)",
     "rewardedBenefitTitle": "Ver un anuncio y obtener beneficios",
     "rewardedBenefitBody": "Mira un anuncio para añadir {{amount}} autocompletados con IA y ocultar los banners durante 24 horas.",

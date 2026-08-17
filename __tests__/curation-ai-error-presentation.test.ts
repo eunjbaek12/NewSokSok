@@ -4,9 +4,24 @@ import { join } from 'node:path';
 describe('AI 단어 생성 오류 표시', () => {
   const src = readFileSync(join(process.cwd(), 'features/curation/screen.tsx'), 'utf8');
 
+  // 검사 범위를 catch 블록으로 좁힌다 — 파일 전체를 보면 다른 곳의 같은 문자열이
+  // 걸려 통과해 버린다(generate-prompt-legacy-field-sync 에서 실제로 겪은 함정).
+  const generateCatch = src.slice(
+    src.indexOf('} catch (e: any) {', src.indexOf('const handleGenerateAI')),
+    src.indexOf('} finally {', src.indexOf('const handleGenerateAI')),
+  );
+
   it('BYOK 할당량 오류는 사진 스캔과 같은 정식 문구를 사용한다', () => {
-    expect(src).toContain("title: t('scanError.quotaTitle')");
-    expect(src).toContain("message: t('scanError.byokQuotaExceeded')");
+    expect(generateCatch).toContain("title: t('scanError.quotaTitle')");
+    expect(generateCatch).toContain("t('scanError.byokQuotaExceeded')");
+  });
+
+  it('분당 한도만은 갈라내 "1분 후" 안내를 쓴다', () => {
+    // 🔴 분당 한도는 1분이면 풀린다. 공통 문구("갱신 시점은 요금제와 설정에 따라 달라질
+    // 수 있어요")로 뭉개면 오늘 못 쓴다고 읽힌다. generateViaByok 은 quotaMetric 으로
+    // 일일/분당을 이미 갈라 던지므로(:218~225) 화면이 그 구분을 버리면 안 된다.
+    expect(generateCatch).toContain("e.code === 'perMinuteQuota'");
+    expect(generateCatch).toContain("t('aiError.perMinuteQuota')");
   });
 
   it('Gemini 3.x 생성 요청은 2.5용 thinkingBudget과 수동 temperature를 보내지 않는다', () => {

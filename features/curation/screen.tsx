@@ -824,7 +824,13 @@ export default function CurationScreen() {
             setAiModalError(isByokQuota
                 ? {
                     title: t('scanError.quotaTitle'),
-                    message: t('scanError.byokQuotaExceeded'),
+                    // 🔴 분당 한도는 1분이면 풀린다. 공통 문구는 "갱신 시점은 요금제와 설정에
+                    // 따라 달라질 수 있어요"라고 해서 오늘 못 쓴다고 읽히는데, generateViaByok 은
+                    // 이미 quotaMetric 으로 일일/분당을 갈라 던진다(:218~225). 화면에서 도로
+                    // 뭉개면 그 구분이 버려지고 정확한 문구(aiError.perMinuteQuota)가 죽는다.
+                    message: e.code === 'perMinuteQuota'
+                        ? t('aiError.perMinuteQuota')
+                        : t('scanError.byokQuotaExceeded'),
                 }
                 : {
                     title: t('common.error'),

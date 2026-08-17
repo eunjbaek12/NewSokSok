@@ -35,7 +35,7 @@ import ReportCurationModal from './ReportCurationModal';
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
-import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getAiLanguageName, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
@@ -71,29 +71,52 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
 };
 
 // NOTE: 응답 필드 meaningKr/exampleEn/exampleKr은 레거시 명칭. 실제로는 targetLang 뜻/sourceLang 예문/targetLang 예문 번역.
-// 한국어 라벨(`${tgtLabel} 뜻` 등)로 모델에 가이드를 주므로 비-한국어 쌍에서도 동작. 새 함수 추가 시 같은 함정 주의.
+//
+// 🔴 한국어 라벨(`${tgtLabel} 뜻`)만으로는 부족하다 — 모델이 필드 **이름**의 Kr/En 을
+// 언어 지시로 읽고 라벨을 이긴다. 실측(2026-08-17, Edge 경로 모델·temp 0.7):
+// en>en 6/6 이 뜻을 한국어로, en>es 는 예문 번역을 한국어로 냈다. 주제어를 영어로 넣어도
+// 같았으므로 원인은 주제어가 아니라 필드명이다. 출발어가 en 일 때만 새는 것도 같은 이유 —
+// `exampleEn` 이 실제로 영어라 "필드명=언어" 대응이 성립해 버린다.
+// → 아래 LEGACY_FIELD_NOTE 로 이름을 명시적으로 반박한다(자동완성 analyzeWord 와 동문).
+//    같은 프롬프트가 3곳에 복제돼 있다 — __tests__/generate-prompt-legacy-field-sync.test.ts 가 강제한다.
+function buildLegacyFieldNote(sourceLang: string, targetLang: string): string {
+    const srcName = getAiLanguageName(sourceLang);
+    const tgtName = getAiLanguageName(targetLang);
+    // tags 는 예외로 두지 않는다 — 주제어를 그대로 태그로 쓰는 게 기본이고(호출부가
+    // tags 가 비면 query 로 채운다), 예외를 늘리면 "pos 만 영어" 지시가 흐려진다.
+    return `
+  IMPORTANT — Field naming is legacy and MUST be ignored:
+  - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
+  - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
+  - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
+  Use ONLY ${srcName}${sourceLang === targetLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos", which stays in English.`;
+}
+
 function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string, excludeTerms?: string[]): string {
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
     const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
     const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+    // same-lang 지시는 반박 블록 **뒤**에 온다 — exampleKr 에 대해 두 지시가 충돌하므로
+    // (번역하라 vs 빈 문자열) 나중에 오는 쪽이 이기게 한다. 자동완성도 같은 순서다.
     const sameLangNote = sourceLang === targetLang
         ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
         : '';
     const excludeNote = excludeTerms && excludeTerms.length > 0
         ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
         : '';
-    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
+    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${excludeNote}
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
-  - pos: 품사 (예: noun, verb, adj, adv)
+  - pos: 품사 — 영어 전체 단어로 (예: noun, verb, adjective, adverb)
   - phonetic: ${phoneticInstr}
   - definition: ${srcLabel}로 작성한 정의
   - meaningKr: ${tgtLabel} 뜻
   - exampleEn: ${srcLabel} 예문
   - exampleKr: 위 예문의 ${tgtLabel} 번역
   - tags: 주제 태그 배열
-  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]
+${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
 }
 
 type GenerateAIWordsResult = { words: Word[]; droppedCount: number };

@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
 import { GEMINI_BYOK_MODEL } from '@/lib/ai/model';
+import { getAiLanguageName } from '@/constants/languages';
 import { assembleTopText, normalizeSenses } from '@/lib/senses';
 import { fromZodError } from 'zod-validation-error';
 
@@ -93,12 +94,8 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 2, baseDelayMs = 600
   throw lastErr;
 }
 
-function getFullLanguageName(code: string): string {
-  const map: Record<string, string> = {
-    en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
-  };
-  return map[code] || code;
-}
+// 영어 언어명은 constants/languages.ts 가 원본 — 사본을 늘리면 조용히 어긋난다.
+const getFullLanguageName = getAiLanguageName;
 
 // 발음 표기는 도착어(독자)에 독립적인 각 출발어의 표준 표기를 쓴다(세계인 대상).
 // en/es/vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR). 생성 경로(gemini-vertex/curation)와 동일 규칙.

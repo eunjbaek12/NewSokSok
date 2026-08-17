@@ -75,6 +75,23 @@ export function getLanguageLabel(code: string, t: (key: string) => string): stri
   return t(`languages.${code}`) || code.toUpperCase();
 }
 
+/** App language code → English name, for AI prompts. */
+const AI_LANG_NAME: Record<string, string> = {
+  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
+};
+
+/**
+ * 프롬프트에 쓰는 영어 언어명. UI 라벨(getLanguageLabel)과 달리 번역하지 않는다 —
+ * 모델에게 주는 지시라 사용자 UI 언어와 무관하게 고정돼야 한다.
+ *
+ * 프롬프트가 응답 필드를 레거시 이름(meaningKr/exampleKr/exampleEn)으로 부르는 탓에
+ * 모델이 그 이름을 언어 지시로 읽는 실측 사례가 있다. 그걸 반박하는 문장이 이 이름을
+ * 쓰므로, 한국어 라벨('영어')이 아니라 영어명이어야 자동완성 프롬프트와 문구가 같아진다.
+ */
+export function getAiLanguageName(code: string): string {
+  return AI_LANG_NAME[code] || code;
+}
+
 /**
  * 단어장 상세·편집 화면 표시용 대표 언어쌍.
  *

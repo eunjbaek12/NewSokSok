@@ -120,8 +120,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 - O entra como invitado y empieza al instante
 
 • Precios justos — lo gratis da para mucho
-- Invitado: empieza sin cuenta — 10 palabras al día con IA
-- Gratis: 50 palabras al día con IA, y cada anuncio te da +20 (hasta 2 al día)
+- Gratis: 300 palabras con IA en las primeras 24 horas, luego 50 al día, y cada anuncio te da +20 (hasta 2 al día)
 - Un anuncio también quita los banners durante 24 horas
 - Aunque agotes el límite, sigues viendo el significado de las palabras
 - Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)

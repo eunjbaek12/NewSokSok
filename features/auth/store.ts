@@ -206,7 +206,12 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       // Intent is 'none' (or a legacy guest without an anonymous session).
       // Honor it, and proactively clear any orphan
       // session a failed signOut left behind so it can't resurrect later.
-      if (session) {
+      //
+      // 🔴 단 익명 세션은 고아로 보지 않는다. 게스트가 로그아웃한 뒤의 정상 상태이고,
+      // 여기서 지우면 logout() 이 남겨 둔 세션이 다음 콜드 스타트에 사라져 한도 리셋이
+      // 되살아난다 — 두 곳을 함께 고쳐야 하는 이유가 이것이다. 클라우드 세션 부활
+      // (@soksok_auth 가 SoT) 방어는 그대로다: 그쪽은 is_anonymous 가 false 다.
+      if (session && !session.user?.is_anonymous) {
         try { await supabase.auth.signOut({ scope: 'local' }); } catch {}
       }
       set({ mode: loaded.mode, user: null });
@@ -450,7 +455,14 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    GoogleSignin.signOut()을 기다리는 사이에 게스트가 시작됐다면, 이 호출은 그 게스트의
     //    익명 세션까지 지워 버린다 — 서버엔 익명 계정만 남고 앱은 세션을 잃어, 다시 누르면
     //    익명 계정이 또 만들어진다(실제로 12초 간격 2건 관측).
-    if (useAuthStore.getState().mode === 'none') {
+    //    🔴 그리고 게스트에서 나온 것이라면 익명 세션을 **남긴다**. 지우면 재진입 때
+    //    loginAsGuest 가 새 익명 계정을 만들어 AI 한도가 0에서 다시 시작한다
+    //    (실측 8/13: 한도 10 소진 → 광고 보너스 10 소진 → 12분 뒤 새 계정에서 10을 또 씀
+    //    = 12분에 30단어). 로컬 단어는 그대로 남으니 사용자에겐 "다시 시작하기"로 보이고,
+    //    한도 10은 사진 스캔 한 장이면 소진돼 정상 사용자가 자연히 이 경로에 닿는다.
+    //    세션이 남아도 앱 동작에는 영향이 없다 — mode(@soksok_auth)가 SoT 라 화면은
+    //    로그아웃 상태이고, 그 세션은 다음 게스트 진입에서 재사용될 뿐이다.
+    if (wasCloudAuth && useAuthStore.getState().mode === 'none') {
       try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
         console.warn('[auth] supabase signOut failed:', e?.message ?? e);
       }

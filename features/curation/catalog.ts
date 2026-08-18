@@ -67,12 +67,16 @@ function mapTheme(row: any): OfficialThemeMeta {
  * — 앱에서 조건을 빼먹어도 미공개 덱은 내려오지 않는다.
  */
 export async function fetchOfficialCatalog(): Promise<OfficialThemeMeta[]> {
-  const { data, error } = await supabase
-    .from('official_themes')
-    .select(CATALOG_SELECT)
-    .order('position', { ascending: true });
-  if (error) throw error;
-  return (data ?? []).map(mapTheme);
+  // 지금은 64덱이라 한 페이지에 들어오지만, 덱을 심사 없이 늘리는 것이 이 구조의
+  // 목적이므로 여기도 페이지를 넘긴다 — 1,000덱째부터 조용히 잘리게 두지 않는다.
+  const data = await selectAllPages((from, to) =>
+    supabase
+      .from('official_themes')
+      .select(CATALOG_SELECT)
+      .order('position', { ascending: true })
+      .range(from, to),
+  );
+  return data.map(mapTheme);
 }
 
 async function readCatalogCache(): Promise<CatalogCache | null> {
@@ -102,6 +106,23 @@ const deckCache = new Map<string, Word[]>();
 const DECK_SELECT =
   'id, position, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags';
 
+// 🔴 PostgREST 는 한 응답에 1,000행까지만 준다 — 넘으면 에러가 아니라 **조용히 잘린다**.
+// NGSL 1,001 · BSL 1,000 · NAWL 957 이라 이 상한에 정확히 걸린다(실제로 NGSL 을 받아
+// 1,000개만 와서 발견했다). 같은 함정을 sync pull 에서 한 번 겪었다.
+const PAGE_SIZE = 1000;
+
+/** 1,000행 상한을 넘겨 전부 받는다. 마지막 페이지는 PAGE_SIZE 미만이라 거기서 멈춘다. */
+async function selectAllPages(build: (from: number, to: number) => any): Promise<any[]> {
+  const rows: any[] = [];
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await build(from, from + PAGE_SIZE - 1);
+    if (error) throw error;
+    const page = data ?? [];
+    rows.push(...page);
+    if (page.length < PAGE_SIZE) return rows;
+  }
+}
+
 /**
  * 덱 하나의 단어. position 순서가 콘텐츠의 일부다(NGSL·BSL 은 빈도순) — 정렬을
  * 서버에 맡기지 말고 명시한다.
@@ -110,12 +131,14 @@ export async function fetchOfficialDeck(themeId: string): Promise<Word[]> {
   const cached = deckCache.get(themeId);
   if (cached) return cached;
 
-  const { data, error } = await supabase
-    .from('official_words')
-    .select(DECK_SELECT)
-    .eq('theme_id', themeId)
-    .order('position', { ascending: true });
-  if (error) throw error;
+  const data = await selectAllPages((from, to) =>
+    supabase
+      .from('official_words')
+      .select(DECK_SELECT)
+      .eq('theme_id', themeId)
+      .order('position', { ascending: true })
+      .range(from, to),
+  );
 
   const words: Word[] = (data ?? []).map((w: any) => ({
     id: w.id,

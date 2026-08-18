@@ -169,6 +169,10 @@
     ]
   },
   "curation": {
+    "catalogLoadFailed": "No se pudo cargar la lista de colecciones.",
+    "deckLoadFailed": "No se pudieron cargar las palabras.",
+    "needsConnection": "Conéctate a internet e inténtalo de nuevo.",
+    "retryLoad": "Reintentar",
     "title": "Colecciones",
     "subtitle": "Vocabulario por tema, seleccionado por expertos",
     "tips": [

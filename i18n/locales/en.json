@@ -169,6 +169,10 @@
     ]
   },
   "curation": {
+    "catalogLoadFailed": "Couldn't load the curation list.",
+    "deckLoadFailed": "Couldn't load the words.",
+    "needsConnection": "Connect to the internet and try again.",
+    "retryLoad": "Try again",
     "title": "Collections",
     "subtitle": "Expert-curated vocabulary by topic",
     "tips": [

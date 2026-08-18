@@ -169,6 +169,10 @@
     ]
   },
   "curation": {
+    "catalogLoadFailed": "큐레이션 목록을 불러오지 못했어요.",
+    "deckLoadFailed": "단어를 불러오지 못했어요.",
+    "needsConnection": "인터넷에 연결한 뒤 다시 시도해 주세요.",
+    "retryLoad": "다시 시도",
     "title": "단어 모음",
     "subtitle": "전문가가 엄선한 상황별 어휘",
     "tips": [

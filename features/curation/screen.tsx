@@ -29,7 +29,8 @@ import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficult
 import { displayTag } from '@/lib/tag-display';
 import { cleanPhonetic } from '@/lib/phonetic';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
-import { useCurationPresets } from './presets';
+import { useOfficialCatalog, fetchOfficialDeck } from './catalog';
+import { officialToCard, communityToCard, type CurationCard } from './types';
 import ReportCurationModal from './ReportCurationModal';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
@@ -49,6 +50,9 @@ const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
 };
 
 const DIFFICULTY_TAG = DIFFICULTY_TAGS;
+
+// 참조가 매번 바뀌면 이걸 의존성으로 쓰는 useMemo 가 헛돈다.
+const EMPTY_WORDS: Word[] = [];
 
 const LANG_LABEL_KO: Record<string, string> = {
     en: '영어',
@@ -422,13 +426,20 @@ export default function CurationScreen() {
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedTheme, setSelectedTheme] = useState<VocaList | null>(null);
+    const [selectedTheme, setSelectedTheme] = useState<CurationCard | null>(null);
+    // 공식 덱만 단어를 따로 받는다(목록 응답에는 메타만 있다). 커뮤니티·AI 덱은
+    // deckWords 에 이미 들어 있어 이 셋은 건드리지 않는다.
+    const [officialWords, setOfficialWords] = useState<Word[] | null>(null);
+    const [officialWordsLoading, setOfficialWordsLoading] = useState(false);
+    const [officialWordsFailed, setOfficialWordsFailed] = useState(false);
+    // 덱 단어 재시도용. 올리면 위 조회 effect 가 다시 돈다.
+    const [deckReloadNonce, setDeckReloadNonce] = useState(0);
     const [saving, setSaving] = useState(false);
     const [generating, setGenerating] = useState(false);
     const [isCommunityLoading, setIsCommunityLoading] = useState(true);
     const [detailWord, setDetailWord] = useState<Word | null>(null);
     const [activeTab, setActiveTab] = useState<'official' | 'community'>('official');
-    const [communityThemes, setCommunityThemes] = useState<VocaList[]>([]);
+    const [communityThemes, setCommunityThemes] = useState<CurationCard[]>([]);
     const [languageFilter, setLanguageFilter] = useState<string>('all');
     const [selectedWordIds, setSelectedWordIds] = useState<Set<string>>(new Set());
     const [showListPicker, setShowListPicker] = useState(false);
@@ -436,9 +447,15 @@ export default function CurationScreen() {
     const [masterBarHeight, setMasterBarHeight] = useState(0);
 
     const lists = useLists();
-    // 공식 덱 8.16MB는 앱 시작 경로에서 떼어 뒀다 — 이 화면이 마운트될 때 처음 읽는다.
-    // 이름을 그대로 둔 것은 아래 사용처를 건드리지 않기 위해서다(→ ./presets).
-    const { presets: curationPresets, loading: isPresetsLoading } = useCurationPresets();
+    // 공식 덱은 앱 번들이 아니라 서버에서 온다(docs/curation-server-migration-spec.md).
+    // 목록은 27KB 메타뿐이고 캐시가 있으면 즉시 그려진다 — 단어는 덱을 열 때 받는다.
+    const {
+        themes: officialCatalog,
+        loading: isPresetsLoading,
+        failed: catalogFailed,
+        retry: retryCatalog,
+    } = useOfficialCatalog();
+    const curationPresets = useMemo(() => officialCatalog.map(officialToCard), [officialCatalog]);
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user, authMode } = useAuth();
@@ -473,6 +490,40 @@ export default function CurationScreen() {
     // 한도에 막혔을 때의 인라인 안내. want = 사용자가 만들려던 개수.
     const [quotaBlock, setQuotaBlock] = useState<{ kind: QuotaBlockInfo['kind']; want: AiWordCount } | null>(null);
 
+    // 공식 덱은 상세로 들어갈 때 단어를 받는다(목록에는 메타만 온다). 커뮤니티·AI
+    // 덱은 이미 words 를 들고 있으므로 여기 오지 않는다.
+    useEffect(() => {
+        if (!selectedTheme || selectedTheme.source !== 'official') {
+            setOfficialWords(null);
+            setOfficialWordsLoading(false);
+            setOfficialWordsFailed(false);
+            return;
+        }
+        let cancelled = false;
+        setOfficialWords(null);
+        setOfficialWordsLoading(true);
+        setOfficialWordsFailed(false);
+        fetchOfficialDeck(selectedTheme.id)
+            .then(words => {
+                if (cancelled) return;
+                setOfficialWords(words);
+                setOfficialWordsLoading(false);
+            })
+            .catch(e => {
+                if (cancelled) return;
+                console.warn('[curation] 덱 단어 조회 실패:', e?.message ?? e);
+                setOfficialWordsLoading(false);
+                setOfficialWordsFailed(true);
+            });
+        return () => { cancelled = true; };
+    }, [selectedTheme, deckReloadNonce]);
+
+    // 상세 화면이 읽는 단어. 출처가 어디든 이 하나만 본다.
+    const deckWords = useMemo(
+        () => selectedTheme?.words ?? officialWords ?? EMPTY_WORDS,
+        [selectedTheme, officialWords],
+    );
+
     useEffect(() => {
         let mounted = true;
         setIsCommunityLoading(true);
@@ -480,8 +531,9 @@ export default function CurationScreen() {
             if (mounted) {
                 // Server curations have a superset of VocaList fields via
                 // `.passthrough()`; the UI reads only what it needs so this
-                // cast is safe.
-                setCommunityThemes(data as unknown as VocaList[]);
+                // cast is safe. 카드 모양으로 좁혀 공식 덱과 같은 렌더를 태운다
+                // — 커뮤니티는 단어를 다 들고 오므로 태그·개수를 여기서 집계한다.
+                setCommunityThemes((data as unknown as VocaList[]).map(communityToCard));
                 setIsCommunityLoading(false);
             }
         });
@@ -506,11 +558,13 @@ export default function CurationScreen() {
     // Initialize word selection when theme is selected
     useEffect(() => {
         if (selectedTheme) {
-            setSelectedWordIds(new Set(selectedTheme.words.map((_, i) => String(i))));
+            setSelectedWordIds(new Set(deckWords.map((_, i) => String(i))));
         } else {
             setSelectedWordIds(new Set());
         }
-    }, [selectedTheme]);
+        // deckWords 가 의존성에 있어야 한다: 공식 덱은 selectedTheme 이 먼저 잡히고
+        // 단어가 나중에 도착하므로, 빼면 전체 선택이 빈 배열로 돌아 아무것도 선택되지 않는다.
+    }, [selectedTheme, deckWords]);
 
     useEffect(() => {
         const backAction = () => {
@@ -622,23 +676,10 @@ export default function CurationScreen() {
         }
     };
 
-    const getTopTags = (theme: VocaList): string[] => {
-        const counts: Record<string, number> = {};
-        for (const w of theme.words) {
-            if (w.tags) {
-                for (const t of w.tags) {
-                    counts[t] = (counts[t] || 0) + 1;
-                }
-            }
-        }
-        if (theme.category && !counts[theme.category]) {
-            counts[theme.category] = theme.words.length;
-        }
-        return Object.entries(counts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 3)
-            .map(e => e[0]);
-    };
+    // 태그 칩은 카드 모델이 이미 들고 있다 — 공식은 서버가 집계해 둔 값(목록에
+    // 단어를 안 싣기 때문), 커뮤니티·AI 는 communityToCard 가 그 자리에서 집계한다.
+    // 집계 규칙 자체는 lib/curation-tags.ts 에 있고 시딩 스크립트와 공유한다.
+    const getTopTags = (theme: CurationCard): string[] => theme.topTags;
 
     const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
@@ -653,7 +694,7 @@ export default function CurationScreen() {
     const adsInset = useAdsBottomInset();
 
     const selectedCount = selectedWordIds.size;
-    const totalCount = selectedTheme?.words.length ?? 0;
+    const totalCount = deckWords.length;
     const allSelected = selectedCount === totalCount && totalCount > 0;
 
     const toggleWordSelection = useCallback((index: number) => {
@@ -671,13 +712,13 @@ export default function CurationScreen() {
         if (allSelected) {
             setSelectedWordIds(new Set());
         } else {
-            setSelectedWordIds(new Set(selectedTheme.words.map((_, i) => String(i))));
+            setSelectedWordIds(new Set(deckWords.map((_, i) => String(i))));
         }
-    }, [selectedTheme, allSelected]);
+    }, [selectedTheme, allSelected, deckWords]);
 
     const getSelectedWords = useCallback(() => {
         if (!selectedTheme) return [];
-        return selectedTheme.words
+        return deckWords
             .filter((_, i) => selectedWordIds.has(String(i)))
             .map(w => ({
                 term: w.term,
@@ -690,7 +731,7 @@ export default function CurationScreen() {
                 isStarred: false,
                 tags: w.tags || []
             }));
-    }, [selectedTheme, selectedWordIds]);
+    }, [selectedTheme, selectedWordIds, deckWords]);
 
     const importOptions: PickerOption[] = useMemo(() =>
         lists.map(l => ({
@@ -701,26 +742,26 @@ export default function CurationScreen() {
         [lists, t]
     );
 
-    const isAlreadySaved = useCallback((theme: VocaList): boolean => {
+    const isAlreadySaved = useCallback((theme: CurationCard): boolean => {
         return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
     }, [lists]);
 
-    const canDeleteCuration = useCallback((theme: VocaList): boolean => {
+    const canDeleteCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
         return theme.creatorId === user.id || user.isAdmin;
     }, [user]);
 
     // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
     // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
-    const canReportCuration = useCallback((theme: VocaList): boolean => {
+    const canReportCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
         if (canDeleteCuration(theme)) return false;
         return true;
     }, [user, canDeleteCuration]);
 
-    const [reportModalTheme, setReportModalTheme] = useState<VocaList | null>(null);
+    const [reportModalTheme, setReportModalTheme] = useState<CurationCard | null>(null);
 
-    const handleDeleteCuration = useCallback((theme: VocaList) => {
+    const handleDeleteCuration = useCallback((theme: CurationCard) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         Alert.alert(
             t('curation.deleteConfirmTitle'),
@@ -808,16 +849,16 @@ export default function CurationScreen() {
             // supabase.functions.invoke의 signal이 fetch까지 전파되지 않는 환경이 있어,
             // abort 후 응답이 늦게 도착할 수 있다. abort된 요청의 결과는 버린다.
             if (controller.signal.aborted) return;
-            const newTheme: VocaList = {
+            const newTheme: CurationCard = {
                 id: `ai-theme-${Date.now()}`,
                 title: `AI: ${topic}`,
                 icon: '✨',
                 words,
-                isVisible: true,
-                createdAt: Date.now(),
-                isCurated: true,
+                wordCount: words.length,
+                topTags: [],
                 sourceLanguage: sourceLang,
                 targetLanguage: targetLang,
+                source: 'ai',
             };
             setLastGenParams({ topic, difficulty: aiDifficulty, wordCount, sourceLang, targetLang });
             setAiModalVisible(false);
@@ -934,7 +975,7 @@ export default function CurationScreen() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setRegenerating(true);
         try {
-            const excludeTerms = selectedTheme.words.map(w => w.term);
+            const excludeTerms = deckWords.map(w => w.term);
             const { words } = await generateAIWords(
                 lastGenParams.topic,
                 apiKey,
@@ -1093,7 +1134,8 @@ export default function CurationScreen() {
                                 <Text style={[styles.detailTitle, { color: colors.text }]}>{selectedTheme.title}</Text>
                                 <View style={styles.heroMetaRow}>
                                     <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>
-                                        {t('curation.nExpertWords', { count: selectedTheme.words.length })}
+                                        {/* 단어를 아직 받는 중에도 개수는 보여 줄 수 있다 — 목록에서 온 값이다. */}
+                                        {t('curation.nExpertWords', { count: selectedTheme.wordCount })}
                                     </Text>
                                     {(() => {
                                         const levelStyle = getLevelStyle(selectedTheme.level);
@@ -1148,7 +1190,33 @@ export default function CurationScreen() {
                             </View>
                         </View>
                         <View style={{ padding: 24, paddingTop: 4 }}>
-                            {selectedTheme.words.map((w, i) => {
+                            {/* 공식 덱은 단어를 여기서 받는다. 커뮤니티·AI 덱은 이미 갖고 있어
+                                이 두 갈래를 지나치지 않는다. */}
+                            {officialWordsLoading && (
+                                <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+                                    <ActivityIndicator size="large" color={colors.primary} />
+                                </View>
+                            )}
+                            {officialWordsFailed && (
+                                <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12 }}>
+                                    <Ionicons name="cloud-offline-outline" size={32} color={colors.textTertiary} />
+                                    <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>
+                                        {t('curation.deckLoadFailed')}
+                                    </Text>
+                                    <Text style={{ color: colors.textSecondary, fontSize: 13, textAlign: 'center' }}>
+                                        {t('curation.needsConnection')}
+                                    </Text>
+                                    <Pressable
+                                        onPress={() => { Haptics.selectionAsync(); setDeckReloadNonce(n => n + 1); }}
+                                        style={{ marginTop: 4, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: colors.primaryLight }}
+                                    >
+                                        <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                            {t('curation.retryLoad')}
+                                        </Text>
+                                    </Pressable>
+                                </View>
+                            )}
+                            {deckWords.map((w, i) => {
                                 const isSelected = selectedWordIds.has(String(i));
                                 return (
                                     <Pressable
@@ -1353,6 +1421,26 @@ export default function CurationScreen() {
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <ActivityIndicator size="large" color={colors.primary} />
                         </View>
+                    ) : activeTab === 'official' && catalogFailed ? (
+                        /* 목록을 한 번도 못 받은 상태. 캐시가 있으면 여기 오지 않는다 —
+                           그때는 오프라인이어도 목록이 그대로 보이고, 덱을 열 때 실패가 드러난다. */
+                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 40 }}>
+                            <Ionicons name="cloud-offline-outline" size={40} color={colors.textTertiary} />
+                            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' }}>
+                                {t('curation.catalogLoadFailed')}
+                            </Text>
+                            <Text style={{ color: colors.textSecondary, fontSize: 13, textAlign: 'center' }}>
+                                {t('curation.needsConnection')}
+                            </Text>
+                            <Pressable
+                                onPress={() => { Haptics.selectionAsync(); retryCatalog(); }}
+                                style={{ marginTop: 4, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: colors.primaryLight }}
+                            >
+                                <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                    {t('curation.retryLoad')}
+                                </Text>
+                            </Pressable>
+                        </View>
                     ) : (
                     <ScrollView
                         ref={scrollRef}
@@ -1426,7 +1514,7 @@ export default function CurationScreen() {
                                                 )}
                                                 <View style={styles.cardFooter}>
                                                     <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.words.length })}</Text>
+                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.wordCount })}</Text>
                                                     </View>
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                                         {theme.creatorName && (
@@ -1439,7 +1527,7 @@ export default function CurationScreen() {
                                         {viewMode === 'compact' && (
                                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
                                                 <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.words.length })}</Text>
+                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.wordCount })}</Text>
                                                 </View>
                                                 {levelStyle && (
                                                     <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>

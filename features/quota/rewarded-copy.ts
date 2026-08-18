@@ -1,4 +1,4 @@
-import { hasRewardViewsRemaining, isAiQuotaExhausted } from './reward-eligibility';
+import { hasRewardViewsRemaining, isAiQuotaExhausted, rewardViewsLeft } from './reward-eligibility';
 import type { QuotaStatus } from './store';
 
 /**
@@ -27,10 +27,17 @@ export function pickRewardedCopy(
   grantedAmount: number | null,
 ): RewardedCopy {
   // 보상을 막 받은 직후 화면이 항상 최우선 — 남은 한도와 무관하게 성공을 보여준다.
+  //
+  // 남은 횟수가 있으면 그것까지 말한다. 안 그러면 오늘 한 번 더 받을 수 있는 +20단어를
+  // 모른 채 지나가는데, 설정 화면에도 같은 구멍이 있었다(ad-benefit-copy.ts 주석).
+  // 🔑 여기서 rewardViewsLeft 를 쓰는 이유: hasRewardViewsRemaining 은 카운터가 안 온
+  //    응답에 true 를 주는데, 성공 화면에서 그 true 는 **못 받을 보상을 약속**하는 거짓이
+  //    된다. 지급 직후 status 는 refreshQuota 를 await 한 뒤라 최신이다(useRewardedAd).
   if (grantedAmount !== null) {
+    const left = rewardViewsLeft(status);
     return {
       titleKey: 'ads.rewardedGrantedTitle',
-      bodyKey: 'ads.rewardedGrantedBody',
+      bodyKey: left != null && left >= 1 ? 'ads.rewardedGrantedBodyMore' : 'ads.rewardedGrantedBody',
       cta: 'none',
       icon: 'play-circle',
     };

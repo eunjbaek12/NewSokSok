@@ -15,7 +15,7 @@ import { RewardedAd, RewardedAdEventType, AdEventType } from 'react-native-googl
 import { AD_UNIT_REWARDED } from '@/lib/ads/admob';
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from './store';
-import { hasRewardViewsRemaining } from './reward-eligibility';
+import { hasRewardViewsRemaining, rewardAmountOf } from './reward-eligibility';
 
 interface Options {
   /** 보상이 실제로 지급된 뒤(quota 갱신 완료 후) 호출. 막혔던 작업을 여기서 이어간다. */
@@ -49,7 +49,7 @@ export function useRewardedAd(options?: Options) {
     };
   }, []);
 
-  const rewardAmount = status?.reward_amount ?? (status?.tier === 'guest' ? 10 : 20);
+  const rewardAmount = rewardAmountOf(status);
   const canWatch = hasRewardViewsRemaining(status) && Platform.OS !== 'web';
 
   const reset = useCallback(() => {

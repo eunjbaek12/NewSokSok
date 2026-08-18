@@ -84,6 +84,23 @@ describe('pickRewardedCopy', () => {
     expect(c.cta).toBe('none');
   });
 
+  // 광고를 1회 본 직후에는 남은 1회(+20단어)까지 말해야 한다 — 설정 화면에도 같은 구멍이
+  // 있었다(features/quota/ad-benefit-copy.ts 주석). 지급 직후 status 는 refreshQuota 를
+  // await 한 뒤라 최신이므로(useRewardedAd) reward_views 를 그대로 믿어도 된다.
+  it('보상 직후 광고가 남았으면 한 번 더 볼 수 있다고 말한다', () => {
+    expect(pickRewardedCopy(status({ ...ads(1) }), 20).bodyKey).toBe('ads.rewardedGrantedBodyMore');
+    expect(pickRewardedCopy(status({ ...ads(2) }), 20).bodyKey).toBe('ads.rewardedGrantedBody');
+    expect(pickRewardedCopy(status({ tier: 'guest', reward_views: 1, reward_max_views: 1 }), 10).bodyKey)
+      .toBe('ads.rewardedGrantedBody');
+  });
+
+  // 🔑 hasRewardViewsRemaining 은 카운터가 없으면 true 를 준다(옛 응답을 막지 않으려고).
+  //    성공 화면에서 그 true 를 쓰면 **못 받을 보상을 약속**하는 거짓이 된다.
+  it('카운터가 없는 응답에는 한 번 더 볼 수 있다고 약속하지 않는다', () => {
+    expect(pickRewardedCopy(status(), 20).bodyKey).toBe('ads.rewardedGrantedBody');
+    expect(pickRewardedCopy(null, 20).bodyKey).toBe('ads.rewardedGrantedBody');
+  });
+
   it('status 가 아직 없으면 광고 소진으로 오해하지 않는다', () => {
     expect(pickRewardedCopy(null, null).cta).toBe('watch');
     expect(pickRewardedCopy(undefined, null).titleKey).toBe('ads.rewardedBenefitTitle');

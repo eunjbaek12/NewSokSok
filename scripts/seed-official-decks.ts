@@ -47,20 +47,24 @@ import type { VocaList } from '../lib/types';
 // 🔑 service_role 키를 명령줄에 쓰지 않아도 되도록 .env.local 을 먼저 읽는다.
 // 명령줄에 적으면 셸 기록과 도구 권한 허용 목록에 평문으로 굳는다(실제로 한 번
 // 그렇게 새어 폐기한 토큰이 있다). .env.local 은 .gitignore 에 걸려 있다.
-function loadEnvLocal() {
-  try {
-    for (const line of readFileSync('.env.local', 'utf8').split('\n')) {
-      const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
-      if (!m) continue;
-      const [, key, rawValue] = m;
-      if (process.env[key]) continue;   // 이미 넘어온 값이 우선
-      process.env[key] = rawValue.replace(/^["']|["']$/g, '');
+// .env.local 이 먼저다 — 거기에 service_role 키만 한 줄 넣으면 되고,
+// 프로젝트 URL 은 이미 .env 에 EXPO_PUBLIC_SUPABASE_URL 로 있다.
+function loadEnvFiles() {
+  for (const file of ['.env.local', '.env']) {
+    try {
+      for (const line of readFileSync(file, 'utf8').split('\n')) {
+        const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+        if (!m) continue;
+        const [, key, rawValue] = m;
+        if (process.env[key]) continue;   // 먼저 읽힌 값이 우선
+        process.env[key] = rawValue.replace(/^["']|["']$/g, '');
+      }
+    } catch {
+      // 없으면 넘어간다.
     }
-  } catch {
-    // 파일이 없으면 환경변수만 쓴다.
   }
 }
-loadEnvLocal();
+loadEnvFiles();
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL!;
 const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -257,7 +261,7 @@ async function main() {
     'senses-skipped-nooverlap': 0,
     'senses-skipped-limit': 0,
   };
-  let cacheMiss = 0, exampleChanged = 0;
+  let cacheMiss = 0, exampleChanged = 0, definitionFixed = 0;
   const report: { skippedNoOverlap: any[]; skippedLimit: any[] } = { skippedNoOverlap: [], skippedLimit: [] };
 
   for (const deck of decks) {
@@ -270,6 +274,7 @@ async function main() {
       const c = composeWord(w, cached);
       stats[c.outcome]++;
       if (c.exampleChanged) exampleChanged++;
+      if (c.definitionFixed) definitionFixed++;
       if (c.outcome === 'senses-skipped-nooverlap' && report.skippedNoOverlap.length < 3000) {
         report.skippedNoOverlap.push({
           deck: deck.id, pair: `${sl}>${tl}`, term: w.term,
@@ -295,8 +300,11 @@ async function main() {
   console.log('\n=== 합성 결과 ===');
   console.log(`캐시 미스(덱 것 그대로)      : ${cacheMiss}`);
   console.log(`손댈 것 없음                 : ${stats['unchanged']}`);
-  console.log(`definition 빈칸 채움         : ${stats['definition-filled']}`);
-  console.log(`definition 복사본 교정       : ${stats['definition-fixed']}`);
+  // definition 교정은 병기와 독립이다(병기가 보류돼도 적용된다) — 그래서 합계를
+  // 따로 센다. 아래 outcome 별 수치는 "그 단어의 최종 분류"라 합계와 다르다.
+  console.log(`definition 손본 단어(합계)   : ${definitionFixed}`);
+  console.log(`  ↳ 분류: 빈칸 채움          : ${stats['definition-filled']}`);
+  console.log(`  ↳ 분류: 복사본 교정        : ${stats['definition-fixed']}`);
   console.log(`①② 병기 적용                : ${stats['senses-merged']}`);
   console.log(`  ↳ 예문이 캐시 것으로 바뀜  : ${exampleChanged}`);
   console.log(`병기 보류(덱 뜻이 캐시에 없음): ${stats['senses-skipped-nooverlap']}`);

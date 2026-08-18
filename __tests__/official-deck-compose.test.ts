@@ -121,6 +121,25 @@ describe('⑤ 동음이의어 병기', () => {
     expect(r.exampleChanged).toBe(false);
   });
 
+  it('🔴 병기가 보류돼도 definition 은 고친다', () => {
+    // 병기를 먼저 시도하고 보류 시 곧장 반환하면 definition 규칙에 도달하지 못해
+    // 결함이 그대로 남는다. dry-run 에서 교정 건수가 4,907 → 2,496 으로 줄어 발견했다.
+    const deck = deckWord({ term: '困', meaningKr: '졸리다', definition: '졸리다' });
+    const r = composeWord(deck, {
+      definition: '피곤하여 잠이 오는 느낌이 있다.',
+      senses: [
+        { meaningKr: '곤란하게 하다', definition: 'a', exampleEn: 'x', exampleKr: 'y', pos: 'verb', phonetic: 'kùn' },
+        { meaningKr: '지치게 하다', definition: 'b', exampleEn: 'x', exampleKr: 'y', pos: 'verb', phonetic: 'kùn' },
+      ],
+    });
+    expect(r.outcome).toBe('senses-skipped-nooverlap');
+    expect(r.definitionFixed).toBe(true);
+    expect(r.word.definition).toBe('피곤하여 잠이 오는 느낌이 있다.');
+    // 뜻과 예문은 그대로여야 한다
+    expect(r.word.meaningKr).toBe('졸리다');
+    expect(r.word.exampleEn).toBe('그의 행동은 옳지 않았다.');
+  });
+
   it('뜻이 하나만 남을 만큼 길면 병기하지 않는다 (덱 뜻만 사라지는 것을 막는다)', () => {
     const long = 'x'.repeat(280);
     const deck = deckWord({ term: '사과', meaningKr: 'apple' });

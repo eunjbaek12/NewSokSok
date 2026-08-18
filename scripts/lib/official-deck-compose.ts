@@ -37,6 +37,9 @@ export interface Composed {
   outcome: Outcome;
   senses: WordSense[] | null;
   exampleChanged: boolean;
+  /** definition 을 캐시 것으로 바꿨는가. outcome 이 병기/보류여도 참일 수 있다 —
+   *  definition 교정은 병기 여부와 무관하게 먼저 적용되기 때문이다. */
+  definitionFixed: boolean;
 }
 
 /** 뜻 비교용 정규화: 괄호 주석과 구두점을 지우고 공백을 고른다. */
@@ -84,20 +87,43 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
   };
   const senses = cached ? normalizeSenses(cached.senses) : null;
 
+  // ── ④ definition 결함부터 고친다 ─────────────────────────────────────
+  // 🔴 순서가 중요하다. 병기를 먼저 시도하면, 병기가 보류된 단어(덱 뜻이 캐시에
+  //    없거나 한도를 넘은 경우)는 definition 규칙에 **도달하지 못한 채** 반환되어
+  //    결함이 그대로 남는다. 실제로 그렇게 짰다가 dry-run 에서 발견했다 —
+  //    definition 교정이 4,907 건이 아니라 2,496 건으로 줄어 있었다.
+  //    병기가 적용되면 definition 은 어차피 병기본으로 덮이므로 손해가 없다.
+  const def = (w.definition ?? '').trim();
+  const cachedDef = (cached?.definition ?? '').trim();
+  let word = w;
+  let outcome: Outcome = 'unchanged';
+  if (cachedDef) {
+    if (!def) {
+      word = { ...w, definition: cachedDef };
+      outcome = 'definition-filled';
+    } else if (normMeaning(def) === normMeaning(w.meaningKr)) {
+      // definition 은 "출발어로 쓴 뜻풀이"여야 하는데 도착어 번역(meaningKr)이
+      // 복사된 덱이 있다 — ko>en·ko>vi·ko>ja·ko>zh 4,400건.
+      word = { ...w, definition: cachedDef };
+      outcome = 'definition-fixed';
+    }
+  }
+  const definitionFixed = outcome !== 'unchanged';
+
   // ── ⑤ 동음이의어 병기 ────────────────────────────────────────────────
   if (senses && senses.length >= 2) {
     if (!overlapsDeckMeaning(w.meaningKr, senses)) {
-      return { word: w, outcome: 'senses-skipped-nooverlap', senses, exampleChanged: false };
+      return { word, outcome: 'senses-skipped-nooverlap', senses, exampleChanged: false, definitionFixed };
     }
     const selection = defaultSenseSelection(senses, base);
     // 한도 때문에 뜻이 하나로 줄면 병기가 아니라 "덱 뜻을 캐시 첫 뜻으로 교체"가
     // 되어 버린다 — 뜻은 안 늘고 덱 것만 사라지므로 포기한다.
     if (selection.length < 2) {
-      return { word: w, outcome: 'senses-skipped-limit', senses, exampleChanged: false };
+      return { word, outcome: 'senses-skipped-limit', senses, exampleChanged: false, definitionFixed };
     }
     const fill = composeSenseFill(selection, senses, base);
     if (!fitsSaveLimits(fill)) {
-      return { word: w, outcome: 'senses-skipped-limit', senses, exampleChanged: false };
+      return { word, outcome: 'senses-skipped-limit', senses, exampleChanged: false, definitionFixed };
     }
     return {
       word: {
@@ -113,31 +139,9 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
       outcome: 'senses-merged',
       senses,
       exampleChanged: true,
+      definitionFixed,
     };
   }
 
-  // ── ④ definition 결함 ────────────────────────────────────────────────
-  const def = (w.definition ?? '').trim();
-  const cachedDef = (cached?.definition ?? '').trim();
-  if (cachedDef) {
-    if (!def) {
-      return {
-        word: { ...w, definition: cachedDef },
-        outcome: 'definition-filled',
-        senses,
-        exampleChanged: false,
-      };
-    }
-    // definition 은 "출발어로 쓴 뜻풀이"여야 하는데 도착어 번역(meaningKr)이 복사된
-    // 덱이 있다 — ko>en·ko>vi·ko>ja·ko>zh 4,400건.
-    if (normMeaning(def) === normMeaning(w.meaningKr)) {
-      return {
-        word: { ...w, definition: cachedDef },
-        outcome: 'definition-fixed',
-        senses,
-        exampleChanged: false,
-      };
-    }
-  }
-  return { word: w, outcome: 'unchanged', senses, exampleChanged: false };
+  return { word, outcome, senses, exampleChanged: false, definitionFixed };
 }

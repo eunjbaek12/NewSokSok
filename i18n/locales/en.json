@@ -429,7 +429,9 @@
     "v150_3": "Japanese pronunciation now shows furigana instead of Hangul",
     "v150_4": "Watch one ad and banner ads disappear for 24 hours",
     "v150_5": "The free daily limit is 50 words, or 10 as a guest. Meanings still show past the limit",
-    "v150_6": "Have an idea? Send it from Settings › Contact us and it may land in the next update"
+    "v150_6": "Have an idea? Send it from Settings › Contact us and it may land in the next update",
+    "v160_1": "Photo scan fills in as many words as today's AI quota allows first, and makes it easier to continue with the rest.",
+    "v160_2": "When you first sign in with Google, it's clearer how to use this device's word lists and your cloud word lists together."
   },
   "licenses": {
     "title": "Open Source & Data Sources",

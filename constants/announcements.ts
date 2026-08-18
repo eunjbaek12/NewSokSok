@@ -40,6 +40,14 @@ export interface Announcement {
 //    안 띄우는 편이 낫다).
 export const ANNOUNCEMENTS: Announcement[] = [
   {
+    version: '1.6.0',
+    date: '2026-08-18',
+    items: [
+      { key: 'whatsNew.v160_1', icon: 'camera' },
+      { key: 'whatsNew.v160_2', icon: 'cloud-download' },
+    ],
+  },
+  {
     version: '1.5.0',
     date: '2026-08-16',
     // 🔑 사용자 제안에서 나온 것을 맨 위에 둔다(은정님 방침). 이번 1번은 2026-08-12

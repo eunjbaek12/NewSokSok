@@ -46,7 +46,7 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
-import { useQuota, pickBasicNoticeCopy } from '@/features/quota';
+import { getQuotaLeft, useQuota, useQuotaStore, pickBasicNoticeCopy } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -815,6 +815,15 @@ export default function AddWordScreen() {
                 ],
             );
             return;
+        }
+        // 한도가 이미 0이면 사진 권한·촬영·업로드까지 진행시킨 뒤 막지 않는다.
+        // add-word는 모달 바깥이라 전역 보상/Pro 안내를 안전하게 띄울 수 있다.
+        if (!apiKey) {
+            const latestQuota = useQuotaStore.getState().status;
+            if (getQuotaLeft(latestQuota) === 0) {
+                useQuotaStore.getState().notifyQuotaExceeded(latestQuota);
+                return;
+            }
         }
         setPhotoSource(src);
     };

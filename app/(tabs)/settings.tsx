@@ -221,8 +221,17 @@ export default function SettingsScreen() {
           style: 'destructive',
           onPress: () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-            logout();
-            router.replace('/login');
+            // Cloud logout clears account-scoped SQLite data before the next
+            // session may begin. Navigating first let users start as guest
+            // while that async cleanup was still running, exposing the just
+            // logged-out account's lists in the guest UI.
+            void (async () => {
+              try {
+                await logout();
+              } finally {
+                router.replace('/login');
+              }
+            })();
           },
         },
       ],

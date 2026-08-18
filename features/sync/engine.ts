@@ -12,9 +12,13 @@ let pushInFlight = false;
 // 클라우드 동기화 대상 = Google 또는 Apple 로그인 사용자(둘 다 Supabase 세션 보유).
 // Apple도 포함해야 Apple 사용자 데이터가 클라우드에 백업되고, 로그아웃 시 wipe가
 // 안전해진다(미동기 상태로 wipe하면 데이터 유실).
-function isCloudAuthed(): boolean {
+function cloudUserId(): string | null {
   const { mode, user } = useAuthStore.getState();
-  return isCloudAuthMode(mode) && !!user?.id;
+  return isCloudAuthMode(mode) ? user?.id ?? null : null;
+}
+
+function isCloudAuthed(): boolean {
+  return cloudUserId() !== null;
 }
 
 /**
@@ -250,7 +254,12 @@ async function fetchAliveListsByIds(ids: string[]): Promise<any[]> {
 }
 
 export async function pullChanges(): Promise<void> {
-  if (!isCloudAuthed()) return;
+  // A pull can outlive logout/account switching: React's effect cleanup cannot
+  // cancel an already-issued Supabase request. Keep the initiating account id
+  // and refuse to write its response into the next guest/account's SQLite DB.
+  const pullingUserId = cloudUserId();
+  if (!pullingUserId) return;
+  const isStillPullingForSameUser = () => cloudUserId() === pullingUserId;
 
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);
@@ -261,6 +270,8 @@ export async function pullChanges(): Promise<void> {
       fetchAllSince('cloud_study_days', lastPulledAt),
       fetchAllSince('cloud_memorized_log', lastPulledAt),
     ]);
+
+    if (!isStillPullingForSameUser()) return;
 
     // 드레인이 완료됐으므로 배치의 max(updated_at)까지는 전부 수신했음이 보장된다.
     // 빈 배치면 워터마크를 유지한다 — 과거의 Date.now() 점프는 클라이언트 시계가
@@ -304,6 +315,8 @@ export async function pullChanges(): Promise<void> {
       }
     }
 
+    if (!isStillPullingForSameUser()) return;
+
     // List→word completeness fetch — fixes the inverse asymmetry.
     //
     // A list can carry a *newer* updated_at than its own words (e.g. the list
@@ -338,7 +351,12 @@ export async function pullChanges(): Promise<void> {
     for (const w of listWords) if (!wordById.has(w.id)) wordById.set(w.id, w);
     const allWords = [...wordById.values()];
 
+    if (!isStillPullingForSameUser()) return;
+
     await runInTransaction(async () => {
+      // The transaction may have waited behind another SQLite task. Check again
+      // at the write boundary so a logout during that wait cannot repopulate DB.
+      if (!isStillPullingForSameUser()) return;
       // Local soft-delete protection. A row the user deleted locally whose
       // delete hasn't reached the cloud yet (dirty push lost to a crash/reload,
       // or still inside the debounce window) is still alive in the cloud.

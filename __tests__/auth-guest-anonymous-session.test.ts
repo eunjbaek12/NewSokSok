@@ -18,6 +18,9 @@ const getSession = jest.fn(async () => ({ data: { session: null } }) as any);
 const onAuthStateChange = jest.fn();
 const supabaseSignOut = jest.fn(async () => ({ error: null }));
 const signInAnonymously = jest.fn(async () => ({ error: null }));
+const restoreGuestSession = jest.fn(async () => null as any);
+const rememberGuestSession = jest.fn(async () => {});
+const forgetGuestSession = jest.fn(async () => {});
 
 jest.mock('react-native', () => ({ Platform: { OS: 'android' } }));
 jest.mock('@react-native-google-signin/google-signin', () => ({
@@ -64,6 +67,11 @@ jest.mock('@/lib/supabase', () => ({
     rpc: jest.fn(),
   },
 }));
+jest.mock('@/features/auth/guest-session-vault', () => ({
+  restoreGuestSession,
+  rememberGuestSession,
+  forgetGuestSession,
+}));
 
 jest.mock('@/features/sync/engine', () => ({ flushPush: jest.fn(async () => {}) }));
 jest.mock('@/features/sync/store', () => ({
@@ -90,6 +98,10 @@ beforeEach(() => {
   mem.clear();
   supabaseSignOut.mockClear();
   signInAnonymously.mockClear();
+  restoreGuestSession.mockClear();
+  rememberGuestSession.mockClear();
+  forgetGuestSession.mockClear();
+  restoreGuestSession.mockImplementation(async () => null as any);
   getSession.mockImplementation(async () => ({ data: { session: null } }) as any);
 });
 
@@ -142,5 +154,21 @@ describe('hydrate() — 의도가 none 이어도 익명 세션은 고아가 아�
 
     expect(useAuthStore.getState().mode).toBe('none');
     expect(supabaseSignOut).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('loginAsGuest() — 클라우드 로그인 전의 게스트 세션 복원', () => {
+  it('저장된 익명 세션이 있으면 새 익명 계정을 만들지 않는다', async () => {
+    getSession.mockImplementation(async () => ({ data: { session: cloudSession } }) as any);
+    restoreGuestSession.mockImplementation(async () => anonSession as any);
+
+    const { useAuthStore } = require('@/features/auth/store');
+    useAuthStore.setState({ mode: 'none', user: null });
+    await useAuthStore.getState().loginAsGuest();
+
+    expect(supabaseSignOut).toHaveBeenCalledWith({ scope: 'local' });
+    expect(restoreGuestSession).toHaveBeenCalledTimes(1);
+    expect(signInAnonymously).not.toHaveBeenCalled();
+    expect(useAuthStore.getState().mode).toBe('guest');
   });
 });

@@ -217,6 +217,13 @@ export async function autoFillWord(
         if (edge.kind === 'rate_limited' && opts?.batch) {
           throw new RateLimitedError(edge.retryAfter);
         }
+        // 사진 스캔은 AI로 완성 가능한 단어만 저장을 허용한다. quota_exceeded를
+        // 영어 사전으로 폴백하면 한국어 뜻 없는 반쪽 카드가 저장 가능해져, 한도 밖
+        // 후보까지 추가되는 결과가 된다. 호출부가 이 신호를 받아 대기 목록으로 돌린다.
+        if (edge.kind === 'quota_exceeded' && mode === 'photo') {
+          opts?.onFallback?.('quotaExceeded');
+          return { definition: '', meaningKr: '', exampleEn: '', photoQuotaExceeded: true };
+        }
         // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속
         opts?.onFallback?.(edge.kind === 'quota_exceeded' ? 'quotaExceeded' : 'serverFailed');
       } else {

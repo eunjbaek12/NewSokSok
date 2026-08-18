@@ -87,6 +87,11 @@ jest.mock('@/features/settings/store', () => ({
 jest.mock('@/features/quota', () => ({
   useQuotaStore: { getState: () => ({ clear: jest.fn() }) },
 }));
+jest.mock('@/features/auth/guest-session-vault', () => ({
+  rememberGuestSession: jest.fn(async () => {}),
+  restoreGuestSession: jest.fn(async () => null),
+  forgetGuestSession: jest.fn(async () => {}),
+}));
 
 import { useAuthStore } from '@/features/auth/store';
 

@@ -35,6 +35,39 @@ export function useBootstrapLoading(): boolean {
   return useBootstrapStore(s => s.loading);
 }
 
+async function chooseConflictResolution(cloudWordCount: number, localWordCount: number): Promise<'merge' | 'cloud'> {
+  // A cloud reset permanently removes guest-local words/stats. If the user
+  // backs out of the destructive confirmation, return to the original choice
+  // instead of silently treating that as a cloud reset or a cancellation.
+  for (;;) {
+    const choice = await new Promise<'merge' | 'cloud'>((resolve) => {
+      Alert.alert(
+        i18n.t('bootstrap.conflictTitle'),
+        i18n.t('bootstrap.conflictMessage', { cloud: cloudWordCount, local: localWordCount }),
+        [
+          { text: i18n.t('bootstrap.merge'), onPress: () => resolve('merge') },
+          { text: i18n.t('bootstrap.keepCloud'), style: 'destructive', onPress: () => resolve('cloud') },
+        ],
+        { cancelable: false },
+      );
+    });
+    if (choice === 'merge') return choice;
+
+    const confirmed = await new Promise<boolean>((resolve) => {
+      Alert.alert(
+        i18n.t('bootstrap.confirmCloudResetTitle'),
+        i18n.t('bootstrap.confirmCloudResetMessage'),
+        [
+          { text: i18n.t('common.cancel'), style: 'cancel', onPress: () => resolve(false) },
+          { text: i18n.t('bootstrap.confirmCloudReset'), style: 'destructive', onPress: () => resolve(true) },
+        ],
+        { cancelable: false },
+      );
+    });
+    if (confirmed) return 'cloud';
+  }
+}
+
 async function loadCloudData(): Promise<void> {
   const { lastPulledAt } = useSyncStore.getState();
 
@@ -42,17 +75,7 @@ async function loadCloudData(): Promise<void> {
     if (lastPulledAt === 0) {
       const { state, cloudWordCount, localWordCount } = await probeFirstLoginState();
       if (state === 'conflict') {
-        const choice = await new Promise<'merge' | 'cloud'>((resolve) => {
-          Alert.alert(
-            i18n.t('bootstrap.conflictTitle'),
-            i18n.t('bootstrap.conflictMessage', { cloud: cloudWordCount, local: localWordCount }),
-            [
-              { text: i18n.t('bootstrap.merge'), onPress: () => resolve('merge') },
-              { text: i18n.t('bootstrap.keepCloud'), style: 'destructive', onPress: () => resolve('cloud') },
-            ],
-            { cancelable: false },
-          );
-        });
+        const choice = await chooseConflictResolution(cloudWordCount, localWordCount);
         if (choice === 'merge') await applyFirstLoginMerge();
         else await applyFirstLoginCloudReset();
       } else if (state === 'local-only') {

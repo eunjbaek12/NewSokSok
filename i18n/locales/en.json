@@ -1484,6 +1484,7 @@
     "lookupFailed": "Not found in dictionary. Please enter manually.",
     "loadMore": "Load {{count}} more words",
     "loadMoreWithAd": "Watch an ad to continue · {{count}} left",
+    "loadMoreWithPro": "Upgrade to Pro to view {{count}} more",
     "savedWithSkip": "{{added}} saved ({{skipped}} already existed)",
     "phoneticLabel": "Pronunciation"
   },
@@ -1617,6 +1618,9 @@
     "conflictMessage": "There are {{cloud}} words in the cloud and {{local}} on this device. What would you like to do?",
     "merge": "Merge both",
     "keepCloud": "Keep cloud only",
+    "confirmCloudResetTitle": "Delete this device's word lists?",
+    "confirmCloudResetMessage": "Word lists and study history saved as a guest on this device will be deleted and replaced with your cloud word lists. This can't be undone.",
+    "confirmCloudReset": "Replace with cloud",
     "syncErrorTitle": "Sync error",
     "syncErrorMessage": "Cloud sync failed.\n{{detail}}"
   },

@@ -1484,6 +1484,7 @@
     "lookupFailed": "사전에서 찾지 못했어요. 직접 입력해 주세요.",
     "loadMore": "단어 {{count}}개 더 보기",
     "loadMoreWithAd": "광고 보고 이어서 채우기 · {{count}}개 남음",
+    "loadMoreWithPro": "Pro로 업그레이드하고 {{count}}개 더 보기",
     "savedWithSkip": "{{added}}개 저장됨 ({{skipped}}개는 이미 있어서 제외)",
     "phoneticLabel": "발음기호"
   },
@@ -1617,6 +1618,9 @@
     "conflictMessage": "클라우드에 {{cloud}}개, 이 기기에 {{local}}개 단어가 있습니다. 어떻게 할까요?",
     "merge": "합치기",
     "keepCloud": "클라우드 유지",
+    "confirmCloudResetTitle": "이 기기의 단어장을 지울까요?",
+    "confirmCloudResetMessage": "게스트로 저장한 단어장과 학습 기록이 이 기기에서 삭제되고 클라우드 단어장으로 교체됩니다. 이 작업은 되돌릴 수 없어요.",
+    "confirmCloudReset": "클라우드로 교체",
     "syncErrorTitle": "동기화 오류",
     "syncErrorMessage": "클라우드 동기화에 실패했습니다.\n{{detail}}"
   },

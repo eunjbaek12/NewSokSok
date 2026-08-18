@@ -1071,6 +1071,7 @@
     "lookupFailed": "No se encontró en el diccionario. Por favor, introduce manualmente.",
     "loadMore": "Cargar {{count}} palabras más",
     "loadMoreWithAd": "Ver un anuncio para continuar · quedan {{count}}",
+    "loadMoreWithPro": "Mejorar a Pro para ver {{count}} más",
     "savedWithSkip": "{{added}} guardadas ({{skipped}} ya existían)",
     "phoneticLabel": "Pronunciación"
   },
@@ -1204,6 +1205,9 @@
     "conflictMessage": "Tienes {{cloud}} palabras en la nube y {{local}} en este dispositivo. ¿Qué deseas hacer?",
     "merge": "Combinar ambas",
     "keepCloud": "Conservar solo la nube",
+    "confirmCloudResetTitle": "¿Eliminar las listas de palabras de este dispositivo?",
+    "confirmCloudResetMessage": "Las listas de palabras y el historial de estudio guardados como invitado en este dispositivo se eliminarán y se reemplazarán por tus listas en la nube. Esta acción no se puede deshacer.",
+    "confirmCloudReset": "Reemplazar con la nube",
     "syncErrorTitle": "Error de sincronización",
     "syncErrorMessage": "La sincronización con la nube falló.\n{{detail}}"
   },

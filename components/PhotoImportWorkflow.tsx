@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
+import { router } from 'expo-router';
 
 import { fetchWordsFromImage, ScanError } from '@/lib/gemini-api';
 import { filterExtractedWords } from '@/lib/stopwords';
@@ -72,8 +73,10 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     // BYOK 사용자는 앱 차원의 한도가 없으므로 종전 페이지 크기를 그대로 쓴다.
     const quotaStatus = useQuotaStore(s => s.status);
     // Pro는 일일이 아니라 월 잔량이 실제 한도다 — getQuotaLeft가 둘 중 작은 쪽을 준다.
-    // status가 없으면(아직 안 옴) 종전대로 페이지 크기를 그대로 쓴다.
-    const quotaLeftOf = (s: typeof quotaStatus): number => getQuotaLeft(s) ?? PAGE_SIZE;
+    // 운영자 키 경로에서 status가 없으면 카드를 만들지 않는다. scan-image 성공 응답이
+    // 서버의 최신 quota를 store에 동기 반영한 뒤에만 이 값을 읽으므로, 오래된 화면
+    // 스냅샷으로 한도 밖 카드가 생성되는 것을 막는다.
+    const quotaLeftOf = (s: typeof quotaStatus): number => getQuotaLeft(s) ?? 0;
     // 렌더용(구독) — 버튼 문구를 광고 안내로 바꿀지 판단한다.
     const quotaLeftForUi = apiKey ? PAGE_SIZE : quotaLeftOf(quotaStatus);
     // 로직용 — 보강이 도는 동안 계속 줄어들므로 호출 시점의 최신값을 읽는다.
@@ -87,6 +90,17 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     const rewarded = useRewardedAd({ onGranted: () => loadMoreRef.current() });
 
     const handleEnrichUpdate = (id: string, result: any) => {
+        if (result?.photoQuotaExceeded) {
+            // 다른 기기/동시 요청으로 서버 한도가 카드 생성 뒤에 소진될 수 있다.
+            // 이 단어는 수동 저장 가능한 실패 카드로 남기지 않고, 이어서 채울 대기
+            // 목록으로 되돌린다.
+            setScannedWords(prev => {
+                const removed = prev.find(w => w.id === id);
+                if (removed) setPendingTerms(pending => [removed.term, ...pending]);
+                return prev.filter(w => w.id !== id);
+            });
+            return;
+        }
         // 추출 모델이 다른 언어 단어를 잘못 뽑은 경우 — 사전 조회가 "실재하지 않는
         // 단어"(isReal=false)로 판정하면 카드를 지운다. 빈 카드를 남기면 사용자가
         // 일일이 지워야 하고, 조용히 지우면 오판(실재 단어를 없다고 판정)을 눈치챌
@@ -239,14 +253,19 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             enrichBatch(cards.map(c => ({ id: c.id, term: c.term })), handleEnrichUpdate, controller.signal);
         } catch (error: any) {
             if (error?.name === 'AbortError') return;
-            console.error(error);
             // ScanError는 코드만 들고 온다 — 문구는 여기서 만든다(lib은 UI 언어를 모른다).
+            const isQuotaLimit = error instanceof ScanError
+                && (error.code === 'quotaExceeded'
+                    || error.code === 'byokQuotaExceeded'
+                    || error.code === 'byokPerMinuteQuota');
+            // 한도 소진은 정상적인 사용자 상태다. 개발 빌드의 오류 오버레이를 띄우는
+            // console.error 대상에서 제외하고, 그 밖의 실제 실패만 진단 로그로 남긴다.
+            if (!isQuotaLimit) console.error(error);
             const message = error instanceof ScanError
                 ? t(`scanError.${error.code}`, { detail: error.detail ?? '' })
                 : (error?.message || t('photoImport.saveError'));
             // 한도 관련은 장애가 아니라 정상 상태라 "오류"가 아닌 한도 제목을 쓴다.
-            const title = error instanceof ScanError
-                && (error.code === 'byokQuotaExceeded' || error.code === 'byokPerMinuteQuota')
+            const title = isQuotaLimit
                 ? t('scanError.quotaTitle')
                 : t('common.error');
             Alert.alert(title, message);
@@ -272,7 +291,16 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                 return;
             }
             if (!rewarded.canWatch) {
-                Alert.alert(t('ads.rewardedTitle'), t('ads.rewardedExhausted'));
+                Alert.alert(t('ads.rewardedTitle'), t('ads.rewardedExhausted'), [
+                    { text: t('common.later'), style: 'cancel' },
+                    {
+                        text: t('ads.rewardedExhaustedProCta'),
+                        onPress: () => {
+                            onClose();
+                            router.push('/plans');
+                        },
+                    },
+                ]);
                 return;
             }
             rewarded.watch();
@@ -464,14 +492,18 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                             ) : (
                                 <>
                                     <Ionicons
-                                        name={quotaLeftForUi > 0 ? 'add-circle-outline' : 'play-circle-outline'}
+                                        name={quotaLeftForUi > 0
+                                            ? 'add-circle-outline'
+                                            : rewarded.canWatch ? 'play-circle-outline' : 'rocket-outline'}
                                         size={18}
                                         color={colors.primary}
                                     />
                                     <Text style={[styles.loadMoreText, { color: colors.primary }]}>
                                         {quotaLeftForUi > 0
                                             ? t('photoImport.loadMore', { count: pendingTerms.length })
-                                            : t('photoImport.loadMoreWithAd', { count: pendingTerms.length })}
+                                            : rewarded.canWatch
+                                                ? t('photoImport.loadMoreWithAd', { count: pendingTerms.length })
+                                                : t('photoImport.loadMoreWithPro', { count: pendingTerms.length })}
                                     </Text>
                                 </>
                             )}

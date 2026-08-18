@@ -21,9 +21,12 @@ import { RateLimitedError } from './enrich-queue-core';
 export type EnrichFallback =
   | 'invalidKey'     // BYOK 키가 거부됨. 기다려도 안 풀린다 → 키를 고치라고 안내
   | 'byokFailed'     // BYOK 그 외 실패(네트워크·모델 오류)
-  | 'guest'          // 비로그인 — 운영자 AI 경로 자체를 못 탄다 → 로그인 유도
   | 'quotaExceeded'  // 일일 한도 초과. 광고 모달이 따로 뜬다(위 주의 참조)
-  | 'serverFailed';  // Edge 인증 실패·업스트림 오류
+  | 'serverFailed';  // 세션 없음 · Edge 인증 실패 · 업스트림 오류
+// 🔑 'guest' 는 없앴다. 이름은 "비로그인"이었지만 실제 조건은 **세션이 없을 때**이고,
+// 1.5.0 부터 게스트는 익명 세션을 가지므로 게스트에게는 애초에 뜨지 않았다. 게스트와
+// Free 의 한도가 같아지면 그 안내("로그인하면 AI가 채워줘요")는 거짓이 되기도 한다.
+// 사용자에게 할 말이 serverFailed 와 같으므로(원인만 알리고 행동은 시키지 않는다) 합쳤다.
 
 export interface EnrichOpts {
   /**
@@ -217,8 +220,11 @@ export async function autoFillWord(
         // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속
         opts?.onFallback?.(edge.kind === 'quota_exceeded' ? 'quotaExceeded' : 'serverFailed');
       } else {
-        // 로그인하지 않으면 운영자 키 경로 자체를 못 탄다 — 사전만 남는다.
-        opts?.onFallback?.('guest');
+        // 세션이 없으면 운영자 키 경로 자체를 못 탄다 — 사전만 남는다. 탭 화면은
+        // authMode==='none' 을 /login 으로 돌려보내므로(app/(tabs)/_layout.tsx),
+        // 여기 오는 사용자는 이미 시작한 상태이고 세션만 만료·무효화된 것이다.
+        // 사용자가 고칠 수 있는 일이 아니라 행동을 시키지 않는다.
+        opts?.onFallback?.('serverFailed');
       }
     } catch (e: any) {
       // RateLimitedError·AbortError는 호출자 몫 — 나머지(세션 조회 실패 등)만 사전 fallback

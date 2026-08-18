@@ -379,9 +379,9 @@ export default function AddWordScreen() {
             };
         }
         if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
-        if (enrichFallback === 'guest') {
-            return { text: t('addWord.fallbackGuest'), action: t('addWord.fallbackGuestAction'), onPress: () => router.push('/login') };
-        }
+        // 'guest' 분기는 없앴다 — 세션 없음도 serverFailed 로 합쳤다(lib/translation-api.ts).
+        // 로그인 유도 링크도 함께 사라진다: 게스트와 Free 의 한도가 같아지면 "로그인하면
+        // AI가 채워줘요"가 거짓이 되고, 애초에 그 화면의 사용자는 이미 시작한 상태다.
         if (enrichFallback === 'invalidKey') {
             return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
         }

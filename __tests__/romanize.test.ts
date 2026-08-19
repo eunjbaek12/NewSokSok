@@ -99,6 +99,45 @@ describe('romanize — 정답에 거짓경보를 내지 않는다', () => {
   });
 });
 
+// 구개음화·겹받침 격음화 — 둘 다 "AI 가 맞고 변환기가 틀렸던" 자리다. 한국어 사다리 덱
+// 통합 때 muchida 를 오답으로 잡아, 모르고 mutida 로 "고쳤다면" 정답을 오답으로 바꿨다.
+describe('romanize — 구개음화와 겹받침 격음화', () => {
+  // 표준 발음법 제17항 붙임 — ㄷ 계열 받침 + 접미사 '히' 는 [치]로 소리 난다.
+  // 로마자 표기법 제3장 제1항 3호의 예시가 굳히다 guchida 다.
+  test('ㄷ 계열 받침 + 히 는 구개음화까지 간다', () => {
+    expect(checkRomaja('묻히다', 'muchida')?.ok).toBe(true);
+    expect(checkRomaja('갇히다', 'gachida')?.ok).toBe(true);
+    expect(checkRomaja('굳히다', 'guchida')?.ok).toBe(true);
+    expect(checkRomaja('잊히다', 'ichida')?.ok).toBe(true);
+  });
+
+  // ㅎ 을 밝혀 적는 표기도 관행상 통용되므로 후보에 남는다
+  test('ㅎ 을 밝혀 적은 표기도 계속 허용한다', () => {
+    expect(checkRomaja('묻히다', 'muthida')?.ok).toBe(true);
+  });
+
+  // 표준 발음법 제12항이 ㄱ(ㄺ)·ㄷ·ㅂ(ㄼ)·ㅈ(ㄵ) 을 명시한다. 대표음이 아니라 뒤 자음이
+  // ㅎ 과 합쳐 거센소리가 되므로, 겹받침을 대표음으로만 보면 격음화를 통째로 놓친다.
+  test('겹받침 ㄼ·ㄵ·ㄺ 도 뒤 ㅎ 과 만나 거센소리가 된다', () => {
+    expect(checkRomaja('넓히다', 'neolpida')?.ok).toBe(true);
+    expect(checkRomaja('앉히다', 'anchida')?.ok).toBe(true);
+    expect(checkRomaja('밝히다', 'balkida')?.ok).toBe(true);
+  });
+
+  // 규칙을 넓힌 뒤에도 오타는 계속 걸려야 한다
+  test('넓어진 규칙이 오타를 통과시키지 않는다', () => {
+    expect(checkRomaja('넓히다', 'neolhpida')?.ok).toBe(false);
+    expect(checkRomaja('묻히다', 'mutida')?.ok).toBe(false);
+  });
+
+  // 뒤 초성이 ㅇ 인 본래 구개음화 경로는 그대로여야 한다
+  test('같이·굳이·해돋이는 그대로다', () => {
+    expect(checkRomaja('같이', 'gachi')?.ok).toBe(true);
+    expect(checkRomaja('굳이', 'guji')?.ok).toBe(true);
+    expect(checkRomaja('해돋이', 'haedoji')?.ok).toBe(true);
+  });
+});
+
 describe('romanize — 기본 동작', () => {
   test('붙임표·공백·대소문자는 차이로 보지 않는다', () => {
     expect(normalizeRomaja('Banjjak-Banjjak ')).toBe('banjjakbanjjak');

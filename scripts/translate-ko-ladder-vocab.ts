@@ -28,6 +28,7 @@
 import fs from 'fs';
 import path from 'path';
 import { resolveScriptModel, scriptGenerateContentUrl } from './_shared/model';
+import { checkRomaja } from './lib/romanize';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -320,6 +321,7 @@ async function main() {
 
   const results = [...done];
   let rejected = 0;
+  let romajaFixed = 0;
   const batches: [DeckKey, NewTerm[]][] = [];
   for (const [deck, list] of byDeck) {
     for (let i = 0; i < list.length; i += BATCH_SIZE) batches.push([deck, list.slice(i, i + BATCH_SIZE)]);
@@ -346,6 +348,22 @@ async function main() {
         if (stillBad.length) console.log(`  ⚠️ 재생성 후에도 ${stillBad.length}개: ${stillBad.map(r => r.term).join(' ')}`);
       }
 
+      // 로마자는 표준 발음에서 규칙으로 결정되는 값이라 생성에 맡기지 않는다. 이 검사가
+      // 없던 첫 판에서 신규 카드 1,686장 중 138건(8.2%)이 틀린 채 통합까지 갔다 — 비음화
+      // (음료 eumryo)·유음화(분리 bunri)·연음(활용 hwalyong)을 어떤 낱말에서는 맞히고
+      // 어떤 낱말에서는 놓치는 **무작위** 오류라, 재생성해도 나아지지 않는다. 그래서
+      // 예문처럼 다시 부르지 않고 그 자리에서 규칙으로 고정한다(요청도 아끼게 된다).
+      //
+      // 🔴 변환기가 틀리고 AI 가 맞는 자리가 실제로 있다 — 구개음화 묻히다 muchida,
+      //    ㄴ첨가 알약 allyak. 그래서 후보 **어디에도** 맞지 않을 때만 바꾼다. 새로
+      //    발견하면 여기가 아니라 scripts/lib/romanize.ts 를 고치고 회귀 테스트를 남길 것.
+      for (const r of got) {
+        const c = checkRomaja(r.term, r.romaja);
+        if (!c || c.ok) continue;
+        r.romaja = c.expected[0];
+        romajaFixed++;
+      }
+
       results.push(...got);
       saveProgress(results);
       console.log(`  ✅ ${got.length}개 (누적 ${results.length})`);
@@ -361,6 +379,7 @@ async function main() {
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2));
   console.log(`\n🎉 ${OUTPUT_PATH} (${results.length}개)`);
   if (rejected) console.log(`⚠️ 예문 검사 미통과 ${rejected}개 — 통합 전에 확인 필요`);
+  if (romajaFixed) console.log(`🔤 로마자 규칙 교정 ${romajaFixed}개 (변환기 후보와 어긋난 것)`);
   if (results.length >= all.length && fs.existsSync(PROGRESS_PATH)) {
     fs.unlinkSync(PROGRESS_PATH);
     console.log('진행 파일 정리됨');

@@ -84,6 +84,11 @@ function applyPhonology(sylsIn: Syl[], aspirate: boolean): Syl[] {
     if (aspirate) {
       if (next.cho === 18 && ASPIRATE[jongAsCho(cur.jong)] !== undefined) {
         next.cho = ASPIRATE[jongAsCho(cur.jong)];
+        // 표준 발음법 제17항 붙임 — 'ㄷ' 계열 받침 뒤에 접미사 '히'가 붙어 'ㅌㅣ'를 이루면
+        // 거센소리에서 멈추지 않고 구개음화까지 간다: 묻히다 [무치다] · 갇히다 [가치다].
+        // 아래 구개음화 분기는 뒤 초성이 'ㅇ'인 경우(같이·굳이)만 보므로 여기서 처리해야
+        // 한다. 이게 없어 muchida 를 오답으로 잡고 있었다(신규 카드 2건).
+        if (next.cho === 16 && next.jung === 20) next.cho = 14;   // ㅌ → ㅊ
         cur.jong = JONG_REMAIN[cur.jong];
         continue;
       }
@@ -141,6 +146,9 @@ function jongAsCho(jong: number): number {
     1: 0, 2: 1, 9: 0, 24: 0,          // ㄱ 계열
     7: 3, 19: 3, 20: 3, 22: 3, 23: 3, 25: 3,  // ㄷ 계열(ㅅ·ㅆ·ㅈ·ㅊ·ㅌ 포함)
     17: 7, 18: 7, 26: 7,              // ㅂ 계열
+    // 겹받침 — 표준 발음법 제12항이 'ㄱ(ㄺ), ㄷ, ㅂ(ㄼ), ㅈ(ㄵ)'을 명시한다. 대표음이
+    // 아니라 **뒤 자음**이 ㅎ과 합쳐 거센소리가 되므로 따로 적는다(ㄺ은 위 9: 0).
+    5: 12, 11: 7,                     // ㄵ→ㅈ 자리(앉히다 anchida) · ㄼ→ㅂ 자리(넓히다 neolpida)
   };
   return map[jong] ?? -1;
 }

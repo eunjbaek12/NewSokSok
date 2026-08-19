@@ -16,7 +16,7 @@
  *    쓰는 canBlankExample 을 그대로 import 한다 — 복제하면 앱과 어긋나도 모른다.
  *
  * 실행:
- *   SUPABASE_URL=... SERVICE_ROLE_KEY=... npx -y tsx scripts/seed-cache.ts [옵션]
+ *   npx -y tsx scripts/seed-cache.ts [옵션]        (키는 .env.local 에서 읽는다)
  * 옵션:
  *   --limit N        앞에서 N건만 (소규모 시험용. 목록이 섞여 있어 전 언어쌍이 골고루 들어간다)
  *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건). 4(=동시 80건)로 올리면 Vertex 가
@@ -32,10 +32,30 @@ import { canBlankExample } from '../lib/example-blank';
 import { cleanPhonetic } from '../lib/phonetic';
 import { stripControlChars } from '../utils/word-sanitize';
 
-const SUPABASE_URL = process.env.SUPABASE_URL!;
-const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY!;
+// 🔑 service_role 키를 명령줄에 쓰지 않아도 되도록 .env.local 을 먼저 읽는다.
+// 명령줄에 적으면 셸 기록과 도구 권한 허용 목록에 평문으로 굳는다(실제로 한 번
+// 그렇게 새어 폐기한 토큰이 있다). seed-official-decks.ts 와 같은 로더다.
+function loadEnvFiles() {
+  for (const file of ['.env.local', '.env']) {
+    try {
+      for (const line of readFileSync(file, 'utf8').split('\n')) {
+        const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+        if (!m) continue;
+        const [, key, rawValue] = m;
+        if (process.env[key]) continue;   // 먼저 읽힌 값이 우선
+        process.env[key] = rawValue.replace(/^["']|["']$/g, '');
+      }
+    } catch {
+      // 없으면 넘어간다.
+    }
+  }
+}
+loadEnvFiles();
+
+const SUPABASE_URL = process.env.SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL!;
+const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
 if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
-  console.error('SUPABASE_URL 과 SERVICE_ROLE_KEY 가 필요합니다.');
+  console.error('SUPABASE_URL 과 SERVICE_ROLE_KEY 가 필요합니다 (.env.local 또는 환경변수).');
   process.exit(1);
 }
 

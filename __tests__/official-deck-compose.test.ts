@@ -307,21 +307,21 @@ describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => 
 });
 
 describe('판정 목록 자체', () => {
-  it('채움 42 · 비움 30 — 합이 겹침 실패 72건과 같다', () => {
+  it('채움 50 · 비움 32 — 합이 겹침 실패 82건과 같다', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { decisionCounts, definitionDecision } = require('../scripts/lib/ko-ladder-definition-decisions');
-    expect(decisionCounts()).toEqual({ fill: 42, blank: 30 });
+    expect(decisionCounts()).toEqual({ fill: 50, blank: 32 });
     // 덱이 다르면 같은 표제어라도 판정이 갈릴 수 있어야 한다
     expect(definitionDecision('curated-ko-basic-1', '물')).toBe('fill');
     expect(definitionDecision('curated-ko-advanced-1', '물')).toBeUndefined();
-    // 뜻풀이가 깨져서 뺀 넷
+    // 뜻풀이가 깨져 잠시 blank 였던 넷 — 캐시를 고친 뒤 fill 로 돌아왔다(2026-08-20)
     for (const [deck, term] of [
       ['curated-ko-basic-1', '셋'],
       ['curated-ko-intermediate-2', '장'],
       ['curated-ko-advanced-1', '별도'],
       ['curated-ko-advanced-1', '도덕'],
     ]) {
-      expect(definitionDecision(deck, term)).toBe('blank');
+      expect(definitionDecision(deck, term)).toBe('fill');
     }
   });
 });

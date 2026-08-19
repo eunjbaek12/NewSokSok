@@ -23,6 +23,8 @@
  *   --limit=N      앞에서 N개만 (소규모 시험용)
  *   --deck=KEY     basic | inter1 | inter2 | advanced 중 하나만
  *   --model=lite   gemini-2.5-flash-lite (별도 RPD 버킷, 일일 한도 소진 시 폴백)
+ *   --batch=N      한 요청에 담을 표제어 수 (기본 25). 한도가 요청 수로 걸리므로
+ *                  하루 산출 = 20 × N 이다. BATCH_SIZE 주석 참고.
  */
 import fs from 'fs';
 import path from 'path';
@@ -52,7 +54,22 @@ const SOURCE_PATH = path.resolve(process.cwd(), 'scripts/.ko-ladder-new-terms.js
 const OUTPUT_PATH = path.resolve(process.cwd(), 'scripts/ko-ladder-translated.json');
 const PROGRESS_PATH = path.resolve(process.cwd(), 'scripts/.ko-ladder-progress.json');
 
-const BATCH_SIZE = 25;
+/**
+ * 🔑 무료 한도는 **단어 수가 아니라 요청 수**로 걸린다 — 모델당 하루 20요청
+ * (`quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier`, quotaValue 20).
+ * 그래서 하루 산출은 `20 × BATCH_SIZE` 다: 25면 500단어, 50이면 1,000단어.
+ * flash 와 flash-lite 는 버킷이 따로라 둘을 합치면 두 배가 된다.
+ *
+ * 올리기 전에 한 배치만 시험할 것. 목록이 길어지면 모델이 개수를 빠뜨리거나 뒤쪽을
+ * 대충 쓸 수 있다. 다만 짧게 와도 유실은 없다 — 받은 것만 저장하고 빠진 표제어는
+ * 다음 실행에서 다시 잡힌다(진행 파일이 표제어 단위다).
+ */
+const batchArg = process.argv.find(a => a.startsWith('--batch='));
+const BATCH_SIZE = batchArg ? Number(batchArg.split('=')[1]) : 25;
+if (!Number.isInteger(BATCH_SIZE) || BATCH_SIZE < 1) {
+  console.error(`❌ --batch 는 1 이상의 정수여야 합니다: ${batchArg}`);
+  process.exit(1);
+}
 const BATCH_DELAY_MS = 5000;
 
 type DeckKey = 'basic' | 'inter1' | 'inter2' | 'advanced';
@@ -266,7 +283,7 @@ async function main() {
   const doneTerms = new Set(done.map(e => e.term));
   const todo = filtered.filter(e => !doneTerms.has(e.term)).slice(0, LIMIT);
 
-  console.log(`📚 남은 ${todo.length}개 / 대상 ${filtered.length}개 (완료 ${done.length}개, model=${MODEL})`);
+  console.log(`📚 남은 ${todo.length}개 / 대상 ${filtered.length}개 (완료 ${done.length}개, model=${MODEL}, batch=${BATCH_SIZE})`);
   if (todo.length === 0) { console.log('할 일 없음.'); return; }
 
   // 같은 덱끼리 묶어야 프롬프트를 한 배치에 하나만 쓴다.

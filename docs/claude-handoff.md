@@ -376,8 +376,20 @@ flash 와 flash-lite 는 버킷이 따로라 합쳐 하루 1,000단어. 남은 1
 
 ### 다음 (우선순위 순)
 
-1. **KST 16:00 이후 카드 생성 재개.** `npx ts-node -P tsconfig.scripts.json scripts/translate-ko-ladder-vocab.ts`
-   → 한도 소진되면 `--model=lite` 로 한 번 더. 남은 1,095개, 이틀치.
+1. **KST 16:00 이후 카드 생성 재개 — 먼저 `--batch=50` 을 한 배치만 시험한다(은정님 결정).**
+
+   ```bash
+   # ① 시험: 50개 한 요청 (하루 20요청 중 1개를 쓴다)
+   npx ts-node -P tsconfig.scripts.json scripts/translate-ko-ladder-vocab.ts --batch=50 --limit=50
+   # ② 대조: 돌아온 50장을 기존 25짜리와 비교 — 개수 50인가 · 예문 길이 · usedForm 검사 통과율
+   # ③ 멀쩡하면 --batch=50 으로 계속, 아니면 옵션 없이(=25) 진행
+   npx ts-node -P tsconfig.scripts.json scripts/translate-ko-ladder-vocab.ts --batch=50
+   npx ts-node -P tsconfig.scripts.json scripts/translate-ko-ladder-vocab.ts --batch=50 --model=lite
+   ```
+
+   🔑 한도는 **요청 수**로 걸리므로 하루 산출 = `20 × batch`. 25면 두 모델 합쳐 1,000단어라
+   이틀, 50이면 2,000단어라 **하루에 끝난다**. 프롬프트 문구는 그대로라 카드 형식은 안 바뀐다.
+   짧게 와도 유실은 없다 — 받은 것만 저장하고 빠진 표제어는 다음 실행에 다시 잡힌다.
 2. 통합 전 `scripts/ko-ladder-translated.json` 이 1,686개인지 확인(지금 25개).
 3. 통합 → `pnpm run diagnose:decks` → `npx jest` → 서버 재시딩.
 4. 재시딩 뒤 `list-mono-merged.ts` 재실행 — 남은 46개 표제어 검수.

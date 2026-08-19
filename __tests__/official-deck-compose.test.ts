@@ -50,6 +50,56 @@ describe('④ definition 결함', () => {
     expect(r.outcome).toBe('unchanged');
     expect(r.word).toEqual(deck);
   });
+
+  it('🔴 겹치는 뜻이 하나라도 있으면 병기가 이어받아 나머지도 따라온다 (알려진 한계)', () => {
+    // 실측 케이스: 표제어 `논`. 캐시 ①은 쟁기 — 논이 아니다. ②가 덱 뜻과 겹치므로
+    // ⑤ 병기가 적용되고, 그 결과 ①까지 카드에 실린다.
+    // 좁히지 않는 이유는 ⑤ 쪽 주석에 있다 — 좁히면 동음이의어 병기 기능이 사라진다.
+    // 이 유형은 캐시 품질 문제라 사람이 봐야 한다.
+    const deck = deckWord({ term: '논', meaningKr: 'rice paddy', definition: 'rice paddy' });
+    const r = composeWord(deck, {
+      definition: '① 경작할 수 있도록 소나 말이 끄는 농기구. ② 벼를 심어 가꾸는 논밭.',
+      senses: [
+        { meaningKr: 'plow (farming tool)', definition: '경작할 수 있도록 소나 말이 끄는 농기구.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'non' },
+        { meaningKr: 'rice paddy', definition: '벼를 심어 가꾸는 논밭.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'non' },
+      ],
+    });
+    expect(r.outcome).toBe('senses-merged');
+    expect(r.word.definition).toContain('농기구');
+  });
+
+  it('🔴 뜻이 같아도 어휘가 다르면 못 알아본다 (알려진 한계)', () => {
+    // 겹침 판정은 의미가 아니라 낱말로 한다. 덱 "others" 와 캐시 "someone else" 는
+    // 같은 뜻이지만 공통 낱말이 없어 매칭에 실패하고, definition 은 영어 복사본으로
+    // 남는다(실측 473건). 영어가 중복되는 것이 **다른 단어의 뜻풀이가 실리는 것보다는
+    // 낫다**고 보고 이쪽을 택했다. 이 기대값을 바꾸려면 그 교환을 다시 따져 볼 것.
+    const deck = deckWord({ term: '남', meaningKr: 'others, other people', definition: 'others, other people' });
+    const r = composeWord(deck, {
+      definition: '① 다른 사람을 낮잡아 이르는 말 ② 짐승의 새끼 ③ 남쪽',
+      senses: [
+        { meaningKr: 'someone else (derogatory)', definition: '다른 사람을 낮잡아 이르는 말', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'nam' },
+        { meaningKr: 'south', definition: '남쪽', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'nam' },
+      ],
+    });
+    expect(r.word.definition).toBe('others, other people');
+    expect(r.word.definition).not.toContain('짐승의 새끼');
+  });
+
+  it('🔴 겹치는 뜻이 하나도 없으면 definition 을 손대지 않는다', () => {
+    // 실측 케이스: 표제어 `미`. 덱은 beauty 를 가르치는데 캐시는 보풀·실·미숫가루를
+    // 안다 — 통째로 다른 단어다. 고치기 전에는 이 뜻풀이가 그대로 카드에 실렸다.
+    const deck = deckWord({ term: '미', meaningKr: 'beauty, beautifulness', definition: 'beauty, beautifulness' });
+    const r = composeWord(deck, {
+      definition: '① 털이나 보풀이 엉기어 뭉친 덩어리. ② 솜이나 털을 뽑아내어 꼬아 만든 실. ③ 쌀이나 보리 따위를 쪄서 말린 뒤에 찧어 만든 가루.',
+      senses: [
+        { meaningKr: 'lint, fuzz, flock', definition: '털이나 보풀이 엉기어 뭉친 덩어리.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'mi' },
+        { meaningKr: 'spun thread', definition: '솜이나 털을 뽑아내어 꼬아 만든 실.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'mi' },
+      ],
+    });
+    expect(r.definitionFixed).toBe(false);
+    expect(r.word.definition).toBe('beauty, beautifulness');
+    expect(r.word.definition).not.toContain('보풀');
+  });
 });
 
 describe('⑤ 동음이의어 병기', () => {
@@ -143,10 +193,11 @@ describe('⑤ 동음이의어 병기', () => {
   it('뜻이 하나만 남을 만큼 길면 병기하지 않는다 (덱 뜻만 사라지는 것을 막는다)', () => {
     const long = 'x'.repeat(280);
     const deck = deckWord({ term: '사과', meaningKr: 'apple' });
+    // 두 뜻 모두 덱 뜻(apple)과 겹쳐야 병기 대상이 되고, 그래야 한도 검사에 도달한다.
     const r = composeWord(deck, {
       senses: [
         { meaningKr: `apple ${long}`, definition: 'd1', exampleEn: 'e1', exampleKr: 'k1', pos: 'noun', phonetic: 'p' },
-        { meaningKr: `apology ${long}`, definition: 'd2', exampleEn: 'e2', exampleKr: 'k2', pos: 'noun', phonetic: 'p' },
+        { meaningKr: `apple pie ${long}`, definition: 'd2', exampleEn: 'e2', exampleKr: 'k2', pos: 'noun', phonetic: 'p' },
       ],
     });
     expect(r.outcome).toBe('senses-skipped-limit');

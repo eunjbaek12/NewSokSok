@@ -60,6 +60,23 @@ export function normMeaning(s: string | undefined): string {
  *    아예 안 가진 것("困" 덱=졸리다 캐시=곤란하게 하다/지치게 하다)도 있다. 자동으로
  *    가를 수 없으니, 통째로 교체해 덱 뜻이 사라지는 쪽을 막는다.
  */
+/**
+ * 덱 뜻과 겹치는 뜻만 골라 인덱스로 돌려준다. 겹치는 게 없으면 빈 배열.
+ *
+ * 🔴 이게 없던 때 definition 을 캐시 **최상위**(①②③ 전체 병기)로 통째 덮어써서,
+ *    동음이의 다른 단어의 뜻풀이가 카드에 실렸다. 실측 490건 — 특히 단음절 한자어에서
+ *    심했다: `미`(덱 뜻 beauty)에 "① 털 뭉친 덩어리 ② 꼬아 만든 실 ③ 쌀 찐 가루",
+ *    `한`(limit)에 "① 나라의 이름 ② 한국 사람 ③ 횟수 세는 단위".
+ *    뜻마다 definition 이 짝지어 있으므로, 덱이 가르치는 뜻에 해당하는 것만 가져오면 된다.
+ */
+export function matchingSenseIndexes(deckMeaning: string, senses: readonly WordSense[]): number[] {
+  const out: number[] = [];
+  for (let i = 0; i < senses.length; i++) {
+    if (overlapsDeckMeaning(deckMeaning, [senses[i]])) out.push(i);
+  }
+  return out;
+}
+
 export function overlapsDeckMeaning(deckMeaning: string, senses: readonly WordSense[]): boolean {
   const a = normMeaning(deckMeaning);
   if (!a) return false;
@@ -94,7 +111,20 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
   //    definition 교정이 4,907 건이 아니라 2,496 건으로 줄어 있었다.
   //    병기가 적용되면 definition 은 어차피 병기본으로 덮이므로 손해가 없다.
   const def = (w.definition ?? '').trim();
-  const cachedDef = (cached?.definition ?? '').trim();
+  // 캐시에 뜻이 여럿이면 **덱이 가르치는 뜻에 해당하는 것만** 가져온다. 최상위
+  // definition 은 뜻 전부를 병기한 것이라, 그대로 쓰면 동음이의 다른 단어의 뜻풀이가
+  // 섞여 들어온다(matchingSenseIndexes 주석의 실측 490건). 겹치는 뜻이 하나도 없으면
+  // 캐시가 이 단어를 아예 다르게 알고 있다는 뜻이므로 definition 을 손대지 않는다.
+  const topDef = (cached?.definition ?? '').trim();
+  const matchedSenses = senses ? matchingSenseIndexes(w.meaningKr, senses) : [];
+  const cachedDef = !senses
+    ? topDef
+    : matchedSenses.length
+      ? composeSenseFill(matchedSenses, senses, base).definition.trim()
+      // 겹치는 뜻이 없다. 최상위가 뜻 전부를 병기한 것이면 통째로 남의 뜻이므로 버리고,
+      // senses 와 무관한 단일 뜻풀이면 그건 이 단어를 설명한 것이라 살린다.
+      // (실측으로는 senses 2개 이상인 캐시 379건 전부가 병기본이라 후자는 방어에 가깝다.)
+      : /[①②③④⑤]/.test(topDef) ? '' : topDef;
   let word = w;
   let outcome: Outcome = 'unchanged';
   if (cachedDef) {
@@ -112,9 +142,13 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
 
   // ── ⑤ 동음이의어 병기 ────────────────────────────────────────────────
   if (senses && senses.length >= 2) {
-    if (!overlapsDeckMeaning(w.meaningKr, senses)) {
+    if (!matchedSenses.length) {
       return { word, outcome: 'senses-skipped-nooverlap', senses, exampleChanged: false, definitionFixed };
     }
+    // 🔑 병기는 **덱 뜻으로 좁히지 않는다.** 동음이의어를 함께 보여주는 것이 이 기능의
+    //    의도이고(사과 = apple ② apology), 좁히면 기능 자체가 사라진다. 캐시가 틀린 뜻을
+    //    아는 경우(논 = 쟁기)가 여기 섞이지만, 그것과 진짜 동음이의어는 형태로 구별되지
+    //    않는다 — 캐시 품질 문제이지 병기 범위 문제가 아니다.
     const selection = defaultSenseSelection(senses, base);
     // 한도 때문에 뜻이 하나로 줄면 병기가 아니라 "덱 뜻을 캐시 첫 뜻으로 교체"가
     // 되어 버린다 — 뜻은 안 늘고 덱 것만 사라지므로 포기한다.

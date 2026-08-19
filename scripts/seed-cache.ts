@@ -131,8 +131,36 @@ function scriptRatios(text: string) {
   return { hangul: hangul / n, kana: kana / n, han: han / n };
 }
 
+/**
+ * 이 앱이 다루는 6개 언어(en/ko/ja/zh/vi/es) 어디에도 쓰이지 않는 문자 체계.
+ *
+ * 🔴 scriptViolation 은 이걸 못 잡는다 — 그쪽은 "**기대한** 문자가 충분한가"만 보므로
+ *    키릴·아랍 따위는 셈에 아예 안 들어간다. 실측: `en>ko renowned` 뜻이
+ *    "널리 알려진; مشهور한" 인데 한글 비율 0.67 로 통과했고, `en>zh diplomacy` 예문번역이
+ *    "有效的 वापरा对于维持国际和平至关重要。" 인데 한자 비율로 통과했다.
+ *    2026-08-19 캐시 82,470행 전수에서 77건이 이 결함이었다(전부 hit_count 0).
+ *
+ * 증상은 낱말 하나가 엉뚱한 문자로 **바뀌어** 있는 것이다 — `ko>ja 밤` 뜻풀이의
+ * "해시 от 해 뜰 때까지"(← 해질 때부터), `ko>es 미안하다` 의 "아니하고сылка울 때"
+ * (← 부끄러울). 그래서 문자만 지우면 구멍이 남고, 다시 만드는 수밖에 없다.
+ *
+ * ⚠️ 그리스 문자는 일부러 뺐다. alpha·beta·pi·파이 처럼 그리스 문자 자체가 표제어인
+ *    뜻풀이가 정상으로 쓰고(실측 27건 전부 정상), 발음 표기의 IPA 도 θ·β 를 쓴다.
+ *    (발음 표기는 어차피 phoneticGone 이 따로 보므로 여기 오지 않는다.)
+ */
+const ALIEN_SCRIPT = /[ঀ-৿ऀ-ॿ؀-ۿݐ-ݿЀ-ӿ฀-๿֐-׿԰-֏Ⴀ-ჿ]/gu;
+
+function alienScript(text: string | undefined): string | null {
+  if (!text) return null;
+  ALIEN_SCRIPT.lastIndex = 0;   // g 플래그는 lastIndex 를 남긴다 — 매번 되돌린다
+  const found = text.match(ALIEN_SCRIPT);
+  return found ? `쓰이지 않는 문자 ${JSON.stringify(found.join(''))}` : null;
+}
+
 function scriptViolation(text: string | undefined, lang: string): string | null {
   if (!text) return '빈 값';
+  const alien = alienScript(text);
+  if (alien) return alien;
   const r = scriptRatios(text);
   switch (lang) {
     case 'ko': return r.hangul >= 0.3 ? null : '한글이 거의 없음';
@@ -189,6 +217,13 @@ function defectOf(r: SeedResult): string | null {
     ?? check('예문번역', res.exampleKr, r.targetLang);
   if (top) return top;
 
+  // definition 은 **출발어 단일어 뜻풀이**라(en>ko 의 definition 은 영어다) 지배 비율
+  // 검사를 걸지 않는다 — 걸면 정상까지 재생성 사유가 되어 헛돈이 나간다. 다만 이질
+  // 문자는 어느 언어에서도 오염이므로 그것만 본다. 실측 `en>ja shipping` 은
+  // "…by sea or otherמצע." 로 definition 에만 오염이 있어 게이트를 그냥 통과했다.
+  const defAlien = alienScript(res.definition);
+  if (defAlien) return `정의 ${defAlien}`;
+
   // 발음 표기는 '가드가 통째로 버리는 것'만 재생성 사유로 삼는다. 살려내는 흠(괄호 병기
   // "ああ (아아)", 공백 "ござ いま す", vi 성조 막대)까지 사유로 삼으면 헛돈이다 — 특히
   // vi 성조 막대는 프롬프트가 금지하는데도 실측 8.9%로 계속 나오고(v7 포함) 재생성해도
@@ -214,6 +249,10 @@ function defectOf(r: SeedResult): string | null {
       ?? check(`뜻${i + 1} 예문`, s.exampleEn, r.sourceLang)
       ?? check(`뜻${i + 1} 예문번역`, s.exampleKr, r.targetLang);
     if (v) return v;
+    // 위 definition 과 같은 이유로 이질 문자만 본다. `en>vi shipping` 은 오염이
+    // senses[0].definition 에 있었다.
+    const sd = alienScript(s.definition);
+    if (sd) return `뜻${i + 1} 정의 ${sd}`;
     // 뜻마다 별도 발음 표기를 갖는다. 상위만 보면 안쪽 오염을 놓친다(실측: 御座います 는
     // 상위와 senses 2개가 함께 "ござ이마스"로 나왔다).
     if (phoneticGone(s.phonetic)) return `뜻${i + 1} 발음 표기 이탈 ${JSON.stringify(s.phonetic)}`;

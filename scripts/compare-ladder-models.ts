@@ -1,18 +1,25 @@
 /**
- * 같은 표제어를 두 모델로 뽑아 나란히 세운다 — flash 일일 한도가 걸렸을 때
- * lite 로 이어 돌려도 되는지 눈으로 판정하기 위한 일회성 도구.
+ * 같은 표제어를 두 모델로 뽑아 나란히 세운다.
+ *
+ * 원래는 "flash 일일 한도가 걸렸을 때 lite 로 이어 돌려도 되는가"를 판정하려고 만든
+ * 일회성 도구였는데, 유료 전환으로 그 쓸모는 사라지고 **모델을 교체할 때 산출물이
+ * 어떻게 달라지는지 재는** 쓸모가 남았다. 실제로 2.5 → 3.5 교체 때 예문이 7.1 →
+ * 9.4어절로 길어진 것을 이런 대조로 잡았다(scripts/_shared/model.ts 주석 참고).
  *
  * 🔑 진행 파일(.ko-ladder-progress.json)과 산출물을 건드리지 않는다. 본 작업이
  *    백그라운드에서 돌고 있어도 안전하다.
  *
- * 실행: npx ts-node -P tsconfig.scripts.json scripts/compare-ladder-models.ts [--n=12]
+ * 실행: npx ts-node -P tsconfig.scripts.json scripts/compare-ladder-models.ts [--n=12] [--model=NAME]
+ *   --model=NAME  대조할 모델 (기본: scripts/_shared/model.ts 의 값)
  */
 import fs from 'fs';
 import path from 'path';
 import { buildPrompt } from './translate-ko-ladder-vocab';
+import { resolveScriptModel, scriptGenerateContentUrl } from './_shared/model';
 
 const nArg = process.argv.find(a => a.startsWith('--n='));
 const N = nArg ? Number(nArg.split('=')[1]) : 12;
+const COMPARE_MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 const envContent = fs.readFileSync(envPath, 'utf8');
@@ -20,8 +27,7 @@ const KEY = (envContent.match(/^EXPO_PUBLIC_GEMINI_API_KEY=(.*)$/m)
   ?? envContent.match(/^GEMINI_API_KEY=(.*)$/m))?.[1].trim();
 if (!KEY) { console.error('❌ GEMINI_API_KEY 없음'); process.exit(1); }
 
-const url = (model: string) =>
-  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${KEY}`;
+const url = (model: string) => scriptGenerateContentUrl(KEY, model);
 
 async function run(model: string, prompt: string): Promise<any[]> {
   const r = await fetch(url(model), {
@@ -45,9 +51,9 @@ async function main() {
   if (sample.length === 0) { console.error('❌ advanced 표본 없음'); process.exit(1); }
 
   const batch = sample.map(e => ({ deck: 'advanced' as const, term: e.term, pos: e.pos, grade: e.grade, rank: e.rank }));
-  console.log(`📊 ${sample.length}개 표제어를 gemini-2.5-flash-lite 로 다시 생성해 대조\n`);
+  console.log(`📊 ${sample.length}개 표제어를 ${COMPARE_MODEL} 로 다시 생성해 대조\n`);
 
-  const lite = await run('gemini-2.5-flash-lite', buildPrompt('advanced', batch));
+  const lite = await run(COMPARE_MODEL, buildPrompt('advanced', batch));
   const liteByTerm = new Map(lite.map((x: any) => [String(x.term).trim(), x]));
 
   let meaningSame = 0;

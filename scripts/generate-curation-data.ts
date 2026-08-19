@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { SCRIPT_GEMINI_MODEL, scriptGenerateContentUrl } from './_shared/model';
 
 // Read the EXPO_PUBLIC_GEMINI_API_KEY from .env
 const envPath = path.resolve(process.cwd(), '.env');
@@ -15,8 +16,11 @@ if (!GEMINI_API_KEY) {
     process.exit(1);
 }
 
-// Using v1 with snake_case for generation_config
-const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+// 모델과 API 버전은 scripts/_shared/model.ts 에서 정한다.
+// (이 파일은 gemini-1.5-flash 를 v1 로 부르고 있었다 — 다른 스크립트들이 2.5 로 옮길 때
+//  함께 옮겨지지 않아 혼자 뒤처져 있었고, 1.5 가 은퇴한 뒤로는 줄곧 죽어 있었을 것이다.
+//  흩어진 상수가 조용히 어긋난다는 말의 표본이다.)
+const url = scriptGenerateContentUrl(GEMINI_API_KEY);
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -71,7 +75,7 @@ const CATEGORIES = [
 ];
 
 const main = async () => {
-    console.log('Generating smaller set (20 themes) using gemini-1.5-flash v1...');
+    console.log(`Generating smaller set (20 themes) using ${SCRIPT_GEMINI_MODEL}...`);
 
     let allThemes: any[] = [];
     const TOTAL_THEMES = 10; // Let's try 10 first to be safe

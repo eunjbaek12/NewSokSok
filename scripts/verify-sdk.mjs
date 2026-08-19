@@ -1,9 +1,10 @@
 import fs from 'fs';
 import { GoogleGenAI, Type } from '@google/genai';
+import { SCRIPT_GEMINI_MODEL } from './_shared/model.mjs';
 
 const apiKey = fs.readFileSync('.env', 'utf8').match(/EXPO_PUBLIC_GEMINI_API_KEY=(.*)/)?.[1].trim() || '';
 const ai = new GoogleGenAI({ apiKey });
-const MODEL_NAME = 'gemini-2.5-flash-lite';
+const MODEL_NAME = SCRIPT_GEMINI_MODEL;
 
 console.log(`[A] analyzeWord 시뮬레이션 — 단어 추가 AI 분석 경로`);
 const t0 = Date.now();

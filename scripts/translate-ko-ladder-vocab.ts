@@ -22,19 +22,18 @@
  * 옵션:
  *   --limit=N      앞에서 N개만 (소규모 시험용)
  *   --deck=KEY     basic | inter1 | inter2 | advanced 중 하나만
- *   --model=lite   gemini-2.5-flash-lite (별도 RPD 버킷, 일일 한도 소진 시 폴백)
- *   --batch=N      한 요청에 담을 표제어 수 (기본 25). 한도가 요청 수로 걸리므로
- *                  하루 산출 = 20 × N 이다. BATCH_SIZE 주석 참고.
+ *   --model=NAME   모델 지정 (기본값·주의사항은 scripts/_shared/model.ts)
+ *   --batch=N      한 요청에 담을 표제어 수 (기본 25). BATCH_SIZE 주석 참고.
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel, scriptGenerateContentUrl } from './_shared/model';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
 const deckArg = process.argv.find(a => a.startsWith('--deck='));
 const DECK_FILTER = deckArg ? deckArg.split('=')[1] : '';
-const useLite = process.argv.includes('--model=lite');
-const MODEL = useLite ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';
@@ -49,16 +48,18 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const API_URL = scriptGenerateContentUrl(GEMINI_API_KEY, MODEL);
 const SOURCE_PATH = path.resolve(process.cwd(), 'scripts/.ko-ladder-new-terms.json');
 const OUTPUT_PATH = path.resolve(process.cwd(), 'scripts/ko-ladder-translated.json');
 const PROGRESS_PATH = path.resolve(process.cwd(), 'scripts/.ko-ladder-progress.json');
 
 /**
- * 🔑 무료 한도는 **단어 수가 아니라 요청 수**로 걸린다 — 모델당 하루 20요청
- * (`quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier`, quotaValue 20).
- * 그래서 하루 산출은 `20 × BATCH_SIZE` 다: 25면 500단어, 50이면 1,000단어.
- * flash 와 flash-lite 는 버킷이 따로라 둘을 합치면 두 배가 된다.
+ * 유료 키에서는 이 값이 속도만 정한다. 무료 키로 되돌아갈 일이 있다면 얘기가 달라지므로
+ * 남겨 둔다 — **무료 한도는 단어 수가 아니라 요청 수로 걸린다**(모델당 하루 20요청,
+ * `quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier`, quotaValue 20). 그래서
+ * 무료에서는 하루 산출이 `20 × BATCH_SIZE` 였고, 배치를 키우는 것이 유일한 증산 수단이었다.
+ * 🔴 그때 요청 예산의 40%가량을 아래 "예문 재생성"이 먹었다 — 자투리 1~3개짜리 재시도가
+ *    25개짜리 배치와 같은 값 1요청을 치른다. 무료로 돌릴 일이 있으면 이것부터 모을 것.
  *
  * 올리기 전에 한 배치만 시험할 것. 목록이 길어지면 모델이 개수를 빠뜨리거나 뒤쪽을
  * 대충 쓸 수 있다. 다만 짧게 와도 유실은 없다 — 받은 것만 저장하고 빠진 표제어는
@@ -97,13 +98,37 @@ export interface TranslatedEntry {
 
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
-/** 덱마다 다른 것은 학습자 수준·예문 난이도뿐이다. 나머지 규칙은 공유한다. */
+/**
+ * 덱마다 다른 것은 학습자 수준·예문 난이도뿐이다. 나머지 규칙은 공유한다.
+ *
+ * 🔴 `words` 는 취향이 아니라 **재사용 카드 1,482장의 실측치**다. 임의로 바꾸지 말 것.
+ *    한 덱에는 옛 덱에서 그대로 옮겨 온 카드와 여기서 새로 만든 카드가 섞이므로
+ *    (integrate-ko-ladder.ts — 학습 중인 사용자의 카드가 바뀌면 안 되어 옛 카드는 손대지
+ *    않는다), 길이가 갈리면 학습 화면에서 바로 보인다. 옛 3덱 1,500장 실측(어절):
+ *      basic 3.8(2~7) · intermediate 7.3(4~11) · advanced 11.1(6~18)
+ *
+ * 🔑 2026-08 이전 값(5-12 / 8-15 / 8-15 / 10-18)은 이 실측과 어긋나 있었는데도 문제가
+ *    나지 않았다 — 옛 덱도 gemini-2.5-flash 로 만들어서, **같은 모델을 쓰는 한 스펙을
+ *    무시하고 같은 길이가 나왔기 때문**이다(신규 591장 실측 3.7/7.3/7.1/10.3 이 옛 덱과
+ *    소수점까지 일치했다). 일관성을 지탱한 것은 스펙이 아니라 모델이었다.
+ *    2.5 가 신규 프로젝트에서 막혀 gemini-3.5-flash-lite 로 옮기자 그 모델은 스펙을
+ *    실제로 따랐고, inter2 가 7.1 → 9.4어절로 튀었다. 그래서 숫자를 실측치로 다시 썼다.
+ *    **모델을 바꿀 때는 이 값이 지켜지는지 한 배치로 먼저 재라.**
+ *
+ * 🔑 스펙을 그대로 믿지 말고 보정하라. 3.5-flash-lite 는 지정 범위의 **중앙값보다
+ *    1.2~1.7어절 짧게** 낸다(관측 3회: 8-15→9.4 · 6-9→5.8 · 9-13→9.8). 그래서 목표
+ *    평균을 얻으려면 범위를 그만큼 올려 잡아야 한다 — 아래 값이 그렇게 보정한 결과이고,
+ *    실측으로 inter2 7.4 · advanced 11.3 이 나와 목표(7.3 · 11.1)에 들어맞았다.
+ */
 const LEVEL_SPEC: Record<DeckKey, {
   learner: string; adjective: string; words: string; topik: string;
   meaningEg: string; romajaEg: string; extraRules: string[];
 }> = {
   basic: {
-    learner: 'beginners', adjective: 'beginner', words: '5-12', topik: '1-2',
+    // ⚠️ basic 만 실측으로 확인하지 못한 값이다 — 이번 작업에서 basic 은 이미 2.5-flash 로
+    //    다 만들어져 있어 새 모델로 뽑을 표제어가 없었다. 아래 보정식으로 유추만 했다.
+    //    basic 을 다시 생성하게 되면 한 배치를 뽑아 3.8어절이 나오는지 먼저 재라.
+    learner: 'beginners', adjective: 'beginner', words: '4-7', topik: '1-2',
     meaningEg: 'to eat, to have a meal', romajaEg: 'saram',
     extraRules: [
       '- Example must be TOPIK 1-2 difficulty (basic vocabulary, simple grammar), Hangul only.',
@@ -111,7 +136,7 @@ const LEVEL_SPEC: Record<DeckKey, {
     ],
   },
   inter1: {
-    learner: 'intermediate learners', adjective: 'intermediate', words: '8-15', topik: '3-4',
+    learner: 'intermediate learners', adjective: 'intermediate', words: '7-11', topik: '3-4',
     meaningEg: 'to face, to deal with', romajaEg: 'daehada',
     extraRules: [
       '- Example must be TOPIK 3-4 difficulty (intermediate vocabulary, connectives like -지만/-는데/-아서/-(으)면, common modal endings), Hangul only.',
@@ -120,7 +145,7 @@ const LEVEL_SPEC: Record<DeckKey, {
     ],
   },
   inter2: {
-    learner: 'intermediate learners', adjective: 'intermediate', words: '8-15', topik: '3-4',
+    learner: 'intermediate learners', adjective: 'intermediate', words: '7-11', topik: '3-4',
     meaningEg: 'to face, to deal with', romajaEg: 'daehada',
     extraRules: [
       '- Example must be TOPIK 3-4 difficulty (intermediate vocabulary, connectives like -지만/-는데/-아서/-(으)면, common modal endings), Hangul only.',
@@ -129,7 +154,7 @@ const LEVEL_SPEC: Record<DeckKey, {
     ],
   },
   advanced: {
-    learner: 'advanced learners', adjective: 'advanced', words: '10-18', topik: '5-6',
+    learner: 'advanced learners', adjective: 'advanced', words: '11-15', topik: '5-6',
     meaningEg: 'to carry out, to perform, to execute', romajaEg: 'suhaenghada',
     extraRules: [
       '- English must be natural and idiomatic; prefer slightly elevated register when appropriate.',

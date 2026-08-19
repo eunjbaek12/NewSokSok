@@ -13,6 +13,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { scriptGenerateContentUrl } from './_shared/model';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -30,7 +31,7 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const API_URL = scriptGenerateContentUrl(GEMINI_API_KEY);
 const SOURCE_PATH = path.resolve(process.cwd(), 'scripts/ko-source.json');
 const OUTPUT_PATH = path.resolve(process.cwd(), 'scripts/ko-translated.json');
 const PROGRESS_PATH = path.resolve(process.cwd(), 'scripts/.ko-progress.json');

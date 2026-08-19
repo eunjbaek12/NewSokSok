@@ -8,17 +8,17 @@
  * 실행: npx ts-node scripts/translate-ko-intermediate-vocab.ts
  * 옵션:
  *   --limit=N     상위 N개만 처리 (smoke test용)
- *   --model=lite  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
+ *   --model=NAME  모델 지정 (기본값·주의사항은 scripts/_shared/model.ts)
  *
  * Basic 500과 출력 스키마 동일(meaningEn/romaja/exampleKo/exampleEn). 예문 난이도만 TOPIK 3~4.
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
-const useLite = process.argv.includes('--model=lite');
-const MODEL = useLite ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';

@@ -13,9 +13,10 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model';
 
 const USE_VERTEX = process.argv.includes('--vertex');
-const MODEL = process.argv.includes('--model=lite') ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 // 후보 정보가 예문까지 포함해 크다. 40개 배치는 Gemini에서
 // 첫 요청부터 2분 이상 멈춰 10개로 줄였다.
 const BATCH_SIZE = 10;

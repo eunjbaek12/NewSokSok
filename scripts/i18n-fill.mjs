@@ -17,6 +17,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model.mjs';
 
 const LOCALES_DIR = 'i18n/locales';
 const BASE = process.env.I18N_BASE || 'ko';
@@ -130,7 +131,7 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-const MODEL = args.includes('--model=lite') ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel(args);
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 

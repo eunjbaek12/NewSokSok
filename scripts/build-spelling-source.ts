@@ -19,9 +19,9 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model';
 
-const useLite = process.argv.includes('--model=lite');
-const MODEL = useLite ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';

@@ -95,3 +95,13 @@ seed-cache-report.json
 seed-cache-unsaved.json
 .seed-input/
 .tmp-wordfreq/
+
+# 한국어 사다리 재설계 중간 산출물 (재생성 가능)
+scripts/.ko-ladder-new-terms.json
+scripts/.ko-ladder-cache-gap.json
+scripts/.mono-review.json
+
+# 29번 줄 scripts/.*-progress.json 의 예외. 다른 덱 파이프라인의 progress 는
+# 계속 무시하지만 이것만은 추적한다 — 생성한 카드가 들어 있고 무료 한도가
+# 모델당 하루 20요청(=500단어)이라 다시 만들려면 사흘이다. 재생성 가능이 아니다.
+!scripts/.ko-ladder-progress.json

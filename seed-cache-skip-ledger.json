@@ -22674,6 +22674,14 @@
   {
     "sourceLang": "ko",
     "targetLang": "en",
+    "term": "가하다",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-18T21:56:32.403Z"
+  },
+  {
+    "sourceLang": "ko",
+    "targetLang": "en",
     "term": "간다",
     "promptVersion": 7,
     "reason": "not-real",
@@ -22726,6 +22734,14 @@
     "promptVersion": 7,
     "reason": "not-real",
     "updatedAt": "2026-08-12T15:23:15.674Z"
+  },
+  {
+    "sourceLang": "ko",
+    "targetLang": "en",
+    "term": "기초하다",
+    "promptVersion": 7,
+    "reason": "not-real",
+    "updatedAt": "2026-08-18T21:56:41.359Z"
   },
   {
     "sourceLang": "ko",

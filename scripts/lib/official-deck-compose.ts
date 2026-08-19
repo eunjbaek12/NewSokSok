@@ -13,6 +13,7 @@ import {
 } from '../../lib/senses';
 import type { Word } from '../../lib/types';
 import type { WordSense } from '../../shared/contracts';
+import type { DefinitionDecision } from './ko-ladder-definition-decisions';
 
 export interface CachedEnrich {
   definition?: string;
@@ -30,7 +31,8 @@ export type Outcome =
   | 'definition-fixed'            // meaningKr 복사본을 뜻풀이로 바꿨다
   | 'senses-merged'               // ①② 병기를 넣었다
   | 'senses-skipped-nooverlap'    // 덱 뜻이 캐시 뜻에 없어 손대지 않았다
-  | 'senses-skipped-limit';       // 병기가 저장 한도를 넘어 포기했다
+  | 'senses-skipped-limit'        // 병기가 저장 한도를 넘어 포기했다
+  | 'definition-cleared';         // 사람이 blank 로 판정해 definition 을 비웠다
 
 export interface Composed {
   word: Word;
@@ -92,7 +94,12 @@ export function overlapsDeckMeaning(deckMeaning: string, senses: readonly WordSe
   return false;
 }
 
-export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed {
+export function composeWord(
+  w: Word,
+  cached: CachedEnrich | undefined,
+  /** 사람이 내린 판정. 목록은 scripts/lib/ko-ladder-definition-decisions.ts. 없으면 규칙대로. */
+  decision?: DefinitionDecision,
+): Composed {
   const base = {
     definition: cached?.definition ?? '',
     meaningKr: cached?.meaningKr ?? '',
@@ -117,6 +124,20 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
   // 캐시가 이 단어를 아예 다르게 알고 있다는 뜻이므로 definition 을 손대지 않는다.
   const topDef = (cached?.definition ?? '').trim();
   const matchedSenses = senses ? matchingSenseIndexes(w.meaningKr, senses) : [];
+  // 사람이 blank 로 판정한 단어는 여기서 끝난다. 캐시가 다른 단어를 설명하고 있거나
+  // (개 = dog 인데 캐시는 접두사 '개-'), 뜻풀이 자체가 깨진 것들이다.
+  // 🔴 "손대지 않는다"가 아니라 **비운다**. 그냥 두면 meaningKr 복사본이 남아 카드에
+  //    영어가 두 번 뜬다(레딧 제보 ④). 병기(⑤)도 타지 않는다 — 겹치는 뜻이 없으니
+  //    어차피 보류되지만, 남의 뜻을 끌어올 경로를 아예 막아 둔다.
+  if (decision === 'blank') {
+    return {
+      word: def ? { ...w, definition: '' } : w,
+      outcome: def ? 'definition-cleared' : 'unchanged',
+      senses,
+      exampleChanged: false,
+      definitionFixed: false,
+    };
+  }
   const cachedDef = !senses
     ? topDef
     : matchedSenses.length
@@ -124,7 +145,11 @@ export function composeWord(w: Word, cached: CachedEnrich | undefined): Composed
       // 겹치는 뜻이 없다. 최상위가 뜻 전부를 병기한 것이면 통째로 남의 뜻이므로 버리고,
       // senses 와 무관한 단일 뜻풀이면 그건 이 단어를 설명한 것이라 살린다.
       // (실측으로는 senses 2개 이상인 캐시 379건 전부가 병기본이라 후자는 방어에 가깝다.)
-      : /[①②③④⑤]/.test(topDef) ? '' : topDef;
+      // 🔑 사람이 fill 로 판정했으면 그 판단이 앞선다. 겹침 판정은 영어 문자열 비교라
+      //    같은 뜻을 다른 낱말로 쓴 것(감독 = supervision vs Director)을 가려내지 못한다.
+      : decision === 'fill'
+        ? topDef
+        : /[①②③④⑤]/.test(topDef) ? '' : topDef;
   let word = w;
   let outcome: Outcome = 'unchanged';
   if (cachedDef) {

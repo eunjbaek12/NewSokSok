@@ -239,3 +239,89 @@ describe('뜻 겹침 판정', () => {
     expect(overlapsDeckMeaning('a c', s)).toBe(false);
   });
 });
+
+describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => {
+  // 배경: `overlapsDeckMeaning` 은 영어 문자열을 비교하므로 같은 단어를 다른 낱말로 쓴
+  // 경우(감독 = supervision vs Director)와 진짜 동음이의(개 = dog vs 접두사 '개-')를
+  // 형태로 가르지 못한다. 사다리 4덱의 72건은 사람이 한 번 갈랐다(2026-08-19).
+  const 감독 = deckWord({
+    term: '감독',
+    definition: 'direction, supervision, management',
+    meaningKr: 'direction, supervision, management',
+  });
+  const 감독캐시: CachedEnrich = {
+    definition: '① 영화, 연극, 스포츠 따위에서 전체를 총지휘하는 사람. ② 어떤 일을 책임지고 이끌어가는 사람.',
+    senses: [
+      { meaningKr: 'Director', definition: '전체를 총지휘하는 사람.' },
+      { meaningKr: 'Manager', definition: '책임지고 이끌어가는 사람.' },
+    ],
+  };
+
+  it('판정이 없으면 지금 규칙 그대로 — 겹치지 않는 병기본은 버린다', () => {
+    const r = composeWord(감독, 감독캐시);
+    expect(r.word.definition).toBe('direction, supervision, management'); // 복사본이 그대로 남는다
+    expect(r.definitionFixed).toBe(false);
+  });
+
+  it("fill 판정은 겹침 실패를 덮고 캐시 뜻풀이를 넣는다", () => {
+    const r = composeWord(감독, 감독캐시, 'fill');
+    expect(r.word.definition).toBe(감독캐시.definition);
+    expect(r.definitionFixed).toBe(true);
+  });
+
+  it('blank 판정은 meaningKr 복사본을 비운다 — 카드에 영어가 두 번 뜨는 것을 막는다', () => {
+    const 개 = deckWord({ term: '개', definition: 'dog', meaningKr: 'dog' });
+    const r = composeWord(개, {
+      definition: "① 명사 앞에 붙어 '야생의' 뜻을 더하는 접두사. ② 동물을 세는 단위.",
+      senses: [
+        { meaningKr: 'wild-', definition: "'야생의' 뜻을 더하는 접두사." },
+        { meaningKr: 'counter', definition: '동물을 세는 단위.' },
+      ],
+    }, 'blank');
+    expect(r.outcome).toBe('definition-cleared');
+    expect(r.word.definition).toBe('');
+    // 나머지 칸은 그대로 — 비우는 것은 definition 한 칸뿐이다
+    expect(r.word.meaningKr).toBe('dog');
+    expect(r.word.exampleEn).toBe('그의 행동은 옳지 않았다.');
+  });
+
+  it('blank 판정이어도 이미 빈칸이면 아무 일도 하지 않는다', () => {
+    const 천 = deckWord({ term: '천', definition: '', meaningKr: 'cloth, fabric' });
+    const r = composeWord(천, { definition: '① 하늘. ② 1000.' }, 'blank');
+    expect(r.outcome).toBe('unchanged');
+    expect(r.word.definition).toBe('');
+  });
+
+  it('🔴 blank 판정은 병기도 막는다 — 남의 뜻이 meaningKr 로 들어오면 안 된다', () => {
+    const 대기 = deckWord({ term: '대기', definition: 'atmosphere, air', meaningKr: 'atmosphere, air' });
+    const r = composeWord(대기, {
+      definition: '① 어떤 일이 일어나기를 기다림. ② 준비하고 기다림.',
+      senses: [
+        { meaningKr: 'standby', definition: '어떤 일이 일어나기를 기다림.' },
+        { meaningKr: 'waiting', definition: '준비하고 기다림.' },
+      ],
+    }, 'blank');
+    expect(r.word.meaningKr).toBe('atmosphere, air');
+    expect(r.word.definition).toBe('');
+  });
+});
+
+describe('판정 목록 자체', () => {
+  it('채움 42 · 비움 30 — 합이 겹침 실패 72건과 같다', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { decisionCounts, definitionDecision } = require('../scripts/lib/ko-ladder-definition-decisions');
+    expect(decisionCounts()).toEqual({ fill: 42, blank: 30 });
+    // 덱이 다르면 같은 표제어라도 판정이 갈릴 수 있어야 한다
+    expect(definitionDecision('curated-ko-basic-1', '물')).toBe('fill');
+    expect(definitionDecision('curated-ko-advanced-1', '물')).toBeUndefined();
+    // 뜻풀이가 깨져서 뺀 넷
+    for (const [deck, term] of [
+      ['curated-ko-basic-1', '셋'],
+      ['curated-ko-intermediate-2', '장'],
+      ['curated-ko-advanced-1', '별도'],
+      ['curated-ko-advanced-1', '도덕'],
+    ]) {
+      expect(definitionDecision(deck, term)).toBe('blank');
+    }
+  });
+});

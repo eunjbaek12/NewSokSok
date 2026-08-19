@@ -42,6 +42,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 import { getTopTags } from '../lib/curation-tags';
 import { composeWord, type CachedEnrich, type Composed, type Outcome } from './lib/official-deck-compose';
+import { definitionDecision } from './lib/ko-ladder-definition-decisions';
 import type { VocaList } from '../lib/types';
 
 // 🔑 service_role 키를 명령줄에 쓰지 않아도 되도록 .env.local 을 먼저 읽는다.
@@ -260,6 +261,7 @@ async function main() {
     'senses-merged': 0,
     'senses-skipped-nooverlap': 0,
     'senses-skipped-limit': 0,
+    'definition-cleared': 0,
   };
   let cacheMiss = 0, exampleChanged = 0, definitionFixed = 0;
   const report: { skippedNoOverlap: any[]; skippedLimit: any[] } = { skippedNoOverlap: [], skippedLimit: [] };
@@ -271,7 +273,7 @@ async function main() {
     for (const w of deck.words) {
       const cached = cache.get(cacheKey(sl, tl, w.term));
       if (!cached) cacheMiss++;
-      const c = composeWord(w, cached);
+      const c = composeWord(w, cached, definitionDecision(deck.id, w.term));
       stats[c.outcome]++;
       if (c.exampleChanged) exampleChanged++;
       if (c.definitionFixed) definitionFixed++;
@@ -305,6 +307,7 @@ async function main() {
   console.log(`definition 손본 단어(합계)   : ${definitionFixed}`);
   console.log(`  ↳ 분류: 빈칸 채움          : ${stats['definition-filled']}`);
   console.log(`  ↳ 분류: 복사본 교정        : ${stats['definition-fixed']}`);
+  console.log(`  ↳ 분류: 사람 판정으로 비움  : ${stats['definition-cleared']}`);
   console.log(`①② 병기 적용                : ${stats['senses-merged']}`);
   console.log(`  ↳ 예문이 캐시 것으로 바뀜  : ${exampleChanged}`);
   console.log(`병기 보류(덱 뜻이 캐시에 없음): ${stats['senses-skipped-nooverlap']}`);

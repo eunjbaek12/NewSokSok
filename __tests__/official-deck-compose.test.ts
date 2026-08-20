@@ -325,3 +325,47 @@ describe('판정 목록 자체', () => {
     }
   });
 });
+
+describe('지어낸 뜻 제외(dropSenses)', () => {
+  // 실측 케이스: `교사`. 캐시 ②가 "낡은 것을 새것으로 고침"(예문 "낡은 가구를 교사했다").
+  // 한국어에 없는 뜻인데 병기가 이것을 카드 앞면까지 올린다.
+  const 교사 = deckWord({ term: '교사', definition: '', meaningKr: 'teacher, instructor' });
+  const 교사캐시: CachedEnrich = {
+    definition: '① 학생을 가르치는 사람. ② 낡은 것을 새것으로 고침.',
+    senses: [
+      { meaningKr: 'teacher', definition: '학생을 가르치는 사람.', exampleEn: '그는 고등학교 교사예요.', exampleKr: 'He is a high school teacher.' },
+      { meaningKr: 'repair', definition: '낡은 것을 새것으로 고침.', exampleEn: '낡은 가구를 교사했다.', exampleKr: 'I repaired the old furniture.' },
+    ],
+  };
+
+  it('제외한 뜻은 병기에 실리지 않는다', () => {
+    const r = composeWord(교사, 교사캐시, undefined, [2]);
+    expect(r.word.meaningKr).not.toMatch(/repair/i);
+    expect(r.word.definition).not.toMatch(/낡은 것을 새것으로/);
+  });
+
+  it('🔴 최상위 definition 도 남은 뜻으로 다시 짠다 — 병기본을 그대로 쓰면 제외가 새어 들어온다', () => {
+    const r = composeWord(교사, 교사캐시, undefined, [2]);
+    expect(r.word.definition).toBe('학생을 가르치는 사람.');
+  });
+
+  it('제외 목록이 없으면 지금 동작 그대로', () => {
+    const r = composeWord(교사, 교사캐시);
+    expect(r.word.definition).toContain('낡은 것을 새것으로');
+  });
+
+  it('뜻이 하나도 안 남으면 캐시를 통째로 쓰지 않는다 — 최상위도 그 뜻들로 짠 것이라 못 쓴다', () => {
+    const deck = deckWord({ term: '교사', definition: '기존 뜻풀이', meaningKr: 'teacher' });
+    const r = composeWord(deck, 교사캐시, undefined, [1, 2]);
+    expect(r.outcome).toBe('senses-all-dropped');
+    expect(r.word).toEqual(deck);
+  });
+
+  it('목록 규모가 측정치와 맞는다', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { dropCounts, droppedSenses } = require('../scripts/lib/ko-sense-drops');
+    expect(dropCounts()).toEqual({ terms: 980, senses: 1215 });
+    expect(droppedSenses('en', '교사')).toEqual([2]);
+    expect(droppedSenses('en', '물')).toEqual([]);
+  });
+});

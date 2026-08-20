@@ -32,7 +32,8 @@ export type Outcome =
   | 'senses-merged'               // ①② 병기를 넣었다
   | 'senses-skipped-nooverlap'    // 덱 뜻이 캐시 뜻에 없어 손대지 않았다
   | 'senses-skipped-limit'        // 병기가 저장 한도를 넘어 포기했다
-  | 'definition-cleared';         // 사람이 blank 로 판정해 definition 을 비웠다
+  | 'definition-cleared'          // 사람이 blank 로 판정해 definition 을 비웠다
+  | 'senses-all-dropped';         // 뜻이 전부 제외 목록에 걸려 캐시를 쓰지 않았다
 
 export interface Composed {
   word: Word;
@@ -99,6 +100,8 @@ export function composeWord(
   cached: CachedEnrich | undefined,
   /** 사람이 내린 판정. 목록은 scripts/lib/ko-ladder-definition-decisions.ts. 없으면 규칙대로. */
   decision?: DefinitionDecision,
+  /** 카드에 실으면 안 되는 뜻 번호(1부터). 목록은 scripts/lib/ko-sense-drops.ts. */
+  dropSenses?: readonly number[],
 ): Composed {
   const base = {
     definition: cached?.definition ?? '',
@@ -109,7 +112,12 @@ export function composeWord(
     phonetic: cached?.phonetic ?? '',
     mnemonic: '',
   };
-  const senses = cached ? normalizeSenses(cached.senses) : null;
+  const rawSenses = cached ? normalizeSenses(cached.senses) : null;
+  // 지어낸 뜻은 여기서 걸러 낸다. 병기는 뜻을 **카드 앞면까지** 올리므로, 뒤에서 막으면
+  // 늦다 — definition·예문·meaningKr 이 전부 그 뜻으로 덮인다.
+  const senses = rawSenses && dropSenses?.length
+    ? rawSenses.filter((_, i) => !dropSenses.includes(i + 1))
+    : rawSenses;
 
   // ── ④ definition 결함부터 고친다 ─────────────────────────────────────
   // 🔴 순서가 중요하다. 병기를 먼저 시도하면, 병기가 보류된 단어(덱 뜻이 캐시에
@@ -122,7 +130,11 @@ export function composeWord(
   // definition 은 뜻 전부를 병기한 것이라, 그대로 쓰면 동음이의 다른 단어의 뜻풀이가
   // 섞여 들어온다(matchingSenseIndexes 주석의 실측 490건). 겹치는 뜻이 하나도 없으면
   // 캐시가 이 단어를 아예 다르게 알고 있다는 뜻이므로 definition 을 손대지 않는다.
-  const topDef = (cached?.definition ?? '').trim();
+  // 캐시 최상위 definition 은 **뜻 전부를 병기한 것**이라 제외한 뜻의 문장이 섞여 있다.
+  // 걸러 낸 게 있으면 남은 뜻으로 다시 짜야 한다.
+  const topDef = dropSenses?.length && senses?.length
+    ? composeSenseFill(senses.map((_, i) => i), senses, base).definition.trim()
+    : (cached?.definition ?? '').trim();
   const matchedSenses = senses ? matchingSenseIndexes(w.meaningKr, senses) : [];
   // 사람이 blank 로 판정한 단어는 여기서 끝난다. 캐시가 다른 단어를 설명하고 있거나
   // (개 = dog 인데 캐시는 접두사 '개-'), 뜻풀이 자체가 깨진 것들이다.
@@ -137,6 +149,11 @@ export function composeWord(
       exampleChanged: false,
       definitionFixed: false,
     };
+  }
+  // 뜻이 하나도 안 남았다 = 캐시가 이 단어를 통째로 잘못 알고 있다. 최상위 definition 도
+  // 그 뜻들로 짠 것이라 쓸 수 없으므로, 덱 것을 그대로 둔다.
+  if (rawSenses?.length && senses && senses.length === 0) {
+    return { word: w, outcome: 'senses-all-dropped', senses: rawSenses, exampleChanged: false, definitionFixed: false };
   }
   const cachedDef = !senses
     ? topDef

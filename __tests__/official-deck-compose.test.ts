@@ -238,6 +238,28 @@ describe('뜻 겹침 판정', () => {
     const s = [{ meaningKr: 'a b', definition: '', exampleEn: '', exampleKr: '', pos: '', phonetic: '' }];
     expect(overlapsDeckMeaning('a c', s)).toBe(false);
   });
+
+  // 🔴 CJK 는 낱말을 공백이 아니라 `、` `，` 로 나눈다. 이걸 정규화에서 지우지 않으면
+  //    문장 전체가 한 토큰이 되어, 낱말이 분명히 겹치는데도 false 가 나온다.
+  //    실제로 그래서 ko>ja 121장 · ko>zh 136장의 definition 이 교정되지 않았다.
+  it('일본어 열거 구분자 `、` 로 나뉜 낱말도 겹침으로 센다', () => {
+    const ja = [{ meaningKr: '言葉、言語', definition: '', exampleEn: '', exampleKr: '', pos: '', phonetic: '' }];
+    expect(overlapsDeckMeaning('言葉、話', ja)).toBe(true);
+    expect(overlapsDeckMeaning('料理、食事', ja)).toBe(false);
+  });
+
+  it('중국어 전각 쉼표 `，` 로 나뉜 낱말도 겹침으로 센다', () => {
+    const zh = [{ meaningKr: '成为，变成，变得', definition: '', exampleEn: '', exampleKr: '', pos: '', phonetic: '' }];
+    expect(overlapsDeckMeaning('成为, 变成', zh)).toBe(true);
+    expect(overlapsDeckMeaning('学习, 练习', zh)).toBe(false);
+  });
+
+  // 🔴 반각 괄호와 달리 전각 괄호는 지우면 안 된다 — CJK 는 괄호 안이 뜻 자체다.
+  //    `数詞（一つ）` 에서 괄호를 떼면 덱 뜻 `一つ` 와의 겹침이 사라진다.
+  it('전각 괄호 안의 뜻은 살려 둔다', () => {
+    const ja = [{ meaningKr: '数詞（一つ）', definition: '', exampleEn: '', exampleKr: '', pos: '', phonetic: '' }];
+    expect(overlapsDeckMeaning('一つ', ja)).toBe(true);
+  });
 });
 
 describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => {

@@ -58,6 +58,37 @@ export function canBlankExample(sentence: string | null | undefined, term: strin
 }
 
 /**
+ * 예문에서 빈칸을 뺀 나머지 = **문형**. 선택지 다중정답 판정에 쓴다
+ * (features/study/choices.ts · docs/example-choices-multi-answer-spec.md).
+ *
+ * 두 단어의 문형이 같다는 것은 **빈칸을 뚫고 나면 같은 문장**이라는 뜻이고, 곧 어느
+ * 쪽을 넣어도 말이 된다는 뜻이다. 서버 전수에서 이런 문항이 185개 있었다
+ * ("___ 주세요." ← 영수증·환불·메뉴·비빔밥·숟가락·입장권·왕복).
+ *
+ * ⚠️ 세그먼트는 **공백 없이** 이어붙인다. 공백을 끼우면 띄어쓰기가 없는 중국어·일본어에서
+ *    원문에 없던 공백이 생겨(`我吃 了`) 같은 문형이 서로 달라진다. 라틴·한국어는 세그먼트
+ *    자체가 공백을 물고 있어 이어붙이기만 해도 원문이 복원된다.
+ * ⚠️ 구두점은 지우지 않는다 — 마침표와 물음표가 다르면 다른 문장이다.
+ * ⚠️ 빈칸을 못 만들거나 남는 게 없으면(예문이 표제어뿐) **null**. 빈 문자열을 돌려주면
+ *    그런 단어들이 전부 "같은 문형"으로 묶인다.
+ */
+export function exampleFrame(
+  sentence: string | null | undefined,
+  term: string | null | undefined,
+): string | null {
+  if (!sentence || !term) return null;
+  const segments = segmentExample(sentence, term);
+  if (!segments) return null;
+  const frame = segments
+    .filter(s => !s.isBlank)
+    .map(s => s.text)
+    .join('')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return frame || null;
+}
+
+/**
  * 스피커가 읽을 문장. 정답 공개 전에는 **빈칸 구간을 빼고** 읽는다.
  *
  * 화면은 답을 가려 놓고 소리로는 그대로 흘리면 문제가 성립하지 않는다. 이 동작은 한때

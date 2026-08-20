@@ -19,8 +19,8 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
-import { segmentExample, canBlankExample, spokenExample } from '@/lib/example-blank';
-import { buildChoices } from '../choices';
+import { segmentExample, canBlankExample, spokenExample, exampleFrame } from '@/lib/example-blank';
+import { buildChoices, SAME_TOPIC_DISTANCE, type ChoiceContext } from '../choices';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -328,17 +328,43 @@ export default function ExamplesScreen() {
 
   const choicesMapRef = useRef<Record<string, Word[]>>({});
 
+  // 선택지 풀은 학습 대상(배치)이 아니라 **단어장 전체**다. 배치 안에서만 뽑으면 같은
+  // 주제가 몰려 있어 오답이 정답과 구별되지 않는다.
+  const allListWords = useMemo(() => getWordsForList(id!), [getWordsForList, id]);
+
+  /**
+   * 다중정답 판정 재료(docs/example-choices-multi-answer-spec.md).
+   * 단어장이 바뀔 때만 다시 만든다 — 500단어면 segmentExample을 500번 도는 일이라
+   * 카드마다 계산하면 안 된다.
+   */
+  const choiceContext = useMemo<ChoiceContext>(() => {
+    const frames = new Map<string, string | null>();
+    const indexes = new Map<string, number>();
+    allListWords.forEach((w, i) => {
+      frames.set(w.id, exampleFrame(w.exampleEn, w.term));
+      indexes.set(w.id, i);
+    });
+    return {
+      frameOf: w => frames.get(w.id) ?? null,
+      // 🔴 words.position 컬럼이 아니라 **이 배열의 인덱스**다. createCuratedList가
+      //    words INSERT에 position을 넣지 않아(features/vocab/db.ts:219) 큐레이션 덱은
+      //    전부 NULL이고, createdAt도 같은 값이라 정렬에 타이 브레이커가 없다.
+      indexOf: w => indexes.get(w.id) ?? -1,
+      minDistance: SAME_TOPIC_DISTANCE,
+    };
+  }, [allListWords]);
+
   const choices = useMemo(() => {
     if (!currentWord) return [];
     if (choicesMapRef.current[currentWord.id]) {
       return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
     }
-    const allListWords = getWordsForList(id!);
-    // 선택지는 화면에 보이는 라벨(여기서는 표제어) 기준으로 중복을 걸러야 한다 — features/study/choices.ts
-    const newChoices = buildChoices(allListWords, currentWord, w => w.term);
+    // 선택지는 화면에 보이는 라벨(여기서는 표제어) 기준으로 중복을 걸러야 하고,
+    // ctx로 "빈칸에 넣어도 말이 되는" 후보까지 걸러낸다 — features/study/choices.ts
+    const newChoices = buildChoices(allListWords, currentWord, w => w.term, 4, choiceContext);
     choicesMapRef.current[currentWord.id] = newChoices;
     return newChoices;
-  }, [currentIndex, currentWord?.id, id, getWordsForList]);
+  }, [currentIndex, currentWord?.id, allListWords, choiceContext]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (selectedAnswer !== null) return;

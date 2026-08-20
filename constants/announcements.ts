@@ -44,11 +44,17 @@ export const ANNOUNCEMENTS: Announcement[] = [
     date: '2026-08-18',
     items: [
       { key: 'whatsNew.v160_1', icon: 'school' },
-      { key: 'whatsNew.v160_2', icon: 'add-circle' },
-      { key: 'whatsNew.v160_3', icon: 'refresh' },
-      { key: 'whatsNew.v160_4', icon: 'cloud-download' },
-      { key: 'whatsNew.v160_5', icon: 'book' },
-      { key: 'whatsNew.v160_6', icon: 'chatbubble-ellipses' },
+      // 2026-08-20 제보(예문 빈칸의 다중정답)에서 나온 것이라 덱 이야기보다 앞에 둔다 —
+      // 사용자 제안에서 나온 것을 위로 올리는 1.5.0 때 방침 그대로다.
+      // 아이콘은 예문 학습 버튼이 쓰는 것을 그대로 가져왔다(app/list/[id].tsx). 마지막
+      // 줄의 chatbubble-ellipses 와 나란히 두면 말풍선 두 개가 한 덩어리로 읽힌다.
+      // 스펙: docs/example-choices-multi-answer-spec.md
+      { key: 'whatsNew.v160_2', icon: 'chatbubbles-outline' },
+      { key: 'whatsNew.v160_3', icon: 'add-circle' },
+      { key: 'whatsNew.v160_4', icon: 'refresh' },
+      { key: 'whatsNew.v160_5', icon: 'cloud-download' },
+      { key: 'whatsNew.v160_6', icon: 'book' },
+      { key: 'whatsNew.v160_7', icon: 'chatbubble-ellipses' },
     ],
   },
   {

@@ -436,11 +436,12 @@
     "v150_5": "El límite diario gratuito es de 50 palabras. Los significados siguen apareciendo al superarlo.",
     "v150_6": "¿Tienes una idea? Envíala desde Ajustes › Contáctanos y puede entrar en la próxima actualización.",
     "v160_1": "Reconstruimos las cuatro colecciones de coreano para que los niveles coincidan de verdad. ¡Gracias por avisarnos!",
-    "v160_2": "Llegó la nueva colección Intermediate Korean II. Cambia el idioma de significado a inglés para verla.",
-    "v160_3": "Las colecciones que ya importaste no cambian: vuelve a importarlas para recibir las correcciones.",
-    "v160_4": "Las colecciones ahora vienen del servidor, así que llegan nuevas sin actualizar la app. La lista necesita internet la primera vez que la abres.",
-    "v160_5": "Las definiciones en coreano eran copias del significado en inglés; ahora son definiciones reales.",
-    "v160_6": "Esta actualización nació de tus comentarios. Sigue enviándolos desde Ajustes › Contáctanos."
+    "v160_2": "Las preguntas de ejemplos ahora tienen mejores opciones: las palabras que también encajan en el hueco ya no aparecen juntas.",
+    "v160_3": "Llegó la nueva colección Intermediate Korean II. Cambia el idioma de significado a inglés para verla.",
+    "v160_4": "Las colecciones que ya importaste no cambian: vuelve a importarlas para recibir las correcciones.",
+    "v160_5": "Las colecciones ahora vienen del servidor, así que llegan nuevas sin actualizar la app. La lista necesita internet la primera vez que la abres.",
+    "v160_6": "Las definiciones en coreano eran copias del significado en inglés; ahora son definiciones reales.",
+    "v160_7": "Esta actualización nació de tus comentarios. Sigue enviándolos desde Ajustes › Contáctanos."
   },
   "licenses": {
     "title": "Código abierto y fuentes de datos",

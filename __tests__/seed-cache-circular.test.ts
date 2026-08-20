@@ -2,7 +2,7 @@ import { circularDefinition } from '../scripts/seed-cache';
 
 // 뜻풀이가 표제어 자신을 써서 돌려 말하는 것을 잡는다. 규칙으로 잡을 수 있는 유일한
 // 유형이라 시딩 게이트(defectOf)에 있다 — 나머지 세 유형은 판정 목록으로 다뤘다
-// (scripts/lib/ko-sense-drops.ts). 케이스는 전부 2026-08-20 캐시 실측이다.
+// (scripts/lib/sense-drops.ts). 케이스는 전부 2026-08-20 캐시 실측이다.
 
 describe('순환 정의 검출', () => {
   it('표제어로 표제어를 설명하면 잡는다', () => {

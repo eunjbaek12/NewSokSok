@@ -43,7 +43,7 @@ import { createClient } from '@supabase/supabase-js';
 import { getTopTags } from '../lib/curation-tags';
 import { composeWord, type CachedEnrich, type Composed, type Outcome } from './lib/official-deck-compose';
 import { definitionDecision } from './lib/ko-ladder-definition-decisions';
-import { droppedSenses } from './lib/ko-sense-drops';
+import { droppedSenses } from './lib/sense-drops';
 import type { VocaList } from '../lib/types';
 
 // 🔑 service_role 키를 명령줄에 쓰지 않아도 되도록 .env.local 을 먼저 읽는다.
@@ -275,7 +275,7 @@ async function main() {
     for (const w of deck.words) {
       const cached = cache.get(cacheKey(sl, tl, w.term));
       if (!cached) cacheMiss++;
-      const c = composeWord(w, cached, definitionDecision(deck.id, w.term), droppedSenses(tl, w.term));
+      const c = composeWord(w, cached, definitionDecision(deck.id, w.term), droppedSenses(sl, tl, w.term));
       stats[c.outcome]++;
       if (c.exampleChanged) exampleChanged++;
       if (c.definitionFixed) definitionFixed++;

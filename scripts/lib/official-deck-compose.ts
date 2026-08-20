@@ -11,6 +11,7 @@ import {
   fitsSaveLimits,
   defaultSenseSelection,
 } from '../../lib/senses';
+import { stripControlChars } from '../../utils/word-sanitize';
 import type { Word } from '../../lib/types';
 import type { WordSense } from '../../shared/contracts';
 import type { DefinitionDecision } from './ko-ladder-definition-decisions';
@@ -95,12 +96,47 @@ export function overlapsDeckMeaning(deckMeaning: string, senses: readonly WordSe
   return false;
 }
 
+/**
+ * 서버에 넣기 직전의 마지막 손질 — 제어문자를 지운다.
+ *
+ * 🔴 캐시 뜻풀이에는 AI 가 넣은 개행이 섞여 있다(실측: official_words 51행).
+ *    그대로 심으면 그 덱을 담은 사용자의 **클라우드 동기화가 영구히 끊긴다** —
+ *    cloud_words 의 CHECK(chk_cloud_words_definition_noctrl)에 걸려 push 가 throw 하고
+ *    dirty 가 남아 다음 시도도 같은 자리에서 막힌다. 앱 쪽 저장 경계에도 같은 정제가
+ *    있지만(utils/word-sanitize), 서버 데이터 자체를 깨끗하게 두는 편이 옳다 —
+ *    옛 앱은 그 정제를 안 거치는 경로로 이 덱을 담을 수 있다.
+ * 🔑 길이는 건드리지 않는다. 문장을 자르면 뜻이 잘려 나간다.
+ */
+function cleanText<T extends Record<string, any>>(obj: T, fields: readonly string[]): T {
+  const out: Record<string, any> = { ...obj };
+  for (const f of fields) {
+    if (typeof out[f] === 'string') out[f] = stripControlChars(out[f]);
+  }
+  return out as T;
+}
+
+const WORD_TEXT_FIELDS = ['term', 'definition', 'meaningKr', 'exampleEn', 'exampleKr', 'pos', 'phonetic'] as const;
+
 export function composeWord(
+  w: Word,
+  cached: CachedEnrich | undefined,
+  decision?: DefinitionDecision,
+  dropSenses?: readonly number[],
+): Composed {
+  const out = composeWordRaw(w, cached, decision, dropSenses);
+  return {
+    ...out,
+    word: cleanText(out.word, WORD_TEXT_FIELDS),
+    senses: out.senses ? out.senses.map(s => cleanText(s, WORD_TEXT_FIELDS)) : out.senses,
+  };
+}
+
+function composeWordRaw(
   w: Word,
   cached: CachedEnrich | undefined,
   /** 사람이 내린 판정. 목록은 scripts/lib/ko-ladder-definition-decisions.ts. 없으면 규칙대로. */
   decision?: DefinitionDecision,
-  /** 카드에 실으면 안 되는 뜻 번호(1부터). 목록은 scripts/lib/ko-sense-drops.ts. */
+  /** 카드에 실으면 안 되는 뜻 번호(1부터). 목록은 scripts/lib/sense-drops.ts. */
   dropSenses?: readonly number[],
 ): Composed {
   const base = {

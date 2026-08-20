@@ -234,7 +234,7 @@ function numberingViolation(label: string, text: string | undefined, nSenses: nu
 //
 // 🔑 규칙으로 잡을 수 있는 유일한 유형이라 여기 둔다. 같은 조사에서 나온 나머지 세 유형
 //    (예문에 표제어 없음·지어낸 뜻·뜻 배정 오류)은 규칙이 없어 판정 목록으로 다뤘다.
-//    → scripts/lib/ko-sense-drops.ts
+//    → scripts/lib/sense-drops.ts
 //
 // 🔴 부분 문자열로 재면 못 쓴다 — 실측 정밀도 58%. 오탐이 세 갈래로 뚜렷하다.
 //    ① 합성어: `고양이` 가 "고양이과에 속하는", `잔디` 가 "잔디밭" 에 걸린다

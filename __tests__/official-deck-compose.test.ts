@@ -363,9 +363,55 @@ describe('지어낸 뜻 제외(dropSenses)', () => {
 
   it('목록 규모가 측정치와 맞는다', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { dropCounts, droppedSenses } = require('../scripts/lib/ko-sense-drops');
-    expect(dropCounts()).toEqual({ terms: 980, senses: 1215 });
-    expect(droppedSenses('en', '교사')).toEqual([2]);
-    expect(droppedSenses('en', '물')).toEqual([]);
+    const { dropCounts, dropCountsByLang, droppedSenses } = require('../scripts/lib/sense-drops');
+    expect(dropCounts()).toEqual({ terms: 1360, senses: 1550 });
+    // 여섯 출발어를 모두 덮는다 — ko 만 있던 때로 되돌아가면 여기서 걸린다.
+    expect(dropCountsByLang()).toEqual({ ko: 930, zh: 202, ja: 186, vi: 117, en: 110, es: 5 });
+    expect(droppedSenses('ko', 'en', '잘되다')).toEqual([2]);  // "to fail" — 정반대 뜻
+    expect(droppedSenses('ko', 'en', '학교')).toEqual([]);  // 판정에 안 걸린 낱말
+  });
+
+  it('🔴 키에 출발어가 들어간다 — ja 와 zh 는 같은 표제어를 48개 공유한다', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { droppedSenses } = require('../scripts/lib/sense-drops');
+    // 도착어(ko)만으로 키를 잡으면 일본어 판정이 중국어 카드에 적용된다.
+    const ja = droppedSenses('ja', 'ko', '米');
+    const zh = droppedSenses('zh', 'ko', '米');
+    expect(ja).not.toEqual(zh);
+  });
+});
+
+describe('제어문자 — 서버에 심기 전에 지운다', () => {
+  // 왜: 캐시 뜻풀이에 AI 가 넣은 개행이 남아 있고(실측 51행), 그 덱을 담은 사용자의
+  // cloud_words CHECK 에 걸려 동기화가 영구히 끊긴다. 기기에서 실제로 재현됐다.
+  // 소스에 리터럴 제어문자를 두지 않도록 코드포인트로 만든다(word-sanitize.test.ts 와 같은 방식).
+  const NL = String.fromCharCode(10);
+  const TAB = String.fromCharCode(9);
+
+  it('definition 의 개행을 공백으로 바꾼다', () => {
+    const r = composeWord(deckWord({ definition: '' }), {
+      definition: '① 첫째 뜻.' + NL + '② 둘째 뜻.',
+    });
+    expect(r.word.definition).toBe('① 첫째 뜻. ② 둘째 뜻.');
+  });
+
+  it('예문·senses 까지 함께 훑는다', () => {
+    const r = composeWord(deckWord({ definition: '' }), {
+      definition: '뜻풀이',
+      exampleEn: '앞' + NL + '뒤',
+      senses: [
+        { meaningKr: 'A', definition: '가' + NL + '나', exampleEn: '예' + TAB + '문' },
+        { meaningKr: 'B', definition: '다', exampleEn: '문장' },
+      ],
+    });
+    expect(r.word.exampleEn.includes(NL)).toBe(false);
+    expect(r.senses![0].definition).toBe('가 나');
+    expect(r.senses![0].exampleEn).toBe('예 문');
+  });
+
+  it('길이는 자르지 않는다 — 문장이 잘리면 뜻이 사라진다', () => {
+    const long = '가'.repeat(700);
+    const r = composeWord(deckWord({ definition: '' }), { definition: long });
+    expect(r.word.definition.length).toBe(700);
   });
 });

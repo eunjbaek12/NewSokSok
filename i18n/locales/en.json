@@ -428,7 +428,7 @@
     "v150_2": "300 essential TOPIK intermediate words arrived. Set your meaning language to English to see them",
     "v150_3": "Japanese pronunciation now shows furigana instead of Hangul",
     "v150_4": "Watch one ad and banner ads disappear for 24 hours",
-    "v150_5": "The free daily limit is 50 words, or 10 as a guest. Meanings still show past the limit",
+    "v150_5": "The free daily limit is 50 words. Meanings still show past the limit",
     "v150_6": "Have an idea? Send it from Settings › Contact us and it may land in the next update",
     "v160_1": "We rebuilt all four Korean learning decks so the levels actually match. Thanks for the report!",
     "v160_2": "A new Intermediate Korean II deck is here. Set your meaning language to English to see it",
@@ -619,7 +619,7 @@
       },
       {
         "title": "AI Features & Daily Quota",
-        "body": "AI autocomplete, word generation, and photo scan are offered through two paths:\n\n1) Operator key (default): Guests receive 10 words/day, signed-in Free users receive 50 words/day, and Pro users receive 3,000 words/month. Guest and Free quotas reset at midnight KST; Pro resets monthly from the subscription billing date. Free users may watch up to two rewarded ads a day to add 20 words each.\n\n2) Bring-your-own-key (BYOK): Register your own Gemini API key under Settings → Advanced Settings. No quota applies, but you cover the API costs. The key is stored only in this device's SecureStore and never touches our servers.\n\nThe developer does not guarantee the accuracy of AI-generated content."
+        "body": "AI autocomplete, word generation, and photo scan are offered through two paths:\n\n1) Operator key (default): Free users receive 50 words/day and Pro users receive 3,000 words/month. The free quota is the same whether or not you sign in, and the first 24 hours after you start using the app are raised to 300 words. Free quotas reset at midnight KST; Pro resets monthly from the subscription billing date. Free users may watch up to two rewarded ads a day to add 20 words each.\n\n2) Bring-your-own-key (BYOK): Register your own Gemini API key under Settings → Advanced Settings. No quota applies, but you cover the API costs. The key is stored only in this device's SecureStore and never touches our servers.\n\nThe developer does not guarantee the accuracy of AI-generated content."
       },
       {
         "title": "Pro Subscription & Billing",
@@ -834,7 +834,7 @@
         "items": [
           {
             "q": "What do I need to use AI features?",
-            "a": "Nothing extra — AI auto-complete, generate, and photo scan work out of the box. Guests get 10 AI words a day; signed-in Free users get 50 a day (300 during their first 24 hours after signing up).\n\nIf you want more, you can upgrade to Pro, watch a rewarded ad to extend your quota, or register your own Gemini API key under Advanced Settings. See the \"Plans & Ads\" section for details."
+            "a": "Nothing extra — AI auto-complete, generate, and photo scan work out of the box. You get 50 AI words a day whether or not you sign in (300 during your first 24 hours with the app).\n\nIf you want more, you can upgrade to Pro, watch a rewarded ad to extend your quota, or register your own Gemini API key under Advanced Settings. See the \"Plans & Ads\" section for details."
           },
           {
             "q": "How accurate are the AI results?",
@@ -859,7 +859,7 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Guest — AI quota of 10 words a day, with data stored only on this device.\n• Free — all study and management features, plus 50 AI words a day (300 during your first 24 hours after signing up). A small banner ad is shown at the bottom of the screen.\n• Pro — up to 3,000 AI words per month with no daily limit. All ads are removed, and annual billing saves ~23%. See the Plans screen for the exact localized price.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
+            "a": "• Free — all study and management features, plus 50 AI words a day (300 during your first 24 hours with the app). A small banner ad is shown at the bottom of the screen.\n• Pro — up to 3,000 AI words per month with no daily limit. All ads are removed, and annual billing saves ~23%. See the Plans screen for the exact localized price.\n\nAs a guest you get the same AI quota as Free. What signing in changes is not the quota but where your words live — cloud backup and sync across devices.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
           },
           {
             "q": "How is the \"word count\" measured?",
@@ -867,7 +867,7 @@
           },
           {
             "q": "What happens when I hit an AI quota?",
-            "a": "AI calls pause until the relevant limit resets.\n\n• Guest — watch one rewarded ad for 10 extra words.\n• Signed-in Free — watch up to two rewarded ads for 20 extra words each. Each rewarded ad also removes the banner for 24 hours.\n• Pro — use up to 3,000 words a month with no daily limit. The quota returns in the next billing-anchored monthly period.\n\nEven past the limit you still get each word's meaning. Examples, pronunciation, and part of speech are left empty — reopen the word and tap AI auto-complete once your quota resets to fill them in.\n\nNon-AI features (studying, editing) keep working regardless of quota."
+            "a": "AI calls pause until the relevant limit resets.\n\n• Free — watch up to two rewarded ads for 20 extra words each. Each rewarded ad also removes the banner for 24 hours. Guests get exactly the same.\n• Pro — use up to 3,000 words a month with no daily limit. The quota returns in the next billing-anchored monthly period.\n\nEven past the limit you still get each word's meaning. Examples, pronunciation, and part of speech are left empty — reopen the word and tap AI auto-complete once your quota resets to fill them in.\n\nNon-AI features (studying, editing) keep working regardless of quota."
           },
           {
             "q": "How does the Pro free trial work?",

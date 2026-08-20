@@ -625,3 +625,91 @@ anon 읽기 허용)와 **그 기능이 들어간 커밋이 출시 브랜치에 �
 3. 통합 → `pnpm run diagnose:decks` → `npx jest` → 서버 재시딩.
 4. 재시딩 뒤 `list-mono-merged.ts` 재실행 — 남은 46개 표제어 검수.
 5. 미결 B·C·D. (캐시 오염은 ✅ 완료)
+
+## 2026-08-20~21 — 덱 definition 결함 정리 (완료) · 다음은 1.6.0 제출
+
+- 상태: 완료 · 브랜치 `feat/curation-meaning-lang` · 커밋 3개 전부 푸시됨
+- 커밋: `c84d0a7` CJK 구분자 · `8d6b83a` 사람 판정 전 덱 확대 · `3a8b3e9` 수능 3장 비움
+
+### 결과 (서버 실측, 65덱 15,542장)
+
+| | 시작 | 지금 |
+|---|---|---|
+| definition == meaning_kr 복사본 | 344 (2.2%) | **200 (1.3%)** |
+| 빈 definition | 75 | 63 |
+| **실사용 덱(도착어 ko·en) 복사본** | 68 | **0** |
+
+남은 복사본 200장은 전부 도착어가 ja/zh/vi 인 덱이다. `cloud_lists` 실측상
+**ko>ja·ko>zh·ko>vi 단어장은 0건**(en>ko 104개/43명 · ko>en 37개/23명)이라
+지금 이걸 더 고쳐도 보는 사람이 없다.
+
+### 이번에 고친 것
+
+1. **CJK 구분자** — `normMeaning` 이 지우는 구두점에 `、，。；：！？` 가 없어, 겹침 판정이
+   일본어·중국어 낱말 경계를 못 봤다. `こと、もの` 가 통째로 한 토큰이 됐다.
+   🔴 전각 괄호 `（）` 는 지우면 안 된다 — CJK 는 괄호 안이 뜻 자체라 `数詞（一つ）` 에서
+   떼면 겹침이 사라진다. 시뮬레이션에서 멀쩡하던 판정 4건이 그렇게 깨졌다.
+2. **사람 판정을 전 덱으로** — `scripts/lib/definition-decisions.ts`(이름에서 ko-ladder 뺌).
+   실사용 덱 결함 100장을 전량 읽고 fill 119 / blank 63 으로 갈랐다.
+   🔑 같은 "겹침 실패"인데 덱마다 처방이 반대다: 수능은 캐시가 그 단어의 다의어라 **채우고**,
+   사극은 캐시가 다른 한자어(신=神, 짐=화물, 기생=寄生)라 **비운다**.
+3. **수능 3장(`reverse`·`bar`·`object`)** — 품사가 어긋나 덱 뜻이 정의에 아예 없었다
+   (bar 덱="막다"(동사) ↔ 캐시는 막대기/바 카운터/술집). 비웠다.
+
+### 다음 세션 순서
+
+**① 1.6.0 제출이 먼저다.** 지금까지 고친 서버 데이터 전부가 출시 순간에야 사람에게 닿는다
+(읽는 코드가 `main` 에 없다). 절차는 `docs/release-checklist-next.md`.
+남은 것: 날짜 2곳(약관 lastUpdated · 소식 date) → 빌드 → **Play Console 등록정보 붙여넣기
+(검토 들어가면 리셋되므로 제출 전에)** → 제출.
+
+**② 그 다음 HSK 2덱 재생성.** 은정님 결정 — 표제어 선정부터 다시 해서 **전량 담는다.**
+
+원인은 `scripts/build-zh-hsk-source.ts:33` 의 `TARGET_COUNT = 500` 이다. HSK 위키 페이지가
+빈도순이 아니라 **음절 그룹 + 병음 순**이라, 앞에서 500을 자르면 단음절 전량 + 2음절 a~j 가
+된다. 🔴 "k~z 가 통째로 없다"는 기존 기록은 **틀렸다** — k 이후가 중급 115장(23%) ·
+고급 112장(22%) 있다. 앞뒤 4장만 보고 판단한 결과였다.
+
+| | 원본 파싱 | 중복 제거 | 현재 | 빠진 것 |
+|---|---|---|---|---|
+| HSK 3급 (`curated-zh-intermediate-1`) | 973 | 969 | 500 | **469** |
+| HSK 5급 (`curated-zh-advanced-1`) | 1,071 | 1,070 | 500 | **570** |
+
+🔑 500 으로 자를 **좋은 축이 없다** — HSK 페이지는 빈도순이 아니고 CC-CEDICT 에도 빈도가
+없다. 그래서 사다리 4덱과 같은 결론(자르지 않는다)에 이르렀다.
+
+실행 경로 (전부 남아 있고 재현 확인함 — 다시 돌려도 결과 파일 diff 0):
+
+```
+1) TARGET_COUNT 를 969 / 1070 으로 (또는 인자화)
+   npx -y tsx scripts/build-zh-hsk-source.ts 3      → scripts/zh-intermediate-source.json
+   npx -y tsx scripts/build-zh-hsk-source.ts 5      → scripts/zh-advanced-source.json
+2) npx -y tsx scripts/translate-zh-intermediate-vocab.ts   (batch 25 · 재개는 progress 파일)
+   npx -y tsx scripts/translate-zh-advanced-vocab.ts
+3) npx -y tsx scripts/integrate-vocab.ts zh-intermediate   → constants/curationData.ts
+4) pnpm run diagnose:decks → jest
+5) npx -y tsx scripts/seed-cache.ts --pairs "zh>ko"        (신규 표제어 캐시)
+6) npx -y tsx scripts/seed-official-decks.ts --deck curated-zh-intermediate-1 --deck curated-zh-advanced-1
+```
+
+- 신규 카드 **1,039장** · 예상 15분 안팎 · 비용 ~₩1,000(생성 수백 + 시딩 1,039×₩0.75).
+- 🔴 `scripts/.zh-*-progress.json` 은 `.gitignore:29` 에 걸린다. 생성한 카드가 들어 있어
+  재생성에 시간이 드니, 사다리 때처럼 **부정 규칙(`!`)으로 예외**를 두고 커밋할 것
+  (`.gitignore:104-107` 이 선례).
+- 🔴 **모델이 바뀌었으면 첫 배치로 예문 길이부터 재라.** 3.5-flash-lite 는 지정 범위 중앙값보다
+  1.2~1.7어절 짧게 낸다. `LEVEL_SPEC` 을 그만큼 올려 잡아야 기존 카드와 길이가 맞는다.
+- ⚠️ `背(bēi)/背(bèi)` 같은 다음자(多音字) 중복은 **결함이 아니다.** 서버에 덱당 3건 있다.
+- 일본어 JLPT 2덱도 같은 결함이지만 원본이 N1 2,829 / N3 1,687 이라 신규 3,516장 —
+  별도 예산 건으로 본다.
+
+### 남겨 둔 것 (급하지 않음)
+
+- 복사본 200장(도착어 ja/zh/vi) — 캐시 뜻이 번역어가 아니라 **정의문**이라 문자열로는 못 고친다.
+  값싸게 끝내려면 `definition == meaningKr` 이면 비우는 규칙 한 줄이면 된다(정보 손실 0).
+- 정의 첫 줄이 덱 뜻이 아닌 ~12장, 무관한 뜻이 뒤에 붙은 ~12장 — 첫 줄은 정확하거나
+  정의 안에 답이 있다. 고치려면 애초에 실패한 sense 선택이 다시 필요하다.
+- **B·C·D 9건** — 이건 definition 이 아니라 `meaning_kr`(카드 앞면)이다. 병기가 덱 뜻을
+  지운 5건(`위`胃 · `종`slave · `골`goal · `전`全 · `불`light — `불`은 ①Fire ②Flame ③Blaze 로
+  셋이 같은 뜻이다) + 순서 3건(`시`·`예`·`일`) + `색`③. 남은 것 중 유일하게 카드 앞면이다.
+- 루트의 `ko-ladder-fill-check.md` · `ko-ladder-sense-review.md` 는 판정 요청용 산출물이고
+  이미 소진됐다. 추적되지 않는 상태로 두었다.

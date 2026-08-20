@@ -43,8 +43,12 @@ export const ANNOUNCEMENTS: Announcement[] = [
     version: '1.6.0',
     date: '2026-08-18',
     items: [
-      { key: 'whatsNew.v160_1', icon: 'camera' },
-      { key: 'whatsNew.v160_2', icon: 'cloud-download' },
+      { key: 'whatsNew.v160_1', icon: 'school' },
+      { key: 'whatsNew.v160_2', icon: 'add-circle' },
+      { key: 'whatsNew.v160_3', icon: 'refresh' },
+      { key: 'whatsNew.v160_4', icon: 'cloud-download' },
+      { key: 'whatsNew.v160_5', icon: 'book' },
+      { key: 'whatsNew.v160_6', icon: 'chatbubble-ellipses' },
     ],
   },
   {

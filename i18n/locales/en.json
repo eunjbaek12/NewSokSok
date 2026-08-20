@@ -430,8 +430,12 @@
     "v150_4": "Watch one ad and banner ads disappear for 24 hours",
     "v150_5": "The free daily limit is 50 words, or 10 as a guest. Meanings still show past the limit",
     "v150_6": "Have an idea? Send it from Settings › Contact us and it may land in the next update",
-    "v160_1": "Photo scan fills in as many words as today's AI quota allows first, and makes it easier to continue with the rest.",
-    "v160_2": "When you first sign in with Google, it's clearer how to use this device's word lists and your cloud word lists together."
+    "v160_1": "We rebuilt all four Korean learning decks so the levels actually match. Thanks for the report!",
+    "v160_2": "A new Intermediate Korean II deck is here. Set your meaning language to English to see it",
+    "v160_3": "Decks you already imported stay as they were — import a deck again to get the fixes",
+    "v160_4": "Curated decks now come from the server, so new decks arrive without an app update. The list needs internet the first time you open it",
+    "v160_5": "Korean definitions in the decks were copies of the English meaning — now they are real definitions",
+    "v160_6": "This update started with your reports. Keep them coming from Settings › Contact us"
   },
   "licenses": {
     "title": "Open Source & Data Sources",

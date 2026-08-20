@@ -435,8 +435,12 @@
     "v150_4": "Mira un anuncio y los banners desaparecen durante 24 horas.",
     "v150_5": "El límite diario gratuito es de 50 palabras, o 10 como invitado. Los significados siguen apareciendo al superarlo.",
     "v150_6": "¿Tienes una idea? Envíala desde Ajustes › Contáctanos y puede entrar en la próxima actualización.",
-    "v160_1": "El escaneo de fotos completa primero tantas palabras como permita tu cuota de IA de hoy y facilita continuar con las demás.",
-    "v160_2": "Al iniciar sesión con Google por primera vez, queda más claro cómo usar juntas las listas de este dispositivo y las de la nube."
+    "v160_1": "Reconstruimos las cuatro colecciones de coreano para que los niveles coincidan de verdad. ¡Gracias por avisarnos!",
+    "v160_2": "Llegó la nueva colección Intermediate Korean II. Cambia el idioma de significado a inglés para verla.",
+    "v160_3": "Las colecciones que ya importaste no cambian: vuelve a importarlas para recibir las correcciones.",
+    "v160_4": "Las colecciones ahora vienen del servidor, así que llegan nuevas sin actualizar la app. La lista necesita internet la primera vez que la abres.",
+    "v160_5": "Las definiciones en coreano eran copias del significado en inglés; ahora son definiciones reales.",
+    "v160_6": "Esta actualización nació de tus comentarios. Sigue enviándolos desde Ajustes › Contáctanos."
   },
   "licenses": {
     "title": "Código abierto y fuentes de datos",

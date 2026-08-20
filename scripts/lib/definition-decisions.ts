@@ -52,14 +52,15 @@ const FILL: Record<string, string> = {
   // 수능 필수 500 (en>ko) — 이 41개는 definition 이 **빈칸**이었다. 캐시엔 뜻풀이가
   // 멀쩡히 있는데(캐시 없음 0) 한국어 표현 차이로 겹침이 실패했다: `pitch` 덱="던지다"
   // 캐시="던지기" · `resign` 덱="사임하다" 캐시="직책을 그만두다".
-  // 🔑 41개를 전량 읽었다 — 캐시 뜻이 전부 **그 단어의 다의어**이지 동음이의가 아니다
-  //    (bar = 막대기/바 카운터/술집). 한자어 동음이의를 걱정해 최상위 definition 을
-  //    막아 둔 규칙은 영어 표제어에는 해당하지 않는다.
+  // 🔑 41개를 전량 읽었다 — 캐시 뜻은 동음이의가 아니라 **그 단어의 다의어**다. 한자어
+  //    동음이의를 걱정해 최상위 definition 을 막아 둔 규칙은 영어 표제어에는 해당하지 않는다.
+  // 🔴 다만 처음에 41개를 전부 fill 로 넣은 것은 **38/41 만 맞았다.** 다의어인지만 보고
+  //    **품사가 맞는지는 안 봤다** — reverse·bar·object 는 아래 BLANK 로 옮겼다.
   'curated-suneung-1': [
-    'pitch reverse resign brew constrain dread fond fuse glare incline',
+    'pitch resign brew constrain dread fond fuse glare incline',
     'intrigue nanny ounce pinch pope preach rally roar shield simulate',
-    'slaughter pause notice fit direct challenge pull shall beyond bar',
-    'network match associate pattern author object screen purchase content',
+    'slaughter pause notice fit direct challenge pull shall beyond',
+    'network match associate pattern author screen purchase content',
     'element complex',
   ].join(' '),
 };
@@ -100,6 +101,12 @@ const BLANK: Record<string, string> = {
   // kpop 4건은 아이돌 은어인데 캐시가 일반어로 안다(영업=상거래 · 떡밥=낚시 미끼).
   // 한=韓(恨 아님) · 넘어와 運命 은 ko>ko / ja>ko 라 뜻과 정의가 애초에 같은 문장이다.
   // TMT·오저치고는 캐시 자체가 없어 채울 수단이 없다 — 비워서 중복만 없앤다.
+  // 수능 3장은 캐시가 이 단어를 알긴 하는데 **품사가 어긋나** 덱이 가르치는 뜻이 없다:
+  // bar 덱="막다, 금지하다"(동사) ↔ 캐시 ①막대기 ②바 카운터 ③술집(전부 명사).
+  // object("반대하다" ↔ 사물/대상/목표) · reverse("역전시키다" ↔ 반대 방향/좌절/동전 뒷면)
+  // 도 같다. 채우면 정의 줄이 통째로 딴소리가 되므로 비운다.
+  // 🔑 캐시에 동사 뜻이 생기면 fill 로 되돌릴 것.
+  'curated-suneung-1': 'reverse bar object',
   'curated-topik2-ko-1': '미',
   'curated-saguk-ko-1': '대비 대군 판서 포도대장 나인 신 짐 어가 반정 밀지 주리 기생',
   'curated-krslang-ko-1': 'TMT 오저치고 만반잘부',

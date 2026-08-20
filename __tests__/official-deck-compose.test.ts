@@ -329,10 +329,10 @@ describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => 
 });
 
 describe('판정 목록 자체', () => {
-  it('채움 122 · 비움 60 — 사다리 82건 + 실사용 덱 100건', () => {
+  it('채움 119 · 비움 63 — 사다리 82건 + 실사용 덱 100건', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { decisionCounts, definitionDecision } = require('../scripts/lib/definition-decisions');
-    expect(decisionCounts()).toEqual({ fill: 122, blank: 60 });
+    expect(decisionCounts()).toEqual({ fill: 119, blank: 63 });
     // 덱이 다르면 같은 표제어라도 판정이 갈릴 수 있어야 한다
     expect(definitionDecision('curated-ko-basic-1', '물')).toBe('fill');
     expect(definitionDecision('curated-ko-advanced-1', '물')).toBeUndefined();
@@ -355,9 +355,14 @@ describe('판정 목록 자체', () => {
     // 사극: 캐시가 그 벼슬을 아는 것과 다른 한자어를 설명하는 것
     expect(definitionDecision('curated-saguk-ko-1', '전하')).toBe('fill');
     expect(definitionDecision('curated-saguk-ko-1', '기생')).toBe('blank');
-    // 수능은 빈칸이던 41개를 채운다 — 캐시 뜻이 동음이의가 아니라 다의어다
-    expect(definitionDecision('curated-suneung-1', 'bar')).toBe('fill');
+    // 수능은 빈칸이던 41개 중 38개를 채운다 — 캐시 뜻이 동음이의가 아니라 다의어다
     expect(definitionDecision('curated-suneung-1', 'complex')).toBe('fill');
+    expect(definitionDecision('curated-suneung-1', 'pitch')).toBe('fill');
+    // 🔴 나머지 3개는 **품사가 어긋나** 덱이 가르치는 뜻이 캐시에 없다.
+    //    bar 덱="막다"(동사) ↔ 캐시는 막대기/바 카운터/술집(명사). 채우면 딴소리가 된다.
+    for (const term of ['reverse', 'bar', 'object']) {
+      expect(definitionDecision('curated-suneung-1', term)).toBe('blank');
+    }
     // 판정 목록에 없어 조용히 빈칸이던 사다리 2건
     expect(definitionDecision('curated-ko-advanced-1', '공식')).toBe('blank');
     expect(definitionDecision('curated-ko-intermediate-2', '젓다')).toBe('blank');

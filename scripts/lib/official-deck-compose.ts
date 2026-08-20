@@ -14,7 +14,7 @@ import {
 import { stripControlChars } from '../../utils/word-sanitize';
 import type { Word } from '../../lib/types';
 import type { WordSense } from '../../shared/contracts';
-import type { DefinitionDecision } from './ko-ladder-definition-decisions';
+import type { DefinitionDecision } from './definition-decisions';
 
 export interface CachedEnrich {
   definition?: string;
@@ -149,7 +149,7 @@ export function composeWord(
 function composeWordRaw(
   w: Word,
   cached: CachedEnrich | undefined,
-  /** 사람이 내린 판정. 목록은 scripts/lib/ko-ladder-definition-decisions.ts. 없으면 규칙대로. */
+  /** 사람이 내린 판정. 목록은 scripts/lib/definition-decisions.ts. 없으면 규칙대로. */
   decision?: DefinitionDecision,
   /** 카드에 실으면 안 되는 뜻 번호(1부터). 목록은 scripts/lib/sense-drops.ts. */
   dropSenses?: readonly number[],

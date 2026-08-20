@@ -1,5 +1,8 @@
 /**
- * 한국어 사다리 4덱 — 겹침 판정이 실패한 82건의 사람 판정.
+ * 겹침 판정이 실패한 자리에 붙이는 **사람 판정**. 덱을 가리지 않는다.
+ *
+ * (2026-08-20 에 사다리 4덱 전용에서 전 덱 공용으로 넓혔다. 같은 결함이 사다리
+ *  밖에도 있었다 — 실사용 덱 실측 100장: 수능 빈칸 41 · TOPIK 11 · 사극 18 등.)
  *
  * 왜 목록이 필요한가: `overlapsDeckMeaning` 은 덱 뜻(영어)과 캐시 뜻(영어)을 **문자열로**
  * 비교한다. 그래서 같은 단어를 다른 영어로 쓴 것(감독 = supervision vs Director)까지
@@ -26,10 +29,39 @@ export type DefinitionDecision = 'fill' | 'blank';
 
 /** 채운다 — 캐시가 같은 단어를 설명하고 있다. */
 const FILL: Record<string, string> = {
+  // ── 한국어 학습 사다리 4덱 (2026-08-19 · 20 판정) ──
   'curated-ko-basic-1': '물 손 나라 눈물 쓰레기 그릇 교회 셋 일월 댁 여보세요',
   'curated-ko-intermediate-1': '점 대통령 감독 엄청나다 놀이 사물 바닥',
   'curated-ko-intermediate-2': '고모 고생 아이고 형제 콩 스타일 이동 굳이 여보 며느리 서류 쥐 통장 장 끓다',
   'curated-ko-advanced-1': '이어 실시 민간 제사 심장 추진 떼 특수 아유 완전 욕 상당 차림 잦다 건조 별도 도덕',
+
+  // ── 실사용 덱 (2026-08-20). 임포트 실적이 있는 덱부터 결함 100장을 전량 읽고 갈랐다.
+  //    ko>en 은 덱 뜻과 캐시 뜻이 둘 다 영어인데도 표현이 달라 겹침이 실패한다:
+  //    삼촌 덱="uncle (father's brother)" 캐시="father's brother" — 괄호를 떼면 `uncle` 만
+  //    남는다. 색깔은 덱이 영국식 `colour`, 캐시가 `color` 라서 갈렸다.
+  'curated-topik1-ko-1': '자매 삼촌 고모 코트 색깔 여보세요',
+  'curated-topik2-ko-1': '박사 추진 바닥 점',
+  'curated-saguk-ko-1': '전하 마마 대감 영감 나리 대제학',
+  'curated-krslang-ko-1': '미쳤다 ㄹㅇ 무야호',
+  'curated-mimetic-ko-1': '콩닥콩닥 안절부절 히죽히죽 살금살금 울렁울렁 쾅',
+  'curated-untrans-ko-1': '능청스럽다 눈도장',
+  'curated-market-ko-1': '시장 국산',
+  'curated-convenience-ko-1': '포장',
+  'curated-hiking-ko-1': '내리막',
+
+  // 수능 필수 500 (en>ko) — 이 41개는 definition 이 **빈칸**이었다. 캐시엔 뜻풀이가
+  // 멀쩡히 있는데(캐시 없음 0) 한국어 표현 차이로 겹침이 실패했다: `pitch` 덱="던지다"
+  // 캐시="던지기" · `resign` 덱="사임하다" 캐시="직책을 그만두다".
+  // 🔑 41개를 전량 읽었다 — 캐시 뜻이 전부 **그 단어의 다의어**이지 동음이의가 아니다
+  //    (bar = 막대기/바 카운터/술집). 한자어 동음이의를 걱정해 최상위 definition 을
+  //    막아 둔 규칙은 영어 표제어에는 해당하지 않는다.
+  'curated-suneung-1': [
+    'pitch reverse resign brew constrain dread fond fuse glare incline',
+    'intrigue nanny ounce pinch pope preach rally roar shield simulate',
+    'slaughter pause notice fit direct challenge pull shall beyond bar',
+    'network match associate pattern author object screen purchase content',
+    'element complex',
+  ].join(' '),
 };
 
 /**
@@ -52,10 +84,35 @@ const FILL: Record<string, string> = {
  * 뺐는지와 함께** 적을 것 — 이유가 없으면 캐시가 고쳐져도 아무도 되돌리지 않는다.
  */
 const BLANK: Record<string, string> = {
-  'curated-ko-basic-1': '개 화 어 딸 춤 거',
-  'curated-ko-intermediate-1': '미 한 자 양 폭 남 고개 세기 군 저희 음',
-  'curated-ko-intermediate-2': '적 들 통 탑',
-  'curated-ko-advanced-1': '모 대기 인 가구 짜다 에 천 성명 품 수석 채',
+  // ── 한국어 학습 사다리 4덱 ──
+  // `안다`(hug) 캐시는 `알다`(know) 를 설명한다. `공식`(formula) 캐시엔 수학 공식 뜻이
+  // 없고, `젓다`(stir) 캐시는 동사가 아니라 **젓가락·숟가락**을 설명한다 — 뒤의 둘은
+  // 2026-08-20 에 "판정 목록에 없어 조용히 빈칸이던 2건"으로 드러나 여기 넣었다.
+  'curated-ko-basic-1': '개 화 어 딸 춤 거 안다',
+  'curated-ko-intermediate-1': '미 한 자 양 폭 남 고개 세기 군 저희 음 삼다',
+  'curated-ko-intermediate-2': '적 들 통 탑 젓다',
+  'curated-ko-advanced-1': '모 대기 인 가구 짜다 에 천 성명 품 수석 채 공식',
+
+  // ── 실사용 덱 (2026-08-20) ──
+  // 사극 12건은 전부 **캐시가 다른 한자어를 설명**한다. 사극 용어는 빈도가 낮아
+  // 캐시가 흔한 동음이의로 채워져 있다: 신=神(臣 아님) · 짐=화물(朕 아님) ·
+  // 기생=寄生(妓生 아님) · 대비=對比 · 대군=大軍 · 나인=숫자 9 · 주리=팔다리.
+  // kpop 4건은 아이돌 은어인데 캐시가 일반어로 안다(영업=상거래 · 떡밥=낚시 미끼).
+  // 한=韓(恨 아님) · 넘어와 運命 은 ko>ko / ja>ko 라 뜻과 정의가 애초에 같은 문장이다.
+  // TMT·오저치고는 캐시 자체가 없어 채울 수단이 없다 — 비워서 중복만 없앤다.
+  'curated-topik2-ko-1': '미',
+  'curated-saguk-ko-1': '대비 대군 판서 포도대장 나인 신 짐 어가 반정 밀지 주리 기생',
+  'curated-krslang-ko-1': 'TMT 오저치고 만반잘부',
+  'curated-kpop-ko-1': '영업 정규 솔로 떡밥 단콘',
+  'curated-untrans-ko-1': '한',
+  'curated-spelling-ko-1': '넘어',
+  'curated-jp-advanced-1': '運命',
+
+  // 🔴 아래 셋은 **캐시가 이 단어를 맞게 설명하는데도** blank 다. 뜻이 전부
+  //    `sense-drops` 에 걸려(drop=[1,2]) `senses-all-dropped` 로 캐시를 통째로 못 쓴다.
+  //    fill 로 적어 두면 아무 일도 일어나지 않고 복사본만 남으므로, 중복이라도
+  //    지우려고 blank 로 둔다. 셋 다 캐시 ①② 가 사실상 같은 문장이라 걸린 것이다.
+  //    🔑 sense-drops 가 고쳐지면 **fill 로 되돌릴 것** — 안 되돌리면 영영 빈칸이다.
 };
 
 function toMap(src: Record<string, string>, value: DefinitionDecision): Map<string, DefinitionDecision> {

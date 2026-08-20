@@ -329,10 +329,10 @@ describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => 
 });
 
 describe('판정 목록 자체', () => {
-  it('채움 50 · 비움 32 — 합이 겹침 실패 82건과 같다', () => {
+  it('채움 122 · 비움 60 — 사다리 82건 + 실사용 덱 100건', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { decisionCounts, definitionDecision } = require('../scripts/lib/ko-ladder-definition-decisions');
-    expect(decisionCounts()).toEqual({ fill: 50, blank: 32 });
+    const { decisionCounts, definitionDecision } = require('../scripts/lib/definition-decisions');
+    expect(decisionCounts()).toEqual({ fill: 122, blank: 60 });
     // 덱이 다르면 같은 표제어라도 판정이 갈릴 수 있어야 한다
     expect(definitionDecision('curated-ko-basic-1', '물')).toBe('fill');
     expect(definitionDecision('curated-ko-advanced-1', '물')).toBeUndefined();
@@ -345,6 +345,29 @@ describe('판정 목록 자체', () => {
     ]) {
       expect(definitionDecision(deck, term)).toBe('fill');
     }
+  });
+
+  // 2026-08-20: 사다리 밖 실사용 덱까지 넓혔다. 같은 덱 안에서 fill 과 blank 가
+  // 갈리는지, 그리고 사다리 항목이 그대로 남았는지를 함께 고정한다.
+  it('실사용 덱 판정 — 같은 덱 안에서도 표제어마다 갈린다', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { definitionDecision } = require('../scripts/lib/definition-decisions');
+    // 사극: 캐시가 그 벼슬을 아는 것과 다른 한자어를 설명하는 것
+    expect(definitionDecision('curated-saguk-ko-1', '전하')).toBe('fill');
+    expect(definitionDecision('curated-saguk-ko-1', '기생')).toBe('blank');
+    // 수능은 빈칸이던 41개를 채운다 — 캐시 뜻이 동음이의가 아니라 다의어다
+    expect(definitionDecision('curated-suneung-1', 'bar')).toBe('fill');
+    expect(definitionDecision('curated-suneung-1', 'complex')).toBe('fill');
+    // 판정 목록에 없어 조용히 빈칸이던 사다리 2건
+    expect(definitionDecision('curated-ko-advanced-1', '공식')).toBe('blank');
+    expect(definitionDecision('curated-ko-intermediate-2', '젓다')).toBe('blank');
+    // 목록에 없는 덱·표제어는 여전히 규칙대로 간다
+    expect(definitionDecision('curated-ngsl-1', 'bar')).toBeUndefined();
+    // 캐시가 맞는데도 blank 인 셋 — 뜻이 전부 sense-drops 에 걸려 캐시를 못 쓴다.
+    // fill 로 두면 아무 일도 안 일어나고 복사본만 남는다.
+    expect(definitionDecision('curated-ko-intermediate-1', '삼다')).toBe('blank');
+    expect(definitionDecision('curated-kpop-ko-1', '단콘')).toBe('blank');
+    expect(definitionDecision('curated-krslang-ko-1', '만반잘부')).toBe('blank');
   });
 });
 

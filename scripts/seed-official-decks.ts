@@ -42,7 +42,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 import { getTopTags } from '../lib/curation-tags';
 import { composeWord, type CachedEnrich, type Composed, type Outcome } from './lib/official-deck-compose';
-import { definitionDecision } from './lib/ko-ladder-definition-decisions';
+import { definitionDecision } from './lib/definition-decisions';
 import { droppedSenses } from './lib/sense-drops';
 import type { VocaList } from '../lib/types';
 

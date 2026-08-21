@@ -29,7 +29,7 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
-import { SENTENCE_SIZES, nextSentenceStep, type SentenceSize } from './sentence-size';
+import { SENTENCE_SIZES, nextSentenceStep, sentenceHeadroom, type SentenceSize } from './sentence-size';
 
 function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors, size, onTextLayout }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any; size: SentenceSize; onTextLayout?: (e: TextLayoutEvent) => void }) {
   // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
@@ -146,8 +146,13 @@ export default function ExamplesScreen() {
   const [showHint, setShowHint] = useState(false);
   // 문장 글자 크기 단계(SENTENCE_SIZES의 인덱스). 카드에 안 들어가면 한 단계씩 내린다.
   const [sentenceStep, setSentenceStep] = useState(0);
-  // 문장 영역에 **실제로 허용된** 높이(px). 카드가 줄면 이 값도 함께 줄어든다.
-  const sentenceBoxHeight = useRef(0);
+  // 판정은 이 ref 로 한다(위 reconcileSentenceSize 주석 참조). state 와 항상 같은 값이다.
+  const sentenceStepRef = useRef(0);
+  // 허용 높이를 구하는 재료 셋(sentenceHeadroom 주석 참조). 문장 영역만 봐서는 안 된다 —
+  // 카드가 콘텐츠에 맞춰 자라므로 그 값은 "지금 차지한 높이"일 뿐이다.
+  const cardAreaHeight = useRef(0);    // 카드가 자랄 수 있는 최대 높이
+  const cardHeight = useRef(0);        // 지금 카드 높이
+  const sentenceBoxHeight = useRef(0); // 지금 문장 영역 높이
   // 지금 크기로 문장이 몇 줄이 됐는지. 위 높이와 짝을 이뤄 축소 여부를 가른다.
   const sentenceLines = useRef(0);
   const startTime = useRef(Date.now());
@@ -483,7 +488,15 @@ export default function ExamplesScreen() {
     // 만난 뒤 세션 내내 작은 글자로 남는다. 줄 수도 함께 버린다 — 앞 문장의 줄 수로
     // 판정하면 새 문장이 도착하기 전에 엉뚱하게 한 단계 내려간다.
     setSentenceStep(0);
+    sentenceStepRef.current = 0;
     sentenceLines.current = 0;
+    // 🔴 카드·문장 높이도 함께 버린다. 하나만 새 값이고 나머지가 앞 문항 값이면 허용 높이가
+    //    엉뚱하게 계산된다 — 실측(2026-08-22): 카드는 앞의 4줄 높이(687px)인데 박스만 새
+    //    2줄(180px)로 읽혀 "문장 외 몫"이 169dp 로 부풀었고, 두 줄짜리 짧은 문장이 이유 없이
+    //    한 단계 작아졌다. 셋이 다 새로 채워질 때까지 판정하지 않는다(sentenceHeadroom 이 0을
+    //    돌려주므로 자동으로 보류된다).
+    cardHeight.current = 0;
+    sentenceBoxHeight.current = 0;
   }, [currentIndex, currentBatchIndex]);
 
   const sentenceSize = SENTENCE_SIZES[sentenceStep];
@@ -501,10 +514,35 @@ export default function ExamplesScreen() {
    */
   const reconcileSentenceSize = useCallback(() => {
     const lines = sentenceLines.current;
-    const available = sentenceBoxHeight.current;
+    const available = sentenceHeadroom(cardAreaHeight.current, cardHeight.current, sentenceBoxHeight.current);
     if (!lines || !available) return;
-    setSentenceStep(step => nextSentenceStep(step, lines, available));
+    /*
+     * 🔴 `setSentenceStep(step => …)` 로 쓰면 안 된다. 한 번의 측정에도 콜백은 여러 개 온다
+     *    (영역·카드·문장 세 onLayout + onTextLayout). updater 형태면 큐에 쌓인 만큼 연달아
+     *    적용돼 **한 프레임에 세 단계가 내려간다** — 그 세 번이 전부 같은(옛) 줄 수를 본다.
+     *    현재 단계를 ref 로 읽어 한 단계만 계산하면 같은 사이클의 중복 호출이 모두 같은 답을
+     *    내므로 한 번만 움직인다. 다음 판정은 새 크기로 다시 잰 줄 수가 도착한 뒤다.
+     */
+    const step = sentenceStepRef.current;
+    const next = nextSentenceStep(step, lines, available);
+    if (next === step) return;
+    sentenceStepRef.current = next;
+    // 🔑 줄 수를 비워 **새 크기로 다시 잰 값이 올 때까지** 판정을 멈춘다. 이걸 안 하면 같은
+    //    측정에 딸려 오는 나머지 콜백들이 옛 줄 수로 연달아 판정해 한 프레임에 여러 단계가
+    //    내려간다(실측: 한 번에 세 단계). 위의 key 재마운트가 새 줄 수를 반드시 보내 준다.
+    sentenceLines.current = 0;
+    setSentenceStep(next);
   }, []);
+
+  const handleCardAreaLayout = useCallback((e: LayoutChangeEvent) => {
+    cardAreaHeight.current = e.nativeEvent.layout.height;
+    reconcileSentenceSize();
+  }, [reconcileSentenceSize]);
+
+  const handleCardLayout = useCallback((e: LayoutChangeEvent) => {
+    cardHeight.current = e.nativeEvent.layout.height;
+    reconcileSentenceSize();
+  }, [reconcileSentenceSize]);
 
   const handleSentenceBoxLayout = useCallback((e: LayoutChangeEvent) => {
     sentenceBoxHeight.current = e.nativeEvent.layout.height;
@@ -656,8 +694,8 @@ export default function ExamplesScreen() {
       </View>
 
       <View style={styles.body}>
-        <View style={styles.cardArea}>
-          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
+        <View style={styles.cardArea} onLayout={handleCardAreaLayout}>
+          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]} onLayout={handleCardLayout}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
               <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
@@ -670,7 +708,16 @@ export default function ExamplesScreen() {
                */
               <View style={styles.cardBody}>
                 <View style={styles.sentenceBox} onLayout={handleSentenceBoxLayout}>
+                  {/*
+                    🔴 key 가 단계를 물고 있는 것은 실수가 아니다. 글자 크기만 바뀌고 줄 수가
+                    그대로면 RN 은 onTextLayout 을 다시 주지 않는다(실측 2026-08-22: step 1→2
+                    뒤 콜백이 한 번도 오지 않아 마지막 줄이 잘린 채 멈췄다). 그렇다고 단계 변화
+                    때마다 옛 줄 수로 다시 판정하면 이번엔 반대로 바닥까지 줄어든다 — 글자가
+                    작아지면 줄 수도 줄어드는데 그 값이 아직 옛것이기 때문이다. 그래서 단계가
+                    바뀌면 문장을 새로 마운트해 **그 크기에서의 줄 수**를 반드시 받아 온다.
+                  */}
                   <HighlightedSentence
+                    key={sentenceStep}
                     sentence={senseView.exampleEn}
                     term={currentWord.term}
                     primaryColor={colors.primary}

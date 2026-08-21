@@ -40,6 +40,23 @@ const SLACK_PX = 1;
  * 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도
  * 넘치면 그대로 두고 문장 영역이 잘라 낸다(카드 밖으로 나가는 것보다 낫다).
  */
+/**
+ * 문장에 **실제로 허용된** 높이. 문장 영역의 높이만 봐서는 안 된다.
+ *
+ * 🔴 카드는 콘텐츠에 맞춰 자라므로, 넘치지 않는 동안 문장 영역의 높이는 곧 "지금 문장이
+ *    차지한 높이"다. 그 값으로 판정하면 글자를 줄일 때마다 영역도 같이 줄어 계속 "넘친다"고
+ *    읽히고, 단계가 바닥까지 내려간다(2026-08-22 실측: 4줄 문장이 카드에 빈 공간을 남긴 채
+ *    14dp 까지 작아졌다).
+ * 🔑 문장 외의 것들(카드 패딩·스피커·힌트·번역·간격)의 합은 글자 크기와 무관하게 일정하다.
+ *    그래서 `지금 카드 높이 - 지금 문장 높이`로 그 몫을 구하고, 카드가 자랄 수 있는 최대
+ *    높이에서 빼면 문장이 쓸 수 있는 최대가 나온다. 이 값은 글자를 줄여도 변하지 않는다.
+ */
+export function sentenceHeadroom(areaHeight: number, cardHeight: number, boxHeight: number): number {
+  if (!areaHeight || !cardHeight || !boxHeight) return 0;
+  const fixed = cardHeight - boxHeight;
+  return Math.max(0, areaHeight - fixed);
+}
+
 export function nextSentenceStep(step: number, lines: number, availableHeight: number): number {
   if (!lines || !availableHeight) return step;
   if (step >= SENTENCE_SIZES.length - 1) return step;

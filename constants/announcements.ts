@@ -41,7 +41,7 @@ export interface Announcement {
 export const ANNOUNCEMENTS: Announcement[] = [
   {
     version: '1.6.0',
-    date: '2026-08-18',
+    date: '2026-08-22',
     items: [
       { key: 'whatsNew.v160_1', icon: 'school' },
       // 2026-08-20 제보(예문 빈칸의 다중정답)에서 나온 것이라 덱 이야기보다 앞에 둔다 —

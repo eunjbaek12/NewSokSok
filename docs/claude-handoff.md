@@ -711,5 +711,7 @@ anon 읽기 허용)와 **그 기능이 들어간 커밋이 출시 브랜치에 �
 - **B·C·D 9건** — 이건 definition 이 아니라 `meaning_kr`(카드 앞면)이다. 병기가 덱 뜻을
   지운 5건(`위`胃 · `종`slave · `골`goal · `전`全 · `불`light — `불`은 ①Fire ②Flame ③Blaze 로
   셋이 같은 뜻이다) + 순서 3건(`시`·`예`·`일`) + `색`③. 남은 것 중 유일하게 카드 앞면이다.
-- 루트의 `ko-ladder-fill-check.md` · `ko-ladder-sense-review.md` 는 판정 요청용 산출물이고
-  이미 소진됐다. 추적되지 않는 상태로 두었다.
+- 판정 요청용 산출물 두 개는 소진됐고, 완료 표시를 붙여 `docs/` 로 옮겨 커밋했다
+  (`docs/ko-ladder-fill-check.md` · `docs/ko-ladder-sense-review.md`, 2026-08-21).
+  어떤 근거로 갈랐는지 되짚을 자리로 남긴 것이고, 판정 자체는
+  `scripts/lib/definition-decisions.ts` 에 산다.

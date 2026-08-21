@@ -8,6 +8,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { scriptGenerateContentUrl } from './_shared/model';
 
 // .env에서 API 키 로드
 const envPath = path.resolve(process.cwd(), '.env');
@@ -23,7 +24,7 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
+const API_URL = scriptGenerateContentUrl(GEMINI_API_KEY);
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 

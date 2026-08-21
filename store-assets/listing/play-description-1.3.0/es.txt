@@ -1,6 +1,6 @@
 Crea la lista de palabras que quieres. Encuentra la que estabas buscando. Y memoriza cualquiera de las dos de la forma más limpia.
 
-Avocado es una herramienta personal de vocabulario para seis idiomas — español, inglés, coreano, japonés, chino y vietnamita — pensada para que cada rato libre cuente. Sea cual sea tu idioma y lo que estudies, combina las direcciones como quieras.
+Avocado es una herramienta personal de vocabulario pensada para que cada rato libre cuente: vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita, en cualquier dirección y sea cual sea tu idioma.
 
 • Cuatro modos de estudio
 - Tarjetas: una a una, como mejor se te queda
@@ -37,8 +37,9 @@ Avocado es una herramienta personal de vocabulario para seis idiomas — españo
 - Añade una palabra y la IA completa pronunciación, significado, ejemplos y sinónimos
 - Elige par de idiomas, dificultad y número de palabras
 
-• Seis idiomas, en cualquier dirección
-- Español, inglés, coreano, japonés, chino y vietnamita
+• Vocabulario en seis idiomas, en cualquier dirección
+- Vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita en una sola app
+- Escribe una palabra en cualquiera de ellos y la IA rellena significado, ejemplo y pronunciación
 - Combina el idioma de origen y el del significado como quieras (ES-EN, EN-KO, ES-JA, cualquier par)
 - La app habla español, inglés y coreano
 
@@ -55,8 +56,7 @@ Avocado es una herramienta personal de vocabulario para seis idiomas — españo
 - O entra como invitado y empieza al instante
 
 • Precios justos — lo gratis da para mucho
-- Invitado: empieza sin cuenta — 10 palabras al día con IA
-- Gratis: 50 palabras al día con IA, y cada anuncio te da +20 (hasta 2 al día)
+- Gratis: 300 palabras con IA en las primeras 24 horas, luego 50 al día, y cada anuncio te da +20 (hasta 2 al día)
 - Un anuncio también quita los banners durante 24 horas
 - Aunque agotes el límite, sigues viendo el significado de las palabras
 - Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)

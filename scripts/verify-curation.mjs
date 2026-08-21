@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { scriptGenerateContentUrl } from './_shared/model.mjs';
 
 const envPath = path.resolve(process.cwd(), '.env');
 const envContent = fs.readFileSync(envPath, 'utf8');
@@ -9,7 +10,7 @@ if (!apiKey) { console.error('No key'); process.exit(1); }
 const query = 'cafe';
 const wordCount = 5;
 const diffLabel = '중급 수준의';
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
+const url = scriptGenerateContentUrl(apiKey);
 const prompt = `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} 영어 단어 ${wordCount}개를 생성해줘.
 응답은 오직 JSON 배열만 반환해야 해.
 포맷: [{"term": "단어", "definition": "영영뜻", "meaningKr": "한국어 뜻", "exampleEn": "영어 예문", "tags": ["${query}"]}]`;

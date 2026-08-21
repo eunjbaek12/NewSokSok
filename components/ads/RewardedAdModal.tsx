@@ -1,5 +1,9 @@
 // 보상형 광고 모달 — Free 사용자의 일일 단어 한도 초과 시 표시.
 //
+// ⚠️ 이 모달은 앱 루트에 있어 **다른 RN Modal 위에는 띄울 수 없다**(iOS 형제 Modal 제약 —
+// features/quota/store.ts의 inlineQuotaHandler 주석). 모달 안에서 도는 화면(AI 단어 생성,
+// 사진 스캔)은 같은 useRewardedAd 훅으로 자기 화면에 인라인 CTA를 그린다.
+//
 // 흐름:
 //   1. enrich 호출 시 quota_exceeded 응답 → 화면이 RewardedAdModal 열기
 //   2. 사용자가 "광고 보고 +50단어" 선택 → RewardedAd.load → show
@@ -9,16 +13,13 @@
 //
 // 어뷰징 방지: RPC 측에서 일 cap 200 강제. SSV 미통합 (v1.2 follow-up).
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, View, ActivityIndicator, Platform } from 'react-native';
+import React, { useEffect } from 'react';
+import { Modal, Pressable, StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import { RewardedAd, RewardedAdEventType, AdEventType } from 'react-native-google-mobile-ads';
 import { useTheme } from '@/features/theme';
-import { hasRewardViewsRemaining, isAiQuotaExhausted, useQuotaStore } from '@/features/quota';
-import { AD_UNIT_REWARDED } from '@/lib/ads/admob';
-import { supabase } from '@/lib/supabase/client';
+import { pickRewardedCopy, useQuotaStore, useRewardedAd } from '@/features/quota';
 
 interface Props {
   visible: boolean;
@@ -31,84 +32,25 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const status = useQuotaStore((s) => s.status);
-  const refreshQuota = useQuotaStore((s) => s.refresh);
 
-  const [loading, setLoading] = useState(false);
-  const [grantedAmount, setGrantedAmount] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const earnedRef = useRef(false);
-  const adRef = useRef<RewardedAd | null>(null);
+  // 광고 재생·보상 지급은 useRewardedAd가 맡는다. 이 모달을 띄울 수 없는 자리(모달 안)에서
+  // 화면이 같은 훅으로 인라인 CTA를 그리므로, 로직은 한 곳에만 둔다.
+  const { watch, reset, loading, grantedAmount, error, rewardAmount } = useRewardedAd({
+    onGranted: () => onGranted(),
+  });
 
-  const rewardAmount = status?.reward_amount ?? (status?.tier === 'guest' ? 10 : 20);
-  const exhausted = !!status && !hasRewardViewsRemaining(status);
-  const quotaExhausted = isAiQuotaExhausted(status);
+  // 제목·본문·버튼·아이콘은 한 곳에서 함께 고른다 — 예전에 제목만 광고 소진 분기를
+  // 빠뜨려 서로 모순되는 화면이 나갔다(features/quota/rewarded-copy.ts 주석).
+  const copy = pickRewardedCopy(status, grantedAmount);
 
   // 모달 닫힐 때 상태 리셋
   useEffect(() => {
-    if (!visible) {
-      setLoading(false);
-      setGrantedAmount(null);
-      setError(null);
-      earnedRef.current = false;
-      adRef.current = null;
-    }
-  }, [visible]);
+    if (!visible) reset();
+  }, [visible, reset]);
 
-  const handleWatch = async () => {
-    if (exhausted || Platform.OS === 'web') return;
-    setLoading(true);
-    setError(null);
-    earnedRef.current = false;
-
-    const ad = RewardedAd.createForAdRequest(AD_UNIT_REWARDED);
-    adRef.current = ad;
-
-    const unsubLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
-      ad.show().catch(() => {
-        setError(t('ads.rewardedShowFailed'));
-        setLoading(false);
-      });
-    });
-    const unsubEarned = ad.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
-      earnedRef.current = true;
-    });
-    const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, async () => {
-      unsubLoaded();
-      unsubEarned();
-      unsubClosed();
-      unsubError();
-      if (!earnedRef.current) {
-        setLoading(false);
-        return;
-      }
-      // reward earned → grant
-      try {
-        const { data: userData } = await supabase.auth.getUser();
-        if (!userData.user) throw new Error('missing_user');
-        const { data, error: rpcErr } = await supabase.rpc('grant_rewarded_bonus', {
-          p_user_id: userData.user.id,
-        });
-        if (rpcErr || !data) throw rpcErr ?? new Error('grant_failed');
-        const granted = (data as any).granted as number;
-        setGrantedAmount(granted);
-        await refreshQuota(true);
-        if (granted > 0) onGranted();
-      } catch {
-        setError(t('ads.rewardGrantFailed'));
-      } finally {
-        setLoading(false);
-      }
-    });
-    const unsubError = ad.addAdEventListener(AdEventType.ERROR, () => {
-      unsubLoaded();
-      unsubEarned();
-      unsubClosed();
-      unsubError();
-      setError(t('ads.rewardedLoadFailed'));
-      setLoading(false);
-    });
-
-    ad.load();
+  const handleWatch = () => {
+    if (copy.cta !== 'watch') return;
+    watch();
   };
 
   return (
@@ -117,26 +59,20 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
         <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
           <View style={styles.iconRow}>
             <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-              <Ionicons name="play-circle" size={28} color={colors.primary} />
+              <Ionicons name={copy.icon} size={28} color={colors.primary} />
             </View>
           </View>
 
           <Text style={[styles.title, { color: colors.text }]}>
-            {grantedAmount !== null
-              ? t('ads.rewardedGrantedTitle', { amount: grantedAmount })
-              : quotaExhausted
-                ? t('ads.rewardedTitle')
-                : t('ads.rewardedBenefitTitle')}
+            {t(copy.titleKey, { amount: grantedAmount ?? rewardAmount })}
           </Text>
 
           <Text style={[styles.body, { color: colors.textSecondary }]}>
-            {grantedAmount !== null
-              ? t('ads.rewardedGrantedBody')
-              : exhausted
-                ? t('ads.rewardedExhausted')
-                : quotaExhausted
-                  ? t('ads.rewardedBody', { amount: rewardAmount, used: status?.used ?? 0, limit: (status?.limit ?? 0) + (status?.bonus ?? 0) })
-                  : t('ads.rewardedBenefitBody', { amount: rewardAmount })}
+            {t(copy.bodyKey, {
+              amount: rewardAmount,
+              used: status?.used ?? 0,
+              limit: (status?.limit ?? 0) + (status?.bonus ?? 0),
+            })}
           </Text>
 
           {error && <Text style={[styles.error, { color: colors.error }]}>{error}</Text>}
@@ -152,7 +88,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               </Text>
             </Pressable>
 
-            {grantedAmount === null && !exhausted && (
+            {copy.cta === 'watch' && (
               <Pressable
                 onPress={handleWatch}
                 style={[styles.btn, styles.btnPrimary, { backgroundColor: colors.primaryButton, opacity: loading ? 0.6 : 1 }]}
@@ -168,7 +104,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               </Pressable>
             )}
 
-            {grantedAmount === null && exhausted && (
+            {copy.cta === 'pro' && (
               <Pressable
                 onPress={() => {
                   onClose();

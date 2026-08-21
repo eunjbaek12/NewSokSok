@@ -11,11 +11,12 @@
  * 옵션:
  *   --deck=market|hiking|clinic|convenience   (필수)
  *   --limit=N                     상위 N개만 처리 (smoke test용)
- *   --model=lite                  gemini-2.5-flash-lite 사용 (별도 RPD 버킷, 폴백용)
+ *   --model=NAME                  모델 지정 (기본값·주의사항은 scripts/_shared/model.ts)
  */
 import fs from 'fs';
 import path from 'path';
 import { collectFindings, reportFindings, SHARED_PROMPT_RULES } from './lib/ko-deck-checks';
+import { resolveScriptModel } from './_shared/model';
 
 interface DeckConfig {
   /** 프롬프트에 넣을 상황 설명 — 예문의 무대를 결정한다. */
@@ -61,8 +62,7 @@ const CONFIG = DECKS[DECK];
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
-const useLite = process.argv.includes('--model=lite');
-const MODEL = useLite ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';

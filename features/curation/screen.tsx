@@ -23,18 +23,22 @@ import {
   addBatchWords,
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
+import { useQuotaStore, getQuotaLeft, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
 import { VocaList, Word } from '@/lib/types';
-import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty } from '@shared/contracts';
+import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty, type AiWordCount } from '@shared/contracts';
 import { displayTag } from '@/lib/tag-display';
 import { cleanPhonetic } from '@/lib/phonetic';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
-import { useCurationPresets } from './presets';
+import { useOfficialCatalog, fetchOfficialDeck } from './catalog';
+import { officialToCard, communityToCard, type CurationCard } from './types';
 import ReportCurationModal from './ReportCurationModal';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
-import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getAiLanguageName, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
+import { pickMeaningLangFallback } from './meaning-lang-fallback';
+import { classifyGeminiQuotaError, quotaMetricOf } from '@/lib/ai/gemini-quota';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
@@ -47,6 +51,9 @@ const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
 };
 
 const DIFFICULTY_TAG = DIFFICULTY_TAGS;
+
+// 참조가 매번 바뀌면 이걸 의존성으로 쓰는 useMemo 가 헛돈다.
+const EMPTY_WORDS: Word[] = [];
 
 const LANG_LABEL_KO: Record<string, string> = {
     en: '영어',
@@ -70,29 +77,70 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
 };
 
 // NOTE: 응답 필드 meaningKr/exampleEn/exampleKr은 레거시 명칭. 실제로는 targetLang 뜻/sourceLang 예문/targetLang 예문 번역.
-// 한국어 라벨(`${tgtLabel} 뜻` 등)로 모델에 가이드를 주므로 비-한국어 쌍에서도 동작. 새 함수 추가 시 같은 함정 주의.
+//
+// 🔴 한국어 라벨(`${tgtLabel} 뜻`)만으로는 부족하다 — 모델이 필드 **이름**의 Kr/En 을
+// 언어 지시로 읽고 라벨을 이긴다. 실측(2026-08-17, Edge 경로 모델·temp 0.7):
+// en>en 6/6 이 뜻을 한국어로, en>es 는 예문 번역을 한국어로 냈다. 주제어를 영어로 넣어도
+// 같았으므로 원인은 주제어가 아니라 필드명이다. 출발어가 en 일 때만 새는 것도 같은 이유 —
+// `exampleEn` 이 실제로 영어라 "필드명=언어" 대응이 성립해 버린다.
+// → 아래 LEGACY_FIELD_NOTE 로 이름을 명시적으로 반박한다(자동완성 analyzeWord 와 동문).
+//    같은 프롬프트가 3곳에 복제돼 있다 — __tests__/generate-prompt-legacy-field-sync.test.ts 가 강제한다.
+function buildLegacyFieldNote(sourceLang: string, targetLang: string): string {
+    const srcName = getAiLanguageName(sourceLang);
+    const tgtName = getAiLanguageName(targetLang);
+    // tags 는 예외로 두지 않는다 — 주제어를 그대로 태그로 쓰는 게 기본이고(호출부가
+    // tags 가 비면 query 로 채운다), 예외를 늘리면 "pos 만 영어" 지시가 흐려진다.
+    return `
+  IMPORTANT — Field naming is legacy and MUST be ignored:
+  - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
+  - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
+  - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
+  Use ONLY ${srcName}${sourceLang === targetLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos", which stays in English.`;
+}
+
+// 예문의 화계(speech level). 지시가 없으면 모델이 문장마다 임의로 고르고, 초급 학습자는
+// 교재가 먼저 가르치는 화계와 어긋난 예문을 받는다(2026-08-17 제보: 세종한국어 교재로
+// 공부하는 ko>en 학습자 — 이 앱의 2위 언어쌍이다).
+// 화계가 문법적으로 필수인 언어만 넣는다. 영어·중국어는 필수가 아니고, 스페인어(tú/usted)는
+// UI 번역을 tú로 통일해 둔 터라 예문만 usted로 갈라지면 오히려 어긋난다.
+// ⚠️ 같은 함수가 4개 파일에 복제돼 있다 — __tests__/register-note-sync.test.ts 가 강제한다.
+const REGISTER_LEVEL: Record<string, string> = {
+    ko: 'Korean 해요체 (-아요/-어요/-예요/-세요) — never 합쇼체 (-습니다/-ㅂ니다) and never 반말',
+    ja: 'Japanese です/ます — never 常体 (だ/である)',
+};
+
+function buildRegisterNote(sourceLang: string): string {
+    const level = REGISTER_LEVEL[sourceLang];
+    if (!level) return '';
+    return `
+  REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
+}
+
 function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string, excludeTerms?: string[]): string {
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
     const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
     const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+    // same-lang 지시는 반박 블록 **뒤**에 온다 — exampleKr 에 대해 두 지시가 충돌하므로
+    // (번역하라 vs 빈 문자열) 나중에 오는 쪽이 이기게 한다. 자동완성도 같은 순서다.
     const sameLangNote = sourceLang === targetLang
         ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
         : '';
     const excludeNote = excludeTerms && excludeTerms.length > 0
         ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
         : '';
-    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
+    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${excludeNote}
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
-  - pos: 품사 (예: noun, verb, adj, adv)
+  - pos: 품사 — 영어 전체 단어로 (예: noun, verb, adjective, adverb)
   - phonetic: ${phoneticInstr}
   - definition: ${srcLabel}로 작성한 정의
   - meaningKr: ${tgtLabel} 뜻
   - exampleEn: ${srcLabel} 예문
   - exampleKr: 위 예문의 ${tgtLabel} 번역
   - tags: 주제 태그 배열
-  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]
+${buildRegisterNote(sourceLang)}${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
 }
 
 type GenerateAIWordsResult = { words: Word[]; droppedCount: number };
@@ -209,16 +257,18 @@ const generateViaByok = async (
             const error = errorBody?.error;
             const status: string | undefined = error?.status;
             const message: string | undefined = error?.message;
-            const quotaViolations = error?.details?.find((d: any) => typeof d?.['@type'] === 'string' && d['@type'].includes('QuotaFailure'))?.violations;
-            const quotaMetric: string = quotaViolations?.[0]?.quotaMetric || '';
+            // 한도 종류 판정은 lib/ai/gemini-quota.ts 한 곳에서 한다 — 사진 스캔도 같은
+            // 함수를 쓴다. 정규식을 화면마다 복제하면 같은 429 에 다른 안내가 나간다.
+            const quotaMetric = quotaMetricOf(error);
 
-            console.log('[gemini:curation] error', response.status, { status, message, quotaMetric, violations: quotaViolations });
+            console.log('[gemini:curation] error', response.status, { status, message, quotaMetric });
 
             if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
-                if (/per_?day|PerDay/i.test(quotaMetric)) {
+                const kind = classifyGeminiQuotaError(error);
+                if (kind === 'perDay') {
                     throw new AiGenerateError('dailyQuota');
                 }
-                if (/per_?minute|PerMinute/i.test(quotaMetric)) {
+                if (kind === 'perMinute') {
                     throw new AiGenerateError('perMinuteQuota');
                 }
                 throw new AiGenerateError('quotaReached', quotaMetric || undefined);
@@ -377,13 +427,20 @@ export default function CurationScreen() {
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedTheme, setSelectedTheme] = useState<VocaList | null>(null);
+    const [selectedTheme, setSelectedTheme] = useState<CurationCard | null>(null);
+    // 공식 덱만 단어를 따로 받는다(목록 응답에는 메타만 있다). 커뮤니티·AI 덱은
+    // deckWords 에 이미 들어 있어 이 셋은 건드리지 않는다.
+    const [officialWords, setOfficialWords] = useState<Word[] | null>(null);
+    const [officialWordsLoading, setOfficialWordsLoading] = useState(false);
+    const [officialWordsFailed, setOfficialWordsFailed] = useState(false);
+    // 덱 단어 재시도용. 올리면 위 조회 effect 가 다시 돈다.
+    const [deckReloadNonce, setDeckReloadNonce] = useState(0);
     const [saving, setSaving] = useState(false);
     const [generating, setGenerating] = useState(false);
     const [isCommunityLoading, setIsCommunityLoading] = useState(true);
     const [detailWord, setDetailWord] = useState<Word | null>(null);
     const [activeTab, setActiveTab] = useState<'official' | 'community'>('official');
-    const [communityThemes, setCommunityThemes] = useState<VocaList[]>([]);
+    const [communityThemes, setCommunityThemes] = useState<CurationCard[]>([]);
     const [languageFilter, setLanguageFilter] = useState<string>('all');
     const [selectedWordIds, setSelectedWordIds] = useState<Set<string>>(new Set());
     const [showListPicker, setShowListPicker] = useState(false);
@@ -391,9 +448,15 @@ export default function CurationScreen() {
     const [masterBarHeight, setMasterBarHeight] = useState(0);
 
     const lists = useLists();
-    // 공식 덱 8.16MB는 앱 시작 경로에서 떼어 뒀다 — 이 화면이 마운트될 때 처음 읽는다.
-    // 이름을 그대로 둔 것은 아래 사용처를 건드리지 않기 위해서다(→ ./presets).
-    const { presets: curationPresets, loading: isPresetsLoading } = useCurationPresets();
+    // 공식 덱은 앱 번들이 아니라 서버에서 온다(docs/curation-server-migration-spec.md).
+    // 목록은 27KB 메타뿐이고 캐시가 있으면 즉시 그려진다 — 단어는 덱을 열 때 받는다.
+    const {
+        themes: officialCatalog,
+        loading: isPresetsLoading,
+        failed: catalogFailed,
+        retry: retryCatalog,
+    } = useOfficialCatalog();
+    const curationPresets = useMemo(() => officialCatalog.map(officialToCard), [officialCatalog]);
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user, authMode } = useAuth();
@@ -415,6 +478,53 @@ export default function CurationScreen() {
     // 경과 시간에 맞춰 안내 문구를 단계적으로 바꿔 "멈춘 게 아니라 작업 중"임을 보여준다.
     const [genStep, setGenStep] = useState(0);
 
+    // ---- AI 생성 한도 ----
+    //
+    // 서버는 "전부 아니면 실패"다(consume_ai_quota: used+cost <= limit+bonus). 남은 한도가
+    // 15인데 20을 요청하면 부분 생성이 아니라 아무것도 못 받고 429가 나는데, 그 판정이
+    // 서버에서 나므로 사용자는 20~25초를 기다린 뒤에야 실패를 본다. 앱은 잔량을 이미
+    // 알고 있으니 기다릴 이유가 없는 실패다 — 넘치는 선택지는 미리 잠근다.
+    // (사진 스캔은 같은 이유로 이미 한도만큼만 잘라 보낸다: PhotoImportWorkflow.tsx:69)
+    const quotaStatus = useQuotaStore(s => s.status);
+    // BYOK는 앱 차원의 한도가 없다 → null(=제한 UI를 그리지 않음).
+    const quotaLeft = apiKey ? null : getQuotaLeft(quotaStatus);
+    // 한도에 막혔을 때의 인라인 안내. want = 사용자가 만들려던 개수.
+    const [quotaBlock, setQuotaBlock] = useState<{ kind: QuotaBlockInfo['kind']; want: AiWordCount } | null>(null);
+
+    // 공식 덱은 상세로 들어갈 때 단어를 받는다(목록에는 메타만 온다). 커뮤니티·AI
+    // 덱은 이미 words 를 들고 있으므로 여기 오지 않는다.
+    useEffect(() => {
+        if (!selectedTheme || selectedTheme.source !== 'official') {
+            setOfficialWords(null);
+            setOfficialWordsLoading(false);
+            setOfficialWordsFailed(false);
+            return;
+        }
+        let cancelled = false;
+        setOfficialWords(null);
+        setOfficialWordsLoading(true);
+        setOfficialWordsFailed(false);
+        fetchOfficialDeck(selectedTheme.id)
+            .then(words => {
+                if (cancelled) return;
+                setOfficialWords(words);
+                setOfficialWordsLoading(false);
+            })
+            .catch(e => {
+                if (cancelled) return;
+                console.warn('[curation] 덱 단어 조회 실패:', e?.message ?? e);
+                setOfficialWordsLoading(false);
+                setOfficialWordsFailed(true);
+            });
+        return () => { cancelled = true; };
+    }, [selectedTheme, deckReloadNonce]);
+
+    // 상세 화면이 읽는 단어. 출처가 어디든 이 하나만 본다.
+    const deckWords = useMemo(
+        () => selectedTheme?.words ?? officialWords ?? EMPTY_WORDS,
+        [selectedTheme, officialWords],
+    );
+
     useEffect(() => {
         let mounted = true;
         setIsCommunityLoading(true);
@@ -422,8 +532,9 @@ export default function CurationScreen() {
             if (mounted) {
                 // Server curations have a superset of VocaList fields via
                 // `.passthrough()`; the UI reads only what it needs so this
-                // cast is safe.
-                setCommunityThemes(data as unknown as VocaList[]);
+                // cast is safe. 카드 모양으로 좁혀 공식 덱과 같은 렌더를 태운다
+                // — 커뮤니티는 단어를 다 들고 오므로 태그·개수를 여기서 집계한다.
+                setCommunityThemes((data as unknown as VocaList[]).map(communityToCard));
                 setIsCommunityLoading(false);
             }
         });
@@ -448,11 +559,13 @@ export default function CurationScreen() {
     // Initialize word selection when theme is selected
     useEffect(() => {
         if (selectedTheme) {
-            setSelectedWordIds(new Set(selectedTheme.words.map((_, i) => String(i))));
+            setSelectedWordIds(new Set(deckWords.map((_, i) => String(i))));
         } else {
             setSelectedWordIds(new Set());
         }
-    }, [selectedTheme]);
+        // deckWords 가 의존성에 있어야 한다: 공식 덱은 selectedTheme 이 먼저 잡히고
+        // 단어가 나중에 도착하므로, 빼면 전체 선택이 빈 배열로 돌아 아무것도 선택되지 않는다.
+    }, [selectedTheme, deckWords]);
 
     useEffect(() => {
         const backAction = () => {
@@ -537,6 +650,17 @@ export default function CurationScreen() {
         // 덱이 지연 로드라 처음엔 빈 배열이다 — 도착하면 다시 세야 한다.
     }, [curationPresets]);
 
+    // 고른 뜻 언어에 덱이 하나도 없을 때 건네줄 대안. 판정 근거는 함수 쪽에 적어 뒀다.
+    const meaningLangFallback = useMemo(
+        () => pickMeaningLangFallback(meaningLangCounts, aiTargetLang),
+        [meaningLangCounts, aiTargetLang],
+    );
+
+    // 공식 탭이 비었고 그 이유가 "이 뜻 언어엔 덱이 없다"일 때만 언어 안내를 쓴다.
+    const showMeaningLangEmpty = activeTab === 'official'
+        && filteredThemes.length === 0
+        && meaningLangFallback !== null;
+
     /* 덱이 하나도 없는 언어는 숨긴다 — 고르면 빈 화면이 되는 선택지다. 다만 지금
      * 고른 언어는 개수가 0이어도 남겨야 자기 상태가 보인다. */
     const meaningLangOptions = useMemo(
@@ -564,23 +688,10 @@ export default function CurationScreen() {
         }
     };
 
-    const getTopTags = (theme: VocaList): string[] => {
-        const counts: Record<string, number> = {};
-        for (const w of theme.words) {
-            if (w.tags) {
-                for (const t of w.tags) {
-                    counts[t] = (counts[t] || 0) + 1;
-                }
-            }
-        }
-        if (theme.category && !counts[theme.category]) {
-            counts[theme.category] = theme.words.length;
-        }
-        return Object.entries(counts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 3)
-            .map(e => e[0]);
-    };
+    // 태그 칩은 카드 모델이 이미 들고 있다 — 공식은 서버가 집계해 둔 값(목록에
+    // 단어를 안 싣기 때문), 커뮤니티·AI 는 communityToCard 가 그 자리에서 집계한다.
+    // 집계 규칙 자체는 lib/curation-tags.ts 에 있고 시딩 스크립트와 공유한다.
+    const getTopTags = (theme: CurationCard): string[] => theme.topTags;
 
     const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
@@ -595,7 +706,7 @@ export default function CurationScreen() {
     const adsInset = useAdsBottomInset();
 
     const selectedCount = selectedWordIds.size;
-    const totalCount = selectedTheme?.words.length ?? 0;
+    const totalCount = deckWords.length;
     const allSelected = selectedCount === totalCount && totalCount > 0;
 
     const toggleWordSelection = useCallback((index: number) => {
@@ -613,13 +724,13 @@ export default function CurationScreen() {
         if (allSelected) {
             setSelectedWordIds(new Set());
         } else {
-            setSelectedWordIds(new Set(selectedTheme.words.map((_, i) => String(i))));
+            setSelectedWordIds(new Set(deckWords.map((_, i) => String(i))));
         }
-    }, [selectedTheme, allSelected]);
+    }, [selectedTheme, allSelected, deckWords]);
 
     const getSelectedWords = useCallback(() => {
         if (!selectedTheme) return [];
-        return selectedTheme.words
+        return deckWords
             .filter((_, i) => selectedWordIds.has(String(i)))
             .map(w => ({
                 term: w.term,
@@ -632,7 +743,7 @@ export default function CurationScreen() {
                 isStarred: false,
                 tags: w.tags || []
             }));
-    }, [selectedTheme, selectedWordIds]);
+    }, [selectedTheme, selectedWordIds, deckWords]);
 
     const importOptions: PickerOption[] = useMemo(() =>
         lists.map(l => ({
@@ -643,26 +754,26 @@ export default function CurationScreen() {
         [lists, t]
     );
 
-    const isAlreadySaved = useCallback((theme: VocaList): boolean => {
+    const isAlreadySaved = useCallback((theme: CurationCard): boolean => {
         return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
     }, [lists]);
 
-    const canDeleteCuration = useCallback((theme: VocaList): boolean => {
+    const canDeleteCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
         return theme.creatorId === user.id || user.isAdmin;
     }, [user]);
 
     // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
     // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
-    const canReportCuration = useCallback((theme: VocaList): boolean => {
+    const canReportCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
         if (canDeleteCuration(theme)) return false;
         return true;
     }, [user, canDeleteCuration]);
 
-    const [reportModalTheme, setReportModalTheme] = useState<VocaList | null>(null);
+    const [reportModalTheme, setReportModalTheme] = useState<CurationCard | null>(null);
 
-    const handleDeleteCuration = useCallback((theme: VocaList) => {
+    const handleDeleteCuration = useCallback((theme: CurationCard) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         Alert.alert(
             t('curation.deleteConfirmTitle'),
@@ -711,40 +822,60 @@ export default function CurationScreen() {
         }
         setAiTopic(searchQuery);
         setAiModalError(null);
+        setQuotaBlock(null);
         setAiModalVisible(true);
+        // 잔량으로 선택지를 잠글 참이라 값이 묵으면 안 된다(STALE 90초). 열 때 한 번 갱신.
+        // 🔑 force 가 필요하다 — 그냥 refresh() 는 STALE 창 안이면 조기 반환해 버려서, 이
+        // 주석이 말하는 일을 하지 않는다. 다른 기기에서 쓴 분량이나 방금 notifyQuotaExceeded
+        // 가 새로 찍은 lastFetchedAt 때문에 최대 90초 묵은 값으로 칩을 잠글 수 있었다.
+        void useQuotaStore.getState().refresh(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
 
-    const handleGenerateAI = async () => {
+    const handleGenerateAI = async (overrides?: { wordCount?: AiWordCount }) => {
         if (!aiTopic.trim()) {
             setSnackbar({ visible: true, message: t('curation.enterSearchFirst') });
             return;
         }
+        // 광고 보상 직후의 재시도는 갓 고른 개수를 넘겨받는다 — 설정 반영은 다음 렌더라
+        // aiWordCount를 그대로 읽으면 이전 값으로 생성된다.
+        const wordCount = overrides?.wordCount ?? aiWordCount;
+        // 모자란 걸 이미 아는데 20초를 기다리게 하지 않는다. 칩 잠금이 대부분 걸러 주지만,
+        // 이미 고른 뒤에 한도가 줄어든 경우(다른 화면에서 소진)는 여기서만 잡힌다.
+        if (!apiKey) {
+            const q = useQuotaStore.getState();
+            const left = getQuotaLeft(q.status);
+            if (left !== null && wordCount > left) {
+                setQuotaBlock({ kind: q.status?.tier === 'pro' ? 'pro' : 'ad', want: wordCount });
+                return;
+            }
+        }
         const controller = new AbortController();
         genAbortRef.current = controller;
         setAiModalError(null);
+        setQuotaBlock(null);
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         const topic = aiTopic.trim();
         const sourceLang = aiSourceLang;
         const targetLang = aiTargetLang;
         try {
-            const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
+            const { words, droppedCount } = await generateAIWords(topic, apiKey, wordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
             // supabase.functions.invoke의 signal이 fetch까지 전파되지 않는 환경이 있어,
             // abort 후 응답이 늦게 도착할 수 있다. abort된 요청의 결과는 버린다.
             if (controller.signal.aborted) return;
-            const newTheme: VocaList = {
+            const newTheme: CurationCard = {
                 id: `ai-theme-${Date.now()}`,
                 title: `AI: ${topic}`,
                 icon: '✨',
                 words,
-                isVisible: true,
-                createdAt: Date.now(),
-                isCurated: true,
+                wordCount: words.length,
+                topTags: [],
                 sourceLanguage: sourceLang,
                 targetLanguage: targetLang,
+                source: 'ai',
             };
-            setLastGenParams({ topic, difficulty: aiDifficulty, wordCount: aiWordCount, sourceLang, targetLang });
+            setLastGenParams({ topic, difficulty: aiDifficulty, wordCount, sourceLang, targetLang });
             setAiModalVisible(false);
             setSelectedTheme(newTheme);
             if (droppedCount > 0) {
@@ -756,12 +887,27 @@ export default function CurationScreen() {
         } catch (e: any) {
             // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
             if (e?.name === 'AbortError' || controller.signal.aborted) return;
+            // 운영자 키 경로의 한도 초과는 아래 인라인 배너가 광고 CTA와 함께 안내한다
+            // (edge-generate → notifyQuotaExceeded → inlineQuotaHandler). 여기서 또 문구를
+            // 띄우면 같은 말이 두 번 나온다 — lib/translation-api.ts:18이 못박아 둔 규칙.
+            // 핸들러가 없어 배너가 안 켜졌을 때만 여기서 채운다.
+            if (e instanceof AiGenerateError && e.code === 'quotaExceeded') {
+                const tier = useQuotaStore.getState().status?.tier;
+                setQuotaBlock(prev => prev ?? { kind: tier === 'pro' ? 'pro' : 'ad', want: wordCount });
+                return;
+            }
             const isByokQuota = e instanceof AiGenerateError
                 && (e.code === 'dailyQuota' || e.code === 'perMinuteQuota' || e.code === 'quotaReached');
             setAiModalError(isByokQuota
                 ? {
                     title: t('scanError.quotaTitle'),
-                    message: t('scanError.byokQuotaExceeded'),
+                    // 🔴 분당 한도는 1분이면 풀린다. 공통 문구는 "갱신 시점은 요금제와 설정에
+                    // 따라 달라질 수 있어요"라고 해서 오늘 못 쓴다고 읽히는데, generateViaByok 은
+                    // 이미 quotaMetric 으로 일일/분당을 갈라 던진다(:218~225). 화면에서 도로
+                    // 뭉개면 그 구분이 버려지고 정확한 문구(aiError.perMinuteQuota)가 죽는다.
+                    message: e.code === 'perMinuteQuota'
+                        ? t('aiError.perMinuteQuota')
+                        : t('scanError.byokQuotaExceeded'),
                 }
                 : {
                     title: t('common.error'),
@@ -773,6 +919,49 @@ export default function CurationScreen() {
             if (genAbortRef.current === controller) genAbortRef.current = null;
         }
     };
+
+    // 광고 콜백은 몇 초 뒤에 돌아온다 — 그때의 최신 값을 읽으려고 ref로 미러링한다
+    // (PhotoImportWorkflow의 loadMoreRef와 같은 이유).
+    const aiTopicRef = useRef(aiTopic);
+    aiTopicRef.current = aiTopic;
+    const aiWordCountRef = useRef(aiWordCount);
+    aiWordCountRef.current = aiWordCount;
+    const quotaBlockRef = useRef(quotaBlock);
+    quotaBlockRef.current = quotaBlock;
+    const generateRef = useRef(handleGenerateAI);
+    generateRef.current = handleGenerateAI;
+
+    // 보상이 들어오면 원하던 개수를 만들 수 있게 됐는지 다시 재고, 되면 이어서 생성한다.
+    const handleRewardGranted = () => {
+        const want = quotaBlockRef.current?.want ?? aiWordCountRef.current;
+        const left = getQuotaLeft(useQuotaStore.getState().status);
+        if (left !== null && left < want) {
+            // 한 번으로 모자란 경우(5 남았는데 30을 원함) — 안내를 유지한다. 광고를 더 볼 수
+            // 있으면 버튼도 그대로 남아 한 번 더 채울 수 있다.
+            setQuotaBlock({ kind: 'ad', want });
+            return;
+        }
+        setQuotaBlock(null);
+        if (want !== aiWordCountRef.current) void updateAiCurationSettings({ wordCount: want });
+        // 주제가 비어 있으면 잠금만 풀고 기다린다 — 빈 주제로 생성을 시작할 수는 없다.
+        if (aiTopicRef.current.trim()) void generateRef.current({ wordCount: want });
+    };
+
+    const rewarded = useRewardedAd({ onGranted: handleRewardGranted });
+
+    // 모달이 열려 있는 동안에는 한도 안내를 이 화면이 맡는다 — 전역 모달을 모달 위에
+    // 띄우면 iOS가 앱을 강제 종료 전까지 먹통으로 만든다(store.ts의 슬롯 주석).
+    useEffect(() => {
+        if (!aiModalVisible) return;
+        const handler = (info: QuotaBlockInfo) => {
+            setQuotaBlock({ kind: info.kind, want: aiWordCountRef.current });
+        };
+        useQuotaStore.getState().setInlineQuotaHandler(handler);
+        return () => {
+            const q = useQuotaStore.getState();
+            if (q.inlineQuotaHandler === handler) q.setInlineQuotaHandler(null);
+        };
+    }, [aiModalVisible]);
 
     // 진행 중 닫기 시도 → 중단 확인. "중단" 누르면 UI는 즉시 정리하고, 백엔드 요청은
     // best-effort로 abort. supabase.functions.invoke의 signal이 fetch까지 전파되지 않는
@@ -801,7 +990,7 @@ export default function CurationScreen() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setRegenerating(true);
         try {
-            const excludeTerms = selectedTheme.words.map(w => w.term);
+            const excludeTerms = deckWords.map(w => w.term);
             const { words } = await generateAIWords(
                 lastGenParams.topic,
                 apiKey,
@@ -818,7 +1007,10 @@ export default function CurationScreen() {
                 setSnackbar({ visible: true, message: t('curation.aiNoNewWords') });
                 return;
             }
-            setSelectedTheme(prev => prev ? { ...prev, words: fresh } : prev);
+            // wordCount 도 함께 맞춘다 — 헤더(nExpertWords)가 이 값을 읽으므로, words 만
+            // 갈아 끼우면 20개를 요청해 14개가 온 재생성에서 "20단어"라고 거짓말을 한다.
+            // 최초 생성과 같은 규칙(words.length)이다.
+            setSelectedTheme(prev => prev ? { ...prev, words: fresh, wordCount: fresh.length } : prev);
             if (fresh.length < lastGenParams.wordCount) {
                 setSnackbar({
                     visible: true,
@@ -960,7 +1152,8 @@ export default function CurationScreen() {
                                 <Text style={[styles.detailTitle, { color: colors.text }]}>{selectedTheme.title}</Text>
                                 <View style={styles.heroMetaRow}>
                                     <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>
-                                        {t('curation.nExpertWords', { count: selectedTheme.words.length })}
+                                        {/* 단어를 아직 받는 중에도 개수는 보여 줄 수 있다 — 목록에서 온 값이다. */}
+                                        {t('curation.nExpertWords', { count: selectedTheme.wordCount })}
                                     </Text>
                                     {(() => {
                                         const levelStyle = getLevelStyle(selectedTheme.level);
@@ -983,12 +1176,6 @@ export default function CurationScreen() {
                                     <Text style={[styles.aiGeneratedNote, { color: colors.textTertiary }]}>
                                         {t('curation.aiGeneratedNote')}
                                     </Text>
-                                )}
-                                {(selectedTheme.downloadCount ?? 0) > 0 && (
-                                    <View style={styles.downloadRow}>
-                                        <Ionicons name="download-outline" size={14} color={colors.textTertiary} />
-                                        <Text style={{ fontSize: 12, color: colors.textTertiary, fontFamily: 'Pretendard_500Medium' }}>{selectedTheme.downloadCount}</Text>
-                                    </View>
                                 )}
                                 {(() => {
                                     const tags = getTopTags(selectedTheme);
@@ -1021,7 +1208,33 @@ export default function CurationScreen() {
                             </View>
                         </View>
                         <View style={{ padding: 24, paddingTop: 4 }}>
-                            {selectedTheme.words.map((w, i) => {
+                            {/* 공식 덱은 단어를 여기서 받는다. 커뮤니티·AI 덱은 이미 갖고 있어
+                                이 두 갈래를 지나치지 않는다. */}
+                            {officialWordsLoading && (
+                                <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+                                    <ActivityIndicator size="large" color={colors.primary} />
+                                </View>
+                            )}
+                            {officialWordsFailed && (
+                                <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12 }}>
+                                    <Ionicons name="cloud-offline-outline" size={32} color={colors.textTertiary} />
+                                    <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>
+                                        {t('curation.deckLoadFailed')}
+                                    </Text>
+                                    <Text style={{ color: colors.textSecondary, fontSize: 13, textAlign: 'center' }}>
+                                        {t('curation.needsConnection')}
+                                    </Text>
+                                    <Pressable
+                                        onPress={() => { Haptics.selectionAsync(); setDeckReloadNonce(n => n + 1); }}
+                                        style={{ marginTop: 4, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: colors.primaryLight }}
+                                    >
+                                        <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                            {t('curation.retryLoad')}
+                                        </Text>
+                                    </Pressable>
+                                </View>
+                            )}
+                            {deckWords.map((w, i) => {
                                 const isSelected = selectedWordIds.has(String(i));
                                 return (
                                     <Pressable
@@ -1226,6 +1439,26 @@ export default function CurationScreen() {
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <ActivityIndicator size="large" color={colors.primary} />
                         </View>
+                    ) : activeTab === 'official' && catalogFailed ? (
+                        /* 목록을 한 번도 못 받은 상태. 캐시가 있으면 여기 오지 않는다 —
+                           그때는 오프라인이어도 목록이 그대로 보이고, 덱을 열 때 실패가 드러난다. */
+                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 40 }}>
+                            <Ionicons name="cloud-offline-outline" size={40} color={colors.textTertiary} />
+                            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' }}>
+                                {t('curation.catalogLoadFailed')}
+                            </Text>
+                            <Text style={{ color: colors.textSecondary, fontSize: 13, textAlign: 'center' }}>
+                                {t('curation.needsConnection')}
+                            </Text>
+                            <Pressable
+                                onPress={() => { Haptics.selectionAsync(); retryCatalog(); }}
+                                style={{ marginTop: 4, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: colors.primaryLight }}
+                            >
+                                <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                    {t('curation.retryLoad')}
+                                </Text>
+                            </Pressable>
+                        </View>
                     ) : (
                     <ScrollView
                         ref={scrollRef}
@@ -1299,17 +1532,11 @@ export default function CurationScreen() {
                                                 )}
                                                 <View style={styles.cardFooter}>
                                                     <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.words.length })}</Text>
+                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.wordCount })}</Text>
                                                     </View>
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                                         {theme.creatorName && (
                                                             <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
-                                                        )}
-                                                        {activeTab === 'community' && (theme.downloadCount ?? 0) > 0 && (
-                                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
-                                                                <Ionicons name="download-outline" size={12} color={colors.textTertiary} />
-                                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>{theme.downloadCount}</Text>
-                                                            </View>
                                                         )}
                                                     </View>
                                                 </View>
@@ -1318,7 +1545,7 @@ export default function CurationScreen() {
                                         {viewMode === 'compact' && (
                                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
                                                 <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.words.length })}</Text>
+                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.wordCount })}</Text>
                                                 </View>
                                                 {levelStyle && (
                                                     <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
@@ -1337,7 +1564,45 @@ export default function CurationScreen() {
                             );
                         })}
 
-                        {filteredThemes.length === 0 && (
+                        {/*
+                          * 빈 목록의 이유가 둘이라 안내도 둘이다.
+                          * ① 고른 뜻 언어에 덱이 아예 없다 → 무엇이 없고 어디에 있는지 말하고
+                          *    한 탭으로 옮겨 준다. 검색과 무관하므로 검색어가 있어도 이쪽이 맞다
+                          *    (0개짜리 언어에서는 무엇을 검색해도 0이다).
+                          * ② 그 밖의 이유(검색어·배울 언어 칩) → 지금까지처럼 "결과 없음".
+                          * 🔑 조건을 JSX 삼항에 넣지 않고 위에서 값으로 만든다 — 판정을 화면
+                          *    안에 흩으면 나중에 한쪽만 고쳐 서로 어긋난다(rewarded-copy.ts 주석).
+                          */}
+                        {showMeaningLangEmpty && (
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32, gap: 8 }}>
+                                <Ionicons name="language-outline" size={48} color={colors.textTertiary} />
+                                <Text style={{ marginTop: 8, color: colors.text, fontFamily: 'Pretendard_600SemiBold', fontSize: 15, textAlign: 'center' }}>
+                                    {t('curation.noDeckForMeaningLang', { lang: getLanguageLabel(aiTargetLang, t) })}
+                                </Text>
+                                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_400Regular', fontSize: 13, lineHeight: 19, textAlign: 'center' }}>
+                                    {t('curation.noDeckForMeaningLangBody', {
+                                        lang: getLanguageLabel(meaningLangFallback!.code, t),
+                                        count: meaningLangFallback!.count,
+                                    })}
+                                </Text>
+                                <Pressable
+                                    onPress={() => {
+                                        Haptics.selectionAsync();
+                                        void updateAiCurationSettings({ targetLang: meaningLangFallback!.code });
+                                    }}
+                                    style={({ pressed }) => [
+                                        styles.tailAiBtn,
+                                        { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1, marginTop: 4 },
+                                    ]}
+                                >
+                                    <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>
+                                        {t('curation.showMeaningLangDecks', { lang: getLanguageLabel(meaningLangFallback!.code, t) })}
+                                    </Text>
+                                </Pressable>
+                            </View>
+                        )}
+
+                        {filteredThemes.length === 0 && !showMeaningLangEmpty && (
                             <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>
@@ -1452,7 +1717,7 @@ export default function CurationScreen() {
                 scrollable={true}
                 footer={generating ? null : (
                     <Pressable
-                        onPress={handleGenerateAI}
+                        onPress={() => handleGenerateAI()}
                         disabled={!aiTopic.trim()}
                         style={{
                             flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -1483,6 +1748,77 @@ export default function CurationScreen() {
                     </View>
                 ) : (
                 <View style={{ gap: 16, paddingBottom: 8 }}>
+                    {quotaBlock && (
+                        <View style={{
+                            gap: 10,
+                            padding: 12, borderRadius: 12,
+                            backgroundColor: colors.warningLight,
+                        }}>
+                            <View style={{ flexDirection: 'row', gap: 10, alignItems: 'flex-start' }}>
+                                <Ionicons name="information-circle" size={20} color={colors.warning} />
+                                <View style={{ flex: 1, gap: 3 }}>
+                                    <Text style={{ fontSize: 14, fontFamily: 'Pretendard_700Bold', color: colors.text }}>
+                                        {quotaBlock.kind === 'pro' ? t('ads.proLimitTitle') : t('curation.aiQuotaExhausted')}
+                                    </Text>
+                                    <Text style={{ fontSize: 13, lineHeight: 18, fontFamily: 'Pretendard_400Regular', color: colors.textSecondary }}>
+                                        {quotaBlock.kind === 'pro'
+                                            ? t('ads.proLimitBody', {
+                                                used: quotaStatus?.month_used ?? 0,
+                                                limit: quotaStatus?.month_limit ?? 0,
+                                            })
+                                            : (quotaLeft ?? 0) > 0
+                                                ? t('curation.aiQuotaShort', { count: quotaBlock.want, need: quotaBlock.want - (quotaLeft ?? 0) })
+                                                : t('curation.aiQuotaEmpty')}
+                                    </Text>
+                                    {!!rewarded.error && (
+                                        <Text style={{ fontSize: 12, fontFamily: 'Pretendard_500Medium', color: colors.error }}>
+                                            {rewarded.error}
+                                        </Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            {/* Pro는 광고를 보지 않는다(Pro 약속 무결성) — 안내 문구로 끝낸다. */}
+                            {quotaBlock.kind === 'ad' && (
+                                <Pressable
+                                    onPress={() => {
+                                        if (rewarded.loading) return;
+                                        if (rewarded.canWatch) {
+                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                            rewarded.watch();
+                                            return;
+                                        }
+                                        // 오늘 볼 수 있는 광고를 다 봤다 — 남은 길은 Pro뿐이다.
+                                        setAiModalVisible(false);
+                                        router.push('/plans' as any);
+                                    }}
+                                    style={{
+                                        flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                        paddingVertical: 12, borderRadius: 12,
+                                        backgroundColor: colors.primaryButton,
+                                        opacity: rewarded.loading ? 0.6 : 1,
+                                    }}
+                                >
+                                    {rewarded.loading ? (
+                                        <ActivityIndicator size="small" color={colors.onPrimary} />
+                                    ) : (
+                                        <>
+                                            <Ionicons
+                                                name={rewarded.canWatch ? 'play-circle' : 'sparkles'}
+                                                size={18}
+                                                color={colors.onPrimary}
+                                            />
+                                            <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.onPrimary }}>
+                                                {rewarded.canWatch
+                                                    ? t('ads.rewardedCta', { amount: rewarded.rewardAmount })
+                                                    : t('ads.rewardedExhaustedProCta')}
+                                            </Text>
+                                        </>
+                                    )}
+                                </Pressable>
+                            )}
+                        </View>
+                    )}
                     {aiModalError && (
                         <View style={{
                             flexDirection: 'row', gap: 10, alignItems: 'flex-start',
@@ -1579,15 +1915,39 @@ export default function CurationScreen() {
                     </View>
 
                     <View style={{ gap: 6 }}>
-                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                            <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
+                            {quotaLeft !== null && (
+                                <Text
+                                    numberOfLines={1}
+                                    style={{ flexShrink: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', color: colors.textTertiary }}
+                                >
+                                    {t('curation.aiQuotaLeft', { count: quotaLeft })}
+                                </Text>
+                            )}
+                        </View>
                         <View style={{ flexDirection: 'row', gap: 8 }}>
-                            {([10, 20, 30, 50] as const).map(n => (
+                            {([10, 20, 30, 50] as const).map(n => {
+                                // 잠긴 칩도 눌리긴 한다. 회색으로 죽어 있기만 하면 "왜 안 눌리지"로
+                                // 끝나지만, 누르면 부족한 양과 채우는 법이 위 배너에 나온다.
+                                const locked = quotaLeft !== null && n > quotaLeft;
+                                return (
                                 <Pressable
                                     key={n}
-                                    onPress={() => !generating && updateAiCurationSettings({ wordCount: n })}
+                                    onPress={() => {
+                                        if (generating) return;
+                                        if (locked) {
+                                            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+                                            setQuotaBlock({ kind: quotaStatus?.tier === 'pro' ? 'pro' : 'ad', want: n });
+                                            return;
+                                        }
+                                        setQuotaBlock(null);
+                                        updateAiCurationSettings({ wordCount: n });
+                                    }}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
                                         backgroundColor: aiWordCount === n ? colors.primaryButton : colors.surfaceSecondary,
+                                        opacity: locked ? 0.45 : 1,
                                     }}
                                 >
                                     <Text style={{
@@ -1596,7 +1956,8 @@ export default function CurationScreen() {
                                         textAlign: 'center',
                                     }}>{n}</Text>
                                 </Pressable>
-                            ))}
+                                );
+                            })}
                         </View>
                     </View>
                 </View>
@@ -1692,7 +2053,6 @@ const styles = StyleSheet.create({
     heroContent: { position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center', opacity: 0.1 },
     heroTextContainer: { zIndex: 1, alignItems: 'flex-end' },
     heroMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2, flexWrap: 'wrap', justifyContent: 'flex-end' },
-    downloadRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
     detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4, textAlign: 'right' },
     detailDesc: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     detailDescription: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6, textAlign: 'right', lineHeight: 18 },

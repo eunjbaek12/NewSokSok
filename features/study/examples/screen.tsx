@@ -19,8 +19,9 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
-import { segmentExample, canBlankExample, spokenExample } from '@/lib/example-blank';
-import { buildChoices } from '../choices';
+import { segmentExample, canBlankExample, spokenExample, exampleFrame } from '@/lib/example-blank';
+import { splitSenseText } from '@/lib/senses';
+import { buildChoices, SAME_TOPIC_DISTANCE, type ChoiceContext } from '../choices';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -309,6 +310,53 @@ export default function ExamplesScreen() {
   const currentWord = currentBatchWords[currentIndex];
 
   /**
+   * 이 카드가 쓸 예문·뜻·번역 한 세트(docs/example-sense-split-spec.md).
+   *
+   * 동음이의어 병기(①②③)로 저장된 단어는 예문도 "① … ② …" 라서, 그대로 두면
+   * segmentExample 이 표제어가 나오는 자리마다 빈칸을 뚫어 **한 카드에 문장 2~3개와
+   * 빈칸 2~3개**가 나온다. 길이도 문제지만(예문 p90 159자·뜻 p90 70자) 본질은
+   * **어느 뜻을 묻는지 알 수 없다**는 것이다. 그래서 번호 하나로 좁힌다.
+   *
+   * 🔴 번호는 **예문 기준으로만** 센다. 뜻·번역에 같은 인덱스가 없으면 그 필드만 통짜로
+   *    둔다 — definition 에 번호가 중복으로 박힌 행이 실측 2건 있다(伸ばす·抜ける).
+   * 🔴 빈칸을 만들 수 있는 문장만 후보다. 후보가 없으면 통짜로 돌아간다 — 출제 목록
+   *    필터(아래 ready)가 통짜 기준이라, 그래야 목록과 카드의 판정이 어긋나지 않는다.
+   */
+  const senseViewRef = useRef<Record<string, { exampleEn: string; exampleKr: string; meaningKr: string }>>({});
+  const senseView = useMemo(() => {
+    const fallback = {
+      exampleEn: currentWord?.exampleEn ?? '',
+      exampleKr: currentWord?.exampleKr ?? '',
+      meaningKr: currentWord?.meaningKr ?? '',
+    };
+    if (!currentWord) return fallback;
+    // 카드가 떠 있는 동안 뜻이 바뀌면 안 된다. 세션이 끝나면 ref 가 사라지므로 다음에
+    // 같은 단어를 만나면 다른 뜻이 나온다 — 병기의 ②③ 도 언젠가 화면에 도달하게 하려는 것.
+    const cached = senseViewRef.current[currentWord.id];
+    if (cached) return cached;
+
+    const sentences = splitSenseText(currentWord.exampleEn);
+    if (!sentences) return fallback;
+    const usable = sentences
+      .map((text, index) => ({ text, index }))
+      .filter(s => canBlankExample(s.text, currentWord.term));
+    if (usable.length === 0) return fallback;
+
+    const picked = usable[Math.floor(Math.random() * usable.length)];
+    const meanings = splitSenseText(currentWord.meaningKr);
+    const translations = splitSenseText(currentWord.exampleKr);
+    const view = {
+      exampleEn: picked.text,
+      exampleKr: translations?.[picked.index] ?? fallback.exampleKr,
+      meaningKr: meanings?.[picked.index] ?? fallback.meaningKr,
+    };
+    senseViewRef.current[currentWord.id] = view;
+    return view;
+    // currentWord 전체를 본다 — 필드를 하나씩 나열하면 eslint 가 잡지 못하는 누락이 생긴다.
+    // 참조가 바뀌어도(별 토글 등) 위의 ref 캐시가 재추첨을 막으므로 뜻은 그대로다.
+  }, [currentWord]);
+
+  /**
    * 정답이 이미 보이는 상태인가. 답을 골랐거나, 애초에 "표제어 보기" 설정을 켜 둔 경우다.
    * 화면(빈칸)·힌트 줄·스피커 낭독이 모두 이 하나를 기준으로 갈려야 어긋나지 않는다 —
    * 예전에는 화면만 이 조건을 보고 스피커는 아무 조건도 안 봐서 소리로 답이 새어 나갔다.
@@ -316,8 +364,8 @@ export default function ExamplesScreen() {
   const isRevealed = settings.showTerm || selectedAnswer !== null;
 
   const spokenText = useMemo(
-    () => spokenExample(currentWord?.exampleEn, currentWord?.term, isRevealed),
-    [currentWord?.exampleEn, currentWord?.term, isRevealed],
+    () => spokenExample(senseView.exampleEn, currentWord?.term, isRevealed),
+    [senseView.exampleEn, currentWord?.term, isRevealed],
   );
 
   const handleToggleStar = useCallback(async (wordId: string) => {
@@ -328,17 +376,52 @@ export default function ExamplesScreen() {
 
   const choicesMapRef = useRef<Record<string, Word[]>>({});
 
+  // 선택지 풀은 학습 대상(배치)이 아니라 **단어장 전체**다. 배치 안에서만 뽑으면 같은
+  // 주제가 몰려 있어 오답이 정답과 구별되지 않는다.
+  const allListWords = useMemo(() => getWordsForList(id!), [getWordsForList, id]);
+
+  /**
+   * 다중정답 판정 재료(docs/example-choices-multi-answer-spec.md).
+   * 단어장이 바뀔 때만 다시 만든다 — 500단어면 segmentExample을 500번 도는 일이라
+   * 카드마다 계산하면 안 된다.
+   */
+  const choiceContext = useMemo<ChoiceContext>(() => {
+    const frames = new Map<string, string[]>();
+    const indexes = new Map<string, number>();
+    allListWords.forEach((w, i) => {
+      // 아래 senseView와 같은 규칙으로 "뜰 수 있는 문장"을 뽑는다 — 병기(①②③)면 번호별로
+      // 쪼갠 뒤 빈칸을 만들 수 있는 것만 남긴다. 통짜 예문 하나로 문형을 만들면 병기 단어의
+      // 문형이 "① … ② …" 모양이 되어 단문 후보와 절대 같아지지 않고, 필터 A가 그 단어에서
+      // 조용히 죽는다(실측: NGSL에서 그렇게 새던 쌍이 4개).
+      const parts = splitSenseText(w.exampleEn) ?? [w.exampleEn ?? ''];
+      const usable = parts.filter(p => canBlankExample(p, w.term));
+      const list = usable
+        .map(p => exampleFrame(p, w.term))
+        .filter((f): f is string => !!f);
+      frames.set(w.id, Array.from(new Set(list)));
+      indexes.set(w.id, i);
+    });
+    return {
+      framesOf: w => frames.get(w.id) ?? [],
+      // 🔴 words.position 컬럼이 아니라 **이 배열의 인덱스**다. createCuratedList가
+      //    words INSERT에 position을 넣지 않아(features/vocab/db.ts:219) 큐레이션 덱은
+      //    전부 NULL이고, createdAt도 같은 값이라 정렬에 타이 브레이커가 없다.
+      indexOf: w => indexes.get(w.id) ?? -1,
+      minDistance: SAME_TOPIC_DISTANCE,
+    };
+  }, [allListWords]);
+
   const choices = useMemo(() => {
     if (!currentWord) return [];
     if (choicesMapRef.current[currentWord.id]) {
       return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
     }
-    const allListWords = getWordsForList(id!);
-    // 선택지는 화면에 보이는 라벨(여기서는 표제어) 기준으로 중복을 걸러야 한다 — features/study/choices.ts
-    const newChoices = buildChoices(allListWords, currentWord, w => w.term);
+    // 선택지는 화면에 보이는 라벨(여기서는 표제어) 기준으로 중복을 걸러야 하고,
+    // ctx로 "빈칸에 넣어도 말이 되는" 후보까지 걸러낸다 — features/study/choices.ts
+    const newChoices = buildChoices(allListWords, currentWord, w => w.term, 4, choiceContext);
     choicesMapRef.current[currentWord.id] = newChoices;
     return newChoices;
-  }, [currentIndex, currentWord?.id, id, getWordsForList]);
+  }, [currentIndex, currentWord?.id, allListWords, choiceContext]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (selectedAnswer !== null) return;
@@ -532,10 +615,10 @@ export default function ExamplesScreen() {
               <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
 
-            {currentWord.exampleEn ? (
+            {senseView.exampleEn ? (
               <View style={{ gap: 12, alignItems: 'center', width: '100%' }}>
                 <HighlightedSentence
-                  sentence={currentWord.exampleEn}
+                  sentence={senseView.exampleEn}
                   term={currentWord.term}
                   primaryColor={colors.primary}
                   textColor={colors.text}
@@ -552,14 +635,14 @@ export default function ExamplesScreen() {
                   <Pressable onPress={() => setShowHint(false)} hitSlop={6}>
                     <View style={[styles.hintLine, { backgroundColor: colors.hintBg, borderColor: colors.hintBorder }]}>
                       <Text style={[styles.hintLineText, { color: colors.hintText }]} numberOfLines={2}>
-                        {t('examples.hintLabel', { meaning: currentWord.meaningKr || t('examples.noMeaning') })}
+                        {t('examples.hintLabel', { meaning: senseView.meaningKr || t('examples.noMeaning') })}
                       </Text>
                     </View>
                   </Pressable>
                 )}
 
-                {settings.showExampleKr && shouldShowExampleTranslation(currentWord.exampleEn, currentWord.exampleKr) && selectedAnswer !== null && (
-                  <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
+                {settings.showExampleKr && shouldShowExampleTranslation(senseView.exampleEn, senseView.exampleKr) && selectedAnswer !== null && (
+                  <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{senseView.exampleKr}</Text>
                 )}
 
                 {/*

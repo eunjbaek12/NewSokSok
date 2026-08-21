@@ -4,6 +4,7 @@ import {
   defaultSenseSelection,
   fitsSaveLimits,
   stripSenseMarkers,
+  splitSenseText,
   senseChipLabel,
   assembleTopText,
   MAX_SENSES,
@@ -274,5 +275,52 @@ describe('senses 안에 번호가 딸려 온 경우', () => {
     const noDef = { meaningKr: 'snow' };
     expect(assembleTopText([eye, noDef, discern], 'definition'))
       .toBe(`① ${eye.definition} ③ ${discern.definition}`);
+  });
+});
+
+// 병기 텍스트 분해 — 예문 학습이 카드에 올릴 한 세트를 고르는 데 쓴다
+// (docs/example-sense-split-spec.md). 조립(assembleTopText/composeSenseFill)의 역방향이다.
+describe('splitSenseText', () => {
+  it('번호별로 쪼갠다', () => {
+    expect(splitSenseText('① 상품, 물품 ② 식료품')).toEqual(['상품, 물품', '식료품']);
+    expect(splitSenseText('① The store sells goods. ② The market was stocked with goods.'))
+      .toEqual(['The store sells goods.', 'The market was stocked with goods.']);
+  });
+
+  it('번호가 없으면 null — "병기 아님"과 "항목 하나"를 호출부가 구별해야 한다', () => {
+    expect(splitSenseText('국수 먹을까요?')).toBeNull();
+    expect(splitSenseText('')).toBeNull();
+    expect(splitSenseText(null)).toBeNull();
+    expect(splitSenseText(undefined)).toBeNull();
+  });
+
+  it('④⑤까지 센다', () => {
+    expect(splitSenseText('① A ② B ③ C ④ D')).toEqual(['A', 'B', 'C', 'D']);
+    expect(splitSenseText('① A ⑤ E')).toEqual(['A', 'E']);
+  });
+
+  it('첫 번호 앞의 머리말은 버린다', () => {
+    // 조립할 때는 생기지 않는 형태다. 남기면 그것이 ① 항목인 양 섞인다.
+    expect(splitSenseText('머리말 ① A ② B')).toEqual(['A', 'B']);
+  });
+
+  it('빈 항목은 걸러낸다 — 번호만 있고 내용이 없는 자리', () => {
+    expect(splitSenseText('① A ② ③ C')).toEqual(['A', 'C']);
+    expect(splitSenseText('①  ②  ')).toBeNull();
+  });
+
+  it('assembleTopText 로 조립한 것을 되돌린다', () => {
+    const senses = [
+      { meaningKr: '상품', definition: 'goods', exampleEn: '', exampleKr: '', pos: '', phonetic: '' },
+      { meaningKr: '식료품', definition: 'food', exampleEn: '', exampleKr: '', pos: '', phonetic: '' },
+    ] as any;
+    expect(splitSenseText(assembleTopText(senses, 'meaningKr'))).toEqual(['상품', '식료품']);
+  });
+
+  it('번호가 중복으로 박힌 텍스트도 항목 수만큼 돌려준다', () => {
+    // 실측 2건(伸ばす·抜ける)이 definition 에 ①②③②②③ 처럼 번호가 겹쳐 있다.
+    // 그래서 화면은 **예문 기준으로만** 번호를 세고, 다른 필드는 같은 인덱스가 없으면
+    // 통짜로 둔다. 여기서는 분해가 깨지지 않는 것만 보장한다.
+    expect(splitSenseText('① A ② B ③ C ② D')).toEqual(['A', 'B', 'C', 'D']);
   });
 });

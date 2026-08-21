@@ -2,6 +2,11 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
+    // 🔴 scripts/_shared/model 은 .ts 와 .mjs 두 벌로 있다(ESM 전용 스크립트 때문에).
+    //    preset 기본 순서는 mjs 가 ts 보다 앞이라, transform 대상이 아닌 .mjs 를 집어
+    //    'Unexpected token export' 로 죽는다. 모델 일원화(0a9a90f)가 .mjs 를 추가하며
+    //    ko-ladder-split 테스트를 조용히 꺼뜨린 자리다 — 확장자 우선순위를 명시한다.
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'mjs', 'cjs', 'json', 'node'],
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/$1',
         '^@shared/(.*)$': '<rootDir>/shared/$1',

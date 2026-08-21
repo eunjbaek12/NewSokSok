@@ -26,7 +26,7 @@ import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
-import { useQuota, useQuotaStore, getProMode, getTrialDaysLeft, hasRewardViewsRemaining } from '@/features/quota';
+import { useQuota, useQuotaStore, getProMode, getTrialDaysLeft, pickAdBenefitCopy, rewardAmountOf } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -221,15 +221,31 @@ export default function SettingsScreen() {
           style: 'destructive',
           onPress: () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-            logout();
-            router.replace('/login');
+            // Cloud logout clears account-scoped SQLite data before the next
+            // session may begin. Navigating first let users start as guest
+            // while that async cleanup was still running, exposing the just
+            // logged-out account's lists in the guest UI.
+            void (async () => {
+              try {
+                await logout();
+              } finally {
+                router.replace('/login');
+              }
+            })();
           },
         },
       ],
     );
   };
 
-  const rewardViewsRemaining = quotaStatus ? hasRewardViewsRemaining(quotaStatus) : false;
+  // 광고 혜택 줄의 제목·부제·누를 수 있는지를 한 곳에서 고른다. 예전에는 제목과 부제가
+  // 각자 ad_free_until 만 봐서, 광고를 1회만 본 사용자에게 남은 1회(+20단어)가 어디에도
+  // 안 보였다(features/quota/ad-benefit-copy.ts 주석). Pro·BYOK 는 이 줄 자체가 없다.
+  const adBenefit = apiKey ? null : pickAdBenefitCopy(quotaStatus);
+  const adBenefitParams = {
+    amount: rewardAmountOf(quotaStatus),
+    time: quotaStatus?.ad_free_until ? new Date(quotaStatus.ad_free_until).toLocaleString() : '',
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -291,30 +307,24 @@ export default function SettingsScreen() {
               </View>
             )}
           </View>
-          {!apiKey && quotaStatus && quotaStatus.tier !== 'pro' && (
+          {adBenefit && quotaStatus && (
             <Pressable
               style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
               onPress={() => useQuotaStore.getState().notifyQuotaExceeded(quotaStatus)}
-              disabled={!rewardViewsRemaining}
+              disabled={!adBenefit.pressable}
             >
               <View style={styles.rowLeft}>
                 <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                   <Ionicons name="play-circle-outline" size={18} color={colors.primary} />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={[styles.rowTitle, { color: colors.text }]}>
-                    {quotaStatus.ad_free_until && new Date(quotaStatus.ad_free_until).getTime() > Date.now()
-                      ? t('settings.adBenefitActive')
-                      : t('settings.adBenefitTitle')}
-                  </Text>
+                  <Text style={[styles.rowTitle, { color: colors.text }]}>{t(adBenefit.titleKey)}</Text>
                   <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
-                    {quotaStatus.ad_free_until && new Date(quotaStatus.ad_free_until).getTime() > Date.now()
-                      ? t('settings.adBenefitUntil', { time: new Date(quotaStatus.ad_free_until).toLocaleString() })
-                      : t('settings.adBenefitDesc', { amount: quotaStatus.reward_amount ?? (quotaStatus.tier === 'guest' ? 10 : 20) })}
+                    {adBenefit.subtitleKeys.map((key) => t(key, adBenefitParams)).join(' · ')}
                   </Text>
                 </View>
               </View>
-              {rewardViewsRemaining && (
+              {adBenefit.pressable && (
                 <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
               )}
             </Pressable>

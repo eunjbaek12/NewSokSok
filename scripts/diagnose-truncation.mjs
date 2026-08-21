@@ -1,6 +1,7 @@
 import fs from 'fs';
+import { scriptGenerateContentUrl } from './_shared/model.mjs';
 const apiKey = fs.readFileSync('.env','utf8').match(/EXPO_PUBLIC_GEMINI_API_KEY=(.*)/)?.[1].trim();
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
+const url = scriptGenerateContentUrl(apiKey);
 
 // 사용자가 시도한 시나리오: 고급, 30개, query는 'travel' 가정
 const wordCount = 30;

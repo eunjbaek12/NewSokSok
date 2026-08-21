@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
 import { GEMINI_BYOK_MODEL } from '@/lib/ai/model';
+import { getAiLanguageName } from '@/constants/languages';
 import { assembleTopText, normalizeSenses } from '@/lib/senses';
 import { fromZodError } from 'zod-validation-error';
 
@@ -93,12 +94,8 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 2, baseDelayMs = 600
   throw lastErr;
 }
 
-function getFullLanguageName(code: string): string {
-  const map: Record<string, string> = {
-    en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
-  };
-  return map[code] || code;
-}
+// 영어 언어명은 constants/languages.ts 가 원본 — 사본을 늘리면 조용히 어긋난다.
+const getFullLanguageName = getAiLanguageName;
 
 // 발음 표기는 도착어(독자)에 독립적인 각 출발어의 표준 표기를 쓴다(세계인 대상).
 // en/es/vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR). 생성 경로(gemini-vertex/curation)와 동일 규칙.
@@ -112,6 +109,24 @@ function getPhoneticInstruction(code: string): string {
     es: 'IPA (e.g., gracias → ˈɡɾasjas)',
   };
   return map[code] || 'the standard phonetic notation (IPA) for the source language';
+}
+
+// 예문의 화계(speech level). 지시가 없으면 모델이 문장마다 임의로 고르고, 초급 학습자는
+// 교재가 먼저 가르치는 화계와 어긋난 예문을 받는다(2026-08-17 제보: 세종한국어 교재로
+// 공부하는 ko>en 학습자 — 이 앱의 2위 언어쌍이다).
+// 화계가 문법적으로 필수인 언어만 넣는다. 영어·중국어는 필수가 아니고, 스페인어(tú/usted)는
+// UI 번역을 tú로 통일해 둔 터라 예문만 usted로 갈라지면 오히려 어긋난다.
+// ⚠️ 같은 함수가 4개 파일에 복제돼 있다 — __tests__/register-note-sync.test.ts 가 강제한다.
+const REGISTER_LEVEL: Record<string, string> = {
+  ko: 'Korean 해요체 (-아요/-어요/-예요/-세요) — never 합쇼체 (-습니다/-ㅂ니다) and never 반말',
+  ja: 'Japanese です/ます — never 常体 (だ/である)',
+};
+
+function buildRegisterNote(sourceLang: string): string {
+  const level = REGISTER_LEVEL[sourceLang];
+  if (!level) return '';
+  return `
+      REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
 }
 
 function parseAIJson<T>(
@@ -168,6 +183,7 @@ export async function analyzeWord(
       4. The part of speech (pos), ALWAYS written in English: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom. The app groups and filters words by these exact English terms, so a translated label ("sustantivo", "名詞", "danh từ", "명사") is unusable. This applies to every "pos" inside "senses" too.
       5. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       6. A translation of the example sentence in ${tgtName}.
+${buildRegisterNote(sourceLang)}
 
       HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
       - FIRST fix N, the number of distinct senses you will report (2 or 3). N then binds every field: the "senses" array MUST hold exactly N entries, and the numbered lists in "definition" and "meaningKr" MUST hold exactly N items in the same order. The app draws one chip per array entry and shows the numbered text beside them, so 3 entries with only ①② written out leaves a chip that nothing explains.

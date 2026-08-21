@@ -64,6 +64,11 @@ jest.mock('@/lib/supabase', () => ({
     rpc: jest.fn(),
   },
 }));
+jest.mock('@/features/auth/guest-session-vault', () => ({
+  rememberGuestSession: jest.fn(async () => {}),
+  restoreGuestSession: jest.fn(async () => null),
+  forgetGuestSession: jest.fn(async () => {}),
+}));
 
 import { useAuthStore } from '@/features/auth/store';
 

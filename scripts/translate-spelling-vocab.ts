@@ -8,7 +8,7 @@
  * 실행: npx ts-node scripts/translate-spelling-vocab.ts
  * 옵션:
  *   --limit=N     상위 N개만 처리
- *   --model=lite  gemini-2.5-flash-lite 사용
+ *   --model=NAME  모델 지정 (기본값·주의사항은 scripts/_shared/model.ts)
  *
  * 출력 스키마는 integrate-vocab.ts의 "일반 분기"(non-ko→en) 슬롯에 맞춤:
  *   - term      : 올바른 표기 (카드 앞면)
@@ -21,11 +21,11 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
-const useLite = process.argv.includes('--model=lite');
-const MODEL = useLite ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';

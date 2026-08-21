@@ -169,6 +169,27 @@ export function stripSenseMarkers(text: string): string {
   return text.replace(/[①②③④⑤]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// 병기 텍스트를 번호별로 되돌린다 — assembleTopText/composeSenseFill 의 역방향.
+//
+// 예문 학습이 쓴다(docs/example-sense-split-spec.md). 한 카드에 문장 2~3개와 빈칸
+// 2~3개가 함께 나오던 것을 번호 하나짜리 세트로 좁히기 위해서다. 서버 예문의 32.8%가
+// 병기이고, 뜻·예문·번역의 번호가 99.96% 일치하므로 같은 인덱스로 짝을 맞출 수 있다.
+//
+// ⚠️ 번호가 없으면 **null**이다. 빈 배열이나 [text]를 돌려주면 호출부가 "병기가 아님"과
+//    "병기인데 항목이 하나"를 구별할 수 없다.
+// ⚠️ 첫 번호 앞의 머리말은 버린다 — 조립할 때 생기지 않는 형태이고, 남기면 그것이
+//    ① 항목인 양 섞인다.
+export function splitSenseText(text: string | null | undefined): string[] | null {
+  if (!text) return null;
+  if (!/[①②③④⑤]/.test(text)) return null;
+  const parts = text
+    .split(/[①②③④⑤]/)
+    .slice(1)                     // 첫 번호 앞의 머리말은 버린다
+    .map(s => s.trim())
+    .filter(Boolean);
+  return parts.length > 0 ? parts : null;
+}
+
 // 칩 레이블에 쓸 뜻 요약. 병기 방어(혹시 ①②가 섞여 오면 첫 항목만)+길이 제한.
 export function senseChipLabel(sense: WordSense, maxLen = 22): string {
   let label = sense.meaningKr.trim();

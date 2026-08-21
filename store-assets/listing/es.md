@@ -22,20 +22,55 @@ Play Console → 성장 → 스토어 현황 → 기본 스토어 등록정보 �
 Avocado: vocabulario con IA
 ```
 
-## 짧은 설명 (Short description, 최대 80자) — 74자
+## 짧은 설명 (Short description, 최대 80자) — 77자
 
 ```
-Haz una foto y tu lista se crea sola. La IA rellena significado y ejemplo.
+Vocabulario de inglés, coreano, japonés y chino. Una foto y la IA lo rellena.
 ```
 
 > Play 에만 있는 칸이다(App Store 의 부제·홍보 텍스트와 성격이 다르다).
 > 검색 결과와 앱 카드에 항상 붙어 다니므로 **기능 한 줄**로 채운다.
+>
+> 🔑 **2026-08-16 교체 — 언어명을 색인 칸에 넣었다.** 옛 문안
+> (`Haz una foto y tu lista se crea sola. La IA rellena significado y ejemplo.`)은
+> **언어명이 하나도 없었다.** Play 는 짧은 설명·전체 설명을 색인하는데(App Store 와 달리)
+> 정작 스페인어권 사용자가 치는 말이 어디에도 없어, 검색으로 이 앱에 닿을 길이 없었다.
+> 옛 문안의 차별점("사진 한 장이면 AI 가 채운다")은 뒷문장에 그대로 남겼다.
+> ko 와 같은 처방이다 → `ko.md` §짧은 설명.
 
-## 전체 설명 (Full description, 최대 4000자)
+## 검색 실측 (Play 스페인, 2026-08-16)
+
+`play.google.com/store/search?q=…&c=apps&hl=es&gl=ES` 를 그대로 읽어서 셌다.
+
+| 검색어 | 결과 앱 수 | 아보카도 |
+|---|---|---|
+| `vocabulario inglés` | 16 | 없음 |
+| `vocabulario coreano` | 17 | 없음 |
+| `aprender coreano vocabulario` | 15 | 없음 |
+
+🔴 **한국에서 쟀던 "스페인어는 비어 있다(경쟁 3개)"가 스페인어권에는 적용되지 않는다.**
+그건 *한국인이 스페인어를 배우는* 시장이었고, 여기는 *스페인어권이 영어·한국어를 배우는*
+시장이라 16~17개로 붐빈다. 상위권 이름이 전부 `Aprende/Vocabulario + 언어명` 형태다
+(`Aprende Vocabulario Ingles` · `Tobo: Vocabulario Coreano` · `Aprende coreano`).
+→ 색인 칸에 언어명이 없으면 애초에 후보에도 못 든다.
+
+⚠️ **순위를 기대하지 말 것.** 문구가 바꿀 수 있는 것은 "아예 안 나오던 검색어에 등장하는
+것"뿐이다(ko.md 와 같은 단서). 16~17개 경쟁에 다운로드로 이기는 것은 별개 문제다.
+
+## 전체 설명 (Full description, 최대 4000자) — 3,875자
 
 `ios-es.md` 의 「설명」 절과 **동일한 텍스트를 쓴다.** 같은 4000자 한도이고,
 공식 큐레이션 덱 절을 뺀 이유(뜻 언어 es 덱 0개)도 Play 에서 똑같이 적용된다.
 → [[project_ko_es_deck_deferred]]
+
+> 🔑 **2026-08-16 — 언어 나열을 인접 구절로 바꿨다**(리드 문장 · 「Seis idiomas」 절).
+> `Español, inglés, coreano…` 나열은 `vocabulario` 와 떨어져 있어 검색어가 되지 못했다.
+> `vocabulario de inglés, de coreano…` 로 붙이고, **덱이 아니라 "AI 가 뜻·예문·발음을
+> 채운다"만 약속한다** — 뜻 언어 es 덱이 0개라 덱을 약속하면 사용자가 앱을 열자마자
+> 큐레이션 탭이 비어 있는 것을 본다. ko·en 과 같은 원칙이다.
+> ⚠️ **두 파일을 함께 고칠 것**(`play-description-1.3.0/es.txt` · `ios-es.md`).
+> 같은 로케일 원고가 Play 용·iOS 용 두 벌이라 한쪽만 고치기 쉽다 — 2026-08-02 에
+> ja·vi·zh 가 정확히 이 함정으로 거짓 문구를 라이브에 남긴 전례가 있다.
 
 ## 출시 노트
 

@@ -26,25 +26,69 @@ const PHONETIC_INSTRUCTION = {
     es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 
+// 프롬프트에 쓰는 영어 언어명. 앱은 constants/languages.ts:getAiLanguageName 이 원본이지만
+// 이 하네스는 standalone 이라 사본을 둔다 — 동기화는 generate-prompt-legacy-field-sync 테스트가 강제.
+const LANG_NAME = {
+    en: 'English',
+    ko: 'Korean',
+    ja: 'Japanese',
+    zh: 'Chinese',
+    vi: 'Vietnamese',
+    es: 'Spanish',
+};
+
+// 모델이 필드 **이름**의 Kr/En 을 언어 지시로 읽고 라벨을 이긴다(실측 2026-08-17).
+// 이름을 명시적으로 반박한다 — 자동완성 analyzeWord 와 같은 문구.
+function buildLegacyFieldNote(sourceLang, targetLang) {
+    const srcName = LANG_NAME[sourceLang] ?? sourceLang;
+    const tgtName = LANG_NAME[targetLang] ?? targetLang;
+    return `
+  IMPORTANT — Field naming is legacy and MUST be ignored:
+  - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
+  - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
+  - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
+  Use ONLY ${srcName}${sourceLang === targetLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos", which stays in English.`;
+}
+
+// 예문의 화계(speech level). 지시가 없으면 모델이 문장마다 임의로 고르고, 초급 학습자는
+// 교재가 먼저 가르치는 화계와 어긋난 예문을 받는다(2026-08-17 제보: 세종한국어 교재로
+// 공부하는 ko>en 학습자 — 이 앱의 2위 언어쌍이다).
+// 화계가 문법적으로 필수인 언어만 넣는다. 영어·중국어는 필수가 아니고, 스페인어(tú/usted)는
+// UI 번역을 tú로 통일해 둔 터라 예문만 usted로 갈라지면 오히려 어긋난다.
+// ⚠️ 같은 함수가 4개 파일에 복제돼 있다 — __tests__/register-note-sync.test.ts 가 강제한다.
+const REGISTER_LEVEL = {
+    ko: 'Korean 해요체 (-아요/-어요/-예요/-세요) — never 합쇼체 (-습니다/-ㅂ니다) and never 반말',
+    ja: 'Japanese です/ます — never 常体 (だ/である)',
+};
+
+function buildRegisterNote(sourceLang) {
+    const level = REGISTER_LEVEL[sourceLang];
+    if (!level) return '';
+    return `
+  REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
+}
+
 function buildPrompt(query, wordCount, difficulty, sourceLang, targetLang) {
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
     const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
     const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+    // same-lang 지시는 반박 블록 뒤 — exampleKr 에 대해 두 지시가 충돌하므로 뒤가 이기게 한다.
     const sameLangNote = sourceLang === targetLang
         ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
         : '';
-    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}
+    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
-  - pos: 품사 (예: noun, verb, adj, adv)
+  - pos: 품사 — 영어 전체 단어로 (예: noun, verb, adjective, adverb)
   - phonetic: ${phoneticInstr}
   - definition: ${srcLabel}로 작성한 정의
   - meaningKr: ${tgtLabel} 뜻
   - exampleEn: ${srcLabel} 예문
   - exampleKr: 위 예문의 ${tgtLabel} 번역
   - tags: 주제 태그 배열
-  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]
+${buildRegisterNote(sourceLang)}${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
 }
 
 const tests = [];
@@ -122,6 +166,34 @@ test('P8 — unknown language code: falls back to code itself', () => {
     // fallback uses raw code 'fr' as label, generic phonetic instruction
     if (!p.includes('fr 단어')) throw new Error('fallback to code label failed');
     if (!p.includes('표준 발음 표기')) throw new Error('generic phonetic fallback missing');
+});
+
+// P9: 레거시 필드명 반박 — 모델이 meaningKr/exampleKr 을 "한국어"로 읽던 실측 버그(2026-08-17)
+test('P9 — 반박 블록이 도착어를 지정한다', () => {
+    const p = buildPrompt('cafe', 20, 'intermediate', 'en', 'ko');
+    if (!p.includes('"meaningKr" is NOT Korean. Put the meaning in Korean.')) throw new Error('meaningKr 반박 누락');
+    if (!p.includes('"exampleKr" is NOT Korean. Put the example translation in Korean.')) throw new Error('exampleKr 반박 누락');
+    if (!p.includes('"exampleEn" is NOT English. Put the example sentence in English.')) throw new Error('exampleEn 반박 누락');
+    const es = buildPrompt('viaje', 20, 'intermediate', 'ja', 'es');
+    if (!es.includes('Put the meaning in Spanish.')) throw new Error('도착어가 반영되지 않음');
+    if (!es.includes('Use ONLY Japanese and Spanish')) throw new Error('언어 한정 문장 누락');
+});
+
+// P10: same-lang 은 반박 블록 **뒤**에 와야 exampleKr 충돌에서 이긴다
+test('P10 — en→en: 언어 한정에 and 가 없고, same-lang 주석이 반박 블록보다 뒤', () => {
+    const p = buildPrompt('synonyms', 20, 'advanced', 'en', 'en');
+    if (!p.includes('Use ONLY English anywhere')) throw new Error('same-lang 인데 도착어가 덧붙었다');
+    const legacyAt = p.indexOf('Field naming is legacy');
+    const sameAt = p.indexOf('학습 언어와 모국어가 같음');
+    if (legacyAt < 0 || sameAt < 0) throw new Error('블록이 누락됐다');
+    if (sameAt < legacyAt) throw new Error('same-lang 주석이 반박 블록보다 앞에 있다');
+});
+
+// P11: pos 는 축약형이 아니라 영어 전체 단어 — 앱이 이 정확한 용어로 품사를 묶고 거른다
+test('P11 — pos 지시는 영어 전체 단어', () => {
+    const p = buildPrompt('q', 20, 'intermediate', 'en', 'ko');
+    if (!p.includes('영어 전체 단어로')) throw new Error('pos 전체 단어 지시 누락');
+    if (p.includes('adj, adv')) throw new Error('축약형 예시가 남아 있다');
 });
 
 let passed = 0, failed = 0;

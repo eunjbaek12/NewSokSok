@@ -116,8 +116,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - Or use guest mode and start instantly
 
 • Fair pricing — free is generous
-- Guest: start instantly without an account — 10 AI words per day
-- Free: 50 AI words per day, +20 per rewarded ad (up to twice a day)
+- Free: 300 AI words in the first 24 hours, then 50 per day, +20 per rewarded ad (up to twice a day)
 - One rewarded ad also clears banner ads for 24 hours
 - Past the daily limit you can still see what a word means
 - Pro: ad-free, 3,000 words per month with no daily limit — $2.99/mo or $27.99/yr (~22% off vs monthly)

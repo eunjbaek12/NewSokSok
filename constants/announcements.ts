@@ -40,6 +40,24 @@ export interface Announcement {
 //    안 띄우는 편이 낫다).
 export const ANNOUNCEMENTS: Announcement[] = [
   {
+    version: '1.6.0',
+    date: '2026-08-22',
+    items: [
+      { key: 'whatsNew.v160_1', icon: 'school' },
+      // 2026-08-20 제보(예문 빈칸의 다중정답)에서 나온 것이라 덱 이야기보다 앞에 둔다 —
+      // 사용자 제안에서 나온 것을 위로 올리는 1.5.0 때 방침 그대로다.
+      // 아이콘은 예문 학습 버튼이 쓰는 것을 그대로 가져왔다(app/list/[id].tsx). 마지막
+      // 줄의 chatbubble-ellipses 와 나란히 두면 말풍선 두 개가 한 덩어리로 읽힌다.
+      // 스펙: docs/example-choices-multi-answer-spec.md
+      { key: 'whatsNew.v160_2', icon: 'chatbubbles-outline' },
+      { key: 'whatsNew.v160_3', icon: 'add-circle' },
+      { key: 'whatsNew.v160_4', icon: 'refresh' },
+      { key: 'whatsNew.v160_5', icon: 'cloud-download' },
+      { key: 'whatsNew.v160_6', icon: 'book' },
+      { key: 'whatsNew.v160_7', icon: 'chatbubble-ellipses' },
+    ],
+  },
+  {
     version: '1.5.0',
     date: '2026-08-16',
     // 🔑 사용자 제안에서 나온 것을 맨 위에 둔다(은정님 방침). 이번 1번은 2026-08-12
@@ -50,6 +68,11 @@ export const ANNOUNCEMENTS: Announcement[] = [
     // 4·5번(배너 면제·무료 한도)은 서버 정책과 짝이다 — 20260813020000 +
     // 20260815020000 을 적용해야 실제로 그렇게 동작한다. 스토어 공개를 확인한 직후
     // 적용하기로 했으므로 시차는 하루 이내다. 절차는 docs/release-checklist-next.md §1.
+    //
+    // 5번에서 "게스트로 사용하면 10단어" 절을 1.6.0 작업 중에 지웠다. 과거 소식은
+    // 손대지 않는 것이 원칙이지만, 시트와 달리 목록 화면(설정 › 업데이트 소식)은
+    // ANNOUNCEMENTS 배열 전체를 그리므로 이 줄이 계속 보인다 — 게스트 등급을 없애는
+    // 서버 변경(20260818000000_remove_guest_tier.sql)이 적용되면 거짓이 된다.
     //
     // 2번에 "뜻 언어를 영어로" 를 붙인 이유: TOPIK II 덱은 ko→en 이라 뜻 언어가 en 인
     // 사용자에게만 큐레이션 목록에 뜬다. 안 붙이면 한국어 사용자에게 "왔다는데 없다" 가 된다.

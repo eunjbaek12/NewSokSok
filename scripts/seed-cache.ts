@@ -16,7 +16,7 @@
  *    쓰는 canBlankExample 을 그대로 import 한다 — 복제하면 앱과 어긋나도 모른다.
  *
  * 실행:
- *   SUPABASE_URL=... SERVICE_ROLE_KEY=... npx -y tsx scripts/seed-cache.ts [옵션]
+ *   npx -y tsx scripts/seed-cache.ts [옵션]        (키는 .env.local 에서 읽는다)
  * 옵션:
  *   --limit N        앞에서 N건만 (소규모 시험용. 목록이 섞여 있어 전 언어쌍이 골고루 들어간다)
  *   --concurrency N  동시 배치 수 (기본 2 = 동시 40건). 4(=동시 80건)로 올리면 Vertex 가
@@ -32,10 +32,30 @@ import { canBlankExample } from '../lib/example-blank';
 import { cleanPhonetic } from '../lib/phonetic';
 import { stripControlChars } from '../utils/word-sanitize';
 
-const SUPABASE_URL = process.env.SUPABASE_URL!;
-const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY!;
+// 🔑 service_role 키를 명령줄에 쓰지 않아도 되도록 .env.local 을 먼저 읽는다.
+// 명령줄에 적으면 셸 기록과 도구 권한 허용 목록에 평문으로 굳는다(실제로 한 번
+// 그렇게 새어 폐기한 토큰이 있다). seed-official-decks.ts 와 같은 로더다.
+function loadEnvFiles() {
+  for (const file of ['.env.local', '.env']) {
+    try {
+      for (const line of readFileSync(file, 'utf8').split('\n')) {
+        const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+        if (!m) continue;
+        const [, key, rawValue] = m;
+        if (process.env[key]) continue;   // 먼저 읽힌 값이 우선
+        process.env[key] = rawValue.replace(/^["']|["']$/g, '');
+      }
+    } catch {
+      // 없으면 넘어간다.
+    }
+  }
+}
+loadEnvFiles();
+
+const SUPABASE_URL = process.env.SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL!;
+const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
 if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
-  console.error('SUPABASE_URL 과 SERVICE_ROLE_KEY 가 필요합니다.');
+  console.error('SUPABASE_URL 과 SERVICE_ROLE_KEY 가 필요합니다 (.env.local 또는 환경변수).');
   process.exit(1);
 }
 
@@ -131,8 +151,41 @@ function scriptRatios(text: string) {
   return { hangul: hangul / n, kana: kana / n, han: han / n };
 }
 
+/**
+ * 이 앱이 다루는 6개 언어(en/ko/ja/zh/vi/es) 어디에도 쓰이지 않는 문자 체계.
+ *
+ * 🔴 scriptViolation 은 이걸 못 잡는다 — 그쪽은 "**기대한** 문자가 충분한가"만 보므로
+ *    키릴·아랍 따위는 셈에 아예 안 들어간다. 실측: `en>ko renowned` 뜻이
+ *    "널리 알려진; مشهور한" 인데 한글 비율 0.67 로 통과했고, `en>zh diplomacy` 예문번역이
+ *    "有效的 वापरा对于维持国际和平至关重要。" 인데 한자 비율로 통과했다.
+ *    2026-08-19 캐시 82,470행 전수에서 77건이 이 결함이었다(전부 hit_count 0).
+ *
+ * 증상은 낱말 하나가 엉뚱한 문자로 **바뀌어** 있는 것이다 — `ko>ja 밤` 뜻풀이의
+ * "해시 от 해 뜰 때까지"(← 해질 때부터), `ko>es 미안하다` 의 "아니하고сылка울 때"
+ * (← 부끄러울). 그래서 문자만 지우면 구멍이 남고, 다시 만드는 수밖에 없다.
+ *
+ * ⚠️ 그리스 문자는 일부러 뺐다. alpha·beta·pi·파이 처럼 그리스 문자 자체가 표제어인
+ *    뜻풀이가 정상으로 쓰고(실측 27건 전부 정상), 발음 표기의 IPA 도 θ·β 를 쓴다.
+ *    (발음 표기는 어차피 phoneticGone 이 따로 보므로 여기 오지 않는다.)
+ *
+ * ⚠️ 알려진 오탐이 하나 있다: `en>ko thomas` 의 뜻풀이가 "the English form of the
+ *    Aramaic name תָּאומָא (Toma)" 로 어원을 **일부러 인용**한다. 어원 인용과 오염은
+ *    형태로 구별되지 않으므로 규칙에서 빼지 않았다 — 오탐 비용은 재생성 1회뿐이고,
+ *    빼면 히브리·아람 문자 오염을 통째로 놓친다. 전수에서 이 한 건뿐이었다.
+ */
+const ALIEN_SCRIPT = /[ঀ-৿ऀ-ॿ؀-ۿݐ-ݿЀ-ӿ฀-๿֐-׿԰-֏Ⴀ-ჿ]/gu;
+
+function alienScript(text: string | undefined): string | null {
+  if (!text) return null;
+  ALIEN_SCRIPT.lastIndex = 0;   // g 플래그는 lastIndex 를 남긴다 — 매번 되돌린다
+  const found = text.match(ALIEN_SCRIPT);
+  return found ? `쓰이지 않는 문자 ${JSON.stringify(found.join(''))}` : null;
+}
+
 function scriptViolation(text: string | undefined, lang: string): string | null {
   if (!text) return '빈 값';
+  const alien = alienScript(text);
+  if (alien) return alien;
   const r = scriptRatios(text);
   switch (lang) {
     case 'ko': return r.hangul >= 0.3 ? null : '한글이 거의 없음';
@@ -173,6 +226,53 @@ function numberingViolation(label: string, text: string | undefined, nSenses: nu
   return null;
 }
 
+// ── 순환 정의 ────────────────────────────────────────────────────────────
+// 뜻풀이가 표제어 자신을 써서 돌려 말하는 것. `뽑히다` = "선택되어 뽑히다",
+// `답답하다` = "답답하게 느껴질 만큼 답답하다", `소식` = "반가운 소식".
+// 배우는 사람에게 아무것도 알려 주지 않는데, 문자 오염도 언어 이탈도 아니라 기존 게이트를
+// 전부 통과했다. 2026-08-20 실측으로 ko 캐시 18,860행 중 553행(2.9%)이 여기 걸린다.
+//
+// 🔑 규칙으로 잡을 수 있는 유일한 유형이라 여기 둔다. 같은 조사에서 나온 나머지 세 유형
+//    (예문에 표제어 없음·지어낸 뜻·뜻 배정 오류)은 규칙이 없어 판정 목록으로 다뤘다.
+//    → scripts/lib/sense-drops.ts
+//
+// 🔴 부분 문자열로 재면 못 쓴다 — 실측 정밀도 58%. 오탐이 세 갈래로 뚜렷하다.
+//    ① 합성어: `고양이` 가 "고양이과에 속하는", `잔디` 가 "잔디밭" 에 걸린다
+//    ② 인용된 언급: "동사 '살리다'의 어간" — 쓰인 게 아니라 가리켜진 것이다
+//    ③ 뒷문장 부연: `도승지` 는 첫 문장이 제대로 된 정의이고 둘째 문장이 표제어를 다시 쓴다
+//    셋을 걸러내면 정밀도 80%(표본 25 중 20). 남은 오탐은 고유명사(`디즈니`)와
+//    동사 어간 표제어(`지우` 가 "지우는" 에 걸림)이고, 둘 다 규칙으로는 못 가른다.
+//
+// 🔑 오탐이 남아도 되는 이유: 이건 defectOf 로, **한 번 다시 만들고 그래도 안 되면 저장**
+//    한다. 오탐의 대가는 호출 한 번(₩0.75)이지 데이터 손실이 아니다.
+const CIRC_PARTICLE = /^(을|를|이|가|은|는|의|에|도|만|로|나|랑|께|처럼|같이|보다|에서|으로|에게|한테|라고|이라|하다|하는|한|할|함|해|했)/;
+// 와/과는 일부러 뺐다 — 분류학 접미사 `-과`(고양이과·조기과)를 조사로 읽어 오탐이 된다.
+
+function stripQuoted(s: string): string {
+  return s
+    .replace(/'[^']*'/g, ' ')
+    .replace(/"[^"]*"/g, ' ')
+    .replace(/[‘’][^‘’]*[‘’]/g, ' ')
+    .replace(/[“”][^“”]*[“”]/g, ' ');
+}
+
+/** 뜻풀이가 표제어로 표제어를 설명하는가. 걸리면 그 문장, 아니면 null. */
+export function circularDefinition(term: string, definition: string | undefined): string | null {
+  if (!definition || !term || term.length < 2) return null;   // 단음절은 오탐이 너무 많다
+  for (const seg of definition.split(/[①②③④⑤]/)) {
+    // 뜻은 첫 문장에서 정해진다. 뒷문장의 부연은 표제어를 다시 써도 순환이 아니다.
+    const head = stripQuoted(seg.split(/(?<=\.)\s/)[0] ?? '');
+    let i = -1;
+    while ((i = head.indexOf(term, i + 1)) >= 0) {
+      const before = i > 0 ? head[i - 1] : '';
+      if (before && /[가-힣]/.test(before)) continue;              // 합성어의 뒷부분
+      const after = head.slice(i + term.length);
+      if (after && /[가-힣]/.test(after[0]) && !CIRC_PARTICLE.test(after)) continue;  // 합성어의 앞부분
+      return head.trim();
+    }
+  }
+  return null;
+}
 /** 다시 만들어야 하는 이유. 문제없으면 null. */
 function defectOf(r: SeedResult): string | null {
   const res = r.result ?? {};
@@ -188,6 +288,16 @@ function defectOf(r: SeedResult): string | null {
     ?? check('예문', res.exampleEn, r.sourceLang)
     ?? check('예문번역', res.exampleKr, r.targetLang);
   if (top) return top;
+
+  // definition 은 **출발어 단일어 뜻풀이**라(en>ko 의 definition 은 영어다) 지배 비율
+  // 검사를 걸지 않는다 — 걸면 정상까지 재생성 사유가 되어 헛돈이 나간다. 다만 이질
+  // 문자는 어느 언어에서도 오염이므로 그것만 본다. 실측 `en>ja shipping` 은
+  // "…by sea or otherמצע." 로 definition 에만 오염이 있어 게이트를 그냥 통과했다.
+  const defAlien = alienScript(res.definition);
+  if (defAlien) return `정의 ${defAlien}`;
+
+  const circ = circularDefinition(r.term, res.definition);
+  if (circ) return `정의 순환 ${JSON.stringify(circ.slice(0, 40))}`;
 
   // 발음 표기는 '가드가 통째로 버리는 것'만 재생성 사유로 삼는다. 살려내는 흠(괄호 병기
   // "ああ (아아)", 공백 "ござ いま す", vi 성조 막대)까지 사유로 삼으면 헛돈이다 — 특히
@@ -214,6 +324,12 @@ function defectOf(r: SeedResult): string | null {
       ?? check(`뜻${i + 1} 예문`, s.exampleEn, r.sourceLang)
       ?? check(`뜻${i + 1} 예문번역`, s.exampleKr, r.targetLang);
     if (v) return v;
+    // 위 definition 과 같은 이유로 이질 문자만 본다. `en>vi shipping` 은 오염이
+    // senses[0].definition 에 있었다.
+    const sd = alienScript(s.definition);
+    if (sd) return `뜻${i + 1} 정의 ${sd}`;
+    const sc = circularDefinition(r.term, s.definition);
+    if (sc) return `뜻${i + 1} 정의 순환 ${JSON.stringify(sc.slice(0, 40))}`;
     // 뜻마다 별도 발음 표기를 갖는다. 상위만 보면 안쪽 오염을 놓친다(실측: 御座います 는
     // 상위와 senses 2개가 함께 "ござ이마스"로 나왔다).
     if (phoneticGone(s.phonetic)) return `뜻${i + 1} 발음 표기 이탈 ${JSON.stringify(s.phonetic)}`;
@@ -796,4 +912,8 @@ async function main() {
   if (interrupted) process.exit(130);
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
+// 🔴 직접 실행할 때만 돈다. 예전에는 무조건 불렀는데, 이 파일에서 함수 하나(예:
+//    circularDefinition)를 import 하면 **그것만으로 시딩이 시작됐다** — 실제로 한 번
+//    그렇게 돌렸다. 저장 단계 전에 끊겨 DB 는 무사했지만 Edge 호출이 나갔다.
+const invokedDirectly = (process.argv[1] ?? '').endsWith('seed-cache.ts');
+if (invokedDirectly) main().catch(e => { console.error(e); process.exit(1); });

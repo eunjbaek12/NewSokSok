@@ -46,7 +46,7 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
-import { useQuota } from '@/features/quota';
+import { getQuotaLeft, useQuota, useQuotaStore, pickBasicNoticeCopy, pickRewardedCopy, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -369,17 +369,24 @@ export default function AddWordScreen() {
     // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
     const fallbackNotice = useMemo(() => {
         if (enrichmentLevel === 'basic') {
-            return { text: t('addWord.basicMeaningLoaded'), action: t('addWord.enrichWithAi'), onPress: handleEnrichFull };
+            // 문구·액션은 pickBasicNoticeCopy 한 곳에서 고른다 — 뒤이어 뜨는 보상형 모달과
+            // 같은 판정을 두 번 계산하지 않기 위해서다(features/quota/basic-notice-copy.ts 주석).
+            const copy = pickBasicNoticeCopy(quotaStatus);
+            return {
+                text: t(copy.textKey),
+                action: copy.actionKey ? t(copy.actionKey) : null,
+                onPress: copy.action ? handleEnrichFull : null,
+            };
         }
         if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
-        if (enrichFallback === 'guest') {
-            return { text: t('addWord.fallbackGuest'), action: t('addWord.fallbackGuestAction'), onPress: () => router.push('/login') };
-        }
+        // 'guest' 분기는 없앴다 — 세션 없음도 serverFailed 로 합쳤다(lib/translation-api.ts).
+        // 로그인 유도 링크도 함께 사라진다: 게스트와 Free 의 한도가 같아지면 "로그인하면
+        // AI가 채워줘요"가 거짓이 되고, 애초에 그 화면의 사용자는 이미 시작한 상태다.
         if (enrichFallback === 'invalidKey') {
             return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
         }
         return { text: t('addWord.fallbackServer'), action: null, onPress: null };
-    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull]);
+    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull, quotaStatus]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -422,6 +429,105 @@ export default function AddWordScreen() {
     });
 
     const [photoSource, setPhotoSource] = useState<'camera' | 'gallery' | null>(null);
+
+    /*
+     * 한도 초과 안내를 **이 화면이 직접 그린다.**
+     *
+     * 🔴 이 화면은 app/_layout.tsx 에서 presentation:"fullScreenModal" 로 뜬다 — RN
+     * <Modal> 은 아니지만 네이티브 모달인 것은 같다. 그래서 루트에 상주하는 전역
+     * 보상형/Pro 모달(GlobalRewardedAdModal)이 present 를 시도하면 이미 present 중인
+     * 루트 VC 위에 또 present 하는 꼴이 된다. RN 은 실패해도 _isPresented=YES 로 적어
+     * 두므로, 한 번 실패하면 앱을 다시 켜기 전까지 어떤 모달도 뜨지도 닫히지도 않는다
+     * (features/quota/store.ts 의 inlineQuotaHandler 주석 · 커밋 65fd2aa 가 고친 것과
+     *  같은 함정이고, 이 화면만 네이티브 모달이라 그때 함께 못 고쳤다).
+     *
+     * 여기까지 오는 길은 둘이다 — 사진 스캔 진입 전 잔량 0 검사(openPhotoScan)와
+     * "뜻만 채워졌어요" 안내의 AI 로 채우기(useAddWord.handleEnrichFull).
+     * 사진 스캔이 실제로 도는 동안은 PhotoImportWorkflow 가 자기 것을 등록해 맡는다.
+     */
+    const [quotaBlock, setQuotaBlock] = useState<QuotaBlockInfo['kind'] | null>(null);
+
+    /*
+     * ⚠️ photoSource 를 의존성에 넣은 것은 사진 화면과 슬롯을 다투기 때문이다. 슬롯이
+     * 하나뿐이라 PhotoImportWorkflow 가 열릴 때 자기 핸들러로 덮고, 닫힐 때는 "내
+     * 것이면" 검사를 통과해 **null 로 비운다** — 그러면 남은 세션 동안 이 화면이
+     * 무방비가 된다. 사진이 닫힌 뒤 다시 등록하면 부모·자식 effect 가 어느 순서로
+     * 돌아도 늘 둘 중 하나가 슬롯을 쥔다("내 것일 때만 비운다"가 서로를 지켜 준다).
+     */
+    useEffect(() => {
+        if (photoSource !== null) return;
+        const handler = (info: QuotaBlockInfo) => setQuotaBlock(info.kind);
+        useQuotaStore.getState().setInlineQuotaHandler(handler);
+        return () => {
+            const q = useQuotaStore.getState();
+            if (q.inlineQuotaHandler === handler) q.setInlineQuotaHandler(null);
+        };
+    }, [photoSource]);
+
+    /*
+     * 광고를 다 보면 막혀 있던 작업을 이어서 돌린다 — 전역 모달의 handleGranted 와 같은
+     * 계약이다(app/_layout.tsx). 등록은 한 번만 쓰고 비운다.
+     *
+     * 배너는 여기서 닫지 않는다. 지급 결과를 pickRewardedCopy 의 성공 문구로 그 자리에
+     * 보여 준다 — 사진 스캔 진입 검사처럼 **재시도가 없는 경로**에서는 그 문구가 광고를
+     * 본 대가를 확인할 유일한 자리다.
+     */
+    const rewarded = useRewardedAd({
+        onGranted: () => {
+            const quota = useQuotaStore.getState();
+            const retry = quota.retryAfterReward;
+            quota.setRetryAfterReward(null);
+            retry?.();
+        },
+    });
+
+    /*
+     * 한도 배너에 무엇을 그릴지 한 번에 고른다.
+     *
+     * 🔑 판정을 JSX 삼항에 흩지 않는 이유는 rewarded-copy.ts 가 적어 둔 그대로다 —
+     * 제목·본문·버튼이 각자 계산하다 제목만 분기를 빠뜨려 서로 모순되는 화면이 나간
+     * 적이 있다. 광고 경로의 문구는 전역 모달과 **같은 pickRewardedCopy** 를 쓴다.
+     * 여기서 다시 고르면 같은 상황인데 화면마다 다른 말을 하게 된다.
+     *
+     * 'pro' 와 'ad' 는 새로 판정하지 않는다 — notifyQuotaExceeded 가 이미 가른 값을
+     * 그대로 받는다(features/quota/store.ts).
+     */
+    const quotaBanner = useMemo(() => {
+        if (!quotaBlock) return null;
+        if (quotaBlock === 'pro') {
+            // Pro 는 광고를 보지 않는다(Pro 약속 무결성) — 언제 돌아오는지만 말한다.
+            return {
+                icon: 'sparkles' as const,
+                title: t('ads.proLimitTitle'),
+                body: t('ads.proLimitBody', {
+                    used: quotaStatus?.month_used ?? 0,
+                    limit: quotaStatus?.month_limit ?? 0,
+                }),
+                cta: null,
+            };
+        }
+        const copy = pickRewardedCopy(quotaStatus, rewarded.grantedAmount);
+        return {
+            icon: copy.icon,
+            title: t(copy.titleKey, { amount: rewarded.grantedAmount ?? rewarded.rewardAmount }),
+            body: t(copy.bodyKey, {
+                amount: rewarded.rewardAmount,
+                used: quotaStatus?.used ?? 0,
+                limit: (quotaStatus?.limit ?? 0) + (quotaStatus?.bonus ?? 0),
+            }),
+            cta: copy.cta === 'watch'
+                ? { label: t('ads.rewardedCta', { amount: rewarded.rewardAmount }), icon: 'play-circle' as const, kind: 'watch' as const }
+                : copy.cta === 'pro'
+                    ? { label: t('ads.rewardedExhaustedProCta'), icon: 'sparkles' as const, kind: 'pro' as const }
+                    : null,
+        };
+    }, [quotaBlock, quotaStatus, rewarded.grantedAmount, rewarded.rewardAmount, t]);
+
+    const dismissQuotaBanner = useCallback(() => {
+        setQuotaBlock(null);
+        rewarded.reset();
+    }, [rewarded]);
+
     const [showExcel, setShowExcel] = useState(false);
     const [selectedListId, setSelectedListId] = useState(() => {
         if (listId) return listId;
@@ -809,6 +915,17 @@ export default function AddWordScreen() {
             );
             return;
         }
+        // 한도가 이미 0이면 사진 권한·촬영·업로드까지 진행시킨 뒤 막지 않는다.
+        // 🔴 "add-word 는 모달 바깥이라 전역 안내를 안전하게 띄울 수 있다"고 적혀 있었으나
+        // 틀렸다 — 이 화면 자체가 네이티브 fullScreenModal 이다(위 quotaBlock 주석).
+        // 안내는 아래 인라인 배너가 맡는다.
+        if (!apiKey) {
+            const latestQuota = useQuotaStore.getState().status;
+            if (getQuotaLeft(latestQuota) === 0) {
+                useQuotaStore.getState().notifyQuotaExceeded(latestQuota);
+                return;
+            }
+        }
         setPhotoSource(src);
     };
 
@@ -1047,6 +1164,54 @@ export default function AddWordScreen() {
                         </Pressable>
                     </View>
                 </View>
+
+                {/*
+                  * 한도 초과 안내. ScrollView 바깥에 둔다 — 스크롤을 내린 채로 한도에
+                  * 걸리면 목록 안에 있는 배너는 화면 밖이라 아무 일도 안 일어난 것으로
+                  * 보인다. 전역 모달을 못 쓰는 자리라 이 배너가 유일한 안내다.
+                  */}
+                {quotaBanner && (
+                    <View style={[styles.quotaBanner, { backgroundColor: colors.warningLight }]}>
+                        <View style={styles.quotaBannerRow}>
+                            <Ionicons name={quotaBanner.icon} size={20} color={colors.warning} />
+                            <View style={styles.quotaBannerTextCol}>
+                                <Text style={[styles.quotaBannerTitle, { color: colors.text }]}>{quotaBanner.title}</Text>
+                                <Text style={[styles.quotaBannerBody, { color: colors.textSecondary }]}>{quotaBanner.body}</Text>
+                                {!!rewarded.error && (
+                                    <Text style={[styles.quotaBannerError, { color: colors.error }]}>{rewarded.error}</Text>
+                                )}
+                            </View>
+                            <Pressable onPress={dismissQuotaBanner} hitSlop={10} accessibilityLabel={t('common.close')}>
+                                <Ionicons name="close" size={18} color={colors.textTertiary} />
+                            </Pressable>
+                        </View>
+
+                        {quotaBanner.cta && (
+                            <Pressable
+                                onPress={() => {
+                                    if (rewarded.loading) return;
+                                    if (quotaBanner.cta!.kind === 'watch') {
+                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                        rewarded.watch();
+                                        return;
+                                    }
+                                    // 오늘 볼 수 있는 광고를 다 봤다 — 남은 길은 Pro 뿐이다.
+                                    router.push('/plans');
+                                }}
+                                style={[styles.quotaBannerCta, { backgroundColor: colors.primaryButton, opacity: rewarded.loading ? 0.6 : 1 }]}
+                            >
+                                {rewarded.loading ? (
+                                    <ActivityIndicator size="small" color={colors.onPrimary} />
+                                ) : (
+                                    <>
+                                        <Ionicons name={quotaBanner.cta.icon} size={18} color={colors.onPrimary} />
+                                        <Text style={[styles.quotaBannerCtaText, { color: colors.onPrimary }]}>{quotaBanner.cta.label}</Text>
+                                    </>
+                                )}
+                            </Pressable>
+                        )}
+                    </View>
+                )}
 
                 <ScrollView
                     style={{ flex: 1 }}
@@ -1372,23 +1537,38 @@ export default function AddWordScreen() {
                                                     clearAccessibilityLabel={`${getMeaningLabel(targetLang, t)} ${t('common.delete')}`}
                                                     error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                                 />
-                                                {fallbackNotice && (
-                                                    <View style={styles.fallbackNotice}>
-                                                        <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} style={styles.fallbackNoticeIcon} />
-                                                        <Text style={[styles.fallbackNoticeText, { color: colors.textTertiary }]}>
-                                                            {fallbackNotice.text}
-                                                            {fallbackNotice.action ? ' ' : ''}
-                                                            {fallbackNotice.action && (
-                                                                <Text
-                                                                    onPress={fallbackNotice.onPress ?? undefined}
-                                                                    style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}
-                                                                >
-                                                                    {fallbackNotice.action}
-                                                                </Text>
-                                                            )}
-                                                        </Text>
-                                                    </View>
-                                                )}
+                                                {fallbackNotice && (() => {
+                                                    // 탭 영역은 안내 줄 **전체**다. 액션만 누르게 두면 12px 글자 한 낱말이
+                                                    // 유일한 과녁이 되는데, RN 의 Text 에는 hitSlop 이 없어(0.81 기준
+                                                    // pressRetentionOffset 뿐) 넓힐 방법도 없다.
+                                                    const body = (
+                                                        <>
+                                                            <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} style={styles.fallbackNoticeIcon} />
+                                                            <Text style={[styles.fallbackNoticeText, { color: colors.textTertiary }]}>
+                                                                {fallbackNotice.text}
+                                                                {fallbackNotice.action ? ' ' : ''}
+                                                                {fallbackNotice.action && (
+                                                                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
+                                                                        {fallbackNotice.action}
+                                                                    </Text>
+                                                                )}
+                                                            </Text>
+                                                        </>
+                                                    );
+                                                    if (!fallbackNotice.onPress) {
+                                                        return <View style={styles.fallbackNotice}>{body}</View>;
+                                                    }
+                                                    return (
+                                                        <Pressable
+                                                            onPress={fallbackNotice.onPress}
+                                                            accessibilityRole="button"
+                                                            accessibilityLabel={`${fallbackNotice.text} ${fallbackNotice.action ?? ''}`.trim()}
+                                                            style={({ pressed }) => [styles.fallbackNotice, styles.fallbackNoticeTappable, pressed && { opacity: 0.6 }]}
+                                                        >
+                                                            {body}
+                                                        </Pressable>
+                                                    );
+                                                })()}
                                             </View>
                                         );
                                     }
@@ -1882,6 +2062,16 @@ const styles = StyleSheet.create({
     placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
     // 하단 여백은 FAB이 덮는 높이에 맞춰 호출부에서 `fabReserve`로 덮어쓴다.
     scrollContent: { padding: 20 },
+    // 한도 배너. 좌우 20 은 topBar·scrollContent 와 같은 값이다 — 화면에서 유일하게
+    // ScrollView 밖에 있는 블록이라, 여기만 다른 값을 쓰면 아래 내용과 어긋나 보인다.
+    quotaBanner: { gap: 10, marginHorizontal: 20, marginTop: 12, padding: 12, borderRadius: 12 },
+    quotaBannerRow: { flexDirection: 'row', gap: 10, alignItems: 'flex-start' },
+    quotaBannerTextCol: { flex: 1, gap: 3 },
+    quotaBannerTitle: { fontSize: 14, fontFamily: 'Pretendard_700Bold' },
+    quotaBannerBody: { fontSize: 13, lineHeight: 18, fontFamily: 'Pretendard_400Regular' },
+    quotaBannerError: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
+    quotaBannerCta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 12, borderRadius: 12 },
+    quotaBannerCtaText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
@@ -1889,6 +2079,9 @@ const styles = StyleSheet.create({
     // 부모 fieldsContainer의 gap:10이 준다. 그래서 위로만 6을 띄우고 아래는 두지 않는다
     // — 음수 마진을 주면 입력칸을 파고들고, 아래 마진을 주면 부모 gap과 겹쳐 벌어진다.
     fallbackNotice: { flexDirection: 'row', alignItems: 'flex-start', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    // 누를 수 있는 안내는 위 여백 일부를 padding으로 옮겨 과녁을 키운다(글자 높이 17 → 29+).
+    // 위치는 그대로 두려고 marginTop을 그만큼 줄인다 — 총 여백 6 → 8.
+    fallbackNoticeTappable: { marginTop: 2, paddingVertical: 6 },
     fallbackNoticeIcon: { marginTop: 1 },
     fallbackNoticeText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },

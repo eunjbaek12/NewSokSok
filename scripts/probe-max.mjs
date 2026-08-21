@@ -1,6 +1,7 @@
 import fs from 'fs';
+import { scriptGenerateContentUrl } from './_shared/model.mjs';
 const apiKey = fs.readFileSync('.env','utf8').match(/EXPO_PUBLIC_GEMINI_API_KEY=(.*)/)?.[1].trim();
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
+const url = scriptGenerateContentUrl(apiKey);
 
 async function probe(wordCount) {
   const prompt = `성인 학습자가 'travel' 상황에서 사용할 수 있는 중급 수준의 영어 단어 ${wordCount}개를 생성해줘.

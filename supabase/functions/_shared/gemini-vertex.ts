@@ -14,6 +14,24 @@ const LANG_NAME: Record<string, string> = {
   en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
 };
 
+// 예문의 화계(speech level). 지시가 없으면 모델이 문장마다 임의로 고르고, 초급 학습자는
+// 교재가 먼저 가르치는 화계와 어긋난 예문을 받는다(2026-08-17 제보: 세종한국어 교재로
+// 공부하는 ko>en 학습자 — 이 앱의 2위 언어쌍이다).
+// 화계가 문법적으로 필수인 언어만 넣는다. 영어·중국어는 필수가 아니고, 스페인어(tú/usted)는
+// UI 번역을 tú로 통일해 둔 터라 예문만 usted로 갈라지면 오히려 어긋난다.
+// ⚠️ 같은 함수가 4개 파일에 복제돼 있다 — __tests__/register-note-sync.test.ts 가 강제한다.
+const REGISTER_LEVEL: Record<string, string> = {
+  ko: 'Korean 해요체 (-아요/-어요/-예요/-세요) — never 합쇼체 (-습니다/-ㅂ니다) and never 반말',
+  ja: 'Japanese です/ます — never 常体 (だ/である)',
+};
+
+function buildRegisterNote(sourceLang: string): string {
+  const level = REGISTER_LEVEL[sourceLang];
+  if (!level) return '';
+  return `
+REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
+}
+
 // 동음이의어 뜻 후보 1개(단일 뜻 기준, 내부 번호 없음). 클라이언트 WordSenseSchema와 동일 형태.
 export interface AnalyzedSense {
   meaningKr: string;
@@ -53,6 +71,7 @@ export async function analyzeWord(
   const tgtName = LANG_NAME[targetLang] ?? targetLang;
   // 검색(enrich)도 생성과 동일한 언어별 발음 표기 규칙을 따르게 통일.
   const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기 (IPA)';
+  const registerNote = buildRegisterNote(sourceLang);
 
   const token = await getVertexAccessToken();
 
@@ -60,7 +79,7 @@ export async function analyzeWord(
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
     `/locations/${location}/publishers/google/models/${model}:generateContent`;
 
-  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr, allowProperNouns);
+  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr, allowProperNouns, registerNote);
 
   const body = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -147,6 +166,7 @@ function buildPrompt(
   tgtName: string,
   phoneticInstr: string,
   allowProperNouns: boolean,
+  registerNote: string,
 ): string {
   const sameLang = srcName === tgtName;
   // 같은 언어쌍은 "번역" 지시가 무의미(no-op)해서 모델이 영어로 이탈하는 실측
@@ -177,6 +197,7 @@ When isReal is true, provide:
 4. The part of speech (pos), ALWAYS written in English: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom. The app groups and filters words by these exact English terms, so a translated label ("sustantivo", "名詞", "danh từ", "명사") is unusable. This applies to every "pos" inside "senses" too.
 5. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 6. A translation of the example sentence in ${tgtName}.
+${registerNote}
 
 HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
 - FIRST fix N, the number of distinct senses you will report (2 or 3). N then binds every field: the "senses" array MUST hold exactly N entries, and the numbered lists in "definition" and "meaningKr" MUST hold exactly N items in the same order. The app draws one chip per array entry and shows the numbered text beside them, so 3 entries with only ①② written out leaves a chip that nothing explains.
@@ -266,6 +287,24 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
   es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 
+// 🔴 한국어 라벨(`${tgtLabel} 뜻`)만으로는 부족하다 — 모델이 필드 **이름**의 Kr/En 을
+// 언어 지시로 읽고 라벨을 이긴다. 실측(2026-08-17, 이 모델·temp 0.7): en>en 6/6 이 뜻을
+// 한국어로, en>es 는 예문 번역을 한국어로 냈다. 주제어를 영어로 넣어도 같았으므로 원인은
+// 주제어가 아니라 필드명이다. analyzeWord 쪽 반박 블록과 같은 문구를 쓴다.
+// 같은 프롬프트가 3곳에 복제돼 있다 — __tests__/generate-prompt-legacy-field-sync.test.ts 가 강제한다.
+function buildLegacyFieldNote(sourceLang: string, targetLang: string): string {
+  const srcName = LANG_NAME[sourceLang] ?? sourceLang;
+  const tgtName = LANG_NAME[targetLang] ?? targetLang;
+  // tags 는 예외로 두지 않는다 — 주제어를 그대로 태그로 쓰는 게 기본이고(클라이언트가
+  // tags 가 비면 query 로 채운다), 예외를 늘리면 "pos 만 영어" 지시가 흐려진다.
+  return `
+  IMPORTANT — Field naming is legacy and MUST be ignored:
+  - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
+  - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
+  - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
+  Use ONLY ${srcName}${sourceLang === targetLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos", which stays in English.`;
+}
+
 function buildGeneratePrompt(
   query: string,
   wordCount: number,
@@ -278,13 +317,15 @@ function buildGeneratePrompt(
   const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
   const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
   const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+  // same-lang 지시는 반박 블록 **뒤**에 온다 — exampleKr 에 대해 두 지시가 충돌하므로
+  // (번역하라 vs 빈 문자열) 나중에 오는 쪽이 이기게 한다. analyzeWord 도 같은 순서다.
   const sameLangNote = sourceLang === targetLang
     ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
     : '';
   const excludeNote = excludeTerms && excludeTerms.length > 0
     ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
     : '';
-  return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
+  return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${excludeNote}
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
   - pos: 품사 — 영어 전체 단어로 (예: noun, verb, adjective, adverb)
@@ -294,7 +335,8 @@ function buildGeneratePrompt(
   - exampleEn: ${srcLabel} 예문
   - exampleKr: 위 예문의 ${tgtLabel} 번역
   - tags: 주제 태그 배열
-  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]
+${buildRegisterNote(sourceLang)}${buildLegacyFieldNote(sourceLang, targetLang)}${sameLangNote}`;
 }
 
 // ────────────────────────────────────────────────────────────

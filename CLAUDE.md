@@ -134,6 +134,16 @@ in code review and only show up on a device.
 - **Nest modal-over-modal as children, never siblings.** Two sibling RN `Modal`s
   shown at once leave the second invisible on iOS. Render a picker inside the parent
   modal's `children`.
+- **Never trigger an app-root global modal from inside another modal.** Same iOS
+  constraint as above, but worse — and it cannot be fixed by nesting, because the
+  global modal (`RewardedAdModal` / `ProLimitReachedModal` in `app/_layout.tsx`) is
+  mounted at the root by design. RN marks it `_isPresented = YES` whether or not the
+  present succeeded (`RCTModalHostViewComponentView.mm:156`), so after one failure it
+  will never present *or* dismiss again: on iOS the app went untouchable until a force
+  quit. Screens that run inside a modal register `inlineQuotaHandler`
+  (`features/quota/store.ts`) and render the prompt inline instead — see the AI word
+  generation banner in `features/curation/screen.tsx`. *(AdMob's own full-screen ads
+  are fine over a modal — they present from the topmost VC. Only our modals break.)*
 - **Colors come from tokens.** Inline hex is blocked by lint (`no-restricted-syntax`);
   use `colors.X` from `@/features/theme`.
 - **A View with `backgroundColor` + `borderRadius` can still render square on Android (New

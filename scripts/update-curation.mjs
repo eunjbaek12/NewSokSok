@@ -6,6 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { scriptGenerateContentUrl } from './_shared/model.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
@@ -16,7 +17,7 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${API_KEY}`;
+const GEMINI_URL = scriptGenerateContentUrl(API_KEY);
 
 async function fetchPhoneticAndPos(words) {
     const wordList = words.map(w => w.term);

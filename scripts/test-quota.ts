@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { scriptGenerateContentUrl } from './_shared/model';
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';
@@ -9,7 +10,7 @@ if (fs.existsSync(envPath)) {
     if (match) GEMINI_API_KEY = match[1].trim();
 }
 
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
+const url = scriptGenerateContentUrl(GEMINI_API_KEY);
 
 const testQuota = async () => {
     const payload = {

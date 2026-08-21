@@ -84,3 +84,52 @@ describe('서버 기본 모델', () => {
     expect(m[1]).toBe(EXPECTED_VERTEX_DEFAULT);
   });
 });
+
+/**
+ * scripts/ 도 같은 규칙을 받는다.
+ *
+ * 이 검사는 원래 없었다 — 위 주석이 "scripts/ 는 운영자 도구라 사용자에게 안 닿는다"며
+ * 일부러 범위에서 뺐다. 그 판단은 2026-08-19 에 청구서로 돌아왔다: gemini-2.5 계열이
+ * 신규 GCP 프로젝트에서 404 가 되자(`no longer available to new users`) 각자 문자열을
+ * 들고 있던 스크립트 **36개가 한꺼번에 죽었다**. 안 닿는 것과 안 죽는 것은 다르다.
+ *
+ * 🔑 주석은 검사에서 뺀다. 옛 모델명이 **역사 서술로** 등장하기 때문이다 — 예컨대
+ *    translate-ko-ladder-vocab.ts 의 LEVEL_SPEC 주석은 "옛 덱도 gemini-2.5-flash 로
+ *    만들어서 길이가 맞았다"는 사실을 남겨야 하고, 그 문장이 규칙 위반이 되면 안 된다.
+ */
+describe('스크립트 모델명은 scripts/_shared/model 에서만 선언된다', () => {
+  const root = process.cwd();
+  const MODEL_TS = 'scripts/_shared/model.ts';
+  const MODEL_MJS = 'scripts/_shared/model.mjs';
+  const ALLOWED_SCRIPT = new Set([MODEL_TS, MODEL_MJS]);
+
+  /** 주석 밖의 코드만 남긴다. 줄 주석은 줄머리만 보므로 URL 의 `//` 는 살아남는다. */
+  const stripComments = (src: string) =>
+    src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+
+  const scriptFiles = readdirSync(join(root, 'scripts'))
+    .filter((n) => /\.(ts|mjs)$/.test(n))
+    .map((n) => `scripts/${n}`);
+
+  it('scripts/ 목록이 비어 있지 않다 — 검사가 빈 통을 지키지 않게', () => {
+    expect(scriptFiles.length).toBeGreaterThan(20);
+  });
+
+  it('코드에 모델명 리터럴이 _shared/model 밖에 없다', () => {
+    const offenders = scriptFiles
+      .filter((f) => !ALLOWED_SCRIPT.has(f))
+      .filter((f) => MODEL_LITERAL.test(stripComments(readFileSync(join(root, f), 'utf8'))));
+    expect(offenders).toEqual([]);
+  });
+
+  it('model.ts 와 model.mjs 가 같은 값을 들고 있다', () => {
+    const pick = (file: string) => {
+      const src = readFileSync(join(root, file), 'utf8');
+      const m = /export const SCRIPT_GEMINI_MODEL = '([^']+)'/.exec(src);
+      if (!m) throw new Error(`${file}: SCRIPT_GEMINI_MODEL 선언을 못 찾았습니다`);
+      return m[1];
+    };
+    // .mjs 는 TS 를 import 할 수 없어 값을 한 번 더 적는다. 갈라지면 여기서 걸린다.
+    expect(pick(MODEL_MJS)).toBe(pick(MODEL_TS));
+  });
+});

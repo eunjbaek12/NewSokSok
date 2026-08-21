@@ -15,6 +15,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { scriptGenerateContentUrl } from './_shared/model';
 
 const limitArg = process.argv.find(a => a.startsWith('--limit='));
 const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
@@ -32,10 +33,10 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-// 모델별로 free tier RPD 카운터가 분리됨. gemini-flash-latest(=2.5-flash) quota 소진 시
-// gemini-2.5-flash-lite로 전환해 별도 quota 사용. 품질은 prod 앱(lib/ai/gemini-client.ts)이
-// 동일 모델 사용 중이라 검증된 수준.
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
+// 모델은 scripts/_shared/model.ts 한 곳에서 정한다.
+// (옛 주석은 "free tier RPD 카운터가 모델별로 분리되므로 flash 한도가 차면 flash-lite 로
+//  갈아탄다"고 적혀 있었다. 2026-08 유료 전환으로 그 이유가 사라졌다.)
+const API_URL = scriptGenerateContentUrl(GEMINI_API_KEY);
 const SOURCE_PATH = path.resolve(process.cwd(), 'scripts/vi-source.json');
 const OUTPUT_PATH = path.resolve(process.cwd(), 'scripts/vi-translated.json');
 const PROGRESS_PATH = path.resolve(process.cwd(), 'scripts/.vi-progress.json');

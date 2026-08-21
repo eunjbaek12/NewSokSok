@@ -13,6 +13,11 @@ import {
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
 import { supabase } from '@/lib/supabase';
+import {
+  forgetGuestSession,
+  rememberGuestSession,
+  restoreGuestSession,
+} from './guest-session-vault';
 
 const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
 // iOS Google Sign-In은 별도 OAuth 클라이언트(iOS type) 필요. 미설정 시 빈 문자열 →
@@ -155,6 +160,16 @@ async function persist(state: AuthState, setState: (p: Partial<AuthStoreState>) 
   await authStore.save(state);
 }
 
+async function rememberGuestSessionSafely(session: Parameters<typeof rememberGuestSession>[0]): Promise<void> {
+  try {
+    await rememberGuestSession(session);
+  } catch (e: any) {
+    // SecureStore 장애가 소셜 로그인을 막지는 않게 한다. 이 경우에만 나중 게스트 복원이
+    // 불가능할 수 있으므로 원인을 남긴다.
+    console.warn('[auth] guest session backup failed:', e?.message ?? e);
+  }
+}
+
 export const useAuthStore = create<AuthStoreState>((set) => ({
   mode: 'none',
   user: null,
@@ -183,15 +198,30 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     if (loaded.mode === 'guest' && session?.user?.is_anonymous) {
       // Guest data remains local-only, but the anonymous Supabase session owns
       // server quota and rewarded-ad state.
+      await rememberGuestSessionSafely(session);
       set({ mode: 'guest', user: null });
     } else if (loaded.mode === 'guest') {
       // Upgrade legacy device-only guests on first launch after this policy.
       // Local vocabulary stays untouched; only a server identity for quota and
       // rewarded-ad state is added.
       if (session) await supabase.auth.signOut({ scope: 'local' });
-      const { error } = await supabase.auth.signInAnonymously();
-      if (error) {
-        console.warn('[auth] anonymous guest session failed:', error.message);
+      let restored = false;
+      let restoreFailed = false;
+      try {
+        restored = !!(await restoreGuestSession());
+      } catch (e: any) {
+        // 일시적 네트워크 오류라면 저장 토큰을 보존하고 새 UUID도 만들지 않는다. 다음
+        // foreground/기능 호출에서 세션을 다시 회복할 여지를 남긴다.
+        restoreFailed = true;
+        console.warn('[auth] anonymous guest session restore failed:', e?.message ?? e);
+      }
+      if (!restored && !restoreFailed) {
+        const { data, error } = await supabase.auth.signInAnonymously();
+        if (error) {
+          console.warn('[auth] anonymous guest session failed:', error.message);
+        } else {
+          await rememberGuestSessionSafely(data.session);
+        }
       }
       set({ mode: 'guest', user: null });
     } else if (isCloudAuthMode(loaded.mode) && session?.user && !session.user.is_anonymous) {
@@ -206,7 +236,12 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       // Intent is 'none' (or a legacy guest without an anonymous session).
       // Honor it, and proactively clear any orphan
       // session a failed signOut left behind so it can't resurrect later.
-      if (session) {
+      //
+      // 🔴 단 익명 세션은 고아로 보지 않는다. 게스트가 로그아웃한 뒤의 정상 상태이고,
+      // 여기서 지우면 logout() 이 남겨 둔 세션이 다음 콜드 스타트에 사라져 한도 리셋이
+      // 되살아난다 — 두 곳을 함께 고쳐야 하는 이유가 이것이다. 클라우드 세션 부활
+      // (@soksok_auth 가 SoT) 방어는 그대로다: 그쪽은 is_anonymous 가 false 다.
+      if (session && !session.user?.is_anonymous) {
         try { await supabase.auth.signOut({ scope: 'local' }); } catch {}
       }
       set({ mode: loaded.mode, user: null });
@@ -229,6 +264,9 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
         }
       } else if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
         if (session.user.is_anonymous) {
+          // refresh token은 사용할 때마다 회전한다. Google 로그인 전에 저장한 값이 오래된
+          // 토큰이 되지 않도록 익명 세션이 현재일 때마다 최신값을 보관한다.
+          await rememberGuestSessionSafely(session);
           // Anonymous SIGNED_IN belongs to guest mode. Never interpret it as a
           // Google login and never attach a cloud-sync user to it.
           if (useAuthStore.getState().mode === 'guest') return;
@@ -248,16 +286,27 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
 
   loginAsGuest: async () => {
     const { data: { session } } = await supabase.auth.getSession();
-    if (!session?.user?.is_anonymous) {
+    if (session?.user?.is_anonymous) {
+      await rememberGuestSessionSafely(session);
+    } else {
       if (session) await supabase.auth.signOut({ scope: 'local' });
-      const { error } = await supabase.auth.signInAnonymously();
-      if (error) throw error;
+      const restored = await restoreGuestSession();
+      if (!restored) {
+        const { data, error } = await supabase.auth.signInAnonymously();
+        if (error) throw error;
+        await rememberGuestSessionSafely(data.session);
+      }
     }
     await persist({ mode: 'guest', user: null }, set);
   },
 
   signInWithGoogle: async () => {
     if (!GOOGLE_CLIENT_ID) throw new Error('GOOGLE_CLIENT_ID_MISSING');
+
+    // signInWithIdToken은 현재 익명 세션을 Google 세션으로 교체한다. 그 전에 게스트
+    // refresh token을 별도로 남겨야 Google 로그아웃 뒤 같은 UUID/한도를 복원할 수 있다.
+    const { data: { session: currentSession } } = await supabase.auth.getSession();
+    await rememberGuestSessionSafely(currentSession);
 
     await GoogleSignin.hasPlayServices();
     // Force the account chooser on every sign-in. logout()'s GoogleSignin.signOut()
@@ -285,6 +334,9 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // iOS only. Android·web에선 isAvailableAsync가 false라 호출부에서 막혀
     // 이 분기 도달 X. 여기서 한번 더 가드.
     if (Platform.OS !== 'ios') throw new Error('APPLE_SIGNIN_UNSUPPORTED');
+
+    const { data: { session: currentSession } } = await supabase.auth.getSession();
+    await rememberGuestSessionSafely(currentSession);
 
     // Apple Sign In은 nonce 필수 — Supabase가 raw nonce를 그대로 받아
     // identity token의 sha256 nonce와 매칭. raw를 클라이언트에서 만들고
@@ -450,7 +502,14 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    GoogleSignin.signOut()을 기다리는 사이에 게스트가 시작됐다면, 이 호출은 그 게스트의
     //    익명 세션까지 지워 버린다 — 서버엔 익명 계정만 남고 앱은 세션을 잃어, 다시 누르면
     //    익명 계정이 또 만들어진다(실제로 12초 간격 2건 관측).
-    if (useAuthStore.getState().mode === 'none') {
+    //    🔴 그리고 게스트에서 나온 것이라면 익명 세션을 **남긴다**. 지우면 재진입 때
+    //    loginAsGuest 가 새 익명 계정을 만들어 AI 한도가 0에서 다시 시작한다
+    //    (실측 8/13: 한도 10 소진 → 광고 보너스 10 소진 → 12분 뒤 새 계정에서 10을 또 씀
+    //    = 12분에 30단어). 로컬 단어는 그대로 남으니 사용자에겐 "다시 시작하기"로 보이고,
+    //    한도 10은 사진 스캔 한 장이면 소진돼 정상 사용자가 자연히 이 경로에 닿는다.
+    //    세션이 남아도 앱 동작에는 영향이 없다 — mode(@soksok_auth)가 SoT 라 화면은
+    //    로그아웃 상태이고, 그 세션은 다음 게스트 진입에서 재사용될 뿐이다.
+    if (wasCloudAuth && useAuthStore.getState().mode === 'none') {
       try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
         console.warn('[auth] supabase signOut failed:', e?.message ?? e);
       }
@@ -485,6 +544,9 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       useQuotaStore.getState().clear();
     } catch (e: any) {
       console.warn('[auth] delete-account store reset failed:', e?.message ?? e);
+    }
+    try { await forgetGuestSession(); } catch (e: any) {
+      console.warn('[auth] guest session credential clear failed:', e?.message ?? e);
     }
 
     // device-preference까지 전부 wipe. clearAccountScopedSettings는

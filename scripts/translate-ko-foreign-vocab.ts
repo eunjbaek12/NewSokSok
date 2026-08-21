@@ -16,6 +16,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { resolveScriptModel } from './_shared/model';
 
 type Lang = 'zh' | 'ja' | 'vi';
 
@@ -31,7 +32,7 @@ const LIMIT = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
 
 // flash와 flash-lite는 별도 RPD 버킷 — flash 소진 시 --model=lite로 같은 날 이어감.
 const modelArg = process.argv.find(a => a.startsWith('--model='));
-const MODEL = (modelArg?.split('=')[1] === 'lite') ? 'gemini-2.5-flash-lite' : 'gemini-2.5-flash';
+const MODEL = resolveScriptModel();
 
 const envPath = path.resolve(process.cwd(), '.env');
 let GEMINI_API_KEY = '';

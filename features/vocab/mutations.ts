@@ -116,7 +116,15 @@ export async function createCuratedList(
 ): Promise<VocaList> {
   assertListTitle(title);
   await assertTitleUnique(title);
-  const newList = await db.createCuratedList(title, icon, words, options);
+  // 🔴 addBatchWords 와 **똑같이** 정제한다. 큐레이션 덱을 담는 길은 둘인데
+  //    (「기존 단어장에 추가」→ addBatchWords, 「새 단어장 만들기」→ 여기) 여기만
+  //    정제를 안 타서, 같은 덱이 어느 버튼을 눌렀느냐에 따라 갈렸다. 서버 덱의
+  //    definition 에는 AI 가 넣은 개행이 남아 있고(실측 official_words 51행),
+  //    그게 그대로 저장되면 cloud_words 의 CHECK(chk_..._noctrl)에 걸려 **그 뒤
+  //    모든 push 가 영구 실패**한다 — 청크 upsert 가 throw 하고 dirty 는 남는다.
+  const clean = words.map(sanitizeWordForSave);
+  for (const w of clean) WordSaveSchema.parse(w);
+  const newList = await db.createCuratedList(title, icon, clean, options);
   markListsDirty([newList.id]);
   markWordsDirty(newList.words.map(w => w.id));
   await commit();

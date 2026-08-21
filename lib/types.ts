@@ -79,6 +79,9 @@ export interface AutoFillResult {
   // 모델이 "이 단어는 사전에 존재하지 않는다"고 판단한 경우 false.
   // true/undefined는 실재로 간주. UI 분기(찾지 못함 vs 자동완성 실패)용.
   isReal?: boolean;
+  // 사진 스캔 배치에서만: 서버 한도가 중간에 소진돼 이 항목을 카드/저장 대상에서
+  // 다시 대기 목록으로 돌려야 한다. 일반 자동완성의 사전 폴백에는 쓰지 않는다.
+  photoQuotaExceeded?: boolean;
   // 동음이의어 뜻 후보(2개 이상일 때만 존재). 상위 필드는 병기(①②) 결과 그대로이고,
   // add-word가 이 배열로 인라인 뜻 제안 칩을 띄운다. lib/senses.ts 참조.
   senses?: WordSense[];

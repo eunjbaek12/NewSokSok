@@ -1,4 +1,4 @@
-import { segmentExample, canBlankExample, spokenExample } from '../lib/example-blank';
+import { segmentExample, exampleFrame, canBlankExample, spokenExample } from '../lib/example-blank';
 
 /** 빈칸을 [?]로 치환한 표시 문자열 — 화면에 보이는 모양 그대로 검증한다. */
 function view(sentence: string, term: string): string | null {
@@ -188,5 +188,56 @@ describe('spokenExample — 정답 공개 전에는 빈칸을 읽지 않는다',
     expect(spokenExample(S, null, false)).toBe('');
     // 표제어가 없어도 공개 상태면 문장은 읽을 수 있다.
     expect(spokenExample(S, null, true)).toBe(S);
+  });
+});
+
+// ── exampleFrame ─────────────────────────────────────────────────────────────
+// 선택지 다중정답 판정용(features/study/choices.ts 필터 A).
+// 아래 값은 전부 실제 반환값을 찍어 확인한 것이다.
+describe('exampleFrame', () => {
+  test('빈칸을 뺀 나머지를 돌려준다', () => {
+    expect(exampleFrame('국수 먹을까요?', '국수')).toBe('먹을까요?');
+    expect(exampleFrame('I want to eat noodles today.', 'noodles')).toBe('I want to eat today.');
+  });
+
+  test('문형이 같은 두 예문은 같은 값이 된다 — 이것이 확정 다중정답이다', () => {
+    // 서버 전수에서 "___ 주세요." 하나에만 7개 단어가 걸려 있었다.
+    expect(exampleFrame('비빔밥 주세요.', '비빔밥')).toBe(exampleFrame('영수증 주세요.', '영수증'));
+  });
+
+  test('구두점이 다르면 다른 문형이다', () => {
+    expect(exampleFrame('국수 먹을까요?', '국수')).not.toBe(exampleFrame('국수 먹을까요.', '국수'));
+  });
+
+  test('한국어 조사는 문형에 남는다', () => {
+    // "라면을 좋아해요." 는 "국수 먹을까요?" 와 문형이 다르다 — 이 쌍은 필터 A가 아니라
+    // 필터 B(주제 블록 근접)가 잡는 자리다. 제보 사례가 정확히 이 모양이었다.
+    expect(exampleFrame('라면을 좋아해요.', '라면')).toBe('을 좋아해요.');
+  });
+
+  test('활용형도 빈칸으로 인식한다', () => {
+    expect(exampleFrame('She signifies her intent.', 'signify')).toBe('She her intent.');
+  });
+
+  test('CJK는 이어붙일 때 공백이 생기지 않는다', () => {
+    // 세그먼트를 공백으로 이으면 원문에 없던 공백이 끼어 같은 문형이 서로 달라진다.
+    expect(exampleFrame('我吃面条了。', '面条')).toBe('我吃了。');
+    expect(exampleFrame('ラーメンを食べましょうか。', 'ラーメン')).toBe('を食べましょうか。');
+  });
+
+  test('병기 예문은 빈칸을 모두 뺀 형태가 된다', () => {
+    expect(exampleFrame('① 저녁으로 라면을 먹을까 합니다. ② 라면은 맛있다.', '라면'))
+      .toBe('① 저녁으로 을 먹을까 합니다. ② 은 맛있다.');
+  });
+
+  test('빈칸을 못 만들면 null', () => {
+    expect(exampleFrame('안녕하세요.', '국수')).toBeNull();
+    expect(exampleFrame('', '국수')).toBeNull();
+    expect(exampleFrame('국수 먹을까요?', '')).toBeNull();
+    expect(exampleFrame(null, '국수')).toBeNull();
+  });
+
+  test('남는 게 없으면 null — 빈 문자열을 돌려주면 서로 같은 문형으로 묶인다', () => {
+    expect(exampleFrame('국수', '국수')).toBeNull();
   });
 });

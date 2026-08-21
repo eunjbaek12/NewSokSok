@@ -825,7 +825,10 @@ export default function CurationScreen() {
         setQuotaBlock(null);
         setAiModalVisible(true);
         // 잔량으로 선택지를 잠글 참이라 값이 묵으면 안 된다(STALE 90초). 열 때 한 번 갱신.
-        void useQuotaStore.getState().refresh();
+        // 🔑 force 가 필요하다 — 그냥 refresh() 는 STALE 창 안이면 조기 반환해 버려서, 이
+        // 주석이 말하는 일을 하지 않는다. 다른 기기에서 쓴 분량이나 방금 notifyQuotaExceeded
+        // 가 새로 찍은 lastFetchedAt 때문에 최대 90초 묵은 값으로 칩을 잠글 수 있었다.
+        void useQuotaStore.getState().refresh(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
 
@@ -1004,7 +1007,10 @@ export default function CurationScreen() {
                 setSnackbar({ visible: true, message: t('curation.aiNoNewWords') });
                 return;
             }
-            setSelectedTheme(prev => prev ? { ...prev, words: fresh } : prev);
+            // wordCount 도 함께 맞춘다 — 헤더(nExpertWords)가 이 값을 읽으므로, words 만
+            // 갈아 끼우면 20개를 요청해 14개가 온 재생성에서 "20단어"라고 거짓말을 한다.
+            // 최초 생성과 같은 규칙(words.length)이다.
+            setSelectedTheme(prev => prev ? { ...prev, words: fresh, wordCount: fresh.length } : prev);
             if (fresh.length < lastGenParams.wordCount) {
                 setSnackbar({
                     visible: true,

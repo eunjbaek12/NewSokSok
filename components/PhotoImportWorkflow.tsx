@@ -273,9 +273,15 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         }
     };
 
-    const handleLoadMore = () => {
+    const handleLoadMore = (opts?: { fromReward?: boolean }) => {
         if (pendingTerms.length === 0) return;
-        if (rewarded.loading) return;
+        // 광고가 도는 중 버튼을 다시 누르는 것만 막는다(버튼에 disabled 가 없어 이 가드가
+        // 유일한 방지책이다). 🔴 보상 직후의 자동 재개는 통과시켜야 한다 — useRewardedAd 는
+        // onGranted 를 finally 의 setLoading(false) **앞에서** 부르므로(:102 vs :106),
+        // 그 시점에도 loading 은 여전히 true 다. 이 갈래가 없으면 광고를 끝까지 봐도
+        // 여기서 즉시 return 해 카드가 채워지지 않고, 사용자는 "더 불러오기"를 한 번 더
+        // 눌러야 한다(서버 보상은 이미 지급된 뒤다).
+        if (!opts?.fromReward && rewarded.loading) return;
         const left = currentQuotaLeft();
         if (left <= 0) {
             // 한도 소진 — 조용히 실패시키지 않고 광고를 바로 튼다. 광고 자체는 모달 위에서도
@@ -329,7 +335,8 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         enrichBatch(cards.map(c => ({ id: c.id, term: c.term })), handleEnrichUpdate, controller.signal);
     };
 
-    loadMoreRef.current = handleLoadMore;
+    // 보상 경로로 표시해 넘긴다 — 위 가드가 loading 을 이유로 되돌려보내지 않도록.
+    loadMoreRef.current = () => handleLoadMore({ fromReward: true });
 
     const handleCancelAnalysis = () => {
         abortControllerRef.current?.abort();
@@ -484,7 +491,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
                     {pendingTerms.length > 0 && (
                         <Pressable
-                            onPress={handleLoadMore}
+                            onPress={() => handleLoadMore()}
                             style={[styles.loadMoreBtn, { borderColor: colors.border, backgroundColor: colors.surface, opacity: rewarded.loading ? 0.6 : 1 }]}
                         >
                             {rewarded.loading ? (

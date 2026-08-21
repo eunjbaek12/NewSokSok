@@ -99,6 +99,11 @@ export function useRewardedAd(options?: Options) {
         await refreshQuota(true);
         if (!aliveRef.current) return;
         setGrantedAmount(granted);
+        // 🔴 onGranted 는 아래 finally 의 setLoading(false) **앞에서** 불린다 — 즉 콜백이
+        // 도는 동안 loading 은 아직 true 다. 호출부가 `if (loading) return` 같은 가드로
+        // 재진입을 막고 있으면 보상 후 재개가 그 가드에 걸려 조용히 아무 일도 일어나지
+        // 않는다(사진 스캔에서 실제로 그랬다 — PhotoImportWorkflow 의 fromReward 참고).
+        // 순서를 바꾸려면 세 호출부(add-word · curation · PhotoImportWorkflow)를 함께 볼 것.
         if (granted > 0) onGrantedRef.current?.(granted);
       } catch {
         if (aliveRef.current) setError(t('ads.rewardGrantFailed'));

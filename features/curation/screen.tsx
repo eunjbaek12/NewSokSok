@@ -37,6 +37,7 @@ import ReportCurationModal from './ReportCurationModal';
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
 import { SUPPORTED_LANGUAGES, getAiLanguageName, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
+import { pickMeaningLangFallback } from './meaning-lang-fallback';
 import { classifyGeminiQuotaError, quotaMetricOf } from '@/lib/ai/gemini-quota';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
@@ -648,6 +649,17 @@ export default function CurationScreen() {
         return counts;
         // 덱이 지연 로드라 처음엔 빈 배열이다 — 도착하면 다시 세야 한다.
     }, [curationPresets]);
+
+    // 고른 뜻 언어에 덱이 하나도 없을 때 건네줄 대안. 판정 근거는 함수 쪽에 적어 뒀다.
+    const meaningLangFallback = useMemo(
+        () => pickMeaningLangFallback(meaningLangCounts, aiTargetLang),
+        [meaningLangCounts, aiTargetLang],
+    );
+
+    // 공식 탭이 비었고 그 이유가 "이 뜻 언어엔 덱이 없다"일 때만 언어 안내를 쓴다.
+    const showMeaningLangEmpty = activeTab === 'official'
+        && filteredThemes.length === 0
+        && meaningLangFallback !== null;
 
     /* 덱이 하나도 없는 언어는 숨긴다 — 고르면 빈 화면이 되는 선택지다. 다만 지금
      * 고른 언어는 개수가 0이어도 남겨야 자기 상태가 보인다. */
@@ -1546,7 +1558,45 @@ export default function CurationScreen() {
                             );
                         })}
 
-                        {filteredThemes.length === 0 && (
+                        {/*
+                          * 빈 목록의 이유가 둘이라 안내도 둘이다.
+                          * ① 고른 뜻 언어에 덱이 아예 없다 → 무엇이 없고 어디에 있는지 말하고
+                          *    한 탭으로 옮겨 준다. 검색과 무관하므로 검색어가 있어도 이쪽이 맞다
+                          *    (0개짜리 언어에서는 무엇을 검색해도 0이다).
+                          * ② 그 밖의 이유(검색어·배울 언어 칩) → 지금까지처럼 "결과 없음".
+                          * 🔑 조건을 JSX 삼항에 넣지 않고 위에서 값으로 만든다 — 판정을 화면
+                          *    안에 흩으면 나중에 한쪽만 고쳐 서로 어긋난다(rewarded-copy.ts 주석).
+                          */}
+                        {showMeaningLangEmpty && (
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32, gap: 8 }}>
+                                <Ionicons name="language-outline" size={48} color={colors.textTertiary} />
+                                <Text style={{ marginTop: 8, color: colors.text, fontFamily: 'Pretendard_600SemiBold', fontSize: 15, textAlign: 'center' }}>
+                                    {t('curation.noDeckForMeaningLang', { lang: getLanguageLabel(aiTargetLang, t) })}
+                                </Text>
+                                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_400Regular', fontSize: 13, lineHeight: 19, textAlign: 'center' }}>
+                                    {t('curation.noDeckForMeaningLangBody', {
+                                        lang: getLanguageLabel(meaningLangFallback!.code, t),
+                                        count: meaningLangFallback!.count,
+                                    })}
+                                </Text>
+                                <Pressable
+                                    onPress={() => {
+                                        Haptics.selectionAsync();
+                                        void updateAiCurationSettings({ targetLang: meaningLangFallback!.code });
+                                    }}
+                                    style={({ pressed }) => [
+                                        styles.tailAiBtn,
+                                        { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1, marginTop: 4 },
+                                    ]}
+                                >
+                                    <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>
+                                        {t('curation.showMeaningLangDecks', { lang: getLanguageLabel(meaningLangFallback!.code, t) })}
+                                    </Text>
+                                </Pressable>
+                            </View>
+                        )}
+
+                        {filteredThemes.length === 0 && !showMeaningLangEmpty && (
                             <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>

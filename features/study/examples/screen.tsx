@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
 import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import type { LayoutChangeEvent, TextLayoutEvent } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -28,24 +29,28 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
+import { SENTENCE_SIZES, nextSentenceStep, type SentenceSize } from './sentence-size';
 
-function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any }) {
+function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors, size, onTextLayout }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any; size: SentenceSize; onTextLayout?: (e: TextLayoutEvent) => void }) {
   // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
   const segments = React.useMemo(() => segmentExample(sentence, term), [sentence, term]);
+  // 글자 크기는 화면이 재서 내려 준다(SENTENCE_SIZES 주석 참조). 빈칸 박스도 같은 단계를
+  // 따라야 글자만 작아지고 `?`만 커 보이는 일이 없다.
+  const textSize = { fontSize: size.fontSize, lineHeight: size.lineHeight };
 
   // 빈칸을 못 만드는 예문은 출제 목록에서 이미 걸러진다(canBlankExample). 그래도 남았다면
   // 문장을 그대로 띄우는 건 곧 정답 공개이므로, 정답 공개 단계에서만 보여준다.
   if (!segments) {
     if (!showTerm) return null;
-    return <Text style={[styles.exampleText, { color: textColor }]}>{sentence}</Text>;
+    return <Text style={[styles.exampleText, textSize, { color: textColor }]} onTextLayout={onTextLayout}>{sentence}</Text>;
   }
 
   return (
-    <Text style={[styles.exampleText, { color: textColor }]}>
+    <Text style={[styles.exampleText, textSize, { color: textColor }]} onTextLayout={onTextLayout}>
       {segments.map((seg, i) => {
         if (!seg.isBlank) return <Text key={i}>{seg.text}</Text>;
         if (showTerm) {
-          return <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{seg.text}</Text>;
+          return <Text key={i} style={[styles.highlightedWord, textSize, { color: primaryColor }]}>{seg.text}</Text>;
         }
         // 빈칸은 언제나 `?`다. 예전에는 힌트(뜻)를 이 박스 **안에** 렌더했는데, 박스가
         // <Text> 안의 인라인 View라 줄바꿈되지 않아 뜻이 길면 폭을 넘겨 잘렸다
@@ -55,9 +60,10 @@ function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm
         const box = (key?: number) => (
           <View key={key} style={[
             styles.blankBox,
+            { minWidth: size.blankW, minHeight: size.blankH, top: size.blankTop },
             { backgroundColor: colors.surfaceSecondary, borderColor: colors.border },
           ]}>
-            <Text style={[styles.blankText, { color: colors.textTertiary }]}>?</Text>
+            <Text style={[styles.blankText, { fontSize: size.blankFont, color: colors.textTertiary }]}>?</Text>
           </View>
         );
         return onPressBlank ? (
@@ -138,6 +144,12 @@ export default function ExamplesScreen() {
   const [batchAnswers, setBatchAnswers] = useState<Record<number, { selectedId: string; isCorrect: boolean }>>({});
   const [isNewAnswer, setIsNewAnswer] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  // 문장 글자 크기 단계(SENTENCE_SIZES의 인덱스). 카드에 안 들어가면 한 단계씩 내린다.
+  const [sentenceStep, setSentenceStep] = useState(0);
+  // 문장 영역에 **실제로 허용된** 높이(px). 카드가 줄면 이 값도 함께 줄어든다.
+  const sentenceBoxHeight = useRef(0);
+  // 지금 크기로 문장이 몇 줄이 됐는지. 위 높이와 짝을 이뤄 축소 여부를 가른다.
+  const sentenceLines = useRef(0);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const sessionCompletedRef = useAbandonRecord(results);
@@ -467,7 +479,42 @@ export default function ExamplesScreen() {
 
   useEffect(() => {
     setShowHint(false);
+    // 다음 문장은 짧을 수 있으므로 크기도 원래대로 되돌린다. 안 되돌리면 한 번 긴 문장을
+    // 만난 뒤 세션 내내 작은 글자로 남는다. 줄 수도 함께 버린다 — 앞 문장의 줄 수로
+    // 판정하면 새 문장이 도착하기 전에 엉뚱하게 한 단계 내려간다.
+    setSentenceStep(0);
+    sentenceLines.current = 0;
   }, [currentIndex, currentBatchIndex]);
+
+  const sentenceSize = SENTENCE_SIZES[sentenceStep];
+
+  /*
+   * 문장이 자기 영역보다 높으면 한 단계 줄인다.
+   *
+   * 🔑 줄 수가 아니라 **높이**로 판정한다 — "몇 줄까지 되는가"는 기기마다 다르고(화면이
+   *    짧으면 카드도 짧다) 배너 광고 유무로도 달라진다. 실제로 허용된 높이를 재서 쓴다.
+   * 🔴 재료가 둘(문장 줄 수 · 영역 높이)이고 **어느 쪽 콜백이 먼저 올지는 보장되지 않는다.**
+   *    그래서 각자 ref에 적어 두고 판정은 공용 함수 하나로 한다 — onTextLayout만 보고
+   *    판정하면 높이가 아직 0인 첫 프레임에 그냥 지나쳐 버리고, 그 뒤로는 다시 안 온다.
+   * 단계 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도
+   * 넘치면 그대로 두고 sentenceBox가 잘라 낸다(카드 밖으로 나가는 것보다 낫다).
+   */
+  const reconcileSentenceSize = useCallback(() => {
+    const lines = sentenceLines.current;
+    const available = sentenceBoxHeight.current;
+    if (!lines || !available) return;
+    setSentenceStep(step => nextSentenceStep(step, lines, available));
+  }, []);
+
+  const handleSentenceBoxLayout = useCallback((e: LayoutChangeEvent) => {
+    sentenceBoxHeight.current = e.nativeEvent.layout.height;
+    reconcileSentenceSize();
+  }, [reconcileSentenceSize]);
+
+  const handleSentenceTextLayout = useCallback((e: TextLayoutEvent) => {
+    sentenceLines.current = e.nativeEvent.lines?.length ?? 0;
+    reconcileSentenceSize();
+  }, [reconcileSentenceSize]);
 
   // 학습 중 목록이 줄면(필터 변경·동기화 삭제) 현재 인덱스가 범위를 벗어날 수 있다.
   // 아래 렌더 가드만 두면 빈 화면에 갇히므로 여기서 첫 카드로 되돌린다.
@@ -616,16 +663,25 @@ export default function ExamplesScreen() {
             </Pressable>
 
             {senseView.exampleEn ? (
-              <View style={{ gap: 12, alignItems: 'center', width: '100%' }}>
-                <HighlightedSentence
-                  sentence={senseView.exampleEn}
-                  term={currentWord.term}
-                  primaryColor={colors.primary}
-                  textColor={colors.text}
-                  showTerm={isRevealed}
-                  onPressBlank={() => setShowHint(prev => !prev)}
-                  colors={colors}
-                />
+              /*
+               * 카드가 줄어들 때 **줄어드는 쪽은 문장뿐**이다. RN의 flexShrink 기본값이 0이라
+               * 힌트·번역·스피커는 그대로 남고, 문장 영역만 sentenceBox의 flexShrink로 양보한다.
+               * 이 배치가 없으면 카드는 줄어드는데 내용은 안 줄어 스피커가 카드 밖에 그려졌다.
+               */
+              <View style={styles.cardBody}>
+                <View style={styles.sentenceBox} onLayout={handleSentenceBoxLayout}>
+                  <HighlightedSentence
+                    sentence={senseView.exampleEn}
+                    term={currentWord.term}
+                    primaryColor={colors.primary}
+                    textColor={colors.text}
+                    showTerm={isRevealed}
+                    onPressBlank={() => setShowHint(prev => !prev)}
+                    colors={colors}
+                    size={sentenceSize}
+                    onTextLayout={handleSentenceTextLayout}
+                  />
+                </View>
 
                 {/*
                   힌트는 빈칸 안이 아니라 문장 아래 한 줄로 나온다(P8). 정답이 이미 보이는
@@ -877,6 +933,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
+  // 카드 안의 세로 묶음. 카드가 줄면 이 묶음도 함께 줄어야(minHeight 0) 아래의
+  // sentenceBox가 양보할 기회를 갖는다 — Yoga는 minHeight 기본값이 auto라 이걸 안 주면
+  // 자식이 요구한 만큼 버티고 그대로 넘친다.
+  cardBody: {
+    width: '100%',
+    alignItems: 'center',
+    gap: 12,
+    flexShrink: 1,
+    minHeight: 0,
+  },
+  // 부족분을 흡수하는 유일한 칸. 마지막 크기 단계에서도 넘치면 여기서 잘라 낸다 —
+  // 카드 밖에 그리는 것보다 낫다(overflow 기본값이 visible이라 명시해야 한다).
+  sentenceBox: {
+    width: '100%',
+    flexShrink: 1,
+    minHeight: 0,
+    // 잘라 내야 할 때 **꼬리를 버린다**. center로 두면 위아래를 같이 깎아 문장 첫머리까지
+    // 사라진다. 안 잘리는 평소에는 상자 높이가 곧 문장 높이라 보이는 차이가 없다.
+    justifyContent: 'flex-start',
+    overflow: 'hidden',
+  },
   card: {
     width: '100%',
     borderRadius: 12,
@@ -905,10 +982,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   exampleText: {
+    // 여기 두 값은 기본값일 뿐이다 — 실제로는 SENTENCE_SIZES의 단계가 덮어쓴다
+    // (문장이 카드보다 길면 한 단계씩 줄인다). 고칠 일이 있으면 표의 0번을 함께 고칠 것.
     fontSize: 24,
+    lineHeight: 34,
     fontFamily: 'Pretendard_500Medium',
     textAlign: 'center',
-    lineHeight: 34,
   },
   exampleKrText: {
     fontSize: 14,
@@ -926,12 +1005,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 4,
-    // 힌트가 안으로 들어오지 않으므로 폭은 `?` 하나에 맞춘 고정값이면 된다.
-    minWidth: 40,
-    minHeight: 34,
     justifyContent: 'center',
     alignItems: 'center',
-    top: 6,
+    // 힌트가 안으로 들어오지 않으므로 폭은 `?` 하나에 맞추면 된다. 치수(minWidth·minHeight·
+    // top)와 글자 크기는 SENTENCE_SIZES가 단계별로 내려 준다 — 문장이 작아질 때 박스만
+    // 그대로면 `?`만 커 보인다.
   },
   blankText: {
     fontSize: 16,

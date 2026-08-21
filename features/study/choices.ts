@@ -33,8 +33,15 @@ export const SAME_TOPIC_DISTANCE = 20;
 
 /** 예문 화면이 넘기는 판정 재료. 넘기지 않으면 아래 두 필터는 아예 돌지 않는다. */
 export interface ChoiceContext {
-  /** 이 단어의 예문에서 빈칸을 뺀 나머지("문형"). 예문이 없거나 빈칸을 못 만들면 null. */
-  frameOf: (w: Word) => string | null;
+  /**
+   * 이 단어가 **화면에 뜰 수 있는** 문장들의 문형(빈칸을 뺀 나머지). 빈칸을 못 만들면 빈 배열.
+   *
+   * 🔑 하나가 아니라 배열인 이유: 병기(①②③) 예문은 카드마다 그중 하나가 무작위로 뽑혀
+   * 뜬다(examples/screen.tsx 의 senseView). 통짜 예문 하나로 문형을 만들면 "① … ② …"
+   * 모양이 되어 단문 후보와 절대 같아지지 않아, 병기 단어에서 이 필터가 조용히 죽는다.
+   * 어느 뜻이 뽑힐지는 미리 알 수 없으므로 **뜰 수 있는 것 전부**를 갖고 비교한다.
+   */
+  framesOf: (w: Word) => string[];
   /** 단어장 안에서의 순서. 화면에 보이는 배열의 인덱스이며, 모르면 -1. */
   indexOf: (w: Word) => number;
   /** 이 거리 이내는 같은 주제로 보고 오답에서 뺀다. */
@@ -73,8 +80,8 @@ function collectDistractors(
   const distractors: Word[] = [];
 
   // 빈 문형("")은 판정에 쓰지 않는다 — 예문이 표제어뿐인 단어들이 서로 같은 문형으로
-  // 묶여 버린다. truthy 검사가 그 역할을 겸한다.
-  const answerFrame = useFrame && ctx ? ctx.frameOf(answer) : null;
+  // 묶여 버린다. framesOf 를 만드는 쪽에서 걸러 넣는다.
+  const answerFrames = useFrame && ctx ? ctx.framesOf(answer) : [];
   const answerIndex = useDistance && ctx ? ctx.indexOf(answer) : -1;
 
   for (const w of shuffleArray(pool)) {
@@ -84,9 +91,12 @@ function collectDistractors(
     if (!label || used.has(label)) continue;
 
     // A. 빈칸을 뺀 문장이 같으면 이 후보도 그 자리에 들어간다 — 확정 다중정답이다.
-    if (answerFrame && ctx) {
-      const frame = ctx.frameOf(w);
-      if (frame && frame === answerFrame) continue;
+    // 양쪽 모두 "뜰 수 있는 문장" 전부를 놓고 보므로, 하나라도 겹치면 뺀다. 정답이 실제로
+    // 어느 뜻으로 떴는지는 여기서 모르는데, 겹칠 수 있는 후보를 남겨 두면 그날의 추첨에
+    // 따라 다중정답이 되기 때문이다 — 덜 빼서 틀리느니 더 빼고 만다(폴백이 개수를 지킨다).
+    if (answerFrames.length > 0 && ctx) {
+      const frames = ctx.framesOf(w);
+      if (frames.some(f => answerFrames.includes(f))) continue;
     }
     // B. 같은 주제 블록에서는 오답을 뽑지 않는다.
     if (answerIndex >= 0 && ctx) {

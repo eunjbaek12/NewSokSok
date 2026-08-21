@@ -386,14 +386,23 @@ export default function ExamplesScreen() {
    * 카드마다 계산하면 안 된다.
    */
   const choiceContext = useMemo<ChoiceContext>(() => {
-    const frames = new Map<string, string | null>();
+    const frames = new Map<string, string[]>();
     const indexes = new Map<string, number>();
     allListWords.forEach((w, i) => {
-      frames.set(w.id, exampleFrame(w.exampleEn, w.term));
+      // 아래 senseView와 같은 규칙으로 "뜰 수 있는 문장"을 뽑는다 — 병기(①②③)면 번호별로
+      // 쪼갠 뒤 빈칸을 만들 수 있는 것만 남긴다. 통짜 예문 하나로 문형을 만들면 병기 단어의
+      // 문형이 "① … ② …" 모양이 되어 단문 후보와 절대 같아지지 않고, 필터 A가 그 단어에서
+      // 조용히 죽는다(실측: NGSL에서 그렇게 새던 쌍이 4개).
+      const parts = splitSenseText(w.exampleEn) ?? [w.exampleEn ?? ''];
+      const usable = parts.filter(p => canBlankExample(p, w.term));
+      const list = usable
+        .map(p => exampleFrame(p, w.term))
+        .filter((f): f is string => !!f);
+      frames.set(w.id, Array.from(new Set(list)));
       indexes.set(w.id, i);
     });
     return {
-      frameOf: w => frames.get(w.id) ?? null,
+      framesOf: w => frames.get(w.id) ?? [],
       // 🔴 words.position 컬럼이 아니라 **이 배열의 인덱스**다. createCuratedList가
       //    words INSERT에 position을 넣지 않아(features/vocab/db.ts:219) 큐레이션 덱은
       //    전부 NULL이고, createdAt도 같은 값이라 정렬에 타이 브레이커가 없다.

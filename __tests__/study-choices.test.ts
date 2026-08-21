@@ -75,14 +75,21 @@ describe('buildChoices', () => {
 // 제보 사례: "___ 먹을까요?" 의 정답이 "국수"인데 선택지에 "라면"이 함께 떠서, 문장상
 // 맞는 답을 골라도 오답 처리됐다. 두 필터가 각각 다른 경로로 이것을 막는다.
 
+// 문형은 단어당 **여러 개**일 수 있다 — 병기(①②③) 예문은 뜻마다 문장이 다르고 화면에는
+// 그중 하나가 뜬다. 문자열 하나로 적으면 단문, 배열로 적으면 병기를 뜻한다.
 const ctxOf = (
   words: Word[],
-  frames: Record<string, string | null> = {},
+  frames: Record<string, string | null | string[]> = {},
   minDistance = SAME_TOPIC_DISTANCE,
 ): ChoiceContext => {
   const index = new Map(words.map((x, i) => [x.id, i]));
+  const listOf = (id: string): string[] => {
+    const f = frames[id];
+    if (Array.isArray(f)) return f.filter(Boolean);
+    return f ? [f] : [];
+  };
   return {
-    frameOf: x => frames[x.id] ?? null,
+    framesOf: x => listOf(x.id),
     indexOf: x => index.get(x.id) ?? -1,
     minDistance,
   };
@@ -119,6 +126,40 @@ describe('buildChoices — 필터 A (문형 일치)', () => {
     const pool = [answer, w('2', '라면'), w('3', '비빔밥'), w('4', '영수증')];
     const frames = { '2': '먹을까요?', '3': '먹을까요?', '4': '먹을까요?' };
     expect(buildChoices(pool, answer, byTerm, 4, ctxOf(pool, frames, 0))).toHaveLength(4);
+  });
+
+  test('정답이 병기면 뜻마다의 문형을 모두 본다 — 하나라도 겹치는 후보는 뺀다', () => {
+    // '차'는 ①마시는 차 ②타는 차라 화면에 뜨는 문장이 그때그때 다르다. 어느 쪽이 뽑힐지
+    // 미리 알 수 없으므로 겹칠 수 있는 후보를 미리 뺀다.
+    // 🔴 통짜 예문 하나로 문형을 만들면 정답 문형이 "① … ② …" 모양이 되어 단문인 '커피'와
+    //    절대 같아지지 않는다 — 그렇게 병기 단어에서 이 필터가 죽어 있었다.
+    const answer = w('1', '차');
+    const pool = [answer, w('2', '커피'), w('3', '지하철'), w('4', '영수증'), w('5', '우산')];
+    const frames = {
+      '1': ['를 마셔요.', '를 타요.'],
+      '2': '를 마셔요.',
+      '3': '가 빨라요.',
+      '4': '를 주세요.',
+      '5': '이 없어요.',
+    };
+    const seen = idsOverRuns(() => buildChoices(pool, answer, byTerm, 4, ctxOf(pool, frames, 0)));
+    expect(seen.has('2')).toBe(false);
+    expect(seen.has('3')).toBe(true);
+  });
+
+  test('후보가 병기여도 겹치는 뜻이 하나 있으면 뺀다', () => {
+    const answer = w('1', '커피');
+    const pool = [answer, w('2', '차'), w('3', '지하철'), w('4', '영수증'), w('5', '우산')];
+    const frames = {
+      '1': '를 마셔요.',
+      '2': ['를 타요.', '를 마셔요.'],
+      '3': '가 빨라요.',
+      '4': '를 주세요.',
+      '5': '이 없어요.',
+    };
+    const seen = idsOverRuns(() => buildChoices(pool, answer, byTerm, 4, ctxOf(pool, frames, 0)));
+    expect(seen.has('2')).toBe(false);
+    expect(seen.has('3')).toBe(true);
   });
 
   test('빈 문형끼리는 같은 것으로 묶지 않는다', () => {

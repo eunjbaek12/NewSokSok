@@ -124,11 +124,21 @@ function assertVersionSync() {
 }
 
 // ── 덱 로드 ─────────────────────────────────────────────────────────────
+
+/**
+ * 덱 id → 목록에 놓일 순서. **번들 배열의 순서가 곧 큐레이션 순서**다(운영자가 정한 것).
+ *
+ * 🔴 필터(--deck)보다 **먼저** 기록한다. 걸러낸 배열의 인덱스를 쓰면 덱 하나만 다시
+ * 시딩했을 때 그 덱이 0번으로 올라가 목록 전체가 어긋난다.
+ */
+const DECK_POSITIONS = new Map<string, number>();
+
 function loadDecks(): VocaList[] {
   const src = readFileSync(CURATION_PATH, 'utf8');
   const start = src.indexOf('= [') + 2;
   const end = src.lastIndexOf(']');
   const all: VocaList[] = JSON.parse(src.slice(start, end + 1));
+  all.forEach((d, i) => DECK_POSITIONS.set(d.id, i));
   let decks = all;
   if (ONLY_DECKS.length) {
     decks = all.filter(d => ONLY_DECKS.includes(d.id));
@@ -195,7 +205,9 @@ async function upsertDeck(deck: VocaList, composed: Composed[]) {
     target_language: deck.targetLanguage ?? 'ko',
     word_count: composed.length,
     top_tags: getTopTags({ words: composed.map(c => c.word), category: deck.category }),
-    position: 0,
+    // 목록 정렬 키. 전부 0이면 동점이라 Postgres 가 스캔 순서대로 돌려주고, 캐시된 목록과
+    // 새로 받은 목록의 순서가 달라져 큐레이션 탭이 눈에 띄게 재배열된다(실측: 65덱 전부 0).
+    position: DECK_POSITIONS.get(deck.id) ?? 0,
     // is_published 는 여기서 건드리지 않는다 — 검증이 끝난 뒤 --publish 로 올린다.
     // (upsert 라 컬럼을 빼면 기존 값이 유지된다. 처음 넣을 때는 기본값 false.)
     content_version: 1,

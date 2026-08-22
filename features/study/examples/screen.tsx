@@ -974,20 +974,31 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     alignItems: 'center',
+    // 문장+스피커를 한 덩어리로 카드 가운데에 둔다. 문장이 짧을 때 스피커만 바닥에 남아
+    // 카드 가운데가 비는 것을 막는다(문장이 길면 어차피 문장이 자리를 다 쓴다).
+    justifyContent: 'center',
     gap: 8,
     minHeight: 0,
   },
-  /*
-   * 문장·힌트·번역이 사는 스크롤 영역. `flex: 1` 이라 카드에서 스피커를 뺀 나머지를 전부
-   * 차지하므로, 여기 높이가 곧 "보여 줄 수 있는 최대"다(축소 판정이 이 값을 쓴다).
-   *
-   * marginTop 은 별표를 피하는 몫이다 — 별표는 카드 우상단에 절대 위치로 떠 있고 이 영역
-   * **밖**이라, 문장이 여기서 시작하면 밀어 올려도 겹칠 수 없다. 문장 폭을 좁히는 방법도
-   * 있지만 그쪽은 모든 줄이 짧아져 줄 수가 늘어 손해가 더 크다(실측 15.1% → 20.7%).
-   */
+  // 문장·힌트·번역이 사는 스크롤 영역. 여기 높이가 곧 "보여 줄 수 있는 최대"다(축소 판정이 쓴다).
   sentenceScroll: {
     width: '100%',
-    flex: 1,
+    /*
+     * 🔴 `flexGrow: 0` 을 **명시해야 한다.** RN 의 ScrollView 는 자기 스타일(`baseVertical`)에
+     *    `flexGrow: 1` 을 이미 갖고 있어서, 그냥 두면 문장이 한 줄이어도 칸을 끝까지 차지하고
+     *    스피커가 카드 바닥에 홀로 남아 가운데가 빈다. 0 으로 덮으면 평소에는 문장 높이
+     *    그대로(스피커가 문장 바로 아래) 있다가, 모자랄 때만 `flexShrink` 로 줄며 스크롤이 된다.
+     *    실측(2026-08-22 · Galaxy S22): 짧은 문항 130dp / 넘치는 문항 143dp 로 갈렸다.
+     * 🔑 축소 판정은 이 값에 영향받지 않는다 — 들어갈 때는 뷰포트=내용이라 조건이 거짓이고,
+     *    넘칠 때는 뷰포트가 143 에서 멈추므로 내용 > 뷰포트가 그대로 성립한다.
+     *
+     * marginTop 은 별표를 피하는 몫이다 — 별표는 카드 우상단에 절대 위치로 떠 있고 이 영역
+     * **밖**이라, 문장이 여기서 시작하면 밀어 올려도 겹칠 수 없다. 문장 폭을 좁히는 방법도
+     * 있지만 그쪽은 모든 줄이 짧아져 줄 수가 늘어 손해가 더 크다(실측 15.1% → 20.7%).
+     */
+    flexGrow: 0,
+    flexShrink: 1,
+    minHeight: 0,
     marginTop: 20,
   },
   // 내용이 적으면 가운데, 넘치면 위에서부터. 넘칠 때 위아래를 같이 깎으면 첫머리가 사라진다.
@@ -1001,8 +1012,12 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 12,
     // 패딩·간격을 조여 문장 몫을 넓힌다(24→16 · 12→8). 카드 안쪽 폭도 함께 넓어져
-    // 같은 문장이 더 적은 줄에 들어간다.
-    padding: 16,
+    // 같은 문장이 더 적은 줄에 들어간다. 아래 패딩과 스피커까지 조여 문장 영역은
+    // 123 → 143dp 가 됐다(실측). 그만큼 밀어야 보는 카드가 줄었다: 같은 25문항에서 5장 → 0장.
+    paddingTop: 16,
+    paddingHorizontal: 16,
+    // 아래는 스피커라 여백이 덜 필요하다. 위는 별표가 앉아 있어 그대로 둔다.
+    paddingBottom: 8,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 0, height: 12 },
@@ -1011,7 +1026,14 @@ const styles = StyleSheet.create({
     elevation: 12,
     gap: 8,
     minHeight: CARD_MIN_HEIGHT,
-    // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
+    /*
+     * 🔴 `flexGrow: 1` 이 **반드시 있어야 한다.** 안의 문장 영역이 ScrollView 라 카드에게
+     *    자기 높이를 알려 주지 않는다 — 없으면 카드는 콘텐츠(스피커뿐)만큼만 자라 minHeight
+     *    140dp 로 주저앉고, 그 안의 ScrollView 는 기준 높이를 못 잡아 31dp, 곧 한 줄로
+     *    수축한다(2026-08-22 실기에서 실제로 그렇게 났고, 은정님이 "칸이 너무 짧다"고 반려했다).
+     *    카드가 cardArea 를 채우면 문장 영역도 그만큼 확정된다.
+     */
+    flexGrow: 1,
     flexShrink: 1,
   },
   starBtn: {
@@ -1024,8 +1046,9 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   speakerBtn: {
-    padding: 8,
-    marginTop: 4,
+    // 문장 몫을 늘리려고 조인 값이다(8→4 · marginTop 4→0 = 12dp). 아이콘 26 + 패딩 8 = 34dp
+    // 이고 SpeakerButton 기본 hitSlop 12 가 더 붙어 터치 영역은 58dp — 44dp 권고를 넘는다.
+    padding: 4,
     alignItems: 'center',
   },
   exampleText: {

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import type { LayoutChangeEvent, TextLayoutEvent } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator, ScrollView } from 'react-native';
+import type { LayoutChangeEvent } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -29,9 +29,9 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
-import { SENTENCE_SIZES, nextSentenceStep, sentenceHeadroom, type SentenceSize } from './sentence-size';
+import { SENTENCE_SIZES, nextSentenceStep, type SentenceSize } from './sentence-size';
 
-function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors, size, onTextLayout }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any; size: SentenceSize; onTextLayout?: (e: TextLayoutEvent) => void }) {
+function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors, size }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any; size: SentenceSize }) {
   // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
   const segments = React.useMemo(() => segmentExample(sentence, term), [sentence, term]);
   // 글자 크기는 화면이 재서 내려 준다(SENTENCE_SIZES 주석 참조). 빈칸 박스도 같은 단계를
@@ -42,11 +42,11 @@ function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm
   // 문장을 그대로 띄우는 건 곧 정답 공개이므로, 정답 공개 단계에서만 보여준다.
   if (!segments) {
     if (!showTerm) return null;
-    return <Text style={[styles.exampleText, textSize, { color: textColor }]} onTextLayout={onTextLayout}>{sentence}</Text>;
+    return <Text style={[styles.exampleText, textSize, { color: textColor }]}>{sentence}</Text>;
   }
 
   return (
-    <Text style={[styles.exampleText, textSize, { color: textColor }]} onTextLayout={onTextLayout}>
+    <Text style={[styles.exampleText, textSize, { color: textColor }]}>
       {segments.map((seg, i) => {
         if (!seg.isBlank) return <Text key={i}>{seg.text}</Text>;
         if (showTerm) {
@@ -146,15 +146,13 @@ export default function ExamplesScreen() {
   const [showHint, setShowHint] = useState(false);
   // 문장 글자 크기 단계(SENTENCE_SIZES의 인덱스). 카드에 안 들어가면 한 단계씩 내린다.
   const [sentenceStep, setSentenceStep] = useState(0);
+  // 밀어서 읽는 중이면 자동 넘김을 멈춘다(holdAdvance 주석 참조).
+  const [advanceHeld, setAdvanceHeld] = useState(false);
   // 판정은 이 ref 로 한다(위 reconcileSentenceSize 주석 참조). state 와 항상 같은 값이다.
   const sentenceStepRef = useRef(0);
-  // 허용 높이를 구하는 재료 셋(sentenceHeadroom 주석 참조). 문장 영역만 봐서는 안 된다 —
-  // 카드가 콘텐츠에 맞춰 자라므로 그 값은 "지금 차지한 높이"일 뿐이다.
-  const cardAreaHeight = useRef(0);    // 카드가 자랄 수 있는 최대 높이
-  const cardHeight = useRef(0);        // 지금 카드 높이
-  const sentenceBoxHeight = useRef(0); // 지금 문장 영역 높이
-  // 지금 크기로 문장이 몇 줄이 됐는지. 위 높이와 짝을 이뤄 축소 여부를 가른다.
-  const sentenceLines = useRef(0);
+  // 축소 판정의 재료 둘. 스크롤 영역이 직접 알려 준다 — 보이는 높이와 실제 내용 높이다.
+  const viewportHeight = useRef(0);
+  const contentHeight = useRef(0);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const sessionCompletedRef = useAbandonRecord(results);
@@ -459,6 +457,9 @@ export default function ExamplesScreen() {
 
   useEffect(() => {
     if (selectedAnswer === null || !isNewAnswer) return;
+    // 밀어서 읽는 중이면 넘기지 않는다. 이미 걸려 있던 타이머는 이 effect 가 다시 돌며
+    // cleanup 으로 취소된다.
+    if (advanceHeld) return;
     const timer = setTimeout(async () => {
       if (currentIndexRef.current === currentIndex) {
         if (currentIndex >= currentBatchWords.length - 1) {
@@ -480,79 +481,66 @@ export default function ExamplesScreen() {
     }, isCorrect ? ADVANCE_DELAY_CORRECT_MS : ADVANCE_DELAY_WRONG_MS);
     return () => clearTimeout(timer);
     // isCorrect가 지연 시간을 정하므로 의존성에 있어야 한다 — 빠지면 이전 카드의 정오답으로 타이머가 잡힌다.
-  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers]);
+  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers, advanceHeld]);
 
   useEffect(() => {
     setShowHint(false);
     // 다음 문장은 짧을 수 있으므로 크기도 원래대로 되돌린다. 안 되돌리면 한 번 긴 문장을
-    // 만난 뒤 세션 내내 작은 글자로 남는다. 줄 수도 함께 버린다 — 앞 문장의 줄 수로
-    // 판정하면 새 문장이 도착하기 전에 엉뚱하게 한 단계 내려간다.
+    // 만난 뒤 세션 내내 작은 글자로 남는다.
     setSentenceStep(0);
     sentenceStepRef.current = 0;
-    sentenceLines.current = 0;
-    // 🔴 카드·문장 높이도 함께 버린다. 하나만 새 값이고 나머지가 앞 문항 값이면 허용 높이가
-    //    엉뚱하게 계산된다 — 실측(2026-08-22): 카드는 앞의 4줄 높이(687px)인데 박스만 새
-    //    2줄(180px)로 읽혀 "문장 외 몫"이 169dp 로 부풀었고, 두 줄짜리 짧은 문장이 이유 없이
-    //    한 단계 작아졌다. 셋이 다 새로 채워질 때까지 판정하지 않는다(sentenceHeadroom 이 0을
-    //    돌려주므로 자동으로 보류된다).
-    cardHeight.current = 0;
-    sentenceBoxHeight.current = 0;
+    // 내용 높이는 새 문장이 그려지면 곧 다시 온다. 앞 문장 값으로 판정하지 않도록 비운다
+    // (뷰포트는 문항이 바뀌어도 같으므로 그대로 둔다).
+    contentHeight.current = 0;
+    // 앞 문항에서 밀어 두었다고 이번 문항까지 자동 넘김을 멈출 이유는 없다.
+    setAdvanceHeld(false);
   }, [currentIndex, currentBatchIndex]);
 
   const sentenceSize = SENTENCE_SIZES[sentenceStep];
 
   /*
-   * 문장이 자기 영역보다 높으면 한 단계 줄인다.
+   * 내용이 보이는 영역을 넘치면 글자를 한 단계 줄인다. 마지막 단계에서도 넘치면 그대로 두고
+   * 스크롤이 받는다(sentence-size.ts 주석 참조).
    *
-   * 🔑 줄 수가 아니라 **높이**로 판정한다 — "몇 줄까지 되는가"는 기기마다 다르고(화면이
-   *    짧으면 카드도 짧다) 배너 광고 유무로도 달라진다. 실제로 허용된 높이를 재서 쓴다.
-   * 🔴 재료가 둘(문장 줄 수 · 영역 높이)이고 **어느 쪽 콜백이 먼저 올지는 보장되지 않는다.**
-   *    그래서 각자 ref에 적어 두고 판정은 공용 함수 하나로 한다 — onTextLayout만 보고
-   *    판정하면 높이가 아직 0인 첫 프레임에 그냥 지나쳐 버리고, 그 뒤로는 다시 안 온다.
-   * 단계 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도
-   * 넘치면 그대로 두고 sentenceBox가 잘라 낸다(카드 밖으로 나가는 것보다 낫다).
+   * 🔑 재료를 스크롤 영역에서 직접 받는 것이 핵심이다. 예전에는 `onTextLayout`의 줄 수와
+   *    카드·문장 높이 셋을 맞춰 계산했는데, 값들이 서로 다른 시점의 것이라 앞 문항 높이로
+   *    엉뚱하게 판정하거나(짧은 문장이 이유 없이 작아짐) 콜백이 다시 오지 않아 한 단계에서
+   *    멈춰 잘렸다. 뷰포트와 내용 높이는 같은 컴포넌트가 같은 사이클에 알려 주고, 크기가
+   *    바뀌면 반드시 다시 온다.
    */
   const reconcileSentenceSize = useCallback(() => {
-    const lines = sentenceLines.current;
-    const available = sentenceHeadroom(cardAreaHeight.current, cardHeight.current, sentenceBoxHeight.current);
-    if (!lines || !available) return;
+    if (!contentHeight.current || !viewportHeight.current) return;
     /*
-     * 🔴 `setSentenceStep(step => …)` 로 쓰면 안 된다. 한 번의 측정에도 콜백은 여러 개 온다
-     *    (영역·카드·문장 세 onLayout + onTextLayout). updater 형태면 큐에 쌓인 만큼 연달아
-     *    적용돼 **한 프레임에 세 단계가 내려간다** — 그 세 번이 전부 같은(옛) 줄 수를 본다.
-     *    현재 단계를 ref 로 읽어 한 단계만 계산하면 같은 사이클의 중복 호출이 모두 같은 답을
-     *    내므로 한 번만 움직인다. 다음 판정은 새 크기로 다시 잰 줄 수가 도착한 뒤다.
+     * 🔴 `setSentenceStep(step => …)` 로 쓰면 안 된다. 한 번의 변화에도 콜백이 둘 오므로
+     *    (onLayout·onContentSizeChange) updater 형태면 큐에 쌓인 만큼 연달아 적용돼 한 번에
+     *    두 단계가 내려간다 — 둘 다 같은(옛) 내용 높이를 본다. 현재 단계를 ref 로 읽어 한
+     *    단계만 계산하면 같은 사이클의 중복 호출이 모두 같은 답을 낸다.
      */
     const step = sentenceStepRef.current;
-    const next = nextSentenceStep(step, lines, available);
+    const next = nextSentenceStep(step, contentHeight.current, viewportHeight.current);
     if (next === step) return;
     sentenceStepRef.current = next;
-    // 🔑 줄 수를 비워 **새 크기로 다시 잰 값이 올 때까지** 판정을 멈춘다. 이걸 안 하면 같은
-    //    측정에 딸려 오는 나머지 콜백들이 옛 줄 수로 연달아 판정해 한 프레임에 여러 단계가
-    //    내려간다(실측: 한 번에 세 단계). 위의 key 재마운트가 새 줄 수를 반드시 보내 준다.
-    sentenceLines.current = 0;
+    // 새 크기로 다시 잰 내용 높이가 올 때까지 판정을 멈춘다. 글자가 작아지면 내용도 줄어드는데,
+    // 그 값이 도착하기 전에 옛 높이로 또 판정하면 필요 이상으로 내려간다.
+    contentHeight.current = 0;
     setSentenceStep(next);
   }, []);
 
-  const handleCardAreaLayout = useCallback((e: LayoutChangeEvent) => {
-    cardAreaHeight.current = e.nativeEvent.layout.height;
+  const handleScrollLayout = useCallback((e: LayoutChangeEvent) => {
+    viewportHeight.current = e.nativeEvent.layout.height;
     reconcileSentenceSize();
   }, [reconcileSentenceSize]);
 
-  const handleCardLayout = useCallback((e: LayoutChangeEvent) => {
-    cardHeight.current = e.nativeEvent.layout.height;
+  const handleScrollContentSize = useCallback((_w: number, h: number) => {
+    contentHeight.current = h;
     reconcileSentenceSize();
   }, [reconcileSentenceSize]);
 
-  const handleSentenceBoxLayout = useCallback((e: LayoutChangeEvent) => {
-    sentenceBoxHeight.current = e.nativeEvent.layout.height;
-    reconcileSentenceSize();
-  }, [reconcileSentenceSize]);
-
-  const handleSentenceTextLayout = useCallback((e: TextLayoutEvent) => {
-    sentenceLines.current = e.nativeEvent.lines?.length ?? 0;
-    reconcileSentenceSize();
-  }, [reconcileSentenceSize]);
+  /*
+   * 밀기 시작하면 자동 넘김을 멈춘다. 읽으려고 미는 중인데 1~3초 뒤 화면이 넘어가 버리면
+   * 그 스크롤이 아무 소용이 없다. 멈춘 뒤에는 하단 "다음"으로 넘어간다.
+   */
+  const holdAdvance = useCallback(() => setAdvanceHeld(true), []);
 
   // 학습 중 목록이 줄면(필터 변경·동기화 삭제) 현재 인덱스가 범위를 벗어날 수 있다.
   // 아래 렌더 가드만 두면 빈 화면에 갇히므로 여기서 첫 카드로 되돌린다.
@@ -694,30 +682,30 @@ export default function ExamplesScreen() {
       </View>
 
       <View style={styles.body}>
-        <View style={styles.cardArea} onLayout={handleCardAreaLayout}>
-          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]} onLayout={handleCardLayout}>
+        <View style={styles.cardArea}>
+          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
               <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
 
             {senseView.exampleEn ? (
               /*
-               * 카드가 줄어들 때 **줄어드는 쪽은 문장뿐**이다. RN의 flexShrink 기본값이 0이라
-               * 힌트·번역·스피커는 그대로 남고, 문장 영역만 sentenceBox의 flexShrink로 양보한다.
-               * 이 배치가 없으면 카드는 줄어드는데 내용은 안 줄어 스피커가 카드 밖에 그려졌다.
+               * 문장·힌트·번역은 스크롤 영역 안에, 스피커는 밖에 둔다. 카드가 감당할 수 있는
+               * 양을 넘으면 잘라 내는 대신 밀어서 보게 한다 — 글자를 한없이 줄이는 쪽은
+               * 표준이 아니고(sentence-size.ts 주석), 실측 15% 에서는 어느 크기로도 안 들어간다.
+               * 스피커를 밖에 두는 이유는 밀 때 같이 밀려 올라가면 안 되기 때문이다.
                */
               <View style={styles.cardBody}>
-                <View style={styles.sentenceBox} onLayout={handleSentenceBoxLayout}>
-                  {/*
-                    🔴 key 가 단계를 물고 있는 것은 실수가 아니다. 글자 크기만 바뀌고 줄 수가
-                    그대로면 RN 은 onTextLayout 을 다시 주지 않는다(실측 2026-08-22: step 1→2
-                    뒤 콜백이 한 번도 오지 않아 마지막 줄이 잘린 채 멈췄다). 그렇다고 단계 변화
-                    때마다 옛 줄 수로 다시 판정하면 이번엔 반대로 바닥까지 줄어든다 — 글자가
-                    작아지면 줄 수도 줄어드는데 그 값이 아직 옛것이기 때문이다. 그래서 단계가
-                    바뀌면 문장을 새로 마운트해 **그 크기에서의 줄 수**를 반드시 받아 온다.
-                  */}
+                <ScrollView
+                  style={styles.sentenceScroll}
+                  contentContainerStyle={styles.sentenceScrollContent}
+                  onLayout={handleScrollLayout}
+                  onContentSizeChange={handleScrollContentSize}
+                  onScrollBeginDrag={holdAdvance}
+                  alwaysBounceVertical={false}
+                  keyboardShouldPersistTaps="handled"
+                >
                   <HighlightedSentence
-                    key={sentenceStep}
                     sentence={senseView.exampleEn}
                     term={currentWord.term}
                     primaryColor={colors.primary}
@@ -726,27 +714,26 @@ export default function ExamplesScreen() {
                     onPressBlank={() => setShowHint(prev => !prev)}
                     colors={colors}
                     size={sentenceSize}
-                    onTextLayout={handleSentenceTextLayout}
                   />
-                </View>
 
-                {/*
-                  힌트는 빈칸 안이 아니라 문장 아래 한 줄로 나온다(P8). 정답이 이미 보이는
-                  상태에서는 뜻만 따로 띄울 이유가 없으므로 공개 전에만 렌더한다.
-                */}
-                {!isRevealed && showHint && (
-                  <Pressable onPress={() => setShowHint(false)} hitSlop={6}>
-                    <View style={[styles.hintLine, { backgroundColor: colors.hintBg, borderColor: colors.hintBorder }]}>
-                      <Text style={[styles.hintLineText, { color: colors.hintText }]} numberOfLines={2}>
-                        {t('examples.hintLabel', { meaning: senseView.meaningKr || t('examples.noMeaning') })}
-                      </Text>
-                    </View>
-                  </Pressable>
-                )}
+                  {/*
+                    힌트는 빈칸 안이 아니라 문장 아래 한 줄로 나온다(P8). 정답이 이미 보이는
+                    상태에서는 뜻만 따로 띄울 이유가 없으므로 공개 전에만 렌더한다.
+                  */}
+                  {!isRevealed && showHint && (
+                    <Pressable onPress={() => setShowHint(false)} hitSlop={6}>
+                      <View style={[styles.hintLine, { backgroundColor: colors.hintBg, borderColor: colors.hintBorder }]}>
+                        <Text style={[styles.hintLineText, { color: colors.hintText }]} numberOfLines={2}>
+                          {t('examples.hintLabel', { meaning: senseView.meaningKr || t('examples.noMeaning') })}
+                        </Text>
+                      </View>
+                    </Pressable>
+                  )}
 
-                {settings.showExampleKr && shouldShowExampleTranslation(senseView.exampleEn, senseView.exampleKr) && selectedAnswer !== null && (
-                  <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{senseView.exampleKr}</Text>
-                )}
+                  {settings.showExampleKr && shouldShowExampleTranslation(senseView.exampleEn, senseView.exampleKr) && selectedAnswer !== null && (
+                    <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{senseView.exampleKr}</Text>
+                  )}
+                </ScrollView>
 
                 {/*
                   공개 전에는 빈칸을 뺀 문장을 읽는다(P7) — 자세한 근거는 spokenExample 주석.
@@ -985,41 +972,54 @@ const styles = StyleSheet.create({
   // 자식이 요구한 만큼 버티고 그대로 넘친다.
   cardBody: {
     width: '100%',
+    flex: 1,
     alignItems: 'center',
-    gap: 12,
-    flexShrink: 1,
+    gap: 8,
     minHeight: 0,
   },
-  // 부족분을 흡수하는 유일한 칸. 마지막 크기 단계에서도 넘치면 여기서 잘라 낸다 —
-  // 카드 밖에 그리는 것보다 낫다(overflow 기본값이 visible이라 명시해야 한다).
-  sentenceBox: {
+  /*
+   * 문장·힌트·번역이 사는 스크롤 영역. `flex: 1` 이라 카드에서 스피커를 뺀 나머지를 전부
+   * 차지하므로, 여기 높이가 곧 "보여 줄 수 있는 최대"다(축소 판정이 이 값을 쓴다).
+   *
+   * marginTop 은 별표를 피하는 몫이다 — 별표는 카드 우상단에 절대 위치로 떠 있고 이 영역
+   * **밖**이라, 문장이 여기서 시작하면 밀어 올려도 겹칠 수 없다. 문장 폭을 좁히는 방법도
+   * 있지만 그쪽은 모든 줄이 짧아져 줄 수가 늘어 손해가 더 크다(실측 15.1% → 20.7%).
+   */
+  sentenceScroll: {
     width: '100%',
-    flexShrink: 1,
-    minHeight: 0,
-    // 잘라 내야 할 때 **꼬리를 버린다**. center로 두면 위아래를 같이 깎아 문장 첫머리까지
-    // 사라진다. 안 잘리는 평소에는 상자 높이가 곧 문장 높이라 보이는 차이가 없다.
-    justifyContent: 'flex-start',
-    overflow: 'hidden',
+    flex: 1,
+    marginTop: 20,
+  },
+  // 내용이 적으면 가운데, 넘치면 위에서부터. 넘칠 때 위아래를 같이 깎으면 첫머리가 사라진다.
+  sentenceScrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 8,
   },
   card: {
     width: '100%',
     borderRadius: 12,
-    padding: 24,
+    // 패딩·간격을 조여 문장 몫을 넓힌다(24→16 · 12→8). 카드 안쪽 폭도 함께 넓어져
+    // 같은 문장이 더 적은 줄에 들어간다.
+    padding: 16,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 0, height: 12 },
     shadowOpacity: 1,
     shadowRadius: 20,
     elevation: 12,
-    gap: 12,
+    gap: 8,
     minHeight: CARD_MIN_HEIGHT,
     // 남는 공간은 카드가 가져가되(cardArea flex:1), 모자라면 카드부터 줄어든다.
     flexShrink: 1,
   },
   starBtn: {
     position: 'absolute',
-    top: 16,
-    right: 16,
+    // 모서리 쪽으로 당겨 문장이 내주는 위 여백(sentenceScroll.marginTop)을 줄인다.
+    // 터치 영역은 padding 4 + hitSlop 12 로 그대로다.
+    top: 6,
+    right: 8,
     padding: 4,
     zIndex: 10,
   },

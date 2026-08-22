@@ -1,10 +1,10 @@
 /*
  * 예문 카드의 문장 크기 단계.
  *
- * 왜 있나(2026-08-21 실기, Galaxy S22 · 수능 필수 어휘 500 45문항):
- *   문장이 여섯 줄이 되면 카드가 `flexShrink`로 줄어드는데 **안의 내용은 줄지 않아**
- *   스피커 버튼이 카드 테두리 밖으로 밀려나 반쯤 잘린 채 그려졌다(45문항 중 7문항, 15.6%).
- *   RN의 기본값이 `overflow: 'visible'`이라 넘친 자식이 그대로 보인다.
+ * 왜 있나(2026-08-21 실기, Galaxy S22 · 수능 필수 어휘 500):
+ *   문장이 길어지면 카드가 `flexShrink`로 줄어드는데 **안의 내용은 줄지 않아** 스피커 버튼이
+ *   카드 테두리 밖으로 밀려나 반쯤 잘린 채 그려졌다(45문항 중 7문항). RN의 기본값이
+ *   `overflow: 'visible'`이라 넘친 자식이 그대로 보인다.
  *   선택지 쪽은 손대지 않는다 — `choicesArea`의 `flexShrink: 0`은 "선택지가 자리를 먼저
  *   확보한다"는 이전 회귀의 처방이다. 그래서 부족분은 문장이 흡수해야 한다.
  *
@@ -14,52 +14,47 @@
  *   ⑵ 빈칸은 `<Text>` 안의 **인라인 View**라 글자와 함께 줄지 않는다. 자동 축소를 걸면
  *      글자만 작아지고 `?` 박스만 커 보인다. 그래서 박스 치수도 이 표에 같이 둔다.
  *
- * 마지막 단계까지 가야 하는 길이: 번들 65덱의 예문을 병기(①②③) 단위로 쪼개 재면
- * 중앙값 32자 · p99 122자 · 최대 171자다(15,542개). 120자 초과가 192개, 150자 초과는 1개.
+ * 🔑 **표는 16dp에서 끝난다. 그 아래는 줄이지 않고 스크롤이 받는다**(2026-08-22 결정).
+ *   컨테이너에 맞추려 글자를 한없이 줄이는 것은 표준이 아니다 — Anki는 카드가 웹뷰라 스크롤이
+ *   기본이고, Quizlet은 자동 축소 대신 사용자가 크기를 조절하며, WCAG 1.4.4/1.4.10은 텍스트
+ *   크기를 지키고 한 방향 스크롤로 흘리는 쪽을 요구한다. 실측으로도 14dp는 번역(14dp)과 같아져
+ *   **정답이 곁들이보다 작아 보이는 역전**이 생긴다(B3에서 지적된 그 증상이다).
+ *
+ * 어디까지 줄이면 되나(기기 DB 944장 실측, 카드 안쪽 폭 280dp 기준):
+ *   문제를 푸는 동안(번역 없음)은 이 표로 **100%가 스크롤 없이 들어간다**. 답을 본 뒤에는
+ *   85%가 들어가고, 나머지 15%는 밀어서 본다 — 그 15%에서도 **원문은 언제나 온전하고**
+ *   밀리는 것은 번역 뒷부분(평균 2.3줄)이다.
  */
 export const SENTENCE_SIZES = [
   { fontSize: 24, lineHeight: 34, blankW: 40, blankH: 34, blankFont: 16, blankTop: 6 },
   { fontSize: 21, lineHeight: 30, blankW: 36, blankH: 30, blankFont: 15, blankTop: 5 },
   { fontSize: 18, lineHeight: 26, blankW: 32, blankH: 26, blankFont: 13, blankTop: 5 },
   { fontSize: 16, lineHeight: 23, blankW: 29, blankH: 23, blankFont: 12, blankTop: 4 },
-  { fontSize: 14, lineHeight: 20, blankW: 26, blankH: 20, blankFont: 11, blankTop: 4 },
 ] as const;
 
 export type SentenceSize = (typeof SENTENCE_SIZES)[number];
 
 /** 반올림 여유. 딱 맞는 문장에서 괜히 한 단계 내려가지 않게 한다. */
-const SLACK_PX = 1;
+const SLACK_DP = 1;
 
 /**
- * 지금 단계로 문장이 자기 영역을 넘치면 다음 단계를 돌려준다. 아니면 그대로 둔다.
+ * 지금 단계로 내용이 보이는 영역을 넘치면 다음 단계를 돌려준다. 아니면 그대로 둔다.
  *
- * 🔑 줄 수가 아니라 **높이**로 판정한다 — "몇 줄까지 되는가"는 기기마다 다르고(화면이
- *    짧으면 카드도 짧다) 배너 광고 유무로도 달라진다. 실제로 허용된 높이를 재서 쓴다.
- * 🔑 재료 둘 중 하나라도 아직 0이면(측정 전) 판단하지 않는다 — 콜백 순서는 보장되지 않아
- *    둘 다 도착한 뒤에 다시 부르는 쪽으로 만든다.
- * 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도
- * 넘치면 그대로 두고 문장 영역이 잘라 낸다(카드 밖으로 나가는 것보다 낫다).
- */
-/**
- * 문장에 **실제로 허용된** 높이. 문장 영역의 높이만 봐서는 안 된다.
+ * 두 값 모두 스크롤 영역이 직접 알려 준다 — `onLayout`이 보이는 높이(뷰포트),
+ * `onContentSizeChange`가 실제 내용 높이다.
  *
- * 🔴 카드는 콘텐츠에 맞춰 자라므로, 넘치지 않는 동안 문장 영역의 높이는 곧 "지금 문장이
- *    차지한 높이"다. 그 값으로 판정하면 글자를 줄일 때마다 영역도 같이 줄어 계속 "넘친다"고
- *    읽히고, 단계가 바닥까지 내려간다(2026-08-22 실측: 4줄 문장이 카드에 빈 공간을 남긴 채
- *    14dp 까지 작아졌다).
- * 🔑 문장 외의 것들(카드 패딩·스피커·힌트·번역·간격)의 합은 글자 크기와 무관하게 일정하다.
- *    그래서 `지금 카드 높이 - 지금 문장 높이`로 그 몫을 구하고, 카드가 자랄 수 있는 최대
- *    높이에서 빼면 문장이 쓸 수 있는 최대가 나온다. 이 값은 글자를 줄여도 변하지 않는다.
+ * 🔑 **줄 수를 세지 않는 것이 핵심이다.** 예전에는 `onTextLayout`의 줄 수로 판정했는데,
+ *    글자 크기만 바뀌고 줄 수가 그대로면 그 콜백이 다시 오지 않아 한 단계에서 멈췄고
+ *    (실측: 5줄 문장이 needed 130dp > avail 123dp 인데도 멈춰 마지막 줄이 잘렸다),
+ *    억지로 다시 판정하게 하면 이번엔 옛 줄 수로 바닥까지 내려갔다. 내용 높이는 크기가
+ *    바뀔 때마다 반드시 다시 오므로 그 왕복이 없다.
+ * 🔑 번역·힌트가 같은 영역에 들어와도 따로 계산할 필요가 없다 — 내용 높이에 이미 포함된다.
+ *
+ * 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도 넘치면
+ * 그대로 두고 스크롤이 받는다.
  */
-export function sentenceHeadroom(areaHeight: number, cardHeight: number, boxHeight: number): number {
-  if (!areaHeight || !cardHeight || !boxHeight) return 0;
-  const fixed = cardHeight - boxHeight;
-  return Math.max(0, areaHeight - fixed);
-}
-
-export function nextSentenceStep(step: number, lines: number, availableHeight: number): number {
-  if (!lines || !availableHeight) return step;
+export function nextSentenceStep(step: number, contentHeight: number, viewportHeight: number): number {
+  if (!contentHeight || !viewportHeight) return step;
   if (step >= SENTENCE_SIZES.length - 1) return step;
-  const needed = lines * SENTENCE_SIZES[step].lineHeight;
-  return needed > availableHeight + SLACK_PX ? step + 1 : step;
+  return contentHeight > viewportHeight + SLACK_DP ? step + 1 : step;
 }

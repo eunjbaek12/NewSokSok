@@ -81,15 +81,25 @@ TOPIK, K-pop & your own words
 ## Promotional Text (max 170 chars, editable without resubmission)
 
 ```
-✨ Four new Korean word lists, plus cleaner romanisation across every Korean deck. Your first day comes with 300 AI lookups — and 50 a day stays free after that.
+Korean decks built level by level, or your own words. AI fills in meanings, examples and pronunciation. Your first day comes with 300 words, and 50 a day stays free.
 ```
 
 > The only field you can change anytime without going through review. Use it for seasonal pushes / new features.
 >
-> Updated for 1.3.1 (2026-08-02). Unlike the Korean locale, English speakers **can** see the new
-> ko→en decks (the catalogue filters by meaning language), so leading with them is honest here.
-> The closing CTA moved from "7-day free trial" to the first-day 300-word quota — signing up no
-> longer grants any trial, so the quota is what a new user actually receives.
+> **Rewritten 2026-08-24 (165/170).** Two reasons.
+>
+> 🔴 **The old text could not be pasted in.** App Store Connect rejects `·` (U+00B7) and emoji in
+> **Promotional Text** and **What's New** — the previous copy opened with `✨` and used an em dash.
+> (Description accepts both; see `ios-ko.md` §스토어가 거부하는 문자.) This field is now ASCII only.
+>
+> 🔴 **The old text was version-locked and had gone stale.** It led with "Four new Korean word
+> lists" from 1.3.1. Promotional Text is the field that stays up permanently, so pinning it to one
+> release guarantees it becomes false — it had been wrong for three versions. The new copy states
+> what the app always offers (levelled Korean decks, your own words, AI fill-in, the quota).
+>
+> Unlike the Korean locale, English speakers **can** see the ko→en decks (the catalogue filters by
+> meaning language), so leading with Korean is honest here. The CTA stays on the first-day 300-word
+> quota rather than a trial — signing up grants no trial, so the quota is what a new user receives.
 
 ## Keywords (max 100 chars, comma-separated, no spaces)
 
@@ -298,21 +308,47 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## What's New (max 4000 chars, per-version)
 
 ```
-1.3.1 — Four new Korean word lists.
+1.6.0 - The Korean decks were rebuilt from scratch.
 
-📚 New lists
-- Onomatopoeia & Mimetic Words 100: the sounds and textures Korean does best
-- Untranslatable Korean 50: 눈치, 정, 서운하다
-- Convenience Store & Delivery 50: everyday Korean you'll actually use
-- TOPIK I Essentials 350: organised by exam topic
+[A rebuilt Korean ladder: 3,168 cards]
+Basic, Intermediate I and Advanced Korean were regenerated card by card so each level matches its difficulty, and Intermediate Korean II is brand new.
 
-🔤 Cleaner romanisation
-Pronunciation across the Korean lists now follows the Revised Romanization standard.
+[Korean definitions are real definitions now]
+Many cards carried the English meaning copied into the Korean definition field. Those are genuine Korean definitions written for learners now, and cards whose meanings the AI had invented were removed.
+
+[Sentence practice got more accurate]
+An answer that also fits the blank no longer turns up among the wrong choices, and a word with several meanings now gets one sentence per meaning instead of all of them at once.
+
+[Bigger example cards]
+The sentence area is more than four times taller. Long examples no longer get clipped or shrunk down to nothing, a blank on the first line is no longer cut off at the top, and the speaker button stays inside the card.
+
+[The same daily allowance without signing in]
+Signing in is no longer what decides your limit: 50 words a day, 300 for your first 24 hours, and a rewarded ad gives 20 words up to twice a day.
+
+[Word lists come from the server now]
+New decks can show up without an app update. You will need a connection the first time the catalogue loads.
 
 Also
-- Lists written in languages you can't read no longer clutter the catalogue.
-- Fixed the Rate This App button doing nothing when tapped.
+- Decks you already saved keep their old cards. Import a deck again to pick up the corrections.
+- Fixed rewarded ads that did not appear, or did not continue after you watched them.
+- Fixed the app freezing on iPhone when you went past the limit.
 ```
+
+---
+
+> **1.6.0 (2026-08-24).** ASCII only — Promotional Text and What's New reject `·` and emoji
+> (`ios-ko.md` §스토어가 거부하는 문자).
+>
+> 🔑 **This locale leads with the Korean decks; the Korean locale must not.** English speakers have
+> meaning language = en, so the ko→en ladder appears in their catalogue. Deck counts are from the
+> server (`official_themes`): Basic 665 · Intermediate I 786 · **Intermediate II 786 (new)** ·
+> Advanced 931 = **3,168**.
+>
+> 🔑 **"Import a deck again to pick up the corrections" is not filler.** Decks already saved keep
+> their old cards (`whatsNew.v160_4`); without this line the rebuild reads as a broken promise.
+>
+> 🔴 **Play needs a shorter version — this is 1,543 chars against Play's 500 per-locale limit.**
+> English overran that limit in 1.4.0 and 1.5.0 too; see `README.md` 「출시 노트를 쓸 때」.
 
 ---
 

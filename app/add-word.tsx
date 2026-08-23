@@ -1896,7 +1896,10 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.inputLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(sourceLang)}</Text>
+                                        {/* color 는 이모지엔 무시되지만 지우지 말 것 — 국기 이모지를
+                                            못 그리는 안드로이드는 `CN` 두 글자를 텍스트로 그린다. 그때
+                                            색이 없으면 RN 기본값(검정)이라 다크 모드에서 안 보인다. */}
+                                        <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(sourceLang)}</Text>
                                         <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(sourceLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
@@ -1922,7 +1925,7 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.meaningLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(targetLang)}</Text>
+                                        <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(targetLang)}</Text>
                                         <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(targetLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>

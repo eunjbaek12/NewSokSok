@@ -17,28 +17,57 @@ App Store Connect → 앱 → App Store → 스페인어 로케일에 그대로 
 
 ---
 
-## 앱 이름 (최대 30자) — 27자
+## 앱 이름 (최대 30자) — 29자
 
 ```
-Avocado: vocabulario con IA
+Avocado: estudiar vocabulario
 ```
 
-> 검색 가중치가 가장 높은 칸이라 최대 검색량 토큰 `vocabulario`를 넣었다.
-> 브랜드는 en 과 같은 `Avocado`로 통일.
-
-## 부제 (Subtitle, 최대 30자) — 29자
-
-```
-Tarjetas para aprender inglés
-```
-
-> 앱 이름과 토큰이 하나도 안 겹치게 짰다(Apple이 이름·부제·키워드를 자동 재조합하므로
-> 중복은 커버리지를 못 넓히고 자리만 먹는다). 스페인어권 학습자의 최대 목표 언어가
-> 영어라 `aprender inglés`를 앞세웠다.
+> **2026-08-23 개정.** 옛 이름은 `Avocado: vocabulario con IA`.
 >
-> ⚠️ **한국어/K-pop 을 여기 넣지 않은 이유** — 큐레이션 목록은 뜻 언어로 걸러지는데
-> 한국어 덱은 전부 뜻이 ko/en 이다. 스페인어 사용자가 앱을 열어도 그 덱이 안 보인다.
-> → [[project_ko_es_deck_deferred]]
+> **왜 바꾸나 — 단독 토큰은 안 잡히고 구절만 잡힌다.** App Store 스페인을 처음 실측하니 우리 es 칸
+> 토큰 **19개 중 18개가 죽어 있었다**(§검색 실측). 이름에 `vocabulario` 가 정확히 들어 있는데도
+> 그 밭은 **200위 밖**이고, 유일하게 잡히는 것은 **이름 전체 구절인 `vocabulario con IA` 23위**다.
+> → **이름은 "실제로 검색되는 구절"이어야 값이 있다.** `con IA` 는 사람이 잘 치지 않는 말이다.
+>
+> **`estudiar vocabulario` 를 고른 이유** (공급 164 · 이름 보유 8개 · 도달 상한 **1위** ·
+> 상위 20에 리뷰 0이 3개 · 순수요 83,359): 잰 밭 44개 중 **기대값 1위**다.
+> ⚠️ 순수요는 상위 30위 리뷰 합계에서 리뷰 20만 이상(듀오링고 등)을 뺀 값이다.
+>
+> 🔑 **스페인어권은 동사형 이름이 관행이다** — `EWA: Aprende idiomas` · `Duolingo - Aprende inglés` ·
+> `Busuu: Aprender idiomas` · `Memrise: Habla idiomas`. `estudiar` 가 어색하지 않은 이유다.
+>
+> **`vocabulario con IA` 는 버리지 않는다** — 부제에 `con IA` 를 남겨 **이름 + 부제 조합**으로 유지한다.
+> ⚠️ **조합은 정확 일치보다 약하다**(한국 실측: 이름 정확 일치 5위 vs 조합들은 전부 하위).
+> **현재 23위가 내려갈 수 있다.** 그래도 바꾼 것은 그 밭의 순수요가 21,188 로 새 밭의 4분의 1이기 때문이다.
+>
+> 🔴 **한국어를 앞세울 수 없다.** `coreano` 밭은 상위 20에 리뷰 0이 **0개**(무명 앱이 못 뚫는 밭)이고,
+> 무엇보다 **뜻 언어가 스페인어인 큐레이션 덱이 0개**다 → [[project_ko_es_deck_deferred]].
+> en 로케일이 ko→en 덱 14개를 근거로 `Korean Vocabulary` 로 특화한 것과 **정반대 상황**이다.
+> 그래서 es 는 덱이 아니라 **도구**(내가 만드는 단어장 + AI)로 선다.
+
+## 부제 (Subtitle, 최대 30자) — 30자
+
+```
+Tus palabras en inglés, con IA
+```
+
+> **2026-08-23 개정.** 옛 부제는 `Tarjetas para aprender inglés`.
+>
+> **이름과 이어 읽으면 문장이 된다**: *"Avocado: estudiar vocabulario — Tus palabras en inglés, con IA"*.
+>
+> **부제가 여는 밭**: `palabras en inglés`(공급 139 · 이름 보유 21개 · 상한 **1위** · 리뷰 0이 6개 ·
+> 순수요 48,760) · `vocabulario inglés`(115,459 · 상한 7위 · 조합) · `estudiar inglés`(203,270 · 조합) ·
+> `vocabulario con IA`(조합으로 유지).
+>
+> 🔑 **`tus palabras`(너의 단어)가 제품의 실제 약속이다.** es 로케일에는 덱이 없으므로 약속할 수 있는
+> 것은 **사용자가 만드는 단어장과 AI 뿐**이다. 실사용도 이를 지지한다 — 직접 만든 단어장 암기율
+> 46.5% vs 큐레이션 12.8%.
+>
+> 🔑 **스페인어권 학습자의 최대 목표어는 영어다.** `inglés` 계열이 다른 어느 언어보다 크다
+> (`estudiar inglés` 203,270 · `vocabulario inglés` 115,459 vs `vocabulario japonés` 10,835 ·
+> `vocabulario coreano` 11,761).
+> ⚠️ **단 `inglés` 단독 밭은 노리지 않는다** — 상한 42위에 상위 20 리뷰 0이 0개다. 조합만 잡는다.
 
 ## 홍보 텍스트 (Promotional Text, 최대 170자) — 163자
 
@@ -50,14 +79,98 @@ Tarjetas para aprender inglés
 > 아직 설치하지 않은 사람이 제품 페이지 맨 위에서 보는 자리이므로 **업데이트 소식이 아니라
 > 전환 문구**로 채운다 — 무엇을 해주는 앱인지 + 무료로 얼마나 쓰는지.
 
-## 키워드 (Keywords, 최대 100자, 쉼표 구분, 공백 없이) — 98자
+## 키워드 (Keywords, 최대 100자, 쉼표 구분, 공백 없이) — 97자
 
 ```
-memorizar,flashcards,idiomas,coreano,japonés,chino,examen,repaso,palabras,hangul,kpop,TOEIC,verbos
+repaso,Cambridge,ejemplos,pronunciación,IELTS,verbos,japonés,coreano,chino,examen,fichas,tarjetas
 ```
 
-> ⚠️ 공백 절대 사용 X. 앱 이름·부제에 이미 든 토큰(vocabulario·IA·tarjetas·aprender·inglés)은
-> 뺐다. ❌ 경쟁사 브랜드명(duolingo·memrise)은 넣지 말 것 — Apple 이 거부할 수 있다.
+> ⚠️ **공백 절대 사용 X.** 12토큰 · 97자. 이름·부제에 든 단어(avocado · estudiar · vocabulario ·
+> tus · palabras · en · inglés · con · IA)는 뺐다 — Apple 이 세 칸을 자동 재조합한다.
+>
+> **2026-08-23 전면 교체.** 옛 13개 토큰
+> (`memorizar,flashcards,idiomas,coreano,japonés,chino,examen,repaso,palabras,hangul,kpop,TOEIC,verbos`)은
+> **실측에서 전부 죽어 있었다** → 빼도 잃을 것이 없는 상태에서 새로 짰다.
+>
+> 선정 기준은 **"상위 20에 리뷰 0인 앱이 몇 개인가"** 다(en 로케일에서 확립 · `ios-en.md` §검색 실측 ③).
+> - **리뷰 0이 많아 뚫리는 밭**: `repaso`(8개 · 이름 보유 9 · 상한 2위) · `Cambridge`(7개 · **이름
+>   보유 1개** · 상한 3위 · 순수요 23,094) · `ejemplos`(7개 · 이름 보유 1 · 상한 1위) ·
+>   `pronunciación`(6개 · 상한 3위 · 29,390) · `verbos`(4개 · 상한 1위 · 22,504) · `IELTS`(4개 ·
+>   상한 1위 · 16,905) · `examen`(3개 · 75,455) · `tarjetas`(4개 · `tarjetas de memoria` 상한 1위) ·
+>   `fichas`(5개 · `fichas de estudio` 상한 1위)
+> - **조합 밭용 언어**: `japonés`(→ `vocabulario japonés` 상한 1위 · 10,835) · `coreano`(→
+>   `vocabulario coreano` 상한 1위 · 11,761) · `chino`. **단독 밭은 포기한다**(상한 11~23위 · 리뷰 0이 0개).
+> - **우리 기능이라 넣은 것**: `repaso`(Gentle SRS) · `ejemplos`(예문) · `pronunciación`(TTS·발음기호).
+>
+> **뺀 것과 이유**: `memorizar`(이름 보유 7개로 비어 보이지만 **리뷰 0이 0개** = 무명 앱이 못 뚫는다) ·
+> `flashcards`(30개 · 리뷰 0이 0개) · `idiomas`(32개 · 상한 41위) · `hangul`(리뷰 0이 0개) ·
+> `kpop`(23개 · es 로케일에 한국어 덱이 없어 약속이 어긋난다) · `TOEIC`(리뷰 0이 9개로 뚫리지만
+> 순수요 11,117 로 작고, 유럽은 TOEIC 보다 Cambridge·IELTS 가 흔해 그 둘에 자리를 줬다).
+> ❌ 경쟁사 브랜드(duolingo · busuu · quizlet)는 넣지 말 것 — 심사 거부 사유가 될 수 있다.
+
+## 검색 실측 (App Store 스페인, 2026-08-23)
+
+**App Store 스페인을 실제로 잰 것은 이번이 처음이다.** 그전까지 es 판단의 근거는 Play 수치뿐이었다.
+🔑 재는 법은 한국과 같다(`ios-ko.md` §검색 실측). `country=ES&lang=es_es` 로 바꾼다.
+📌 `country=MX` 로 조회해도 라이브 이름이 같다 — 스페인어 원고 한 벌이 ES·MX 양쪽에 쓰인다.
+
+### 🔴 ① 우리 es 칸도 사실상 작동하지 않고 있었다 — 19개 토큰 중 18개 사망
+
+| 칸 | 토큰 | 스페인 순위 |
+|---|---|---|
+| 이름 | `avocado` | 68위 ← **유일한 생존** |
+| 이름 | `vocabulario` · `IA` | 둘 다 없음 |
+| 부제 | `tarjetas` · `aprender` · `inglés` | 전부 없음 |
+| 키워드 | 13개 전부 | 전부 없음 |
+
+**단 이름 전체 구절인 `vocabulario con IA` 로는 23위에 잡힌다.**
+🔑 **이것이 세 시장에서 공통으로 확인된 규칙이다** — 한국 `단어장 학습` 5위, 미국
+`vocabulary builder` 94위, 스페인 `vocabulario con IA` 23위. **단독 일반어 토큰은 안 잡히고,
+이름 전체와 정확히 일치하는 구절만 잡힌다.** → **이름은 "실제로 검색되는 구절"로 지어야 한다.**
+
+### 🔴 ② "빈 밭"과 "아무도 안 찾는 밭"을 반드시 가를 것
+
+스페인은 밭이 한국·미국보다 비어 보이는데, 상당수가 **검색어 자체가 존재하지 않는 것**이다.
+
+| 밭 | 공급 | 상한 | 리뷰 0 | 순수요 | 판정 |
+|---|---|---|---|---|---|
+| `cuaderno de vocabulario` | **10** | 1위 | 10개 | **0** | 아무도 안 찾음 |
+| `vocabulario con fotos` | **33** | 1위 | 15개 | **8** | 아무도 안 찾음 |
+| `selectividad inglés` | 16 | 1위 | 13개 | **5** | 아무도 안 찾음 |
+| `repasar` | 56 | 1위 | 12개 | 35 | 아무도 안 찾음 |
+| `estudiar vocabulario` | 164 | **1위** | 3개 | **83,359** | ✅ 값이 있다 |
+
+🔑 **공급이 100건 미만이면 빈 밭이 아니라 없는 밭으로 의심할 것.** 한국에서 세운 "공급·수요·도달
+상한 세 수로 잰다"가 여기서 실제로 값을 했다 — 세 수 중 하나만 봤으면 `vocabulario con fotos`
+(우리 기능과 정확히 맞고 공급 33건!)를 골랐을 것이고, 그 밭은 **순수요가 8**이다.
+
+### ③ 밭 기대값 (순수요 ÷ 도달 상한 · 상위 8)
+
+| 밭 | 공급 | 이름 보유 | 상한 | 리뷰 0 | 순수요 | 기대값 |
+|---|---|---|---|---|---|---|
+| **`estudiar vocabulario`** | 164 | 8 | **1위** | 3개 | 83,359 | **83,359** ← 이름 |
+| `palabras en inglés` | 139 | 21 | **1위** | 6개 | 48,760 | 48,760 ← 부제 |
+| `app de vocabulario` | 173 | **2** | 4위 | 1개 | 184,214 | 46,054 |
+| `vocabulario` | 179 | 21 | 4위 | 3개 | 106,120 | 26,530 |
+| `verbos` | 163 | 36 | 1위 | 4개 | 22,504 | 22,504 |
+| `IELTS` | 174 | 31 | 1위 | 4개 | 16,905 | 16,905 |
+| `aprender palabras` | 189 | 16 | 12위 | 0개 | 162,758 | 13,563 |
+| `vocabulario con IA` | 196 | 5 | 2위 | 7개 | 21,188 | 10,594 ← **현재 23위** |
+
+⚠️ **수요가 게임·비어학 앱으로 오염된 밭이 있다** — `app de vocabulario`·`mi vocabulario` 는 최대 앱이
+CodyCross(크로스워드), `aprender palabras` 는 Apalabrados(단어 게임), `lista de palabras` 는
+Preguntados 다. **최대 앱 이름을 반드시 함께 볼 것.** `estudiar vocabulario` 를 고른 이유 중
+하나가 최대 앱이 EWA(어학 앱)라 오염이 적다는 것이다.
+
+### 🔴 ④ 남은 미해결
+
+1. **Play es 이름은 이번에 손대지 않았다.** 라이브가 `Avocado: vocabulario con IA` 로 App Store
+   옛 이름과 같다. en 과 같은 이유다 — Play 는 설명문이 색인이라 이름 효과가 작고, 8/16 에 써 둔
+   es 짧은 설명·전체 설명이 **아직 미반영**이다. **그때 함께 판단할 것.**
+2. **MX(라틴아메리카) 지형을 따로 재지 않았다.** ES 만 쟀고 원고는 양쪽에 공용이다. 한국에서
+   "같은 검색어가 두 스토어에서 정반대"였고 미국·스페인도 서로 달랐으니, **ES ≠ MX 일 수 있다.**
+3. **es 덱 0개 문제는 그대로다.** 문구는 덱을 약속하지 않게 짰지만, 근본 해결은 덱 제작이다
+   → [[project_ko_es_deck_deferred]].
 
 ## 설명 (Description, 최대 4000자)
 

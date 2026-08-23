@@ -137,15 +137,22 @@ thẻ,ghi,nhớ,ôn,TOPIK,phát,âm,ví,dụ,flashcard,Hangeul,sơ,cấp,Anh,Nh�
 Học từ vựng tiếng Hàn, chỉ một ứng dụng.
 Avocado là ứng dụng học từ vựng gọn gàng — tự tạo bộ thẻ và ghi nhớ dễ dàng. AI tự phân tích từ, thêm hàng loạt từ ảnh hoặc Excel. Học từ vựng TOPIK, K-POP, Hallyu bằng flashcard, trắc nghiệm, câu ví dụ và shadowing.
 
-▸ Bộ từ chính thức cho người học tiếng Hàn
+• Bộ từ chính thức cho người học tiếng Hàn
 - Tiếng Hàn cơ bản 500 (cho người nói tiếng Việt / tần suất NIKL · CC BY-SA)
 - ※ Trung cấp, cao cấp sẽ bổ sung dần
 
-▸ 4 chế độ học / AI tạo từ vựng / Đồng bộ đám mây · ưu tiên ngoại tuyến
-▸ Miễn phí là đủ dùng. Pro (không quảng cáo · 3.000 từ/tháng · không giới hạn theo ngày) giá theo cửa hàng.
-▸ 24 giờ đầu sau khi đăng ký: 300 từ mỗi ngày. Pro có 7 ngày dùng thử miễn phí khi bắt đầu đăng ký (huỷ trong thời gian dùng thử sẽ không bị tính phí).
+• 4 chế độ học / AI tạo từ vựng / Đồng bộ đám mây · ưu tiên ngoại tuyến
+• Miễn phí là đủ dùng. Pro (không quảng cáo · 3.000 từ/tháng · không giới hạn theo ngày) giá theo cửa hàng.
+• 24 giờ đầu sau khi đăng ký: 300 từ mỗi ngày. Pro có 7 ngày dùng thử miễn phí khi bắt đầu đăng ký (huỷ trong thời gian dùng thử sẽ không bị tính phí).
 ```
 
+> 🔴 **2026-08-24 — 불릿을 `▸` 에서 `•` 로 바꿨다.** **설명 필드는 `▸`(U+25B8)·`↔`·`★` 를 거부한다**
+> (2026-07-19 실측). ko·en·es 설명문은 `•` 만 쓰는데 이 파일과 ja·zh 만 `▸` 를 쓰고 있었다.
+> ℹ️ 설명 필드는 `·`·`•`·`—` 는 통과하므로 본문의 `·` 는 그대로 둔다(전체 표는
+> `ios-ko.md` §스토어가 거부하는 문자).
+> ⚠️ **베트남어는 NFC 정규형을 유지할 것** — 결합 문자가 분해형으로 섞이면 리터럴 비교가
+> 빗나가고(전례 있음) 자수도 달라진다.
+>
 > ⚠️ **2026-08-02 수정 — 거짓 문구를 걷어냈다.** 이전 원고는 "Dùng thử 7 ngày, **không tự động trừ tiền**"
 > (7일 체험, 자동 차감 없음)이었다. 스토어 오퍼는 해지하지 않으면 자동 결제되므로 사실과 다르다.
 > 7/31에 Play 원고(vi.md)만 고치고 iOS 원고는 빠뜨렸다. 새 문구는 ko 원고와 같은 2줄 구조다.
@@ -153,19 +160,39 @@ Avocado là ứng dụng học từ vựng gọn gàng — tự tạo bộ thẻ
 ## 새로운 기능 (What's New, 최대 4000자, 버전별 갱신)
 
 ```
-Cập nhật 1.3.1
+Cập nhật 1.6.0 - Học bằng câu ví dụ đã tốt hơn nhiều.
 
-🔤 Sửa lại phiên âm trong bộ từ tiếng Hàn
-Phiên âm La-tinh của bộ Tiếng Hàn cơ bản 500 nay theo đúng quy tắc của Viện Quốc ngữ Hàn Quốc.
+[Các lựa chọn không còn mâu thuẫn]
+Một từ cũng hợp với chỗ trống sẽ không còn xuất hiện trong các đáp án sai, và một từ có nhiều nghĩa nay cho bạn một câu cho mỗi nghĩa thay vì gộp tất cả lại.
 
-📚 Chỉ hiện những bộ từ bạn đọc được
-Bạn có thể lọc bộ từ chính thức theo ngôn ngữ nghĩa. Những bộ từ viết bằng ngôn ngữ bạn không đọc được sẽ không còn lẫn trong danh sách. Đổi ở cuối trang danh sách bộ từ.
+[Thẻ ví dụ rộng hơn]
+Vùng chứa câu cao hơn bốn lần. Câu dài không còn bị cắt hay thu nhỏ đến mức khó đọc, chỗ trống ở dòng đầu không còn bị hụt phía trên, và nút loa nằm gọn trong thẻ.
+
+[Cùng một hạn mức dù không đăng nhập]
+Đăng nhập không còn quyết định hạn mức của bạn: 50 từ mỗi ngày, 300 từ trong 24 giờ đầu, và mỗi lượt quảng cáo thưởng cho 20 từ, tối đa hai lượt mỗi ngày.
+
+[Bộ từ nay đến từ máy chủ]
+Bộ từ mới có thể xuất hiện mà không cần cập nhật ứng dụng. Lần đầu mở danh mục sẽ cần kết nối mạng.
 
 Khác
-- Sửa lỗi nút Đánh giá ứng dụng không phản hồi khi nhấn.
+- Phần giải nghĩa tiếng Hàn trên thẻ nay là giải nghĩa thật, không còn là bản sao của nghĩa tiếng Việt.
+- Bộ từ bạn đã lưu vẫn giữ thẻ cũ. Hãy nhập lại bộ từ để nhận các chỉnh sửa.
+- Sửa lỗi quảng cáo thưởng không hiện, hoặc xem xong vẫn không tiếp tục.
+- Sửa lỗi ứng dụng bị treo trên iPhone khi vượt hạn mức.
 ```
 
-> ⚠️ vi 로케일에도 신규 덱 4종을 적지 않는다(ko→en 이라 보이지 않는다). 실제로 달라지는 것은
-> ko→vi 덱의 로마자 11건 교정과 뜻 언어 필터다.
+> **1.6.0 (2026-08-24).** 이모지를 뺐다 — **홍보 텍스트와 이 칸은 이모지와 `·`(U+00B7)를 거부한다**
+> (`ios-ko.md` §스토어가 거부하는 문자). 옛 원고는 `🔤`·`📚` 로 시작했다.
+> ℹ️ 홍보 텍스트는 원래 이모지가 없어 손대지 않았다. 1,072자 · NFC 정규형 확인.
+>
+> 🔑 **이 로케일도 한국어 사다리 4덱을 적지 않는다** — 전부 ko→en 이라 뜻 언어가 vi 인 사용자
+> 목록에는 뜨지 않는다(도착어 vi 덱은 `Tiếng Hàn cơ bản 500` 과 `Tiếng lóng Gen-Z & MZ` 둘).
+> ko·es·ja 와 같고 en 과 정반대다.
+>
+> 🔑 **"뜻풀이가 진짜 뜻풀이가 됐다"는 이 로케일에는 적었다.** 서버 실측(8/24)으로 로케일마다
+> 다시 셌기 때문이다: ko→vi 기본 500 덱은 복사본 **4%**(19장)로 사실상 고쳐졌다.
+> ⚠️ 같은 문장을 **ja 에는 적지 않았다** — ko→ja 는 18%가 아직 복사본이다. **옮겨 쓰지 말 것.**
+>
+> 🔴 **Play 는 따로 줄여야 한다** — 1,072자로 로케일당 500자를 넘는다.
 
 > Diacritics(성조표기) 반드시 유지 — ASCII로 쓰면 검색·가독성 깨짐. 전체 설명은 추후 번역 보강(전환용).

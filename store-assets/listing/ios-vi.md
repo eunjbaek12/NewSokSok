@@ -131,19 +131,82 @@ thẻ,ghi,nhớ,ôn,TOPIK,phát,âm,ví,dụ,flashcard,Hangeul,sơ,cấp,Anh,Nh�
    "덱 0개라 도구 포지션"으로 간 것과 비교하면 **vi 도 도구 포지션(`từ vựng` 단독 · 기대값 200,385)이
    가능했다.** 다음 개정에서 재검토할 것.
 
-## 짧은 설명/설명 리드 (전환용 — 첫 3줄이 중요)
+## 설명 (Description, 최대 4000자 · 전환용 — 첫 3줄이 중요)
 
 ```
 Học từ vựng tiếng Hàn, chỉ một ứng dụng.
-Avocado là ứng dụng học từ vựng gọn gàng — tự tạo bộ thẻ và ghi nhớ dễ dàng. AI tự phân tích từ, thêm hàng loạt từ ảnh hoặc Excel. Học từ vựng TOPIK, K-POP, Hallyu bằng flashcard, trắc nghiệm, câu ví dụ và shadowing.
+Avocado là ứng dụng học từ vựng gọn gàng — bạn tự tạo bộ thẻ của mình, còn AI điền nghĩa, phát âm và câu ví dụ. Học từ vựng TOPIK, K-POP và Hallyu bằng flashcard, trắc nghiệm, câu ví dụ và shadowing.
 
-• Bộ từ chính thức cho người học tiếng Hàn
-- Tiếng Hàn cơ bản 500 (cho người nói tiếng Việt / tần suất NIKL · CC BY-SA)
-- ※ Trung cấp, cao cấp sẽ bổ sung dần
+• Thêm từ theo cách nhanh nhất
+- Chụp ảnh: chụp một trang sách hoặc vở, ứng dụng tự tách từ ra
+- AI tự điền: chỉ cần nhập một từ, nghĩa, phát âm, câu ví dụ và từ đồng nghĩa được tạo sẵn
+- AI tạo bộ từ: chỉ cần viết chủ đề là có cả bộ thẻ (ví dụ: "gọi món ở quán cà phê", "động từ hay gặp trong TOPIK")
+- Nhập và xuất Excel (CSV), dán hàng loạt, nhập bằng giọng nói
 
-• 4 chế độ học / AI tạo từ vựng / Đồng bộ đám mây · ưu tiên ngoại tuyến
-• Miễn phí là đủ dùng. Pro (không quảng cáo · 3.000 từ/tháng · không giới hạn theo ngày) giá theo cửa hàng.
-• 24 giờ đầu sau khi đăng ký: 300 từ mỗi ngày. Pro có 7 ngày dùng thử miễn phí khi bắt đầu đăng ký (huỷ trong thời gian dùng thử sẽ không bị tính phí).
+• 4 chế độ học
+- Flashcard: lật thẻ, ghi nhớ trực tiếp
+- Trắc nghiệm: bốn lựa chọn, từ nào sai sẽ quay lại
+- Câu ví dụ: thấy từ đó được dùng thế nào trong câu
+- Tự động phát và shadowing: nghe rồi nói theo, luyện phát âm và nghe cùng lúc
+
+• "Học" — nhịp mỗi ngày
+- Chọn số từ muốn học mỗi ngày, kế hoạch ghi nhớ sẽ tự chia
+- Xem tỉ lệ học và tỉ lệ thuộc bằng biểu đồ
+- Tách riêng từ đã thuộc và từ hay nhầm để ôn hiệu quả hơn
+- Gom riêng từ đã đánh dấu sao và từ trả lời sai để học lại
+
+• Ôn tập nhẹ nhàng — đúng lúc bạn sắp quên
+- Ứng dụng tự gom lại những từ bạn sắp quên
+- Từ đã thuộc thì giãn ra, từ hay sai thì gặp thường xuyên hơn
+- Mỗi ngày có giới hạn, nên nghỉ vài hôm cũng không bị dồn một lúc
+- Chỉ nhắc một lần mỗi ngày, và chỉ vào ngày thực sự có từ cần ôn
+
+• Chuỗi ngày học và thống kê
+- Chuỗi ngày học, lịch và số từ đã thuộc, xem gọn trong một trang
+- Số từ thuộc hôm nay, tuần này và từ trước đến giờ cứ thế cộng dồn
+- Lưu lại thành tích của bạn dưới dạng hình ảnh
+
+• Bộ từ chính thức
+- Bộ từ có nghĩa tiếng Việt: Tiếng Hàn cơ bản 500 (tần suất NIKL · CC BY-SA 4.0) và Tiếng lóng Gen-Z & MZ Hàn Quốc 100
+- ※ Trung cấp và cao cấp sẽ bổ sung dần
+- Đổi ngôn ngữ nghĩa sang tiếng Anh, bạn có thêm 15 bộ từ tiếng Hàn nữa
+  · TOPIK I 350 từ thiết yếu / TOPIK II 300 từ thiết yếu
+  · Bộ bốn cấp: cơ bản, trung cấp I, trung cấp II, cao cấp
+  · Tiếng lóng K-POP và fan idol 100 / Tiếng lóng Gen-Z 100
+  · Từ tượng thanh, tượng hình 100 / Từ tiếng Hàn khó dịch 50 / Phim cổ trang 100
+  · Cửa hàng tiện lợi và giao hàng 50 / Chợ 50 / Phòng khám 50 / Leo núi 50
+- Bạn cũng có thể chọn ngay bộ từ do người học khác chia sẻ
+- Và chia sẻ bộ từ của mình để giúp những người học khác
+
+• Nhiều ngôn ngữ — từ ngôn ngữ nào sang ngôn ngữ nào cũng được
+- Tiếng Việt, tiếng Hàn, tiếng Anh, tiếng Nhật, tiếng Trung và tiếng Tây Ban Nha
+- Ngôn ngữ nhập và ngôn ngữ nghĩa ghép tự do (Hàn - Việt, Hàn - Anh, Anh - Trung...)
+
+• Giao diện theo ý bạn
+- Cổ điển, tối, Y2K, phòng thí nghiệm, biển mùa hè và nhiều chủ đề khác
+
+• Đồng bộ đám mây và ưu tiên ngoại tuyến
+- Dữ liệu được lưu vào máy trước, nên không có mạng vẫn học được
+- Đăng nhập bằng Sign in with Apple hoặc Google để đồng bộ đám mây
+- Không đăng nhập cũng bắt đầu được ngay
+
+• Miễn phí là đủ dùng
+- Miễn phí: 24 giờ đầu sau khi đăng ký là 300 từ mỗi ngày, sau đó 50 từ mỗi ngày
+- Xem một quảng cáo được thêm 20 từ (tối đa hai lần mỗi ngày)
+- Xem một quảng cáo thì banner cũng biến mất trong 24 giờ
+- Dùng hết hạn mức, bạn vẫn xem được nghĩa của từ
+- Pro: không quảng cáo · 3.000 từ mỗi tháng · không giới hạn theo ngày. Giá theo cửa hàng
+- BYOK: dùng khoá API Gemini của riêng bạn thì miễn phí không giới hạn (lấy ở Google AI Studio)
+- Pro có 7 ngày dùng thử miễn phí khi bắt đầu đăng ký (huỷ trong thời gian dùng thử sẽ không bị tính phí)
+
+• Riêng tư và minh bạch
+- Quảng cáo chỉ hiện với người dùng miễn phí (bản Pro không có quảng cáo)
+- Hỗ trợ App Tracking Transparency — bạn tự chọn có cho theo dõi hay không
+- Ứng dụng chỉ xin một quyền: micrô để nhập bằng giọng nói (không bắt buộc)
+
+Tạo bộ thẻ bạn muốn theo cách dễ nhất, và ghi nhớ theo cách gọn gàng nhất.
+
+Chính sách bảo mật: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ```
 
 > 🔴 **2026-08-24 — 불릿을 `▸` 에서 `•` 로 바꿨다.** **설명 필드는 `▸`(U+25B8)·`↔`·`★` 를 거부한다**
@@ -195,4 +258,26 @@ Khác
 >
 > 🔴 **Play 는 따로 줄여야 한다** — 1,072자로 로케일당 500자를 넘는다.
 
-> Diacritics(성조표기) 반드시 유지 — ASCII로 쓰면 검색·가독성 깨짐. 전체 설명은 추후 번역 보강(전환용).
+> **2026-08-24 — 전체 설명을 채웠다(3,799자).** 그전까지는 리드 749자뿐이었다.
+> ja 와 같은 방식으로 ko 본문을 옮기되 **두 곳을 이 로케일에 맞게 다시 썼다.**
+>
+> 🔴 **⑴ 옛 리드는 덱을 하나 빠뜨리고 있었다.** `Tiếng Hàn cơ bản 500` 만 적혀 있었는데,
+> 서버 실측(8/24) 결과 **뜻 언어가 vi 인 공식 덱은 둘**이다 —
+> `Tiếng Hàn cơ bản 500`(500장) · `Tiếng lóng Gen-Z & MZ Hàn Quốc 100`(100장).
+> 있는 덱을 안 적는 것도 손해다.
+>
+> 🔴 **⑵ 덱 목록을 "보이는 것"과 "바꾸면 보이는 것"으로 갈랐다.** ko 본문을 그대로 옮기면
+> 베트남어 사용자 목록에 없는 덱을 광고하게 된다(공개 65덱의 뜻 언어: ko 46 · en 15 ·
+> vi 2 · zh 1 · ja 1). **"ngôn ngữ nghĩa sang tiếng Anh → 15 bộ từ"** 로 적고 열거했다.
+> ja 와 같은 처리다.
+>
+> 🔑 **리드는 한국어 특화를 유지했다** — 이름 `từ vựng tiếng Hàn` · 부제 `Ôn tập từ của bạn với AI`
+> 와 같은 축이다. ja 는 이름이 `写真とAIで作る単語帳` 이라 사진 쪽으로 돌렸는데, **로케일마다
+> 포지션이 다르므로 리드도 다르다.**
+>
+> ⚠️ **3,799자로 한도까지 201자밖에 안 남는다.** 베트남어는 같은 내용이 일본어의 약 2배 길이가
+> 된다(ja 1,918자). 나중에 무엇을 넣으려면 무엇을 빼야 한다.
+> ⚠️ **Diacritics(성조표기) 반드시 유지** — ASCII 로 쓰면 검색·가독성이 깨진다.
+> **NFC 정규형도 유지할 것**(분해형이 섞이면 리터럴 비교가 빗나가고 자수도 달라진다).
+> ℹ️ 문자: `•`·`·`·`—`·`※` 만 쓴다(설명 필드 통과 확인). `▸`·`↔`·`★` 는 거부된다.
+> ℹ️ 가격은 숫자를 쓰지 않고 `Giá theo cửa hàng` 으로 뒀다.

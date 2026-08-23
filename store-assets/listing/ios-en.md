@@ -261,16 +261,11 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 
 • Find what others have built
 - Browse word lists shared by other learners and import the ones you love
-- Official curated lists, ready to study
-  · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
-  · Japanese — Basic 500 · JLPT N3
-  · Chinese — HSK 1
-  · Korean (for English speakers) — Basic · Intermediate · Advanced 500 series,
-    TOPIK I Essentials 350, TOPIK II Essentials 300,
-    Onomatopoeia & Mimetic Words 100,
-    Untranslatable Korean 50, Convenience Store & Delivery 50,
-    Sageuk (historical drama) 100, K-pop stan slang 100
-  · Vietnamese — Basic 500
+- Official Korean lists, ready to study — 4,468 cards, all with English meanings
+  · The ladder — Basic 665 · Intermediate I 786 · Intermediate II 786 · Advanced 931
+  · Exam prep — TOPIK I Essentials 350 · TOPIK II Essentials 300
+  · K-pop & Hallyu — idol stan slang 100 · Gen-Z & MZ slang 100 · sageuk drama 100
+  · Everyday Korean — onomatopoeia 100 · untranslatable 50 · convenience store 50 · market 50 · clinic 50 · hiking 50
 - Share your own lists to help the community
 
 • Six languages, every direction

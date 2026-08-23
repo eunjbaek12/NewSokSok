@@ -97,14 +97,26 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 
 • Find what others have built
 - Browse word lists shared by other learners and import the ones you love
-- A rich set of official curated lists, ready to study
-  · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
-  · Japanese — Basic 500 · JLPT N3
-  · Chinese — HSK 1
-  · Korean — TOPIK Basic · Intermediate · Advanced (NIKL A/B/C frequency — great for K-pop, Hallyu, and study-abroad learners)
-  · Korean — TOPIK II Essentials 300 (intermediate, with examples and collocations)
-  · Vietnamese — Basic 500
+- A rich set of official Korean lists — 4,468 cards, all with English meanings
+  · The ladder — Basic 665 · Intermediate I 786 · Intermediate II 786 · Advanced 931
+  · Exam prep — TOPIK I Essentials 350 · TOPIK II Essentials 300
+  · K-pop & Hallyu — idol stan slang 100 · Gen-Z & MZ slang 100 · sageuk drama 100
+  · Everyday Korean — onomatopoeia 100 · untranslatable 50 · convenience store 50 · market 50 · clinic 50 · hiking 50
 - Share your own lists to help the community
+
+> 🔴 **2026-08-24 — 덱 목록을 서버 실측으로 다시 썼다. 전에 적혀 있던 것은 이 로케일에서 보이지 않는 덱들이었다.**
+> `official_themes` 공개 65덱 중 **뜻 언어가 en 인 것은 15덱이고 전부 ko>en** 이다(합 4,468장).
+> 옆에 적혀 있던 NGSL·BSL·NAWL·TSL 은 `en>ko`, JLPT N3·Basic 500 은 `ja>ko`, HSK 1 은 `zh>ko`,
+> Vietnamese Basic 500 은 `vi>ko` 다 — **뜻 언어가 en 인 사용자 목록에는 하나도 안 뜼다.**
+> 제목도 전부 한국어다(`기초 영어 필수 1000`·`중급 일본어 500 (JLPT N3)`).
+>
+> 🔑 **키워드를 잃지 않는다** — Play 는 설명문까지 색인하므로 Japanese·Spanish 같은 검색어가
+> 사라지면 손해다. 그 말들은 바로 아래 「Six languages, every direction」 절이 이미 지고 있고,
+> 거기서는 덱을 약속하지 않고 **AI 가 채운다**고만 말한다(8/16 수정). 그래서 덱 절은 한국어만 남겨도 된다.
+>
+> 🔑 **수치는 더해서 맞추어 볼 것** — 사다리 3,168 + 시험 650 + 은어 300 + 생활 350 = **4,468**.
+> 1.6.0 새 기능의 3,168 과 같은 수여야 한다.
+> ⚠️ 이 리스트는 서버 데이터다 — **덱을 늘리면 여기도 다시 셀 것**(앞으로 앱 업데이트 없이 늘어난다).
 
 • Six languages, every direction
 - Korean vocabulary, Japanese vocabulary, Spanish vocabulary, Chinese, Vietnamese, English

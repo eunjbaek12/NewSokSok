@@ -1007,6 +1007,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 8,
+    /*
+     * 🔴 빈칸이 **첫 줄**에 오면 박스 위쪽이 잘리던 것(2026-08-23 iOS 실기, 9dp).
+     *
+     * 빈칸은 <Text> 안의 인라인 View 라 baseline 정렬된다 — 박스 높이(blankH 34)가
+     * baseline 위로 올라가는데 24dp 글자의 ascent 는 그보다 작아 줄 상단 위로 삐져나온다.
+     * `top: blankTop` 으로 내려도 모자라고, 첫 줄에서는 그 초과분이 **ScrollView 경계에서
+     * 잘린다**(둘째 줄부터는 위에 다른 줄이 있어 잘릴 것이 없다). b314e38 이 이 영역을
+     * ScrollView 로 바꾸면서 생긴 것이라 1.6.0 이전에는 없던 증상이다.
+     *
+     * 🔴 `sentenceScroll.marginTop` 을 줄여 해결하면 안 된다 — 그 20dp 는 별표를 피하는
+     *    몫이라(그 스타일 주석) 줄이면 밀어 올렸을 때 문장이 별표와 겹친다. 클리핑 경계는
+     *    그대로 두고 **안쪽에** 여유를 만든다.
+     * 🔑 12dp 는 가장 큰 단계(fontSize 24 · blankH 34)의 실측 초과분 9dp 에 여유를 둔 값이다.
+     *    작은 단계는 초과분이 더 적으므로 함께 덮인다.
+     */
+    paddingTop: 12,
   },
   card: {
     width: '100%',

@@ -69,10 +69,10 @@ Tus palabras en inglés, con IA
 > `vocabulario coreano` 11,761).
 > ⚠️ **단 `inglés` 단독 밭은 노리지 않는다** — 상한 42위에 상위 20 리뷰 0이 0개다. 조합만 잡는다.
 
-## 홍보 텍스트 (Promotional Text, 최대 170자) — 163자
+## 홍보 텍스트 (Promotional Text, 최대 170자) — 160자
 
 ```
-📸 Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 50 al día gratis.
+Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 50 al día gratis.
 ```
 
 > 심사를 안 거치는 유일한 칸이라 이모지가 안전하다(ko 의 📸도 그렇게 들어갔다).
@@ -265,31 +265,44 @@ Política de privacidad: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## 새로운 기능 (What's New, 버전별 갱신)
 
 ```
-1.4.0
+1.6.0 - Practicar con ejemplos funciona mucho mejor.
 
-La app ya habla español
+[Las opciones ya no se contradicen]
+Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas, y una palabra con varios significados ahora te da una frase por cada significado en vez de todas juntas.
 
-El español se suma al coreano y al inglés como idioma completo de la interfaz.
+[Tarjetas de ejemplo más grandes]
+La zona de la frase es más de cuatro veces más alta. Los ejemplos largos ya no se cortan ni se encogen hasta casi desaparecer, un hueco en la primera línea ya no queda cortado por arriba y el botón de audio se queda dentro de la tarjeta.
 
-Tema Mar de Verano
+[Si el catálogo te salía vacío, ahora te explicamos por qué]
+Con el significado en español todavía no hay mazos oficiales, así que el catálogo aparecía vacío sin más explicación. Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
 
-Un aguacate con sombrero de paja y un fondo de olas. Ajustes · Tema.
+[El mismo límite diario sin iniciar sesión]
+Iniciar sesión ya no decide tu límite: 50 palabras al día, 300 durante las primeras 24 horas, y un anuncio recompensado te da 20 palabras hasta dos veces al día.
 
-Cuando la IA no puede completar un significado, te dice por qué
-
-Un campo de significado vacío ahora se explica solo, y te dice qué hacer. Hasta ahora se rellenaban la pronunciación y el ejemplo mientras solo el significado se quedaba en blanco, sin forma de saber por qué.
-
-Ve un anuncio y sigue donde lo dejaste
-
-Después de un anuncio recompensado, el autocompletado que estabas esperando se ejecuta solo. Hasta ahora la recompensa llegaba al servidor pero la pantalla no se movía, así que era difícil saber si había llegado.
+[Los mazos ahora vienen del servidor]
+Pueden aparecer mazos nuevos sin actualizar la app. Necesitarás conexión la primera vez que se cargue el catálogo.
 
 Además
-• Al restaurar una suscripción ahora te decimos el resultado, y una compra vinculada a otra cuenta se bloquea con una explicación.
-• Corregidos los textos cortados y el centrado desviado en pantallas estrechas.
+- Los mazos que ya guardaste conservan sus tarjetas antiguas. Vuelve a importar un mazo para recibir las correcciones.
+- Arreglados los anuncios recompensados que no aparecían, o que no continuaban después de verlos.
+- Arreglado el bloqueo de la app en iPhone al pasarte del límite.
 ```
 
-> ⚠️ **App Store 원고는 이모지를 쓰지 않는다** — `•` 와 `·` 만. 거부 이력은 `▸` 와 `★` 이고
-> 이모지 자체가 막힌 건 아니지만, 무이모지가 이 저장소가 지켜 온 방식이다.
+> **1.6.0 (2026-08-24).** 스페인어 악센트 외에는 ASCII 만 쓴다.
+>
+> 🔴 **위에 오래 적혀 있던 "`•` 와 `·` 만 쓰면 된다"는 이제 틀렸다.** 8/24 실측에서
+> **홍보 텍스트와 이 칸이 `·`(U+00B7)와 이모지를 거부**했다(설명 필드는 통과 — 전체 표는
+> `ios-ko.md` §스토어가 거부하는 문자). 옛 원고는 `Ajustes · Tema` 와 `•` 불릿을 쓰고 있어
+> 그대로였다면 붙여넣기에 실패했을 것이다. `•` 의 생사는 아직 미확인이라 `-` 로 바꿨다.
+> ⚠️ 7/19 에 기록된 `▸`·`↔`·`★` 거부는 **설명 필드** 얘기이고 이 칸과 별개다.
+>
+> 🔑 **이 로케일은 한국어 덱을 헤드라인으로 쓸 수 없다.** 도착어가 es 인 공식 덱이 **0개**라
+> 스페인어 사용자의 목록에는 1.6.0 의 사다리 4덱이 뜨지 않는다(en 로케일과 정반대).
+> 대신 **빈 목록 안내**(`d857723` · `curation.noDeckForMeaningLang*`)를 넣었다 — 이 로케일에서만
+> 의미가 있는 개선이고, 실제로 스페인어 사용자가 겪던 첫 화면 문제다.
+>
+> 🔴 **Play 는 따로 줄여야 한다** — 1,473자로 로케일당 500자를 넘는다. 스페인어는 영어보다
+> 20~25% 길어지므로 영어본을 줄인 뒤 옮기면 또 넘친다(`README.md` 「출시 노트를 쓸 때」).
 > (Play 출시 노트는 반대로 매번 이모지를 쓴다 → `release-notes-*.txt`)
 
 ---

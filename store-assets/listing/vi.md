@@ -41,6 +41,12 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 - Tiếng Hàn cơ bản 500 (cho người nói tiếng Việt / tần suất NIKL · CC BY-SA 4.0)
 - Tiếng lóng Gen-Z & MZ Hàn Quốc 100
 - ※ Trình độ trung cấp, cao cấp sẽ bổ sung dần
+- Đổi ngôn ngữ nghĩa sang tiếng Anh, bạn có thêm 15 bộ từ tiếng Hàn nữa
+  · TOPIK I 350 từ thiết yếu / TOPIK II 300 từ thiết yếu
+  · Bộ bốn cấp: cơ bản, trung cấp I, trung cấp II, cao cấp
+  · Tiếng lóng K-POP và fan idol 100 / Tiếng lóng Gen-Z 100
+  · Từ tượng thanh, tượng hình 100 / Từ tiếng Hàn khó dịch 50 / Phim cổ trang 100
+  · Cửa hàng tiện lợi và giao hàng 50 / Chợ 50 / Phòng khám 50 / Leo núi 50
 - Ngoài tiếng Hàn còn có bộ từ tiếng Anh, tiếng Nhật, tiếng Trung, tiếng Tây Ban Nha
 
 • 4 chế độ học
@@ -85,5 +91,16 @@ Học từ vựng tiếng Hàn theo cách đơn giản và tinh tế nhất.
 
 Chính sách bảo mật: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ```
+
+> 🔑 **2026-08-24 — 「뜻 언어를 영어로 바꾸면 15덱」 안내를 넣었다.** iOS 원고(`ios-vi.md`)에만
+> 있던 것을 Play 로 옮겼다 — 문구는 손으로 적지 않고 그 파일에서 떼 왔다(전각·반각이 어긋난다).
+>
+> 🔴 **왜 필요한가** — 서버 실측(`official_themes` 공개 65덱)으로 뜻 언어가 vi 인 덱은
+> **Tiếng Hàn cơ bản 500 · Tiếng lóng Gen-Z & MZ 100 둘** 뿐이다. 그대로 두면 이 로케일 사용자는 한국어 덱이 15개 더 있다는 사실을 알 길이 없다.
+> 없는 덱을 광고하는 것도, 있는 덱을 안 적는 것도 둘 다 손해다.
+>
+> 🔑 **열거한 15개는 서버와 맞추었다** — 시험 2 + 사다리 4 + 은어 2 + 생활 7 = 15.
+> ⚠️ 덱이 늘면 이 숫자도 바뀐다 — 공식 덱은 서버에서 오므로 **앱 업데이트 없이 늘어난다**.
+
 
 > Từ khóa "tiếng Hàn", "học tiếng Hàn", "từ vựng", "TOPIK", "K-POP", "flashcard" được lặp lại tự nhiên trong mô tả.

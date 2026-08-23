@@ -234,11 +234,11 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 
 • Precios justos — lo gratis da para mucho
 - Gratis: 300 palabras con IA en las primeras 24 horas, luego 50 al día, y cada anuncio te da +20 (hasta 2 al día)
+- El límite es el mismo tanto si inicias sesión como si no
 - Un anuncio también quita los banners durante 24 horas
 - Aunque agotes el límite, sigues viendo el significado de las palabras
 - Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)
 - BYOK: usa tu propia clave de Gemini y no hay límite (la de Google AI Studio es gratuita)
-- Las primeras 24 horas tras registrarte tienes 300 palabras al día
 - Prueba gratuita de 7 días al empezar Pro (si cancelas durante la prueba, no se cobra nada)
 
 • Privacidad transparente

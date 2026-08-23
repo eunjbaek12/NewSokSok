@@ -74,10 +74,10 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 
 • Gói cước — miễn phí là đủ dùng
 - Miễn phí: 300 từ AI trong 24 giờ đầu, sau đó 50 từ/ngày + xem quảng cáo +20 từ (tối đa 2 lần/ngày)
+- Hạn mức không phụ thuộc vào việc đăng nhập
 - Xem một quảng cáo còn ẩn banner quảng cáo trong 24 giờ
 - Vượt hạn mức vẫn xem được nghĩa của từ
 - Pro: không quảng cáo, 3.000 từ/tháng, không giới hạn theo ngày (giá theo cửa hàng, gói năm ưu đãi hơn)
-- 300 từ/ngày trong 24 giờ đầu sau khi đăng ký
 - Dùng thử Pro miễn phí 7 ngày khi bắt đầu đăng ký (hủy trong thời gian dùng thử sẽ không bị tính phí)
 
 Học từ vựng tiếng Hàn theo cách đơn giản và tinh tế nhất.

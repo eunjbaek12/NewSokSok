@@ -122,11 +122,11 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 
 • Fair pricing — free is generous
 - Free: 300 AI words in the first 24 hours, then 50 per day, +20 per rewarded ad (up to twice a day)
+- The limit is the same whether or not you sign in
 - One rewarded ad also clears banner ads for 24 hours
 - Past the daily limit you can still see what a word means
 - Pro: ad-free, 3,000 words per month with no daily limit — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
-- A larger 300-word quota for your first 24 hours after signing up
 - 7-day free trial when you start Pro (cancel anytime, no charge)
 
 • Transparent privacy

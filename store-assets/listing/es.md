@@ -70,7 +70,7 @@ Vocabulario de inglés, coreano, japonés y chino. Una foto y la IA lo rellena.
 ⚠️ **순위를 기대하지 말 것.** 문구가 바꿀 수 있는 것은 "아예 안 나오던 검색어에 등장하는
 것"뿐이다(ko.md 와 같은 단서). 16~17개 경쟁에 다운로드로 이기는 것은 별개 문제다.
 
-## 전체 설명 (Full description, 최대 4000자) — 3,875자
+## 전체 설명 (Full description, 최대 4000자) — 3,924자
 
 `ios-es.md` 의 「설명」 절과 **동일한 텍스트를 쓴다.** 같은 4000자 한도이고,
 공식 큐레이션 덱 절을 뺀 이유(뜻 언어 es 덱 0개)도 Play 에서 똑같이 적용된다.
@@ -87,8 +87,8 @@ Vocabulario de inglés, coreano, japonés y chino. Una foto y la IA lo rellena.
 
 ## 출시 노트
 
-`release-notes-1.4.0.txt` 의 `<es-ES>` · `<es-419>` 블록.
-**로케일당 500자 제한**이며 현재 각 494자다.
+`release-notes-1.6.0.txt` 의 `<es-ES>` · `<es-419>` 블록.
+**로케일당 500자 제한**이며 현재 각 484자다.
 
 > ⚠️ 스페인어는 영어보다 20~25% 길어져, ko·en 과 같은 구조로 옮기면 한도를 넘는다.
 > 1.4.0 에서는 「그 밖에」 두 줄을 한 줄로 합쳐 맞췄다.

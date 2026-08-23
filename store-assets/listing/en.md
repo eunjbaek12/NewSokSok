@@ -107,7 +107,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 > 🔴 **2026-08-24 — 덱 목록을 서버 실측으로 다시 썼다. 전에 적혀 있던 것은 이 로케일에서 보이지 않는 덱들이었다.**
 > `official_themes` 공개 65덱 중 **뜻 언어가 en 인 것은 15덱이고 전부 ko>en** 이다(합 4,468장).
 > 옆에 적혀 있던 NGSL·BSL·NAWL·TSL 은 `en>ko`, JLPT N3·Basic 500 은 `ja>ko`, HSK 1 은 `zh>ko`,
-> Vietnamese Basic 500 은 `vi>ko` 다 — **뜻 언어가 en 인 사용자 목록에는 하나도 안 뜼다.**
+> Vietnamese Basic 500 은 `vi>ko` 다 — **뜻 언어가 en 인 사용자 목록에는 하나도 안 뜬다.**
 > 제목도 전부 한국어다(`기초 영어 필수 1000`·`중급 일본어 500 (JLPT N3)`).
 >
 > 🔑 **키워드를 잃지 않는다** — Play 는 설명문까지 색인하므로 Japanese·Spanish 같은 검색어가

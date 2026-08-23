@@ -39,6 +39,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 
 • Bộ từ chính thức cho người học tiếng Hàn
 - Tiếng Hàn cơ bản 500 (cho người nói tiếng Việt / tần suất NIKL · CC BY-SA 4.0)
+- Tiếng lóng Gen-Z & MZ Hàn Quốc 100
 - ※ Trình độ trung cấp, cao cấp sẽ bổ sung dần
 - Ngoài tiếng Hàn còn có bộ từ tiếng Anh, tiếng Nhật, tiếng Trung, tiếng Tây Ban Nha
 

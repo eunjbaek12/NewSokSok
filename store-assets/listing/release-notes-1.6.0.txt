@@ -17,6 +17,9 @@
 ＊ 적용돼야 참이 된다 — 지금 서버는 게스트에게 10 을 준다.
 ＊ **프로덕션 승격을 확인한 직후 단독 적용할 것**(db push 금지 → db query --file).
 ＊
+＊ 🔑 블록 순서는 Play Console 이 보여 주는 순서다 — 기본 언어(ko-KR) 먼저, 그 뒤 알파벳순.
+＊ 위에서 아래로 그대로 옮겨 담으면 된다.
+＊
 ＊ 자수 실측(코드포인트 / UTF-16, 한도 500): ko-KR 307/311 · en-US 484/487 ·
 ＊ ja-JP 252/256 · vi 423/426 · zh-CN 185/189 · es-ES·es-419 각 484/488.
 ＊ 🔴 en-US 와 es 는 처음 쓴 571 · 522 에서 줄인 것이다 — 1.4.0·1.5.0 에 이어 세 번째로
@@ -51,6 +54,36 @@ A word that also fits the blank is no longer a wrong choice. Example cards are 4
 
 🔓 Same daily limit without signing in
 50 words a day, 300 for your first 24 hours.
+
+<es-419>
+Actualización 1.6.0
+
+📝 Las opciones de ejemplo ya no se contradicen
+Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
+
+📖 Tarjetas de ejemplo más grandes
+La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
+
+🌐 Si el catálogo te salía vacío
+Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
+
+🔓 El mismo límite diario sin iniciar sesión
+50 palabras al día y 300 las primeras 24 horas.
+
+<es-ES>
+Actualización 1.6.0
+
+📝 Las opciones de ejemplo ya no se contradicen
+Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
+
+📖 Tarjetas de ejemplo más grandes
+La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
+
+🌐 Si el catálogo te salía vacío
+Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
+
+🔓 El mismo límite diario sin iniciar sesión
+50 palabras al día y 300 las primeras 24 horas.
 
 <ja-JP>
 1.6.0 アップデート
@@ -96,33 +129,3 @@ Vùng chứa câu cao hơn bốn lần, câu dài không còn bị cắt.
 
 📚 单词库改由服务器提供
 以后新增单词库不必等 App 更新。
-
-<es-ES>
-Actualización 1.6.0
-
-📝 Las opciones de ejemplo ya no se contradicen
-Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
-
-📖 Tarjetas de ejemplo más grandes
-La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
-
-🌐 Si el catálogo te salía vacío
-Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
-
-🔓 El mismo límite diario sin iniciar sesión
-50 palabras al día y 300 las primeras 24 horas.
-
-<es-419>
-Actualización 1.6.0
-
-📝 Las opciones de ejemplo ya no se contradicen
-Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
-
-📖 Tarjetas de ejemplo más grandes
-La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
-
-🌐 Si el catálogo te salía vacío
-Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
-
-🔓 El mismo límite diario sin iniciar sesión
-50 palabras al día y 300 las primeras 24 horas.

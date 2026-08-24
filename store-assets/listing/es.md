@@ -70,20 +70,95 @@ Vocabulario de inglés, coreano, japonés y chino. Una foto y la IA lo rellena.
 ⚠️ **순위를 기대하지 말 것.** 문구가 바꿀 수 있는 것은 "아예 안 나오던 검색어에 등장하는
 것"뿐이다(ko.md 와 같은 단서). 16~17개 경쟁에 다운로드로 이기는 것은 별개 문제다.
 
-## 전체 설명 (Full description, 최대 4000자) — 3,924자
+## 전체 설명 (Full description, 최대 4000자) — 3851자
 
-`ios-es.md` 의 「설명」 절과 **동일한 텍스트를 쓴다.** 같은 4000자 한도이고,
-공식 큐레이션 덱 절을 뺀 이유(뜻 언어 es 덱 0개)도 Play 에서 똑같이 적용된다.
-→ [[project_ko_es_deck_deferred]]
+> 🔴 **2026-08-24 — Play 용 본문을 여기에 실물로 둔다.** 전에는 "`ios-es.md` 와 동일"이라고만
+> 적혀 있었는데, 그 본문에 **iOS 에서만 참인 줄이 둘** 있어 그대로 붙여넣으면 거짓이 된다.
+>
+> | 줄 | Play 에서 |
+> |---|---|
+> | `Inicia sesión con Apple o Google` | 🔴 Apple 로그인은 **iOS 전용**(`features/auth/store.ts:334`) → **공용 문구를 중립형으로 고쳤다**(`Inicia sesión para sincronizar en la nube`) |
+> | `Compatible con App Tracking Transparency` | 🔴 ATT 는 **iOS 전용**(`lib/ads/admob.ts:15` — Android 에선 모듈이 throw) → **이 본문에서 뺐다** |
+>
+> 🔑 **두 파일의 차이는 ATT 한 줄뿐이다.** 문구를 고칠 땐 양쪽을 함께 볼 것(README 경고).
+> ✅ 화면명은 실측으로 맞다 — `es.json` 의 `stats.title = "Mi aprendizaje"` · `Tarjetas` · `Cuestionario` · `Ejemplos`.
+> ✅ `La app habla español, inglés y coreano` 도 참이다(UI 는 en·es·ko 셋뿐).
 
-> 🔑 **2026-08-16 — 언어 나열을 인접 구절로 바꿨다**(리드 문장 · 「Seis idiomas」 절).
-> `Español, inglés, coreano…` 나열은 `vocabulario` 와 떨어져 있어 검색어가 되지 못했다.
-> `vocabulario de inglés, de coreano…` 로 붙이고, **덱이 아니라 "AI 가 뜻·예문·발음을
-> 채운다"만 약속한다** — 뜻 언어 es 덱이 0개라 덱을 약속하면 사용자가 앱을 열자마자
-> 큐레이션 탭이 비어 있는 것을 본다. ko·en 과 같은 원칙이다.
-> ⚠️ **두 파일을 함께 고칠 것**(`play-description-1.3.0/es.txt` · `ios-es.md`).
-> 같은 로케일 원고가 Play 용·iOS 용 두 벌이라 한쪽만 고치기 쉽다 — 2026-08-02 에
-> ja·vi·zh 가 정확히 이 함정으로 거짓 문구를 라이브에 남긴 전례가 있다.
+```
+Crea la lista de palabras que quieres. Encuentra la que estabas buscando. Y memoriza cualquiera de las dos de la forma más limpia.
+
+Avocado es una herramienta personal de vocabulario pensada para que cada rato libre cuente: vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita, en cualquier dirección y sea cual sea tu idioma.
+
+• Cuatro modos de estudio
+- Tarjetas: una a una, como mejor se te queda
+- Cuestionario: preguntas de cuatro opciones para comprobar rápido
+- Ejemplos: aprende cada palabra en contexto
+- Reproducción automática y shadowing: escucha y repite para trabajar pronunciación y comprensión
+
+• Un ritmo diario que se adapta a ti
+- Marca cuántas palabras quieres al día y Avocado las reparte por ti
+- Gráficas claras de avance y dominio
+- Las palabras que ya dominas y las que se te resisten se llevan por separado
+- Marca una palabra con estrella o repasa solo las que fallaste
+
+• Repaso amable — justo antes de que se te olvide
+- Las palabras memorizadas vuelven solas justo cuando estás a punto de olvidarlas
+- Las que sabes bien vuelven poco; las que fallas, antes — repetición espaciada y sin culpa
+- Cada día tiene un tope, así que nada se acumula aunque te saltes unos días
+- Un aviso suave al día, y solo si hay algo que repasar
+
+• Rachas y estadísticas
+- Racha de días, calendario y palabras aprendidas en "Mi aprendizaje"
+- Mira crecer las palabras de hoy, de esta semana y del total
+- Comparte tu progreso como imagen
+
+• Añade palabras con una foto o una hoja de cálculo
+- Escanea una foto y trae todas las palabras de golpe
+- Pega o importa un archivo CSV tal cual
+- Pegado masivo: suelta una lista con saltos de línea y listo
+- También hay dictado por voz y entrada manual
+
+• Generación y análisis con IA
+- Escribe un tema y la IA te construye la lista entera
+  ej.: "Alquilar un apartamento en EE. UU.", "Pedir en una cafetería", "Verbos del TOEIC"
+- Añade una palabra y la IA completa pronunciación, significado, ejemplo y traducción
+- Elige par de idiomas, dificultad y número de palabras
+
+• Vocabulario en seis idiomas, en cualquier dirección
+- Vocabulario de inglés, de coreano, de japonés, de chino y de vietnamita en una sola app
+- Escribe una palabra en cualquiera de ellos y la IA rellena significado, ejemplo y pronunciación
+- Combina el idioma de origen y el del significado como quieras (ES-EN, EN-KO, ES-JA, cualquier par)
+- La app habla español, inglés y coreano
+
+• Listas compartidas por la comunidad
+- Explora las listas que comparten otras personas e importa las que te gusten
+- Comparte las tuyas para echar una mano
+
+• Ponle tu estilo con los temas
+- Clásico, Oscuro, Y2K, Laboratorio, Mar de Verano y más
+
+• Sin conexión primero, con copia en la nube
+- Tus datos viven en tu dispositivo: estudia sin internet
+- Inicia sesión para sincronizar en la nube
+- O entra como invitado y empieza al instante
+
+• Precios justos — lo gratis da para mucho
+- Gratis: 300 palabras con IA en las primeras 24 horas, luego 50 al día, y cada anuncio te da +20 (hasta 2 al día)
+- El límite es el mismo tanto si inicias sesión como si no
+- Un anuncio también quita los banners durante 24 horas
+- Aunque agotes el límite, sigues viendo el significado de las palabras
+- Pro: sin anuncios y 3.000 palabras al mes, sin límite diario — suscripción mensual o anual (la anual ahorra un 23 %)
+- BYOK: usa tu propia clave de Gemini y no hay límite (la de Google AI Studio es gratuita)
+- Prueba gratuita de 7 días al empezar Pro (si cancelas durante la prueba, no se cobra nada)
+
+• Privacidad transparente
+- Los anuncios solo se muestran a quien no ha iniciado sesión y a usuarios gratuitos (Pro no tiene)
+- El único permiso que pedimos es el micrófono, para el dictado
+
+Crea la lista que quieres. Memorízala de la forma más cuidada.
+
+Política de privacidad: https://eunjbaek12.github.io/NewSokSok/privacy-policy
+```
 
 ## 출시 노트
 

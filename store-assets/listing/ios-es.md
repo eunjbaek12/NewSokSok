@@ -229,7 +229,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 
 • Sin conexión primero, con copia en la nube
 - Tus datos viven en tu dispositivo: estudia sin internet
-- Inicia sesión con Apple o Google para sincronizar
+- Inicia sesión para sincronizar en la nube
 - O entra como invitado y empieza al instante
 
 • Precios justos — lo gratis da para mucho

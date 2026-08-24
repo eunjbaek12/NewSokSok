@@ -51,7 +51,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
   · Tiếng lóng K-POP và fan idol 100 / Tiếng lóng Gen-Z 100
   · Từ tượng thanh, tượng hình 100 / Từ tiếng Hàn khó dịch 50 / Phim cổ trang 100
   · Cửa hàng tiện lợi và giao hàng 50 / Chợ 50 / Phòng khám 50 / Leo núi 50
-- Ngoài tiếng Hàn còn có bộ từ tiếng Anh, tiếng Nhật, tiếng Trung, tiếng Tây Ban Nha
+- Ngoài tiếng Hàn, bạn cũng có thể dùng AI để tạo bộ từ tiếng Anh, tiếng Nhật, tiếng Trung, tiếng Tây Ban Nha
 
 • 4 chế độ học
 - Flashcard: từng thẻ một, trực quan

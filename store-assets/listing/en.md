@@ -64,9 +64,9 @@ Korean, Japanese, Spanish vocabulary with AI. Flashcards, photo import, review.
 > `korean vocabulary` 24, `japanese vocabulary` 23) and we appear in none of them —
 > not even under plain `vocabulary`. So this change buys presence, not rank.
 >
-> 🔑 **Our real asset in en is Korean** — 14 of the 14 curated decks whose meaning language
-> is English are ko→en. Spanish/Japanese/Chinese decks do not exist for this locale, so the
-> copy promises **AI filling words in**, never a deck.
+> 🔑 **Our real asset in en is Korean** — all **15** curated decks whose meaning language
+> is English are ko→en (4,468 cards; server count, 2026-08-24). Spanish/Japanese/Chinese decks
+> do not exist for this locale, so the copy promises **AI filling words in**, never a deck.
 
 ## Full description (max 4000 chars)
 
@@ -144,7 +144,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)
-- The only permission requested is the microphone, for voice input
+- Permissions: microphone (voice), camera (photo scan), notifications (review) — all optional
 - Your personal study data is visible only to you
 
 Build the word list you want. Memorize it the most polished way.
@@ -168,16 +168,12 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 
 ## Release notes / What's new (max 500 chars)
 
-```
-v1.2 — Review right before you forget.
+The `<en-US>` block in `release-notes-1.6.0.txt` (484 chars). **Do not keep a copy here.**
 
-- Gentle Review: memorized words quietly resurface right when you're about to forget them. No backlog, no red badges — spaced repetition that stays kind.
-- Review reminders: only on days you have words to review, once a day, at a time you choose.
-- Streaks & stats: day streak, calendar, and words learned in "My Learning," plus share your progress as an image.
-- Subscription reliability fixes, expanded in-app Help (FAQ), and various stability improvements.
-```
-
-> ~499 chars (500 limit). Matches the iOS English "What's New" message.
+> 🔴 **2026-08-24 — the v1.2 block that sat here was deleted.** The app is 1.6.0; only this
+> file still carried v1.2 copy in a fenced block, right where a paste-into-Console pass would
+> pick it up. Release notes are rewritten every version, so **`release-notes-<version>.txt` is
+> the single source** — es.md already works that way and ja/vi/zh have no such section.
 
 ---
 
@@ -188,7 +184,7 @@ v1.2 — Review right before you forget.
 | Category | Education |
 | Content rating | Everyone (auto-determined via questionnaire — re-answer "digital purchases=yes", "ads=yes") |
 | **Contains ads** | **Yes** (banner + rewarded) |
-| **In-app purchases** | **Yes** (Pro monthly/yearly subscription, $2.99 / $27.99) |
+| **In-app purchases** | **Yes** (Pro monthly/yearly subscription — price set per market in Play Console) |
 | **Advertising ID declaration** | **Yes — used** (changed v1.0 → v1.1) |
 | **Data safety** | Add advertising ID + transaction info to collected data |
 | Privacy policy URL | https://eunjbaek12.github.io/NewSokSok/privacy-policy (ko/en toggle) |

@@ -28,7 +28,7 @@ Avocado: vocabulario con IA
 > en 로케일과 같은 이유다 — Play 는 설치 수·평점이 랭킹을 지배하고 **설명문이 색인**이라 이름
 > 효과가 작다. 지금 바꾸면 Console 작업만 늘고 효과는 불확실하다.
 >
-> ⏳ **판단 시점**: 8/16 에 써 둔 이 로케일의 짧은 설명(77자)·전체 설명(3,875자)이 **아직 미반영**이다.
+> ⏳ **판단 시점**: 8/16 에 써 둔 이 로케일의 짧은 설명(77자)·전체 설명(3,829자)이 **아직 미반영**이다.
 > 그것을 넣을 때 이름도 함께 볼 것. Play 에서 값이 큰 곳은 이름이 아니라 설명문이다.
 >
 > 🔑 **App Store 쪽 근거는 `ios-es.md` §검색 실측 에 있다** — 우리 es 칸 19개 토큰 중 18개가 죽어
@@ -70,7 +70,7 @@ Vocabulario de inglés, coreano, japonés y chino. Una foto y la IA lo rellena.
 ⚠️ **순위를 기대하지 말 것.** 문구가 바꿀 수 있는 것은 "아예 안 나오던 검색어에 등장하는
 것"뿐이다(ko.md 와 같은 단서). 16~17개 경쟁에 다운로드로 이기는 것은 별개 문제다.
 
-## 전체 설명 (Full description, 최대 4000자) — 3851자
+## 전체 설명 (Full description, 최대 4000자) — 3,829자
 
 > 🔴 **2026-08-24 — Play 용 본문을 여기에 실물로 둔다.** 전에는 "`ios-es.md` 와 동일"이라고만
 > 적혀 있었는데, 그 본문에 **iOS 에서만 참인 줄이 둘** 있어 그대로 붙여넣으면 거짓이 된다.
@@ -152,7 +152,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 
 • Privacidad transparente
 - Los anuncios solo se muestran a quien no ha iniciado sesión y a usuarios gratuitos (Pro no tiene)
-- El único permiso que pedimos es el micrófono, para el dictado
+- Permisos: micrófono (dictado), cámara (escaneo de fotos) y notificaciones (repaso) — todos opcionales
 
 Crea la lista que quieres. Memorízala de la forma más cuidada.
 

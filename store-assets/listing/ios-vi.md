@@ -143,7 +143,7 @@ Avocado là ứng dụng học từ vựng gọn gàng — bạn tự tạo bộ
 
 • Thêm từ theo cách nhanh nhất
 - Chụp ảnh: chụp một trang sách hoặc vở, ứng dụng tự tách từ ra
-- AI tự điền: chỉ cần nhập một từ, nghĩa, phát âm, câu ví dụ và từ đồng nghĩa được tạo sẵn
+- AI tự điền: chỉ cần nhập một từ, nghĩa, phát âm, câu ví dụ và bản dịch được tạo sẵn
 - AI tạo bộ từ: chỉ cần viết chủ đề là có cả bộ thẻ (ví dụ: "gọi món ở quán cà phê", "động từ hay gặp trong TOPIK")
 - Nhập và xuất Excel (CSV), dán hàng loạt, nhập bằng giọng nói
 

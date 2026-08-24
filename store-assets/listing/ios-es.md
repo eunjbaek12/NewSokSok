@@ -181,7 +181,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 
 • Cuatro modos de estudio
 - Tarjetas: una a una, como mejor se te queda
-- Cuestionario: opción múltiple y respuesta corta
+- Cuestionario: preguntas de cuatro opciones para comprobar rápido
 - Ejemplos: aprende cada palabra en contexto
 - Reproducción automática y shadowing: escucha y repite para trabajar pronunciación y comprensión
 
@@ -211,7 +211,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 • Generación y análisis con IA
 - Escribe un tema y la IA te construye la lista entera
   ej.: "Alquilar un apartamento en EE. UU.", "Pedir en una cafetería", "Verbos del TOEIC"
-- Añade una palabra y la IA completa pronunciación, significado, ejemplos y sinónimos
+- Añade una palabra y la IA completa pronunciación, significado, ejemplo y traducción
 - Elige par de idiomas, dificultad y número de palabras
 
 • Vocabulario en seis idiomas, en cualquier dirección

@@ -51,7 +51,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 
 • 4 chế độ học
 - Flashcard: từng thẻ một, trực quan
-- Trắc nghiệm: chọn đáp án & điền từ, kiểm tra nhanh
+- Trắc nghiệm: bốn lựa chọn, kiểm tra nhanh
 - Học câu ví dụ: nắm cách dùng từ trong câu
 - Tự động phát · Shadowing: nghe và nói theo, luyện phát âm và nghe cùng lúc
 
@@ -68,7 +68,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 
 • AI tạo từ vựng & phân tích tự động
 - Chỉ cần nhập chủ đề, AI tạo cả bộ thẻ từ vựng tiếng Hàn
-- Thêm một từ, AI tự tạo phát âm, nghĩa, câu ví dụ và từ đồng nghĩa
+- Thêm một từ, AI tự tạo phát âm, nghĩa, câu ví dụ và bản dịch
 
 • Thêm nhanh bằng ảnh · Excel
 - Quét một tấm ảnh để nhập cả bộ từ (OCR)

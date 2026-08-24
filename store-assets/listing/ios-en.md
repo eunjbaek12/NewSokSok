@@ -226,7 +226,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 
 • Four study modes
 - Flashcards: one card at a time, the way you remember best
-- Quiz: multiple choice and short answer
+- Quiz: four-choice questions to check yourself fast
 - Example sentences: learn words in context
 - Autoplay & shadowing: listen and speak along
 
@@ -256,7 +256,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 • AI word generation & auto-analysis
 - Type a topic and AI builds an entire list for you
   e.g. "Renting an apartment in the US", "Ordering at a cafe", "TOEIC verbs"
-- Add a single word and AI auto-fills pronunciation, meaning, examples, and synonyms
+- Add a single word and AI auto-fills pronunciation, meaning, example and translation
 - Choose language pair, difficulty, and word count
 
 • Find what others have built

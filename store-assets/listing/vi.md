@@ -62,7 +62,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 - Chỉ nhắc vào ngày có từ cần ôn, mỗi ngày một lần
 
 • Chuỗi ngày & thống kê
-- Chuỗi ngày học, lịch và số từ đã học ngay trong "Học của tôi"
+- Chuỗi ngày học, lịch và số từ đã học ngay trong màn hình "My Learning"
 - Số từ đã thuộc hôm nay, tuần này và tổng cộng cứ tăng dần
 - Lưu tiến trình thành hình ảnh để chia sẻ
 
@@ -76,7 +76,7 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 
 • Đồng bộ đám mây & ưu tiên ngoại tuyến
 - Dữ liệu lưu trên máy trước, không có mạng vẫn học được
-- Đăng nhập Google hoặc Apple để đồng bộ đám mây
+- Đăng nhập Google để đồng bộ đám mây an toàn
 - Chế độ khách: bắt đầu ngay, không cần đăng ký
 
 • Gói cước — miễn phí là đủ dùng
@@ -86,6 +86,8 @@ Avocado là ứng dụng học từ vựng tiếng Hàn gọn gàng — tự t�
 - Vượt hạn mức vẫn xem được nghĩa của từ
 - Pro: không quảng cáo, 3.000 từ/tháng, không giới hạn theo ngày (giá theo cửa hàng, gói năm ưu đãi hơn)
 - Dùng thử Pro miễn phí 7 ngày khi bắt đầu đăng ký (hủy trong thời gian dùng thử sẽ không bị tính phí)
+
+※ Giao diện ứng dụng hiện có tiếng Anh, tiếng Hàn và tiếng Tây Ban Nha — chưa có tiếng Việt. Nội dung bộ từ và nghĩa vẫn là tiếng Việt.
 
 Học từ vựng tiếng Hàn theo cách đơn giản và tinh tế nhất.
 

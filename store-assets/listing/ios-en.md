@@ -250,7 +250,6 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 • Add words by photo or spreadsheet
 - Scan a photo and pull in all the words at once
 - Paste in or import a CSV file as-is
-- Bulk paste: drop a line-separated list and it just works
 - Voice input and manual entry also supported
 
 • AI word generation & auto-analysis

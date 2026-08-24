@@ -115,7 +115,6 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 • Añade palabras con una foto o una hoja de cálculo
 - Escanea una foto y trae todas las palabras de golpe
 - Pega o importa un archivo CSV tal cual
-- Pegado masivo: suelta una lista con saltos de línea y listo
 - También hay dictado por voz y entrada manual
 
 • Generación y análisis con IA

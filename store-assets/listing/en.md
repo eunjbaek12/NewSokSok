@@ -85,7 +85,6 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 • Add words by photo or spreadsheet
 - Scan a photo and pull in all the words at once
 - Paste in or import a CSV file as-is
-- Bulk paste: drop a line-separated list and it just works
 - Voice input and manual entry also supported
 
 • AI word generation & auto-analysis
@@ -123,7 +122,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - The limit is the same whether or not you sign in
 - One rewarded ad also clears banner ads for 24 hours
 - Past the daily limit you can still see what a word means
-- Pro: ad-free, 3,000 words per month with no daily limit — $2.99/mo or $27.99/yr (~22% off vs monthly)
+- Pro: ad-free, 3,000 words per month with no daily limit — monthly or yearly (the yearly plan saves more; see the store for pricing)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - 7-day free trial when you start Pro (cancel anytime, no charge)
 

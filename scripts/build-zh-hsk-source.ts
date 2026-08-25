@@ -22,7 +22,7 @@ import path from 'path';
 
 const LEVEL = (process.argv[2] || '').trim();
 if (!['3', '5'].includes(LEVEL)) {
-  console.error('❌ 사용법: npx ts-node scripts/build-zh-hsk-source.ts <3|5>');
+  console.error('❌ 사용법: npx ts-node scripts/build-zh-hsk-source.ts <3|5> [개수]');
   process.exit(1);
 }
 
@@ -30,7 +30,14 @@ const OUT_NAME = LEVEL === '3' ? 'zh-intermediate' : 'zh-advanced';
 const HSK_RAW = path.resolve(process.cwd(), `scripts/data/wiktionary-hsk${LEVEL}-raw.json`);
 const CEDICT_PATH = path.resolve(process.cwd(), 'scripts/data/cedict.txt');
 const OUTPUT = path.resolve(process.cwd(), `scripts/${OUT_NAME}-source.json`);
-const TARGET_COUNT = 500;
+// 🔴 500 으로 자르지 않는다 — 자를 좋은 축이 아예 없기 때문이다.
+//    HSK 위키 페이지는 빈도순이 아니라 **음절 그룹 + 병음 순**이고 CC-CEDICT 에도 빈도가
+//    없다. 그래서 앞에서 500을 자르면 "쉬운 500"이 아니라 **단음절 전량 + 2음절 a~j** 가
+//    남는다. 2026-08 실측으로 3급 469장 · 5급 570장이 그렇게 잘려 나가 있었다.
+//    ⚠️ "어떻게 자를까"가 아니라 **"자를 데이터가 있나"를 먼저 물을 것.** 사다리 4덱도
+//    같은 질문에서 같은 결론(자르지 않는다)에 왔다.
+//    줄여야 할 이유가 생기면 두 번째 인자로 개수를 준다.
+const TARGET_COUNT = process.argv[3] ? Number(process.argv[3]) : Number.POSITIVE_INFINITY;
 
 const POS_MAP: Record<string, string> = {
   V: 'verb', N: 'noun', A: 'adjective', Num: 'number', Part: 'particle',
@@ -139,7 +146,8 @@ function main() {
   }
   console.log(`🔍 중복 제거: ${deduped.length}개`);
 
-  if (deduped.length < TARGET_COUNT) {
+  // 개수를 명시했을 때만 부족 검사가 의미가 있다. 기본(전량)에서는 후보가 곧 목표다.
+  if (Number.isFinite(TARGET_COUNT) && deduped.length < TARGET_COUNT) {
     console.error(`❌ 후보 ${deduped.length}개 (목표 ${TARGET_COUNT})`);
     process.exit(1);
   }

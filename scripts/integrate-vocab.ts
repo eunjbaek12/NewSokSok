@@ -121,22 +121,25 @@ const META: Record<string, ListMeta> = {
   },
   'zh-intermediate': {
     id: 'curated-zh-intermediate-1',
-    title: '중급 중국어 500 (HSK 3급)',
+    // 2026-08-25: 500 → 969. HSK 3급 전량이다(TARGET_COUNT 로 앞에서 자르던 것을 걷었다).
+    // 🔑 제목의 숫자는 실제 장수를 그대로 쓴다 — '수능·학문 핵심 957' 이 같은 선례다.
+    title: '중급 중국어 969 (HSK 3급)',
     icon: '🐼',
     category: '중급',
     level: 'intermediate',
-    description: 'HSK 3급 중급 중국어 500. Wiktionary "HSK list of Mandarin words v3.0/level 3" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 3 예문 AI 생성',
+    description: 'HSK 3급 중급 중국어 969(전량). Wiktionary "HSK list of Mandarin words v3.0/level 3" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 3 예문 AI 생성',
     tags: ['Chinese', 'HSK', 'Intermediate'],
     sourceLanguage: 'zh',
     targetLanguage: 'ko',
   },
   'zh-advanced': {
     id: 'curated-zh-advanced-1',
-    title: '고급 중국어 500 (HSK 5급)',
+    // 2026-08-25: 500 → 1070 (위 zh-intermediate 와 같은 이유).
+    title: '고급 중국어 1070 (HSK 5급)',
     icon: '🐼',
     category: '고급',
     level: 'advanced',
-    description: 'HSK 5급 고급 중국어 500. Wiktionary "HSK list of Mandarin words v3.0/level 5" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 5 예문 AI 생성',
+    description: 'HSK 5급 고급 중국어 1070(전량). Wiktionary "HSK list of Mandarin words v3.0/level 5" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 5 예문 AI 생성',
     tags: ['Chinese', 'HSK', 'Advanced'],
     sourceLanguage: 'zh',
     targetLanguage: 'ko',
@@ -439,6 +442,33 @@ const TRANSLATED_PATH = path.resolve(process.cwd(), `scripts/${LIST_NAME}-transl
 const CURATION_PATH = path.resolve(process.cwd(), 'constants/curationData.ts');
 const NOW = Date.now();
 
+const REPLACE = process.argv.includes('--replace');
+
+/**
+ * curationData.ts 안에서 덱 하나의 객체 경계를 찾는다 (--replace 용).
+ *
+ * 8MB 한 줄짜리 배열이라 정규식으로 블록을 뜨면 옆 덱까지 먹는다. 중괄호를 세되
+ * **문자열 안과 이스케이프를 구분**한다 — 예문에 `{` 가 없으리라는 가정에 기대지 않는다.
+ */
+function findDeckBlock(src: string, id: string): { start: number; end: number } | null {
+  const idPos = src.indexOf(`"id": "${id}"`);
+  if (idPos < 0) return null;
+  const start = src.lastIndexOf('{', idPos);
+  if (start < 0) return null;
+
+  let depth = 0, inStr = false, esc = false;
+  for (let i = start; i < src.length; i++) {
+    const c = src[i];
+    if (esc) { esc = false; continue; }
+    if (c === '\\') { esc = true; continue; }
+    if (c === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (c === '{') depth++;
+    else if (c === '}') { depth--; if (depth === 0) return { start, end: i + 1 }; }
+  }
+  return null;
+}
+
 function main() {
   if (!fs.existsSync(TRANSLATED_PATH)) {
     console.error(`❌ 번역 결과 파일 없음: ${TRANSLATED_PATH}`);
@@ -507,9 +537,29 @@ function main() {
 
   const original = fs.readFileSync(CURATION_PATH, 'utf8');
 
-  if (original.includes(`"${meta.id}"`)) {
-    console.error(`❌ 이미 ${meta.id} 가 curationData.ts 에 존재합니다.`);
+  const exists = original.includes(`"${meta.id}"`);
+
+  if (exists && !REPLACE) {
+    console.error(`❌ 이미 ${meta.id} 가 curationData.ts 에 존재합니다. 갈아끼우려면 --replace.`);
     process.exit(1);
+  }
+  if (!exists && REPLACE) {
+    console.error(`❌ --replace 인데 ${meta.id} 가 curationData.ts 에 없습니다.`);
+    process.exit(1);
+  }
+
+  if (REPLACE) {
+    const block = findDeckBlock(original, meta.id);
+    if (!block) {
+      console.error(`❌ ${meta.id} 블록의 경계를 찾지 못했습니다.`);
+      process.exit(1);
+    }
+    const oldCount = (original.slice(block.start, block.end).match(/"term":/g) ?? []).length;
+    const body = JSON.stringify(newList, null, 2)
+      .split('\n').map((line, i) => (i === 0 ? line : '  ' + line)).join('\n');
+    fs.writeFileSync(CURATION_PATH, original.slice(0, block.start) + body + original.slice(block.end), 'utf8');
+    console.log(`✅ "${meta.title}" 교체됨 (${oldCount} → ${items.length}개 단어, id: ${meta.id})`);
+    return;
   }
 
   const arrayOpenMatch = original.match(/curationPresets\s*:\s*VocaList\[\]\s*=\s*\[/);

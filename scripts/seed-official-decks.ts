@@ -273,6 +273,7 @@ async function main() {
     'definition-fixed': 0,
     'senses-merged': 0,
     'senses-skipped-nooverlap': 0,
+    'senses-covered': 0,
     'senses-skipped-limit': 0,
     'definition-cleared': 0,
     'senses-all-dropped': 0,
@@ -324,7 +325,8 @@ async function main() {
   console.log(`  ↳ 분류: 사람 판정으로 비움  : ${stats['definition-cleared']}`);
   console.log(`뜻이 전부 제외돼 캐시 미사용 : ${stats['senses-all-dropped']}`);
   console.log(`①② 병기 적용                : ${stats['senses-merged']}`);
-  console.log(`  ↳ 예문이 캐시 것으로 바뀜  : ${exampleChanged}`);
+  console.log(`  ↳ 예문 ① 은 덱 것, ② 부터 캐시: ${exampleChanged}`);
+  console.log(`병기 없음(캐시가 덱 뜻만 앎)  : ${stats['senses-covered']}`);
   console.log(`병기 보류(덱 뜻이 캐시에 없음): ${stats['senses-skipped-nooverlap']}`);
   console.log(`병기 보류(저장 한도 초과)     : ${stats['senses-skipped-limit']}`);
 

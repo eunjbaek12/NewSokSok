@@ -32,6 +32,7 @@ export type Outcome =
   | 'definition-fixed'            // meaningKr 복사본을 뜻풀이로 바꿨다
   | 'senses-merged'               // ①② 병기를 넣었다
   | 'senses-skipped-nooverlap'    // 덱 뜻이 캐시 뜻에 없어 손대지 않았다
+  | 'senses-covered'               // 캐시가 덱 뜻 밖의 뜻을 몰라 병기할 것이 없었다
   | 'senses-skipped-limit'        // 병기가 저장 한도를 넘어 포기했다
   | 'definition-cleared'          // 사람이 blank 로 판정해 definition 을 비웠다
   | 'senses-all-dropped';         // 뜻이 전부 제외 목록에 걸려 캐시를 쓰지 않았다
@@ -238,17 +239,61 @@ function composeWordRaw(
     if (!matchedSenses.length) {
       return { word, outcome: 'senses-skipped-nooverlap', senses, exampleChanged: false, definitionFixed };
     }
-    // 🔑 병기는 **덱 뜻으로 좁히지 않는다.** 동음이의어를 함께 보여주는 것이 이 기능의
-    //    의도이고(사과 = apple ② apology), 좁히면 기능 자체가 사라진다. 캐시가 틀린 뜻을
-    //    아는 경우(논 = 쟁기)가 여기 섞이지만, 그것과 진짜 동음이의어는 형태로 구별되지
-    //    않는다 — 캐시 품질 문제이지 병기 범위 문제가 아니다.
-    const selection = defaultSenseSelection(senses, base);
-    // 한도 때문에 뜻이 하나로 줄면 병기가 아니라 "덱 뜻을 캐시 첫 뜻으로 교체"가
-    // 되어 버린다 — 뜻은 안 늘고 덱 것만 사라지므로 포기한다.
+    // 🔑 ① 은 **언제나 덱이 가르치는 뜻 그대로**이고, ②③ 은 캐시가 아는 **다른** 뜻이다.
+    //
+    // 🔴 그전에는 덱 뜻을 캐시 병기본으로 통째 교체했다. 겹침 판정은 뜻이 **하나라도**
+    //    겹치면 통과하므로, 겹치지 않은 나머지 덱 뜻은 그때 사라졌다. 실측(2026-08-25,
+    //    서버 병기 5,257행):
+    //      위  덱 above, top, stomach  → ① Above ② On top of        (stomach 소실)
+    //      골  덱 bone; goal, point…   → ① skeleton, bone ② core     (goal 소실)
+    //      전  덱 before, previous, entire → ① Previous time ② 부침개 (entire 소실)
+    //    순서도 캐시를 따랐다 — 덱이 詩를 가르치는 `시` 가 `① time ② poem` 이 되어
+    //    **카드 첫 줄이 딴 뜻**이 됐다(`예`·`정상`·`만만하다` 같은 유형).
+    //
+    // 🔑 덱 뜻을 ① 로 고정하면 둘 다 사라진다. 잃는 것은 캐시의 부연뿐이고
+    //    (`apple` → `apple (the fruit)`), 그것은 ② 와 대비되면 문맥으로 읽힌다.
+    //    덱 뜻은 사람이 만든 소스이고 캐시는 AI 생성이라, 어긋날 때 지켜야 하는 쪽은
+    //    덱이다(`논` 의 캐시 ① 은 쟁기다).
+    //
+    // ⚠️ 좁히는 것이 아니다 — 동음이의어를 함께 보여 주는 기능은 그대로다. 캐시의
+    //    다른 뜻은 ②③ 으로 전부 따라온다. 바뀌는 것은 **무엇이 ① 인가**뿐이다.
+    const matched = new Set(matchedSenses);
+    // ① 의 뜻풀이는 겹친 캐시 뜻의 것을 쓴다 — 덱 definition 은 meaningKr 복사본인
+    // 경우가 많다(ko>en 등 4,400건). 번호는 붙이지 않는다. 여기서 병기본을 쓰면
+    // ① 안에 다시 ①② 가 들어가 번호가 중첩된다.
+    const deckDefinition = matchedSenses
+      .map(i => (senses[i].definition ?? '').trim())
+      .filter(Boolean)
+      .join(' ');
+    const deckSense: WordSense = {
+      meaningKr: w.meaningKr,
+      definition: deckDefinition || (word.definition ?? ''),
+      // 예문도 덱 것을 ① 로 지킨다. 덱 예문은 그 덱의 난이도에 맞춰 만든 것이고,
+      // 캐시 예문은 표제어만 같은 일반 문장이다.
+      exampleEn: w.exampleEn,
+      exampleKr: w.exampleKr,
+      pos: w.pos,
+      phonetic: w.phonetic,
+    };
+    const others = senses.filter((_, i) => !matched.has(i));
+    if (!others.length) {
+      // 캐시가 덱 뜻 밖의 뜻을 모른다 = 병기할 것이 없다. 예전에는 이때도 덱 뜻이
+      // 캐시 표현으로 갈렸다(`위`·`종` 이 이 유형이다). definition 교정만 남긴다.
+      //
+      // 뜻이 한 줄(덱 것)이므로 뜻풀이에도 번호를 남기지 않는다 — ④ 가 넣어 둔
+      // 병기본을 그대로 두면 앞면은 뜻 하나인데 뜻풀이만 ①② 로 갈려 짝이 어긋난다.
+      const unnumbered = definitionFixed && deckDefinition
+        ? { ...word, definition: deckDefinition }
+        : word;
+      return { word: unnumbered, outcome: 'senses-covered', senses, exampleChanged: false, definitionFixed };
+    }
+    const ordered = [deckSense, ...others];
+    const selection = defaultSenseSelection(ordered, base);
+    // 한도 때문에 뜻이 하나로 줄면 병기가 아니라 덱 뜻만 남는 것이므로 그냥 덱을 둔다.
     if (selection.length < 2) {
       return { word, outcome: 'senses-skipped-limit', senses, exampleChanged: false, definitionFixed };
     }
-    const fill = composeSenseFill(selection, senses, base);
+    const fill = composeSenseFill(selection, ordered, base);
     if (!fitsSaveLimits(fill)) {
       return { word, outcome: 'senses-skipped-limit', senses, exampleChanged: false, definitionFixed };
     }
@@ -264,7 +309,9 @@ function composeWordRaw(
         phonetic: w.phonetic,
       },
       outcome: 'senses-merged',
-      senses,
+      // 서버 senses 컬럼은 카드에 실린 것과 같아야 한다 — ① 이 덱 뜻으로 바뀌었으므로
+      // 원본 캐시 배열이 아니라 실제로 쓴 배열을 돌려준다.
+      senses: selection.map(i => ordered[i]),
       exampleChanged: true,
       definitionFixed,
     };

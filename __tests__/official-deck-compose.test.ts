@@ -53,9 +53,10 @@ describe('④ definition 결함', () => {
 
   it('🔴 겹치는 뜻이 하나라도 있으면 병기가 이어받아 나머지도 따라온다 (알려진 한계)', () => {
     // 실측 케이스: 표제어 `논`. 캐시 ①은 쟁기 — 논이 아니다. ②가 덱 뜻과 겹치므로
-    // ⑤ 병기가 적용되고, 그 결과 ①까지 카드에 실린다.
+    // ⑤ 병기가 적용되고, 그 결과 쟁기까지 카드에 실린다.
     // 좁히지 않는 이유는 ⑤ 쪽 주석에 있다 — 좁히면 동음이의어 병기 기능이 사라진다.
     // 이 유형은 캐시 품질 문제라 사람이 봐야 한다.
+    // ⚠️ 다만 **카드 첫 줄은 덱 뜻이다** — 틀린 뜻이 앞에 서지는 않는다.
     const deck = deckWord({ term: '논', meaningKr: 'rice paddy', definition: 'rice paddy' });
     const r = composeWord(deck, {
       definition: '① 경작할 수 있도록 소나 말이 끄는 농기구. ② 벼를 심어 가꾸는 논밭.',
@@ -66,6 +67,7 @@ describe('④ definition 결함', () => {
     });
     expect(r.outcome).toBe('senses-merged');
     expect(r.word.definition).toContain('농기구');
+    expect(r.word.meaningKr).toBe('① rice paddy ② plow (farming tool)');
   });
 
   it('🔴 뜻이 같아도 어휘가 다르면 못 알아본다 (알려진 한계)', () => {
@@ -135,12 +137,50 @@ describe('⑤ 동음이의어 병기', () => {
     const r = composeWord(deck, 사과캐시);
 
     expect(r.outcome).toBe('senses-merged');
-    expect(r.word.meaningKr).toBe('① apple (the fruit) ② apology');
+    // ① 은 **덱이 가르치는 뜻 그대로**다. 캐시의 부연(`apple (the fruit)`)은 버린다 —
+    // 덱 뜻을 캐시 표현으로 갈아치우면 겹치지 않은 덱 뜻이 사라지기 때문이다.
+    expect(r.word.meaningKr).toBe('① apple ② apology');
     expect(r.word.definition).toContain('①');
     expect(r.word.definition).toContain('②');
-    expect(r.word.exampleEn).toBe('① 사과를 한 개 먹었다. ② 그는 진심으로 사과를 했다.');
-    expect(r.word.exampleKr).toBe('① I ate an apple. ② He gave a sincere apology.');
+    // 예문도 ① 은 덱 것이다. 덱 예문은 그 덱의 난이도에 맞춰 만든 것이다.
+    expect(r.word.exampleEn).toBe('① 사과가 맛있다. ② 그는 진심으로 사과를 했다.');
+    expect(r.word.exampleKr).toBe('① The apple is tasty. ② He gave a sincere apology.');
     expect(r.exampleChanged).toBe(true);
+  });
+
+  it('🔴 덱 뜻 중 캐시에 없는 것도 살아남는다 (`위` = stomach 소실 유형)', () => {
+    // 2026-08-25 실측. 덱은 above·top·stomach 셋을 가르치는데 캐시는 앞의 둘만 안다.
+    // 예전 규칙은 덱 meaningKr 을 캐시 병기본으로 통째 교체해 stomach 이 사라졌다.
+    const deck = deckWord({ term: '위', meaningKr: 'above, top, stomach', definition: 'above, top, stomach' });
+    const r = composeWord(deck, {
+      senses: [
+        { meaningKr: 'Above (location/position)', definition: '기준점보다 높은 곳.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'wi' },
+        { meaningKr: 'On top of', definition: '어떤 사물의 윗면.', exampleEn: 'x', exampleKr: 'y', pos: 'noun', phonetic: 'wi' },
+      ],
+    });
+    // 캐시가 아는 뜻이 전부 덱 뜻 안이라 병기할 것이 없다 — 덱 것을 그대로 둔다.
+    expect(r.outcome).toBe('senses-covered');
+    expect(r.word.meaningKr).toBe('above, top, stomach');
+    expect(r.word.exampleEn).toBe('그의 행동은 옳지 않았다.');
+    // 뜻이 한 줄이므로 뜻풀이에도 번호를 남기지 않는다.
+    expect(r.word.definition).toBe('기준점보다 높은 곳. 어떤 사물의 윗면.');
+    expect(r.definitionFixed).toBe(true);
+  });
+
+  it('🔴 덱 뜻이 캐시 ② 에 있어도 카드 첫 줄은 덱 뜻이다 (`시` = 詩 유형)', () => {
+    // 예전 규칙은 캐시 순서를 그대로 따라 `① time ② poem` 이 됐다 — 덱이 詩를
+    // 가르치는데 카드 첫 줄이 時였다.
+    const deck = deckWord({ term: '시', meaningKr: 'poetry, poem', definition: 'poetry, poem', exampleEn: '시를 읽었다.', exampleKr: 'I read a poem.' });
+    const r = composeWord(deck, {
+      senses: [
+        { meaningKr: 'time (unit of time)', definition: '하루를 24등분한 것의 하나.', exampleEn: '세 시에 만나자.', exampleKr: "Let's meet at three.", pos: 'noun', phonetic: 'si' },
+        { meaningKr: 'poem', definition: '운율과 함축성을 살려 표현한 글.', exampleEn: '시를 썼다.', exampleKr: 'I wrote a poem.', pos: 'noun', phonetic: 'si' },
+      ],
+    });
+    expect(r.outcome).toBe('senses-merged');
+    expect(r.word.meaningKr).toBe('① poetry, poem ② time (unit of time)');
+    expect(r.word.definition).toBe('① 운율과 함축성을 살려 표현한 글. ② 하루를 24등분한 것의 하나.');
+    expect(r.word.exampleEn).toBe('① 시를 읽었다. ② 세 시에 만나자.');
   });
 
   it('발음과 품사는 덱 것을 지킨다', () => {
@@ -191,17 +231,30 @@ describe('⑤ 동음이의어 병기', () => {
   });
 
   it('뜻이 하나만 남을 만큼 길면 병기하지 않는다 (덱 뜻만 사라지는 것을 막는다)', () => {
-    const long = 'x'.repeat(280);
+    const long = 'x'.repeat(320);
     const deck = deckWord({ term: '사과', meaningKr: 'apple' });
-    // 두 뜻 모두 덱 뜻(apple)과 겹쳐야 병기 대상이 되고, 그래야 한도 검사에 도달한다.
+    // 한도 검사에 도달하려면 겹치는 뜻(① 자리)과 겹치지 않는 뜻(② 자리)이 모두
+    // 있어야 한다 — 전부 겹치면 병기할 것이 없어 senses-covered 로 끝난다.
     const r = composeWord(deck, {
       senses: [
-        { meaningKr: `apple ${long}`, definition: 'd1', exampleEn: 'e1', exampleKr: 'k1', pos: 'noun', phonetic: 'p' },
-        { meaningKr: `apple pie ${long}`, definition: 'd2', exampleEn: 'e2', exampleKr: 'k2', pos: 'noun', phonetic: 'p' },
+        { meaningKr: 'apple', definition: 'd1', exampleEn: 'e1', exampleKr: 'k1', pos: 'noun', phonetic: 'p' },
+        { meaningKr: `apology ${long}`, definition: 'd2', exampleEn: 'e2', exampleKr: 'k2', pos: 'noun', phonetic: 'p' },
       ],
     });
     expect(r.outcome).toBe('senses-skipped-limit');
     expect(r.word.meaningKr).toBe('apple');
+  });
+
+  it('캐시가 덱 뜻 밖의 뜻을 모르면 병기하지 않는다', () => {
+    const deck = deckWord({ term: '사과', meaningKr: 'apple, apple fruit' });
+    const r = composeWord(deck, {
+      senses: [
+        { meaningKr: 'apple', definition: 'd1', exampleEn: 'e1', exampleKr: 'k1', pos: 'noun', phonetic: 'p' },
+        { meaningKr: 'apple (fruit)', definition: 'd2', exampleEn: 'e2', exampleKr: 'k2', pos: 'noun', phonetic: 'p' },
+      ],
+    });
+    expect(r.outcome).toBe('senses-covered');
+    expect(r.word.meaningKr).toBe('apple, apple fruit');
   });
 
   it('senses 가 1개뿐이면 병기 대상이 아니다 (definition 규칙으로 넘어간다)', () => {

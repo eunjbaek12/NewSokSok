@@ -1,0 +1,146 @@
+＊ 버전을 타지 않는 규칙(500자 제한 · 영어가 먼저 넘침 · 스페인어 20~25% ·
+＊ 뜻 언어 필터 확인 · 요금제 이름)은 README.md 「출시 노트를 쓸 때」에 있다.
+＊ 이 파일에는 1.6.0 에만 해당하는 것만 적는다.
+＊
+＊ 🔴 Play 노트에는 "아이폰 먹통 수정"을 적지 않는다. App Store 원고(ios-*.md)에는
+＊ 다섯 로케일 모두 들어 있지만 Play 는 Android 스토어다. 그대로 옮기면 안 되는
+＊ 유일한 항목이라 여기에 남긴다.
+＊
+＊ 🔴 로케일마다 내용이 다르다. 근거는 서버 실측(8/24)이다.
+＊ ⑴ 한국어 사다리 4덱(3,168장)은 전부 ko→en 이라 **뜻 언어가 en 인 사용자에게만** 보인다
+＊    → en-US 에만 적는다. 다른 로케일에 적으면 목록에 없는 덱을 광고하게 된다.
+＊ ⑵ "한국어 뜻풀이가 진짜 뜻풀이가 됐다"는 로케일마다 다시 셌다:
+＊    ko→en 복사본 0% · ko→vi 4% → 적는다 / ko→ja 18% · ko→zh 16% → 적지 않는다.
+＊ ⑶ 빈 목록 안내(d857723)는 도착어 es 공식 덱이 0개인 es 로케일에서만 의미가 있다.
+＊
+＊ 🔴 "하루 50단어"는 서버 정책과 짝이다. 20260818000000_remove_guest_tier.sql 이
+＊ 적용돼야 참이 된다 — 지금 서버는 게스트에게 10 을 준다.
+＊ **프로덕션 승격을 확인한 직후 단독 적용할 것**(db push 금지 → db query --file).
+＊
+＊ 🔑 블록 순서는 Play Console 이 보여 주는 순서다 — 기본 언어(ko-KR) 먼저, 그 뒤 알파벳순.
+＊ 위에서 아래로 그대로 옮겨 담으면 된다.
+＊
+＊ 자수 실측(코드포인트 / UTF-16, 한도 500): ko-KR 307/311 · en-US 484/487 ·
+＊ ja-JP 252/256 · vi 423/426 · zh-CN 185/189 · es-ES·es-419 각 484/488.
+＊ 🔴 en-US 와 es 는 처음 쓴 571 · 522 에서 줄인 것이다 — 1.4.0·1.5.0 에 이어 세 번째로
+＊ 영어가 먼저 넘쳤다. **손대면 반드시 다시 셀 것**(여유가 en 13자 · es 12자뿐이다).
+
+<ko-KR>
+1.6.0 업데이트
+
+📝 예문 선택지가 정확해졌어요
+빈칸에 똑같이 들어맞는 단어가 오답으로 함께 나오던 문제를 고쳤어요. 뜻이 여러 개인 단어는 예문도 뜻마다 나눠서 내요.
+
+📖 예문 카드가 넓어졌어요
+문장이 들어가는 칸을 네 배 넘게 키웠어요. 긴 예문이 잘리거나 글자가 지나치게 작아지던 것도 함께 고쳤어요.
+
+🔓 로그인 없이 써도 한도가 같아졌어요
+이제 무료(Free)와 똑같이 하루 50단어예요. 처음 24시간 300단어와 광고 보너스도 로그인 여부와 상관없어요.
+
+📚 단어 모음이 업데이트 없이 늘어나요
+큐레이션 단어장을 서버에서 받아와요.
+
+<en-US>
+1.6.0 update
+
+📚 Korean ladder rebuilt: 3,168 cards
+Basic, Intermediate I and Advanced were regenerated card by card. Intermediate II is new.
+
+✍️ Korean definitions are real definitions
+Fields that had copied the English now carry real Korean. Re-import a deck to get them.
+
+📝 Sentence practice is more accurate
+A word that also fits the blank is no longer a wrong choice. Example cards are 4x taller.
+
+🔓 Same daily limit without signing in
+50 words a day, 300 for your first 24 hours.
+
+<es-419>
+Actualización 1.6.0
+
+📝 Las opciones de ejemplo ya no se contradicen
+Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
+
+📖 Tarjetas de ejemplo más grandes
+La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
+
+🌐 Si el catálogo te salía vacío
+Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
+
+🔓 El mismo límite diario sin iniciar sesión
+50 palabras al día y 300 las primeras 24 horas.
+
+<es-ES>
+Actualización 1.6.0
+
+📝 Las opciones de ejemplo ya no se contradicen
+Una palabra que también encaja en el hueco ya no aparece entre las respuestas incorrectas.
+
+📖 Tarjetas de ejemplo más grandes
+La zona de la frase es cuatro veces más alta y las frases largas ya no se cortan.
+
+🌐 Si el catálogo te salía vacío
+Ahora te decimos cuántos mazos hay en otro idioma y te llevamos allí con un toque.
+
+🔓 El mismo límite diario sin iniciar sesión
+50 palabras al día y 300 las primeras 24 horas.
+
+<ja-JP>
+1.6.0 アップデート
+
+📝 選択肢が正確になりました
+空欄に同じように当てはまる単語が、誤答として一緒に並ぶことがなくなりました。意味が複数ある単語は、意味ごとに1文ずつ出します。
+
+📖 例文カードが広くなりました
+文が入る領域を4倍以上に広げました。長い例文が切れたり、文字が小さくなりすぎたりする問題も直しました。
+
+🔓 ログインしなくても同じ上限になりました
+1日50語、最初の24時間は300語です。
+
+📚 単語帳がアップデートなしで増えます
+公式単語帳をサーバーから受け取るようにしました。
+
+<vi>
+Cập nhật 1.6.0
+
+📝 Lựa chọn trong câu ví dụ chính xác hơn
+Một từ cũng hợp với chỗ trống sẽ không còn xuất hiện trong các đáp án sai.
+
+✍️ Giải nghĩa tiếng Hàn nay là giải nghĩa thật
+Không còn là bản sao của nghĩa tiếng Việt. Hãy nhập lại bộ từ để nhận các chỉnh sửa.
+
+📖 Thẻ ví dụ rộng hơn
+Vùng chứa câu cao hơn bốn lần, câu dài không còn bị cắt.
+
+🔓 Cùng một hạn mức dù không đăng nhập
+50 từ mỗi ngày, 300 từ trong 24 giờ đầu.
+
+<zh-CN>
+1.6.0 更新
+
+📝 例句选项不再互相矛盾
+同样填得进空格的词不会再出现在错误选项里。一个词有多个意思时，会一个意思配一个句子。
+
+📖 例句卡片变大了
+放句子的区域高了四倍以上，长句子不会再被切掉或缩得看不清。
+
+🔓 不登录也是一样的每日额度
+每天 50 个单词，注册后 24 小时内每天 300 个。
+
+📚 单词库改由服务器提供
+以后新增单词库不必等 App 更新。
+
+<zh-TW>
+1.6.0 更新
+
+📝 例句選項不再互相矛盾
+同樣填得進空格的字不會再出現在錯誤選項裡。一個字有好幾個意思時，會一個意思配一個句子。
+
+📖 例句卡片變大了
+放句子的區域高了四倍以上，長句子不會再被切掉或縮到看不清楚。
+
+🔓 不登入也是一樣的每日額度
+每天 50 個單字，註冊後 24 小時內每天 300 個。
+
+📚 單字庫改由伺服器提供
+以後新增單字庫不必等 App 更新。

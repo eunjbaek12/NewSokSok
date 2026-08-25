@@ -1868,7 +1868,9 @@ export default function CurationScreen() {
                                     backgroundColor: colors.surfaceSecondary,
                                 }}
                             >
-                                <Text style={{ fontSize: 14 }}>{getLanguageFlag(aiSourceLang)}</Text>
+                                {/* color 는 이모지엔 무시되지만 지우지 말 것 — 국기 이모지를 못 그리는
+                                    안드로이드는 `CN` 두 글자를 텍스트로 그린다(add-word.tsx 같은 주석). */}
+                                <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(aiSourceLang)}</Text>
                                 <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.text }}>{getLanguageLabel(aiSourceLang, t)}</Text>
                                 <Ionicons name="chevron-down" size={14} color={colors.textTertiary} />
                             </Pressable>
@@ -1881,7 +1883,7 @@ export default function CurationScreen() {
                                     backgroundColor: colors.surfaceSecondary,
                                 }}
                             >
-                                <Text style={{ fontSize: 14 }}>{getLanguageFlag(aiTargetLang)}</Text>
+                                <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(aiTargetLang)}</Text>
                                 <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.text }}>{getLanguageLabel(aiTargetLang, t)}</Text>
                                 <Ionicons name="chevron-down" size={14} color={colors.textTertiary} />
                             </Pressable>

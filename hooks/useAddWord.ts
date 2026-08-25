@@ -5,6 +5,7 @@ import { enrichWord, type EnrichFallback } from '@/lib/translation-api';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
+import { staleAutoFillKeys, type AutoFillField, type AutoFillFields, type LastAutoFill } from '@/lib/autofill-form';
 import type { AutoFillResult } from '@/lib/types';
 
 // 동음이의어 토글 칩 상태. base = 병기(①②) 상위 결과(뜻별 빈 필드 보충용),
@@ -62,6 +63,31 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // 검색 결과가 도착했을 때의 "현재 표제어". 응답은 렌더 커밋보다 한참 뒤(수 초)에 오므로
     // effect 동기화로 충분하다. runAutoFill의 낡은 결과 판정에 쓴다.
     const termRef = useRef(term);
+
+    /*
+     * 자동완성이 채우는 칸들. 위 termRef와 같은 이유로 ref에 복사해 둔다 — runAutoFill의
+     * 의존성에 6개 문자열을 넣으면 타이핑 한 글자마다 콜백이 새로 만들어진다.
+     */
+    const fieldsRef = useRef({ definition, meaningKr, phonetic, pos, exampleEn, exampleKr });
+    useEffect(() => {
+        fieldsRef.current = { definition, meaningKr, phonetic, pos, exampleEn, exampleKr };
+    }, [definition, meaningKr, phonetic, pos, exampleEn, exampleKr]);
+
+    /*
+     * 자동완성이 **마지막으로 써넣은 값**과 그때의 표제어.
+     *
+     * 왜 필요한가(2026-08-21 실기): 한도를 다 쓰면 서버는 뜻만 싣고 온다
+     * (`enrichment_level: 'basic'`). 아래 반영 코드는 `if (result.X) setX(...)` 라 값이 없는
+     * 칸은 손대지 않으므로, 다른 단어를 검색해도 **앞 단어의 발음기호·예문이 그대로 남았다.**
+     * `nimble` 을 검색했는데 발음기호가 `kiːn`, 예문이 `keen` 의 ①②③ 인 카드가 만들어졌고,
+     * 채워진 칸으로 보이니 사용자가 알아채기도 어렵다. 한 번 어긋나면 그 뒤 basic 검색이
+     * 전부 같은 값을 물고 간다.
+     *
+     * 🔑 표제어가 바뀐 검색에서만, **우리가 쓴 값이 그대로 남아 있는 칸만** 비운다.
+     *    사용자가 직접 고친 값과, 편집 중인 단어가 원래 갖고 있던 값(이 ref가 아직 null)은
+     *    건드리지 않는다.
+     */
+    const lastFillRef = useRef<LastAutoFill | null>(null);
     // 진행 중인 검색의 표제어와 그 취소 핸들.
     const fillTermRef = useRef('');
     const abortRef = useRef<AbortController | null>(null);
@@ -92,14 +118,50 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         }
     }, []);
 
-    const applyFill = useCallback((fill: SenseFill) => {
+    // 자동완성이 방금 써넣은 값을 기록해 둔다(위 lastFillRef 주석 참조).
+    const rememberFill = useCallback((filledTerm: string, fields: AutoFillFields) => {
+        lastFillRef.current = { term: filledTerm, fields };
+    }, []);
+
+    /*
+     * 표제어가 바뀐 검색이면, 앞 단어 때 자동완성이 써넣은 값이 그대로 남아 있는 칸을 비운다.
+     * 새 결과를 반영하기 **직전에** 부른다 — 먼저 비워 두면 새 결과가 채우는 칸은 곧바로
+     * 덮이고, 새 결과가 못 채우는 칸만 빈 채로 남는다(그게 맞는 상태다).
+     */
+    const clearStaleAutoFill = useCallback((nextTerm: string) => {
+        const last = lastFillRef.current;
+        const stale = staleAutoFillKeys(last, fieldsRef.current, nextTerm);
+        // 표제어가 바뀌었으면 기록 자체가 낡은 것이다 — 지울 칸이 없더라도 함께 버린다.
+        // (검색이 실패해 아래 rememberFill 까지 못 가는 경로가 있다.)
+        if (last && last.term !== nextTerm) lastFillRef.current = null;
+        if (stale.length === 0) return;
+        const setters: Record<AutoFillField, (v: string) => void> = {
+            definition: setDefinition,
+            meaningKr: setMeaningKr,
+            phonetic: setPhonetic,
+            pos: setPos,
+            exampleEn: setExampleEn,
+            exampleKr: setExampleKr,
+        };
+        for (const key of stale) setters[key]('');
+    }, []);
+
+    const applyFill = useCallback((fill: SenseFill, filledTerm: string) => {
         setMeaningKr(fill.meaningKr);
         setDefinition(fill.definition);
         setExampleEn(fill.exampleEn);
         setExampleKr(fill.exampleKr);
         setPos(fill.pos);
         setPhonetic(fill.phonetic);
-    }, []);
+        rememberFill(filledTerm, {
+            meaningKr: fill.meaningKr,
+            definition: fill.definition,
+            exampleEn: fill.exampleEn,
+            exampleKr: fill.exampleKr,
+            pos: fill.pos,
+            phonetic: fill.phonetic,
+        });
+    }, [rememberFill]);
 
     // 뜻 칩 토글. 켜기/끄기 후의 선택 집합으로 폼 전체를 재조립한다.
     // 거부 사유를 반환해 UI가 안내(햅틱+힌트)를 분기할 수 있게 한다.
@@ -112,7 +174,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             : [...senseState.selected, index];
         const fill = composeSenseFill(next, senseState.senses, senseState.base);
         if (!isOn && !fitsSaveLimits(fill)) return 'overflow'; // 켤 때만 한도 검사
-        applyFill(fill);
+        applyFill(fill, senseState.term);
         setSenseState({ ...senseState, selected: next });
         return 'ok';
     }, [senseState, applyFill]);
@@ -163,6 +225,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             const hasAny = !!result && !!(
                 result.definition || result.meaningKr || result.exampleEn || result.phonetic || result.pos
             );
+            // 다른 단어를 검색한 것이라면, 앞 단어 때 자동완성이 써넣은 값을 먼저 거둔다.
+            // 아래 반영은 값이 있는 칸만 덮으므로(한도 초과 응답은 뜻뿐이다) 이걸 안 하면
+            // 새 단어의 카드에 앞 단어의 발음기호·예문이 남는다.
+            clearStaleAutoFill(trimmed);
             if (result?.isReal === false) {
                 // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
                 setAutoFillNotFoundAt(Date.now());
@@ -180,6 +246,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     if (fill.exampleEn) setExampleEn(fill.exampleEn);
                     if (fill.exampleKr) setExampleKr(fill.exampleKr);
                     setSenseState({ senses, base: result, term: trimmed, selected });
+                    rememberFill(trimmed, {
+                        definition: fill.definition,
+                        meaningKr: fill.meaningKr,
+                        phonetic: fill.phonetic,
+                        pos: fill.pos,
+                        exampleEn: fill.exampleEn,
+                        exampleKr: fill.exampleKr,
+                    });
                 } else {
                     if (result.definition) setDefinition(result.definition);
                     if (result.meaningKr) setMeaningKr(result.meaningKr);
@@ -187,6 +261,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     if (result.pos) setPos(result.pos);
                     if (result.exampleEn) setExampleEn(result.exampleEn);
                     if (result.exampleKr) setExampleKr(result.exampleKr);
+                    rememberFill(trimmed, {
+                        definition: result.definition ?? '',
+                        meaningKr: result.meaningKr ?? '',
+                        phonetic: result.phonetic ?? '',
+                        pos: result.pos ?? '',
+                        exampleEn: result.exampleEn ?? '',
+                        exampleKr: result.exampleKr ?? '',
+                    });
                 }
             } else if (!quotaHit) {
                 setAutoFillFailedAt(Date.now());
@@ -201,7 +283,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setIsPendingFill(false);
             setPendingFillTerm('');
         }
-    }, [sourceLang, targetLang, apiKey]);
+    }, [sourceLang, targetLang, apiKey, clearStaleAutoFill, rememberFill]);
 
     useEffect(() => { runAutoFillRef.current = runAutoFill; }, [runAutoFill]);
 

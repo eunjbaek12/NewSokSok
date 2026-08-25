@@ -362,31 +362,6 @@ export default function AddWordScreen() {
         }
     }, [aiQuotaHitAt]);
 
-    // AI가 실패해 무료 사전으로 대체된 경우의 안내. 사전은 뜻을 주지 못해 그 칸만 비는데,
-    // 이유를 말해 주지 않으면 "AI가 일부만 채웠다"로 읽힌다.
-    // ⚠️ quotaExceeded는 제외한다 — 그 사유는 edge-enrich가 이미 전역 보상형 광고 모달을
-    // 띄우므로 여기까지 안내하면 화면에 두 개가 겹친다.
-    // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
-    const fallbackNotice = useMemo(() => {
-        if (enrichmentLevel === 'basic') {
-            // 문구·액션은 pickBasicNoticeCopy 한 곳에서 고른다 — 뒤이어 뜨는 보상형 모달과
-            // 같은 판정을 두 번 계산하지 않기 위해서다(features/quota/basic-notice-copy.ts 주석).
-            const copy = pickBasicNoticeCopy(quotaStatus);
-            return {
-                text: t(copy.textKey),
-                action: copy.actionKey ? t(copy.actionKey) : null,
-                onPress: copy.action ? handleEnrichFull : null,
-            };
-        }
-        if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
-        // 'guest' 분기는 없앴다 — 세션 없음도 serverFailed 로 합쳤다(lib/translation-api.ts).
-        // 로그인 유도 링크도 함께 사라진다: 게스트와 Free 의 한도가 같아지면 "로그인하면
-        // AI가 채워줘요"가 거짓이 되고, 애초에 그 화면의 사용자는 이미 시작한 상태다.
-        if (enrichFallback === 'invalidKey') {
-            return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
-        }
-        return { text: t('addWord.fallbackServer'), action: null, onPress: null };
-    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull, quotaStatus]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -480,6 +455,61 @@ export default function AddWordScreen() {
             retry?.();
         },
     });
+
+    /*
+     * "광고 보고 상세 채우기"는 그 자리에서 광고까지 재생한다.
+     *
+     * 예전에는 handleEnrichFull 만 불렀다 — 그러면 상단 배너가 뜨고 그 CTA 를 **한 번 더**
+     * 눌러야 광고가 나왔다. 문구가 "광고 보고"라고 약속해 놓고 광고는 두 번째 누름에만
+     * 나오는 셈이라, 실기에서 "눌러도 아무 일이 없다"로 읽혔다(2026-08-23 · bugs-open E2).
+     *
+     * 🔴 배너는 그대로 띄운다(handleEnrichFull 안의 notifyQuotaExceeded 가 한다). 광고 로드가
+     *    실패하면 rewarded.error 는 **배너 안에서만** 보이고, 지급 결과도 그 자리에 성공
+     *    문구로 남는다 — 배너를 건너뛰면 실패했을 때 다시 "아무 일도 없음"이 된다.
+     * 🔴 잔량 판정은 handleEnrichFull 에 맡긴다. 그 사이 한도가 풀렸으면(광고를 이미 봤거나
+     *    자정이 지났거나) 광고를 볼 이유가 없고 곧바로 재검색해야 한다. 그 판정이
+     *    getQuotaLeft 여야 하는 이유는 hooks/useAddWord.ts:292 주석에 적혀 있다.
+     */
+    const handleWatchAdForFull = useCallback(() => {
+        if (rewarded.loading) return;
+        const left = getQuotaLeft(useQuotaStore.getState().status);
+        handleEnrichFull();
+        if (left !== null && left <= 0) {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+            rewarded.watch();
+        }
+    }, [handleEnrichFull, rewarded]);
+
+    // AI가 실패해 무료 사전으로 대체된 경우의 안내. 사전은 뜻을 주지 못해 그 칸만 비는데,
+    // 이유를 말해 주지 않으면 "AI가 일부만 채웠다"로 읽힌다.
+    // ⚠️ quotaExceeded는 제외한다 — 그 사유는 edge-enrich가 이미 전역 보상형 광고 모달을
+    // 띄우므로 여기까지 안내하면 화면에 두 개가 겹친다.
+    // 사용자가 뜻을 직접 채우면 안내할 이유도 사라지므로 빈 칸일 때만 보인다.
+    const fallbackNotice = useMemo(() => {
+        if (enrichmentLevel === 'basic') {
+            // 문구·액션은 pickBasicNoticeCopy 한 곳에서 고른다 — 뒤이어 뜨는 보상형 모달과
+            // 같은 판정을 두 번 계산하지 않기 위해서다(features/quota/basic-notice-copy.ts 주석).
+            const copy = pickBasicNoticeCopy(quotaStatus);
+            return {
+                text: t(copy.textKey),
+                action: copy.actionKey ? t(copy.actionKey) : null,
+                // 'watchAd' 는 곧장 광고로 보낸다(handleWatchAdForFull 주석). 'pro' 는 배너를
+                // 거쳐야 한다 — 그 배너에만 "자정에 광고 횟수가 초기화된다"는 안내가 있어,
+                // 건너뛰면 결제가 유일한 길인 것처럼 보인다(basic-notice-copy.ts 주석).
+                onPress: copy.action === 'watchAd' ? handleWatchAdForFull
+                    : copy.action ? handleEnrichFull
+                    : null,
+            };
+        }
+        if (!enrichFallback || enrichFallback === 'quotaExceeded' || meaningKr.trim()) return null;
+        // 'guest' 분기는 없앴다 — 세션 없음도 serverFailed 로 합쳤다(lib/translation-api.ts).
+        // 로그인 유도 링크도 함께 사라진다: 게스트와 Free 의 한도가 같아지면 "로그인하면
+        // AI가 채워줘요"가 거짓이 되고, 애초에 그 화면의 사용자는 이미 시작한 상태다.
+        if (enrichFallback === 'invalidKey') {
+            return { text: t('addWord.fallbackInvalidKey'), action: t('addWord.fallbackKeyAction'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) };
+        }
+        return { text: t('addWord.fallbackServer'), action: null, onPress: null };
+    }, [enrichFallback, enrichmentLevel, meaningKr, t, handleEnrichFull, handleWatchAdForFull, quotaStatus]);
 
     /*
      * 한도 배너에 무엇을 그릴지 한 번에 고른다.
@@ -1866,7 +1896,10 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.inputLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(sourceLang)}</Text>
+                                        {/* color 는 이모지엔 무시되지만 지우지 말 것 — 국기 이모지를
+                                            못 그리는 안드로이드는 `CN` 두 글자를 텍스트로 그린다. 그때
+                                            색이 없으면 RN 기본값(검정)이라 다크 모드에서 안 보인다. */}
+                                        <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(sourceLang)}</Text>
                                         <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(sourceLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
@@ -1892,7 +1925,7 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.meaningLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(targetLang)}</Text>
+                                        <Text style={{ fontSize: 14, color: colors.text }}>{getLanguageFlag(targetLang)}</Text>
                                         <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(targetLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>

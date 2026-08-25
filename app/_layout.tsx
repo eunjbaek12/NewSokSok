@@ -51,8 +51,7 @@ export default function RootLayout() {
     return () => clearTimeout(t);
   }, []);
 
-  // 폰트가 아직이면 노출 시간이 지나도 스플래시를 유지한다. 그동안 아래 트리는
-  // 폴백 폰트로 렌더되지만 스플래시에 완전히 가려져 보이지 않는다.
+  // 폰트가 아직이면 노출 시간이 지나도 스플래시를 유지한다.
   const showSplash = !splashElapsed || !fontsLoaded;
 
   return (
@@ -65,7 +64,20 @@ export default function RootLayout() {
                 <VocabBootstrapper>
                   <KeyboardProvider>
                     <GestureHandlerRootView style={{ flex: 1 }}>
-                      <AppStack />
+                      {/* 🔴 폰트가 준비되기 전에는 화면을 그리지 않는다 — 가려져 있어도 그리면 안 된다.
+                          RN Android 는 Text 의 폭을 그 시점의 Typeface 로 재는데, 커스텀 폰트가
+                          아직이면 시스템 폴백(Roboto·OneUI Sans KR)으로 잰다. Pretendard 는 그보다
+                          넓으므로 나중에 진짜 폰트로 그리면 글자가 상자를 넘고, 띄어쓰기가 있으면
+                          마지막 낱말이 보이지 않는 둘째 줄로 넘어가고 없으면 마지막 글자가 깎인다
+                          ("Google로 로그인"→"Google로", "Next"→"Nex"). 실측: `A VOCA DO` 의 상자가
+                          272px 인데 이는 Roboto 글리프 199.7 + 자간 8칸 72 = 271.7 로, Pretendard 가
+                          요구하는 281 이 아니라 폴백으로 잰 값이다.
+                          🔴 다시 마운트하는 것으로는 못 고친다 — RN 의 텍스트 측정 캐시는 문자열과
+                          스타일로만 키를 잡아서, 한번 잘못 잰 값을 프로세스가 끝날 때까지 다시 쓴다.
+                          애초에 재지 않게 막는 것이 유일한 해법이다.
+                          콜드 스타트는 늘지 않는다 — AppHydrators 가 이 위에 있어 hydrate·SQLite·
+                          동기화는 그대로 0 초에 시작하고, 스플래시 1500ms 안에 폰트(수백 ms)가 끝난다. */}
+                      {fontsLoaded && <AppStack />}
                       <ReviewNotificationScheduler />
                       <GlobalRewardedAdModal />
                       <GlobalProLimitReachedModal />

@@ -13,6 +13,7 @@ import {
   toggleStarred,
   updateWord,
   saveLastResult,
+  updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
@@ -84,7 +85,7 @@ const ADVANCE_DELAY_CORRECT_MS = 1000;
 const ADVANCE_DELAY_WRONG_MS = 3000;
 
 export default function ExamplesScreen() {
-  const { id, filter, isStarred: initialIsStarred, sel } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string; planDay?: string }>();
   // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
   const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
@@ -560,6 +561,13 @@ export default function ExamplesScreen() {
     const finalResults = results.current;
     await commitSessionResults(id!, finalResults);
     await saveLastResult(id!);
+    // 계획 학습으로 들어왔으면 진행도를 올린다 — 플래시카드·퀴즈와 같은 규칙.
+    // 잠금 자체는 단어 상태에서 유도하므로(deriveUnlockedDay) 이 줄이 없어도 갇히진
+    // 않지만, planUpdatedAt이 안 움직이면 홈 카드가 "오늘 달성"으로 안 가고
+    // computePlanStatus의 유휴 판정에 걸려 매일 공부한 사람에게 "7일 이상 학습하지
+    // 않았습니다" 배너가 뜬다.
+    const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
+    if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',

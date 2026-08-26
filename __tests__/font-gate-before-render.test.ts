@@ -55,4 +55,22 @@ describe('폰트 로딩 전에는 화면을 그리지 않는다', () => {
     // 게이트만 있고 스플래시가 먼저 걷히면 빈 화면이 보인다.
     expect(src).toContain('!fontsLoaded');
   });
+
+  /**
+   * 🔴 게이트가 만든 회귀를 고정한다.
+   *
+   * 게이트를 넣자 AppStack 마운트가 hydrate 뒤로 밀리면서 라우팅 effect 두 개가 한
+   * 커밋에 몰렸다. 그러면 auth 쪽이 보는 segments 는 온보딩 replace 가 반영되기 전
+   * 값이라 inAuthScreen 검사를 통과해 버리고, 방금 건 온보딩 이동을 로그인이 덮어쓴다.
+   * 결과: **최초 실행 사용자가 온보딩을 통째로 못 본다.**
+   * 실측(Galaxy S22 · preview 빌드): 게이트 없는 대조군 3/3 온보딩 · 게이트 3/3 로그인.
+   *
+   * 🔴 이 회귀는 기존 사용자에게 안 보인다 — 온보딩 플래그가 이미 true 라서다.
+   *    앱을 지우고 새로 깔아야 드러나므로 평소 경로로는 절대 안 걸린다.
+   */
+  it('로그인 이동은 온보딩이 끝난 뒤에만 한다', () => {
+    expect(src).toContain('if(isOnboardingDone!==true)return');
+    // 값이 effect 의존성에 없으면 갱신돼도 다시 판단하지 않는다.
+    expect(src).toMatch(/\[authMode,authLoading,segments,isOnboardingDone\]/);
+  });
 });

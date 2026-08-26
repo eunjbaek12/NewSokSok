@@ -203,12 +203,22 @@ function AppStack() {
 
   useEffect(() => {
     if (authLoading) return;
+    // 🔴 온보딩이 아직이면 위 effect 의 온보딩 이동이 우선이다. 여기서 먼저 로그인으로
+    //    보내면 최초 실행 사용자가 온보딩을 통째로 건너뛴다.
+    //    inAuthScreen 검사만으로는 못 막는다 — 두 effect 가 한 커밋에서 연달아 실행되면
+    //    이 시점의 segments 는 위 replace 가 반영되기 **전** 값이라 'onboarding' 이 아니고,
+    //    그래서 방금 건 온보딩 이동을 로그인이 덮어쓴다. 폰트 게이트를 넣기 전에는 두 값이
+    //    서로 다른 렌더에서 정착해 우연히 순서가 갈렸을 뿐이고, 게이트 이후 hydrate 가
+    //    AppStack 마운트보다 먼저 끝나면서 같은 커밋에 몰렸다. 실측(Galaxy S22 · preview):
+    //    게이트 없는 대조군 3/3 온보딩 · 게이트 있는 판 3/3 로그인.
+    //    타이밍에 기대지 말고 순서를 값으로 못박는다.
+    if (isOnboardingDone !== true) return;
     const first = segments[0] as string;
     const inAuthScreen = first === 'login' || first === 'onboarding';
     if (authMode === 'none' && !inAuthScreen) {
       router.replace('/login');
     }
-  }, [authMode, authLoading, segments]);
+  }, [authMode, authLoading, segments, isOnboardingDone]);
 
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>

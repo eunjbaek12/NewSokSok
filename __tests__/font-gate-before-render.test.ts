@@ -74,3 +74,32 @@ describe('폰트 로딩 전에는 화면을 그리지 않는다', () => {
     expect(src).toMatch(/\[authMode,authLoading,segments,isOnboardingDone\]/);
   });
 });
+
+/**
+ * 🔴 실제로 회귀를 막는 자리는 여기다.
+ *
+ * 루트의 온보딩 이동은 effect 이고, 탭 레이아웃의 로그인 이동은 **선언형 Redirect** 다.
+ * 같은 커밋이면 Redirect 가 이긴다 — 그래서 루트에 effect 가드를 넣는 것만으로는
+ * 온보딩을 지키지 못했다(수정을 넣은 빌드에서 3/3 로그인으로 재현). 최초 실행의 초기
+ * 라우트가 (tabs) 라서 이 레이아웃이 먼저 그려진다는 점이 핵심이다.
+ */
+describe('탭 레이아웃은 온보딩을 로그인보다 먼저 본다', () => {
+  const src = normalize(readFileSync('app/(tabs)/_layout.tsx', 'utf8'));
+
+  it('온보딩 상태를 모르는 동안에는 아무 데도 보내지 않는다', () => {
+    expect(src).toMatch(/if\(loading\|\|settingsLoading\|\|isOnboardingDone===null\)/);
+  });
+
+  it('온보딩이 안 끝났으면 온보딩으로 보낸다', () => {
+    expect(src).toMatch(/if\(isOnboardingDone===false\)\{return<Redirecthref=\{'\/onboarding'/);
+  });
+
+  it('온보딩 분기가 로그인 분기보다 먼저 온다', () => {
+    // 순서가 뒤집히면 로그인이 먼저 확정돼 온보딩을 못 본다.
+    const ob = src.indexOf("isOnboardingDone===false");
+    const login = src.indexOf("authMode==='none'");
+    expect(ob).toBeGreaterThan(-1);
+    expect(login).toBeGreaterThan(-1);
+    expect(ob).toBeLessThan(login);
+  });
+});

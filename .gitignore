@@ -105,3 +105,8 @@ scripts/.mono-review.json
 # 계속 무시하지만 이것만은 추적한다 — 생성한 카드가 들어 있고 무료 한도가
 # 모델당 하루 20요청(=500단어)이라 다시 만들려면 사흘이다. 재생성 가능이 아니다.
 !scripts/.ko-ladder-progress.json
+
+# 운영 쿼리를 굴리는 작업 폴더. 정본은 docs/ops-analytics-queries.md 이고
+# 여기 txt 는 거기서 꺼내 쓰는 사본이라, 추적하면 같은 SQL 이 두 벌이 되어
+# 한쪽만 고쳐진다. 쿼리를 손봤으면 문서 쪽 Q 번호에 반영할 것.
+쿼리/

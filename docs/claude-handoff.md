@@ -1074,36 +1074,45 @@ sync 와 DB 매퍼뿐). 부작용: ⑴ 완주마다 아무도 안 보는 값 때
 
 ## 다음 세션 착수점
 
-### 0. 🔴 가장 먼저 — 1.6.1 production 빌드
+### 0. 1.6.1 빌드 — ✅ 둘 다 구웠다 (2026-08-27 저녁)
 
-**코드·문서·검증은 전부 끝났다. 빌드만 못 했다.** EAS 무료 플랜의 8월 Android 빌드
-**15개를 정확히 다 썼다**(preview 11 + production 4, **실패한 ERRORED 3개도 개수를 먹었다**).
+✅ **EAS Starter 구독 완료**(은정님, 8/27). 그 직후 양 플랫폼 production 을 구웠다.
 
-✅ **은정님이 EAS 유료 구독을 하기로 했다(8/27).** Starter $19/월 · $45 크레딧(≈ Android 45개).
-🔴 **결제는 은정님 몫이다** — https://expo.dev/accounts/baekeunjoeng/settings/billing
-결제 없이 기다리면 **9월 1일**에 15개가 리셋된다.
+| | 상태 | 버전 | 커밋 |
+|---|---|---|---|
+| iOS | ✅ FINISHED | 1.6.1 · build **39** | `98e30ca` |
+| Android | 진행 중이었음 → **다음 세션에서 상태부터 확인** | 1.6.1 · vc **26** | `98e30ca` |
 
-결제 후:
-```
-npx eas-cli build --platform android --profile production
-```
-- 나갈 버전: **1.6.1 · vc25**(원격 등록값 24 + production 프로필의 `autoIncrement`)
-- 🔴 **굽기 전에 잔량부터 확인할 것.** 이번에 versionCode 만 조회하고 할당량은 안 봐서
-  production 이 시작조차 못 했다. 게다가 **`eas build` 는 실패해도 종료 코드 0 을 돌려준다** —
-  로그 안의 `Error: build command failed.` 를 직접 봐야 한다(성공으로 오독했다).
-- iOS 는 안 구웠다. 폰트·Day 잠금·E4 셋 다 **플랫폼 공통**이라 iOS 사용자도 같은 버그를
-  겪고 있다. iOS 한도는 Android 와 별도(월 15)라 남아 있을 수 있다 — 확인 후 같이 낼 것.
+✅ **TestFlight 제출도 올렸다**(`eas submit --platform ios --profile production --latest`).
+**결과를 확인하지 못한 채 세션이 끝났다 — 다음 세션 첫 일이 이것이다.**
+
+🔴 **versionCode 가 25 가 아니라 26 이다.** 할당량에 막혀 죽은 시도가 번호를 한 번 올려
+두고 죽었다. Play 프로덕션이 24 라 문제는 없고 **25 는 영구 결번**이다.
+
+🔴 **`eas build` 는 실패해도 종료 코드 0 을 돌려준다.** 할당량 초과로 빌드가 시작조차 못
+했는데 exit 0 이라 "진행 중"으로 오독했다. **반드시 로그 본문의 `Error: build command
+failed.` 를 볼 것.** 이번엔 큐 진입을 따로 감시하는 백그라운드 작업을 하나 더 걸어
+`build:list` 로 교차 확인했다 — 그 방식이 맞다.
 
 ### 1. 그다음 순서
 
-1. **PR #118 머지** — `MERGEABLE`·`CLEAN`. 병합 결과 트리는 이미 열어서 확인했다.
-2. **Play Console 업로드 + 출시 노트** — 원고는 `store-assets/listing/release-notes-1.6.1.txt`
+0. 🔴 **TestFlight 제출 결과부터 확인한다.** 올려 놓고 결과를 못 봤다.
+   `eas build:list --platform ios --limit 1 --json` 의 제출 상태 또는 App Store Connect.
+   실패했으면 자격 증명(ASC API 키) 쪽을 먼저 볼 것.
+   🔴 **iOS 온보딩 최초 실행은 TestFlight 로 검증할 수 없다** — 빌드를 교체하면 앱 데이터가
+   지워져 그 경로를 재현하지 못한다([[env_testflight_build_swap_wipes_data]]).
+   Android preview 4/4 가 이 수정에 대한 검증의 전부다. 코드는 플랫폼 공통
+   (`app/(tabs)/_layout.tsx` 의 선언형 Redirect)이지만 **iOS 에서는 눈으로 못 봤다.**
+   TestFlight 로 볼 수 있는 것은 나머지 셋(글자 잘림·Day 잠금·E4)이다.
+1. **Android 빌드 상태 확인** → 끝났으면 Play Console 업로드.
+2. **PR #118 머지** — `MERGEABLE`·`CLEAN`. 병합 결과 트리는 이미 열어서 확인했다.
+3. **출시 노트** — 원고는 `store-assets/listing/release-notes-1.6.1.txt`
    (8로케일·최대 384자). 🔴 **ja·vi·zh·es 는 AI 가 옮긴 문구다. 붙여넣기 전에 사람이 볼 것.**
    특히 zh-TW 는 zh-CN 을 번체로 옮긴 것이라 어휘(`字級`/`字型`)가 대만 표현인지 미확인.
-3. **레딧 Day 잠금 댓글에 답한다** — 아직 미답변이다. 출시 뒤에 답하기로 했다.
+4. **레딧 Day 잠금 댓글에 답한다** — 아직 미답변이다. 출시 뒤에 답하기로 했다.
    "다음 업데이트에서" 대신 **"받으시면 풀립니다"** 라고 쓸 수 있다. 🔑 약속은 하나만.
-4. **학습 기능 검토 1번**(마지막 학습일) 스펙 — 위 절 참조. 파급 범위부터 세는 것이 먼저다.
-5. `그러다` 예문 — 서버에 그대로. **재사용 1,482장 중 몇 장인지 세는 것이 먼저다.**
+5. **학습 기능 검토 1번**(마지막 학습일) 스펙 — 위 절 참조. 파급 범위부터 세는 것이 먼저다.
+6. `그러다` 예문 — 서버에 그대로. **재사용 1,482장 중 몇 장인지 세는 것이 먼저다.**
 
 ### 미해결로 남긴 것
 

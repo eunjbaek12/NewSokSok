@@ -12,7 +12,14 @@
  * 여기서 검증하는 것은 **단계 계산과 종료성**이다. 실제 배치(flex 사슬·스크롤 동작)는
  * 기기에서만 확인할 수 있다.
  */
-import { SENTENCE_SIZES, nextSentenceStep } from '@/features/study/examples/sentence-size';
+import {
+  SENTENCE_SIZES,
+  nextSentenceStep,
+  currentStep,
+  withStep,
+  enterHint,
+  INITIAL_SENTENCE_STEPS,
+} from '@/features/study/examples/sentence-size';
 
 // 실측(Galaxy S22 · 카드 232dp): 스피커와 별표 몫을 뺀 문장 영역은 130dp 안팎이다.
 const VIEWPORT = 130;
@@ -118,4 +125,58 @@ describe('SENTENCE_SIZES — 표 자체가 지켜야 할 것', () => {
         expect(SENTENCE_SIZES[0].fontSize).toBe(24);
         expect(SENTENCE_SIZES[0].lineHeight).toBe(34);
     });
+});
+
+
+// ─── E4 — 힌트를 껐는데 작은 글자가 남던 것 ──────────────────────────────────
+//
+// 2026-08-23 발견(1.6.0 신규). 빈칸을 눌러 뜻을 보고 다시 눌러 닫으면 문장 글자가 한두 단계
+// 작아진 채 남았다. 스크린샷 3장의 글자 폭 비율 1 : 0.86 : 0.77 이 표의 24 : 21 : 18 과
+// 정확히 맞았다. 원인은 단계가 하나뿐이고 되돌리는 지점이 문항 전환밖에 없던 것이다.
+//
+// `nextSentenceStep` 의 단조 증가는 진동 방지라는 의도이므로 건드리지 않는다. 대신 상태를
+// 둘로 나눠 **각자 안에서** 단조 증가하게 한다.
+
+describe('E4 — 힌트 상태별 단계', () => {
+  test('힌트를 켜고 줄어들어도 끄면 원래 단계로 돌아온다', () => {
+    let steps = INITIAL_SENTENCE_STEPS;
+    // 힌트 없이 한 단계 줄어 정착했다.
+    steps = withStep(steps, false, 1);
+    // 힌트를 켜니 한 줄이 더 들어와 두 단계 더 줄었다.
+    steps = enterHint(steps);
+    steps = withStep(steps, true, 3);
+    expect(currentStep(steps, true)).toBe(3);
+    // 🔴 이게 E4 다 — 껐을 때 3 이 남으면 버그.
+    expect(currentStep(steps, false)).toBe(1);
+  });
+
+  test('힌트를 켤 때 0 에서 시작하지 않는다 (24→21→18 계단이 보이지 않게)', () => {
+    const steps = enterHint(withStep(INITIAL_SENTENCE_STEPS, false, 2));
+    expect(currentStep(steps, true)).toBe(2);
+  });
+
+  test('두 번째로 켤 때는 저장된 단계로 돌아온다', () => {
+    let steps = withStep(INITIAL_SENTENCE_STEPS, false, 1);
+    steps = withStep(enterHint(steps), true, 3);
+    // 껐다가 다시 켠다 — 힌트 쪽은 3 그대로여야 한다(다시 계단을 밟지 않는다).
+    expect(currentStep(enterHint(steps), true)).toBe(3);
+  });
+
+  test('한쪽을 바꿔도 반대쪽은 건드리지 않는다', () => {
+    const steps = withStep(withStep(INITIAL_SENTENCE_STEPS, false, 1), true, 3);
+    expect(withStep(steps, true, 2)).toEqual({ plain: 1, hint: 2 });
+    expect(withStep(steps, false, 2)).toEqual({ plain: 2, hint: 3 });
+  });
+
+  test('각 상태 안에서는 여전히 단조 증가한다 (진동 방지 의도 유지)', () => {
+    // 힌트가 켜진 채로 판정이 반복돼도 되돌아가지 않는다.
+    let step = 0;
+    for (let i = 0; i < 10; i++) step = nextSentenceStep(step, 999, VIEWPORT);
+    expect(step).toBe(SENTENCE_SIZES.length - 1);
+    expect(nextSentenceStep(step, 999, VIEWPORT)).toBe(step);
+  });
+
+  test('문항 전환 리셋은 두 슬롯을 모두 되돌린다', () => {
+    expect(INITIAL_SENTENCE_STEPS).toEqual({ plain: 0, hint: 0 });
+  });
 });

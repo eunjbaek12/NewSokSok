@@ -21,6 +21,7 @@ import { useLists, toggleMemorized, setupPlan, clearPlan, resetPlanForReStudy, r
 import { PlanStatus, Word } from '@/lib/types';
 import {
   computePlanStatus,
+  isDayLocked,
   suggestWordsPerDay,
 } from '@/features/study/plan/engine';
 import { setStudySelection } from '../store';
@@ -364,11 +365,17 @@ export default function PlanScreen() {
     }
   }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list, resetPlanForReStudy, restartPlan]);
 
-  const isStudyLocked = useMemo(() => {
-    if (planStatus !== 'in-progress' && planStatus !== 'overdue' && planStatus !== 'inactive') return false;
-    if (viewingDay <= 0) return false;
-    return viewingDay > (list?.planCurrentDay ?? 1);
-  }, [planStatus, viewingDay, list?.planCurrentDay]);
+  // 규칙 본체는 engine의 isDayLocked에 있다 — 화면이 사본을 들지 않게.
+  const isStudyLocked = useMemo(
+    () =>
+      isDayLocked({
+        planStatus,
+        viewingDay,
+        planCurrentDay: list?.planCurrentDay ?? 1,
+        words,
+      }),
+    [planStatus, viewingDay, list?.planCurrentDay, words]
+  );
 
   const actionLabel = useMemo(() => {
     if (planStatus === 'none') return t('plan.createPlan');

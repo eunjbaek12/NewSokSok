@@ -6,6 +6,8 @@ import {
   computeCurrentDay,
   computeDayStudyStatus,
   groupWordsByDay,
+  deriveUnlockedDay,
+  isDayLocked,
 } from '../features/study/plan/engine';
 import type { Word, VocaList } from '../lib/types';
 
@@ -244,6 +246,100 @@ describe('computeCurrentDay', () => {
       makeWord({ assignedDay: 2, isMemorized: true }),
     ];
     expect(computeCurrentDay(words)).toBe(1);
+  });
+});
+
+// ─── deriveUnlockedDay / isDayLocked ─────────────────────────────────────────
+//
+// 배경: planCurrentDay는 세션 완주(finishSession) 한 경로에서만 오르는 카운터라,
+// 예문 모드로 공부하거나 마지막 카드 직전에 나가면 그 Day를 다 외워도 안 오른다.
+// 그러면 화면이 "40/40 암기"와 "이전 Day를 먼저 완료하세요"를 동시에 말하고 빠져
+// 나갈 길이 없다(레딧 제보, 2026-08-26).
+
+function dayWords(day: number, total: number, memorized: number): Word[] {
+  return Array.from({ length: total }, (_, i) =>
+    makeWord({ id: `d${day}w${i + 1}`, assignedDay: day, isMemorized: i < memorized })
+  );
+}
+
+describe('deriveUnlockedDay', () => {
+  test('배정 단어 없음 → 1', () => {
+    expect(deriveUnlockedDay(makeWords(5))).toBe(1);
+  });
+
+  test('Day1이 0/2 → 1 (아직 Day1)', () => {
+    expect(deriveUnlockedDay(dayWords(1, 2, 0))).toBe(1);
+  });
+
+  test('정확히 50%는 통과한다 — Day1 1/2 → 2', () => {
+    const words = [...dayWords(1, 2, 1), ...dayWords(2, 2, 0)];
+    expect(deriveUnlockedDay(words)).toBe(2);
+  });
+
+  test('50% 미만은 못 넘는다 — Day1 1/3 → 1', () => {
+    const words = [...dayWords(1, 3, 1), ...dayWords(2, 3, 0)];
+    expect(deriveUnlockedDay(words)).toBe(1);
+  });
+
+  test('Day 번호가 비연속이어도 순서대로 본다 (1·2·5)', () => {
+    const words = [...dayWords(1, 2, 2), ...dayWords(2, 2, 2), ...dayWords(5, 2, 0)];
+    expect(deriveUnlockedDay(words)).toBe(5);
+  });
+
+  test('전부 기준 통과 → 마지막 Day (마지막+1을 돌려 완료로 오해시키지 않는다)', () => {
+    const words = [...dayWords(1, 2, 2), ...dayWords(2, 2, 2), ...dayWords(3, 2, 2)];
+    expect(deriveUnlockedDay(words)).toBe(3);
+  });
+
+  test('미배정(assignedDay null)은 세지 않는다', () => {
+    const words = [...dayWords(1, 2, 2), ...makeWords(10)];
+    expect(deriveUnlockedDay(words)).toBe(1);
+  });
+});
+
+describe('isDayLocked — 레딧 제보 재현', () => {
+  // Basic Korean 500 · 13일 계획 · 하루 40개. Day1~7은 40/40 암기인데
+  // planCurrentDay가 7에 멈춰 Day8이 잠겼다.
+  const reportedWords: Word[] = Array.from({ length: 13 }, (_, i) => i + 1).flatMap(day =>
+    dayWords(day, 40, day <= 7 ? 40 : 0)
+  );
+
+  test('Day7을 다 외웠으면 Day8은 열린다 (planCurrentDay가 7에 멈춰 있어도)', () => {
+    expect(
+      isDayLocked({ planStatus: 'in-progress', viewingDay: 8, planCurrentDay: 7, words: reportedWords })
+    ).toBe(false);
+  });
+
+  test('아직 안 외운 Day9는 여전히 잠긴다', () => {
+    expect(
+      isDayLocked({ planStatus: 'in-progress', viewingDay: 9, planCurrentDay: 7, words: reportedWords })
+    ).toBe(true);
+  });
+
+  test('열기만 하고 잠그지는 않는다 — 앞 Day가 미달이어도 planCurrentDay가 이겼으면 열림', () => {
+    // Day3만 1/40인데 카운터는 이미 7까지 가 있는 사람. 새로 잠기면 회귀다.
+    const words = Array.from({ length: 13 }, (_, i) => i + 1).flatMap(day =>
+      dayWords(day, 40, day === 3 ? 1 : day <= 7 ? 40 : 0)
+    );
+    expect(
+      isDayLocked({ planStatus: 'in-progress', viewingDay: 7, planCurrentDay: 7, words })
+    ).toBe(false);
+  });
+
+  test('계획 없음/완료 상태에서는 잠그지 않는다', () => {
+    for (const planStatus of ['none', 'completed'] as const) {
+      expect(
+        isDayLocked({ planStatus, viewingDay: 13, planCurrentDay: 1, words: reportedWords })
+      ).toBe(false);
+    }
+  });
+
+  test('미배정 묶음(-1)과 초기화 전(0)은 잠금 대상이 아니다', () => {
+    for (const viewingDay of [-1, 0]) {
+      expect(
+        isDayLocked({ planStatus: 'in-progress', viewingDay, planCurrentDay: 1, words: reportedWords })
+      ).toBe(false);
+    }
   });
 });
 

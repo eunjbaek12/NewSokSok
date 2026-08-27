@@ -594,6 +594,321 @@ select coalesce(u.raw_user_meta_data->>'nickname', u.raw_user_meta_data->>'full_
 
 ---
 
+## Q12. 일별 순수 신규 가입 · 플랫폼 · 단어 생성 전환 (2026-08-25)
+
+Q10(가입자 추이)이 `auth.users`를 그대로 세는 데 비해, 이 쿼리는 **셋을 걷어낸다**:
+
+1. **운영자 본인 기기** — `auth.sessions.ip`가 본인 계정 IP와 같은 계정(게스트 포함)
+2. **Firebase Test Lab** — `@cloudtestlabaccounts.com`
+3. **기존 사용자의 게스트 재등장** — 익명 계정인데 같은 IP에 소셜 계정이 이미 있는 것
+
+그리고 첫 세션의 `user_agent`로 Android/iOS를 가르고, "단어까지 만든 사람"을 붙인다.
+
+```sql
+with owner_ip as (
+  select distinct host(s.ip) ip
+    from auth.sessions s join auth.users u on u.id = s.user_id
+   where u.email in ('eunjbaek12@gmail.com','mtgirltreeguy@gmail.com','hskimiops@gmail.com')
+     and s.ip is not null
+), first_ses as (
+  select distinct on (user_id) user_id, host(ip) ip, user_agent
+    from auth.sessions order by user_id, created_at
+), u as (
+  select x.id, x.day, x.anon, x.ip, x.internal,
+         case when x.ua like 'okhttp%'                              then 'android'
+              when x.ua like 'Avocado/%' or x.ua like '%CFNetwork%' then 'ios'
+              else 'etc' end as platform
+    from (
+      select u.id,
+             (u.created_at at time zone 'Asia/Seoul')::date as day,
+             coalesce(u.is_anonymous,false)                 as anon,
+             f.ip, coalesce(f.user_agent,'')                as ua,
+             (f.ip is not null and f.ip in (select ip from owner_ip))
+               or coalesce(u.email,'') like '%cloudtestlab%' as internal
+        from auth.users u left join first_ses f on f.user_id = u.id
+    ) x
+), dup as (   -- 익명인데 같은 IP에 소셜 계정이 이미 있음 = 기존 사용자의 게스트 재등장
+  select a.id from u a
+   where a.anon and a.ip is not null and not a.internal
+     and exists (select 1 from u n where not n.anon and n.ip = a.ip)
+), w as (
+  select user_id, count(*) n from cloud_words
+   where coalesce(is_deleted,false)=false group by 1
+), ai as (
+  select user_id, sum(word_count) ai_words from ai_usage_daily group by 1
+), s as (select user_id, count(*) d from cloud_study_days group by 1)
+select case when grouping(u.day)=1 then 'TOTAL'
+            else to_char(u.day,'MM-DD (Dy)') end as "날짜",
+       sum(case when not u.internal and d.id is null then 1 else 0 end) as "순수신규",
+       sum(case when not u.internal and d.id is null and u.platform='android' then 1 else 0 end) as "안드로이드",
+       sum(case when not u.internal and d.id is null and u.platform='ios'     then 1 else 0 end) as "아이폰",
+       sum(case when not u.internal and d.id is null and u.platform='etc'     then 1 else 0 end) as "플랫폼미상",
+       sum(case when not u.internal and d.id is null and not u.anon then 1 else 0 end) as "로그인",
+       sum(case when not u.internal and d.id is null and u.anon     then 1 else 0 end) as "게스트",
+       sum(case when not u.internal and d.id is null
+                 and (coalesce(w.n,0) > 0 or ai.ai_words is not null) then 1 else 0 end) as "단어생성",
+       sum(case when not u.internal and d.id is null and coalesce(s.d,0) > 0 then 1 else 0 end) as "학습",
+       sum(case when u.internal then 1 else 0 end) as "제외_본인기기",
+       sum(case when not u.internal and d.id is not null then 1 else 0 end) as "제외_재등장"
+  from u
+  left join dup d on d.id = u.id
+  left join w  on w.user_id  = u.id
+  left join ai on ai.user_id = u.id
+  left join s  on s.user_id  = u.id
+ where u.day >= (now() at time zone 'Asia/Seoul')::date - 20   -- 최근 21일
+ group by rollup(u.day)          -- 합계 행을 함께 만든다
+ order by grouping(u.day) desc,  -- TOTAL 을 맨 위로
+          u.day desc;            -- 최근 날짜가 위
+```
+
+### 열 읽는 법
+
+| 열 | 뜻 |
+|---|---|
+| `순수신규` | 제외 셋을 걷어낸 진짜 신규 (= 로그인 + 게스트) |
+| `안드로이드` / `아이폰` / `플랫폼미상` | 첫 세션 UA 기준. 미상은 **세션 행이 없어 판별 불가**(만료·삭제) |
+| `로그인` / `게스트` | 소셜 로그인 / 익명 게스트 |
+| `단어생성` | 단어를 담았거나(`cloud_words`) AI를 썼음(`ai_usage_daily`). **게스트는 AI 흔적으로만 잡힌다** |
+| `학습` | `cloud_study_days` 기록. **게스트는 구조적으로 영원히 0** |
+| `제외_본인기기` / `제외_재등장` | 걷어낸 본인 기기 / 기존 사용자의 게스트 재등장 (감시용) |
+
+`rollup(u.day)`이 만드는 합계 행은 `grouping(u.day)=1`로 식별해 `TOTAL`로 이름 붙이고 맨 위에
+고정한다. 합계도 각 열의 조건을 그대로 다시 계산한 값이라 열별 세로합과 정확히 일치한다.
+
+### 실행 결과 (2026-08-25)
+
+최근 21일 합계 — 순수 신규 **72명**(Android 32 · iOS 31 · 미상 9), 로그인 45 · 게스트 27,
+단어까지 **28명**, 학습까지 **11명**. 걷어낸 것은 본인 기기 13건 + 게스트 재등장 2건.
+
+### 함정
+
+- 🔴 **익명 계정은 `email`이 NULL이다.** `u.email like '…'`를 그냥 쓰면 그 항이 NULL이 되고
+  `false or null = null`이라 **게스트 전원이 집계에서 조용히 사라진다**(작성 중 실제로 겪음 —
+  게스트 열이 전부 0으로 나왔다). 반드시 `coalesce(u.email,'')`.
+- 집계는 `count(*) filter (where …)` 대신 **`sum(case when … then 1 else 0 end)`** 로 쓴다.
+  `filter` 버전은 CLI(`db query`)에서는 정상 실행되는데 다른 클라이언트에서
+  `syntax error at or near "("`로 죽은 사례가 있었다. 결과는 동일하고 호환성만 넓다.
+- `플랫폼미상`이 크면 그날 계정들의 세션이 만료된 것이다. 옛 날짜일수록 커진다 — 플랫폼
+  비율은 **최근 며칠로만** 읽을 것.
+- 모바일 IP는 공유·재할당되므로 `제외_재등장`은 **시각이 가까운 쌍만** 신뢰할 것. 반대로
+  본인 기기 제외(고정 IP)는 신뢰도가 높다.
+- 게스트가 로그인 후 로그아웃했다가 게스트로 돌아오면 SecureStore의 refresh token으로
+  **같은 익명 UUID가 복원**되므로 계정이 반복 생성되지는 않는다(`features/auth/guest-session-vault.ts`).
+  다시 생기는 경우는 재설치 · 토큰 영구 무효 · 기기 변경뿐.
+
+## Q13. 오늘 누가 · 어떻게 앱을 썼나 (사용자별 1행, 2026-08-25)
+
+Q8이 "무엇을 공부했나"에 집중한다면, 이것은 **한 사람 한 행**으로 신원(이름·닉네임·추정
+시간대·뜻언어) + AI 사용량 + 그날 만진 기능을 한 줄에 모은다. 게스트도 포함된다(단 게스트는
+`ai_usage_daily` 외에는 서버 흔적이 없어 `사용기능`이 비어 있는 게 정상).
+
+```sql
+-- Q13. 오늘 누가 · 어떻게 앱을 썼나 (사용자별 1행)
+-- 날짜를 바꾸려면 아래 두 곳의 `- 0` 을 `- 1`(어제) 등으로.
+with p as (
+  select ((now() at time zone 'Asia/Seoul')::date - 0)                        as d_today,
+         (extract(epoch from (((now() at time zone 'Asia/Seoul')::date - 0)::timestamp)
+                             at time zone 'Asia/Seoul') * 1000)::bigint       as t0
+), owner_ip as (   -- 운영자 본인 기기(테스트 계정이 접속한 IP)
+  select distinct host(s.ip) ip
+    from auth.sessions s join auth.users u on u.id = s.user_id
+   where u.email in ('eunjbaek12@gmail.com','mtgirltreeguy@gmail.com','hskimiops@gmail.com')
+     and s.ip is not null
+), w as (
+  select c.user_id,
+         count(*) filter (where c.created_at       >= p.t0)                   as added,
+         count(*) filter (where c.created_at       <  p.t0)                   as edited,
+         count(*) filter (where c.last_reviewed_at >= p.t0)                   as reviewed,
+         to_char(to_timestamp(max(c.updated_at)/1000) at time zone 'Asia/Seoul','HH24:MI') as last_kst
+    from cloud_words c cross join p
+   where coalesce(c.is_deleted,false)=false and c.updated_at >= p.t0
+   group by 1
+), l as (
+  select c.user_id,
+         count(*) filter (where c.created_at      >= p.t0)                    as lists_new,
+         count(*) filter (where c.last_studied_at >= p.t0)                    as lists_used,
+         max(c.last_result_percent) filter (where c.last_studied_at >= p.t0)  as best_pct
+    from cloud_lists c cross join p
+   where coalesce(c.is_deleted,false)=false and c.updated_at >= p.t0
+   group by 1
+), sd as (
+  select s.user_id, s.studied_count, s.memorized_count
+    from cloud_study_days s cross join p where s.date = to_char(p.d_today,'YYYY-MM-DD')
+), ml as (
+  select m.user_id, count(*) n from cloud_memorized_log m cross join p
+   where m.date = to_char(p.d_today,'YYYY-MM-DD') group by 1
+), ai as (
+  select a.user_id, a.word_count, a.call_count, a.rewarded_views
+    from ai_usage_daily a cross join p where a.usage_date = p.d_today
+), lang as (   -- 주 사용 뜻언어(전체 이력)
+  select user_id, mode() within group (order by target_lang) as lang
+    from cloud_words where coalesce(is_deleted,false)=false and target_lang is not null group by 1
+), tz as (     -- 기기 로컬 날짜 vs 절대시각으로 UTC offset 역산(전체 이력)
+  select user_id,
+         max(extract(epoch from date::date::timestamp) - created_at_ms/1000.0)                    as lo,
+         min(extract(epoch from date::date::timestamp + interval '1 day') - created_at_ms/1000.0) as hi
+    from cloud_memorized_log group by 1
+), burst as (   -- 생성 시각 분포로 "낱개 검색" vs "한꺼번에 담김"을 가른다
+  --  🔴 창은 '분'이 아니라 '10초'. 분 단위 + 임계 5로 하면 빠르게 검색한 사람(분당 5개)과
+  --  사진 스캔(6개·5개)이 섞인다. 10초 안에 3개 이상은 사람이 타이핑할 수 없는 속도다.
+  select user_id,
+         sum(cnt)                                as added,
+         sum(cnt) filter (where cnt >= 3)        as bulk,
+         count(*) filter (where cnt >= 3)        as bulk_runs,
+         max(cnt)                                as max_burst
+    from (
+      select c.user_id,
+             floor(c.created_at/10000)           as w10,
+             count(*) as cnt
+        from cloud_words c cross join p
+       where coalesce(c.is_deleted,false)=false and c.created_at >= p.t0
+       group by 1,2
+    ) x group by 1
+), act as (
+  select user_id from w  union select user_id from l  union select user_id from sd
+  union select user_id from ml union select user_id from ai
+)
+select coalesce(u.raw_user_meta_data->>'full_name',
+         case when coalesce(u.is_anonymous,false) then '(게스트)' else '(이름없음)' end)
+       || case when u.email in ('eunjbaek12@gmail.com','mtgirltreeguy@gmail.com','hskimiops@gmail.com')
+                 or exists (select 1 from auth.sessions s
+                             where s.user_id = u.id and host(s.ip) in (select ip from owner_ip))
+               then ' ⟵본인' else '' end                                                          as "이름",
+       coalesce(u.raw_user_meta_data->>'nickname','-')                                            as "닉네임",
+       case when tz.lo is null or tz.lo > tz.hi              then '?'
+            when (tz.hi - tz.lo)/3600.0 > 6                  then '~UTC' || to_char(round(((tz.lo+tz.hi)/2/3600)::numeric,0),'SG9')
+            else 'UTC' || to_char(round(((tz.lo+tz.hi)/2/3600)::numeric,0),'SG9') end             as "시간대",
+       coalesce(lang.lang,'-')                                                                    as "뜻언어",
+       coalesce(w.last_kst,'-')                                                                   as "최종활동",
+       case when coalesce(u.is_anonymous,false)   then '게스트'
+            when us.pro_until    > now()          then 'Pro'
+            when us.trial_ends_at > now()         then '체험'
+            else 'Free' end                                                                       as "등급",
+       coalesce(ai.word_count,0)                                                                  as "AI단어",
+       coalesce(ai.call_count,0)                                                                  as "AI호출",
+       case when coalesce(ai.call_count,0) = 0                        then '-'
+            when coalesce(ai.word_count,0) = 0                        then '실패/한도'
+            when ai.word_count::numeric / ai.call_count >= 8          then '생성·스캔(' ||
+                 round(ai.word_count::numeric / ai.call_count) || '단어/회)'
+            when ai.word_count::numeric / ai.call_count >= 1.5        then '혼합'
+            else '자동완성' end                                                                   as "AI형태",
+       case when coalesce(b.added,0) = 0 then '-'
+            else concat_ws(' + ',
+              case when coalesce(b.added,0) - coalesce(b.bulk,0) > 0
+                   then '검색 ' || (b.added - coalesce(b.bulk,0)) end,
+              case when coalesce(b.bulk,0) > 0 then
+                   case when coalesce(ai.word_count,0) = 0 then '덱·CSV ' else '뭉치 ' end
+                   || b.bulk || '(' || b.bulk_runs || '회·최대' || b.max_burst || ')' end)
+       end                                                                                        as "추가경로",
+       concat_ws(' · ',
+         case when coalesce(w.added,0)          > 0 then '단어추가 '  || w.added                end,
+         case when coalesce(w.edited,0)         > 0 then '단어수정 '  || w.edited               end,
+         case when coalesce(sd.studied_count,0) > 0 then '학습 '      || sd.studied_count||'단어' end,
+         case when coalesce(ml.n,0)             > 0 then '암기 '      || ml.n                   end,
+         case when coalesce(w.reviewed,0)       > 0 then '복습 '      || w.reviewed             end,
+         case when coalesce(l.lists_new,0)      > 0 then '단어장생성 '|| l.lists_new            end,
+         case when coalesce(l.lists_used,0)     > 0 then '단어장학습 '|| l.lists_used
+                 || coalesce(' (' || round(l.best_pct) || '%)','')                              end,
+         case when coalesce(ai.rewarded_views,0)> 0 then '광고 '      || ai.rewarded_views||'회' end
+       )                                                                                          as "사용기능"
+  from act
+  join auth.users u on u.id = act.user_id
+  left join w    on w.user_id    = act.user_id
+  left join l    on l.user_id    = act.user_id
+  left join sd   on sd.user_id   = act.user_id
+  left join ml   on ml.user_id   = act.user_id
+  left join ai   on ai.user_id   = act.user_id
+  left join burst b on b.user_id = act.user_id
+  left join lang on lang.user_id = act.user_id
+  left join tz   on tz.user_id   = act.user_id
+  left join user_subscriptions us on us.user_id = act.user_id
+ order by coalesce(ai.word_count,0) + coalesce(sd.studied_count,0) + coalesce(w.added,0) desc;
+```
+
+### 열 읽는 법
+
+| 열 | 출처와 뜻 |
+|---|---|
+| `이름` | `raw_user_meta_data->>'full_name'` (소셜 계정 이름). 게스트는 `(게스트)` |
+| `닉네임` | `->>'nickname'` — 앱에서 직접 정한 것. 대부분 `-`(정한 사람이 소수) |
+| `시간대` | **국가는 서버에 없어서 역산한 값.** 아래 설명 참조. `~` 접두는 범위가 6h 초과로 넓다는 뜻, `?`는 암기 기록이 없어 계산 불가 |
+| `뜻언어` | `cloud_words.target_lang` 최빈값 — 모국어 추정 |
+| `최종활동` | 그날 마지막 단어 변경 시각(KST) |
+| `AI단어` / `AI호출` | `ai_usage_daily.word_count` / `call_count` |
+| `AI형태` | 호출당 단어 수로 추정: `≥8` → 단어생성·사진스캔, `1.5~8` → 혼합, 그 미만 → 자동완성. `word=0, call>0`이면 `실패/한도` |
+| `추가경로` | **어떤 기능으로 단어를 담았나.** 10초 창에 3개 이상 들어오면 `뭉치`, 아니면 `검색` |
+| `사용기능` | 단어추가·수정·학습·암기·복습·단어장생성/학습(정답률)·광고시청을 `concat_ws`로 이어붙임 |
+
+### `추가경로` — 기능을 가르는 법
+
+`ai_usage_daily`에 mode 컬럼이 없어 DB만으로는 기능을 직접 알 수 없다. 대신 **단어가 만들어진
+시각의 조밀도**로 가른다:
+
+- **`검색`** — 단어 추가 화면에서 하나씩 찾아 담기. 사람이 타이핑하므로 간격이 벌어진다.
+- **`뭉치`** — 사진 스캔 · AI 단어생성 · 큐레이션 덱/CSV 담기. 한 번에 쏟아진다.
+  AI 사용이 0이면 `덱·CSV`로 표시된다(덱 담기는 AI를 안 쓴다).
+
+🔴 **창은 '분'이 아니라 '10초'여야 한다.** 처음에 분 단위 + 임계 5로 짰더니 분당 5개씩
+빠르게 검색한 사용자가 스캔(6개·5개)과 섞여 `뭉치 15`로 잘못 잡혔다. 10초로 좁히니 그
+사용자는 뭉치 0(전부 검색), 스캔한 사용자는 정확히 두 뭉치(6개·5개)로 갈렸다.
+**10초에 3개 이상은 사람이 칠 수 없는 속도**라는 게 판별 근거다.
+
+**스캔 vs AI생성 vs 덱은 DB로 못 가른다** — Edge 로그를 봐야 한다:
+
+| 기능 | 로그 신호 |
+|---|---|
+| 검색 자동완성 | `enrich-word`만, 호출:단어 ≈ 1:1 |
+| 사진 스캔 | **`scan-image` 호출 직후** `enrich-word`가 뭉쳐서 발생 |
+| AI 단어생성 | `generate-words` 호출, 1회에 20단어 |
+
+조회법은 [[project_edge_logs_and_enrich_outcomes]] 메모리 참조(Management API
+`analytics/endpoints/logs.all` — `iso_timestamp_start/end` 필수).
+
+### 국가를 시간대로 역산하는 법
+
+`cloud_memorized_log`는 **기기 로컬 날짜**(`date`, 텍스트)와 **절대시각**(`created_at_ms`)을
+같이 갖는다. `ts + offset ∈ [date 00:00, date+1일)` 이므로 행마다 offset 구간이 하나 나오고,
+그 **교집합**(lo=max, hi=min)이 그 기기의 UTC offset이다. 한국 사용자는 실제로 `[9.0, 9.0]`
+으로 정확히 수렴한다.
+
+- ⚠️ `cloud_study_days.updated_at`을 쓰면 안 된다. 동기화가 늦으면 갱신 시각이 다음 날로
+  밀려 **모순 구간**(lo > hi)이 나온다. 실제로 그렇게 3명이 깨졌다. `memorized_log`의
+  `created_at_ms`는 기기에서 외운 순간이라 오염이 적다.
+- 로컬 낮 시간에만 쓰는 사람은 구간이 안 좁혀진다(샘플 1,320개인데도 `[3.7, 11.5]`인 사례).
+  좁아지려면 **로컬 자정 근처** 활동이 있어야 한다.
+- 여행·기기 시계 변경은 여전히 모순을 만든다.
+
+### 실행 결과 (2026-08-24)
+
+```
+이름                       시간대  뜻언어  최종활동  등급    AI단어  AI호출  AI형태                사용기능                                                                       
+이지윤 (쭈니코코사랑크림)  ?       ko      17:09     Free    207     217     자동완성              단어추가 156 · 단어장생성 1 · 단어장학습 1 (0%)                                
+산녀나무꾼                 UTC+9   ko      14:16     Free    51      2       생성·스캔(26단어/회)  단어추가 40 · 단어장생성 1 · 단어장학습 1 (0%) · 광고 1회                      
+Emrik LECOMTE              UTC+1   en      06:11     Free    60      3       생성·스캔(20단어/회)  단어추가 20 · 복습 20 · 단어장생성 1 · 단어장학습 1 (20%) · 광고 1회           
+Julie Aitkin               ~UTC+8  en      06:04     Free    0       0       -                     단어수정 65 · 학습 55단어 · 암기 40 · 복습 65 · 단어장학습 2 (72%)             
+Kellen Yau                 ~UTC-1  en      22:35     Free    0       0       -                     단어수정 25 · 학습 34단어 · 암기 22 · 복습 25 · 단어장학습 1 (43%)             
+승건 이                    ~UTC+7  ko      14:12     Free    11      11      자동완성              단어추가 10 · 학습 1단어 · 암기 1 · 복습 1 · 단어장생성 1 · 단어장학습 1 (0%)  
+(게스트)                   ?       -       -         게스트  10      1       생성·스캔(10단어/회)                                                                                 
+(게스트)                   ?       -       -         게스트  1       1       자동완성                                                                                             
+Liên Nguyễn                ~UTC+2  ko      20:42     Free    0       0       -                     단어수정 1                                                                     
+Jeffrey Bush               ?       -       -         Free    0       1       실패/한도                                                                                            ```
+
+`이지윤`은 217회 호출에 207단어 = **자동완성 위주**, `산녀나무꾼`·`Emrik`은 2~3회 호출에
+20~26단어씩 = **AI 단어생성**. 같은 `AI단어` 숫자라도 성격이 정반대라, 이 두 열을 함께 봐야
+"무엇을 하다 한도를 썼는지"가 보인다.
+
+### 함정
+
+- 🔴 `cloud_study_days.date` / `cloud_memorized_log.date`는 **기기 로컬 날짜**다. `시간대`가
+  UTC+9에서 먼 사용자는 한 세션이 이틀에 걸쳐 보인다 — 해외 사용자를 볼 때는 **오늘과 어제를
+  둘 다** 돌릴 것(맨 위 `- 0`을 `- 1`로).
+- 🔴 **운영자 테스트 계정을 사람으로 세지 말 것.** 닉네임 `산녀나무꾼` = `mtgirltreeguy@gmail.com`,
+  `백은정` = `eunjbaek12@gmail.com` 이다. 이름만 보면 외부 사용자와 구별되지 않아 실제로 착각한 적이
+  있다(한도 도달 16건 중 10건이 본인 테스트였다). 그래서 `이름` 열에 `⟵본인`을 붙인다 —
+  이메일 3개 + **그 계정들이 접속한 IP에서 만들어진 계정**(게스트 포함)이 대상이다.
+- 게스트는 `cloud_*`가 전부 로컬이라 `사용기능`이 비어 있다. **안 썼다는 뜻이 아니다.**
+- 동기화 30초 디바운스 때문에 방금 활동한 사람은 아직 안 잡힐 수 있다.
+
 ## 스키마 메모 (쿼리 짤 때 매번 헷갈리는 것)
 
 | 테이블 | 날짜 컬럼 | 타입 | 주의 |

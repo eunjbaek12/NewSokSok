@@ -13,6 +13,7 @@ import {
   toggleStarred,
   updateWord,
   saveLastResult,
+  updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
@@ -29,7 +30,16 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
-import { SENTENCE_SIZES, nextSentenceStep, type SentenceSize } from './sentence-size';
+import {
+  SENTENCE_SIZES,
+  nextSentenceStep,
+  currentStep,
+  withStep,
+  enterHint,
+  INITIAL_SENTENCE_STEPS,
+  type SentenceSize,
+  type SentenceSteps,
+} from './sentence-size';
 
 function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true, onPressBlank, colors, size }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean; onPressBlank?: () => void; colors: any; size: SentenceSize }) {
   // 빈칸 위치는 lib/example-blank가 언어군별로 판정한다(라틴은 토큰 경계, 한/일은 활용 폴백).
@@ -84,7 +94,7 @@ const ADVANCE_DELAY_CORRECT_MS = 1000;
 const ADVANCE_DELAY_WRONG_MS = 3000;
 
 export default function ExamplesScreen() {
-  const { id, filter, isStarred: initialIsStarred, sel } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string }>();
+  const { id, filter, isStarred: initialIsStarred, sel, planDay } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; sel?: string; planDay?: string }>();
   // 세션에 넘겨받은 단어 목록. `sel`은 목록 자체가 아니라 토큰이다 — 이유는 store.ts 참고.
   const selectedIds = useStudySelection(sel);
   const insets = useSafeAreaInsets();
@@ -145,11 +155,14 @@ export default function ExamplesScreen() {
   const [isNewAnswer, setIsNewAnswer] = useState(false);
   const [showHint, setShowHint] = useState(false);
   // 문장 글자 크기 단계(SENTENCE_SIZES의 인덱스). 카드에 안 들어가면 한 단계씩 내린다.
-  const [sentenceStep, setSentenceStep] = useState(0);
+  // 힌트를 켜면 한 줄이 더 들어와 더 작아지므로 상태별로 따로 기억한다(sentence-size.ts 주석).
+  const [sentenceSteps, setSentenceSteps] = useState<SentenceSteps>(INITIAL_SENTENCE_STEPS);
   // 밀어서 읽는 중이면 자동 넘김을 멈춘다(holdAdvance 주석 참조).
   const [advanceHeld, setAdvanceHeld] = useState(false);
   // 판정은 이 ref 로 한다(위 reconcileSentenceSize 주석 참조). state 와 항상 같은 값이다.
-  const sentenceStepRef = useRef(0);
+  const sentenceStepsRef = useRef<SentenceSteps>(INITIAL_SENTENCE_STEPS);
+  // 판정 콜백은 의존성이 비어 있어야 하므로(같은 주석) 힌트 상태도 ref 로 읽는다.
+  const showHintRef = useRef(false);
   // 축소 판정의 재료 둘. 스크롤 영역이 직접 알려 준다 — 보이는 높이와 실제 내용 높이다.
   const viewportHeight = useRef(0);
   const contentHeight = useRef(0);
@@ -487,8 +500,9 @@ export default function ExamplesScreen() {
     setShowHint(false);
     // 다음 문장은 짧을 수 있으므로 크기도 원래대로 되돌린다. 안 되돌리면 한 번 긴 문장을
     // 만난 뒤 세션 내내 작은 글자로 남는다.
-    setSentenceStep(0);
-    sentenceStepRef.current = 0;
+    setSentenceSteps(INITIAL_SENTENCE_STEPS);
+    sentenceStepsRef.current = INITIAL_SENTENCE_STEPS;
+    showHintRef.current = false;
     // 내용 높이는 새 문장이 그려지면 곧 다시 온다. 앞 문장 값으로 판정하지 않도록 비운다
     // (뷰포트는 문항이 바뀌어도 같으므로 그대로 둔다).
     contentHeight.current = 0;
@@ -496,7 +510,25 @@ export default function ExamplesScreen() {
     setAdvanceHeld(false);
   }, [currentIndex, currentBatchIndex]);
 
-  const sentenceSize = SENTENCE_SIZES[sentenceStep];
+  const sentenceSize = SENTENCE_SIZES[currentStep(sentenceSteps, showHint)];
+
+  /*
+   * 힌트 토글. 단계를 상태별로 갈라 둔 값이 여기서 갈아 끼워진다 — 껐을 때는 껐을 때의 단계로
+   * 그대로 돌아오므로 E4(껐는데 작은 글자가 남던 것)가 생기지 않는다.
+   *
+   * 🔴 내용 높이를 비우는 것을 빼면 안 된다. 힌트 줄이 붙고 떨어지는 사이에 옛 높이로 판정하면
+   *    필요 없이 한 단계 더 내려간다 — 문항 전환 리셋이 같은 이유로 비우는 그 값이다.
+   */
+  const setHint = useCallback((next: boolean) => {
+    showHintRef.current = next;
+    if (next) {
+      const seeded = enterHint(sentenceStepsRef.current);
+      sentenceStepsRef.current = seeded;
+      setSentenceSteps(seeded);
+    }
+    contentHeight.current = 0;
+    setShowHint(next);
+  }, []);
 
   /*
    * 내용이 보이는 영역을 넘치면 글자를 한 단계 줄인다. 마지막 단계에서도 넘치면 그대로 두고
@@ -511,19 +543,20 @@ export default function ExamplesScreen() {
   const reconcileSentenceSize = useCallback(() => {
     if (!contentHeight.current || !viewportHeight.current) return;
     /*
-     * 🔴 `setSentenceStep(step => …)` 로 쓰면 안 된다. 한 번의 변화에도 콜백이 둘 오므로
+     * 🔴 `setSentenceSteps(prev => …)` 로 쓰면 안 된다. 한 번의 변화에도 콜백이 둘 오므로
      *    (onLayout·onContentSizeChange) updater 형태면 큐에 쌓인 만큼 연달아 적용돼 한 번에
      *    두 단계가 내려간다 — 둘 다 같은(옛) 내용 높이를 본다. 현재 단계를 ref 로 읽어 한
      *    단계만 계산하면 같은 사이클의 중복 호출이 모두 같은 답을 낸다.
      */
-    const step = sentenceStepRef.current;
+    const showingHint = showHintRef.current;
+    const step = currentStep(sentenceStepsRef.current, showingHint);
     const next = nextSentenceStep(step, contentHeight.current, viewportHeight.current);
     if (next === step) return;
-    sentenceStepRef.current = next;
+    sentenceStepsRef.current = withStep(sentenceStepsRef.current, showingHint, next);
     // 새 크기로 다시 잰 내용 높이가 올 때까지 판정을 멈춘다. 글자가 작아지면 내용도 줄어드는데,
     // 그 값이 도착하기 전에 옛 높이로 또 판정하면 필요 이상으로 내려간다.
     contentHeight.current = 0;
-    setSentenceStep(next);
+    setSentenceSteps(sentenceStepsRef.current);
   }, []);
 
   const handleScrollLayout = useCallback((e: LayoutChangeEvent) => {
@@ -560,6 +593,13 @@ export default function ExamplesScreen() {
     const finalResults = results.current;
     await commitSessionResults(id!, finalResults);
     await saveLastResult(id!);
+    // 계획 학습으로 들어왔으면 진행도를 올린다 — 플래시카드·퀴즈와 같은 규칙.
+    // 잠금 자체는 단어 상태에서 유도하므로(deriveUnlockedDay) 이 줄이 없어도 갇히진
+    // 않지만, planUpdatedAt이 안 움직이면 홈 카드가 "오늘 달성"으로 안 가고
+    // computePlanStatus의 유휴 판정에 걸려 매일 공부한 사람에게 "7일 이상 학습하지
+    // 않았습니다" 배너가 뜬다.
+    const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
+    if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',
@@ -711,7 +751,7 @@ export default function ExamplesScreen() {
                     primaryColor={colors.primary}
                     textColor={colors.text}
                     showTerm={isRevealed}
-                    onPressBlank={() => setShowHint(prev => !prev)}
+                    onPressBlank={() => setHint(!showHint)}
                     colors={colors}
                     size={sentenceSize}
                   />
@@ -721,7 +761,7 @@ export default function ExamplesScreen() {
                     상태에서는 뜻만 따로 띄울 이유가 없으므로 공개 전에만 렌더한다.
                   */}
                   {!isRevealed && showHint && (
-                    <Pressable onPress={() => setShowHint(false)} hitSlop={6}>
+                    <Pressable onPress={() => setHint(false)} hitSlop={6}>
                       <View style={[styles.hintLine, { backgroundColor: colors.hintBg, borderColor: colors.hintBorder }]}>
                         <Text style={[styles.hintLineText, { color: colors.hintText }]} numberOfLines={2}>
                           {t('examples.hintLabel', { meaning: senseView.meaningKr || t('examples.noMeaning') })}

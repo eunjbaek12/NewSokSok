@@ -51,8 +51,7 @@ export default function RootLayout() {
     return () => clearTimeout(t);
   }, []);
 
-  // 폰트가 아직이면 노출 시간이 지나도 스플래시를 유지한다. 그동안 아래 트리는
-  // 폴백 폰트로 렌더되지만 스플래시에 완전히 가려져 보이지 않는다.
+  // 폰트가 아직이면 노출 시간이 지나도 스플래시를 유지한다.
   const showSplash = !splashElapsed || !fontsLoaded;
 
   return (
@@ -65,7 +64,20 @@ export default function RootLayout() {
                 <VocabBootstrapper>
                   <KeyboardProvider>
                     <GestureHandlerRootView style={{ flex: 1 }}>
-                      <AppStack />
+                      {/* 🔴 폰트가 준비되기 전에는 화면을 그리지 않는다 — 가려져 있어도 그리면 안 된다.
+                          RN Android 는 Text 의 폭을 그 시점의 Typeface 로 재는데, 커스텀 폰트가
+                          아직이면 시스템 폴백(Roboto·OneUI Sans KR)으로 잰다. Pretendard 는 그보다
+                          넓으므로 나중에 진짜 폰트로 그리면 글자가 상자를 넘고, 띄어쓰기가 있으면
+                          마지막 낱말이 보이지 않는 둘째 줄로 넘어가고 없으면 마지막 글자가 깎인다
+                          ("Google로 로그인"→"Google로", "Next"→"Nex"). 실측: `A VOCA DO` 의 상자가
+                          272px 인데 이는 Roboto 글리프 199.7 + 자간 8칸 72 = 271.7 로, Pretendard 가
+                          요구하는 281 이 아니라 폴백으로 잰 값이다.
+                          🔴 다시 마운트하는 것으로는 못 고친다 — RN 의 텍스트 측정 캐시는 문자열과
+                          스타일로만 키를 잡아서, 한번 잘못 잰 값을 프로세스가 끝날 때까지 다시 쓴다.
+                          애초에 재지 않게 막는 것이 유일한 해법이다.
+                          콜드 스타트는 늘지 않는다 — AppHydrators 가 이 위에 있어 hydrate·SQLite·
+                          동기화는 그대로 0 초에 시작하고, 스플래시 1500ms 안에 폰트(수백 ms)가 끝난다. */}
+                      {fontsLoaded && <AppStack />}
                       <ReviewNotificationScheduler />
                       <GlobalRewardedAdModal />
                       <GlobalProLimitReachedModal />
@@ -191,12 +203,22 @@ function AppStack() {
 
   useEffect(() => {
     if (authLoading) return;
+    // 🔴 온보딩이 아직이면 위 effect 의 온보딩 이동이 우선이다. 여기서 먼저 로그인으로
+    //    보내면 최초 실행 사용자가 온보딩을 통째로 건너뛴다.
+    //    inAuthScreen 검사만으로는 못 막는다 — 두 effect 가 한 커밋에서 연달아 실행되면
+    //    이 시점의 segments 는 위 replace 가 반영되기 **전** 값이라 'onboarding' 이 아니고,
+    //    그래서 방금 건 온보딩 이동을 로그인이 덮어쓴다. 폰트 게이트를 넣기 전에는 두 값이
+    //    서로 다른 렌더에서 정착해 우연히 순서가 갈렸을 뿐이고, 게이트 이후 hydrate 가
+    //    AppStack 마운트보다 먼저 끝나면서 같은 커밋에 몰렸다. 실측(Galaxy S22 · preview):
+    //    게이트 없는 대조군 3/3 온보딩 · 게이트 있는 판 3/3 로그인.
+    //    타이밍에 기대지 말고 순서를 값으로 못박는다.
+    if (isOnboardingDone !== true) return;
     const first = segments[0] as string;
     const inAuthScreen = first === 'login' || first === 'onboarding';
     if (authMode === 'none' && !inAuthScreen) {
       router.replace('/login');
     }
-  }, [authMode, authLoading, segments]);
+  }, [authMode, authLoading, segments, isOnboardingDone]);
 
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>

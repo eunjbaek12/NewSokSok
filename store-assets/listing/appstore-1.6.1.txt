@@ -1,0 +1,105 @@
+App Store Connect 1.6.1 제출용 텍스트
+=====================================
+형식은 1.6.0 을 그대로 따른다(ios-ko.md 「새로운 기능」):
+  첫 줄에 "1.6.1 업데이트 - 한 줄 요약", 항목 제목은 대괄호로 감싸고,
+  제목은 문제가 아니라 **결과**를 사용자 말투로 쓴다("~해졌어요" / "~어요").
+  항목이 많으면 끝에 "그 밖에" + ASCII 하이픈 불릿(1.6.1 은 셋뿐이라 없다).
+
+거부 문자(2026-08-24 실측): 홍보 텍스트와 이 버전의 새로운 기능 두 칸은
+  가운뎃점(·)과 이모지를 거부한다. em dash(—)도 쓰지 않는다. ASCII 하이픈만.
+  설명(Description) 칸은 통과하므로 그쪽 원고는 손대지 않는다.
+  Play 노트(release-notes-1.6.1.txt)는 이모지를 쓰므로 그대로 복사하면 안 된다.
+
+로케일: ASC 등록은 **여섯**이다 - ko, en, es, ja, vi, zh-Hant.
+  ja / vi / zh-Hant 는 1.6.0 에서 추가됐다(그 전 기록인 appstore-1.5.0.txt 의 "셋"은 낡았다).
+
+🔴 **앱 UI 언어는 ko / en / es 셋뿐이다**(i18n/locales 에 그 셋만 있다).
+  그래서 ja / vi / zh-Hant 사용자는 앱을 영어로 본다. **그 세 로케일 원고에서는 앱 문구를
+  그 언어로 인용하지 않는다** - 사용자가 본 적 없는 문장을 인용하는 꼴이 된다.
+  인용이 들어가는 것은 ko / en / es 뿐이고, 각 언어의 실제 값은 i18n 의 plan.locked 다:
+    ko "이전 Day를 먼저 완료하세요" · en "Complete previous Day first"
+    es "Completa el Día anterior primero"
+
+홍보 텍스트: 이번 버전에서는 바꾸지 않는다. 상시 노출되는 칸이라 버그 수정으로 채울
+  자리가 아니다. 현재 값은 ios-*.md 각 「홍보 텍스트」 절.
+
+1.6.1 은 버그 수정만 있는 릴리스라 로케일마다 내용이 갈리지 않는다. 세 항목 모두
+  덱, 언어, 요금제와 무관하다.
+
+온보딩 건너뛰기 회귀는 적지 않는다. 그것을 만든 폰트 게이트가 1.6.1 에서 처음 나가므로
+  사용자는 그 증상을 본 적이 없다. 안 겪은 문제를 고쳤다고 적으면 거짓이다.
+
+
+===== 이번 버전의 새로운 기능 / What's New =====
+
+--- ko ---
+1.6.1 업데이트 - 학습 계획이 막히던 문제를 고쳤어요.
+
+[다 외운 Day에서 다음 Day로 넘어가요]
+Day의 단어를 다 외웠는데도 다음 Day가 "이전 Day를 먼저 완료하세요"로 잠겨 있던 문제를 고쳤어요. 예문 학습으로 공부했거나 학습을 도중에 그만뒀을 때 특히 그랬어요. 업데이트하면 바로 풀려요.
+
+[글자 끝이 잘리지 않아요]
+글꼴이 준비된 다음에 화면을 그리도록 바꿨어요. 단어의 마지막 글자가 잘려 보이던 문제를 고쳤어요.
+
+[예문 힌트를 닫으면 글자 크기가 돌아와요]
+힌트를 닫아도 문장이 작아진 채로 남던 문제를 고쳤어요.
+
+--- en ---
+1.6.1 - Fixed a study plan that could stay stuck on the same day.
+
+[Your plan moves on once you have memorized a day]
+A day you had already memorized could stay locked with "Complete previous Day first", so the next one never opened. It happened most often after studying with example sentences, or after leaving a session partway through. It unlocks as soon as you update.
+
+[Text is no longer cut off]
+Screens now wait for the font to load before drawing, so the last letter of a word stays visible.
+
+[Closing an example hint restores the text size]
+The sentence used to stay at the smaller size after you closed the hint.
+
+--- es ---
+Actualización 1.6.1 - Arreglamos un plan de estudio que podía quedarse bloqueado.
+
+[El plan avanza cuando ya te sabes un día]
+Un día ya memorizado podía quedar bloqueado con el mensaje "Completa el Día anterior primero", y el siguiente nunca se abría. Ocurría sobre todo al estudiar con frases de ejemplo o al salir de una sesión a mitad de camino. Se desbloquea en cuanto actualizas.
+
+[El texto ya no se corta]
+Las pantallas ahora esperan a que cargue la fuente, así la última letra de cada palabra se ve entera.
+
+[Al cerrar la pista vuelve el tamaño de letra]
+Antes la frase se quedaba con la letra más pequeña después de cerrar la pista.
+
+--- ja ---
+1.6.1 アップデート - 学習プランが進まなくなる問題を直しました。
+
+[覚えた Day から次の Day に進めます]
+その Day の単語をすべて覚えても、次の Day がロックされたままになる問題を直しました。例文学習で勉強した場合や、学習を途中でやめた場合に特に起きていました。アップデートすればすぐに解除されます。
+
+[文字の端が切れなくなりました]
+フォントの読み込みが終わってから画面を描くようにしました。単語の最後の文字が切れて見えることがなくなります。
+
+[例文のヒントを閉じると文字サイズが戻ります]
+ヒントを閉じても文が小さいままになる問題を直しました。
+
+--- vi ---
+Cập nhật 1.6.1 - Đã sửa lỗi kế hoạch học bị kẹt lại ở một Day.
+
+[Thuộc hết một Day là sang được Day tiếp theo]
+Dù đã thuộc hết từ của một Day, Day kế tiếp vẫn bị khoá. Lỗi này hay xảy ra khi bạn học bằng câu ví dụ hoặc rời phiên học giữa chừng. Cập nhật là mở ngay.
+
+[Chữ không còn bị cắt mất phần cuối]
+Màn hình giờ đợi tải xong phông chữ rồi mới vẽ, nên chữ cái cuối của từ luôn hiện đủ.
+
+[Đóng gợi ý thì cỡ chữ trở lại như cũ]
+Trước đây đóng gợi ý xong, câu vẫn giữ cỡ chữ nhỏ.
+
+--- zh-Hant ---
+1.6.1 更新 - 修正了學習計畫卡住不動的問題。
+
+[背完的 Day 可以進入下一個 Day]
+即使已經記住某個 Day 的所有單字，下一個 Day 仍然保持鎖定。用例句學習或中途離開學習時特別容易發生。更新後立即解除。
+
+[文字末端不再被截斷]
+現在會等字型載入完成後再繪製畫面，單字的最後一個字不會被切掉。
+
+[關閉例句提示後字級會恢復]
+先前關閉提示後，句子仍維持較小的字級。

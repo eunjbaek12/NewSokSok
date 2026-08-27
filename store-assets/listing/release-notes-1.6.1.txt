@@ -1,0 +1,113 @@
+＊ 버전을 타지 않는 규칙(500자 제한 · 영어가 먼저 넘침 · 스페인어 20~25% ·
+＊ 뜻 언어 필터 확인 · 요금제 이름 · Play 에 iOS 전용 수정 금지)은
+＊ README.md 「출시 노트를 쓸 때」에 있다. 이 파일에는 1.6.1 에만 해당하는 것만 적는다.
+＊
+＊ 🔑 1.6.1 은 버그 수정만 있는 릴리스라 **로케일마다 내용이 갈리지 않는다.**
+＊ 세 항목 모두 덱·언어·요금제와 무관해서, 1.6.0 처럼 "그 로케일 사용자에게 실제로
+＊ 보이는가"를 따로 셀 필요가 없다. 여덟 블록이 같은 내용인 것은 실수가 아니다.
+＊
+＊ 🔴 온보딩 건너뛰기 회귀는 적지 않는다. 그것을 만든 폰트 게이트가 1.6.1 에서
+＊ 처음 나가므로 **사용자는 그 증상을 본 적이 없다.** 안 겪은 문제를 고쳤다고 적으면
+＊ 거짓이다(1.6.0 에서 걸러낸 다섯 종과 같은 부류다).
+＊
+＊ 🔴 HSK 3·5급 덱 재생성도 적지 않는다. 서버 반영이 2026-08-25 에 이미 끝나
+＊ 1.6.0 사용자도 벌써 받고 있다. 이번 빌드는 번들 사본을 맞춘 것뿐이다.
+＊
+＊ 🔴 "업데이트하면 바로 풀린다"는 Day 잠금 항목에만 쓴다 — 실제로 그렇다.
+＊ 잠금 판정이 단어의 암기 상태에서 유도되므로 마이그레이션도 재설치도 필요 없다.
+
+<ko-KR>
+1.6.1 업데이트
+
+📅 학습 계획이 다음 Day로 넘어가지 않던 문제
+Day의 단어를 다 외웠는데도 다음 Day가 "이전 Day를 먼저 완료하세요"로 잠겨 있던 문제를 고쳤어요. 업데이트하면 바로 풀려요.
+
+🔤 글자 끝이 잘려 보이던 문제
+글꼴이 준비된 다음에 화면을 그리도록 바꿨어요.
+
+💡 예문 학습에서 힌트를 닫아도
+문장 글자가 작아진 채로 남던 문제를 고쳤어요.
+
+<en-US>
+1.6.1 update
+
+📅 Study plan stuck on the same day
+A day you had already memorized could stay locked, so the next one never opened. Fixed — it unlocks as soon as you update.
+
+🔤 Clipped text
+Screens now wait for the font to load before drawing, so the end of a word is no longer cut off.
+
+💡 Example practice
+Closing the hint left the sentence at a smaller size. Fixed.
+
+<es-419>
+Actualización 1.6.1
+
+📅 El plan de estudio no avanzaba al día siguiente
+Un día ya memorizado podía quedar bloqueado y el siguiente nunca se abría. Se desbloquea al actualizar.
+
+🔤 Texto cortado
+Las pantallas ahora esperan a que cargue la fuente, así no se corta el final de las palabras.
+
+💡 Práctica con ejemplos
+Al cerrar la pista, la frase se quedaba con letra más pequeña. Corregido.
+
+<es-ES>
+Actualización 1.6.1
+
+📅 El plan de estudio no avanzaba al día siguiente
+Un día ya memorizado podía quedar bloqueado y el siguiente nunca se abría. Se desbloquea al actualizar.
+
+🔤 Texto cortado
+Las pantallas ahora esperan a que cargue la fuente, así no se corta el final de las palabras.
+
+💡 Práctica con ejemplos
+Al cerrar la pista, la frase se quedaba con letra más pequeña. Corregido.
+
+<ja-JP>
+1.6.1 アップデート
+
+📅 学習プランが次の Day に進まない問題
+その Day の単語をすべて覚えても次の Day がロックされたままになる問題を直しました。アップデートすればすぐに解除されます。
+
+🔤 文字の端が切れる問題
+フォントの読み込みが終わってから画面を描くようにしました。
+
+💡 例文学習でヒントを閉じても
+文の文字が小さいままになる問題を直しました。
+
+<vi>
+Cập nhật 1.6.1
+
+📅 Kế hoạch học không sang được Day tiếp theo
+Dù đã thuộc hết từ của một Day, Day kế tiếp vẫn bị khoá. Đã sửa — cập nhật là mở ngay.
+
+🔤 Chữ bị cắt mất phần cuối
+Màn hình giờ đợi tải xong phông chữ rồi mới vẽ.
+
+💡 Học theo câu ví dụ
+Đóng gợi ý xong, câu vẫn giữ cỡ chữ nhỏ. Đã sửa.
+
+<zh-CN>
+1.6.1 更新
+
+📅 学习计划无法进入下一个 Day
+已经全部记住的 Day，下一个 Day 仍然处于锁定状态。此问题已修复，更新后立即解锁。
+
+🔤 文字末尾被截断
+现在会等字体加载完成后再绘制界面。
+
+💡 例句学习中关闭提示后
+句子字号仍然偏小的问题已修复。
+
+<zh-TW>
+1.6.1 更新
+
+📅 學習計畫無法進入下一個 Day
+已經全部記住的 Day，下一個 Day 仍然處於鎖定狀態。此問題已修復，更新後立即解鎖。
+
+🔤 文字末端被截斷
+現在會等字型載入完成後再繪製畫面。
+
+💡 例句學習中關閉提示後
+句子字級仍然偏小的問題已修復。

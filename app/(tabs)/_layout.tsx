@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/features/theme";
 import { useAuth } from "@/features/auth";
+import { useOnboarding } from "@/features/onboarding";
 import { useSettings } from "@/features/settings";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useLastNotificationResponse } from "expo-notifications";
@@ -160,6 +161,7 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
 export default function TabLayout() {
   const { authMode, loading } = useAuth();
   const { profileSettings, isLoading: settingsLoading } = useSettings();
+  const { isOnboardingDone } = useOnboarding();
   const [startupHandled, setStartupHandled] = useState(false);
 
   // 복습 알림을 눌러 실행된 세션은 시작 탭 설정을 무시하고 홈으로 연다(§8.1) — 복습 배너는
@@ -181,7 +183,18 @@ export default function TabLayout() {
     }
   }, [settingsLoading, loading, startupHandled, fromReviewNotification]);
 
-  if (loading || settingsLoading) return <View style={{ flex: 1 }} />;
+  if (loading || settingsLoading || isOnboardingDone === null) return <View style={{ flex: 1 }} />;
+
+  // 🔴 온보딩이 먼저다. 최초 실행의 초기 라우트는 (tabs) 라서 이 레이아웃이 먼저 그려지는데,
+  //    여기서 곧장 로그인으로 보내면 온보딩을 통째로 건너뛴다. 루트의 온보딩 이동은 effect 라
+  //    **선언형 Redirect 를 이기지 못한다** — 같은 커밋이면 이쪽이 확정된다.
+  //    폰트 게이트를 넣기 전에는 이 레이아웃이 loading 중이라 빈 화면을 돌려주는 동안 루트
+  //    effect 가 먼저 움직여 우연히 온보딩이 이겼을 뿐이고, 게이트 이후 hydrate 가 마운트보다
+  //    먼저 끝나면서 첫 렌더에 바로 Redirect 가 나가 순서가 뒤집혔다.
+  //    실측(Galaxy S22 · preview): 게이트 없는 대조군 3/3 온보딩 · 게이트 3/3 로그인.
+  if (isOnboardingDone === false) {
+    return <Redirect href={'/onboarding' as any} />;
+  }
 
   if (authMode === 'none') {
     return <Redirect href="/login" />;

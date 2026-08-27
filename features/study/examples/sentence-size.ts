@@ -53,6 +53,42 @@ const SLACK_DP = 1;
  * 인덱스는 단조 증가하고 표는 유한하므로 되돌이표가 생기지 않는다. 마지막 단계에서도 넘치면
  * 그대로 두고 스크롤이 받는다.
  */
+/**
+ * 힌트 상태별 단계. 힌트를 켜면 같은 영역에 한 줄이 더 들어와 글자가 한두 단계 작아지는데,
+ * 단계는 하나뿐이고 되돌리는 지점이 문항 전환밖에 없어서 **힌트를 껐는데도 작은 글자가 그대로
+ * 남았다**(E4). `nextSentenceStep`이 단조 증가만 하는 것은 진동 방지라는 의도이므로 그건 두고,
+ * 상태를 둘로 나눠 각자 안에서 단조 증가하게 한다.
+ */
+export interface SentenceSteps {
+  /** 힌트가 꺼진 상태에서 정착한 단계 */
+  plain: number;
+  /** 힌트가 켜진 상태에서 정착한 단계 */
+  hint: number;
+}
+
+export const INITIAL_SENTENCE_STEPS: SentenceSteps = { plain: 0, hint: 0 };
+
+/** 지금 그려야 할 단계. */
+export function currentStep(steps: SentenceSteps, showHint: boolean): number {
+  return showHint ? steps.hint : steps.plain;
+}
+
+/** 지금 상태의 단계만 바꾼다. 반대쪽은 그대로 둔다 — 그게 이 분리의 전부다. */
+export function withStep(steps: SentenceSteps, showHint: boolean, step: number): SentenceSteps {
+  return showHint ? { ...steps, hint: step } : { ...steps, plain: step };
+}
+
+/**
+ * 힌트를 켤 때의 시작 단계를 맞춘다.
+ *
+ * 힌트는 내용을 **늘리기만** 하므로 힌트가 켜진 상태가 꺼진 상태보다 글자가 클 이유가 없다.
+ * 처음 켜는 순간을 0(가장 큰 글자)에서 시작하면 24→21→18 계단이 눈에 보이므로, 꺼진 상태가
+ * 이미 정착한 단계에서 출발한다. 두 번째부터는 저장된 값이 이미 그보다 크거나 같다.
+ */
+export function enterHint(steps: SentenceSteps): SentenceSteps {
+  return { ...steps, hint: Math.max(steps.hint, steps.plain) };
+}
+
 export function nextSentenceStep(step: number, contentHeight: number, viewportHeight: number): number {
   if (!contentHeight || !viewportHeight) return step;
   if (step >= SENTENCE_SIZES.length - 1) return step;

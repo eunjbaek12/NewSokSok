@@ -1081,11 +1081,12 @@ sync 와 DB 매퍼뿐). 부작용: ⑴ 완주마다 아무도 안 보는 값 때
 | | 상태 | 버전 | 커밋 |
 |---|---|---|---|
 | iOS | ✅ FINISHED | 1.6.1 · build **39** | `98e30ca` |
-| Android | 진행 중이었음 → **다음 세션에서 상태부터 확인** | 1.6.1 · vc **26** | `98e30ca` |
+| Android | ✅ FINISHED (AAB) | 1.6.1 · vc **26** | `98e30ca` |
 
 ✅ **TestFlight 업로드까지 끝났다**(`eas submit --platform ios --profile production --latest`).
 로그 본문에서 *"Submitted your app to Apple App Store Connect"* 확인. 제출 id `848788e8`.
-🔴 **Android 빌드는 진행 중인 채로 세션이 끝났다 — 상태 확인이 다음 세션 첫 일이다.**
+✅ **Android 빌드도 끝났다**(AAB · vc26). 로그 본문 확인 완료.
+**양 플랫폼 산출물이 다 나왔고, 남은 것은 Play Console 업로드부터다.**
 
 🔴 **versionCode 가 25 가 아니라 26 이다.** 할당량에 막혀 죽은 시도가 번호를 한 번 올려
 두고 죽었다. Play 프로덕션이 24 라 문제는 없고 **25 는 영구 결번**이다.
@@ -1106,7 +1107,9 @@ failed.` 를 볼 것.** 이번엔 큐 진입을 따로 감시하는 백그라운
    Android preview 4/4 가 이 수정에 대한 검증의 전부다. 코드는 플랫폼 공통
    (`app/(tabs)/_layout.tsx` 의 선언형 Redirect)이지만 **iOS 에서는 눈으로 못 봤다.**
    TestFlight 로 볼 수 있는 것은 나머지 셋(글자 잘림·Day 잠금·E4)이다.
-1. **Android 빌드 상태 확인** → 끝났으면 Play Console 업로드.
+1. **Play Console 업로드** — AAB 는 이미 나와 있다(vc26 · `98e30ca`).
+   `eas build:list --platform android --limit 1 --json` 의 `applicationArchiveUrl` 로 받거나
+   Expo 대시보드에서. 🔴 Play 프로덕션 현재는 vc24 이므로 26 은 그 위다(25 는 영구 결번).
 2. **PR #118 머지** — `MERGEABLE`·`CLEAN`. 병합 결과 트리는 이미 열어서 확인했다.
 3. **출시 노트** — 원고는 `store-assets/listing/release-notes-1.6.1.txt`
    (8로케일·최대 384자). 🔴 **ja·vi·zh·es 는 AI 가 옮긴 문구다. 붙여넣기 전에 사람이 볼 것.**

@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "공항",
+    "pos": "noun",
+    "meaningEn": "airport",
+    "romaja": "gonghang",
+    "exampleKo": "공항에 어떻게 가야 해요?",
+    "exampleEn": "How do I get to the airport?",
+    "category": "공항"
+  },
+  {
+    "rank": 2,
+    "term": "입국",
+    "pos": "noun",
+    "meaningEn": "entry; immigration",
+    "romaja": "ipguk",
+    "exampleKo": "입국 심사를 받으러 가요.",
+    "exampleEn": "I am going through immigration control.",
+    "category": "공항"
+  },
+  {
+    "rank": 3,
+    "term": "출국",
+    "pos": "noun",
+    "meaningEn": "departure",
+    "romaja": "chulguk",
+    "exampleKo": "출국장은 몇 층에 있어요?",
+    "exampleEn": "Which floor is the departure hall on?",
+    "category": "공항"
+  },
+  {
+    "rank": 4,
+    "term": "여권",
+    "pos": "noun",
+    "meaningEn": "passport",
+    "romaja": "yeogwon",
+    "exampleKo": "여기 여권과 탑승권입니다.",
+    "exampleEn": "Here is my passport and boarding pass.",
+    "category": "공항"
+  },
+  {
+    "rank": 5,
+    "term": "수하물",
+    "pos": "noun",
+    "meaningEn": "checked baggage",
+    "romaja": "suhamul",
+    "exampleKo": "수하물은 어디에서 찾아요?",
+    "exampleEn": "Where do I pick up my checked baggage?",
+    "category": "공항"
+  },
+  {
+    "rank": 6,
+    "term": "탑승",
+    "pos": "noun",
+    "meaningEn": "boarding",
+    "romaja": "tapseung",
+    "exampleKo": "지금 탑승을 시작했습니다.",
+    "exampleEn": "Boarding has just started now.",
+    "category": "공항"
+  },
+  {
+    "rank": 7,
+    "term": "게이트",
+    "pos": "noun",
+    "meaningEn": "gate",
+    "romaja": "geiteu",
+    "exampleKo": "십번 게이트로 가 주세요.",
+    "exampleEn": "Please go to gate number ten.",
+    "category": "공항"
+  },
+  {
+    "rank": 8,
+    "term": "환전",
+    "pos": "noun",
+    "meaningEn": "currency exchange",
+    "romaja": "hwanjeon",
+    "exampleKo": "어디에서 환전할 수 있어요?",
+    "exampleEn": "Where can I exchange money?",
+    "category": "공항"
+  },
+  {
+    "rank": 9,
+    "term": "면세점",
+    "pos": "noun",
+    "meaningEn": "duty-free shop",
+    "romaja": "myeonsejeom",
+    "exampleKo": "면세점에서 선물을 좀 살게요.",
+    "exampleEn": "I am going to buy some gifts at the duty-free shop.",
+    "category": "공항"
+  },
+  {
+    "rank": 10,
+    "term": "지하철",
+    "pos": "noun",
+    "meaningEn": "subway",
+    "romaja": "jihacheol",
+    "exampleKo": "지하철역이 어디에 있어요?",
+    "exampleEn": "Where is the subway station?",
+    "category": "지하철"
+  },
+  {
+    "rank": 11,
+    "term": "호선",
+    "pos": "noun",
+    "meaningEn": "subway line",
+    "romaja": "hoseon",
+    "exampleKo": "몇 호선을 타야 해요?",
+    "exampleEn": "Which subway line should I take?",
+    "category": "지하철"
+  },
+  {
+    "rank": 12,
+    "term": "환승",
+    "pos": "noun",
+    "meaningEn": "transfer",
+    "romaja": "hwanseung",
+    "exampleKo": "여기서 이호선으로 환승해요.",
+    "exampleEn": "I transfer to Line 2 here.",
+    "category": "지하철"
+  },
+  {
+    "rank": 13,
+    "term": "개찰구",
+    "pos": "noun",
+    "meaningEn": "ticket gate",
+    "romaja": "gaechalgu",
+    "exampleKo": "개찰구에 카드를 대세요.",
+    "exampleEn": "Tap your card at the ticket gate.",
+    "category": "지하철"
+  },
+  {
+    "rank": 14,
+    "term": "교통카드",
+    "pos": "noun",
+    "meaningEn": "transit card",
+    "romaja": "gyotongkadeu",
+    "exampleKo": "교통카드를 하나 사고 싶어요.",
+    "exampleEn": "I want to buy a transit card.",
+    "category": "지하철"
+  },
+  {
+    "rank": 15,
+    "term": "충전하다",
+    "pos": "verb",
+    "meaningEn": "to top up",
+    "romaja": "chungjeonhada",
+    "exampleKo": "기계에서 교통카드를 충전했어요.",
+    "exampleEn": "I topped up my transit card at the machine.",
+    "category": "지하철"
+  },
+  {
+    "rank": 16,
+    "term": "승강장",
+    "pos": "noun",
+    "meaningEn": "platform",
+    "romaja": "seunggangjang",
+    "exampleKo": "승강장은 어느 쪽이에요?",
+    "exampleEn": "Which way is the platform?",
+    "category": "지하철"
+  },
+  {
+    "rank": 17,
+    "term": "급행",
+    "pos": "noun",
+    "meaningEn": "express train",
+    "romaja": "geuphaeng",
+    "exampleKo": "이 열차는 급행이에요?",
+    "exampleEn": "Is this train an express?",
+    "category": "지하철"
+  },
+  {
+    "rank": 18,
+    "term": "막차",
+    "pos": "noun",
+    "meaningEn": "last train",
+    "romaja": "makcha",
+    "exampleKo": "오늘 막차는 몇 시예요?",
+    "exampleEn": "What time is the last train tonight?",
+    "category": "지하철"
+  },
+  {
+    "rank": 19,
+    "term": "버스",
+    "pos": "noun",
+    "meaningEn": "bus",
+    "romaja": "beoseu",
+    "exampleKo": "시청으로 가는 버스예요?",
+    "exampleEn": "Is this the bus going to City Hall?",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 20,
+    "term": "정류장",
+    "pos": "noun",
+    "meaningEn": "bus stop",
+    "romaja": "jeongnyujang",
+    "exampleKo": "다음 정류장에서 내려 주세요.",
+    "exampleEn": "Please let me off at the next bus stop.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 21,
+    "term": "광역버스",
+    "pos": "noun",
+    "meaningEn": "intercity bus",
+    "romaja": "gwangyeokbeoseu",
+    "exampleKo": "강남 가는 광역버스를 타세요.",
+    "exampleEn": "Take the intercity bus going to Gangnam.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 22,
+    "term": "택시",
+    "pos": "noun",
+    "meaningEn": "taxi",
+    "romaja": "taeksi",
+    "exampleKo": "빈 택시를 잡기 어렵네요.",
+    "exampleEn": "It is hard to catch an empty taxi.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 23,
+    "term": "세워 주세요",
+    "pos": "phrase",
+    "meaningEn": "please pull over here",
+    "romaja": "sewo juseyo",
+    "exampleKo": "저기 편의점 앞에 세워 주세요.",
+    "exampleEn": "Please pull over in front of that convenience store.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 24,
+    "term": "미터기",
+    "pos": "noun",
+    "meaningEn": "taxi meter",
+    "romaja": "miteogi",
+    "exampleKo": "기사님, 미터기 켜 주세요.",
+    "exampleEn": "Driver, please turn on the meter.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 25,
+    "term": "할증",
+    "pos": "noun",
+    "meaningEn": "late-night surcharge",
+    "romaja": "haljeung",
+    "exampleKo": "지금은 밤이라서 할증이 붙어요.",
+    "exampleEn": "There is a surcharge because it is nighttime now.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 26,
+    "term": "타다",
+    "pos": "verb",
+    "meaningEn": "to ride; to get on",
+    "romaja": "tada",
+    "exampleKo": "어디에서 지하철을 타야 해요?",
+    "exampleEn": "Where should I get on the subway?",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 27,
+    "term": "내리다",
+    "pos": "verb",
+    "meaningEn": "to get off",
+    "romaja": "naerida",
+    "exampleKo": "다음 역에서 내려야 합니다.",
+    "exampleEn": "I need to get off at the next station.",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 28,
+    "term": "갈아타다",
+    "pos": "verb",
+    "meaningEn": "to transfer",
+    "romaja": "garatada",
+    "exampleKo": "어디에서 2호선으로 갈아타요?",
+    "exampleEn": "Where do I transfer to Line 2?",
+    "category": "버스·택시"
+  },
+  {
+    "rank": 29,
+    "term": "기차",
+    "pos": "noun",
+    "meaningEn": "train",
+    "romaja": "gicha",
+    "exampleKo": "부산행 기차표를 사고 싶어요.",
+    "exampleEn": "I want to buy a train ticket to Busan.",
+    "category": "기차"
+  },
+  {
+    "rank": 30,
+    "term": "케이티엑스",
+    "pos": "noun",
+    "meaningEn": "KTX high-speed train",
+    "romaja": "keitiekseu",
+    "exampleKo": "케이티엑스를 타면 정말 빨라요.",
+    "exampleEn": "It is really fast if you take the KTX.",
+    "category": "기차"
+  },
+  {
+    "rank": 31,
+    "term": "승차권",
+    "pos": "noun",
+    "meaningEn": "ticket",
+    "romaja": "seungchagwon",
+    "exampleKo": "승차권은 어디서 확인할 수 있어요?",
+    "exampleEn": "Where can I check my ticket?",
+    "category": "기차"
+  },
+  {
+    "rank": 32,
+    "term": "좌석",
+    "pos": "noun",
+    "meaningEn": "seat",
+    "romaja": "jwaseok",
+    "exampleKo": "창가 쪽 좌석으로 주세요.",
+    "exampleEn": "Please give me a window seat.",
+    "category": "기차"
+  },
+  {
+    "rank": 33,
+    "term": "왕복",
+    "pos": "noun",
+    "meaningEn": "round trip",
+    "romaja": "wangbok",
+    "exampleKo": "서울 왕복 표로 한 장 주세요.",
+    "exampleEn": "Please give me one round-trip ticket to Seoul.",
+    "category": "기차"
+  },
+  {
+    "rank": 34,
+    "term": "편도",
+    "pos": "noun",
+    "meaningEn": "one way",
+    "romaja": "pyeondo",
+    "exampleKo": "제주행 편도 티켓을 예약했어요.",
+    "exampleEn": "I booked a one-way ticket to Jeju.",
+    "category": "기차"
+  },
+  {
+    "rank": 35,
+    "term": "역",
+    "pos": "noun",
+    "meaningEn": "station",
+    "romaja": "yeok",
+    "exampleKo": "가장 가까운 지하철역이 어디예요?",
+    "exampleEn": "Where is the nearest subway station?",
+    "category": "기차"
+  },
+  {
+    "rank": 36,
+    "term": "표를 끊다",
+    "pos": "phrase",
+    "meaningEn": "to buy a ticket",
+    "romaja": "pyoreul kkeunda",
+    "exampleKo": "자동발권기에서 표를 끊으면 돼요.",
+    "exampleEn": "You can just buy a ticket at the ticket machine.",
+    "category": "기차"
+  },
+  {
+    "rank": 37,
+    "term": "숙소",
+    "pos": "noun",
+    "meaningEn": "accommodation",
+    "romaja": "sukso",
+    "exampleKo": "숙소 근처에 맛있는 식당이 많아요.",
+    "exampleEn": "There are many good restaurants near the accommodation.",
+    "category": "숙소"
+  },
+  {
+    "rank": 38,
+    "term": "체크인",
+    "pos": "noun",
+    "meaningEn": "check-in",
+    "romaja": "chekeuin",
+    "exampleKo": "지금 바로 체크인 할 수 있어요?",
+    "exampleEn": "Can I check in right now?",
+    "category": "숙소"
+  },
+  {
+    "rank": 39,
+    "term": "체크아웃",
+    "pos": "noun",
+    "meaningEn": "check-out",
+    "romaja": "chekeuaut",
+    "exampleKo": "내일 오전 열 시에 체크아웃 할게요.",
+    "exampleEn": "I will check out tomorrow at 10 AM.",
+    "category": "숙소"
+  },
+  {
+    "rank": 40,
+    "term": "프런트",
+    "pos": "noun",
+    "meaningEn": "front desk",
+    "romaja": "peureonteu",
+    "exampleKo": "수건이 더 필요하면 프런트에 말씀하세요.",
+    "exampleEn": "If you need more towels, please tell the front desk.",
+    "category": "숙소"
+  },
+  {
+    "rank": 41,
+    "term": "조식",
+    "pos": "noun",
+    "meaningEn": "breakfast",
+    "romaja": "josik",
+    "exampleKo": "조식은 몇 시부터 먹을 수 있어요?",
+    "exampleEn": "From what time can we eat breakfast?",
+    "category": "숙소"
+  },
+  {
+    "rank": 42,
+    "term": "게스트하우스",
+    "pos": "noun",
+    "meaningEn": "guesthouse",
+    "romaja": "geseuteuhauseu",
+    "exampleKo": "이번 여행은 홍대 게스트하우스로 예약했어요.",
+    "exampleEn": "I booked a guesthouse in Hongdae for this trip.",
+    "category": "숙소"
+  },
+  {
+    "rank": 43,
+    "term": "짐을 맡기다",
+    "pos": "phrase",
+    "meaningEn": "to leave luggage",
+    "romaja": "jimeul matgida",
+    "exampleKo": "체크아웃 후에 짐을 맡길 수 있어요?",
+    "exampleEn": "Can I leave my luggage after checking out?",
+    "category": "숙소"
+  },
+  {
+    "rank": 44,
+    "term": "길을 묻다",
+    "pos": "phrase",
+    "meaningEn": "to ask for directions",
+    "romaja": "gireul mutda",
+    "exampleKo": "지나가시는 분께 길을 물어봐요.",
+    "exampleEn": "Let's ask a passerby for directions.",
+    "category": "길찾기"
+  },
+  {
+    "rank": 45,
+    "term": "지도",
+    "pos": "noun",
+    "meaningEn": "map",
+    "romaja": "jido",
+    "exampleKo": "네이버 지도 앱으로 길을 찾으세요.",
+    "exampleEn": "Find the way using the Naver Map app.",
+    "category": "길찾기"
+  },
+  {
+    "rank": 46,
+    "term": "얼마나 걸려요",
+    "pos": "phrase",
+    "meaningEn": "how long does it take",
+    "romaja": "eolmana geol-lyeoyo",
+    "exampleKo": "공항까지 지하철로 얼마나 걸려요?",
+    "exampleEn": "How long does it take to the airport by subway?",
+    "category": "길찾기"
+  },
+  {
+    "rank": 47,
+    "term": "걸어서",
+    "pos": "phrase",
+    "meaningEn": "on foot",
+    "romaja": "georeoseo",
+    "exampleKo": "여기서 시장까지 걸어서 얼마나 걸려요?",
+    "exampleEn": "How long does it take to walk from here to the market?",
+    "category": "길찾기"
+  },
+  {
+    "rank": 48,
+    "term": "관광지",
+    "pos": "noun",
+    "meaningEn": "tourist spot",
+    "romaja": "gwangwangji",
+    "exampleKo": "서울에서 가장 유명한 관광지가 어디예요?",
+    "exampleEn": "Where is the most famous tourist spot in Seoul?",
+    "category": "길찾기"
+  },
+  {
+    "rank": 49,
+    "term": "기념품",
+    "pos": "noun",
+    "meaningEn": "souvenir",
+    "romaja": "ginyeompum",
+    "exampleKo": "친구들에게 줄 예쁜 기념품을 사고 싶어요.",
+    "exampleEn": "I want to buy pretty souvenirs for my friends.",
+    "category": "길찾기"
+  },
+  {
+    "rank": 50,
+    "term": "당일치기",
+    "pos": "noun",
+    "meaningEn": "day trip",
+    "romaja": "dang-ilchigi",
+    "exampleKo": "주말에 속초로 당일치기 여행을 갈 거예요.",
+    "exampleEn": "I am going on a day trip to Sokcho this weekend.",
+    "category": "길찾기"
+  }
+]

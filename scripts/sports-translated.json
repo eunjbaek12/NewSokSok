@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "운동",
+    "pos": "noun",
+    "meaningEn": "exercise or sport",
+    "romaja": "undong",
+    "exampleKo": "퇴근하고 나서 가볍게 운동을 하는 편이에요.",
+    "exampleEn": "I usually do a light workout after getting off work.",
+    "category": "종목"
+  },
+  {
+    "rank": 2,
+    "term": "축구",
+    "pos": "noun",
+    "meaningEn": "football or soccer",
+    "romaja": "chukgu",
+    "exampleKo": "주말에 친구들하고 모여서 조기 축구를 했어요.",
+    "exampleEn": "I gathered with my friends and played early morning soccer on the weekend.",
+    "category": "종목"
+  },
+  {
+    "rank": 3,
+    "term": "야구",
+    "pos": "noun",
+    "meaningEn": "baseball",
+    "romaja": "yagu",
+    "exampleKo": "오늘 야구 경기 진짜 재밌겠다.",
+    "exampleEn": "Today's baseball game is going to be so much fun.",
+    "category": "종목"
+  },
+  {
+    "rank": 4,
+    "term": "농구",
+    "pos": "noun",
+    "meaningEn": "basketball",
+    "romaja": "nonggu",
+    "exampleKo": "저녁에 실내 체육관에서 농구 한 판 할래?",
+    "exampleEn": "Do you want to play a game of basketball at the indoor gym this evening?",
+    "category": "종목"
+  },
+  {
+    "rank": 5,
+    "term": "배구",
+    "pos": "noun",
+    "meaningEn": "volleyball",
+    "romaja": "baegu",
+    "exampleKo": "요즘 여자 배구 경기가 엄청 인기야.",
+    "exampleEn": "Women's volleyball games are super popular these days.",
+    "category": "종목"
+  },
+  {
+    "rank": 6,
+    "term": "탁구",
+    "pos": "noun",
+    "meaningEn": "table tennis",
+    "romaja": "takgu",
+    "exampleKo": "점심 시간에 회사 동료들과 탁구를 쳤어요.",
+    "exampleEn": "I played table tennis with my coworkers during lunch break.",
+    "category": "종목"
+  },
+  {
+    "rank": 7,
+    "term": "배드민턴",
+    "pos": "noun",
+    "meaningEn": "badminton",
+    "romaja": "baedeuminteon",
+    "exampleKo": "바람이 안 불어서 동네 공원에서 배드민턴 치기 딱 좋다.",
+    "exampleEn": "There is no wind, so it is perfect for playing badminton at the neighborhood park.",
+    "category": "종목"
+  },
+  {
+    "rank": 8,
+    "term": "테니스",
+    "pos": "noun",
+    "meaningEn": "tennis",
+    "romaja": "teniseu",
+    "exampleKo": "요즘 테니스 레슨 받으러 다니는 사람이 많아요.",
+    "exampleEn": "These days, a lot of people go to take tennis lessons.",
+    "category": "종목"
+  },
+  {
+    "rank": 9,
+    "term": "골프",
+    "pos": "noun",
+    "meaningEn": "golf",
+    "romaja": "golpeu",
+    "exampleKo": "이번 주말에는 필드 대신 스크린 골프를 치러 가요.",
+    "exampleEn": "This weekend we are going to play screen golf instead of going to the field.",
+    "category": "종목"
+  },
+  {
+    "rank": 10,
+    "term": "수영",
+    "pos": "noun",
+    "meaningEn": "swimming",
+    "romaja": "suyeong",
+    "exampleKo": "아침에 실내 수영장에서 한 시간 동안 수영을 했어요.",
+    "exampleEn": "I swam for an hour at the indoor swimming pool in the morning.",
+    "category": "종목"
+  },
+  {
+    "rank": 11,
+    "term": "달리기",
+    "pos": "noun",
+    "meaningEn": "running",
+    "romaja": "dalligi",
+    "exampleKo": "체력을 기르려고 매일 아침 한강 공원에서 달리기를 해요.",
+    "exampleEn": "To build stamina, I go for a run at Hangang Park every morning.",
+    "category": "종목"
+  },
+  {
+    "rank": 12,
+    "term": "마라톤",
+    "pos": "noun",
+    "meaningEn": "marathon",
+    "romaja": "maraton",
+    "exampleKo": "가을에 열리는 서울 마라톤 대회에 신청했어요.",
+    "exampleEn": "I applied for the Seoul Marathon competition held in autumn.",
+    "category": "종목"
+  },
+  {
+    "rank": 13,
+    "term": "자전거",
+    "pos": "noun",
+    "meaningEn": "bicycle",
+    "romaja": "jajeongeo",
+    "exampleKo": "날씨가 풀려서 자전거를 타고 출근하는 중이야.",
+    "exampleEn": "The weather has cleared up, so I am riding my bicycle to work.",
+    "category": "종목"
+  },
+  {
+    "rank": 14,
+    "term": "요가",
+    "pos": "noun",
+    "meaningEn": "yoga",
+    "romaja": "yoga",
+    "exampleKo": "몸의 긴장을 풀려고 저녁마다 요가를 해요.",
+    "exampleEn": "I do yoga every evening to release tension in my body.",
+    "category": "종목"
+  },
+  {
+    "rank": 15,
+    "term": "헬스",
+    "pos": "noun",
+    "meaningEn": "gym workout",
+    "romaja": "helseu",
+    "exampleKo": "퇴근길에 헬스장에 들러서 웨이트 트레이닝을 했어요.",
+    "exampleEn": "I stopped by the gym on my way home from work to do weight training.",
+    "category": "종목"
+  },
+  {
+    "rank": 16,
+    "term": "스키",
+    "pos": "noun",
+    "meaningEn": "skiing",
+    "romaja": "seuki",
+    "exampleKo": "겨울 휴가 때 강원도 리조트로 스키를 타러 갔어요.",
+    "exampleEn": "I went skiing at a resort in Gangwon-do during winter vacation.",
+    "category": "종목"
+  },
+  {
+    "rank": 17,
+    "term": "스케이트",
+    "pos": "noun",
+    "meaningEn": "ice skating",
+    "romaja": "seukeiteu",
+    "exampleKo": "겨울에 시청 앞 광장 스케이트장에 꼭 가 봐.",
+    "exampleEn": "You should definitely check out the ice skating rink in front of City Hall in the winter.",
+    "category": "종목"
+  },
+  {
+    "rank": 18,
+    "term": "태권도",
+    "pos": "noun",
+    "meaningEn": "taekwondo",
+    "romaja": "taegwondo",
+    "exampleKo": "조카가 태권도 도장에서 열심히 품세를 연습하고 있어요.",
+    "exampleEn": "My nephew is practicing poomsae hard at the taekwondo dojang.",
+    "category": "종목"
+  },
+  {
+    "rank": 19,
+    "term": "씨름",
+    "pos": "noun",
+    "meaningEn": "Korean wrestling",
+    "romaja": "ssireum",
+    "exampleKo": "명절 특집 방송에서 재미있는 씨름 경기를 보았다.",
+    "exampleEn": "I watched an entertaining ssireum match on a holiday special broadcast.",
+    "category": "종목"
+  },
+  {
+    "rank": 20,
+    "term": "볼링",
+    "pos": "noun",
+    "meaningEn": "bowling",
+    "romaja": "bolling",
+    "exampleKo": "친구들하고 내기 걸고 볼링 한 게임 쳤어.",
+    "exampleEn": "I played a game of bowling with friends with a bet on the line.",
+    "category": "종목"
+  },
+  {
+    "rank": 21,
+    "term": "선수",
+    "pos": "noun",
+    "meaningEn": "athlete or player",
+    "romaja": "seonsu",
+    "exampleKo": "우리 팀 대표 선수가 부상으로 경기에서 빠졌어요.",
+    "exampleEn": "Our team's star player missed the game due to an injury.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 22,
+    "term": "경기",
+    "pos": "noun",
+    "meaningEn": "match or game",
+    "romaja": "gyeonggi",
+    "exampleKo": "마지막 순간에 극적인 역전승으로 경기가 끝났어.",
+    "exampleEn": "The match ended with a dramatic comeback win in the last moment.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 23,
+    "term": "팀",
+    "pos": "noun",
+    "meaningEn": "team",
+    "romaja": "tim",
+    "exampleKo": "이번 시즌에는 우리 팀이 꼭 우승했으면 좋겠다.",
+    "exampleEn": "I really hope our team wins the championship this season.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 24,
+    "term": "감독",
+    "pos": "noun",
+    "meaningEn": "head coach or manager",
+    "romaja": "gamdok",
+    "exampleKo": "감독이 선수 교체 작전을 아주 잘 짰어.",
+    "exampleEn": "The head coach planned the player substitution strategy very well.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 25,
+    "term": "심판",
+    "pos": "noun",
+    "meaningEn": "referee or umpire",
+    "romaja": "simpan",
+    "exampleKo": "심판의 판정에 선수들과 관중들이 크게 반발했다.",
+    "exampleEn": "The players and spectators strongly protested against the referee's call.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 26,
+    "term": "관중",
+    "pos": "noun",
+    "meaningEn": "spectators in the stands",
+    "romaja": "gwanjung",
+    "exampleKo": "관중들이 모두 일어나서 환호성을 질렀어.",
+    "exampleEn": "All the spectators stood up and let out a cheer.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 27,
+    "term": "응원하다",
+    "pos": "verb",
+    "meaningEn": "to cheer for a team",
+    "romaja": "eungwonhada",
+    "exampleKo": "우리 다 같이 목청껏 우리 팀을 응원하자.",
+    "exampleEn": "Let's all cheer for our team at the top of our lungs.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 28,
+    "term": "점수",
+    "pos": "noun",
+    "meaningEn": "the score",
+    "romaja": "jeomsu",
+    "exampleKo": "지금 점수가 어떻게 되고 있는지 아는 사람?",
+    "exampleEn": "Does anyone know what the score is right now?",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 29,
+    "term": "골",
+    "pos": "noun",
+    "meaningEn": "a goal",
+    "romaja": "gol",
+    "exampleKo": "방금 그 슈팅으로 멋지게 골을 넣었어.",
+    "exampleEn": "He scored a great goal with that shot just now.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 30,
+    "term": "승리",
+    "pos": "noun",
+    "meaningEn": "a win",
+    "romaja": "seungni",
+    "exampleKo": "오늘 경기 승리는 정말 짜릿하고 멋졌어.",
+    "exampleEn": "Today's match win was truly thrilling and amazing.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 31,
+    "term": "패배",
+    "pos": "noun",
+    "meaningEn": "a loss or defeat",
+    "romaja": "paebae",
+    "exampleKo": "아쉽게 패배했지만 다음 경기가 있잖아.",
+    "exampleEn": "It was a disappointing loss, but we have the next match.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 32,
+    "term": "무승부",
+    "pos": "noun",
+    "meaningEn": "a draw",
+    "romaja": "museungbu",
+    "exampleKo": "치열한 공방 끝에 결국 무승부로 끝났어.",
+    "exampleEn": "After a fierce battle, it finally ended in a draw.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 33,
+    "term": "경기장",
+    "pos": "noun",
+    "meaningEn": "a stadium",
+    "romaja": "gyeonggijang",
+    "exampleKo": "주말이라 그런지 경기장에 사람이 정말 많다.",
+    "exampleEn": "Maybe because it's the weekend, there are so many people at the stadium.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 34,
+    "term": "운동장",
+    "pos": "noun",
+    "meaningEn": "a sports ground",
+    "romaja": "undongjang",
+    "exampleKo": "퇴근후에 학교 운동장에서 가볍게 뛰자.",
+    "exampleEn": "Let's go for a light run at the school sports ground after work.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 35,
+    "term": "체육관",
+    "pos": "noun",
+    "meaningEn": "an indoor gymnasium",
+    "romaja": "cheyukgwan",
+    "exampleKo": "비가 와서 실내 체육관에서 농구를 하기로 했어.",
+    "exampleEn": "It started raining, so we decided to play basketball in the indoor gym.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 36,
+    "term": "규칙",
+    "pos": "noun",
+    "meaningEn": "the rules",
+    "romaja": "gyuchik",
+    "exampleKo": "게임을 시작하기 전에 정확한 규칙부터 확인하자.",
+    "exampleEn": "Let's check the exact rules before starting the game.",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 37,
+    "term": "반칙",
+    "pos": "noun",
+    "meaningEn": "a foul",
+    "romaja": "banchik",
+    "exampleKo": "방금 저 동작은 명백한 반칙 아니야?",
+    "exampleEn": "Wasn't that move just now a clear foul?",
+    "category": "경기·팀"
+  },
+  {
+    "rank": 38,
+    "term": "훈련",
+    "pos": "noun",
+    "meaningEn": "training",
+    "romaja": "hullyeon",
+    "exampleKo": "오늘 오후에는 강도 높은 체력 훈련이 있어.",
+    "exampleEn": "There is a high-intensity physical training session this afternoon.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 39,
+    "term": "연습",
+    "pos": "noun",
+    "meaningEn": "practice",
+    "romaja": "yeonseup",
+    "exampleKo": "주말마다 나와서 열심히 패스 연습을 하는 중이야.",
+    "exampleEn": "I come out every weekend and practice my passing hard.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 40,
+    "term": "뛰다",
+    "pos": "verb",
+    "meaningEn": "to run",
+    "romaja": "ttwida",
+    "exampleKo": "축구할 때 그라운드를 온 힘을 다해 뛰었어.",
+    "exampleEn": "I ran across the pitch with all my might while playing soccer.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 41,
+    "term": "던지다",
+    "pos": "verb",
+    "meaningEn": "to throw",
+    "romaja": "deonjida",
+    "exampleKo": "야구공을 멀리 던지는 연습을 같이 해 보자.",
+    "exampleEn": "Let's practice throwing the baseball far together.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 42,
+    "term": "차다",
+    "pos": "verb",
+    "meaningEn": "to kick",
+    "romaja": "chada",
+    "exampleKo": "페널티킥을 정확하게 골문 구석으로 찼어.",
+    "exampleEn": "He accurately kicked the penalty shot into the corner of the net.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 43,
+    "term": "이기다",
+    "pos": "verb",
+    "meaningEn": "to win",
+    "romaja": "igida",
+    "exampleKo": "이번 상대 팀이 강하지만 우리도 꼭 이길 수 있어.",
+    "exampleEn": "The opposing team is tough this time, but we can definitely win too.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 44,
+    "term": "지다",
+    "pos": "verb",
+    "meaningEn": "to lose a game",
+    "romaja": "jida",
+    "exampleKo": "마지막 순간에 역전당해서 결국 경기에 졌어.",
+    "exampleEn": "We got turned over at the last minute and ended up losing the match.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 45,
+    "term": "넘어지다",
+    "pos": "verb",
+    "meaningEn": "to fall over",
+    "romaja": "neomeojida",
+    "exampleKo": "달리기를 하다가 발이 꼬여서 넘어지고 말았어.",
+    "exampleEn": "My feet got tangled while running and I ended up falling over.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 46,
+    "term": "땀",
+    "pos": "noun",
+    "meaningEn": "sweat",
+    "romaja": "ttam",
+    "exampleKo": "운동을 열심히 해서 온몸에 땀이 뻘뻘 나.",
+    "exampleEn": "I worked out hard, so I'm dripping with sweat all over my body.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 47,
+    "term": "근육",
+    "pos": "noun",
+    "meaningEn": "muscle",
+    "romaja": "geunyuk",
+    "exampleKo": "어제 무리하게 운동했더니 온몸의 근육이 아파.",
+    "exampleEn": "I exercised too hard yesterday, so my muscles hurt all over.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 48,
+    "term": "체력",
+    "pos": "noun",
+    "meaningEn": "stamina",
+    "romaja": "cheryeok",
+    "exampleKo": "후반전으로 갈수록 선수들의 체력이 떨어지고 있어.",
+    "exampleEn": "As the second half progresses, the players' stamina is dropping.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 49,
+    "term": "스트레칭",
+    "pos": "noun",
+    "meaningEn": "stretching",
+    "romaja": "seuteureching",
+    "exampleKo": "운동을 시작하기 전에 가볍게 스트레칭을 하자.",
+    "exampleEn": "Let's do some light stretching before starting our workout.",
+    "category": "몸·동작"
+  },
+  {
+    "rank": 50,
+    "term": "몸을 풀다",
+    "pos": "phrase",
+    "meaningEn": "to warm up",
+    "romaja": "mom-eul pulda",
+    "exampleKo": "다치지 않게 조심해서 꼼꼼히 몸을 풀자.",
+    "exampleEn": "Let's warm up thoroughly and carefully so we don't get hurt.",
+    "category": "몸·동작"
+  }
+]

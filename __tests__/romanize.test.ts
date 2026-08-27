@@ -83,6 +83,8 @@ describe('romanize — 정답에 거짓경보를 내지 않는다', () => {
   test('ㄴ 첨가 등록어는 첨가형을 정답으로 통과시킨다', () => {
     expect(checkRomaja('알약', 'allyak')?.ok).toBe(true);
     expect(checkRomaja('물약', 'mullyak')?.ok).toBe(true);
+    // 깻잎 [깬닙] — 2026-08-27 주제 덱 생성에서 AI 가 kkaen-nip 을 냈고 검사기는 kkaesip 을 기대했다.
+    expect(checkRomaja('깻잎', 'kkaennip')?.ok).toBe(true);
     expect(checkRomaja('입덕영상', 'ipdeongnyeongsang')?.ok).toBe(true);
   });
 

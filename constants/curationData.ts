@@ -2,6 +2,4331 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-travel-ko-1",
+    "title": "Korean Travel & Transit 50",
+    "icon": "🚄",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Get around Korea on your own — 환승, 교통카드, 막차, 할증, 편도, 짐을 맡기다 and more across the airport, subway, buses and taxis, the KTX, and checking in. Korean→English; meanings & on-the-move examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1787825311653,
+    "words": [
+      {
+        "id": "word-travel-0-1787825311653",
+        "term": "공항",
+        "definition": "airport",
+        "meaningKr": "airport",
+        "exampleEn": "공항에 어떻게 가야 해요?",
+        "exampleKr": "How do I get to the airport?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gonghang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-1-1787825311653",
+        "term": "입국",
+        "definition": "entry; immigration",
+        "meaningKr": "entry; immigration",
+        "exampleEn": "입국 심사를 받으러 가요.",
+        "exampleKr": "I am going through immigration control.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "ipguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-2-1787825311653",
+        "term": "출국",
+        "definition": "departure",
+        "meaningKr": "departure",
+        "exampleEn": "출국장은 몇 층에 있어요?",
+        "exampleKr": "Which floor is the departure hall on?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "chulguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-3-1787825311653",
+        "term": "여권",
+        "definition": "passport",
+        "meaningKr": "passport",
+        "exampleEn": "여기 여권과 탑승권입니다.",
+        "exampleKr": "Here is my passport and boarding pass.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "yeogwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-4-1787825311653",
+        "term": "수하물",
+        "definition": "checked baggage",
+        "meaningKr": "checked baggage",
+        "exampleEn": "수하물은 어디에서 찾아요?",
+        "exampleKr": "Where do I pick up my checked baggage?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "suhamul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-5-1787825311653",
+        "term": "탑승",
+        "definition": "boarding",
+        "meaningKr": "boarding",
+        "exampleEn": "지금 탑승을 시작했습니다.",
+        "exampleKr": "Boarding has just started now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "tapseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-6-1787825311653",
+        "term": "게이트",
+        "definition": "gate",
+        "meaningKr": "gate",
+        "exampleEn": "십번 게이트로 가 주세요.",
+        "exampleKr": "Please go to gate number ten.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "geiteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-7-1787825311653",
+        "term": "환전",
+        "definition": "currency exchange",
+        "meaningKr": "currency exchange",
+        "exampleEn": "어디에서 환전할 수 있어요?",
+        "exampleKr": "Where can I exchange money?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "hwanjeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-8-1787825311653",
+        "term": "면세점",
+        "definition": "duty-free shop",
+        "meaningKr": "duty-free shop",
+        "exampleEn": "면세점에서 선물을 좀 살게요.",
+        "exampleKr": "I am going to buy some gifts at the duty-free shop.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "myeonsejeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-9-1787825311653",
+        "term": "지하철",
+        "definition": "subway",
+        "meaningKr": "subway",
+        "exampleEn": "지하철역이 어디에 있어요?",
+        "exampleKr": "Where is the subway station?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "jihacheol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-10-1787825311653",
+        "term": "호선",
+        "definition": "subway line",
+        "meaningKr": "subway line",
+        "exampleEn": "몇 호선을 타야 해요?",
+        "exampleKr": "Which subway line should I take?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "hoseon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-11-1787825311653",
+        "term": "환승",
+        "definition": "transfer",
+        "meaningKr": "transfer",
+        "exampleEn": "여기서 이호선으로 환승해요.",
+        "exampleKr": "I transfer to Line 2 here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "hwanseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-12-1787825311653",
+        "term": "개찰구",
+        "definition": "ticket gate",
+        "meaningKr": "ticket gate",
+        "exampleEn": "개찰구에 카드를 대세요.",
+        "exampleKr": "Tap your card at the ticket gate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gaechalgu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-13-1787825311653",
+        "term": "교통카드",
+        "definition": "transit card",
+        "meaningKr": "transit card",
+        "exampleEn": "교통카드를 하나 사고 싶어요.",
+        "exampleKr": "I want to buy a transit card.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gyotongkadeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-14-1787825311653",
+        "term": "충전하다",
+        "definition": "to top up",
+        "meaningKr": "to top up",
+        "exampleEn": "기계에서 교통카드를 충전했어요.",
+        "exampleKr": "I topped up my transit card at the machine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "chungjeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-travel-15-1787825311653",
+        "term": "승강장",
+        "definition": "platform",
+        "meaningKr": "platform",
+        "exampleEn": "승강장은 어느 쪽이에요?",
+        "exampleKr": "Which way is the platform?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "seunggangjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-16-1787825311653",
+        "term": "급행",
+        "definition": "express train",
+        "meaningKr": "express train",
+        "exampleEn": "이 열차는 급행이에요?",
+        "exampleKr": "Is this train an express?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "geuphaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-17-1787825311653",
+        "term": "막차",
+        "definition": "last train",
+        "meaningKr": "last train",
+        "exampleEn": "오늘 막차는 몇 시예요?",
+        "exampleKr": "What time is the last train tonight?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "makcha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-18-1787825311653",
+        "term": "버스",
+        "definition": "bus",
+        "meaningKr": "bus",
+        "exampleEn": "시청으로 가는 버스예요?",
+        "exampleKr": "Is this the bus going to City Hall?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "beoseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-19-1787825311653",
+        "term": "정류장",
+        "definition": "bus stop",
+        "meaningKr": "bus stop",
+        "exampleEn": "다음 정류장에서 내려 주세요.",
+        "exampleKr": "Please let me off at the next bus stop.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "jeongnyujang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-20-1787825311653",
+        "term": "광역버스",
+        "definition": "intercity bus",
+        "meaningKr": "intercity bus",
+        "exampleEn": "강남 가는 광역버스를 타세요.",
+        "exampleKr": "Take the intercity bus going to Gangnam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gwangyeokbeoseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-21-1787825311653",
+        "term": "택시",
+        "definition": "taxi",
+        "meaningKr": "taxi",
+        "exampleEn": "빈 택시를 잡기 어렵네요.",
+        "exampleKr": "It is hard to catch an empty taxi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "taeksi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-22-1787825311653",
+        "term": "세워 주세요",
+        "definition": "please pull over here",
+        "meaningKr": "please pull over here",
+        "exampleEn": "저기 편의점 앞에 세워 주세요.",
+        "exampleKr": "Please pull over in front of that convenience store.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "sewo juseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-23-1787825311653",
+        "term": "미터기",
+        "definition": "taxi meter",
+        "meaningKr": "taxi meter",
+        "exampleEn": "기사님, 미터기 켜 주세요.",
+        "exampleKr": "Driver, please turn on the meter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "miteogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-24-1787825311653",
+        "term": "할증",
+        "definition": "late-night surcharge",
+        "meaningKr": "late-night surcharge",
+        "exampleEn": "지금은 밤이라서 할증이 붙어요.",
+        "exampleKr": "There is a surcharge because it is nighttime now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "haljeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-25-1787825311653",
+        "term": "타다",
+        "definition": "to ride; to get on",
+        "meaningKr": "to ride; to get on",
+        "exampleEn": "어디에서 지하철을 타야 해요?",
+        "exampleKr": "Where should I get on the subway?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "tada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-travel-26-1787825311653",
+        "term": "내리다",
+        "definition": "to get off",
+        "meaningKr": "to get off",
+        "exampleEn": "다음 역에서 내려야 합니다.",
+        "exampleKr": "I need to get off at the next station.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "naerida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-travel-27-1787825311653",
+        "term": "갈아타다",
+        "definition": "to transfer",
+        "meaningKr": "to transfer",
+        "exampleEn": "어디에서 2호선으로 갈아타요?",
+        "exampleKr": "Where do I transfer to Line 2?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "garatada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-travel-28-1787825311653",
+        "term": "기차",
+        "definition": "train",
+        "meaningKr": "train",
+        "exampleEn": "부산행 기차표를 사고 싶어요.",
+        "exampleKr": "I want to buy a train ticket to Busan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gicha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-29-1787825311653",
+        "term": "케이티엑스",
+        "definition": "KTX high-speed train",
+        "meaningKr": "KTX high-speed train",
+        "exampleEn": "케이티엑스를 타면 정말 빨라요.",
+        "exampleKr": "It is really fast if you take the KTX.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "keitiekseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-30-1787825311653",
+        "term": "승차권",
+        "definition": "ticket",
+        "meaningKr": "ticket",
+        "exampleEn": "승차권은 어디서 확인할 수 있어요?",
+        "exampleKr": "Where can I check my ticket?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "seungchagwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-31-1787825311653",
+        "term": "좌석",
+        "definition": "seat",
+        "meaningKr": "seat",
+        "exampleEn": "창가 쪽 좌석으로 주세요.",
+        "exampleKr": "Please give me a window seat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "jwaseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-32-1787825311653",
+        "term": "왕복",
+        "definition": "round trip",
+        "meaningKr": "round trip",
+        "exampleEn": "서울 왕복 표로 한 장 주세요.",
+        "exampleKr": "Please give me one round-trip ticket to Seoul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "wangbok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-33-1787825311653",
+        "term": "편도",
+        "definition": "one way",
+        "meaningKr": "one way",
+        "exampleEn": "제주행 편도 티켓을 예약했어요.",
+        "exampleKr": "I booked a one-way ticket to Jeju.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "pyeondo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-34-1787825311653",
+        "term": "역",
+        "definition": "station",
+        "meaningKr": "station",
+        "exampleEn": "가장 가까운 지하철역이 어디예요?",
+        "exampleKr": "Where is the nearest subway station?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "yeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-35-1787825311653",
+        "term": "표를 끊다",
+        "definition": "to buy a ticket",
+        "meaningKr": "to buy a ticket",
+        "exampleEn": "자동발권기에서 표를 끊으면 돼요.",
+        "exampleKr": "You can just buy a ticket at the ticket machine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "pyoreul kkeunda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-36-1787825311653",
+        "term": "숙소",
+        "definition": "accommodation",
+        "meaningKr": "accommodation",
+        "exampleEn": "숙소 근처에 맛있는 식당이 많아요.",
+        "exampleKr": "There are many good restaurants near the accommodation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "sukso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-37-1787825311653",
+        "term": "체크인",
+        "definition": "check-in",
+        "meaningKr": "check-in",
+        "exampleEn": "지금 바로 체크인 할 수 있어요?",
+        "exampleKr": "Can I check in right now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "chekeuin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-38-1787825311653",
+        "term": "체크아웃",
+        "definition": "check-out",
+        "meaningKr": "check-out",
+        "exampleEn": "내일 오전 열 시에 체크아웃 할게요.",
+        "exampleKr": "I will check out tomorrow at 10 AM.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "chekeuaut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-39-1787825311653",
+        "term": "프런트",
+        "definition": "front desk",
+        "meaningKr": "front desk",
+        "exampleEn": "수건이 더 필요하면 프런트에 말씀하세요.",
+        "exampleKr": "If you need more towels, please tell the front desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "peureonteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-40-1787825311653",
+        "term": "조식",
+        "definition": "breakfast",
+        "meaningKr": "breakfast",
+        "exampleEn": "조식은 몇 시부터 먹을 수 있어요?",
+        "exampleKr": "From what time can we eat breakfast?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "josik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-41-1787825311653",
+        "term": "게스트하우스",
+        "definition": "guesthouse",
+        "meaningKr": "guesthouse",
+        "exampleEn": "이번 여행은 홍대 게스트하우스로 예약했어요.",
+        "exampleKr": "I booked a guesthouse in Hongdae for this trip.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "geseuteuhauseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-42-1787825311653",
+        "term": "짐을 맡기다",
+        "definition": "to leave luggage",
+        "meaningKr": "to leave luggage",
+        "exampleEn": "체크아웃 후에 짐을 맡길 수 있어요?",
+        "exampleKr": "Can I leave my luggage after checking out?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "jimeul matgida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-43-1787825311653",
+        "term": "길을 묻다",
+        "definition": "to ask for directions",
+        "meaningKr": "to ask for directions",
+        "exampleEn": "지나가시는 분께 길을 물어봐요.",
+        "exampleKr": "Let's ask a passerby for directions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gireul mutda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-44-1787825311653",
+        "term": "지도",
+        "definition": "map",
+        "meaningKr": "map",
+        "exampleEn": "네이버 지도 앱으로 길을 찾으세요.",
+        "exampleKr": "Find the way using the Naver Map app.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "jido",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-45-1787825311653",
+        "term": "얼마나 걸려요",
+        "definition": "how long does it take",
+        "meaningKr": "how long does it take",
+        "exampleEn": "공항까지 지하철로 얼마나 걸려요?",
+        "exampleKr": "How long does it take to the airport by subway?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "eolmana geol-lyeoyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-46-1787825311653",
+        "term": "걸어서",
+        "definition": "on foot",
+        "meaningKr": "on foot",
+        "exampleEn": "여기서 시장까지 걸어서 얼마나 걸려요?",
+        "exampleKr": "How long does it take to walk from here to the market?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "georeoseo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-travel-47-1787825311653",
+        "term": "관광지",
+        "definition": "tourist spot",
+        "meaningKr": "tourist spot",
+        "exampleEn": "서울에서 가장 유명한 관광지가 어디예요?",
+        "exampleKr": "Where is the most famous tourist spot in Seoul?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "gwangwangji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-48-1787825311653",
+        "term": "기념품",
+        "definition": "souvenir",
+        "meaningKr": "souvenir",
+        "exampleEn": "친구들에게 줄 예쁜 기념품을 사고 싶어요.",
+        "exampleKr": "I want to buy pretty souvenirs for my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "ginyeompum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-travel-49-1787825311653",
+        "term": "당일치기",
+        "definition": "day trip",
+        "meaningKr": "day trip",
+        "exampleEn": "주말에 속초로 당일치기 여행을 갈 거예요.",
+        "exampleKr": "I am going on a day trip to Sokcho this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Daily Life"
+        ],
+        "phonetic": "dang-ilchigi",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-restaurant-ko-1",
+    "title": "Korean Restaurant & Cafe 50",
+    "icon": "🍽️",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Order, share and pay like a local — 일인분, 공깃밥, 덜 맵게, 곱빼기, 진동벨, 샷 추가 and more from being seated to the coffee afterwards. Korean→English; meanings & real ordering examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1787825306097,
+    "words": [
+      {
+        "id": "word-restaurant-0-1787825306097",
+        "term": "메뉴판",
+        "definition": "menu",
+        "meaningKr": "menu",
+        "exampleEn": "여기 메뉴판 좀 주세요.",
+        "exampleKr": "Please give me the menu here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "menyupan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-1-1787825306097",
+        "term": "주문하다",
+        "definition": "to order",
+        "meaningKr": "to order",
+        "exampleEn": "지금 주문하시겠어요?",
+        "exampleKr": "Would you like to order now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jumunhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-restaurant-2-1787825306097",
+        "term": "시키다",
+        "definition": "to order food",
+        "meaningKr": "to order food",
+        "exampleEn": "우리 뭐시키고 있어?",
+        "exampleKr": "What are we ordering?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "sikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-restaurant-3-1787825306097",
+        "term": "일인분",
+        "definition": "one portion",
+        "meaningKr": "one portion",
+        "exampleEn": "삼겹살 일인분 더 주세요.",
+        "exampleKr": "Please give us one more portion of pork belly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "irinbun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-4-1787825306097",
+        "term": "공깃밥",
+        "definition": "bowl of rice",
+        "meaningKr": "bowl of rice",
+        "exampleEn": "공깃밥 하나 추가할게요.",
+        "exampleKr": "I'll add one bowl of rice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "gonggitbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-5-1787825306097",
+        "term": "리필",
+        "definition": "refill",
+        "meaningKr": "refill",
+        "exampleEn": "반찬 리필 좀 부탁드려요.",
+        "exampleKr": "Could I get a refill on the side dishes?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ripil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-6-1787825306097",
+        "term": "추가",
+        "definition": "extra order",
+        "meaningKr": "extra order",
+        "exampleEn": "고기 하나 추가할까요?",
+        "exampleKr": "Shall we add another order of meat?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "chuga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-7-1787825306097",
+        "term": "예약하다",
+        "definition": "to book a table",
+        "meaningKr": "to book a table",
+        "exampleEn": "저녁 여섯 시에 예약했어요.",
+        "exampleKr": "I booked a table for six in the evening.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "yeyakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-restaurant-8-1787825306097",
+        "term": "자리",
+        "definition": "seat",
+        "meaningKr": "seat",
+        "exampleEn": "창가 자리로 부탁드려요.",
+        "exampleKr": "I would like a seat by the window, please.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jari",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-9-1787825306097",
+        "term": "웨이팅",
+        "definition": "wait",
+        "meaningKr": "wait",
+        "exampleEn": "오늘 웨이팅이 좀 기네요.",
+        "exampleKr": "The wait is a bit long today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "weiting",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-10-1787825306097",
+        "term": "번호표",
+        "definition": "numbered ticket",
+        "meaningKr": "numbered ticket",
+        "exampleEn": "여기 번호표 가지고 계세요.",
+        "exampleKr": "Please hold on to this numbered ticket.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "beonhopyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-11-1787825306097",
+        "term": "몇 분이세요",
+        "definition": "how many in your party",
+        "meaningKr": "how many in your party",
+        "exampleEn": "안녕하세요, 몇 분이세요?",
+        "exampleKr": "Hello, how many are in your party?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "myeot buniseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-12-1787825306097",
+        "term": "여기요",
+        "definition": "excuse me",
+        "meaningKr": "excuse me",
+        "exampleEn": "저기요, 여기요!",
+        "exampleKr": "Excuse me, over here!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "yeogiyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-13-1787825306097",
+        "term": "계산서",
+        "definition": "bill",
+        "meaningKr": "bill",
+        "exampleEn": "계산서 먼저 주세요.",
+        "exampleKr": "Please give us the bill first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "gyesanseo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-14-1787825306097",
+        "term": "더치페이",
+        "definition": "splitting the bill",
+        "meaningKr": "splitting the bill",
+        "exampleEn": "우리 오늘 더치페이하자.",
+        "exampleKr": "Let's split the bill evenly today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "deochipei",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-15-1787825306097",
+        "term": "각자 내다",
+        "definition": "to pay separately",
+        "meaningKr": "to pay separately",
+        "exampleEn": "계산은 각자 내요.",
+        "exampleKr": "Let's pay for our own meals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "gakja naeda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-16-1787825306097",
+        "term": "잘 먹었습니다",
+        "definition": "that was a good meal",
+        "meaningKr": "that was a good meal",
+        "exampleEn": "사장님, 잘 먹었습니다.",
+        "exampleKr": "Thank you for the meal, boss.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jal meogeotseumnida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-17-1787825306097",
+        "term": "맛집",
+        "definition": "great restaurant",
+        "meaningKr": "great restaurant",
+        "exampleEn": "이 근처가 맛집이래요.",
+        "exampleKr": "They say this neighborhood is full of great restaurants.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "matjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-18-1787825306097",
+        "term": "단골집",
+        "definition": "regular spot",
+        "meaningKr": "regular spot",
+        "exampleEn": "여기는 내 단골집이야.",
+        "exampleKr": "This place is my regular spot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "dangoljip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-19-1787825306097",
+        "term": "회식",
+        "definition": "company dinner",
+        "meaningKr": "company dinner",
+        "exampleEn": "이번 주 금요일에 회식이 있어요.",
+        "exampleKr": "We have a company dinner this Friday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "hoesik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-20-1787825306097",
+        "term": "물수건",
+        "definition": "wet towel",
+        "meaningKr": "wet towel",
+        "exampleEn": "물수건으로 손을 닦으세요.",
+        "exampleKr": "Wipe your hands with the wet towel.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "mulsug-eon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-21-1787825306097",
+        "term": "앞접시",
+        "definition": "small personal plate",
+        "meaningKr": "small personal plate",
+        "exampleEn": "앞접시 좀 더 주실래요?",
+        "exampleKr": "Could you give me another small plate?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "apjeopsi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-22-1787825306097",
+        "term": "숟가락",
+        "definition": "spoon",
+        "meaningKr": "spoon",
+        "exampleEn": "숟가락은 옆에 있어요.",
+        "exampleKr": "The spoon is on the side.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "sutgarak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-23-1787825306097",
+        "term": "젓가락",
+        "definition": "chopsticks",
+        "meaningKr": "chopsticks",
+        "exampleEn": "젓가락을 떨어뜨렸어요.",
+        "exampleKr": "I dropped my chopsticks.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jeotgarak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-24-1787825306097",
+        "term": "컵",
+        "definition": "cup",
+        "meaningKr": "cup",
+        "exampleEn": "물컵이 어디 있죠?",
+        "exampleKr": "Where is the water cup?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "keop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-25-1787825306097",
+        "term": "냅킨",
+        "definition": "a napkin",
+        "meaningKr": "a napkin",
+        "exampleEn": "여기 냅킨 좀 더 주시겠어요?",
+        "exampleKr": "Could you please bring me some more napkins?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "naepkin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-26-1787825306097",
+        "term": "국자",
+        "definition": "a ladle",
+        "meaningKr": "a ladle",
+        "exampleEn": "국물이 뜨거우니까 국자로 떠 드세요.",
+        "exampleKr": "The soup is hot, so please use the ladle.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "gukja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-27-1787825306097",
+        "term": "집게",
+        "definition": "tongs",
+        "meaningKr": "tongs",
+        "exampleEn": "고기는 집게로 직접 뒤집어 주세요.",
+        "exampleKr": "Please flip the meat over yourself with the tongs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jipge",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-28-1787825306097",
+        "term": "불판",
+        "definition": "a grill plate",
+        "meaningKr": "a grill plate",
+        "exampleEn": "사장님, 불판 한번 더 갈아 주세요.",
+        "exampleKr": "Excuse me, could you change the grill plate once more?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "bulpan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-29-1787825306097",
+        "term": "덜 맵게",
+        "definition": "less spicy",
+        "meaningKr": "less spicy",
+        "exampleEn": "주문할 때 찌개는 덜 맵게 해 주세요.",
+        "exampleKr": "When ordering, please make the stew less spicy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "deol maepge",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-30-1787825306097",
+        "term": "안 맵게",
+        "definition": "not spicy at all",
+        "meaningKr": "not spicy at all",
+        "exampleEn": "아이와 먹을 거라서 안 맵게 해 주세요.",
+        "exampleKr": "Since I'm eating with a child, please make it not spicy at all.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "an maepge",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-31-1787825306097",
+        "term": "곱빼기",
+        "definition": "a double portion",
+        "meaningKr": "a double portion",
+        "exampleEn": "배가 많이 고파서 냉면 곱빼기로 시켰어요.",
+        "exampleKr": "I was really hungry, so I ordered a double portion of naengmyeon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "goppaegi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-32-1787825306097",
+        "term": "빼 주세요",
+        "definition": "please leave it out",
+        "meaningKr": "please leave it out",
+        "exampleEn": "저는 오이를 못 먹어서 빼 주세요.",
+        "exampleKr": "I can't eat cucumbers, so please leave them out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ppae juseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-33-1787825306097",
+        "term": "싸 주세요",
+        "definition": "please wrap this up",
+        "meaningKr": "please wrap this up",
+        "exampleEn": "남은 음식이 아까워서 싸 주세요.",
+        "exampleKr": "The leftover food is going to waste, so please wrap it up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ssa juseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-34-1787825306097",
+        "term": "남기다",
+        "definition": "to leave food uneaten",
+        "meaningKr": "to leave food uneaten",
+        "exampleEn": "음식을 너무 많이 시켜서 다 남겼어요.",
+        "exampleKr": "We ordered too much food and left all of it uneaten.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "namgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-restaurant-35-1787825306097",
+        "term": "아메리카노",
+        "definition": "americano",
+        "meaningKr": "americano",
+        "exampleEn": "따뜻한 아메리카노 한 잔 주문할게요.",
+        "exampleKr": "I'd like to order one hot americano.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "amerikano",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-36-1787825306097",
+        "term": "라떼",
+        "definition": "latte",
+        "meaningKr": "latte",
+        "exampleEn": "여기 아이스 라떼 한 잔 주세요.",
+        "exampleKr": "Please give me one iced latte here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ratte",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-37-1787825306097",
+        "term": "아이스",
+        "definition": "iced",
+        "meaningKr": "iced",
+        "exampleEn": "요즘 날씨가 더워서 아이스로 마셔요.",
+        "exampleKr": "The weather is hot these days, so I drink it iced.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "aiseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-38-1787825306097",
+        "term": "따뜻한 거",
+        "definition": "the hot one",
+        "meaningKr": "the hot one",
+        "exampleEn": "저는 속이 추워서 따뜻한 거로 할게요.",
+        "exampleKr": "My stomach feels cold, so I'll go with the hot one.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ttatteuthan geo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-39-1787825306097",
+        "term": "사이즈",
+        "definition": "drink size",
+        "meaningKr": "drink size",
+        "exampleEn": "음료 사이즈는 어떤 것으로 드릴까요?",
+        "exampleKr": "What size would you like for your drink?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "saijeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-40-1787825306097",
+        "term": "텀블러",
+        "definition": "a reusable tumbler",
+        "meaningKr": "a reusable tumbler",
+        "exampleEn": "텀블러에 커피를 담아 주시겠어요?",
+        "exampleKr": "Could you please put the coffee in my tumbler?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "teombeulleo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-41-1787825306097",
+        "term": "진동벨",
+        "definition": "a buzzer",
+        "meaningKr": "a buzzer",
+        "exampleEn": "음료가 준비되면 진동벨이 울릴 거예요.",
+        "exampleKr": "The buzzer will ring when your drink is ready.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "jindongbel",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-42-1787825306097",
+        "term": "매장에서",
+        "definition": "for here",
+        "meaningKr": "for here",
+        "exampleEn": "주문하신 커피는 매장에서 드시나요?",
+        "exampleKr": "Will you be drinking the coffee you ordered here?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "maejang-eseo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-43-1787825306097",
+        "term": "테이크아웃",
+        "definition": "takeout",
+        "meaningKr": "takeout",
+        "exampleEn": "시간이 없어서 테이크아웃으로 부탁해요.",
+        "exampleKr": "I don't have time, so I'll take it to go please.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "teikeuaut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-44-1787825306097",
+        "term": "디카페인",
+        "definition": "decaf",
+        "meaningKr": "decaf",
+        "exampleEn": "저녁이라서 디카페인으로 변경해 주세요.",
+        "exampleKr": "Since it's evening, please change it to decaf.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "dikapein",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-45-1787825306097",
+        "term": "샷 추가",
+        "definition": "adding an extra espresso shot",
+        "meaningKr": "adding an extra espresso shot",
+        "exampleEn": "진한 맛을 위해 샷 추가해 주세요.",
+        "exampleKr": "Please add an extra shot for a stronger taste.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "syat chuga",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-restaurant-46-1787825306097",
+        "term": "얼음",
+        "definition": "ice",
+        "meaningKr": "ice",
+        "exampleEn": "목이 아파서 얼음은 조금만 넣어 주세요.",
+        "exampleKr": "My throat hurts, so please put in just a little ice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "eoreum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-47-1787825306097",
+        "term": "빨대",
+        "definition": "a straw",
+        "meaningKr": "a straw",
+        "exampleEn": "주문대에 빨대와 휴지가 있어요.",
+        "exampleKr": "There are straws and tissues at the counter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "ppaldae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-48-1787825306097",
+        "term": "케이크",
+        "definition": "cake",
+        "meaningKr": "cake",
+        "exampleEn": "쇼케이스 안에 있는 케이크 하나 주세요.",
+        "exampleKr": "Please give me one of the cakes inside the showcase.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "keikeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-restaurant-49-1787825306097",
+        "term": "디저트",
+        "definition": "dessert",
+        "meaningKr": "dessert",
+        "exampleEn": "식사 후에 카페에서 디저트를 먹었어요.",
+        "exampleKr": "We had dessert at a cafe after the meal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Restaurant",
+          "Daily Life"
+        ],
+        "phonetic": "dijeoteu",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-sports-ko-1",
+    "title": "Korean Sports & Exercise 50",
+    "icon": "⚽",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Play it, watch it, talk about it — 씨름, 응원하다, 무승부, 반칙, 체력, 몸을 풀다 and more across sports, the gym, and watching a match. Korean→English; meanings & examples from the field and the stands, AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1787825299060,
+    "words": [
+      {
+        "id": "word-sports-0-1787825299060",
+        "term": "운동",
+        "definition": "exercise or sport",
+        "meaningKr": "exercise or sport",
+        "exampleEn": "퇴근하고 나서 가볍게 운동을 하는 편이에요.",
+        "exampleKr": "I usually do a light workout after getting off work.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "undong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-1-1787825299060",
+        "term": "축구",
+        "definition": "football or soccer",
+        "meaningKr": "football or soccer",
+        "exampleEn": "주말에 친구들하고 모여서 조기 축구를 했어요.",
+        "exampleKr": "I gathered with my friends and played early morning soccer on the weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "chukgu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-2-1787825299060",
+        "term": "야구",
+        "definition": "baseball",
+        "meaningKr": "baseball",
+        "exampleEn": "오늘 야구 경기 진짜 재밌겠다.",
+        "exampleKr": "Today's baseball game is going to be so much fun.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "yagu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-3-1787825299060",
+        "term": "농구",
+        "definition": "basketball",
+        "meaningKr": "basketball",
+        "exampleEn": "저녁에 실내 체육관에서 농구 한 판 할래?",
+        "exampleKr": "Do you want to play a game of basketball at the indoor gym this evening?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "nonggu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-4-1787825299060",
+        "term": "배구",
+        "definition": "volleyball",
+        "meaningKr": "volleyball",
+        "exampleEn": "요즘 여자 배구 경기가 엄청 인기야.",
+        "exampleKr": "Women's volleyball games are super popular these days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "baegu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-5-1787825299060",
+        "term": "탁구",
+        "definition": "table tennis",
+        "meaningKr": "table tennis",
+        "exampleEn": "점심 시간에 회사 동료들과 탁구를 쳤어요.",
+        "exampleKr": "I played table tennis with my coworkers during lunch break.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "takgu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-6-1787825299060",
+        "term": "배드민턴",
+        "definition": "badminton",
+        "meaningKr": "badminton",
+        "exampleEn": "바람이 안 불어서 동네 공원에서 배드민턴 치기 딱 좋다.",
+        "exampleKr": "There is no wind, so it is perfect for playing badminton at the neighborhood park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "baedeuminteon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-7-1787825299060",
+        "term": "테니스",
+        "definition": "tennis",
+        "meaningKr": "tennis",
+        "exampleEn": "요즘 테니스 레슨 받으러 다니는 사람이 많아요.",
+        "exampleKr": "These days, a lot of people go to take tennis lessons.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "teniseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-8-1787825299060",
+        "term": "골프",
+        "definition": "golf",
+        "meaningKr": "golf",
+        "exampleEn": "이번 주말에는 필드 대신 스크린 골프를 치러 가요.",
+        "exampleKr": "This weekend we are going to play screen golf instead of going to the field.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "golpeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-9-1787825299060",
+        "term": "수영",
+        "definition": "swimming",
+        "meaningKr": "swimming",
+        "exampleEn": "아침에 실내 수영장에서 한 시간 동안 수영을 했어요.",
+        "exampleKr": "I swam for an hour at the indoor swimming pool in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "suyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-10-1787825299060",
+        "term": "달리기",
+        "definition": "running",
+        "meaningKr": "running",
+        "exampleEn": "체력을 기르려고 매일 아침 한강 공원에서 달리기를 해요.",
+        "exampleKr": "To build stamina, I go for a run at Hangang Park every morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "dalligi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-11-1787825299060",
+        "term": "마라톤",
+        "definition": "marathon",
+        "meaningKr": "marathon",
+        "exampleEn": "가을에 열리는 서울 마라톤 대회에 신청했어요.",
+        "exampleKr": "I applied for the Seoul Marathon competition held in autumn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "maraton",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-12-1787825299060",
+        "term": "자전거",
+        "definition": "bicycle",
+        "meaningKr": "bicycle",
+        "exampleEn": "날씨가 풀려서 자전거를 타고 출근하는 중이야.",
+        "exampleKr": "The weather has cleared up, so I am riding my bicycle to work.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "jajeongeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-13-1787825299060",
+        "term": "요가",
+        "definition": "yoga",
+        "meaningKr": "yoga",
+        "exampleEn": "몸의 긴장을 풀려고 저녁마다 요가를 해요.",
+        "exampleKr": "I do yoga every evening to release tension in my body.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "yoga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-14-1787825299060",
+        "term": "헬스",
+        "definition": "gym workout",
+        "meaningKr": "gym workout",
+        "exampleEn": "퇴근길에 헬스장에 들러서 웨이트 트레이닝을 했어요.",
+        "exampleKr": "I stopped by the gym on my way home from work to do weight training.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "helseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-15-1787825299060",
+        "term": "스키",
+        "definition": "skiing",
+        "meaningKr": "skiing",
+        "exampleEn": "겨울 휴가 때 강원도 리조트로 스키를 타러 갔어요.",
+        "exampleKr": "I went skiing at a resort in Gangwon-do during winter vacation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "seuki",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-16-1787825299060",
+        "term": "스케이트",
+        "definition": "ice skating",
+        "meaningKr": "ice skating",
+        "exampleEn": "겨울에 시청 앞 광장 스케이트장에 꼭 가 봐.",
+        "exampleKr": "You should definitely check out the ice skating rink in front of City Hall in the winter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "seukeiteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-17-1787825299060",
+        "term": "태권도",
+        "definition": "taekwondo",
+        "meaningKr": "taekwondo",
+        "exampleEn": "조카가 태권도 도장에서 열심히 품세를 연습하고 있어요.",
+        "exampleKr": "My nephew is practicing poomsae hard at the taekwondo dojang.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "taegwondo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-18-1787825299060",
+        "term": "씨름",
+        "definition": "Korean wrestling",
+        "meaningKr": "Korean wrestling",
+        "exampleEn": "명절 특집 방송에서 재미있는 씨름 경기를 보았다.",
+        "exampleKr": "I watched an entertaining ssireum match on a holiday special broadcast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "ssireum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-19-1787825299060",
+        "term": "볼링",
+        "definition": "bowling",
+        "meaningKr": "bowling",
+        "exampleEn": "친구들하고 내기 걸고 볼링 한 게임 쳤어.",
+        "exampleKr": "I played a game of bowling with friends with a bet on the line.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "bolling",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-20-1787825299060",
+        "term": "선수",
+        "definition": "athlete or player",
+        "meaningKr": "athlete or player",
+        "exampleEn": "우리 팀 대표 선수가 부상으로 경기에서 빠졌어요.",
+        "exampleKr": "Our team's star player missed the game due to an injury.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "seonsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-21-1787825299060",
+        "term": "경기",
+        "definition": "match or game",
+        "meaningKr": "match or game",
+        "exampleEn": "마지막 순간에 극적인 역전승으로 경기가 끝났어.",
+        "exampleKr": "The match ended with a dramatic comeback win in the last moment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gyeonggi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-22-1787825299060",
+        "term": "팀",
+        "definition": "team",
+        "meaningKr": "team",
+        "exampleEn": "이번 시즌에는 우리 팀이 꼭 우승했으면 좋겠다.",
+        "exampleKr": "I really hope our team wins the championship this season.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "tim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-23-1787825299060",
+        "term": "감독",
+        "definition": "head coach or manager",
+        "meaningKr": "head coach or manager",
+        "exampleEn": "감독이 선수 교체 작전을 아주 잘 짰어.",
+        "exampleKr": "The head coach planned the player substitution strategy very well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gamdok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-24-1787825299060",
+        "term": "심판",
+        "definition": "referee or umpire",
+        "meaningKr": "referee or umpire",
+        "exampleEn": "심판의 판정에 선수들과 관중들이 크게 반발했다.",
+        "exampleKr": "The players and spectators strongly protested against the referee's call.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "simpan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-25-1787825299060",
+        "term": "관중",
+        "definition": "spectators in the stands",
+        "meaningKr": "spectators in the stands",
+        "exampleEn": "관중들이 모두 일어나서 환호성을 질렀어.",
+        "exampleKr": "All the spectators stood up and let out a cheer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gwanjung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-26-1787825299060",
+        "term": "응원하다",
+        "definition": "to cheer for a team",
+        "meaningKr": "to cheer for a team",
+        "exampleEn": "우리 다 같이 목청껏 우리 팀을 응원하자.",
+        "exampleKr": "Let's all cheer for our team at the top of our lungs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "eungwonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-27-1787825299060",
+        "term": "점수",
+        "definition": "the score",
+        "meaningKr": "the score",
+        "exampleEn": "지금 점수가 어떻게 되고 있는지 아는 사람?",
+        "exampleKr": "Does anyone know what the score is right now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "jeomsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-28-1787825299060",
+        "term": "골",
+        "definition": "a goal",
+        "meaningKr": "a goal",
+        "exampleEn": "방금 그 슈팅으로 멋지게 골을 넣었어.",
+        "exampleKr": "He scored a great goal with that shot just now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-29-1787825299060",
+        "term": "승리",
+        "definition": "a win",
+        "meaningKr": "a win",
+        "exampleEn": "오늘 경기 승리는 정말 짜릿하고 멋졌어.",
+        "exampleKr": "Today's match win was truly thrilling and amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "seungni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-30-1787825299060",
+        "term": "패배",
+        "definition": "a loss or defeat",
+        "meaningKr": "a loss or defeat",
+        "exampleEn": "아쉽게 패배했지만 다음 경기가 있잖아.",
+        "exampleKr": "It was a disappointing loss, but we have the next match.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "paebae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-31-1787825299060",
+        "term": "무승부",
+        "definition": "a draw",
+        "meaningKr": "a draw",
+        "exampleEn": "치열한 공방 끝에 결국 무승부로 끝났어.",
+        "exampleKr": "After a fierce battle, it finally ended in a draw.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "museungbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-32-1787825299060",
+        "term": "경기장",
+        "definition": "a stadium",
+        "meaningKr": "a stadium",
+        "exampleEn": "주말이라 그런지 경기장에 사람이 정말 많다.",
+        "exampleKr": "Maybe because it's the weekend, there are so many people at the stadium.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gyeonggijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-33-1787825299060",
+        "term": "운동장",
+        "definition": "a sports ground",
+        "meaningKr": "a sports ground",
+        "exampleEn": "퇴근후에 학교 운동장에서 가볍게 뛰자.",
+        "exampleKr": "Let's go for a light run at the school sports ground after work.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "undongjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-34-1787825299060",
+        "term": "체육관",
+        "definition": "an indoor gymnasium",
+        "meaningKr": "an indoor gymnasium",
+        "exampleEn": "비가 와서 실내 체육관에서 농구를 하기로 했어.",
+        "exampleKr": "It started raining, so we decided to play basketball in the indoor gym.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "cheyukgwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-35-1787825299060",
+        "term": "규칙",
+        "definition": "the rules",
+        "meaningKr": "the rules",
+        "exampleEn": "게임을 시작하기 전에 정확한 규칙부터 확인하자.",
+        "exampleKr": "Let's check the exact rules before starting the game.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "gyuchik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-36-1787825299060",
+        "term": "반칙",
+        "definition": "a foul",
+        "meaningKr": "a foul",
+        "exampleEn": "방금 저 동작은 명백한 반칙 아니야?",
+        "exampleKr": "Wasn't that move just now a clear foul?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "banchik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-37-1787825299060",
+        "term": "훈련",
+        "definition": "training",
+        "meaningKr": "training",
+        "exampleEn": "오늘 오후에는 강도 높은 체력 훈련이 있어.",
+        "exampleKr": "There is a high-intensity physical training session this afternoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "hullyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-38-1787825299060",
+        "term": "연습",
+        "definition": "practice",
+        "meaningKr": "practice",
+        "exampleEn": "주말마다 나와서 열심히 패스 연습을 하는 중이야.",
+        "exampleKr": "I come out every weekend and practice my passing hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "yeonseup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-39-1787825299060",
+        "term": "뛰다",
+        "definition": "to run",
+        "meaningKr": "to run",
+        "exampleEn": "축구할 때 그라운드를 온 힘을 다해 뛰었어.",
+        "exampleKr": "I ran across the pitch with all my might while playing soccer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "ttwida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-40-1787825299060",
+        "term": "던지다",
+        "definition": "to throw",
+        "meaningKr": "to throw",
+        "exampleEn": "야구공을 멀리 던지는 연습을 같이 해 보자.",
+        "exampleKr": "Let's practice throwing the baseball far together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "deonjida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-41-1787825299060",
+        "term": "차다",
+        "definition": "to kick",
+        "meaningKr": "to kick",
+        "exampleEn": "페널티킥을 정확하게 골문 구석으로 찼어.",
+        "exampleKr": "He accurately kicked the penalty shot into the corner of the net.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "chada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-42-1787825299060",
+        "term": "이기다",
+        "definition": "to win",
+        "meaningKr": "to win",
+        "exampleEn": "이번 상대 팀이 강하지만 우리도 꼭 이길 수 있어.",
+        "exampleKr": "The opposing team is tough this time, but we can definitely win too.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "igida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-43-1787825299060",
+        "term": "지다",
+        "definition": "to lose a game",
+        "meaningKr": "to lose a game",
+        "exampleEn": "마지막 순간에 역전당해서 결국 경기에 졌어.",
+        "exampleKr": "We got turned over at the last minute and ended up losing the match.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "jida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-44-1787825299060",
+        "term": "넘어지다",
+        "definition": "to fall over",
+        "meaningKr": "to fall over",
+        "exampleEn": "달리기를 하다가 발이 꼬여서 넘어지고 말았어.",
+        "exampleKr": "My feet got tangled while running and I ended up falling over.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "neomeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sports-45-1787825299060",
+        "term": "땀",
+        "definition": "sweat",
+        "meaningKr": "sweat",
+        "exampleEn": "운동을 열심히 해서 온몸에 땀이 뻘뻘 나.",
+        "exampleKr": "I worked out hard, so I'm dripping with sweat all over my body.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "ttam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-46-1787825299060",
+        "term": "근육",
+        "definition": "muscle",
+        "meaningKr": "muscle",
+        "exampleEn": "어제 무리하게 운동했더니 온몸의 근육이 아파.",
+        "exampleKr": "I exercised too hard yesterday, so my muscles hurt all over.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "geunyuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-47-1787825299060",
+        "term": "체력",
+        "definition": "stamina",
+        "meaningKr": "stamina",
+        "exampleEn": "후반전으로 갈수록 선수들의 체력이 떨어지고 있어.",
+        "exampleKr": "As the second half progresses, the players' stamina is dropping.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "cheryeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-48-1787825299060",
+        "term": "스트레칭",
+        "definition": "stretching",
+        "meaningKr": "stretching",
+        "exampleEn": "운동을 시작하기 전에 가볍게 스트레칭을 하자.",
+        "exampleKr": "Let's do some light stretching before starting our workout.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "seuteureching",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sports-49-1787825299060",
+        "term": "몸을 풀다",
+        "definition": "to warm up",
+        "meaningKr": "to warm up",
+        "exampleEn": "다치지 않게 조심해서 꼼꼼히 몸을 풀자.",
+        "exampleKr": "Let's warm up thoroughly and carefully so we don't get hurt.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sports",
+          "Daily Life"
+        ],
+        "phonetic": "mom-eul pulda",
+        "pos": "phrase"
+      }
+    ]
+  },
+{
+    "id": "curated-produce-ko-1",
+    "title": "Korean Fruits & Vegetables 50",
+    "icon": "🍓",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Every fruit and vegetable you meet in a Korean kitchen — 참외, 깻잎, 배추, 고구마, 아삭하다, 다듬다 and more, plus the words for ripening, peeling and prepping them. Korean→English; meanings & home-kitchen examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1787825292125,
+    "words": [
+      {
+        "id": "word-produce-0-1787825292125",
+        "term": "과일",
+        "definition": "fruit",
+        "meaningKr": "fruit",
+        "exampleEn": "냉장고에 시원한 과일이 있어요.",
+        "exampleKr": "There is some chilled fruit in the fridge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gwail",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-1-1787825292125",
+        "term": "사과",
+        "definition": "apple",
+        "meaningKr": "apple",
+        "exampleEn": "아침에 먹는 사과가 제일 맛있어요.",
+        "exampleKr": "Apples eaten in the morning are the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sagwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-2-1787825292125",
+        "term": "배",
+        "definition": "Korean pear",
+        "meaningKr": "Korean pear",
+        "exampleEn": "명절 선물로 달콤한 배를 받았어요.",
+        "exampleKr": "We received sweet Korean pears as a holiday gift.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-3-1787825292125",
+        "term": "딸기",
+        "definition": "strawberry",
+        "meaningKr": "strawberry",
+        "exampleEn": "딸기를 깨끗이 씻어서 간식으로 먹자.",
+        "exampleKr": "Let's wash the strawberries clean and eat them as a snack.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ttalgi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-4-1787825292125",
+        "term": "포도",
+        "definition": "grapes",
+        "meaningKr": "grapes",
+        "exampleEn": "보라색 포도가 아주 달고 싱싱해요.",
+        "exampleKr": "The purple grapes are very sweet and fresh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "podo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-5-1787825292125",
+        "term": "수박",
+        "definition": "watermelon",
+        "meaningKr": "watermelon",
+        "exampleEn": "시원한 수박을 먹으니 여름 같네.",
+        "exampleKr": "Eating cold watermelon really feels like summer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "subak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-6-1787825292125",
+        "term": "참외",
+        "definition": "Korean melon",
+        "meaningKr": "Korean melon",
+        "exampleEn": "노란 참외를 깎아서 접시에 담았어요.",
+        "exampleKr": "I peeled the yellow Korean melon and put it on a plate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "chamoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-7-1787825292125",
+        "term": "복숭아",
+        "definition": "peach",
+        "meaningKr": "peach",
+        "exampleEn": "말랑한 복숭아는 껍질이 잘 벗겨져요.",
+        "exampleKr": "Soft peaches peel their skin off very easily.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "boksunga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-8-1787825292125",
+        "term": "감",
+        "definition": "persimmon",
+        "meaningKr": "persimmon",
+        "exampleEn": "주황색 감이 베란다에서 익어가고 있어요.",
+        "exampleKr": "Orange persimmons are ripening out on the balcony.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-9-1787825292125",
+        "term": "귤",
+        "definition": "mandarin orange",
+        "meaningKr": "mandarin orange",
+        "exampleEn": "따뜻한 방에서 귤을 까먹는 게 낙이야.",
+        "exampleKr": "Peeling and eating mandarins in a warm room is the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gyul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-10-1787825292125",
+        "term": "바나나",
+        "definition": "banana",
+        "meaningKr": "banana",
+        "exampleEn": "바나나가 금방 익어서 빨리 먹어야 해요.",
+        "exampleKr": "The bananas are ripening fast, so we need to eat them soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "banana",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-11-1787825292125",
+        "term": "오렌지",
+        "definition": "orange",
+        "meaningKr": "orange",
+        "exampleEn": "상큼한 오렌지로 주스를 만들어 볼까?",
+        "exampleKr": "Shall we make some juice with these fresh oranges?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "orenji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-12-1787825292125",
+        "term": "키위",
+        "definition": "kiwi fruit",
+        "meaningKr": "kiwi fruit",
+        "exampleEn": "새콤달콤한 키위는 숟가락으로 떠먹어요.",
+        "exampleKr": "We scoop out and eat sweet-and-sour kiwi with a spoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "kiwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-13-1787825292125",
+        "term": "자두",
+        "definition": "plum",
+        "meaningKr": "plum",
+        "exampleEn": "새콤한 자두를 몇 개 씻어 왔어요.",
+        "exampleKr": "I washed a few tart plums and brought them over.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "jadu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-14-1787825292125",
+        "term": "레몬",
+        "definition": "lemon",
+        "meaningKr": "lemon",
+        "exampleEn": "탄산수에 레몬을 띄워서 마셔요.",
+        "exampleKr": "We drop a slice of lemon into sparkling water to drink.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "remon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-15-1787825292125",
+        "term": "밤",
+        "definition": "chestnut",
+        "meaningKr": "chestnut",
+        "exampleEn": "가을에 주운 밤을 삶아서 간식으로 먹어요.",
+        "exampleKr": "We boil the chestnuts we gathered in autumn for a snack.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-16-1787825292125",
+        "term": "대추",
+        "definition": "jujube",
+        "meaningKr": "jujube",
+        "exampleEn": "삼계탕에 넣을 대추를 깨끗이 씻었어요.",
+        "exampleKr": "I washed the jujubes clean to put in the ginseng chicken soup.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "daechu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-17-1787825292125",
+        "term": "채소",
+        "definition": "vegetables",
+        "meaningKr": "vegetables",
+        "exampleEn": "오늘 마트에서 신선한 채소를 샀어요.",
+        "exampleKr": "I bought some fresh vegetables at the mart today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "chaeso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-18-1787825292125",
+        "term": "배추",
+        "definition": "napa cabbage",
+        "meaningKr": "napa cabbage",
+        "exampleEn": "김장하려고 커다란 배추 열 포기를 절였어요.",
+        "exampleKr": "We salted ten large napa cabbages to make winter kimchi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "baechu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-19-1787825292125",
+        "term": "무",
+        "definition": "Korean radish",
+        "meaningKr": "Korean radish",
+        "exampleEn": "시원한 무국을 끓이려고 무를 나뭇잎 모양으로 썰었어요.",
+        "exampleKr": "I sliced the radish into pieces to make a refreshing radish soup.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "mu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-20-1787825292125",
+        "term": "오이",
+        "definition": "cucumber",
+        "meaningKr": "cucumber",
+        "exampleEn": "오이를 길쭉하게 썰어서 된장에 찍어 먹자.",
+        "exampleKr": "Let's cut the cucumbers lengthwise and dip them in soybean paste.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "oi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-21-1787825292125",
+        "term": "당근",
+        "definition": "carrot",
+        "meaningKr": "carrot",
+        "exampleEn": "김밥에 넣을 당근을 곱게 채 썰었어요.",
+        "exampleKr": "I julienned the carrots finely to put in the kimbap.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "danggeun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-22-1787825292125",
+        "term": "감자",
+        "definition": "potato",
+        "meaningKr": "potato",
+        "exampleEn": "저녁에 먹으려고 감자 껍질을 벗기고 있어요.",
+        "exampleKr": "I'm peeling potatoes to eat for dinner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gamja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-23-1787825292125",
+        "term": "고구마",
+        "definition": "sweet potato",
+        "meaningKr": "sweet potato",
+        "exampleEn": "겨울에는 역시 호박고구마를 구워 먹어야 해요.",
+        "exampleKr": "In winter, you simply have to bake and eat sweet potatoes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "goguma",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-24-1787825292125",
+        "term": "양파",
+        "definition": "onion",
+        "meaningKr": "onion",
+        "exampleEn": "양파를 볶을 때 눈이 조금 매웠어요.",
+        "exampleKr": "My eyes stung a bit while stir-frying the onions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "yangpa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-25-1787825292125",
+        "term": "마늘",
+        "definition": "garlic",
+        "meaningKr": "garlic",
+        "exampleEn": "김치에 넣을 마늘을 곱게 다져 주세요.",
+        "exampleKr": "Please finely mince the garlic to put in the kimchi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "man-eul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-26-1787825292125",
+        "term": "파",
+        "definition": "green onion",
+        "meaningKr": "green onion",
+        "exampleEn": "된장찌개에 파를 송송 썰어 넣었어요.",
+        "exampleKr": "I chopped up some green onion and put it in the soybean paste stew.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "pa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-27-1787825292125",
+        "term": "고추",
+        "definition": "chili pepper",
+        "meaningKr": "chili pepper",
+        "exampleEn": "텃밭에서 딴 고추가 정말 매워 보여요.",
+        "exampleKr": "The chili peppers picked from the garden look really spicy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "go-chu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-28-1787825292125",
+        "term": "호박",
+        "definition": "squash; pumpkin",
+        "meaningKr": "squash; pumpkin",
+        "exampleEn": "애호박을 채 썰어서 부침개를 부쳐 먹자.",
+        "exampleKr": "Let's julienne the young squash and make savory pancakes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ho-bak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-29-1787825292125",
+        "term": "가지",
+        "definition": "eggplant",
+        "meaningKr": "eggplant",
+        "exampleEn": "가지를 길쭉하게 썰어서 쪄 주세요.",
+        "exampleKr": "Please cut the eggplant lengthwise and steam it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ga-ji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-30-1787825292125",
+        "term": "상추",
+        "definition": "lettuce",
+        "meaningKr": "lettuce",
+        "exampleEn": "고기를 먹을 때 상추에 싸서 먹어요.",
+        "exampleKr": "When eating meat, we wrap it in lettuce to eat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sang-chu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-31-1787825292125",
+        "term": "깻잎",
+        "definition": "perilla leaf",
+        "meaningKr": "perilla leaf",
+        "exampleEn": "향긋한 깻잎 장아찌를 맛있게 담갔어요.",
+        "exampleKr": "I deliciously pickled some aromatic perilla leaves.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "kkaennip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-32-1787825292125",
+        "term": "시금치",
+        "definition": "spinach",
+        "meaningKr": "spinach",
+        "exampleEn": "시금치는 살짝 데쳐서 무쳐야 맛있어요.",
+        "exampleKr": "Spinach tastes best when lightly blanched and seasoned.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "si-geum-chi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-33-1787825292125",
+        "term": "콩나물",
+        "definition": "soybean sprouts",
+        "meaningKr": "soybean sprouts",
+        "exampleEn": "콩나물국을 시원하게 끓여서 먹자.",
+        "exampleKr": "Let's boil a refreshing bowl of soybean sprout soup.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "kong-na-mul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-34-1787825292125",
+        "term": "버섯",
+        "definition": "mushroom",
+        "meaningKr": "mushroom",
+        "exampleEn": "여러 가지 버섯을 넣고 볶음을 만들었어요.",
+        "exampleKr": "I made a stir-fry with a variety of mushrooms.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "beo-seot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-35-1787825292125",
+        "term": "옥수수",
+        "definition": "corn",
+        "meaningKr": "corn",
+        "exampleEn": "간식으로 먹으려고 옥수수를 삶는 중이야.",
+        "exampleKr": "I am boiling some corn to eat as a snack.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ok-su-su",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-36-1787825292125",
+        "term": "토마토",
+        "definition": "tomato",
+        "meaningKr": "tomato",
+        "exampleEn": "방울토마토가 아주 빨갛게 잘 익었어요.",
+        "exampleKr": "The cherry tomatoes have ripened to a nice bright red.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "to-ma-to",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-37-1787825292125",
+        "term": "브로콜리",
+        "definition": "broccoli",
+        "meaningKr": "broccoli",
+        "exampleEn": "브로콜리는 살짝 데쳐서 초장에 찍어 먹어.",
+        "exampleKr": "Blanch the broccoli slightly and dip it in chogochujang.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "beuro-kol-li",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-38-1787825292125",
+        "term": "껍질",
+        "definition": "skin; peel",
+        "meaningKr": "skin; peel",
+        "exampleEn": "사과 껍질을 얇게 깎아서 접시에 담아.",
+        "exampleKr": "Peel the apple skin thinly and put it on a plate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "kkeop-jil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-39-1787825292125",
+        "term": "씨",
+        "definition": "seed; pit",
+        "meaningKr": "seed; pit",
+        "exampleEn": "수박 씨를 발라내며 맛있게 먹었어요.",
+        "exampleKr": "We ate it deliciously while picking out the watermelon seeds.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ssi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-40-1787825292125",
+        "term": "익다",
+        "definition": "to ripen; to be cooked through",
+        "meaningKr": "to ripen; to be cooked through",
+        "exampleEn": "김치가 알맞게 잘 익어서 새콤해요.",
+        "exampleKr": "The kimchi has fermented just right and is pleasantly sour.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ik-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-produce-41-1787825292125",
+        "term": "썩다",
+        "definition": "to rot; to go bad",
+        "meaningKr": "to rot; to go bad",
+        "exampleEn": "냉장고 구석에 두었던 감자가 썩었어요.",
+        "exampleKr": "The potatoes left in the corner of the fridge went bad.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sseok-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-produce-42-1787825292125",
+        "term": "무르다",
+        "definition": "to be soft or mushy",
+        "meaningKr": "to be soft or mushy",
+        "exampleEn": "복숭아 아랫부분이 너무 물러서 얼른 도려냈어.",
+        "exampleKr": "The bottom part of the peach was too mushy, so I quickly cut it out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "mu-reu-da",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-produce-43-1787825292125",
+        "term": "새콤하다",
+        "definition": "pleasantly tart",
+        "meaningKr": "pleasantly tart",
+        "exampleEn": "식초를 살짝 넣었더니 국물이 새콤해서 입맛이 돌아요.",
+        "exampleKr": "I added a bit of vinegar, and the broth is pleasantly tart and appetizing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sae-kom-ha-da",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-produce-44-1787825292125",
+        "term": "아삭하다",
+        "definition": "crisp and crunchy",
+        "meaningKr": "crisp and crunchy",
+        "exampleEn": "오이가 아주 싱싱해서 씹을 때마다 아삭해요.",
+        "exampleKr": "The cucumbers are so fresh that they are crisp with every bite.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "a-sak-ha-da",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-produce-45-1787825292125",
+        "term": "다듬다",
+        "definition": "to trim vegetables",
+        "meaningKr": "to trim vegetables",
+        "exampleEn": "엄마와 함께 거실에 앉아서 파를 다듬었어요.",
+        "exampleKr": "I sat in the living room with Mom and trimmed the green onions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "da-deum-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-produce-46-1787825292125",
+        "term": "텃밭",
+        "definition": "home vegetable patch",
+        "meaningKr": "home vegetable patch",
+        "exampleEn": "우리 집 텃밭에서 상추를 직접 길러요.",
+        "exampleKr": "We grow lettuce ourselves in our home vegetable patch.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "teot-bat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-47-1787825292125",
+        "term": "농사",
+        "definition": "farming",
+        "meaningKr": "farming",
+        "exampleEn": "올해도 부모님께서 주말마다 텃밭 농사를 지으셔요.",
+        "exampleKr": "This year too, my parents do garden farming every weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "nong-sa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-produce-48-1787825292125",
+        "term": "심다",
+        "definition": "to plant",
+        "meaningKr": "to plant",
+        "exampleEn": "봄이 되어서 마당에 상추 모종을 심었어.",
+        "exampleKr": "Spring has come, so I planted lettuce seedlings in the yard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sim-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-produce-49-1787825292125",
+        "term": "수확하다",
+        "definition": "to harvest",
+        "meaningKr": "to harvest",
+        "exampleEn": "드디어 잘 자란 고추를 오늘 수확했어요.",
+        "exampleKr": "We finally harvested the well-grown chili peppers today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "su-hwak-ha-da",
+        "pos": "verb"
+      }
+    ]
+  },
+{
+    "id": "curated-food-ko-1",
+    "title": "Korean Food & Dining 50",
+    "icon": "🍲",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "The Korean table, word by word — 반찬, 국물, 고추장, 삼겹살, 싱겁다, 볶다 and more across rice-soup-banchan, home cooking, seasonings, taste words and meal times. Korean→English; meanings & examples set at a real Korean table, AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1787825283992,
+    "words": [
+      {
+        "id": "word-food-0-1787825283992",
+        "term": "밥",
+        "definition": "cooked rice; a meal",
+        "meaningKr": "cooked rice; a meal",
+        "exampleEn": "따뜻할 때 빨리 밥 먹어.",
+        "exampleKr": "Eat the rice quickly while it's warm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-1-1787825283992",
+        "term": "국",
+        "definition": "soup",
+        "meaningKr": "soup",
+        "exampleEn": "오늘 국은 조금 짜네.",
+        "exampleKr": "Today's soup is a little salty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "guk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-2-1787825283992",
+        "term": "찌개",
+        "definition": "stew",
+        "meaningKr": "stew",
+        "exampleEn": "찌개가 보글보글 잘 끓고 있어요.",
+        "exampleKr": "The stew is bubbling nicely.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "jjigae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-3-1787825283992",
+        "term": "반찬",
+        "definition": "side dish",
+        "meaningKr": "side dish",
+        "exampleEn": "냉장고에서 반찬 좀 꺼내 줄래?",
+        "exampleKr": "Could you take some side dishes out of the fridge?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "banchan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-4-1787825283992",
+        "term": "국물",
+        "definition": "soup broth",
+        "meaningKr": "soup broth",
+        "exampleEn": "국물이 진하고 아주 맛있어.",
+        "exampleKr": "The broth is rich and very delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gungmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-5-1787825283992",
+        "term": "나물",
+        "definition": "seasoned vegetable side dish",
+        "meaningKr": "seasoned vegetable side dish",
+        "exampleEn": "엄마가 만든 나물이 제일 맛있어.",
+        "exampleKr": "Mom-made seasoned vegetables are the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "namul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-6-1787825283992",
+        "term": "죽",
+        "definition": "rice porridge",
+        "meaningKr": "rice porridge",
+        "exampleEn": "속이 안 좋아서 따뜻한 죽을 끓였어.",
+        "exampleKr": "My stomach felt bad so I cooked some warm porridge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "juk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-7-1787825283992",
+        "term": "김치",
+        "definition": "kimchi",
+        "meaningKr": "kimchi",
+        "exampleEn": "익은 김치로 김치찌개 끓이자.",
+        "exampleKr": "Let's make kimchi stew with the fermented kimchi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gimchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-8-1787825283992",
+        "term": "비빔밥",
+        "definition": "bibimbap",
+        "meaningKr": "bibimbap",
+        "exampleEn": "남은 나물에 비빔밥을 만들어 먹자.",
+        "exampleKr": "Let's make bibimbap with the leftover vegetables.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bibimbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-9-1787825283992",
+        "term": "불고기",
+        "definition": "bulgogi; marinated beef",
+        "meaningKr": "bulgogi; marinated beef",
+        "exampleEn": "달달한 불고기 냄새가 정말 좋아.",
+        "exampleKr": "The sweet bulgogi smell is really great.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bulgogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-10-1787825283992",
+        "term": "삼겹살",
+        "definition": "pork belly",
+        "meaningKr": "pork belly",
+        "exampleEn": "오늘 저녁은 지글지글 삼겹살 어때?",
+        "exampleKr": "How about sizzling pork belly for dinner tonight?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "samgyeopsal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-11-1787825283992",
+        "term": "떡볶이",
+        "definition": "spicy rice cakes",
+        "meaningKr": "spicy rice cakes",
+        "exampleEn": "매콤한 떡볶이가 갑자기 먹고 싶어.",
+        "exampleKr": "I suddenly feel like eating spicy rice cakes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "tteokbokki",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-12-1787825283992",
+        "term": "만두",
+        "definition": "dumpling",
+        "meaningKr": "dumpling",
+        "exampleEn": "만두를 노릇노릇하게 구워 볼까?",
+        "exampleKr": "Shall we pan-fry the dumplings until golden?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "mandu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-13-1787825283992",
+        "term": "라면",
+        "definition": "instant noodles",
+        "meaningKr": "instant noodles",
+        "exampleEn": "출근 전에 간단하게 라면 먹자.",
+        "exampleKr": "Let's eat some quick instant noodles before leaving.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ramyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-14-1787825283992",
+        "term": "면",
+        "definition": "noodles",
+        "meaningKr": "noodles",
+        "exampleEn": "면이 불기 전에 빨리 먹어.",
+        "exampleKr": "Eat quickly before the noodles get soggy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "myeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-15-1787825283992",
+        "term": "고기",
+        "definition": "meat",
+        "meaningKr": "meat",
+        "exampleEn": "오늘 고기는 진짜 좋은 걸로 샀어.",
+        "exampleKr": "I bought really good meat today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-16-1787825283992",
+        "term": "생선",
+        "definition": "fish",
+        "meaningKr": "fish",
+        "exampleEn": "프라이팬에 생선을 노릇하게 구워.",
+        "exampleKr": "Pan-fry the fish until it's golden brown.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "saengseon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-17-1787825283992",
+        "term": "계란",
+        "definition": "egg",
+        "meaningKr": "egg",
+        "exampleEn": "계란 후라이 하나 반숙으로 해 줘.",
+        "exampleKr": "Make me a sunny-side up fried egg, please.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gyeran",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-18-1787825283992",
+        "term": "두부",
+        "definition": "tofu",
+        "meaningKr": "tofu",
+        "exampleEn": "찌개에 넣을 두부가 부족하네.",
+        "exampleKr": "We don't have enough tofu for the stew.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "dubu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-19-1787825283992",
+        "term": "소금",
+        "definition": "salt",
+        "meaningKr": "salt",
+        "exampleEn": "간을 보고 소금을 조금 더 넣어.",
+        "exampleKr": "Taste it and add a little more salt.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sogeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-20-1787825283992",
+        "term": "설탕",
+        "definition": "sugar",
+        "meaningKr": "sugar",
+        "exampleEn": "소스에 설탕을 살짝 넣으면 맛있어.",
+        "exampleKr": "It tastes good if you add a tiny bit of sugar to the sauce.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "seoltang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-21-1787825283992",
+        "term": "간장",
+        "definition": "soy sauce",
+        "meaningKr": "soy sauce",
+        "exampleEn": "간장으로 알맞게 간을 맞춰.",
+        "exampleKr": "Season it properly with soy sauce.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "ganjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-22-1787825283992",
+        "term": "고추장",
+        "definition": "red chili paste",
+        "meaningKr": "red chili paste",
+        "exampleEn": "고추장을 풀어서 매콤하게 끓여.",
+        "exampleKr": "Dissolve the red chili paste and boil it spicy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gochujang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-23-1787825283992",
+        "term": "된장",
+        "definition": "soybean paste",
+        "meaningKr": "soybean paste",
+        "exampleEn": "구수한 된장찌개 냄새가 좋다.",
+        "exampleKr": "The savory soybean paste stew smells great.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "doenjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-24-1787825283992",
+        "term": "참기름",
+        "definition": "sesame oil",
+        "meaningKr": "sesame oil",
+        "exampleEn": "마지막에 참기름을 살짝 둘러.",
+        "exampleKr": "Drizzle a little sesame oil at the end.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "chamgireum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-25-1787825283992",
+        "term": "양념",
+        "definition": "seasoning mix; sauce",
+        "meaningKr": "seasoning mix; sauce",
+        "exampleEn": "이 양념이 진짜 맛있게 잘 됐어요.",
+        "exampleKr": "This seasoning turned out really delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "yangnyeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-26-1787825283992",
+        "term": "맛있다",
+        "definition": "to be delicious",
+        "meaningKr": "to be delicious",
+        "exampleEn": "엄마가 만든 김치찌개가 제일 맛있어요.",
+        "exampleKr": "Mom's kimchi stew is the most delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "masitda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-27-1787825283992",
+        "term": "맛없다",
+        "definition": "to taste bad",
+        "meaningKr": "to taste bad",
+        "exampleEn": "음식이 너무 식어서 맛없어요.",
+        "exampleKr": "The food is too cold and doesn't taste good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "maseopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-28-1787825283992",
+        "term": "맵다",
+        "definition": "to be spicy hot",
+        "meaningKr": "to be spicy hot",
+        "exampleEn": "떡볶이가 너무 매워서 물을 많이 마셨어요.",
+        "exampleKr": "The tteokbokki was so spicy that I drank a lot of water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "maepda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-29-1787825283992",
+        "term": "짜다",
+        "definition": "to be salty",
+        "meaningKr": "to be salty",
+        "exampleEn": "국물이 조금 짜서 물을 더 넣었어.",
+        "exampleKr": "The soup was a little salty, so I added more water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "jjada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-30-1787825283992",
+        "term": "달다",
+        "definition": "to be sweet",
+        "meaningKr": "to be sweet",
+        "exampleEn": "딸기가 아주 달고 신선해요.",
+        "exampleKr": "The strawberries are very sweet and fresh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "dalda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-31-1787825283992",
+        "term": "시다",
+        "definition": "to be sour",
+        "meaningKr": "to be sour",
+        "exampleEn": "레몬이 너무 시어서 눈이 감겨요.",
+        "exampleKr": "The lemon is so sour I have to close my eyes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sida",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-32-1787825283992",
+        "term": "쓰다",
+        "definition": "to be bitter",
+        "meaningKr": "to be bitter",
+        "exampleEn": "한약이 너무 써서 설탕을 넣고 싶어.",
+        "exampleKr": "The herbal medicine is too bitter, so I want to add sugar.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sseuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-33-1787825283992",
+        "term": "싱겁다",
+        "definition": "to be bland, under-salted",
+        "meaningKr": "to be bland, under-salted",
+        "exampleEn": "간이 좀 싱거워서 소금을 조금 넣자.",
+        "exampleKr": "It's a bit bland, let's add a little salt.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "singgeopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-34-1787825283992",
+        "term": "고소하다",
+        "definition": "to be nutty and rich",
+        "meaningKr": "to be nutty and rich",
+        "exampleEn": "참기름을 넣어서 고소한 냄새가 나요.",
+        "exampleKr": "It smells nutty and rich because of the sesame oil.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gosohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-35-1787825283992",
+        "term": "느끼하다",
+        "definition": "to be greasy or too rich",
+        "meaningKr": "to be greasy or too rich",
+        "exampleEn": "피자를 많이 먹었더니 좀 느끼해요.",
+        "exampleKr": "I ate a lot of pizza, so I feel a bit greasy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "neukkihada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-36-1787825283992",
+        "term": "배고프다",
+        "definition": "to be hungry",
+        "meaningKr": "to be hungry",
+        "exampleEn": "운동을 하고 나니까 너무 배고파요.",
+        "exampleKr": "I'm so hungry after working out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "baegopeuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-37-1787825283992",
+        "term": "배부르다",
+        "definition": "to be full",
+        "meaningKr": "to be full",
+        "exampleEn": "저녁을 너무 많이 먹어서 배불러요.",
+        "exampleKr": "I ate too much dinner, so I'm full.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "baebureuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-food-38-1787825283992",
+        "term": "삶다",
+        "definition": "to boil",
+        "meaningKr": "to boil",
+        "exampleEn": "계란을 완숙으로 맛있게 삶아 주세요.",
+        "exampleKr": "Please boil the eggs nicely until they are hard-boiled.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "samda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-39-1787825283992",
+        "term": "굽다",
+        "definition": "to grill or roast",
+        "meaningKr": "to grill or roast",
+        "exampleEn": "삼겹살을 노릇노릇하게 맛있게 구워 봐.",
+        "exampleKr": "Try grilling the pork belly nicely until golden brown.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gupda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-40-1787825283992",
+        "term": "볶다",
+        "definition": "to stir-fry",
+        "meaningKr": "to stir-fry",
+        "exampleEn": "팬에 야채를 먼저 센 불로 볶았어요.",
+        "exampleKr": "I first stir-fried the vegetables in a pan over high heat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "bokda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-41-1787825283992",
+        "term": "끓이다",
+        "definition": "to bring to a boil; to make soup",
+        "meaningKr": "to bring to a boil; to make soup",
+        "exampleEn": "라면을 맛있게 끓이는 법을 알려 줄게요.",
+        "exampleKr": "I'll teach you how to deliciously boil ramyeon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "kkeurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-42-1787825283992",
+        "term": "튀기다",
+        "definition": "to deep-fry",
+        "meaningKr": "to deep-fry",
+        "exampleEn": "치킨을 바삭바삭하게 기름에 튀겨요.",
+        "exampleKr": "Deep-fry the chicken in oil until it is crispy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "twigida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-43-1787825283992",
+        "term": "썰다",
+        "definition": "to slice or chop",
+        "meaningKr": "to slice or chop",
+        "exampleEn": "김치를 먹기 좋은 크기로 잘 썰어 줘.",
+        "exampleKr": "Please slice the kimchi into bite-sized pieces.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "sseolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-food-44-1787825283992",
+        "term": "식사",
+        "definition": "a meal",
+        "meaningKr": "a meal",
+        "exampleEn": "다 같이 모여서 즐겁게 식사합시다.",
+        "exampleKr": "Let's all gather together and have a pleasant meal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "siksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-45-1787825283992",
+        "term": "아침밥",
+        "definition": "breakfast",
+        "meaningKr": "breakfast",
+        "exampleEn": "바쁘더라도 아침밥은 꼭 챙겨 먹어야 해요.",
+        "exampleKr": "Even if you're busy, you must make sure to eat breakfast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "achimbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-46-1787825283992",
+        "term": "점심",
+        "definition": "lunch",
+        "meaningKr": "lunch",
+        "exampleEn": "오늘 점심 메뉴로 무엇을 먹을까요?",
+        "exampleKr": "What should we eat for today's lunch menu?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "jeomsim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-47-1787825283992",
+        "term": "저녁",
+        "definition": "dinner; evening",
+        "meaningKr": "dinner; evening",
+        "exampleEn": "오늘 저녁에는 따뜻한 국밥을 먹자.",
+        "exampleKr": "Let's eat warm gukbap for dinner tonight.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "jeonyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-48-1787825283992",
+        "term": "간식",
+        "definition": "a snack",
+        "meaningKr": "a snack",
+        "exampleEn": "아이들이 학교에서 돌아와서 간식을 먹어요.",
+        "exampleKr": "The kids came back from school and are eating a snack.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "gansik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-food-49-1787825283992",
+        "term": "야식",
+        "definition": "late-night food",
+        "meaningKr": "late-night food",
+        "exampleEn": "밤에 영화를 보면서 야식으로 치킨을 시켰어요.",
+        "exampleKr": "We ordered chicken as a late-night snack while watching a movie at night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Food",
+          "Daily Life"
+        ],
+        "phonetic": "yasik",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-topik2-ko-1",
     "title": "TOPIK II Essentials 300",
     "icon": "📝",

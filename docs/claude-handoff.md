@@ -1193,17 +1193,14 @@ failed.` 를 볼 것.** 이번엔 큐 진입을 따로 감시하는 백그라운
 
 ### 1. 그다음 순서
 
-1. **Play Console 업로드** — AAB 는 이미 나와 있다(vc26 · `98e30ca`).
-   `eas build:list --platform android --limit 1 --json` 의 `artifacts.applicationArchiveUrl`
-   로 받거나 Expo 대시보드에서. 이번 빌드의 직접 링크는
-   https://expo.dev/artifacts/eas/M8wb_eZKwIMSYb6u_HEmTa6AsCM7gXT21_Qb7k06cRA.aab
-   🔴 Play 프로덕션 현재는 vc24 이므로 26 은 그 위다(25 는 영구 결번).
-   🔑 `--json` 최상위에는 URL 이 없다 — `artifacts` 안에 있다.
-2. **PR #118 머지** — `MERGEABLE`·`CLEAN`. 병합 결과 트리는 이미 열어서 확인했다.
-3. **출시 노트** — 원고는 `store-assets/listing/release-notes-1.6.1.txt`
-   (8로케일·최대 384자). 🔴 **ja·vi·zh·es 는 AI 가 옮긴 문구다. 붙여넣기 전에 사람이 볼 것.**
-   특히 zh-TW 는 zh-CN 을 번체로 옮긴 것이라 어휘(`字級`/`字型`)가 대만 표현인지 미확인.
-4. **레딧 Day 잠금 댓글에 답한다** — 아직 미답변이다. 출시 뒤에 답하기로 했다.
+0. ✅ **양 스토어 제출 완료(2026-08-27).** iOS 는 심사 제출, Android 는 Play Console
+   업로드(vc26 · `98e30ca`)까지 은정님이 끝냈다. 출시 노트도 양쪽 다 넣었다.
+   **남은 것은 심사 통과를 기다리는 것뿐이다.**
+   AAB 직접 링크: https://expo.dev/artifacts/eas/M8wb_eZKwIMSYb6u_HEmTa6AsCM7gXT21_Qb7k06cRA.aab
+   🔑 `build:list --json` 최상위에는 URL 이 없다 — `artifacts` 안에 있다.
+1. **PR #118 머지** — `MERGEABLE`·`CLEAN`. 병합 결과 트리는 이미 열어서 확인했다.
+   🔴 아직 안 했다.
+2. **레딧 Day 잠금 댓글에 답한다** — 아직 미답변이다. **스토어 공개를 확인한 뒤** 답한다.
    "다음 업데이트에서" 대신 **"받으시면 풀립니다"** 라고 쓸 수 있다. 🔑 약속은 하나만.
 5. **학습 기능 검토 1번**(마지막 학습일) 스펙 — 위 절 참조. 파급 범위부터 세는 것이 먼저다.
    같은 트랙에 **"100% 외운 Day 도 학습하고 넘어가야 하지 않나"**(위 검토 절)를 둔다.

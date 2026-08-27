@@ -11,6 +11,7 @@
  * 주석에 적어 두었으니, 규칙을 지우거나 완화하기 전에 그 사례부터 확인할 것.
  */
 import { checkRomaja } from './romanize';
+import { termUsedInExample } from './ko-conjugation';
 
 export interface DeckEntry {
   term: string;
@@ -46,6 +47,12 @@ export interface CheckOptions {
    * - 표제어가 원어라 한국어 문장에 없는 게 당연하므로 '예문에 표제어 없음'은 끈다.
    */
   koreanIsTranslation?: boolean;
+  /**
+   * 표제어가 낱말이 아니라 **맞춤법 대조쌍의 한쪽**인 덱(`돼`/`되`, `-든지`, `할수록`).
+   * 예문은 올바른 용법을 보여 주는 문장이라 표제어 표기가 그대로 나오지 않는 게 정상이다
+   * — `돼` 카드의 예문이 "오늘 할 일은 다 했어."인 식이다. '예문에 표제어 없음'을 끈다.
+   */
+  termIsSpellingPair?: boolean;
 }
 
 export interface Finding {
@@ -120,12 +127,16 @@ export function collectFindings(items: DeckEntry[], opts: CheckOptions = {}): Fi
       push('예문 길이', w.term, `${ko.length}자 (상한 ${opts.exampleMax}): ${ko}`);
     }
 
-    // 예문에 표제어가 없으면 카드가 무의미하다. 용언은 활용으로 어간까지 바뀌므로
-    // (맵다→매워요, 챙기다→챙겨) 첫 음절만 본다 — 느슨한 검사라 놓치는 건 있다.
+    // 예문에 표제어가 없으면 카드가 무의미하다.
     // 한국어가 도착어면 이 문장은 번역문이고 표제어는 원어라, 없는 게 정상이다.
-    if (!opts.koreanIsTranslation) {
-      const probe = /다$/.test(w.term) && w.term.length >= 2 ? w.term.slice(0, 1) : w.term;
-      if (!ko.includes(probe)) push('예문에 표제어 없음', w.term, ko, true);
+    //
+    // 🔴 이 검사는 2026-08-28 이전까지 용언을 `term.slice(0, 1)` 한 글자로 완화해서
+    //    봤고, 그래서 `그러다`의 예문 "그가 그렇게…"가 **"그"에 걸려 통과했다.**
+    //    레딧 제보자가 그 카드를 발견한 뒤에야 알았다. 게다가 advisory 라 exit 0
+    //    이었으므로 아무도 보지 않았다. 이제 활용 판정기를 쓰고 advisory 도 뗀다
+    //    — 실측 오탐률 18%(34건 중 6건: 분리 사용·부사 파생)라 눈으로 걸러낼 만하다.
+    if (!opts.koreanIsTranslation && !opts.termIsSpellingPair && !termUsedInExample(w.term, ko)) {
+      push('예문에 표제어 없음', w.term, ko);
     }
 
     if (opts.beginnerGrammar) {

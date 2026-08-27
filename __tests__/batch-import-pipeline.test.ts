@@ -182,3 +182,42 @@ describe('Scenario F: 통합 흐름 (BatchImportWorkflow.handleNextStage 시뮬)
     });
 });
 
+describe('Scenario E: parseImportedText (대시·콜론 구분자 — 2026-08-26 실사고)', () => {
+    // 사용자가 "영어 — 한국어" 목록을 붙여넣었는데 줄이 갈리지 않아 통째로 표제어가 되었다.
+    // 그대로 AI 보강이 돌아 enrich 캐시 83행이 오염되고 한도 83단어가 헛되이 나갔다.
+    test('em dash 로 구분된 목록은 첫 컬럼만 표제어가 된다', () => {
+        const result = parseImportedText('lemon — 레몬\nstrawberry — 딸기\nbroccoli — 브로콜리');
+        expect(result.map(w => w.term)).toEqual(['lemon', 'strawberry', 'broccoli']);
+    });
+
+    test('en dash 와 공백 하이픈도 자른다', () => {
+        expect(parseImportedText('apple – 사과')[0].term).toBe('apple');
+        expect(parseImportedText('banana - 바나나')[0].term).toBe('banana');
+    });
+
+    test('콜론은 뒤에 공백이 있을 때만 자른다', () => {
+        expect(parseImportedText('hello: 안녕')[0].term).toBe('hello');
+        // 붙여 쓴 콜론은 자르지 않는다 (정상 표제어에 낀 콜론을 먼저 지킨다)
+        expect(parseImportedText('note:memo')[0].term).toBe('note:memo');
+    });
+
+    test('파이프로 구분된 목록도 자른다', () => {
+        expect(parseImportedText('water|물')[0].term).toBe('water');
+    });
+
+    // 🔴 여기가 이 수정에서 깨뜨리면 안 되는 자리다 — 단어 안의 하이픈은 구분자가 아니다.
+    test('단어 안에 붙어 있는 하이픈은 자르지 않는다', () => {
+        const result = parseImportedText('e-mail\nK-pop\nself-esteem\nT-shirt');
+        expect(result.map(w => w.term)).toEqual(['e-mail', 'K-pop', 'self-esteem', 'T-shirt']);
+    });
+
+    test('구분자로 시작하는 줄은 자르지 않는다 (빈 표제어 방지)', () => {
+        const result = parseImportedText('— 레몬');
+        expect(result[0].term).toBe('— 레몬');
+    });
+
+    test('탭·콤마가 대시보다 앞서면 탭·콤마에서 자른다', () => {
+        expect(parseImportedText('apple\t사과 — fruit')[0].term).toBe('apple');
+        expect(parseImportedText('apple,사과 — fruit')[0].term).toBe('apple');
+    });
+});

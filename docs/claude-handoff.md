@@ -1083,8 +1083,9 @@ sync 와 DB 매퍼뿐). 부작용: ⑴ 완주마다 아무도 안 보는 값 때
 | iOS | ✅ FINISHED | 1.6.1 · build **39** | `98e30ca` |
 | Android | 진행 중이었음 → **다음 세션에서 상태부터 확인** | 1.6.1 · vc **26** | `98e30ca` |
 
-✅ **TestFlight 제출도 올렸다**(`eas submit --platform ios --profile production --latest`).
-**결과를 확인하지 못한 채 세션이 끝났다 — 다음 세션 첫 일이 이것이다.**
+✅ **TestFlight 업로드까지 끝났다**(`eas submit --platform ios --profile production --latest`).
+로그 본문에서 *"Submitted your app to Apple App Store Connect"* 확인. 제출 id `848788e8`.
+🔴 **Android 빌드는 진행 중인 채로 세션이 끝났다 — 상태 확인이 다음 세션 첫 일이다.**
 
 🔴 **versionCode 가 25 가 아니라 26 이다.** 할당량에 막혀 죽은 시도가 번호를 한 번 올려
 두고 죽었다. Play 프로덕션이 24 라 문제는 없고 **25 는 영구 결번**이다.
@@ -1096,9 +1097,10 @@ failed.` 를 볼 것.** 이번엔 큐 진입을 따로 감시하는 백그라운
 
 ### 1. 그다음 순서
 
-0. 🔴 **TestFlight 제출 결과부터 확인한다.** 올려 놓고 결과를 못 봤다.
-   `eas build:list --platform ios --limit 1 --json` 의 제출 상태 또는 App Store Connect.
-   실패했으면 자격 증명(ASC API 키) 쪽을 먼저 볼 것.
+0. ✅ **TestFlight 업로드는 성공했다**(8/27 · 제출 `848788e8`). *"Submitted your app to
+   Apple App Store Connect"* 까지 확인. Apple 처리 5~10분 뒤 메일이 오고, 빌드는
+   https://appstoreconnect.apple.com/apps/6776714408/testflight/ios 에 뜬다.
+   **다음 세션에서는 TestFlight 에 실제로 올라왔는지만 보면 된다.**
    🔴 **iOS 온보딩 최초 실행은 TestFlight 로 검증할 수 없다** — 빌드를 교체하면 앱 데이터가
    지워져 그 경로를 재현하지 못한다([[env_testflight_build_swap_wipes_data]]).
    Android preview 4/4 가 이 수정에 대한 검증의 전부다. 코드는 플랫폼 공통

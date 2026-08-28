@@ -1718,6 +1718,7 @@
     "ing_form": "-ing form",
     "comparative": "comparative",
     "superlative": "superlative",
-    "conjugated": "conjugated form"
+    "conjugated": "conjugated form",
+    "searchBase": "Search {{base}}"
   }
 }

@@ -1305,6 +1305,7 @@
     "ing_form": "forma en -ing",
     "comparative": "comparativo",
     "superlative": "superlativo",
-    "conjugated": "forma conjugada"
+    "conjugated": "forma conjugada",
+    "searchBase": "Buscar {{base}}"
   }
 }

@@ -363,6 +363,15 @@ export default function AddWordScreen() {
     // 굴절형 원형 한 줄("abandon의 과거분사"). 어순이 언어마다 달라 조립은 i18n 이 한다.
     // 굴절형이 아니면 null 이라 아무것도 그리지 않는다(lib/inflection.ts).
     const baseFormLine = formatBaseFormLine(baseForm.baseForm, baseForm.inflection, t);
+    const baseFormTerm = (baseForm.baseForm ?? '').trim();
+    /*
+     * 원형 줄을 눌러 그 원형을 검색하는 동선(목업 "굴절형 원형 표기안" B안).
+     *
+     * 🔴 편집 중에는 누를 수 없다. 편집 화면에서 표제어를 바꾸는 것은 "다른 단어를 찾는다"가
+     *    아니라 **편집 중인 단어의 이름이 바뀌는 것**이라, 저장하면 anomalies 가 anomaly 로
+     *    개명된다. 새 단어를 담는 중일 때만 검색으로 해석한다.
+     */
+    const canSearchBaseForm = !!baseFormLine && !!baseFormTerm && !isEditing;
 
     useEffect(() => {
         if (aiQuotaHitAt) {
@@ -916,6 +925,21 @@ export default function AddWordScreen() {
         // 의도한 blur이므로 테두리 강조도 함께 끈다.
         termInputRef.current?.blur();
         setIsTermFocused(false);
+    };
+
+    // 원형 줄 탭 = 그 원형으로 검색. 자동완성 후보 탭(아래 suggestionItem)과 같은 절차다 —
+    // 표제어를 바꾸고, 열려 있던 후보 목록을 접고, 키보드를 내린 뒤 검색한다.
+    const handleSearchBaseForm = () => {
+        if (!canSearchBaseForm) return;
+        if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+        suggestionsDismissedRef.current = true;
+        setTerm(baseFormTerm);
+        setSuggestions([]);
+        setShowSuggestions(false);
+        setSuggestLoading(false);
+        Haptics.selectionAsync();
+        blurTermInput();
+        handleAutoFillWithTerm(baseFormTerm);
     };
 
     // 저장 후 다음 단어를 바로 칠 수 있게 입력창으로 돌아온다(포커스 + 키보드).
@@ -1481,15 +1505,34 @@ export default function AddWordScreen() {
                                                     B안의 화면 두 곳이다. 검색 중에는 아래 진행 안내에 자리를 내준다:
                                                     새 표제어의 결과가 오기 전까지는 앞 단어의 원형이 남아 있어 오해를 부른다. */}
                                                 {!!baseFormLine && !isPendingFill && (
-                                                    <Animated.View
-                                                        entering={FadeIn}
-                                                        exiting={FadeOut}
-                                                        style={[styles.baseFormRow, { backgroundColor: colors.primaryLight }]}
-                                                    >
-                                                        <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
-                                                        <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
-                                                            {baseFormLine}
-                                                        </Text>
+                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.baseFormWrap}>
+                                                        {/* 누를 수 있을 때만 Pressable 로 감싼다 — 편집 중에는 돋보기도
+                                                            안 그려서 "눌러도 되는 것"으로 보이지 않게 한다. */}
+                                                        {canSearchBaseForm ? (
+                                                            <Pressable
+                                                                onPress={handleSearchBaseForm}
+                                                                accessibilityRole="button"
+                                                                accessibilityLabel={t('inflection.searchBase', { base: baseFormTerm })}
+                                                                hitSlop={6}
+                                                                style={({ pressed }) => [
+                                                                    styles.baseFormRow,
+                                                                    { backgroundColor: colors.primaryLight, opacity: pressed ? 0.7 : 1 },
+                                                                ]}
+                                                            >
+                                                                <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                                                                <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                                                    {baseFormLine}
+                                                                </Text>
+                                                                <Ionicons name="search-outline" size={12} color={colors.primary} />
+                                                            </Pressable>
+                                                        ) : (
+                                                            <View style={[styles.baseFormRow, { backgroundColor: colors.primaryLight }]}>
+                                                                <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                                                                <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                                                    {baseFormLine}
+                                                                </Text>
+                                                            </View>
+                                                        )}
                                                     </Animated.View>
                                                 )}
                                                 {/* 검색 진행 안내. 돋보기 자리의 스피너가 "돌아가는 중"을, 이 줄이 "무엇을
@@ -2175,7 +2218,10 @@ const styles = StyleSheet.create({
     // 두 화면에서 다르게 보이면 안 된다.
     // ⚠️ overflow:'hidden' 은 장식이 아니다. Android(Fabric)에서 backgroundColor +
     //    borderRadius 만으로는 모서리가 각지게 그려진다(CLAUDE.md 의 UI 체크리스트).
-    baseFormRow: { flexDirection: 'row', alignItems: 'baseline', gap: 4, marginTop: 8, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 8, alignSelf: 'flex-start', overflow: 'hidden' },
+    // 알약이 줄 전체로 늘어나지 않게 감싸는 자리. Pressable 쪽에 alignSelf 를 두면
+    // 눌리는 영역이 글자에 딱 붙어 좁아진다 — 바깥에서 폭을 잡고 안쪽은 알약만 그린다.
+    baseFormWrap: { alignSelf: 'flex-start', marginTop: 8 },
+    baseFormRow: { flexDirection: 'row', alignItems: 'center', gap: 4, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 8, overflow: 'hidden' },
     baseFormArrow: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
     baseFormText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flexShrink: 1 },
     searchingText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', lineHeight: 17 },

@@ -1718,6 +1718,7 @@
     "ing_form": "-ing형",
     "comparative": "비교급",
     "superlative": "최상급",
-    "conjugated": "활용형"
+    "conjugated": "활용형",
+    "searchBase": "본말 {{base}} 검색"
   }
 }

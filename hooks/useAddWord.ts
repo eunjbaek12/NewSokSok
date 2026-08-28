@@ -321,7 +321,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setIsPendingFill(false);
             setPendingFillTerm('');
         }
-    }, [sourceLang, targetLang, apiKey, clearStaleAutoFill, rememberFill]);
+    }, [sourceLang, targetLang, apiKey, clearStaleAutoFill, rememberFill, applyBaseForm]);
 
     useEffect(() => { runAutoFillRef.current = runAutoFill; }, [runAutoFill]);
 

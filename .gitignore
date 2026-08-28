@@ -114,3 +114,4 @@ scripts/.mono-review.json
 scripts/_backfill-base-form-backup.jsonl
 scripts/_backfill-base-form-progress.json
 scripts/_trim-inflection-note-backup.jsonl
+scripts/_verify-base-form-backup.jsonl

@@ -24,6 +24,15 @@
  *   `-er/-est` 로 끝나는 표제어 1,220개의 앞 40개에 비교급이 하나도 없었고
  *   (answer·anger·after·banker…), `analysis → analysi` 같은 오탐이 확실하다.
  *
+ * 🔴 실행 전에 **Gemini 선불 크레딧 잔액을 확인할 것**. 2026-08-28 실행이 중간에
+ *    `429 Your prepayment credits are depleted` 로 478회 연속 실패했다. 무료 폴백이
+ *    없어서 그 뒤로는 아무것도 진행되지 않는다. 충전: https://ai.studio/projects
+ *    (Vertex 와 지갑이 다르다 — 서버가 멀쩡해도 이쪽은 따로 떨어진다.)
+ *
+ * 🔴 백그라운드로 돌렸다면 **정말 멈췄는지 확인할 것**. 같은 날 kill 알림을 받은 실행이
+ *    실제로는 계속 돌아 판정을 마치고 9,535행을 썼다. 뒤이어 띄운 실행과 잠시 겹쳤는데,
+ *    "값이 이미 같으면 건너뛴다" 가드 덕에 중복 쓰기는 없었다 — 그 가드를 지울 것.
+ *
  * 실행:
  *   npx tsx scripts/backfill-base-form.ts --dry-run          # 대상 규모만 집계(호출 없음)
  *   npx tsx scripts/backfill-base-form.ts --sample 200       # 200개만 판정해 품질 확인
@@ -35,10 +44,13 @@
  *   --resume         progress 파일에서 이어서
  */
 import { createClient } from '@supabase/supabase-js';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { resolveScriptModel } from './_shared/model';
 
 const PROGRESS_FILE = 'scripts/_backfill-base-form-progress.json';
+// 🔑 덮어쓰기 전 원본을 남긴다. free 플랜은 백업이 없어서, 파괴적 쓰기 직전에
+//    스스로 남기는 것 말고는 되돌릴 방법이 없다(project_supabase_backup).
+const BACKUP_FILE = 'scripts/_backfill-base-form-backup.jsonl';
 const PROMPT_VERSION = 7; // enrich-word/index.ts 와 동일. 올리지 않는다.
 const CODES = [
   'plural', 'past', 'past_participle', 'third_person',
@@ -105,7 +117,23 @@ type Row = {
  */
 function meaningIsOnlyGrammar(meaning: string): boolean {
   const m = (meaning ?? '').trim();
-  if (!m || m.length > 60) return false;
+  if (!m) return false;
+
+  // 🔑 축약형 설명은 **그 자체가 뜻이다** — 덮어쓰면 안 된다.
+  //    couldnt → "'could not'의 축약형."  /  코로나 → "Abbreviation for COVID-19"
+  //    이 예외가 없으면 정상적인 뜻 수백 건을 문법 설명으로 오인한다.
+  if (/축약|줄임말|contraction|abbreviation|viết tắt/i.test(m)) return false;
+
+  // 영어로 쓰인 문법 서술로 **시작**하는 것. 한국어 활용형 쪽에 대량으로 있었고
+  // (막히 → "The stem of the verb 'makhida'", 떠날 → "The future adnominal form…"),
+  // 길이가 60자를 넘어 아래 패턴들이 통째로 놓치고 있었다 — 그래서 길이 제한 밖에 둔다.
+  if (/^(the |an? )?(stem|adnominal|inflected|conjugated|declarative|connective|honorific|imperative|passive|causative)\s/i.test(m)) return true;
+  if (/^(the |a )?(present|past|future)\s+(tense|participle|adnominal|progressive)/i.test(m)) return true;
+  if (/^past (tense|participle)/i.test(m)) return true;
+  if (/^(the )?(form|stem) of (the )?(verb|adjective|noun)/i.test(m)) return true;
+  if (/^this is the (stem|form)/i.test(m)) return true;
+
+  if (m.length > 60) return false;
   const patterns: RegExp[] = [
     // 🔑 판정의 핵심은 "의" 앞이 **출발어(라틴 문자) 원형인가**이다. 거기가 한국어면 그것은
     //    이미 뜻이고, 문법 설명이 뒤에 덧붙었을 뿐이라 덮어쓰면 멀쩡한 뜻을 잃는다.
@@ -135,6 +163,7 @@ Rules:
 - "inflection" MUST be exactly one of: ${CODES.join(', ')}. Use "conjugated" for Korean/Japanese verb-adjective conjugations.
 - If the entry is ALREADY a dictionary headword, or you are unsure, return "baseForm": "" and "inflection": "".
 - Include irregular forms — these matter most: went → go (past), mice → mouse (plural), better → good (comparative), children → child (plural), taught → teach (past).
+- Proper nouns are NOT inflected forms even when they end in -s: Abrams, Athens, Paris, Reuters, Wales, Naples. Return empty for them. (Observed defect: "abrams" was judged as plural of "abram".)
 - Be careful with look-alikes that are NOT inflected: "analysis", "glass", "business", "answer", "anger", "after", "banker", "banner" are headwords, not inflections. Korean "가을", "마을", "또는" are headwords too.
 - A word that is BOTH a headword and an inflected form (e.g. "meeting", "building", "feeling" as nouns) → still give its baseForm and "ing_form"; the app shows the noun meaning and the origin side by side.
 - Never write a phrase or a translated label in "inflection". Only the codes above.
@@ -190,7 +219,7 @@ async function callGemini(prompt: string): Promise<any[]> {
  */
 type ScanRow = {
   source_lang: string; target_lang: string; term: string;
-  meaning: string | null; base: string | null;
+  meaning: string | null; base: string | null; hits: number | null;
 };
 
 const PAGE = 500;
@@ -210,7 +239,7 @@ async function scanCache(langs: string[]): Promise<ScanRow[]> {
   const out: ScanRow[] = [];
   for (let from = 0; ; from += PAGE) {
     const b = await withRetry<ScanRow[]>('스캔', () => sb.from('enrich_cache')
-      .select('source_lang, target_lang, term, meaning:result->>meaningKr, base:result->>baseForm')
+      .select('source_lang, target_lang, term, hits:hit_count, meaning:result->>meaningKr, base:result->>baseForm')
       .in('source_lang', langs)
       .eq('prompt_version', PROMPT_VERSION)
       .order('term').order('source_lang').order('target_lang')
@@ -251,14 +280,125 @@ async function mapLimit<T, R>(items: T[], limit: number, fn: (x: T, i: number) =
   return out;
 }
 
+/** 덮어쓰기 전 원본 한 줄을 append 한다. 되돌릴 때 이 파일만 있으면 된다. */
+function backup(row: Row, what: 'baseForm' | 'meaningKr') {
+  appendFileSync(BACKUP_FILE, JSON.stringify({
+    at: new Date().toISOString(), what,
+    source_lang: row.source_lang, target_lang: row.target_lang, term: row.term,
+    before: row.result,
+  }) + '\n', 'utf8');
+}
+
+
+/**
+ * 한 배치(같은 언어의 표제어 묶음)를 판정하고 **그 자리에서 캐시에 쓴다.**
+ *
+ * 🔴 판정을 다 끝낸 뒤 몰아서 쓰던 구조를 이렇게 바꿨다. 2026-08-28 실행이 5,700/36,524
+ *    에서 끊겼는데, 그 시점까지 판정한 732개가 **캐시에 하나도 반영되지 않았다** —
+ *    17분을 온전히 버텨야만 결과가 남는 구조였기 때문이다. 배치마다 쓰면 언제 멈춰도
+ *    그 시점까지가 서버에 남고, 중간에 실제 값을 확인하고 계속할지 판단할 수 있다.
+ */
+async function processGroup(
+  lang: string,
+  keys: string[],
+  byTerm: Map<string, ScanRow[]>,
+  done: Record<string, { baseForm: string; inflection: string }>,
+  stats: { judged: number; inflected: number; rejected: number; written: number; fixed: number },
+): Promise<void> {
+  // ① 판정 — progress 에 이미 있는 키는 건너뛴다(재개·선반영 경로).
+  const need = keys.filter(k => !(k in done));
+  if (need.length > 0) {
+    const needTerms = need.map(k => byTerm.get(k)![0].term);
+    try {
+      const res = await callGemini(buildPrompt(lang, needTerms));
+      for (let i = 0; i < need.length; i++) {
+        const item = res[i] ?? {};
+        const base = typeof item.baseForm === 'string' ? item.baseForm.trim() : '';
+        const infl = typeof item.inflection === 'string' ? item.inflection.trim() : '';
+        const term = needTerms[i];
+        // 검증 3종: 코드가 목록 안 · 원형이 비지 않음 · 원형 ≠ 표제어.
+        if (base && CODE_SET.has(infl) && base.toLowerCase() !== term.trim().toLowerCase()) {
+          done[need[i]] = { baseForm: base, inflection: infl };
+          stats.inflected++;
+        } else {
+          done[need[i]] = { baseForm: '', inflection: '' };
+          if (base && !CODE_SET.has(infl)) stats.rejected++;
+        }
+      }
+    } catch (e: any) {
+      console.error(`\n판정 실패(${lang}, ${needTerms.length}개): ${e.message}`);
+      return; // 이 배치는 건너뛴다 — progress 에 안 남으므로 재개 때 다시 시도된다.
+    }
+  }
+  stats.judged += keys.length;
+
+  // ② 굴절형으로 판정된 표제어의 행을 읽어 두 칸을 얹는다.
+  const hit = keys.filter(k => done[k]?.baseForm);
+  if (hit.length === 0) return;
+  const rows = await fetchRowsForTerms(lang, hit.map(k => byTerm.get(k)![0].term));
+  const dirtyRows: Row[] = [];
+  for (const row of rows) {
+    const k = `${row.source_lang}|${row.term.trim().toLowerCase()}`;
+    const v = done[k];
+    if (!v?.baseForm) continue;
+    // 이미 같은 값이면 건너뛴다 — 재실행이 쓸데없이 쓰지 않게.
+    if (row.result?.baseForm === v.baseForm && row.result?.inflection === v.inflection) {
+      if (meaningIsOnlyGrammar(row.result?.meaningKr ?? '')) dirtyRows.push(row);
+      continue;
+    }
+    backup(row, 'baseForm');
+    const next = { ...row.result, baseForm: v.baseForm, inflection: v.inflection };
+    const { error } = await sb.from('enrich_cache')
+      .update({ result: next })
+      .eq('source_lang', row.source_lang)
+      .eq('target_lang', row.target_lang)
+      .eq('term', row.term)
+      .eq('prompt_version', PROMPT_VERSION);
+    if (error) console.error(`\n쓰기 실패 ${row.term}: ${error.message}`);
+    else stats.written++;
+    // 뜻이 문법 설명뿐인 행은 뜻도 되살린다 — 이 소급의 핵심이다.
+    if (meaningIsOnlyGrammar(row.result?.meaningKr ?? '')) dirtyRows.push({ ...row, result: next });
+  }
+
+  // ③ 뜻 복구 — 도착어가 갈리므로 언어쌍별로 묶어 부른다.
+  if (dirtyRows.length === 0) return;
+  const byPair = new Map<string, Row[]>();
+  for (const r of dirtyRows) {
+    const k = `${r.source_lang}>${r.target_lang}`;
+    (byPair.get(k) ?? byPair.set(k, []).get(k)!).push(r);
+  }
+  for (const [pair, list] of byPair) {
+    const [srcLang, tgtLang] = pair.split('>');
+    try {
+      const res = await callGemini(buildMeaningPrompt(list.map(r => ({ term: r.term, srcLang, tgtLang }))));
+      for (let j = 0; j < list.length; j++) {
+        const meaning = typeof res[j]?.meaning === 'string' ? res[j].meaning.trim() : '';
+        // 복구값이 또 문법 설명이면 쓰지 않는다 — 나쁜 값을 나쁜 값으로 바꾸지 않는다.
+        if (!meaning || meaningIsOnlyGrammar(meaning)) continue;
+        const row = list[j];
+        backup(row, 'meaningKr');
+        const { error } = await sb.from('enrich_cache')
+          .update({ result: { ...row.result, meaningKr: meaning } })
+          .eq('source_lang', row.source_lang)
+          .eq('target_lang', row.target_lang)
+          .eq('term', row.term)
+          .eq('prompt_version', PROMPT_VERSION);
+        if (!error) stats.fixed++;
+      }
+    } catch (e: any) {
+      console.error(`\n뜻 복구 실패(${pair}): ${e.message}`);
+    }
+  }
+}
+
 async function main() {
   console.log(`모델 ${MODEL} · 언어 ${LANGS.join(',')} · 배치 ${BATCH} · 동시 ${CONCURRENCY}${DRY ? ' · DRY RUN' : ''}\n`);
 
   const scan = await scanCache(LANGS);
   console.log(`캐시 ${scan.length}행 (prompt_version=${PROMPT_VERSION})`);
 
-  // 이미 채워진 행은 건너뛴다(재실행 안전).
-  const pending = scan.filter(r => !r.base);
+  // --redo 는 이미 채워진 행도 다시 판정한다. 프롬프트를 고친 뒤 옛 판정을 덮을 때 쓴다.
+  const pending = has('redo') ? scan : scan.filter(r => !r.base);
   const byTerm = new Map<string, ScanRow[]>();
   for (const r of pending) {
     const k = `${r.source_lang}|${r.term.trim().toLowerCase()}`;
@@ -274,147 +414,58 @@ async function main() {
       console.log(`    [${r.source_lang}>${r.target_lang}] ${r.term} → "${r.meaning}"`);
     }
   }
-  const calls = Math.ceil(byTerm.size / BATCH);
-  console.log(`\n예상 호출 ${calls}회 (배치 ${BATCH})`);
 
   if (DRY) {
-    console.log('\n--dry-run 이라 여기서 멈춘다. 호출도 쓰기도 하지 않았다.');
+    console.log(`\n예상 호출 ${Math.ceil(byTerm.size / BATCH)}회 (배치 ${BATCH})`);
+    console.log('--dry-run 이라 여기서 멈춘다. 호출도 쓰기도 하지 않았다.');
     return;
   }
 
-  // ── Phase 1: 표제어 판정 ────────────────────────────────
-  let keys = [...byTerm.keys()];
+  const done: Record<string, { baseForm: string; inflection: string }> =
+    existsSync(PROGRESS_FILE) ? JSON.parse(readFileSync(PROGRESS_FILE, 'utf8')) : {};
+
+  // 🔑 자주 조회되는 단어부터 처리한다. 알파벳 순으로 돌면 a 로 시작하는 단어에 시간을
+  //    다 쓰고, 중간에 멈췄을 때 사용자가 체감하는 개선이 없다. 최종 결과는 같고
+  //    중단에 대한 보험만 강해진다.
+  const hitOf = (keys: ScanRow[]) => Math.max(...keys.map(r => r.hits ?? 0));
+  let keys = [...byTerm.keys()].sort((a, b) => hitOf(byTerm.get(b)!) - hitOf(byTerm.get(a)!));
   if (SAMPLE > 0) keys = keys.slice(0, SAMPLE);
 
-  const done: Record<string, { baseForm: string; inflection: string }> =
-    has('resume') && existsSync(PROGRESS_FILE)
-      ? JSON.parse(readFileSync(PROGRESS_FILE, 'utf8'))
-      : {};
-  const todo = keys.filter(k => !(k in done));
-  console.log(`판정할 표제어 ${todo.length} (이미 판정 ${Object.keys(done).length})`);
+  // 이미 판정된 것을 앞으로 — API 호출 없이 캐시 반영만 하면 되므로 먼저 끝낸다.
+  const already = keys.filter(k => k in done);
+  const fresh = keys.filter(k => !(k in done));
+  console.log(`\n표제어 ${keys.length} — 판정 완료 ${already.length}(선반영) · 새로 판정 ${fresh.length}`);
 
-  const groups: string[][] = [];
-  for (let i = 0; i < todo.length; i += BATCH) groups.push(todo.slice(i, i + BATCH));
+  const stats = { judged: 0, inflected: 0, rejected: 0, written: 0, fixed: 0 };
+  const report = () => process.stdout.write(
+    `\r판정 ${stats.judged}/${keys.length} · 굴절형 ${stats.inflected} · 쓰기 ${stats.written} · 뜻복구 ${stats.fixed}      `,
+  );
 
-  let judged = 0, inflected = 0, rejected = 0;
-  await mapLimit(groups, CONCURRENCY, async (group) => {
-    const lang = group[0].split('|')[0];
-    // 배치는 같은 언어끼리만 — 프롬프트가 언어를 명시한다.
-    const sameLang = group.filter(k => k.startsWith(`${lang}|`));
-    const terms = sameLang.map(k => byTerm.get(k)![0].term);
-    try {
-      const res = await callGemini(buildPrompt(lang, terms));
-      for (let i = 0; i < sameLang.length; i++) {
-        const item = res[i] ?? {};
-        const base = typeof item.baseForm === 'string' ? item.baseForm.trim() : '';
-        const infl = typeof item.inflection === 'string' ? item.inflection.trim() : '';
-        const term = terms[i];
-        // 검증 3종: 코드가 목록 안 · 원형이 비지 않음 · 원형 ≠ 표제어.
-        if (base && CODE_SET.has(infl) && base.toLowerCase() !== term.trim().toLowerCase()) {
-          done[sameLang[i]] = { baseForm: base, inflection: infl };
-          inflected++;
-        } else {
-          done[sameLang[i]] = { baseForm: '', inflection: '' };
-          if (base && !CODE_SET.has(infl)) rejected++;
-        }
-      }
-    } catch (e: any) {
-      console.error(`\n판정 실패(${lang}, ${terms.length}개): ${e.message}`);
+  // 언어별로 배치를 만든다 — 프롬프트가 언어를 명시하므로 섞으면 안 된다.
+  const makeGroups = (list: string[]): { lang: string; keys: string[] }[] => {
+    const byLang = new Map<string, string[]>();
+    for (const k of list) {
+      const lang = k.split('|')[0];
+      (byLang.get(lang) ?? byLang.set(lang, []).get(lang)!).push(k);
     }
-    judged += sameLang.length;
-    process.stdout.write(`\r판정 ${judged}/${todo.length} · 굴절형 ${inflected} · 코드거부 ${rejected}   `);
-    writeFileSync(PROGRESS_FILE, JSON.stringify(done), 'utf8');
-  });
-  console.log(`\n판정 완료 — 굴절형 ${inflected} / ${judged}`);
+    const out: { lang: string; keys: string[] }[] = [];
+    for (const [lang, ks] of byLang) {
+      for (let i = 0; i < ks.length; i += BATCH) out.push({ lang, keys: ks.slice(i, i + BATCH) });
+    }
+    return out;
+  };
 
-  // ── Phase 2: 캐시에 두 칸 쓰기 ───────────────────────────
-  let written = 0, failed = 0;
-  const targets = Object.entries(done).filter(([, v]) => v.baseForm);
-  // 고칠 행만 result 포함으로 읽는다 — 스캔은 두 키만 받았다.
-  const byLangTerms = new Map<string, string[]>();
-  for (const [key] of targets) {
-    const [lang, term] = key.split('|');
-    (byLangTerms.get(lang) ?? byLangTerms.set(lang, []).get(lang)!).push(term);
+  for (const phase of [already, fresh]) {
+    if (phase.length === 0) continue;
+    await mapLimit(makeGroups(phase), CONCURRENCY, async (g) => {
+      await processGroup(g.lang, g.keys, byTerm, done, stats);
+      writeFileSync(PROGRESS_FILE, JSON.stringify(done), 'utf8');
+      report();
+    });
   }
-  const fullRows = new Map<string, Row[]>();
-  for (const [lang, terms] of byLangTerms) {
-    const rows = await fetchRowsForTerms(lang, terms);
-    for (const r of rows) {
-      const k = `${r.source_lang}|${r.term.trim().toLowerCase()}`;
-      (fullRows.get(k) ?? fullRows.set(k, []).get(k)!).push(r);
-    }
-    process.stdout.write(`대상 행 로드 ${lang} ${rows.length}…   `);
-  }
-  console.log();
-  for (const [key, v] of targets) {
-    for (const row of fullRows.get(key) ?? []) {
-      // result 를 통째로 읽어 두 키만 얹는다 — 다른 키를 잃지 않게.
-      const next = { ...row.result, baseForm: v.baseForm, inflection: v.inflection };
-      const { error } = await sb.from('enrich_cache')
-        .update({ result: next })
-        .eq('source_lang', row.source_lang)
-        .eq('target_lang', row.target_lang)
-        .eq('term', row.term)
-        .eq('prompt_version', PROMPT_VERSION);
-      if (error) { failed++; if (failed < 4) console.error(`\n쓰기 실패 ${row.term}: ${error.message}`); }
-      else written++;
-      if (written % 200 === 0) process.stdout.write(`\r쓰기 ${written}…   `);
-    }
-  }
-  console.log(`\n캐시 쓰기 ${written}행 (실패 ${failed})`);
 
-  // ── Phase 3: 문법 설명만 남은 뜻 복구 ────────────────────
-  // 굴절형으로 판정된 것만 대상 — 판정이 안 된 행의 뜻을 건드리면 범위를 넘는다.
-  const fixable = dirty.filter(r => {
-    const k = `${r.source_lang}|${r.term.trim().toLowerCase()}`;
-    return done[k]?.baseForm;
-  });
-  console.log(`\n뜻 복구 대상 ${fixable.length}행 (판정된 굴절형 중 문법 설명만인 것)`);
-  if (!fixable.length) return;
-
-  const byPair = new Map<string, ScanRow[]>();
-  for (const r of fixable) {
-    const k = `${r.source_lang}>${r.target_lang}`;
-    (byPair.get(k) ?? byPair.set(k, []).get(k)!).push(r);
-  }
-  // 뜻을 갈아끼우려면 result 원본이 필요하다 — 대상만 다시 읽는다.
-  const fixRows = new Map<string, Row>();
-  for (const [pair, list] of byPair) {
-    const lang = pair.split('>')[0];
-    for (const r of await fetchRowsForTerms(lang, list.map(x => x.term))) {
-      fixRows.set(`${r.source_lang}>${r.target_lang}|${r.term}`, r);
-    }
-  }
-  let fixed = 0;
-  for (const [pair, list] of byPair) {
-    const [srcLang, tgtLang] = pair.split('>');
-    for (let i = 0; i < list.length; i += BATCH) {
-      const chunk = list.slice(i, i + BATCH);
-      try {
-        const res = await callGemini(buildMeaningPrompt(chunk.map(r => ({ term: r.term, srcLang, tgtLang }))));
-        for (let j = 0; j < chunk.length; j++) {
-          const meaning = typeof res[j]?.meaning === 'string' ? res[j].meaning.trim() : '';
-          // 복구값이 또 문법 설명이면 쓰지 않는다 — 나쁜 값을 나쁜 값으로 바꾸지 않는다.
-          if (!meaning || meaningIsOnlyGrammar(meaning)) continue;
-          const scanRow = chunk[j];
-          const row = fixRows.get(`${scanRow.source_lang}>${scanRow.target_lang}|${scanRow.term}`);
-          if (!row) continue;
-          const next = { ...row.result, meaningKr: meaning };
-          const { error } = await sb.from('enrich_cache')
-            .update({ result: next })
-            .eq('source_lang', row.source_lang)
-            .eq('target_lang', row.target_lang)
-            .eq('term', row.term)
-            .eq('prompt_version', PROMPT_VERSION);
-          if (!error) fixed++;
-        }
-      } catch (e: any) {
-        console.error(`\n뜻 복구 실패(${pair}): ${e.message}`);
-      }
-      process.stdout.write(`\r뜻 복구 ${fixed}/${fixable.length}   `);
-    }
-  }
-  console.log(`\n뜻 복구 완료 ${fixed}행`);
+  console.log(`\n\n완료 — 판정 ${stats.judged} · 굴절형 ${stats.inflected} · 캐시 쓰기 ${stats.written}행 · 뜻 복구 ${stats.fixed}행`);
+  if (stats.rejected) console.log(`형식 이탈로 버린 판정 ${stats.rejected}건`);
   console.log('\n⚠️ 사용자 단어장(cloud_words)은 건드리지 않았다 — 캐시만 고쳤다.');
   console.log('   기존 단어는 그 단어를 다시 조회할 때 채워진다.');
 }

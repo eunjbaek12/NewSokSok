@@ -110,3 +110,6 @@ scripts/.mono-review.json
 # 여기 txt 는 거기서 꺼내 쓰는 사본이라, 추적하면 같은 SQL 이 두 벌이 되어
 # 한쪽만 고쳐진다. 쿼리를 손봤으면 문서 쪽 Q 번호에 반영할 것.
 쿼리/
+
+scripts/_backfill-base-form-backup.jsonl
+scripts/_backfill-base-form-progress.json

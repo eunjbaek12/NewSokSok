@@ -162,6 +162,8 @@ const BASE_FORM_BLOCK = `
 INFLECTED FORMS — if "\${word}" is an inflected form rather than a dictionary headword:
 - Set "baseForm" to the headword it comes from (e.g. "abandoned" → "abandon", "mice" → "mouse", "better" → "good"), and "inflection" to EXACTLY ONE of these codes: plural, past, past_participle, third_person, ing_form, comparative, superlative, conjugated. Use "conjugated" for Korean/Japanese verb-adjective conjugations. Never invent a code and never write a phrase there.
 - If it is already a headword (or you are unsure), leave BOTH fields as empty strings.
+- A word that is BOTH a headword and an inflected form still gets its baseForm — "meeting", "building", "thanks" have noun meanings AND come from meet/build/thank. The app shows the noun meaning and the origin side by side, so fill both.
+- Not every added ending is on this list. Possessives ("book's", "city's") and contractions ("it's", "don't") are NOT plural, third_person or conjugated — leave BOTH fields empty for them rather than picking the nearest code.
 - 🔴 STILL FILL "meaningKr" WITH THE ACTUAL MEANING. Dictionaries write "plural of ability" and stop; do NOT. "mice" means "쥐들" / "mice", not "the plural of mouse". NEVER put a grammatical description ("past tense of X", "third-person singular of X", "plural of X") into "meaningKr" or into "definition" — that is what "baseForm" and "inflection" are for, and this app shows "meaningKr" on flashcards where a grammar note leaves nothing to learn.
 - Keep the meaning true to the inflected form: "abandoned" as an adjective is "버려진", not "버리다".`;
 

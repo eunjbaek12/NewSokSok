@@ -68,6 +68,34 @@ describe('굴절형 원형 프롬프트 — 두 경로 동기화', () => {
         .toEqual({ path, ok: true });
     }
   });
+
+  /**
+   * 표제어이면서 동시에 굴절형인 것(meeting·building·thanks)에도 원형을 준다.
+   *
+   * 이 문장이 소급 프롬프트에만 있고 실시간 쪽에 없어서, 형용사로 굳은 -ing형
+   * (bewildering 류)에 원형이 안 붙었다. 2026-08-28 에 옮겨 넣었다.
+   */
+  it('표제어이면서 굴절형인 것도 원형을 준다', () => {
+    for (const path of ENRICH_PROMPT_COPIES) {
+      expect({ path, ok: extractBlock(path).includes('BOTH a headword and an inflected form') })
+        .toEqual({ path, ok: true });
+    }
+  });
+
+  /**
+   * 🔴 소유격·축약형은 굴절 코드가 아니다.
+   *
+   * 코드 목록에 possessive 가 없으니 모델이 **가장 가까운 코드**를 골라 버렸다 — 캐시 실측에서
+   * `book's → book의 복수형` · `it's → it의 활용형` 부류가 135건 나왔고 전부 지워야 했다
+   * (scripts/verify-base-form.ts). 이 문장이 사라지면 그 부류가 그대로 돌아온다.
+   */
+  it('소유격·축약형은 굴절 코드가 아니라고 못박는다', () => {
+    for (const path of ENRICH_PROMPT_COPIES) {
+      const block = extractBlock(path);
+      expect({ path, possessive: block.includes('Possessives'), contraction: block.includes('contractions') })
+        .toEqual({ path, possessive: true, contraction: true });
+    }
+  });
 });
 
 describe('형태 코드 목록 — 앱·서버·DB 동기화', () => {

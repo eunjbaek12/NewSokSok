@@ -134,9 +134,18 @@ const JA_SENTENCE_ENDING = /(ます|ました|ません|でした|です|でし�
 // 단일 어휘 항목이 넘기 어려운 길이(런온 문장 컷). 한국어 최장 합성어도 여유롭게 통과.
 const MAX_WORD_LEN = 24;
 
+// 판정용 사본에서만 떼는 끝 구두점. 저장되는 표제어는 건드리지 않는다.
+//
+// 🔴 이게 없으면 종결어미 검사가 통째로 헛돈다 — 정규식이 `니다$`(문자열 끝)인데
+//    OCR 결과는 `걸렸습니다.` 처럼 구두점이 붙어 오는 게 **기본**이라 매치가 깨진다.
+//    2026-06-10 에 문장 조각 5건(`걸렸습니다.`·`환영!"이`·`"자랑스러운`·`날.`)이
+//    이 구멍으로 들어와 AI 한도를 썼다. 사진 경로 전용이라 덱의 표현 카드
+//    (`데워 드릴까요?`·`off with their heads!`)는 이 함수를 타지 않는다.
+const TRAILING_PUNCT = /[.,!?;:…。！？、"'”』」]+$/;
+
 // 토큰이 단어가 아니라 문장/구로 보이면 true(=제외).
 export function isLikelyPhrase(term: string, sourceLang: string): boolean {
-  const t = term.trim();
+  const t = term.trim().replace(TRAILING_PUNCT, '').trim();
   if (!t) return false;
   // 공백으로 3덩어리 이상 = 구/문장. (1공백 다어절 "sinh viên"·"ice cream"은 생존)
   if (t.split(/\s+/).filter(Boolean).length >= 3) return true;

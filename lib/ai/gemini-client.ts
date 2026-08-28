@@ -3,6 +3,7 @@ import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
 import { GEMINI_BYOK_MODEL } from '@/lib/ai/model';
 import { getAiLanguageName } from '@/constants/languages';
 import { assembleTopText, normalizeSenses } from '@/lib/senses';
+import { normalizeInflection } from '@/lib/inflection';
 import { fromZodError } from 'zod-validation-error';
 
 function getAIClient(apiKey: string): GoogleGenAI {
@@ -149,6 +150,25 @@ function parseAIJson<T>(
   return result.data as T;
 }
 
+/**
+ * 굴절형 원형 안내. Edge(_shared/gemini-vertex.ts)와 **같은 문구**여야 한다 —
+ * __tests__/base-form-prompt-sync.test.ts 가 강제한다.
+ *
+ * 사전은 `abilities` 에 뜻을 주지 않고 "plural of ability" 한 줄로 끝낸다. 그 관행을 그대로
+ * 따라간 결과가 지금 캐시에 남아 있다: went → "'go'의 과거 시제.", mice → "mouse의 복수형".
+ * 뜻 칸은 플래시카드 뒷면에 나가는 칸이라 문법 설명이 들어가면 외울 것이 사라진다.
+ */
+const BASE_FORM_BLOCK = `
+INFLECTED FORMS — if "\${word}" is an inflected form rather than a dictionary headword:
+- Set "baseForm" to the headword it comes from (e.g. "abandoned" → "abandon", "mice" → "mouse", "better" → "good"), and "inflection" to EXACTLY ONE of these codes: plural, past, past_participle, third_person, ing_form, comparative, superlative, conjugated. Use "conjugated" for Korean/Japanese verb-adjective conjugations. Never invent a code and never write a phrase there.
+- If it is already a headword (or you are unsure), leave BOTH fields as empty strings.
+- 🔴 STILL FILL "meaningKr" WITH THE ACTUAL MEANING. Dictionaries write "plural of ability" and stop; do NOT. "mice" means "쥐들" / "mice", not "the plural of mouse". NEVER put a grammatical description ("past tense of X", "third-person singular of X", "plural of X") into "meaningKr" or into "definition" — that is what "baseForm" and "inflection" are for, and this app shows "meaningKr" on flashcards where a grammar note leaves nothing to learn.
+- Keep the meaning true to the inflected form: "abandoned" as an adjective is "버려진", not "버리다".`;
+
+function buildBaseFormBlock(word: string): string {
+  return BASE_FORM_BLOCK.replace('${word}', word);
+}
+
 export async function analyzeWord(
   word: string,
   sourceLang: string,
@@ -197,7 +217,8 @@ ${buildRegisterNote(sourceLang)}
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
       - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
       - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-      Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.${sameLangBlock}`,
+      Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.
+${buildBaseFormBlock(word)}${sameLangBlock}`,
     config: {
       responseMimeType: 'application/json',
       responseSchema: {
@@ -211,6 +232,8 @@ ${buildRegisterNote(sourceLang)}
           meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty string if isReal is false.` },
           pos: { type: Type.STRING, description: 'Part of speech in ENGLISH ONLY (noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom) — never translated into the source or target language. Empty string if isReal is false.' },
           phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },
+          baseForm: { type: Type.STRING, description: `The dictionary headword "${word}" is an inflected form of (e.g. "abandoned" → "abandon", "mice" → "mouse"). Empty string when it is already a headword. Never a grammatical description.` },
+          inflection: { type: Type.STRING, description: 'Which inflected form this is. EXACTLY one of: plural, past, past_participle, third_person, ing_form, comparative, superlative, conjugated. Empty string when "baseForm" is empty. Never a phrase.' },
           senses: {
             type: Type.ARRAY,
             description: 'Homonyms only: one entry per distinct, unrelated sense (2-3, most common first), each single-sense with no numbering. Empty array for single-meaning words or when isReal is false.',
@@ -238,7 +261,9 @@ ${buildRegisterNote(sourceLang)}
     },
   }));
 
-  const parsed = parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
+  const raw = parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
+  // 원형·형태 검증은 Edge 경로와 같은 규칙이다(_shared/gemini-vertex.ts baseFormFields).
+  const parsed: AIWordResult = { ...raw, ...baseFormFields(raw.baseForm, raw.inflection, raw.term || word) };
 
   // 뜻이 2개 이상이면 상위 병기 텍스트는 senses 에서 다시 만든다 — 모델이 쓴 텍스트는
   // 배열보다 뜻이 적은 경우가 실측 15%였다(assembleTopText 주석). Edge 경로
@@ -251,5 +276,21 @@ ${buildRegisterNote(sourceLang)}
     definition: assembleTopText(senses, 'definition') || parsed.definition,
     senses,
   };
+}
+
+/**
+ * 원형·형태를 검증해 정리한다. Edge 의 같은 이름 함수와 규칙이 같아야 한다.
+ *   1. 형태 코드가 목록 밖 → 자유 텍스트. 버린다.
+ *   2. 원형이 비었는데 형태만 있음 → 쓸 데가 없다. 버린다.
+ *   3. 원형이 표제어와 같음 → 굴절형이 아닌데 모델이 자기 자신을 넣은 것. 버린다.
+ */
+function baseFormFields(
+  rawBase: unknown, rawInfl: unknown, term: string,
+): { baseForm?: string; inflection?: string } {
+  const base = typeof rawBase === 'string' ? rawBase.trim() : '';
+  const infl = normalizeInflection(typeof rawInfl === 'string' ? rawInfl.trim() : '');
+  if (!base || !infl) return { baseForm: undefined, inflection: undefined };
+  if (base.toLowerCase() === term.trim().toLowerCase()) return { baseForm: undefined, inflection: undefined };
+  return { baseForm: base, inflection: infl };
 }
 

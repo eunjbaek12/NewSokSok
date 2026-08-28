@@ -1291,5 +1291,16 @@
     "w3ExampleTr": "La práctica constante crea la habilidad.",
     "w3Meaning": "ser constante, perseverante",
     "w3Tags": "Hábito"
+  },
+  "inflection": {
+    "line": "{{form}} de {{base}}",
+    "plural": "plural",
+    "past": "pasado",
+    "past_participle": "participio pasado",
+    "third_person": "tercera persona del singular",
+    "ing_form": "forma en -ing",
+    "comparative": "comparativo",
+    "superlative": "superlativo",
+    "conjugated": "forma conjugada"
   }
 }

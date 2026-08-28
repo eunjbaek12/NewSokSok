@@ -162,6 +162,7 @@ export async function autoFillWord(
         mnemonic: data.mnemonic || '',
         pos: data.pos || '',
         phonetic: data.phonetic || '',
+        ...(data.baseForm ? { baseForm: data.baseForm, inflection: data.inflection } : {}),
         ...(byokSenses ? { senses: byokSenses } : {}),
       };
     } catch (e: any) {
@@ -204,6 +205,7 @@ export async function autoFillWord(
             mnemonic: d.mnemonic || '',
             pos: d.pos || '',
             phonetic: d.phonetic || '',
+            ...(d.baseForm ? { baseForm: d.baseForm, inflection: d.inflection } : {}),
             ...(edgeSenses ? { senses: edgeSenses } : {}),
           };
         }

@@ -3,6 +3,7 @@ import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
 import { recordMemorizedWords } from '@/features/stats';
 import { cleanPhonetic } from '@/lib/phonetic';
+import { normalizeInflection } from '@/lib/inflection';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -51,6 +52,9 @@ function rowToWord(row: any): Word {
     targetLang: row.targetLang ?? 'ko',
     lastReviewedAt: row.lastReviewedAt ?? null,
     reviewSuccessCount: row.reviewSuccessCount ?? 0,
+    baseForm: row.baseForm ?? undefined,
+    // 모르는 코드는 버린다 — 자유 텍스트가 들어오면 화면이 i18n 키를 그대로 노출한다.
+    inflection: normalizeInflection(row.inflection),
   };
 }
 
@@ -151,12 +155,13 @@ export async function initSeedDataIfEmpty(seed: SeedData): Promise<void> {
 
     for (const w of seed.words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, baseForm, inflection)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(), defaultListId,
           w.term, w.definition, w.phonetic, w.pos, w.exampleEn, w.exampleKr, w.meaningKr,
           0, 0, JSON.stringify(w.tags),
+          (w as any).baseForm ?? null, normalizeInflection((w as any).inflection) ?? null,
         ]
       );
     }
@@ -216,7 +221,7 @@ export async function createCuratedList(
 
     for (const w of words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           id,
@@ -235,6 +240,8 @@ export async function createCuratedList(
           // 'en'/'ko' 하드코딩 폴백은 비영어 덱 단어 전체를 en→ko로 오염시켰다.
           (w as any).sourceLang ?? srcLang,
           (w as any).targetLang ?? tgtLang,
+          (w as any).baseForm ?? null,
+          normalizeInflection((w as any).inflection) ?? null,
         ]
       );
     }
@@ -337,7 +344,7 @@ export async function addWord(
   try {
     await runInTransaction(async () => {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           newWord.id,
           listId,
@@ -354,6 +361,8 @@ export async function addWord(
           now,
           newWord.sourceLang ?? 'en',
           newWord.targetLang ?? 'ko',
+          newWord.baseForm ?? null,
+          normalizeInflection(newWord.inflection) ?? null,
         ]
       );
     });
@@ -430,7 +439,7 @@ export async function addBatchWords(
   await runInTransaction(async () => {
     for (const data of bulkData) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           data.id,
           listId,
@@ -449,6 +458,8 @@ export async function addBatchWords(
           (data as any).updatedAt,
           data.sourceLang ?? 'en',
           data.targetLang ?? 'ko',
+          data.baseForm ?? null,
+          normalizeInflection(data.inflection) ?? null,
         ]
       );
     }
@@ -479,6 +490,8 @@ export async function updateWord(
   if (updates.tags !== undefined) { setClauses.push('tags = ?'); values.push(JSON.stringify(updates.tags)); }
   if (updates.sourceLang !== undefined) { setClauses.push('sourceLang = ?'); values.push(updates.sourceLang); }
   if (updates.targetLang !== undefined) { setClauses.push('targetLang = ?'); values.push(updates.targetLang); }
+  if (updates.baseForm !== undefined) { setClauses.push('baseForm = ?'); values.push(updates.baseForm || null); }
+  if (updates.inflection !== undefined) { setClauses.push('inflection = ?'); values.push(normalizeInflection(updates.inflection) ?? null); }
 
   if (setClauses.length > 0) {
     values.push(wordId);
@@ -599,7 +612,7 @@ export async function mergeLists(
   await runInTransaction(async () => {
     for (const w of wordsToAdd) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetId,
@@ -616,6 +629,8 @@ export async function mergeLists(
           mergeNow,
           w.sourceLang ?? 'en',
           w.targetLang ?? 'ko',
+          w.baseForm ?? null,
+          normalizeInflection(w.inflection) ?? null,
         ]
       );
     }
@@ -723,8 +738,8 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
   await runInTransaction(async () => {
     for (const w of sourceWords) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt, sourceLang, targetLang)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt, sourceLang, targetLang, baseForm, inflection)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetListId,
@@ -742,6 +757,8 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
           copyNow, // createdAt = copy time
           w.sourceLang ?? 'en',
           w.targetLang ?? 'ko',
+          w.baseForm ?? null,
+          normalizeInflection(w.inflection) ?? null,
         ]
       );
     }

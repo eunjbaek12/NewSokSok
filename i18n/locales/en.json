@@ -1704,5 +1704,16 @@
     "w3ExampleTr": "Consistent practice builds skill.",
     "w3Meaning": "to be steady, consistent",
     "w3Tags": "Habit"
+  },
+  "inflection": {
+    "line": "{{form}} of {{base}}",
+    "plural": "plural",
+    "past": "past tense",
+    "past_participle": "past participle",
+    "third_person": "third-person singular",
+    "ing_form": "-ing form",
+    "comparative": "comparative",
+    "superlative": "superlative",
+    "conjugated": "conjugated form"
   }
 }

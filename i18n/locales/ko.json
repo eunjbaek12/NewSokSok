@@ -1704,5 +1704,16 @@
     "w3ExampleTr": "일관성은 성공의 열쇠이다.",
     "w3Meaning": "일관성",
     "w3Tags": "습관"
+  },
+  "inflection": {
+    "line": "{{base}}의 {{form}}",
+    "plural": "복수형",
+    "past": "과거형",
+    "past_participle": "과거분사",
+    "third_person": "3인칭 단수",
+    "ing_form": "-ing형",
+    "comparative": "비교급",
+    "superlative": "최상급",
+    "conjugated": "활용형"
   }
 }

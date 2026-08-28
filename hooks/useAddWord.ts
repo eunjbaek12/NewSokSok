@@ -68,6 +68,15 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
      * 자동완성이 채우는 칸들. 위 termRef와 같은 이유로 ref에 복사해 둔다 — runAutoFill의
      * 의존성에 6개 문자열을 넣으면 타이핑 한 글자마다 콜백이 새로 만들어진다.
      */
+    /**
+     * 굴절형 원형·형태(lib/inflection.ts). 사용자가 편집하는 칸이 아니라 state 가 아니라 ref 다 —
+     * 자동완성이 채우고 저장이 읽는다. 표제어가 바뀌면 낡으므로 그때 비운다
+     * (`abandoned` 를 지우고 `apple` 을 넣었는데 원형 `abandon` 이 남으면 안 된다).
+     */
+    const baseFormRef = useRef<{ baseForm?: string; inflection?: string }>({
+        baseForm: existingWord?.baseForm,
+        inflection: existingWord?.inflection,
+    });
     const fieldsRef = useRef({ definition, meaningKr, phonetic, pos, exampleEn, exampleKr });
     useEffect(() => {
         fieldsRef.current = { definition, meaningKr, phonetic, pos, exampleEn, exampleKr };
@@ -144,6 +153,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             exampleKr: setExampleKr,
         };
         for (const key of stale) setters[key]('');
+        // 원형은 표제어에 딸린 값이라 칸별 stale 판정과 무관하게 통째로 버린다.
+        baseFormRef.current = {};
     }, []);
 
     const applyFill = useCallback((fill: SenseFill, filledTerm: string) => {
@@ -233,6 +244,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
                 setAutoFillNotFoundAt(Date.now());
             } else if (hasAny && result) {
+                // 원형은 뜻 선택(칩)과 무관하게 표제어 하나에 대한 값이다 — 분기 앞에서 한 번 담는다.
+                baseFormRef.current = result.baseForm
+                    ? { baseForm: result.baseForm, inflection: result.inflection }
+                    : {};
                 const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
                 if (senses) {
                     // 동음이의어: 사진/일괄 저장(전 뜻 병기)과 맞춰 기본 전체 선택으로 채우고
@@ -339,6 +354,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     tags,
                     sourceLang,
                     targetLang,
+                    ...baseFormRef.current,
                 });
                 onSuccess(term.trim());
             } else {
@@ -360,6 +376,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     tags,
                     sourceLang,
                     targetLang,
+                    ...baseFormRef.current,
                 });
 
                 // Reset states
@@ -375,6 +392,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setErrors({});
                 setSenseState(null);
                 setSenseDismissed(false);
+                baseFormRef.current = {};
                 onSuccess(savedTerm);
             }
         } catch (error: any) {

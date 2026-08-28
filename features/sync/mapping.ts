@@ -4,6 +4,7 @@ import type {
   VocaList,
   Word,
 } from '@shared/contracts';
+import { normalizeInflection } from '@/lib/inflection';
 
 // ---- Supabase SDK (snake_case) row mappers ----
 
@@ -65,6 +66,9 @@ export function wordToCloudRow(
     // 복원한 기기에서 서재 전체가 즉시 due로 쏟아진다.
     last_reviewed_at: w.lastReviewedAt ?? null,
     review_success_count: w.reviewSuccessCount ?? 0,
+    // 굴절형 원형(lib/inflection.ts). 없는 단어가 대부분이라 null이 기본값이다.
+    base_form: w.baseForm || null,
+    inflection: normalizeInflection(w.inflection) ?? null,
     created_at: w.createdAt,
     is_deleted: opts.deletedAt != null,
   };
@@ -129,6 +133,8 @@ export function dbRowToWord(row: Record<string, any>): Word {
     targetLang: row.target_lang ?? 'ko',
     lastReviewedAt: row.last_reviewed_at ?? null,
     reviewSuccessCount: row.review_success_count ?? 0,
+    baseForm: row.base_form ?? undefined,
+    inflection: normalizeInflection(row.inflection),
   };
 }
 

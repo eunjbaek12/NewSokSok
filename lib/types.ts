@@ -25,6 +25,10 @@ export interface Word {
   lastReviewedAt?: number | null;
   /** "외웠어요" 누적 횟수. 복습 간격 사다리(3/10/30/90일)의 위치. */
   reviewSuccessCount?: number;
+  /** 굴절형일 때의 원형. `abandoned` → `abandon`. 원형 자체면 없다. lib/inflection.ts 참조. */
+  baseForm?: string;
+  /** 굴절 형태 코드(`past_participle` 등). 문자열이 아니라 코드다 — 화면에서 i18n으로 옮긴다. */
+  inflection?: string;
 }
 
 export interface VocaList {
@@ -85,6 +89,9 @@ export interface AutoFillResult {
   // 동음이의어 뜻 후보(2개 이상일 때만 존재). 상위 필드는 병기(①②) 결과 그대로이고,
   // add-word가 이 배열로 인라인 뜻 제안 칩을 띄운다. lib/senses.ts 참조.
   senses?: WordSense[];
+  // 굴절형일 때의 원형과 형태 코드. lib/inflection.ts 참조.
+  baseForm?: string;
+  inflection?: string;
 }
 
 export interface AIWordResult {

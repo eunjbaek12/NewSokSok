@@ -219,6 +219,9 @@ export const WordSchema = z.object({
   // Gentle SRS 복습 상태(docs/gentle-srs-design.md §4). null = 학습 이력 없음.
   lastReviewedAt: z.number().nullable().optional(),
   reviewSuccessCount: z.number().optional(),
+  // 굴절형 표제어의 원형과 형태 코드(lib/inflection.ts). 원형 자체면 둘 다 없다.
+  baseForm: z.string().optional(),
+  inflection: z.string().optional(),
 });
 export type Word = z.infer<typeof WordSchema>;
 
@@ -327,6 +330,12 @@ export const AIWordResultSchema = z.object({
   // 단어가 실제 사전에 존재하는지에 대한 모델의 판단. 자동입력에서만 사용.
   // 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
   isReal: z.boolean().optional(),
+  // 굴절형일 때의 원형과 형태 코드(lib/inflection.ts). 원형이 아니면 둘 다 없다.
+  // 🔑 optional 이라 옛 캐시 83,935행은 이 칸이 빈 채 그대로 유효하다 — PROMPT_VERSION을
+  //    올릴 이유가 없다(bump는 옛 캐시가 *틀린 답*을 줄 때 하는 것이다. 2026-08-14에 그
+  //    구분을 놓쳐 80,714행을 버리고 v8→7로 되돌린 기록이 enrich-word/index.ts에 있다).
+  baseForm: z.string().max(150).optional(),
+  inflection: z.string().max(40).optional(),
   // 동음이의어 뜻 후보(2개 이상일 때만 의미). 상위 필드는 병기(①②) 하위호환용으로
   // 유지되고, 신버전 클라이언트만 이 배열로 인라인 뜻 제안 UI를 띄운다.
   senses: z.array(WordSenseSchema).max(4).optional(),
@@ -390,6 +399,8 @@ export const WordSaveSchema = z.object({
   exampleKr: z.string().max(300).regex(NO_CONTROL).optional(),
   phonetic: z.string().max(80).regex(NO_CONTROL).optional(),
   pos: z.string().max(60).regex(NO_CONTROL).optional(),
+  baseForm: z.string().max(50).regex(NO_CONTROL).optional(),
+  inflection: z.string().max(40).regex(NO_CONTROL).optional(),
 });
 export type WordSaveInput = z.infer<typeof WordSaveSchema>;
 
@@ -459,6 +470,9 @@ export const CloudWordSchema = z.object({
   // 클라이언트가 NULL을 "due 아님"으로 취급하므로 안전하다.
   lastReviewedAt: EpochMsSchema.nullable().default(null),
   reviewSuccessCount: z.number().int().default(0),
+  // 굴절형 원형. 020 이전 빌드가 올린 행은 NULL — 화면이 그 줄을 안 그리면 그만이다.
+  baseForm: z.string().nullable().default(null),
+  inflection: z.string().nullable().default(null),
   createdAt: EpochMsSchema,
   updatedAt: EpochMsSchema,
   deletedAt: EpochMsSchema.nullable(),

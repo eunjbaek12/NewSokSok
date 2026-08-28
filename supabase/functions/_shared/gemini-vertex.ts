@@ -32,6 +32,31 @@ function buildRegisterNote(sourceLang: string): string {
 REGISTER — write EVERY example sentence in ${level}. This is the everyday polite level textbooks teach first. Keep it consistent across all sentences, including those inside "senses".`;
 }
 
+/**
+ * 굴절형 원형 안내. 사전이 하는 일과 학습 앱이 해야 하는 일이 갈리는 지점이라 길게 적는다.
+ *
+ * 사전은 `abilities` 에 뜻을 주지 않는다 — "plural of ability" 한 줄로 끝낸다(Wiktionary
+ * 실측). 종이사전은 옆 항목을 보면 되니까. 그런데 그 관행을 그대로 따라간 결과가 이렇다:
+ *     went    → 뜻="'go'의 과거 시제."      ("갔다" 를 못 받는다)
+ *     mice    → 뜻="mouse의 복수형"          ("쥐들" 을 못 받는다)
+ *     accepts → 뜻="accept의 3인칭 단수 현재형."
+ * 이 앱의 뜻 칸은 플래시카드 뒷면·퀴즈 선택지·예문 학습 보기에 그대로 나간다. 문법 설명이
+ * 거기 들어가면 외울 것이 사라진다. 그래서 **뜻은 반드시 주고, 형태는 전용 칸으로** 뺀다.
+ *
+ * ⚠️ 이 블록은 lib/ai/gemini-client.ts 에도 같은 내용으로 있다 —
+ *    __tests__/base-form-prompt-sync.test.ts 가 강제한다.
+ */
+const BASE_FORM_BLOCK = `
+INFLECTED FORMS — if "\${word}" is an inflected form rather than a dictionary headword:
+- Set "baseForm" to the headword it comes from (e.g. "abandoned" → "abandon", "mice" → "mouse", "better" → "good"), and "inflection" to EXACTLY ONE of these codes: plural, past, past_participle, third_person, ing_form, comparative, superlative, conjugated. Use "conjugated" for Korean/Japanese verb-adjective conjugations. Never invent a code and never write a phrase there.
+- If it is already a headword (or you are unsure), leave BOTH fields as empty strings.
+- 🔴 STILL FILL "meaningKr" WITH THE ACTUAL MEANING. Dictionaries write "plural of ability" and stop; do NOT. "mice" means "쥐들" / "mice", not "the plural of mouse". NEVER put a grammatical description ("past tense of X", "third-person singular of X", "plural of X") into "meaningKr" or into "definition" — that is what "baseForm" and "inflection" are for, and this app shows "meaningKr" on flashcards where a grammar note leaves nothing to learn.
+- Keep the meaning true to the inflected form: "abandoned" as an adjective is "버려진", not "버리다".`;
+
+function buildBaseFormBlock(word: string): string {
+  return BASE_FORM_BLOCK.replace('${word}', word);
+}
+
 // 동음이의어 뜻 후보 1개(단일 뜻 기준, 내부 번호 없음). 클라이언트 WordSenseSchema와 동일 형태.
 export interface AnalyzedSense {
   meaningKr: string;
@@ -50,6 +75,9 @@ export interface AnalyzedWord {
   meaningKr: string;
   pos: string;
   phonetic: string;
+  // 굴절형일 때의 원형과 형태 코드. 원형 자체면 빈 문자열 → 아래에서 undefined 로 정리.
+  baseForm?: string;
+  inflection?: string;
   // 단어가 사전에 존재한다고 모델이 판단했는지. 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
   isReal?: boolean;
   // 동음이의어 뜻 후보(2개 이상일 때만 포함). 상위 필드는 병기(①②) 하위호환용.
@@ -140,8 +168,30 @@ export async function analyzeWord(
     pos: parsed.pos ?? '',
     phonetic: parsed.phonetic ?? '',
     isReal: parsed.isReal,
+    // 원형은 둘 다 있을 때만 의미가 있다. 형태 코드가 목록 밖이면(모델이 문장을 쓴 경우)
+    // 통째로 버린다 — 자유 텍스트가 캐시에 굳으면 앱이 i18n 키를 그대로 노출한다.
+    ...baseFormFields(parsed.baseForm, parsed.inflection, parsed.term ?? word),
     ...(multi ? { senses } : {}),
   };
+}
+
+const INFLECTION_CODES = new Set([
+  'plural', 'past', 'past_participle', 'third_person',
+  'ing_form', 'comparative', 'superlative', 'conjugated',
+]);
+
+/**
+ * 원형·형태를 검증해 정리한다. 셋 다 걸러야 한다:
+ *   1. 형태 코드가 목록 밖 → 자유 텍스트. 버린다.
+ *   2. 원형이 비었는데 형태만 있음 → 쓸 데가 없다. 버린다.
+ *   3. 원형이 표제어와 같음 → 굴절형이 아닌데 모델이 자기 자신을 넣은 것. 버린다.
+ */
+function baseFormFields(rawBase: unknown, rawInfl: unknown, term: string) {
+  const base = typeof rawBase === 'string' ? rawBase.trim() : '';
+  const infl = typeof rawInfl === 'string' ? rawInfl.trim() : '';
+  if (!base || !INFLECTION_CODES.has(infl)) return {};
+  if (base.toLowerCase() === term.trim().toLowerCase()) return {};
+  return { baseForm: base, inflection: infl };
 }
 
 // senses 를 ①②③ 병기 한 줄로 잇는다. 클라이언트 lib/senses.ts 의 composeSenseFill 과
@@ -211,7 +261,8 @@ IMPORTANT — Field naming is legacy and MUST be ignored:
 - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
 - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
 - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
-Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.${sameLangBlock}`;
+Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language. The ONE exception is "pos" (top level and inside "senses"), which stays in English as specified in 4.
+${buildBaseFormBlock(word)}${sameLangBlock}`;
 }
 
 function responseSchema(srcName: string, tgtName: string) {
@@ -226,6 +277,8 @@ function responseSchema(srcName: string, tgtName: string) {
       meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. For homonyms, exactly one numbered item (①②③) per "senses" entry, in the same order, starting AT "①" with no summary line before it. No numbering at all when "senses" is empty. Empty if isReal=false.` },
       pos:        { type: 'STRING', description: 'Part of speech in ENGLISH ONLY (noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, determiner, phrase, idiom) — never translated into the source or target language.' },
       phonetic:   { type: 'STRING' },
+      baseForm:   { type: 'STRING', description: `The dictionary headword this entry is an inflected form of (e.g. "abandoned" → "abandon", "mice" → "mouse"). Empty string when the entry is already a headword. Never a grammatical description.` },
+      inflection: { type: 'STRING', description: 'Which inflected form this is. EXACTLY one of: plural, past, past_participle, third_person, ing_form, comparative, superlative, conjugated. Empty string when "baseForm" is empty. Never a phrase.' },
       senses: {
         type: 'ARRAY',
         description: 'Homonyms only: one entry per distinct, unrelated sense (2-3, most common first), each single-sense with no numbering. Empty array for single-meaning words or when isReal=false.',

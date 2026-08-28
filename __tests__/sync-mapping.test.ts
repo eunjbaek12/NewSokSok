@@ -12,6 +12,7 @@ const cloudWord = (over: Partial<CloudWord> = {}): CloudWord => ({
   isMemorized: false, isStarred: false, tags: '["x"]', position: 0,
   wrongCount: 0, assignedDay: null, sourceLang: 'en', targetLang: 'ko',
   lastReviewedAt: null, reviewSuccessCount: 0,
+  baseForm: null, inflection: null,
   createdAt: 1, updatedAt: 2, deletedAt: null,
   ...over,
 });

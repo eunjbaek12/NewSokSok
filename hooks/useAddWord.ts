@@ -74,14 +74,30 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
      * 의존성에 6개 문자열을 넣으면 타이핑 한 글자마다 콜백이 새로 만들어진다.
      */
     /**
-     * 굴절형 원형·형태(lib/inflection.ts). 사용자가 편집하는 칸이 아니라 state 가 아니라 ref 다 —
-     * 자동완성이 채우고 저장이 읽는다. 표제어가 바뀌면 낡으므로 그때 비운다
-     * (`abandoned` 를 지우고 `apple` 을 넣었는데 원형 `abandon` 이 남으면 안 된다).
+     * 굴절형 원형·형태(lib/inflection.ts). 자동완성이 채우고 저장이 읽는다.
+     * 표제어가 바뀌면 낡으므로 그때 비운다 (`abandoned` 를 지우고 `apple` 을 넣었는데
+     * 원형 `abandon` 이 남으면 안 된다).
+     *
+     * 🔑 ref 와 state 를 **둘 다** 든다. ref 는 저장이 읽고(handleSaveWord 의 의존성을
+     *    건드리지 않는다), state 는 화면이 원형 줄을 그리는 데 쓴다 — ref 만으로는
+     *    값이 바뀌어도 리렌더가 없어 화면에 영영 안 나온다.
+     *
+     * 🔴 쓰는 곳은 반드시 applyBaseForm 하나로 모은다. 두 저장소를 각자 대입하면
+     *    한쪽만 갱신되는 순간이 생기고, 그 증상은 "가끔 원형이 안 나온다"로만 보인다
+     *    (이 저장소에서 "수정 시 함께 갱신" 주석은 세 번 지켜지지 않았다).
      */
     const baseFormRef = useRef<{ baseForm?: string; inflection?: string }>({
         baseForm: existingWord?.baseForm,
         inflection: existingWord?.inflection,
     });
+    const [baseForm, setBaseFormState] = useState<{ baseForm?: string; inflection?: string }>({
+        baseForm: existingWord?.baseForm,
+        inflection: existingWord?.inflection,
+    });
+    const applyBaseForm = useCallback((next: { baseForm?: string; inflection?: string }) => {
+        baseFormRef.current = next;
+        setBaseFormState(next);
+    }, []);
     const fieldsRef = useRef({ definition, meaningKr, phonetic, pos, exampleEn, exampleKr });
     useEffect(() => {
         fieldsRef.current = { definition, meaningKr, phonetic, pos, exampleEn, exampleKr };
@@ -159,8 +175,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         };
         for (const key of stale) setters[key]('');
         // 원형은 표제어에 딸린 값이라 칸별 stale 판정과 무관하게 통째로 버린다.
-        baseFormRef.current = {};
-    }, []);
+        applyBaseForm({});
+    }, [applyBaseForm]);
 
     const applyFill = useCallback((fill: SenseFill, filledTerm: string) => {
         setMeaningKr(fill.meaningKr);
@@ -252,9 +268,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setAutoFillNotFoundAt(Date.now());
             } else if (hasAny && result) {
                 // 원형은 뜻 선택(칩)과 무관하게 표제어 하나에 대한 값이다 — 분기 앞에서 한 번 담는다.
-                baseFormRef.current = result.baseForm
+                applyBaseForm(result.baseForm
                     ? { baseForm: result.baseForm, inflection: result.inflection }
-                    : {};
+                    : {});
                 const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
                 if (senses) {
                     // 동음이의어: 사진/일괄 저장(전 뜻 병기)과 맞춰 기본 전체 선택으로 채우고
@@ -399,7 +415,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setErrors({});
                 setSenseState(null);
                 setSenseDismissed(false);
-                baseFormRef.current = {};
+                applyBaseForm({});
                 onSuccess(savedTerm);
             }
         } catch (error: any) {
@@ -453,6 +469,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isStarred, setIsStarred,
         tags, setTags,
         errors, setErrors,
+        // 굴절형 원형·형태. 화면이 표제어 아래 한 줄로 그린다(lib/inflection.ts).
+        baseForm,
         resetForLanguageChange,
         hasFillContent,
         handleAutoFill,

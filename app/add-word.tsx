@@ -20,6 +20,7 @@ import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-cont
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
 import { senseChipLabel, CIRCLED_NUMBERS } from '@/lib/senses';
+import { formatBaseFormLine } from '@/lib/inflection';
 import type { HeadwordDefect } from '@/utils/headword-guard';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
@@ -338,6 +339,7 @@ export default function AddWordScreen() {
         exampleKr, setExampleKr,
         tags, setTags,
         errors, setErrors,
+        baseForm,
         resetForLanguageChange,
         hasFillContent,
         handleAutoFill,
@@ -357,6 +359,10 @@ export default function AddWordScreen() {
         toggleSense,
         dismissSensePicker,
     } = useAddWord(listId, wordId, existingWord, draftState, sourceLang, targetLang, apiKey || undefined);
+
+    // 굴절형 원형 한 줄("abandon의 과거분사"). 어순이 언어마다 달라 조립은 i18n 이 한다.
+    // 굴절형이 아니면 null 이라 아무것도 그리지 않는다(lib/inflection.ts).
+    const baseFormLine = formatBaseFormLine(baseForm.baseForm, baseForm.inflection, t);
 
     useEffect(() => {
         if (aiQuotaHitAt) {
@@ -1470,6 +1476,22 @@ export default function AddWordScreen() {
                                                 )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
+                                                {/* 굴절형이면 원형을 한 줄로. 담기 직전이 원형을 가장 보고 싶은 순간이라
+                                                    단어 상세(WordDetailModal)와 같은 줄을 여기에도 둔다 — 목업이 정한
+                                                    B안의 화면 두 곳이다. 검색 중에는 아래 진행 안내에 자리를 내준다:
+                                                    새 표제어의 결과가 오기 전까지는 앞 단어의 원형이 남아 있어 오해를 부른다. */}
+                                                {!!baseFormLine && !isPendingFill && (
+                                                    <Animated.View
+                                                        entering={FadeIn}
+                                                        exiting={FadeOut}
+                                                        style={[styles.baseFormRow, { backgroundColor: colors.primaryLight }]}
+                                                    >
+                                                        <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                                                        <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                                            {baseFormLine}
+                                                        </Text>
+                                                    </Animated.View>
+                                                )}
                                                 {/* 검색 진행 안내. 돋보기 자리의 스피너가 "돌아가는 중"을, 이 줄이 "무엇을
                                                     하는 중"을 맡는다(그래서 여기엔 스피너를 겹치지 않는다). 표제어를 함께
                                                     보여주므로, 검색 중 단어를 고쳐 결과가 버려져도 무슨 일인지 읽힌다. */}
@@ -2149,6 +2171,13 @@ const styles = StyleSheet.create({
     senseHintText: { fontSize: 11.5, fontFamily: 'Pretendard_500Medium' },
     // 검색 진행 안내 줄 — 중복 안내(dupHintRow)와 같은 자리·같은 리듬.
     searchingRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    // 굴절형 원형 줄. WordDetailModal 의 같은 이름 스타일과 값을 맞춘다 — 같은 정보가
+    // 두 화면에서 다르게 보이면 안 된다.
+    // ⚠️ overflow:'hidden' 은 장식이 아니다. Android(Fabric)에서 backgroundColor +
+    //    borderRadius 만으로는 모서리가 각지게 그려진다(CLAUDE.md 의 UI 체크리스트).
+    baseFormRow: { flexDirection: 'row', alignItems: 'baseline', gap: 4, marginTop: 8, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 8, alignSelf: 'flex-start', overflow: 'hidden' },
+    baseFormArrow: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
+    baseFormText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flexShrink: 1 },
     searchingText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', lineHeight: 17 },
     tagsContainer: { marginTop: 0, gap: 6 },
     tagsLabel: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },

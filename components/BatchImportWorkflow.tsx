@@ -60,7 +60,9 @@ export default function BatchImportWorkflow({
             // 입력한 단어라 자동 삭제하지 않고 '찾지 못함' 표시로 남긴다(오타
             // 수정 기회). 빈 필드로 done 처리하면 아무 안내 없이 넘어간다.
             if (result?.isReal === false) {
-                return { ...w, enrichStatus: 'failed' };
+                // headwordDefect 가 있으면 AI 를 부르지도 않고 게이트가 막은 것 —
+                // 안내 문구가 갈린다(사전 미등재 vs 표제어 자체가 깨짐).
+                return { ...w, enrichStatus: 'failed', headwordDefect: result.headwordDefect };
             }
             if (result) {
                 return {
@@ -333,7 +335,11 @@ export default function BatchImportWorkflow({
 
                         {item.enrichStatus === 'failed' && (
                             <Text style={[styles.failedText, { color: colors.textTertiary }]}>
-                                {t('photoImport.lookupFailed')}
+                                {item.headwordDefect === 'script_mix'
+                                    ? t('batchImport.headwordScriptMix')
+                                    : item.headwordDefect
+                                        ? t('batchImport.headwordMalformed')
+                                        : t('photoImport.lookupFailed')}
                             </Text>
                         )}
                     </View>

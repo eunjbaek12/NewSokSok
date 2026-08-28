@@ -1,4 +1,5 @@
 import type { WordSense } from '@shared/contracts';
+import type { HeadwordDefect } from '@/utils/headword-guard';
 
 export type PlanStatus = 'none' | 'in-progress' | 'completed' | 'overdue' | 'inactive';
 
@@ -83,6 +84,11 @@ export interface AutoFillResult {
   // 모델이 "이 단어는 사전에 존재하지 않는다"고 판단한 경우 false.
   // true/undefined는 실재로 간주. UI 분기(찾지 못함 vs 자동완성 실패)용.
   isReal?: boolean;
+  // 표제어 자체가 깨져 있어 AI에 보내지 않고 막은 경우의 사유
+  // (utils/headword-guard.ts). isReal===false와 함께 온다 — 안내 문구만 가른다.
+  // 🔑 'script_mix'(배우는 언어와 다른 문자)에 "사전에서 찾지 못했다"고 하면 오해를
+  //    부른다. `독일`은 존재하는 단어이고 진짜 문제는 학습 언어 설정이다.
+  headwordDefect?: HeadwordDefect;
   // 사진 스캔 배치에서만: 서버 한도가 중간에 소진돼 이 항목을 카드/저장 대상에서
   // 다시 대기 목록으로 돌려야 한다. 일반 자동완성의 사전 폴백에는 쓰지 않는다.
   photoQuotaExceeded?: boolean;

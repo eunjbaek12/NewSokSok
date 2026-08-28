@@ -1,7 +1,13 @@
+import { normalizeHeadword, type HeadwordDefect } from './headword-guard';
+
 export interface ParsedWord {
   id: string;          // 임시 키 (React list key)
   term: string;        // 정제된 단어
   enrichStatus: 'pending' | 'done' | 'failed';
+  // 표제어 게이트가 막은 사유(있을 때만). 실패 카드의 안내 문구를 가른다 —
+  // 'script_mix'(배우는 언어와 다른 문자)에 "사전에서 찾지 못했다"고 하면
+  // 오해를 부른다. utils/headword-guard.ts 참조.
+  headwordDefect?: HeadwordDefect;
   definition: string;
   phonetic: string;
   pos: string;
@@ -57,6 +63,13 @@ export function parseImportedText(text: string): ParsedWord[] {
       isFirstNonEmpty = false;
       if (HEADER_KEYWORDS.has(term.toLowerCase())) continue;
     }
+
+    // 남은 잡티를 벗긴다 — 목록 표지(`1.`·`2)`·`•`)·감싼 따옴표·단일 토큰의 끝 구두점.
+    // 🔴 번호 매긴 목록은 붙여넣기에서 가장 흔한 형태 중 하나인데 위 COLUMN_SEP 이
+    //    전혀 못 자른다(`1. apple` 이 통째로 표제어가 됐다). 여기서 벗기지 않으면
+    //    서버 게이트가 막아 '찾지 못함' 이 되고, 사용자는 목록을 손으로 고쳐야 한다.
+    // ⚠️ 두 단어 이상의 구두점은 의미라 남는다(`off with their heads!`).
+    term = normalizeHeadword(term);
 
     if (!term) continue;
     if (!/\p{L}/u.test(term)) continue;  // 글자 없는 토큰 제외 (숫자·기호만)

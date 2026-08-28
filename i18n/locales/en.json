@@ -1111,6 +1111,8 @@
     "aiQuotaMessage": "Your Gemini API key has hit its free daily limit. The limit resets each day; enabling billing on the key's Google Cloud project raises it. (For now, only English dictionary info is auto-filled.)",
     "autoFillFailed": "Couldn't load auto-fill. Please try again in a moment.",
     "autoFillNotFound": "Couldn't find \"{{term}}\" in the dictionary. Check the spelling or enter it manually.",
+    "headwordScriptMix": "\"{{term}}\" isn’t written in the language you’re learning. Check your language setting or try another word.",
+    "headwordMalformed": "\"{{term}}\" contains characters that aren’t part of a word. Keep just the word and try again.",
     "searchingFill": "Looking up '{{term}}'…",
     "suggestLoading": "Finding suggestions…",
     "langChangeResetTitle": "Change language",
@@ -1450,6 +1452,8 @@
     "fileReadErrorMessage": "Something went wrong while reading the file."
   },
   "batchImport": {
+    "headwordScriptMix": "Not written in the language you’re learning. Check your language setting.",
+    "headwordMalformed": "Contains characters that aren’t part of a word. Keep just the word.",
     "title": "Auto-fill Add",
     "previewTitle": "Review & Edit Words",
     "reviewDesc": "{{count}} words ready. We'll fill in meaning, pronunciation, and examples from the dictionary.",

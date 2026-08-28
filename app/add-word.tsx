@@ -20,6 +20,7 @@ import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-cont
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
 import { senseChipLabel, CIRCLED_NUMBERS } from '@/lib/senses';
+import type { HeadwordDefect } from '@/utils/headword-guard';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
 let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
@@ -349,6 +350,7 @@ export default function AddWordScreen() {
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        autoFillDefect,
         enrichFallback,
         enrichmentLevel,
         sensePicker,
@@ -573,6 +575,9 @@ export default function AddWordScreen() {
     // 사전에서 찾지 못한 단어. 인라인 배너로 표시되며, 사용자가 term을 한 글자라도
     // 수정하면 자동으로 사라진다. 토스트보다 명시적이고 흐름을 끊지 않는 안내.
     const [notFoundTerm, setNotFoundTerm] = useState('');
+    // 배너 문구를 가르는 사유 — 배너를 띄운 그 순간의 값을 함께 굳힌다(뒤에 사유만
+    // 바뀌면 지난 배너에 새 문구가 붙는다).
+    const [notFoundDefect, setNotFoundDefect] = useState<HeadwordDefect | null>(null);
     // 뜻 칩 토글 거부 안내('min'=마지막 1개 못 끔 · 'overflow'=저장 한도 초과). 잠시 후 자동 소멸.
     const [senseHint, setSenseHint] = useState<'min' | 'overflow' | null>(null);
     useEffect(() => {
@@ -593,11 +598,13 @@ export default function AddWordScreen() {
         if (autoFillNotFoundAt) {
             // 현재 term을 캡처해 인라인 배너 표시 — term이 바뀌면 별도 effect가 clear.
             setNotFoundTerm(term.trim());
+            setNotFoundDefect(autoFillDefect);
         }
     }, [autoFillNotFoundAt]);
     useEffect(() => {
         if (notFoundTerm && term.trim() !== notFoundTerm) {
             setNotFoundTerm('');
+            setNotFoundDefect(null);
         }
     }, [term, notFoundTerm]);
     const [tagInput, setTagInput] = useState('');
@@ -1502,7 +1509,11 @@ export default function AddWordScreen() {
                                                     <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
                                                         <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
                                                         <Text style={[styles.notFoundBannerText, { color: colors.warning }]}>
-                                                            {t('addWord.autoFillNotFound', { term: notFoundTerm })}
+                                                            {notFoundDefect === 'script_mix'
+                                                                ? t('addWord.headwordScriptMix', { term: notFoundTerm })
+                                                                : notFoundDefect
+                                                                    ? t('addWord.headwordMalformed', { term: notFoundTerm })
+                                                                    : t('addWord.autoFillNotFound', { term: notFoundTerm })}
                                                         </Text>
                                                     </View>
                                                 )}

@@ -698,6 +698,8 @@
     "aiQuotaMessage": "Tu clave API de Gemini ha alcanzado su límite diario gratuito. El límite se reinicia cada día; habilitar la facturación en el proyecto de Google Cloud de la clave lo aumenta. (Por ahora, solo se autocompletará la información del diccionario de inglés).",
     "autoFillFailed": "No se pudo cargar el autocompletado. Por favor, inténtalo de nuevo en un momento.",
     "autoFillNotFound": "No se pudo encontrar \"{{term}}\" en el diccionario. Comprueba la ortografía o introdúcela manualmente.",
+    "headwordScriptMix": "\"{{term}}\" no está escrito en el idioma que estás aprendiendo. Comprueba la configuración de idioma o prueba con otra palabra.",
+    "headwordMalformed": "\"{{term}}\" contiene caracteres que no forman parte de una palabra. Deja solo la palabra e inténtalo de nuevo.",
     "searchingFill": "Buscando '{{term}}'…",
     "suggestLoading": "Buscando sugerencias…",
     "langChangeResetTitle": "Cambiar idioma",
@@ -1037,6 +1039,8 @@
     "fileReadErrorMessage": "Algo salió mal al leer el archivo."
   },
   "batchImport": {
+    "headwordScriptMix": "No está en el idioma que estás aprendiendo. Comprueba la configuración de idioma.",
+    "headwordMalformed": "Contiene caracteres que no forman parte de una palabra. Deja solo la palabra.",
     "title": "Añadir con autocompletado",
     "previewTitle": "Revisar y editar palabras",
     "reviewDesc": "{{count}} palabras listas. Rellenaremos el significado, la pronunciación y los ejemplos del diccionario.",

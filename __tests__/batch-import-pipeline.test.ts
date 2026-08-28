@@ -211,9 +211,30 @@ describe('Scenario E: parseImportedText (대시·콜론 구분자 — 2026-08-26
         expect(result.map(w => w.term)).toEqual(['e-mail', 'K-pop', 'self-esteem', 'T-shirt']);
     });
 
-    test('구분자로 시작하는 줄은 자르지 않는다 (빈 표제어 방지)', () => {
+    test('구분자로 시작하는 줄은 컬럼 분리로 자르지 않는다 (빈 표제어 방지)', () => {
+        // COLUMN_SEP 은 index 0 에서 자르지 않는다 — 자르면 표제어가 빈다.
+        // 대신 normalizeHeadword 가 목록 표지로 보고 벗겨 `레몬` 을 남긴다.
+        // 🔑 원래 의도(빈 표제어 방지)는 그대로이고 결과만 나아졌다 — 예전에는
+        //    `— 레몬` 이 통째로 표제어가 돼 게이트에 걸렸다.
         const result = parseImportedText('— 레몬');
-        expect(result[0].term).toBe('— 레몬');
+        expect(result[0].term).toBe('레몬');
+    });
+
+    test('목록 표지를 벗긴다 — 번호·불릿 (COLUMN_SEP 이 전혀 못 자르던 형태)', () => {
+        const result = parseImportedText('1. apple\n2) banana\n• cherry\n#3 date');
+        expect(result.map(w => w.term)).toEqual(['apple', 'banana', 'cherry', 'date']);
+    });
+
+    test('🔴 목록 표지처럼 보이는 정상 표제어는 건드리지 않는다', () => {
+        const result = parseImportedText('1.5kg\n-apple\n24시간');
+        expect(result.map(w => w.term)).toEqual(['1.5kg', '-apple', '24시간']);
+    });
+
+    test('단일 토큰의 끝 구두점을 벗긴다 — 여러 단어면 남긴다', () => {
+        expect(parseImportedText('Apple?')[0].term).toBe('Apple');
+        expect(parseImportedText('"자랑스러운')[0].term).toBe('자랑스러운');
+        // 구두점이 의미의 일부인 표현은 그대로 (덱에 실재하는 형태)
+        expect(parseImportedText('off with their heads!')[0].term).toBe('off with their heads!');
     });
 
     test('탭·콤마가 대시보다 앞서면 탭·콤마에서 자른다', () => {

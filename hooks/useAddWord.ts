@@ -5,6 +5,7 @@ import { enrichWord, type EnrichFallback } from '@/lib/translation-api';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
+import type { HeadwordDefect } from '@/utils/headword-guard';
 import { staleAutoFillKeys, type AutoFillField, type AutoFillFields, type LastAutoFill } from '@/lib/autofill-form';
 import type { AutoFillResult } from '@/lib/types';
 
@@ -48,6 +49,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // 모델이 "사전에 존재하지 않는 단어"로 판정한 경우만 set. 일반 실패(네트워크/timeout)와
     // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
     const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
+    // 표제어 게이트가 막은 경우의 사유. null 이면 "AI 가 모르는 단어"라는 뜻이다.
+    // 🔑 'script_mix'(배우는 언어와 다른 문자)에 "사전에서 찾지 못했다"고 하면
+    //    오해를 부른다 — `독일` 은 존재하는 단어이고 문제는 학습 언어 설정이다.
+    const [autoFillDefect, setAutoFillDefect] = useState<HeadwordDefect | null>(null);
 
     const [senseState, setSenseState] = useState<SenseState | null>(null);
     // 사용자가 필드를 직접 고치기 시작하면 true — 제안 탭이 편집 내용을 덮어쓰는 사고 방지.
@@ -242,6 +247,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             clearStaleAutoFill(trimmed);
             if (result?.isReal === false) {
                 // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
+                // headwordDefect 가 있으면 AI 를 부르지도 않고 게이트가 막은 것이다.
+                setAutoFillDefect(result.headwordDefect ?? null);
                 setAutoFillNotFoundAt(Date.now());
             } else if (hasAny && result) {
                 // 원형은 뜻 선택(칩)과 무관하게 표제어 하나에 대한 값이다 — 분기 앞에서 한 번 담는다.
@@ -426,6 +433,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         setSenseDismissed(false);
         setAutoFillFailedAt(0);
         setAutoFillNotFoundAt(0);
+        setAutoFillDefect(null);
     }, []);
 
     // 초기화로 날아갈 내용이 있는지 — 호출자(add-word)가 확인 Alert 표시 여부를 결정.
@@ -457,6 +465,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        autoFillDefect,
         enrichFallback,
         enrichmentLevel,
         // 동음이의어 토글 칩 — 숨김(수동 편집) 상태면 null.

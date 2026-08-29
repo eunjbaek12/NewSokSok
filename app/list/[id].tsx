@@ -714,6 +714,18 @@ export default function ListDetailScreen() {
     );
   };
 
+  /*
+   * 🔴 이 함수는 **호출해서 엘리먼트로** 넘긴다(ListHeaderComponent={renderListHeader()}).
+   *
+   * VirtualizedList 는 함수를 받으면 `<ListHeaderComponent />` 로 만드는데
+   * (VirtualizedList.js:939 `isValidElement(...) ? ... : <ListHeaderComponent />`),
+   * 이 함수는 매 렌더 새로 정의되므로 **컴포넌트 타입이 매번 바뀌어 헤더가 통째로
+   * 재마운트된다** — 헤더 안 컴포넌트의 state 가 전부 날아간다.
+   *
+   * 실기에서 이것 때문에 채우기의 진행·완료 배너를 끝내 볼 수 없었다: updateWord 가
+   * 단어마다 리렌더를 일으키고, 그때마다 BareWordsSection 이 새로 마운트돼 진행 상태가
+   * 사라졌다(채우기 자체는 클로저에서 돌아 끝까지 완료됐다 — 그래서 더 눈치채기 어렵다).
+   */
   const renderListHeader = () => (
     <View>
       {/* 선택 모드에서는 숨긴다 — 그때 화면의 주어는 "고른 단어"이지 반쪽 단어가 아니다. */}
@@ -844,7 +856,8 @@ export default function ListDetailScreen() {
           data={filteredWords}
           keyExtractor={(item) => item.id}
           renderItem={renderWordCard}
-          ListHeaderComponent={renderListHeader}
+          // 🔴 함수가 아니라 엘리먼트를 넘긴다 — renderListHeader 정의부 주석 참고.
+          ListHeaderComponent={renderListHeader()}
           ListEmptyComponent={renderEmpty}
           contentContainerStyle={[
             styles.listContent,

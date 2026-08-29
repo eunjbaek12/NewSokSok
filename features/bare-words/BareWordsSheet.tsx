@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { Radius } from '@/constants/tokens';
 import ModalOverlay from '@/components/ui/ModalOverlay';
+import { PopupTokens } from '@/constants/popup';
 
 interface Props {
   visible: boolean;
@@ -78,11 +79,11 @@ export default function BareWordsSheet({
           지금 몇 개가 되는지, 광고를 보면 몇 개가 되는지가 사용자에게 필요한 전부다.
         */}
         <View style={[styles.facts, { backgroundColor: colors.surfaceSecondary }]}>
-          <Fact label={t('bareWords.factBare')} value={t('common.countWords', { count: bareCount })} />
+          <Fact label={t('bareWords.factBare')} value={t('bareWords.countWords', { count: bareCount })} />
           {!unlimited && (
             <Fact
               label={t('bareWords.factFillable')}
-              value={known == null ? '—' : t('common.countWords', { count: fillable })}
+              value={known == null ? '—' : t('bareWords.countWords', { count: fillable })}
               highlight={canFill}
               warn={!canFill}
             />
@@ -90,7 +91,7 @@ export default function BareWordsSheet({
           {!canFill && canWatchAd && (
             <Fact
               label={t('bareWords.factAfterAd')}
-              value={t('common.countWords', { count: rewardAmount })}
+              value={t('bareWords.countWords', { count: rewardAmount })}
               highlight
             />
           )}
@@ -174,7 +175,10 @@ function Fact({ label, value, highlight, warn }: { label: string; value: string;
 }
 
 const styles = StyleSheet.create({
-  body: { gap: 10 },
+  // 🔴 ModalOverlay 는 DialogModal 과 달리 본문을 패딩해 주지 않는다 — 넣지 않으면
+  // 글자가 화면 좌우 끝에 붙는다(실기에서 확인). 아래 여백은 ModalOverlay 가 시스템 바만큼
+  // 더해 주므로 여기서 숫자로 적지 않는다.
+  body: { gap: 10, paddingHorizontal: PopupTokens.padding.container, paddingTop: 10 },
   grab: { width: 36, height: 4, borderRadius: 2, alignSelf: 'center', marginBottom: 4 },
   title: { fontSize: 17, fontFamily: 'Pretendard_700Bold' },
   desc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19 },

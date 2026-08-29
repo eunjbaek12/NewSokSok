@@ -51,8 +51,17 @@ export default function FillBareScreen() {
   /** 이 화면이 다루는 전체 대상 — 언제나 오래 담아둔 것부터. */
   const bare = useMemo(() => bareWordsOldestFirst(allWords), [allWords]);
 
-  /** 한도. BYOK 는 제한이 없고, null(모름)이면 막지 않는다. */
-  const limit = apiKey ? bare.length : (getQuotaLeft(quotaStatus) ?? bare.length);
+  /**
+   * 고를 수 있는 상한과, 그 상한을 **한도가 만든 것인지** 를 나눠 둔다.
+   *
+   * 🔴 둘을 뭉치면 "고를 게 2개뿐"인 상황이 "한도가 2개로 잘랐다"로 읽힌다 — 실기에서
+   * 잔량이 42인데 반쪽이 2개뿐이라 "2개 중 2개까지만 고를 수 있어요"라는 거짓 경고가 떴다.
+   * BYOK·응답 대기(null)는 "모른다"이지 0이 아니므로 한도로 치지 않는다.
+   */
+  const quotaLeft = apiKey ? null : getQuotaLeft(quotaStatus);
+  const limit = Math.min(quotaLeft ?? bare.length, bare.length);
+  /** 한도가 실제로 자르는가 — 반쪽이 잔량보다 많을 때만 참. */
+  const quotaCaps = quotaLeft != null && quotaLeft < bare.length;
 
   // 기본 선택은 오래 담아둔 것부터 한도만큼. 사용자가 건드리면 그 뒤로는 사용자 것이다.
   const [selected, setSelected] = useState<Set<string>>(
@@ -73,7 +82,7 @@ export default function FillBareScreen() {
     return sorted;
   }, [bare, filterStarred, filterStatus, sortOrder]);
 
-  const atLimit = selected.size >= limit;
+  const atLimit = quotaCaps && selected.size >= limit;
 
   const toggle = useCallback((wordId: string) => {
     setSelected(prev => {
@@ -115,7 +124,11 @@ export default function FillBareScreen() {
     const inOrder = new Set(ordered);
     const rest = bare.filter(w => selected.has(w.id) && !inOrder.has(w.id)).map(w => w.id);
     setPendingFill(id!, [...ordered, ...rest]);
-    router.back();
+    // 🔴 router.back() 이면 안 된다 — 이 화면은 단어장 상세(배너)에서도, 목록 탭의 ⋯ 메뉴에서도
+    // 열린다. 메뉴로 들어온 경우 back 은 **목록 탭**으로 가는데 채우기를 이어받는 쪽은 상세
+    // 화면이라, 사용자가 "채우기"를 눌러도 아무 일도 일어나지 않는다(실기에서 확인).
+    // dismissTo 는 스택에 그 화면이 있으면 되돌아가고, 없으면 이동한다 — 두 경로 모두 맞다.
+    router.dismissTo({ pathname: '/list/[id]', params: { id: id! } });
   };
 
   const cycleSort = () => {

@@ -1090,7 +1090,7 @@
     "phoneticLabel": "Pronunciación"
   },
   "listCard": {
-    "noStudyRecord": "Sin registro de estudio",
+    "noStudyRecord": "todavía no",
     "justNow": "Justo ahora",
     "minutesAgo": "hace {{count}}m",
     "hoursAgo": "hace {{count}}h",

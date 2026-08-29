@@ -86,9 +86,23 @@ describe('생성 직후는 "학습 기록 없음"이다', () => {
     expect(body).toContain('position: now');
   });
 
-  test('ListCard 가 빈 값을 "학습 기록 없음"으로 표시한다', () => {
+  test('ListCard 가 빈 값을 noStudyRecord 로 표시한다', () => {
     const card = read('components/ListCard.tsx');
     expect(card).toMatch(/if \(!timestamp\) return t\('listCard\.noStudyRecord'\)/);
+  });
+
+  test('🔑 문구가 "마지막 학습:" 과 겹쳐 읽히지 않는다', () => {
+    // noStudyRecord 는 lastStudy("마지막 학습: {{time}}")의 time 자리에 들어간다.
+    // 그래서 그 자체가 "학습 기록 없음"이면 "마지막 학습: 학습 기록 없음"이 된다 —
+    // 새 단어장마다 뜨는 문구라 실기에서 눈에 띄었다.
+    for (const lang of ['ko', 'en', 'es']) {
+      const d = JSON.parse(read(`i18n/locales/${lang}.json`));
+      const combined = d.listCard.lastStudy.replace('{{time}}', d.listCard.noStudyRecord);
+      // "학습/study/estudio" 가 두 번 나오면 중복이다
+      const stem = { ko: '학습', en: 'study', es: 'estudio' }[lang]!;
+      const count = combined.toLowerCase().split(stem.toLowerCase()).length - 1;
+      expect({ lang, combined, count }).toEqual({ lang, combined, count: 1 });
+    }
   });
 });
 

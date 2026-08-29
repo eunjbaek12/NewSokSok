@@ -1503,7 +1503,7 @@
     "phoneticLabel": "발음기호"
   },
   "listCard": {
-    "noStudyRecord": "학습 기록 없음",
+    "noStudyRecord": "아직 없어요",
     "justNow": "방금 전",
     "minutesAgo": "{{count}}분 전",
     "hoursAgo": "{{count}}시간 전",

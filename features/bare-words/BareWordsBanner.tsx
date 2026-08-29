@@ -262,7 +262,10 @@ const styles = StyleSheet.create({
     borderRadius: Radius.md,
     paddingVertical: 11,
     paddingHorizontal: 13,
-    marginBottom: 10,
+    // 🔴 위아래를 같이 준다. 이 배너는 FlatList 헤더의 첫 요소인데 listContent 에
+    // paddingTop 이 없어서, marginBottom 만 주면 위는 헤더 경계선에 딱 붙고 아래만
+    // 떠 "아래 여백만 과하다"로 읽힌다(실기 지적).
+    marginVertical: 10,
   },
   column: { flexDirection: 'column', alignItems: 'stretch', gap: 7 },
   idleRow: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 },

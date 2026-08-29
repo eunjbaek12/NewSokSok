@@ -51,7 +51,8 @@
     "aiApiKeyRequiredDesc": "AI features need a Gemini API key. You can get one for free at Google AI Studio.",
     "setupNow": "Set Up Now",
     "later": "Later",
-    "appName": "Avocado"
+    "appName": "Avocado",
+    "stop": "Stop"
   },
   "tabs": {
     "home": "Home",
@@ -248,7 +249,12 @@
     "aiGenerating": "Generating...",
     "aiGeneratingTitle": "Creating your words",
     "aiGeneratingHint": "This usually takes 15–25 seconds. Hang tight.",
-    "aiGeneratingSteps": ["Analyzing your topic", "Picking the right words", "Writing meanings and examples", "Almost there"],
+    "aiGeneratingSteps": [
+      "Analyzing your topic",
+      "Picking the right words",
+      "Writing meanings and examples",
+      "Almost there"
+    ],
     "aiCancelTitle": "Stop generating?",
     "aiCancelMessage": "The word generation in progress will be canceled.",
     "aiCancelConfirm": "Stop",
@@ -1720,5 +1726,36 @@
     "superlative": "superlative",
     "conjugated": "conjugated form",
     "searchBase": "Search {{base}}"
+  },
+  "bareWords": {
+    "bannerTitle": "{{count}} words with only a meaning",
+    "bannerSubtitle": "Pronunciation and examples can be filled in too",
+    "bannerAdded": "{{count}} more were added",
+    "running": "Filling · {{filled}} / {{total}}",
+    "runningTerm": "Filling {{term}}…",
+    "stoppedTitle": "Filled {{count}} so far",
+    "quotaTitle": "Filled {{count}} words",
+    "remaining": "{{count}} words still have only a meaning",
+    "resume": "Keep filling",
+    "tomorrow": "Continue tomorrow",
+    "tomorrowNote": "We'll show this again in this list tomorrow",
+    "proLink": "Fill them all with Pro ›",
+    "doneTitle": "All {{count}} words are filled",
+    "doneBody": "Pronunciation, examples and definitions are all ready",
+    "sheetTitle": "Fill words that have only a meaning",
+    "sheetDesc": "Fills in pronunciation, examples and definitions. Meanings you already wrote stay as they are. Oldest words are filled first.",
+    "factBare": "Words with only a meaning",
+    "factFillable": "Can fill right now",
+    "factAfterAd": "After watching an ad",
+    "leftoverNote": "The other {{count}} can be filled tomorrow.",
+    "fillCount": "Fill {{count}} words",
+    "pick": "Choose which to fill",
+    "countWords": "{{count}}",
+    "menuItem": "Fill words with only a meaning",
+    "pickTitle": "Choose words to fill",
+    "pickMissing": "No pronunciation, example or definition",
+    "pickBlocked": "Over the limit — can't select",
+    "pickHint": "We picked the {{count}} oldest for you. Changing the sort keeps your selection.",
+    "pickLimitHint": "You can pick up to {{limit}} of {{total}}. The rest can be filled tomorrow."
   }
 }

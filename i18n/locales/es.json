@@ -51,7 +51,8 @@
     "aiApiKeyRequiredDesc": "Las funciones de IA requieren una clave API de Gemini. Puedes obtener una gratis en Google AI Studio.",
     "setupNow": "Configurar ahora",
     "later": "Más tarde",
-    "appName": "Avocado"
+    "appName": "Avocado",
+    "stop": "Detener"
   },
   "tabs": {
     "home": "Inicio",
@@ -1307,5 +1308,36 @@
     "superlative": "superlativo",
     "conjugated": "forma conjugada",
     "searchBase": "Buscar {{base}}"
+  },
+  "bareWords": {
+    "bannerTitle": "{{count}} palabras solo con significado",
+    "bannerSubtitle": "También se pueden completar la pronunciación y los ejemplos",
+    "bannerAdded": "Se añadieron {{count}} más",
+    "running": "Completando · {{filled}} / {{total}}",
+    "runningTerm": "Completando {{term}}…",
+    "stoppedTitle": "Se completaron {{count}} hasta ahora",
+    "quotaTitle": "Se completaron {{count}} palabras",
+    "remaining": "{{count}} palabras aún tienen solo el significado",
+    "resume": "Seguir completando",
+    "tomorrow": "Continuar mañana",
+    "tomorrowNote": "Te lo mostraremos de nuevo en esta lista mañana",
+    "proLink": "Completarlas todas con Pro ›",
+    "doneTitle": "Se completaron las {{count}} palabras",
+    "doneBody": "La pronunciación, los ejemplos y las definiciones están listos",
+    "sheetTitle": "Completar palabras que solo tienen significado",
+    "sheetDesc": "Completa la pronunciación, los ejemplos y las definiciones. Los significados que ya escribiste se mantienen. Se completan primero las más antiguas.",
+    "factBare": "Palabras solo con significado",
+    "factFillable": "Se pueden completar ahora",
+    "factAfterAd": "Al ver un anuncio",
+    "leftoverNote": "Las otras {{count}} se pueden completar mañana.",
+    "fillCount": "Completar {{count}} palabras",
+    "pick": "Elegir cuáles completar",
+    "countWords": "{{count}}",
+    "menuItem": "Completar palabras solo con significado",
+    "pickTitle": "Elegir palabras para completar",
+    "pickMissing": "Sin pronunciación, ejemplo ni definición",
+    "pickBlocked": "Supera el límite: no se puede seleccionar",
+    "pickHint": "Elegimos las {{count}} más antiguas. Cambiar el orden mantiene tu selección.",
+    "pickLimitHint": "Puedes elegir hasta {{limit}} de {{total}}. Las demás se pueden completar mañana."
   }
 }

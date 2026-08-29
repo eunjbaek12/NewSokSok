@@ -2071,7 +2071,7 @@
     "phonetic": "bam",
     "definition": "夜晚",
     "meaningKr": "夜晚",
-    "exampleEn": "어제 밤에 잠을 잘 잤어요.",
+    "exampleEn": "어젯밤에 잠을 잘 잤어요.",
     "exampleKr": "我昨晚睡得很好。",
     "category": "noun"
   },
@@ -2167,7 +2167,7 @@
     "phonetic": "mutda",
     "definition": "问",
     "meaningKr": "问",
-    "exampleEn": "선생님께 질문을 묻고 싶어요.",
+    "exampleEn": "선생님께 궁금한 것을 묻고 싶어요.",
     "exampleKr": "我想问老师一个问题。",
     "category": "verb"
   },
@@ -3967,7 +3967,7 @@
     "phonetic": "gareuchida",
     "definition": "教",
     "meaningKr": "教",
-    "exampleEn": "선생님은 학생들을 한국어를 가르치세요.",
+    "exampleEn": "선생님은 학생들에게 한국어를 가르치세요.",
     "exampleKr": "老师教学生们韩语。",
     "category": "verb"
   },

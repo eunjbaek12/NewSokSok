@@ -65,7 +65,7 @@
     "pos": "noun",
     "meaningEn": "gate",
     "romaja": "geiteu",
-    "exampleKo": "십번 게이트로 가 주세요.",
+    "exampleKo": "10번 게이트로 가 주세요.",
     "exampleEn": "Please go to gate number ten.",
     "category": "공항"
   },
@@ -375,7 +375,7 @@
     "pos": "noun",
     "meaningEn": "check-in",
     "romaja": "chekeuin",
-    "exampleKo": "지금 바로 체크인 할 수 있어요?",
+    "exampleKo": "지금 바로 체크인할 수 있어요?",
     "exampleEn": "Can I check in right now?",
     "category": "숙소"
   },
@@ -385,7 +385,7 @@
     "pos": "noun",
     "meaningEn": "check-out",
     "romaja": "chekeuaut",
-    "exampleKo": "내일 오전 열 시에 체크아웃 할게요.",
+    "exampleKo": "내일 오전 열 시에 체크아웃할게요.",
     "exampleEn": "I will check out tomorrow at 10 AM.",
     "category": "숙소"
   },

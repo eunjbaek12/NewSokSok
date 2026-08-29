@@ -667,20 +667,20 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
   });
 }
 
-export async function saveLastResult(listId: string): Promise<void> {
-  const db = await getDb();
-  const row = await db.getFirstAsync<{ memorized: number; total: number }>(
-    `SELECT COUNT(*) as total, SUM(CASE WHEN isMemorized = 1 THEN 1 ELSE 0 END) as memorized FROM words WHERE listId = ? AND deletedAt IS NULL`,
-    [listId]
-  );
-  const memorized = row?.memorized ?? 0;
-  const total = row?.total ?? 0;
-  const percent = total > 0 ? Math.round((memorized / total) * 100) : 0;
-  await db.runAsync(
-    `UPDATE lists SET lastResultMemorized = ?, lastResultTotal = ?, lastResultPercent = ? WHERE id = ?`,
-    [memorized, total, percent, listId]
-  );
-}
+/**
+ * 🔴 `saveLastResult` 는 2026-08-29 에 삭제했다 — **되살리지 말 것.**
+ *
+ * 완주할 때마다 단어장 전체 암기율을 `lists.lastResult{Memorized,Total,Percent}` 에
+ * 저장했는데, **화면에서 읽는 곳이 0곳**이었다. ListCard 는 이 스냅샷을 일부러 안 쓴다
+ * — 완주 시점에 고정돼 이후의 단어 추가·삭제·암기 토글을 반영하지 못하고, 상세 화면의
+ * 라이브 카운트와 어긋나기 때문이다(`components/ListCard.tsx` 주석). 그래서 남은 것은
+ * **쓰기뿐**이었고, 완주마다 아무도 안 보는 값 때문에 단어장이 dirty 로 찍혀 클라우드
+ * push 가 일어났다.
+ *
+ * 컬럼과 동기화 배선(`features/sync/mapping.ts`·`engine.ts`)은 **그대로 둔다** — 서버에
+ * 이미 있고, 구버전 앱이 여전히 값을 올린다. 읽어서 화면에 쓸 일이 생기면 스냅샷이
+ * 아니라 그때 라이브로 계산할 것.
+ */
 
 /**
  * `lists.lastStudiedAt` 을 갱신하는 **유일한** 지점.

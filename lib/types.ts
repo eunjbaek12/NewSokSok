@@ -58,6 +58,10 @@ export interface VocaList {
   isAiGenerated?: boolean;
   sourceLanguage?: string;
   targetLanguage?: string;
+  // 🔴 앱은 이 셋을 더 이상 쓰지 않는다(2026-08-29). 쓰는 곳도 읽는 곳도 없고,
+  //    동기화가 서버 컬럼과 주고받기만 한다 — 구버전 앱이 아직 올리기 때문이다.
+  //    화면에 붙이려다 여기까지 왔다면 features/vocab/db.ts 의 `saveLastResult`
+  //    주석을 먼저 읽을 것(완주 시점 스냅샷이라 곧 거짓이 된다).
   lastResultMemorized?: number;
   lastResultTotal?: number;
   lastResultPercent?: number;

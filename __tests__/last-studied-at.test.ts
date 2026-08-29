@@ -66,7 +66,9 @@ describe('① 학습 세션은 갱신한다', () => {
     // 학습 화면에 들어갔다 바로 나오면 results 가 비어 있다. 그것까지 "학습함"으로
     // 치면 예전처럼 학습과 무관한 갱신이 다시 생긴다.
     const fn = src.slice(src.indexOf('export async function commitSessionResults'));
-    expect(fn).toMatch(/if \(plan\.seenIds\.length > 0\)\s*await updateStudyTime\(listId\)/);
+    // 같은 가드 안에 학습량 기록이 함께 들어오면서 블록이 됐다(2026-08-29) —
+    // 지키는 계약은 그대로다: seenIds 가 비면 갱신하지 않는다.
+    expect(fn).toMatch(/if \(plan\.seenIds\.length > 0\)\s*\{?\s*await updateStudyTime\(listId\)/);
   });
 });
 

@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useStudyResultsStore, setStudySelection } from '@/features/study';
 import {
-  recordStudySession,
   getStatsSummary,
   pickMilestone,
   loadMaxCelebrated,
@@ -88,11 +87,16 @@ export default function StudyResultsScreen() {
           ? Haptics.NotificationFeedbackType.Success
           : Haptics.NotificationFeedbackType.Warning
       );
-      // 세션 완료 = 오늘을 '학습일'로 기록(스트릭·주간 통계) 후 마일스톤 판정.
-      // 실패는 조용히 무시 — 최악이 "축하 팝업이 안 뜸"이라 학습 흐름에 무해.
+      // 마일스톤 판정. 실패는 조용히 무시 — 최악이 "축하 팝업이 안 뜸"이라 학습
+      // 흐름에 무해.
+      //
+      // 🔴 학습량 기록(recordStudySession)은 여기서 하지 않는다(2026-08-29 이관).
+      //    완주는 이 화면, 이탈은 use-abandon-record(삭제)로 지점이 둘이라 세는
+      //    방법이 서로 달랐다 — 지금은 commitSessionResults 한 곳이다. 이 화면에
+      //    닿기 전에 finishSession 이 그 커밋을 await 하므로, 아래 getStatsSummary
+      //    는 이번 세션이 이미 반영된 값을 읽는다.
       (async () => {
         try {
-          await recordStudySession(studyResults.length);
           const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
           const m = pickMilestone(summary.currentStreak, maxCelebrated);
           if (!m) {

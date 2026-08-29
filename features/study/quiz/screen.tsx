@@ -10,11 +10,9 @@ import {
   useLists,
   selectWordsForList,
   toggleStarred,
-  saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
-import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
@@ -74,7 +72,9 @@ export default function QuizScreen() {
   const [answers, setAnswers] = useState<Record<number, { selected: string; isCorrect: boolean }>>({});
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
-  const sessionCompletedRef = useAbandonRecord(results);
+  // 완주 플래그 — finishSession 이 세우면 이탈 경로(헤더 백·하드웨어 백)가 이중
+  // 커밋하지 않는다. useSessionCommit 의 주석 참조.
+  const sessionCompletedRef = useRef(false);
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -222,7 +222,6 @@ export default function QuizScreen() {
     sessionCompletedRef.current = true;
     const finalResults = results.current;
     await commitSessionResults(id!, finalResults);
-    await saveLastResult(id!);
     const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
     if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);

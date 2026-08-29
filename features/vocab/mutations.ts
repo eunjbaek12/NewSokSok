@@ -192,11 +192,8 @@ export async function updateStudyTime(listId: string): Promise<void> {
   await commit();
 }
 
-export async function saveLastResult(listId: string): Promise<void> {
-  await db.saveLastResult(listId);
-  markListsDirty([listId]);
-  await commit();
-}
+// 🔴 `saveLastResult` 는 삭제했다(2026-08-29). 이유와 되살리지 말아야 할 근거는
+//    features/vocab/db.ts 의 같은 이름 주석에 있다.
 
 // ---- Word mutations --------------------------------------------------------
 

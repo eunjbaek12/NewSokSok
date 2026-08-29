@@ -132,3 +132,14 @@ describe('여러 어절짜리 표제어', () => {
     expect(termUsedInExample('푹 쉬세요', '푹 쉬시고 약 잘 챙겨 드세요.')).toBe(false);
   });
 });
+
+describe('영문 표제어', () => {
+  // 슬랭 덱에는 로마자 표제어가 있고, 예문에서는 소문자로 쓰이기도 한다.
+  test('대소문자만 다른 것은 통과시킨다', () => {
+    expect(termUsedInExample('TMI', '이건 그냥 tmi야.')).toBe(true);
+  });
+
+  test('한글 표제어 판정은 그대로다', () => {
+    expect(termUsedInExample('그러다', '그가 그렇게 갑자기 태도를 바꿀 줄은 아무도 예상하지 못했다.')).toBe(false);
+  });
+});

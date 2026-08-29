@@ -195,7 +195,8 @@ export function termUsedInExample(term: string, text: string): boolean {
     }
     return true;
   }
-  if (!looksLikeVerb(t)) return text.includes(t);
+  // 영문·로마자 표제어(슬랭 덱의 `TMI`)는 예문에서 소문자로 쓰이기도 한다.
+  if (!looksLikeVerb(t)) return text.includes(t) || text.toLowerCase().includes(t.toLowerCase());
   if (verbUsedInExample(t, text)) return true;
   const stem = stemOf(t);
   return stem.length >= 2 && splitVerbUsed(stem, text);

@@ -114,7 +114,7 @@ export default function FillBareScreen() {
     // 필터 밖에 있지만 선택된 것은 원래 순서(오래된 것부터)로 뒤에 붙인다.
     const inOrder = new Set(ordered);
     const rest = bare.filter(w => selected.has(w.id) && !inOrder.has(w.id)).map(w => w.id);
-    setPendingFill([...ordered, ...rest]);
+    setPendingFill(id!, [...ordered, ...rest]);
     router.back();
   };
 

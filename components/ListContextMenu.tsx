@@ -20,6 +20,7 @@ import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
 import { LIST_TITLE_MAX } from '@shared/contracts';
+import { countBareWords } from '@/features/bare-words';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
@@ -57,6 +58,9 @@ export default function ListContextMenu({
   const [shareTargetList, setShareTargetList] = useState<VocaList | null>(null);
   const [shareDescription, setShareDescription] = useState('');
   const [shareSubmitting, setShareSubmitting] = useState(false);
+  // 뜻만 있는 단어 수 — 메뉴가 열려 있을 때만 센다(닫혀 있으면 menuList 가 null).
+  const bareCount = menuList ? countBareWords(menuList.words) : 0;
+
   const [renameModalOpen, setRenameModalOpen] = useState(false);
   const [renameValue, setRenameValue] = useState('');
   const [renameTargetList, setRenameTargetList] = useState<VocaList | null>(null);
@@ -255,6 +259,17 @@ export default function ListContextMenu({
     }, 0);
   }, [menuList, onClose]);
 
+  // 뜻만 있는 단어 채우기 — 배너를 닫은 사람에게 남는 유일한 통로다.
+  // 단어장 상세 화면에는 ⋯ 메뉴가 없어(헤더가 '학습 계획' 버튼을 쓴다) 여기에 둔다.
+  const handleMenuFillBare = useCallback(() => {
+    if (!menuList) return;
+    const listId = menuList.id;
+    onClose();
+    setTimeout(() => {
+      router.push({ pathname: '/fill-bare/[id]', params: { id: listId } });
+    }, 0);
+  }, [menuList, onClose]);
+
   const handleDeleteConfirm = useCallback(async () => {
     if (!deleteTargetList) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
@@ -303,6 +318,21 @@ export default function ListContextMenu({
         </Pressable>
 
         <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
+
+        {bareCount > 0 && (
+          <Pressable
+            onPress={handleMenuFillBare}
+            style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+          >
+            <Ionicons name="sparkles-outline" size={16} color={colors.primary} />
+            {/* 이름은 배너·시트와 **같은 낱말**이라야 세 자리가 한 기능으로 이어진다.
+                오른쪽 개수는 배너를 닫은 사람에게 남은 양을 알리는 유일한 자리다. */}
+            <Text style={[styles.menuItemText, { color: colors.primary, flex: 1 }]}>
+              {t('bareWords.menuItem')}
+            </Text>
+            <Text style={[styles.menuItemText, { color: colors.textSecondary }]}>{bareCount}</Text>
+          </Pressable>
+        )}
 
         <Pressable
           onPress={handleMenuImport}

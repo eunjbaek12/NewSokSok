@@ -103,14 +103,14 @@ export default function BareWordsSection({
   // 고르기 화면에서 돌아왔다 — 고른 것을 그 순서대로 채운다.
   // takePendingFill 은 읽으면서 비우므로 다시 들어와도 재실행되지 않는다.
   useFocusEffect(useCallback(() => {
-    const ids = takePendingFill();
+    const ids = takePendingFill(listId);
     if (!ids) return;
     const byId = new Map(words.map(w => [w.id, w]));
     const picked = ids.map(i => byId.get(i)).filter((w): w is Word => !!w);
     if (picked.length > 0) void fill.fill(picked);
     // fill 은 매 렌더 새 객체지만 여기서 구독할 이유가 없다(포커스 시 1회).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [words]));
+  }, [words, listId]));
 
   if (!visible && !fill.running && !fill.outcome) return null;
 

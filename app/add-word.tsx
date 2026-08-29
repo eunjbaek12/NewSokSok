@@ -49,6 +49,7 @@ import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { getQuotaLeft, useQuota, useQuotaStore, pickBasicNoticeCopy, pickRewardedCopy, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
+import { bareWordsOldestFirst, setPendingFill } from '@/features/bare-words';
 import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -582,6 +583,27 @@ export default function AddWordScreen() {
         if (last && lists.some(l => l.id === last)) return last;
         return lists.length > 0 ? lists[0].id : '';
     });
+    /*
+     * 광고 보상 직후, 남은 보너스로 이 단어장의 반쪽 단어를 채우자고 권한다.
+     *
+     * 이 자리가 필요한 이유는 2026-08-29 실측 그대로다 — 한 사용자가 223개를 담고
+     * **마지막에** 광고를 봐서 20을 받았는데 `retryAfterReward` 가 그 순간 보던 한 건만
+     * 재시도해 **1개만 쓰고 끝났다.** 나머지 19가 버려졌고, 이미 basic 으로 저장된 174개는
+     * 애초에 대상이 아니었다.
+     *
+     * 🔑 판정을 새로 만들지 않는다 — 보상이 실제로 지급됐는지는 `grantedAmount`, 잔량은
+     * `getQuotaLeft` 하나가 답한다. 보이는 조건이 곧 누를 수 있는 조건이다.
+     */
+    const rewardFollowUp = useMemo(() => {
+        if (rewarded.grantedAmount == null || !selectedListId) return null;
+        const bare = bareWordsOldestFirst(selectWordsForList(lists, selectedListId));
+        if (bare.length === 0) return null;
+        const left = apiKey ? bare.length : (getQuotaLeft(quotaStatus) ?? 0);
+        const fillable = Math.min(left, bare.length);
+        if (fillable <= 0) return null;
+        return { bareCount: bare.length, fillable, ids: bare.slice(0, fillable).map(w => w.id) };
+    }, [rewarded.grantedAmount, selectedListId, lists, apiKey, quotaStatus]);
+
     const [listPickerOpen, setListPickerOpen] = useState(false);
     const [newListName, setNewListName] = useState('');
     const [showNewListInput, setShowNewListInput] = useState(false);
@@ -1276,6 +1298,30 @@ export default function AddWordScreen() {
                                     </>
                                 )}
                             </Pressable>
+                        )}
+
+                        {rewardFollowUp && (
+                            <View style={styles.quotaBannerRow}>
+                                <View style={styles.quotaBannerTextCol}>
+                                    <Text style={[styles.quotaBannerBody, { color: colors.textSecondary }]}>
+                                        {t('bareWords.afterAdBody', { count: rewardFollowUp.bareCount })}
+                                    </Text>
+                                </View>
+                                <Pressable
+                                    onPress={() => {
+                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                        setPendingFill(selectedListId, rewardFollowUp.ids);
+                                        // 단어장 화면이 포커스를 받으면 BareWordsSection 이 이어받아 채운다.
+                                        // replace 로 가야 어디서 들어왔든 그 단어장에 확실히 닿는다.
+                                        router.replace({ pathname: '/list/[id]', params: { id: selectedListId } });
+                                    }}
+                                    style={[styles.quotaBannerCta, { backgroundColor: colors.primaryButton, marginTop: 0 }]}
+                                >
+                                    <Text style={[styles.quotaBannerCtaText, { color: colors.onPrimary }]}>
+                                        {t('bareWords.fillCount', { count: rewardFollowUp.fillable })}
+                                    </Text>
+                                </Pressable>
+                            </View>
                         )}
                     </View>
                 )}

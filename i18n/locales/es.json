@@ -1338,6 +1338,7 @@
     "pickMissing": "Sin pronunciación, ejemplo ni definición",
     "pickBlocked": "Supera el límite: no se puede seleccionar",
     "pickHint": "Elegimos las {{count}} más antiguas. Cambiar el orden mantiene tu selección.",
-    "pickLimitHint": "Puedes elegir hasta {{limit}} de {{total}}. Las demás se pueden completar mañana."
+    "pickLimitHint": "Puedes elegir hasta {{limit}} de {{total}}. Las demás se pueden completar mañana.",
+    "afterAdBody": "Esta lista tiene {{count}} palabras solo con significado"
   }
 }

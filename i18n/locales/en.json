@@ -1756,6 +1756,7 @@
     "pickMissing": "No pronunciation, example or definition",
     "pickBlocked": "Over the limit — can't select",
     "pickHint": "We picked the {{count}} oldest for you. Changing the sort keeps your selection.",
-    "pickLimitHint": "You can pick up to {{limit}} of {{total}}. The rest can be filled tomorrow."
+    "pickLimitHint": "You can pick up to {{limit}} of {{total}}. The rest can be filled tomorrow.",
+    "afterAdBody": "This list has {{count}} words with only a meaning"
   }
 }

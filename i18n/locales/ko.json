@@ -1756,6 +1756,7 @@
     "pickMissing": "발음 · 예문 · 영영뜻 없음",
     "pickBlocked": "한도를 넘어 고를 수 없어요",
     "pickHint": "오래 담아둔 {{count}}개를 골라 뒀어요. 정렬을 바꿔도 선택은 그대로예요.",
-    "pickLimitHint": "{{total}}개 중 {{limit}}개까지만 고를 수 있어요. 나머지는 내일 채울 수 있어요."
+    "pickLimitHint": "{{total}}개 중 {{limit}}개까지만 고를 수 있어요. 나머지는 내일 채울 수 있어요.",
+    "afterAdBody": "이 단어장에 뜻만 있는 단어가 {{count}}개 있어요"
   }
 }

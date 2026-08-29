@@ -4,6 +4,7 @@ import {
   incrementWrongCount,
   resetWrongCount,
   recordReviewOutcomes,
+  updateStudyTime,
 } from '@/features/vocab';
 import { partitionSessionResults } from './session-results';
 import type { StudyResult } from '@/lib/types';
@@ -82,4 +83,12 @@ export async function commitSessionResults(
     advanceIds: plan.reviewAdvanceIds,
     resetIds: plan.wrongIds,
   });
+  // "마지막 학습" 시각 — 갱신 지점은 여기 하나뿐이다(features/vocab/db.ts의
+  // updateStudyTime 주석 참조). 단어를 만지는 동작(편집·별표·복사·목록의 암기
+  // 체크)은 학습이 아니므로 그쪽에서는 갱신하지 않는다.
+  //
+  // 🔑 카드를 한 장도 보지 않은 세션은 남기지 않는다 — 학습 화면에 들어갔다가
+  //    바로 나오면 results 가 비어 있고, 그것까지 "학습함"으로 치면 예전처럼
+  //    학습과 무관한 갱신이 다시 생긴다.
+  if (plan.seenIds.length > 0) await updateStudyTime(listId);
 }

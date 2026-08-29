@@ -149,8 +149,10 @@ export async function initSeedDataIfEmpty(seed: SeedData): Promise<void> {
   if (countValue === 0) {
     const defaultListId = generateId();
     await db.runAsync(
+      // lastStudiedAt=0 — 아직 학습한 적 없다는 뜻. ListCard 의 getRelativeTime 이
+      // 0/undefined 를 "학습 기록 없음"으로 표시한다(스키마가 NOT NULL 이라 0 을 쓴다).
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt) VALUES (?, ?, ?, ?, ?)`,
-      [defaultListId, seed.listTitle, 1, Date.now(), Date.now()]
+      [defaultListId, seed.listTitle, 1, Date.now(), 0]
     );
 
     for (const w of seed.words) {
@@ -185,8 +187,10 @@ export async function createList(title: string): Promise<VocaList> {
   const now = Date.now();
 
   await db.runAsync(
+    // ⚠️ lastStudiedAt 만 0 이다 — position 은 정렬 기준이라 now 를 그대로 쓴다
+    //    (둘을 같이 옮기면 새 단어장이 목록 맨 아래로 간다).
     `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [id, title, 1, now, now, now, now]
+    [id, title, 1, now, 0, now, now]
   );
 
   return {
@@ -195,7 +199,7 @@ export async function createList(title: string): Promise<VocaList> {
     words: [],
     isVisible: true,
     createdAt: now,
-    lastStudiedAt: now,
+    lastStudiedAt: 0,
     position: now,
     updatedAt: now,
   } as VocaList;
@@ -215,8 +219,9 @@ export async function createCuratedList(
 
   await runInTransaction(async () => {
     await db.runAsync(
+      // lastStudiedAt=0 — 담기만 한 덱은 "학습 기록 없음"이다(position 은 정렬용이라 now).
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [id, title, 1, now, now, 1, icon, now, now, srcLang, tgtLang]
+      [id, title, 1, now, 0, 1, icon, now, now, srcLang, tgtLang]
     );
 
     for (const w of words) {
@@ -500,13 +505,8 @@ export async function updateWord(
         `UPDATE words SET ${setClauses.join(', ')} WHERE id = ?`,
         ...values
       );
-      // touch list lastStudiedAt? optional but consistent with AsyncStore logic although maybe slow for every word edit
-      // update list record for sync/last activity tracking
-      await db.runAsync(
-        `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-        Date.now(),
-        listId
-      );
+      // ⚠️ 여기서 lastStudiedAt 을 건드리지 않는다 — 단어 편집은 학습이 아니다.
+      //    갱신 지점은 updateStudyTime 하나뿐이다(그 함수의 주석 참조).
     });
   }
 
@@ -566,7 +566,8 @@ export async function toggleMemorized(
         wordId,
       );
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
+    // ⚠️ lastStudiedAt 은 건드리지 않는다 — 목록·단어 상세의 암기 체크는 학습이 아니다.
+    //    학습 세션의 암기 전환은 commitSessionResults 가 updateStudyTime 으로 따로 남긴다.
   });
 
   if (becameMemorized) await recordMemorizedWords([wordId]).catch(() => {});
@@ -588,7 +589,7 @@ export async function toggleStarred(
     } else {
       await db.runAsync('UPDATE words SET isStarred = CASE WHEN isStarred = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
+    // ⚠️ 별표는 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 
@@ -635,7 +636,7 @@ export async function mergeLists(
       );
     }
 
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, mergeNow, targetId);
+    // ⚠️ 병합은 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
 
     if (deleteSource) {
       // Soft-delete source list + cascade to its words. Sync engine picks up via dirty set.
@@ -681,6 +682,26 @@ export async function saveLastResult(listId: string): Promise<void> {
   );
 }
 
+/**
+ * `lists.lastStudiedAt` 을 갱신하는 **유일한** 지점.
+ *
+ * 🔴 2026-08-29 이전에는 갱신 지점이 8곳이었고 그중 **학습 경로는 하나도 없었다** —
+ *    updateWord·toggleMemorized·toggleStarred·mergeLists·setWordsMemorized·
+ *    copyWords·moveWords. 그래서 덱을 담기만 하거나 별표 하나만 눌러도 단어장 목록이
+ *    "마지막 학습: 방금 전"이라고 표시했다. 이 함수는 이름이 맞는 유일한 함수였는데
+ *    아무 데서도 부르지 않아 죽어 있었다.
+ *
+ * 🔑 이제 부르는 곳은 `commitSessionResults`(features/study/use-session-commit.ts)
+ *    하나다 — 학습 결과가 DB 에 닿는 유일한 지점이라, 완주·헤더 뒤로가기·하드웨어
+ *    뒤로가기 세 경로가 자동으로 같은 규칙을 받는다.
+ *
+ * ⚠️ 다른 곳에서 부르지 말 것. 단어를 만지는 동작(편집·별표·복사·이동·병합·목록의
+ *    암기 체크)은 학습이 아니다. 낭독은 기존 결정대로 통계에서 빠지며, 이 함수를
+ *    거치지 않는 경로라 자동으로 지켜진다.
+ *
+ * 🔑 정렬은 이 컬럼과 무관하다(`ORDER BY position DESC`) — 마이그레이션 006 에서
+ *    position 으로 옮겨갔다. 이 값은 화면 표시(ListCard) 전용이다.
+ */
 export async function updateStudyTime(listId: string): Promise<void> {
   const db = await getDb();
   await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), listId);
@@ -713,11 +734,9 @@ export async function setWordsMemorized(
       status,
       ...wordIds
     );
-    await db.runAsync(
-      `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      Date.now(),
-      listId
-    );
+    // ⚠️ 여기서 갱신하면 안 된다 — 이 함수는 학습 세션(commitSessionResults)과
+    //    목록의 일괄 암기 체크 양쪽에서 불린다. 학습 쪽 갱신은 호출자인
+    //    commitSessionResults 가 updateStudyTime 으로 따로 남긴다.
   });
 
   // 트랜잭션 커밋 후 기록(중첩 트랜잭션 방지).
@@ -762,7 +781,7 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
         ]
       );
     }
-    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', copyNow, targetListId);
+    // ⚠️ 복사는 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 
@@ -778,7 +797,7 @@ export async function moveWords(targetListId: string, wordIds: string[]): Promis
       Date.now(),
       ...wordIds
     );
-    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
+    // ⚠️ 이동은 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 

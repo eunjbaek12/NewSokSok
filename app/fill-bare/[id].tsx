@@ -28,7 +28,7 @@ import { useListWords } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { splitBareWords, setPendingFill, loadUnfillable, clearUnfillable } from '@/features/bare-words';
-import { Radius } from '@/constants/tokens';
+import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import type { Word } from '@/lib/types';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
@@ -352,13 +352,13 @@ const styles = StyleSheet.create({
   statusBtn: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   filterText: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
   statusText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', textTransform: 'uppercase' },
-  groupHead: { fontSize: 11.5, fontFamily: 'Pretendard_600SemiBold', paddingHorizontal: 16, paddingTop: 18, paddingBottom: 8, borderTopWidth: StyleSheet.hairlineWidth, marginTop: 8 },
-  hint: { fontSize: 11.5, fontFamily: 'Pretendard_400Regular', paddingHorizontal: 16, paddingVertical: 8, lineHeight: 17 },
+  groupHead: { fontSize: FontSize.label, fontFamily: FontWeight.semibold, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 8, borderTopWidth: StyleSheet.hairlineWidth, marginTop: 8 },
+  hint: { fontSize: FontSize.label, fontFamily: FontWeight.regular, paddingHorizontal: 16, paddingVertical: 8, lineHeight: 17 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 16, paddingVertical: 11, borderBottomWidth: 1 },
   rowText: { flex: 1, gap: 2 },
   term: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
   miss: { fontSize: 11, fontFamily: 'Pretendard_400Regular' },
   footer: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 16, paddingTop: 12, borderTopWidth: 1 },
   btn: { borderRadius: Radius.md, paddingVertical: 14, alignItems: 'center' },
-  btnText: { fontSize: 14.5, fontFamily: 'Pretendard_600SemiBold' },
+  btnText: { fontSize: FontSize.action, fontFamily: FontWeight.semibold },
 });

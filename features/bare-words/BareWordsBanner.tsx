@@ -16,7 +16,7 @@ import { StyleSheet, Text, View, Pressable, ActivityIndicator } from 'react-nati
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { Radius } from '@/constants/tokens';
+import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import type { BannerFace } from './face';
 
 export type { BannerFace } from './face';
@@ -297,10 +297,10 @@ const styles = StyleSheet.create({
   // overflow:'hidden' 이 둥근 클리핑을 강제한다 — borderWidth 로는 안 고쳐진다.
   dot: { width: 8, height: 8, borderRadius: 4, overflow: 'hidden' },
   close: { padding: 2 },
-  title: { fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold' },
+  title: { fontSize: FontSize.body, fontFamily: FontWeight.semibold },
   sub: { fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
   linkSmall: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
-  terms: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold', lineHeight: 18 },
+  terms: { fontSize: FontSize.small, fontFamily: FontWeight.semibold, lineHeight: 18 },
   link: { fontSize: 12, fontFamily: 'Pretendard_500Medium', textAlign: 'center', paddingVertical: 2 },
   undertext: { fontSize: 11, fontFamily: 'Pretendard_400Regular', textAlign: 'center' },
   progTrack: { height: 5, borderRadius: Radius.xs, overflow: 'hidden' },
@@ -310,5 +310,5 @@ const styles = StyleSheet.create({
   btn: { borderRadius: Radius.sm, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
   btnGrow: { flex: 1 },
   btnShrink: { flex: 0, paddingHorizontal: 14 },
-  btnText: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold' },
+  btnText: { fontSize: FontSize.small, fontFamily: FontWeight.semibold },
 });

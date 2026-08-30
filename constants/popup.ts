@@ -3,6 +3,10 @@ import { Radius } from './tokens';
 export const PopupTokens = {
   radius: {
     standard: Radius.lg,
+    // 바텀시트의 위쪽 두 모서리. tokens.ts 가 xl(24)에 "bottom sheets, dialogs"라고
+    // 적어 둔 그 값이다 — standard(16)를 쓰고 있었던 탓에 홈의 완주 결과 시트(24)와
+    // 나란히 놓으면 한 단계 각져 보였다.
+    bottomSheet: Radius.xl,
     contextMenu: Radius.md,
     toast: Radius.md,
   },

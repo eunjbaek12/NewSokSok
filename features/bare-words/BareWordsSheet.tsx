@@ -21,7 +21,7 @@ import { StyleSheet, Text, View, Pressable, ActivityIndicator } from 'react-nati
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { Radius } from '@/constants/tokens';
+import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import ModalOverlay from '@/components/ui/ModalOverlay';
 import { PopupTokens } from '@/constants/popup';
 
@@ -114,18 +114,21 @@ export default function BareWordsSheet({
         {!!adError && <Text style={[styles.note, { color: colors.error }]}>{adError}</Text>}
 
         {canFill ? (
-          <>
+          <View style={styles.actions}>
             <Pressable onPress={tap(() => onFill(fillable))} style={[styles.btn, { backgroundColor: colors.primaryButton }]}>
               <Text style={[styles.btnText, { color: colors.onPrimary }]}>
                 {t('bareWords.fillCount', { count: fillable })}
               </Text>
             </Pressable>
-            <Pressable onPress={tap(onPick)} style={[styles.btn, styles.ghost, { borderColor: colors.border }]}>
-              <Text style={[styles.btnText, { color: colors.text }]}>{t('bareWords.pick')}</Text>
+            <Pressable onPress={tap(onPick)} style={[styles.btn, styles.ghost]}>
+              <Text style={[styles.btnText, styles.ghostText, { color: colors.textSecondary }]}>
+                {t('bareWords.pick')}
+              </Text>
             </Pressable>
-          </>
+          </View>
         ) : (
           <>
+          <View style={styles.actions}>
             {canWatchAd && (
               <Pressable
                 onPress={tap(onWatchAd)}
@@ -143,16 +146,25 @@ export default function BareWordsSheet({
               onPress={tap(onSnooze)}
               style={[
                 styles.btn,
-                canWatchAd ? styles.ghost : null,
-                canWatchAd ? { borderColor: colors.border } : { backgroundColor: colors.primaryButton },
+                canWatchAd ? styles.ghost : { backgroundColor: colors.primaryButton },
               ]}
             >
-              <Text style={[styles.btnText, { color: canWatchAd ? colors.text : colors.onPrimary }]}>
+              {/* ③(광고까지 소진)에서는 이것이 유일한 버튼이라 주 버튼으로 승격된다 —
+                  그때는 글자도 주 버튼 값(16/600)으로 돌아와야 한다. */}
+              <Text
+                style={[
+                  styles.btnText,
+                  canWatchAd ? styles.ghostText : null,
+                  { color: canWatchAd ? colors.textSecondary : colors.onPrimary },
+                ]}
+              >
                 {t('bareWords.tomorrow')}
               </Text>
             </Pressable>
-            {/* 🔴 알림이 아니다 — 내일 이 단어장에 들어왔을 때 배너가 다시 뜰 뿐이다. */}
+            {/* 🔴 알림이 아니다 — 내일 이 단어장에 들어왔을 때 배너가 다시 뜰 뿐이다.
+                버튼의 각주라서 버튼 묶음 안에 둔다(붙어 있어야 각주로 읽힌다). */}
             <Text style={[styles.undertext, { color: colors.textTertiary }]}>{t('bareWords.tomorrowNote')}</Text>
+          </View>
             <Pressable onPress={tap(onOpenPlans)} hitSlop={8}>
               <Text style={[styles.link, { color: colors.primary }]}>{t('bareWords.proLink')}</Text>
             </Pressable>
@@ -176,20 +188,38 @@ function Fact({ label, value, highlight, warn }: { label: string; value: string;
 
 const styles = StyleSheet.create({
   // 🔴 ModalOverlay 는 DialogModal 과 달리 본문을 패딩해 주지 않는다 — 넣지 않으면
-  // 글자가 화면 좌우 끝에 붙는다(실기에서 확인). 아래 여백은 ModalOverlay 가 시스템 바만큼
-  // 더해 주므로 여기서 숫자로 적지 않는다.
-  body: { gap: 10, paddingHorizontal: PopupTokens.padding.container, paddingTop: 10 },
+  // 글자가 화면 좌우 끝에 붙는다(실기에서 확인). 아래 16 은 본문 여백이고, 시스템 바
+  // 만큼은 ModalOverlay 가 따로 더해 준다 — 여기서 34 같은 숫자를 직접 쓰면 iOS 홈
+  // 인디케이터에만 맞고 Android 3버튼 바(48dp)엔 모자란다.
+  //
+  // 치수는 홈의 완주 결과 시트(app/(tabs)/index.tsx 의 resultSheet)에 맞춘 것이다 —
+  // 같은 바텀시트인데 제목·버튼·모서리가 한 단계씩 작아서 카드가 아니라 라벨로 읽혔다.
+  // 🔑 간격이 묶음을 만든다. 제목·설명·숫자 상자·버튼 묶음은 서로 16 만큼 떨어뜨리고,
+  // 한 묶음 안(버튼끼리, 버튼과 그 각주)은 6 으로 붙인다. 전부 12 로 균등했을 때는
+  // [채울 단어 고르기]가 위 버튼이 아니라 숫자 상자에 붙은 것처럼 보였다.
+  body: { gap: 16, paddingHorizontal: PopupTokens.padding.container, paddingTop: 12, paddingBottom: 16 },
   grab: { width: 36, height: 4, borderRadius: 2, alignSelf: 'center', marginBottom: 4 },
-  title: { fontSize: 17, fontFamily: 'Pretendard_700Bold' },
-  desc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19 },
+  actions: { gap: 6 },
+  // 글자는 FontSize/FontWeight 스케일만 쓴다(DESIGN.md §9). 이 시트에 12.5·13.5·11.5 가
+  // 섞여 있었는데, 그렇게 눈으로 맞춘 값은 다음 화면에서 재현되지 않는다.
+  title: { fontSize: FontSize.titleLg, fontFamily: FontWeight.bold, letterSpacing: -0.3 },
+  desc: { fontSize: FontSize.small, fontFamily: FontWeight.regular, lineHeight: 19 },
   facts: { borderRadius: Radius.md, paddingVertical: 4, paddingHorizontal: 12, marginTop: 2 },
   fact: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, gap: 12 },
-  factLabel: { fontSize: 12.5, fontFamily: 'Pretendard_400Regular', flex: 1 },
-  factValue: { fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold' },
-  note: { fontSize: 12.5, fontFamily: 'Pretendard_400Regular', lineHeight: 18 },
-  btn: { borderRadius: Radius.md, paddingVertical: 13, alignItems: 'center', justifyContent: 'center' },
-  ghost: { borderWidth: 1, backgroundColor: 'transparent' },
-  btnText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
-  undertext: { fontSize: 11.5, fontFamily: 'Pretendard_400Regular', textAlign: 'center' },
-  link: { fontSize: 13, fontFamily: 'Pretendard_500Medium', textAlign: 'center', paddingVertical: 4 },
+  factLabel: { fontSize: FontSize.label, fontFamily: FontWeight.regular, flex: 1 },
+  factValue: { fontSize: FontSize.body, fontFamily: FontWeight.semibold },
+  note: { fontSize: FontSize.small, fontFamily: FontWeight.regular, lineHeight: 18 },
+  btn: { borderRadius: Radius.xl, paddingVertical: 16, alignItems: 'center', justifyContent: 'center' },
+  // 🔑 부차 버튼은 **상자를 걷어내되 높이는 그대로 둔다**(paddingVertical 16 을 공유).
+  // 테두리를 두르면 주 버튼과 덩치가 같아 무게까지 같아지고, 높이를 줄이면 위아래로
+  // 쌓인 두 버튼의 크기만 어긋나 보인다. 터치 타겟(51dp)도 그대로 남는다.
+  ghost: { backgroundColor: 'transparent' },
+  btnText: { fontSize: FontSize.action, fontFamily: FontWeight.semibold },
+  // 14/500 은 앱의 부차 버튼 관례를 따른 값이다(사진 가져오기 [분석 취소] 15/500,
+  // 학습 설정 [닫기] 14/600). 13/400 까지 내리지 않는 이유: 이 시트의 설명글이
+  // 정확히 13/400 이고 Pro 링크가 13/500 이라, 상자 없는 글자가 그 급이 되면
+  // 버튼이 아니라 문장으로 읽힌다.
+  ghostText: { fontSize: FontSize.body, fontFamily: FontWeight.medium },
+  undertext: { fontSize: FontSize.caption, fontFamily: FontWeight.regular, textAlign: 'center' },
+  link: { fontSize: FontSize.small, fontFamily: FontWeight.medium, textAlign: 'center', paddingVertical: 4 },
 });

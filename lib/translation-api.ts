@@ -8,6 +8,7 @@ import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
 import { cleanPhonetic } from './phonetic';
 import { RateLimitedError } from './enrich-queue-core';
 import { headwordDefectOf, normalizeHeadword } from '@/utils/headword-guard';
+import { abortError } from '@/lib/abort-error';
 
 /**
  * AI 보강이 실패해 무료 사전(dictionaryapi.dev)으로 떨어진 이유.
@@ -111,11 +112,11 @@ export async function enrichWord(
       const timer = setTimeout(() => reject(new Error('timeout')), ms);
       const onAbort = () => {
         clearTimeout(timer);
-        reject(new DOMException('Aborted', 'AbortError'));
+        reject(abortError());
       };
       if (signal?.aborted) {
         clearTimeout(timer);
-        reject(new DOMException('Aborted', 'AbortError'));
+        reject(abortError());
         return;
       }
       signal?.addEventListener('abort', onAbort, { once: true });

@@ -2,6 +2,7 @@ import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contrac
 import { scanImageViaEdge } from '@/lib/ai/edge-scan';
 import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { classifyGeminiQuotaError, type GeminiQuotaKind } from '@/lib/ai/gemini-quota';
+import { abortError } from '@/lib/abort-error';
 
 const LANG_NAMES: Record<string, string> = {
     en: 'English',
@@ -111,7 +112,7 @@ export const fetchWordsFromImage = async (
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
-            if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+            if (signal?.aborted) throw abortError();
 
             const response = await fetch(url, {
                 method: 'POST',
@@ -208,7 +209,7 @@ export const fetchWordsFromImage = async (
                 const timer = setTimeout(res, delayMs);
                 signal?.addEventListener('abort', () => {
                     clearTimeout(timer);
-                    rej(new DOMException('Aborted', 'AbortError'));
+                    rej(abortError());
                 }, { once: true });
             });
         }

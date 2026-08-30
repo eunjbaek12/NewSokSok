@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -20,7 +20,7 @@ import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
 import { LIST_TITLE_MAX } from '@shared/contracts';
-import { countBareWords } from '@/features/bare-words';
+import { splitBareWords, loadUnfillable } from '@/features/bare-words';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
@@ -59,7 +59,19 @@ export default function ListContextMenu({
   const [shareDescription, setShareDescription] = useState('');
   const [shareSubmitting, setShareSubmitting] = useState(false);
   // 뜻만 있는 단어 수 — 메뉴가 열려 있을 때만 센다(닫혀 있으면 menuList 가 null).
-  const bareCount = menuList ? countBareWords(menuList.words) : 0;
+  //
+  // 🔴 **AI 가 못 찾은 단어는 빼고 센다.** 안 빼면 메뉴가 "5"라고 부르고 들어간 화면은
+  // 3개만 고르라고 한다(실기에서 그렇게 어긋났다). 배너·시트가 이미 빼는 수이고,
+  // spec §11 의 축이 그것이다 — 권할 수 없는 것을 권하지 않는다.
+  const [unfillable, setUnfillable] = useState<ReadonlySet<string>>(() => new Set());
+  useEffect(() => {
+    // 메뉴를 열 때마다 다시 읽는다 — 고르기 화면에서 철자를 고치면 그 표시가 풀린다.
+    if (!menuList) return;
+    let alive = true;
+    void loadUnfillable().then(ids => { if (alive) setUnfillable(ids); });
+    return () => { alive = false; };
+  }, [menuList]);
+  const bareCount = menuList ? splitBareWords(menuList.words, unfillable).fillable.length : 0;
 
   const [renameModalOpen, setRenameModalOpen] = useState(false);
   const [renameValue, setRenameValue] = useState('');

@@ -1734,7 +1734,7 @@
     "running": "Filling · {{filled}} / {{total}}",
     "runningTerm": "Filling {{term}}…",
     "stoppedTitle": "Filled {{count}} so far",
-    "quotaTitle": "Filled {{count}} words",
+    "filledTitle": "Filled {{count}} words",
     "remaining": "{{count}} words still have only a meaning",
     "resume": "Keep filling",
     "tomorrow": "Continue tomorrow",

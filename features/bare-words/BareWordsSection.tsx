@@ -22,7 +22,8 @@ import { loadBareNotice, saveBareNoticeEntry } from './notice-store';
 import { takePendingFill } from './pick-handoff';
 import { loadUnfillable, pruneUnfillable } from './unfillable';
 import { useBareFill } from './useBareFill';
-import BareWordsBanner, { type BannerFace } from './BareWordsBanner';
+import { pickBannerFace } from './face';
+import BareWordsBanner from './BareWordsBanner';
 import BareWordsSheet from './BareWordsSheet';
 
 export default function BareWordsSection({
@@ -52,6 +53,15 @@ export default function BareWordsSection({
   const [sheetOpen, setSheetOpen] = useState(false);
   /** 배너를 닫은 뒤 이 화면에 머무는 동안은 다시 그리지 않는다(저장값과 별개). */
   const [hiddenNow, setHiddenNow] = useState(false);
+  /**
+   * 스누즈 약속으로 이번 화면에서 배너를 열었다.
+   *
+   * 🔴 이것이 없으면 **배너가 뜨자마자 자기를 지운다.** 약속을 소비하는 순간 저장값에서
+   * snoozeUntil 이 빠지고, 개수 규칙(`현재 > 닫을 때`)은 거짓이라 같은 렌더에서 사라진다 —
+   * "내일 한 번 뜬다"는 §6 의 약속이 한 프레임만 지켜졌다. 실기에서 이렇게 드러났다:
+   * 저장값의 snoozeUntil 은 소비됐는데(= 한 번 보였다는 증거) 화면엔 배너가 없었다.
+   */
+  const [snoozeOpened, setSnoozeOpened] = useState(false);
 
   const today = todayStr();
 
@@ -96,14 +106,18 @@ export default function BareWordsSection({
     if (fixed !== entry) persist(fixed);
   }, [bareCount, entry, loaded, persist]);
 
-  const visible = loaded && !hiddenNow && shouldShowBanner(entry, bareCount, today);
+  const visible = loaded && !hiddenNow
+    && (shouldShowBanner(entry, bareCount, today) || (snoozeOpened && bareCount > 0));
 
   // 스누즈로 뜬 배너는 보여준 그 순간 약속을 소비한다 — 안 하면 "내일 한 번"이
-  // 그날부터 영영이 된다(snoozeUntil 이 과거로 남아 매번 참).
+  // 그날부터 영영이 된다(snoozeUntil 이 과거로 남아 매번 참). 대신 이 화면에 머무는
+  // 동안은 snoozeOpened 가 배너를 붙잡는다(위 주석).
   useEffect(() => {
-    if (!visible || !entry?.snoozeUntil) return;
-    if (today >= entry.snoozeUntil) persist(consumeSnooze(entry));
-  }, [visible, entry, today, persist]);
+    if (!loaded || hiddenNow || bareCount <= 0) return;
+    if (!entry?.snoozeUntil || today < entry.snoozeUntil) return;
+    setSnoozeOpened(true);
+    persist(consumeSnooze(entry));
+  }, [loaded, hiddenNow, bareCount, entry, today, persist]);
 
   // 🔴 onGranted 는 setLoading(false) **앞에서** 불린다. 여기서 시트를 ①의 얼굴로 되돌리기만
   // 하고 곧장 채우지 않는 것이 설계다 — 174개 중 20개만 되는 상황에서는 어느 20개인지가
@@ -143,7 +157,20 @@ export default function BareWordsSection({
 
   if (!visible && !fill.running && !fill.outcome) return null;
 
-  const face = pickFace();
+  const face = pickBannerFace({
+    running: fill.running,
+    filled: fill.filled,
+    total: fill.total,
+    currentTerm: fill.currentTerm,
+    notFound: fill.notFound,
+    outcome: fill.outcome,
+    bareCount,
+    entryCount: entry?.count,
+    canWatchAd: rewarded.canWatch,
+    adLoading: rewarded.loading,
+    adError: rewarded.error,
+    rewardAmount: rewarded.rewardAmount,
+  });
 
   return (
     <>
@@ -196,38 +223,4 @@ export default function BareWordsSection({
       />
     </>
   );
-
-  /**
-   * 얼굴은 상태 하나로 갈린다 — 진행 중 > 결과 > 권유 순.
-   * 판정을 여러 곳에 복제하지 않는다(rewarded-copy.ts 주석의 사고가 그것이었다).
-   */
-  function pickFace(): BannerFace {
-    if (fill.running) {
-      return { kind: 'running', filled: fill.filled, total: fill.total, term: fill.currentTerm };
-    }
-    // 🔴 하나도 못 채웠고 전부 "AI 가 모르는 단어"였다면 성과를 말하지 않는다.
-    if (fill.filled === 0 && fill.notFound.length > 0) {
-      return { kind: 'notFound', terms: fill.notFound };
-    }
-    if (fill.outcome === 'done' && bareCount === 0) {
-      return { kind: 'done', filled: fill.filled };
-    }
-    if (fill.outcome === 'stopped') {
-      return { kind: 'stopped', filled: fill.filled, remaining: bareCount };
-    }
-    if (fill.outcome === 'quota' || (fill.outcome === 'done' && bareCount > 0)) {
-      return {
-        kind: 'quota',
-        filled: fill.filled,
-        remaining: bareCount,
-        canWatchAd: rewarded.canWatch,
-        adLoading: rewarded.loading,
-        adError: rewarded.error,
-        rewardAmount: rewarded.rewardAmount,
-      };
-    }
-    // 다시 뜬 이유가 "늘어서"이면 늘어난 수를 둘째 줄에 적는다. 🔴 대상은 언제나 전부다.
-    const added = entry && bareCount > entry.count ? bareCount - entry.count : undefined;
-    return { kind: 'idle', count: bareCount, added };
-  }
 }

@@ -1734,7 +1734,7 @@
     "running": "채우는 중 · {{filled}} / {{total}}",
     "runningTerm": "{{term}} 채우는 중…",
     "stoppedTitle": "{{count}}개까지 채웠어요",
-    "quotaTitle": "{{count}}개를 채웠어요",
+    "filledTitle": "{{count}}개를 채웠어요",
     "remaining": "아직 {{count}}개가 뜻만 있어요",
     "resume": "이어서 채우기",
     "tomorrow": "내일 이어서",

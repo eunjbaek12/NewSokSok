@@ -17,15 +17,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { Radius } from '@/constants/tokens';
+import type { BannerFace } from './face';
 
-export type BannerFace =
-  | { kind: 'idle'; count: number; added?: number }
-  | { kind: 'running'; filled: number; total: number; term: string | null }
-  | { kind: 'stopped'; filled: number; remaining: number }
-  | { kind: 'quota'; filled: number; remaining: number; canWatchAd: boolean; adLoading: boolean; adError: string | null; rewardAmount: number }
-  | { kind: 'done'; filled: number }
-  /** 채운 것이 하나도 없고 전부 "AI 가 모르는 단어"였다. terms 는 이름을 대는 데 쓴다. */
-  | { kind: 'notFound'; terms: string[] };
+export type { BannerFace } from './face';
 
 interface Props {
   face: BannerFace;
@@ -149,21 +143,21 @@ export default function BareWordsBanner({
     );
   }
 
-  // ── 중단 · 한도 도달 ──────────────────────────────────────────────────
-  // 둘 다 "몇 개까지 채웠고 몇 개가 남았다"를 말하는 같은 틀이다. 다른 것은 다음 수단뿐:
-  // 중단은 사용자가 멈춘 것이라 [이어서 채우기] 하나면 되고, 한도 도달은 오늘 더 못 하니
-  // 광고·내일·Pro 로 갈린다.
+  // ── 중단 · 일부만 채움 · 한도 도달 ────────────────────────────────────
+  // 셋 다 "몇 개를 채웠고 몇 개가 남았다"를 말하는 같은 틀이다. 다른 것은 다음 수단뿐:
+  // 중단·일부는 [이어서 채우기] 하나면 되고, 한도 도달만 오늘 더 못 하니 광고·내일·Pro 로
+  // 갈린다. 🔴 경고색과 광고 문구는 **한도에 실제로 닿았을 때만** — 사용자가 세 개만 골라
+  // 세 개를 다 채운 자리에 "오늘 광고 혜택을 모두 사용했어요"가 뜨면 그건 거짓이다.
   const warn = face.kind === 'quota';
   const accent = warn ? colors.warning : colors.primary;
+  const title = face.kind === 'stopped'
+    ? t('bareWords.stoppedTitle', { count: face.filled })   // 멈춘 것 — "N개까지"
+    : t('bareWords.filledTitle', { count: face.filled });   // 채운 것 — "N개를"
 
   return (
     <View style={[styles.wrap, styles.column, { backgroundColor: warn ? colors.warningLight : colors.surface, borderColor: accent }]}>
       <View style={styles.headRow}>
-        <Text style={[styles.title, { color: accent, flex: 1 }]}>
-          {face.kind === 'stopped'
-            ? t('bareWords.stoppedTitle', { count: face.filled })
-            : t('bareWords.quotaTitle', { count: face.filled })}
-        </Text>
+        <Text style={[styles.title, { color: accent, flex: 1 }]}>{title}</Text>
         <Pressable onPress={onDismiss} hitSlop={12}>
           <Ionicons name="close" size={18} color={colors.textTertiary} />
         </Pressable>
@@ -179,11 +173,7 @@ export default function BareWordsBanner({
         {t('bareWords.remaining', { count: face.remaining })}
       </Text>
 
-      {face.kind === 'stopped' ? (
-        <Pressable onPress={onResume} style={[styles.btn, { backgroundColor: colors.primaryButton }]}>
-          <Text style={[styles.btnText, { color: colors.onPrimary }]}>{t('bareWords.resume')}</Text>
-        </Pressable>
-      ) : (
+      {face.kind === 'quota' ? (
         <QuotaActions
           canWatchAd={face.canWatchAd}
           adLoading={face.adLoading}
@@ -193,6 +183,10 @@ export default function BareWordsBanner({
           onSnooze={onSnooze}
           onOpenPlans={onOpenPlans}
         />
+      ) : (
+        <Pressable onPress={onResume} style={[styles.btn, { backgroundColor: colors.primaryButton }]}>
+          <Text style={[styles.btnText, { color: colors.onPrimary }]}>{t('bareWords.resume')}</Text>
+        </Pressable>
       )}
     </View>
   );

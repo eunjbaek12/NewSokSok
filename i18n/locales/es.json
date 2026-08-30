@@ -1316,7 +1316,7 @@
     "running": "Completando · {{filled}} / {{total}}",
     "runningTerm": "Completando {{term}}…",
     "stoppedTitle": "Se completaron {{count}} hasta ahora",
-    "quotaTitle": "Se completaron {{count}} palabras",
+    "filledTitle": "Se completaron {{count}} palabras",
     "remaining": "{{count}} palabras aún tienen solo el significado",
     "resume": "Seguir completando",
     "tomorrow": "Continuar mañana",

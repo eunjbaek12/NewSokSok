@@ -444,8 +444,12 @@ export default function StudySettingsModal({
                         </ScrollView>
 
                         <View style={styles.bottomButtons}>
+                            {/* 🔴 [닫기]의 배경은 surface 다. 이 버튼만 섹션 카드 밖(모달 배경 위)에
+                                놓이는데, 라이트 계열 네 테마에서 surfaceModal 과 surfaceSecondary 는
+                                같거나(lab·pink 는 완전히 동일) 구분되지 않아 버튼 면이 통째로 사라졌다 —
+                                테두리만 남아 형태를 짐작하게 했다. 사진 가져오기의 [분석 취소]도 surface 다. */}
                             <Pressable
-                                style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+                                style={[styles.btnCancel, { backgroundColor: colors.surface, borderColor: colors.border }]}
                                 onPress={onClose}
                             >
                                 <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>

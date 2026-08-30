@@ -13,13 +13,14 @@ import { useQuotaStore, useRewardedAd, getQuotaLeft } from '@/features/quota';
 import { deriveDisplayLanguages } from '@/constants/languages';
 import { todayStr, addDaysStr } from '@/features/stats';
 import type { VocaList, Word } from '@/lib/types';
-import { bareWordsOldestFirst } from './detect';
+import { splitBareWords, isBareWord } from './detect';
 import {
   shouldShowBanner, reconcileCount, afterDismiss, afterSnooze, consumeSnooze,
   type BareNoticeEntry,
 } from './notice';
 import { loadBareNotice, saveBareNoticeEntry } from './notice-store';
 import { takePendingFill } from './pick-handoff';
+import { loadUnfillable, pruneUnfillable } from './unfillable';
 import { useBareFill } from './useBareFill';
 import BareWordsBanner, { type BannerFace } from './BareWordsBanner';
 import BareWordsSheet from './BareWordsSheet';
@@ -37,7 +38,10 @@ export default function BareWordsSection({
   const quotaStatus = useQuotaStore(s => s.status);
   const quotaLeftForUi = apiKey ? null : getQuotaLeft(quotaStatus);
 
-  const bare = useMemo(() => bareWordsOldestFirst(words), [words]);
+  // AI 가 못 찾은 단어 — 배너·시트·채우기 대상에서 뺀다(주황 점은 그대로 남는다).
+  const [unfillable, setUnfillable] = useState<ReadonlySet<string>>(() => new Set());
+  const split = useMemo(() => splitBareWords(words, unfillable), [words, unfillable]);
+  const bare = split.fillable;
   const bareCount = bare.length;
   const langs = useMemo(() => deriveDisplayLanguages(words, list), [words, list]);
 
@@ -55,6 +59,16 @@ export default function BareWordsSection({
     setEntry(next);
     void saveBareNoticeEntry(listId, next);
   }, [listId]);
+
+  // 못 찾은 단어 목록을 읽고, 더 이상 반쪽이 아닌 id 는 걷어낸다(지우거나 옮긴 단어).
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      const ids = await loadUnfillable();
+      if (alive) setUnfillable(ids);
+    })();
+    return () => { alive = false; };
+  }, []);
 
   // 🔴 화면에 들어올 때마다 저장값을 현재값까지 낮춘다. 이 한 줄이 없으면 174에서 닫고 →
   // 채우고 → 다시 174가 돼도 `174 > 174`가 거짓이라 배너가 영영 돌아오지 않는다.
@@ -99,6 +113,20 @@ export default function BareWordsSection({
       setSheetOpen(true);
     },
   });
+
+  // 배치가 끝나면 방금 표시된 "못 찾은 단어"를 반영한다 — 그래야 다음 배치에서 빠진다.
+  // 동시에 더 이상 반쪽이 아닌 id 를 정리해 기억이 무한히 자라지 않게 한다.
+  useEffect(() => {
+    if (fill.running || !fill.outcome) return;
+    let alive = true;
+    (async () => {
+      const stillBare = new Set(words.filter(isBareWord).map(w => w.id));
+      await pruneUnfillable(stillBare);
+      const ids = await loadUnfillable();
+      if (alive) setUnfillable(ids);
+    })();
+    return () => { alive = false; };
+  }, [fill.running, fill.outcome, words]);
 
   // 고르기 화면에서 돌아왔다 — 고른 것을 그 순서대로 채운다.
   // takePendingFill 은 읽으면서 비우므로 다시 들어와도 재실행되지 않는다.
@@ -175,6 +203,10 @@ export default function BareWordsSection({
   function pickFace(): BannerFace {
     if (fill.running) {
       return { kind: 'running', filled: fill.filled, total: fill.total, term: fill.currentTerm };
+    }
+    // 🔴 하나도 못 채웠고 전부 "AI 가 모르는 단어"였다면 성과를 말하지 않는다.
+    if (fill.filled === 0 && fill.notFound.length > 0) {
+      return { kind: 'notFound', terms: fill.notFound };
     }
     if (fill.outcome === 'done' && bareCount === 0) {
       return { kind: 'done', filled: fill.filled };

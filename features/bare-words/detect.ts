@@ -53,3 +53,23 @@ export function countBareWords(words: Word[]): number {
   for (const w of words) if (isBareWord(w)) n += 1;
   return n;
 }
+
+/**
+ * 반쪽 단어를 **채울 수 있는 것**과 **AI 가 못 찾은 것**으로 가른다. 둘 다 오래된 것부터.
+ *
+ * 🔑 이 둘을 가르는 축은 스펙이 주황 점에 이미 쓴 것과 같다 — **"반쪽이다"는 사실이고
+ * "채울 수 있다"는 권유다.** 그래서 못 찾은 단어도 여전히 반쪽 표시(주황 점)는 달지만,
+ * 배너 개수·시트·채우기 대상에서는 빠진다. 권할 수 없는 것을 권하지 않는다.
+ *
+ * 🔴 못 찾은 것을 대상에서 빼는 것이 이 함수의 핵심이다. 안 빼면 순서가 오래된 것부터라
+ * **매 배치의 맨 앞을 영구히 차지해** 잔량을 다 먹고 사용자는 0개를 받는다.
+ */
+export function splitBareWords(
+  words: Word[],
+  unfillable: ReadonlySet<string>,
+): { fillable: Word[]; unfillable: Word[] } {
+  const bare = bareWordsOldestFirst(words);
+  const out = { fillable: [] as Word[], unfillable: [] as Word[] };
+  for (const w of bare) (unfillable.has(w.id) ? out.unfillable : out.fillable).push(w);
+  return out;
+}

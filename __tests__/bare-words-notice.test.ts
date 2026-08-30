@@ -11,7 +11,7 @@
 //    그대로 시나리오로 옮겨 못박는다.
 
 import type { Word } from '../lib/types';
-import { isBareWord, bareWordsOldestFirst, countBareWords } from '../features/bare-words/detect';
+import { isBareWord, bareWordsOldestFirst, countBareWords, splitBareWords } from '../features/bare-words/detect';
 import {
   shouldShowBanner,
   reconcileCount,
@@ -195,5 +195,41 @@ describe('consumeSnooze — "내일 한 번"이 "그날부터 영영"이 되지 
     const entry: BareNoticeEntry = { count: 124 };
     expect(consumeSnooze(entry)).toBe(entry);
     expect(consumeSnooze(undefined)).toBeUndefined();
+  });
+});
+
+describe('splitBareWords — 못 찾은 단어는 대상에서 빠지고 순서는 유지된다', () => {
+  // 🔴 안 빼면 순서가 오래된 것부터라 **매 배치의 맨 앞을 영구히 차지한다** — 잔량이
+  // 5인데 앞의 5개가 그런 단어면 사용자는 누를 때마다 0개를 받는다.
+  const words = [
+    word({ term: 'old-bad', meaningKr: '뜻', createdAt: 100 }),
+    word({ term: 'mid-ok', meaningKr: '뜻', createdAt: 200 }),
+    word({ term: 'new-bad', meaningKr: '뜻', createdAt: 300 }),
+    word({ term: 'new-ok', meaningKr: '뜻', createdAt: 400 }),
+  ];
+  const bad = new Set(['old-bad', 'new-bad']);
+
+  it('채울 수 있는 것만, 오래된 것부터 돌려준다', () => {
+    expect(splitBareWords(words, bad).fillable.map(w => w.term)).toEqual(['mid-ok', 'new-ok']);
+  });
+
+  it('못 찾은 것도 오래된 것부터 따로 돌려준다 — 화면이 아래에 모아 보여준다', () => {
+    expect(splitBareWords(words, bad).unfillable.map(w => w.term)).toEqual(['old-bad', 'new-bad']);
+  });
+
+  it('🔴 가장 오래된 것이 못 찾은 단어여도 그 뒤가 앞으로 나온다', () => {
+    // 이 규칙이 없으면 old-bad 가 영원히 1번 자리를 지켜 mid-ok 가 채워지지 않는다.
+    expect(splitBareWords(words, bad).fillable[0].term).toBe('mid-ok');
+  });
+
+  it('표시가 없으면 전부 채울 수 있는 것으로 본다', () => {
+    expect(splitBareWords(words, new Set()).fillable).toHaveLength(4);
+    expect(splitBareWords(words, new Set()).unfillable).toHaveLength(0);
+  });
+
+  it('반쪽이 아닌 단어는 어느 쪽에도 안 들어간다', () => {
+    const full = word({ term: 'full', meaningKr: '뜻', phonetic: 'p', exampleEn: 'e', definition: 'd' });
+    const r = splitBareWords([...words, full], bad);
+    expect([...r.fillable, ...r.unfillable].map(w => w.term)).not.toContain('full');
   });
 });

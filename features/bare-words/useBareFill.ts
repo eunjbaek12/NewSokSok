@@ -25,6 +25,7 @@ import { runEnrichBatchWithRecovery } from '@/lib/enrich-queue-core';
 import { enrichWord } from '@/lib/translation-api';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { updateWord } from '@/features/vocab';
+import { markUnfillable } from './unfillable';
 import type { AutoFillResult, Word, VocaList } from '@/lib/types';
 
 const CONCURRENCY = 4;
@@ -46,10 +47,15 @@ export interface BareFillState {
   total: number;
   /** 지금 채우는 중인 단어. 진행 줄에 쓴다. */
   currentTerm: string | null;
+  /**
+   * 이번 배치에서 **AI 가 찾지 못한** 단어들(표제어). 실패 배너가 이름을 대는 데 쓴다.
+   * 🔴 네트워크 실패는 여기 들어오지 않는다 — isReal === false 만 담는다.
+   */
+  notFound: string[];
   outcome: BareFillOutcome | null;
 }
 
-const IDLE: BareFillState = { running: false, filled: 0, total: 0, currentTerm: null, outcome: null };
+const IDLE: BareFillState = { running: false, filled: 0, total: 0, currentTerm: null, notFound: [], outcome: null };
 
 export function useBareFill(
   listId: string,
@@ -100,10 +106,12 @@ export function useBareFill(
 
     const controller = new AbortController();
     abortRef.current = controller;
-    setState({ running: true, filled: 0, total: batch.length, currentTerm: batch[0].term, outcome: null });
+    setState({ running: true, filled: 0, total: batch.length, currentTerm: batch[0].term, notFound: [], outcome: null });
 
     const byId = new Map(batch.map(w => [w.id, w]));
     let filled = 0;
+    const notFoundIds: string[] = [];
+    const notFoundTerms: string[] = [];
 
     // 언어는 단어가 정한다 — 없을 때만 단어장 대표값. 혼합 덱에서 한 쌍으로 고정하면
     // 그중 일부가 엉뚱한 언어로 보강된다.
@@ -117,7 +125,17 @@ export function useBareFill(
     const onResult = (id: string, result: AutoFillResult | null, final: boolean) => {
       if (!final) return; // 1차 실패 — 2차 패스가 남았다
       const target = byId.get(id);
-      if (!target || !result) return;
+      if (!target) return;
+
+      // 🔴 AI 가 "이건 단어가 아니다"라고 답한 경우만 기억한다(표제어 결함 포함).
+      // result === null 은 네트워크·타임아웃이라 여기 오면 안 된다 — 그것으로 은퇴시키면
+      // 한 번의 통신 실패로 멀쩡한 단어가 영구히 대상에서 빠진다.
+      if (result?.isReal === false) {
+        notFoundIds.push(id);
+        notFoundTerms.push(target.term);
+        return;
+      }
+      if (!result) return;
 
       // 🔴 뜻은 덮지 않는다 — 사용자가 손으로 고쳐 둔 것일 수 있고, 애초에 채우려는
       // 칸이 아니다. 값이 실제로 온 칸만 쓴다(빈 문자열로 덮으면 있던 값을 지운다).
@@ -152,7 +170,10 @@ export function useBareFill(
         : batch.length < targets.length
           ? 'quota'
           : 'done';
-      setState({ running: false, filled, total: batch.length, currentTerm: null, outcome });
+      // 다음 배치부터 이 단어들을 건너뛴다 — 안 그러면 오래된 순 맨 앞을 영구히 차지한다.
+      if (notFoundIds.length > 0) void markUnfillable(notFoundIds);
+      setState({ running: false, filled, total: batch.length, currentTerm: null,
+        notFound: notFoundTerms, outcome });
     }
   }, [apiKey, fallbackLangs.source, fallbackLangs.target, list, listId, quotaLeft]);
 

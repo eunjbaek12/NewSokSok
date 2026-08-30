@@ -1757,6 +1757,11 @@
     "pickBlocked": "Over the limit — can't select",
     "pickHint": "We picked the {{count}} oldest for you. Changing the sort keeps your selection.",
     "pickLimitHint": "You can pick up to {{limit}} of {{total}}. The rest can be filled tomorrow.",
-    "afterAdBody": "This list has {{count}} words with only a meaning"
+    "afterAdBody": "This list has {{count}} words with only a meaning",
+    "notFoundTitle": "{{count}} words couldn't be filled",
+    "notFoundMore": "{{terms}} and {{count}} more",
+    "notFoundBody": "The AI didn't recognize these. Check the spelling.",
+    "notFoundGroup": "{{count}} words the AI didn't recognize",
+    "notFoundRow": "Tap to fix the spelling"
   }
 }

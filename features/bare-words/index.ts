@@ -12,3 +12,5 @@ export { loadBareNotice, saveBareNoticeEntry, forgetBareNotice } from './notice-
 export { useBareFill, type BareFillOutcome, type BareFillState } from './useBareFill';
 export { default as BareWordsSection } from './BareWordsSection';
 export { setPendingFill, takePendingFill } from './pick-handoff';
+export { splitBareWords } from './detect';
+export { loadUnfillable, markUnfillable, clearUnfillable, pruneUnfillable } from './unfillable';

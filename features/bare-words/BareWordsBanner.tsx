@@ -23,7 +23,9 @@ export type BannerFace =
   | { kind: 'running'; filled: number; total: number; term: string | null }
   | { kind: 'stopped'; filled: number; remaining: number }
   | { kind: 'quota'; filled: number; remaining: number; canWatchAd: boolean; adLoading: boolean; adError: string | null; rewardAmount: number }
-  | { kind: 'done'; filled: number };
+  | { kind: 'done'; filled: number }
+  /** 채운 것이 하나도 없고 전부 "AI 가 모르는 단어"였다. terms 는 이름을 대는 데 쓴다. */
+  | { kind: 'notFound'; terms: string[] };
 
 interface Props {
   face: BannerFace;
@@ -118,6 +120,31 @@ export default function BareWordsBanner({
         </View>
         <Progress percent={100} color={colors.success} track={colors.surfaceSecondary} />
         <Text style={[styles.sub, { color: colors.textSecondary }]}>{t('bareWords.doneBody')}</Text>
+      </View>
+    );
+  }
+
+  // ── 못 찾음 ──────────────────────────────────────────────────────────
+  // 🔴 성과가 없으면 성과를 말하지 않는다. "0개를 채웠어요" + 꽉 찬 진행바는 거짓이다.
+  // 대신 **어느 단어인지 이름을 댄다** — 이름 없이 "철자를 확인해 보세요"라고 하면
+  // 확인할 방법이 없다. 이 단어들은 다음 배치부터 대상에서 빠진다.
+  if (face.kind === 'notFound') {
+    const shown = face.terms.slice(0, 3).join(' · ');
+    const rest = face.terms.length - 3;
+    return (
+      <View style={[styles.wrap, styles.column, { backgroundColor: colors.warningLight, borderColor: colors.warning }]}>
+        <View style={styles.headRow}>
+          <Text style={[styles.title, { color: colors.warning, flex: 1 }]}>
+            {t('bareWords.notFoundTitle', { count: face.terms.length })}
+          </Text>
+          <Pressable onPress={onDismiss} hitSlop={12}>
+            <Ionicons name="close" size={18} color={colors.textTertiary} />
+          </Pressable>
+        </View>
+        <Text style={[styles.terms, { color: colors.text }]} numberOfLines={2}>
+          {rest > 0 ? t('bareWords.notFoundMore', { terms: shown, count: rest }) : shown}
+        </Text>
+        <Text style={[styles.sub, { color: colors.textSecondary }]}>{t('bareWords.notFoundBody')}</Text>
       </View>
     );
   }
@@ -279,6 +306,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold' },
   sub: { fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
   linkSmall: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
+  terms: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold', lineHeight: 18 },
   link: { fontSize: 12, fontFamily: 'Pretendard_500Medium', textAlign: 'center', paddingVertical: 2 },
   undertext: { fontSize: 11, fontFamily: 'Pretendard_400Regular', textAlign: 'center' },
   progTrack: { height: 5, borderRadius: Radius.xs, overflow: 'hidden' },

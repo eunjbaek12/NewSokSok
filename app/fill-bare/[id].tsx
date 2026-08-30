@@ -16,7 +16,7 @@
  * 정렬을 바꾸면 채우는 순서도 그 순서를 따른다 — 사용자가 정한 순서가 기본값을 이긴다.
  */
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, Pressable, FlatList, StyleSheet, Platform } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -27,7 +27,7 @@ import { useTheme } from '@/features/theme';
 import { useListWords } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
-import { bareWordsOldestFirst, setPendingFill } from '@/features/bare-words';
+import { splitBareWords, setPendingFill, loadUnfillable, clearUnfillable } from '@/features/bare-words';
 import { Radius } from '@/constants/tokens';
 import type { Word } from '@/lib/types';
 
@@ -48,8 +48,19 @@ export default function FillBareScreen() {
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
 
-  /** 이 화면이 다루는 전체 대상 — 언제나 오래 담아둔 것부터. */
-  const bare = useMemo(() => bareWordsOldestFirst(allWords), [allWords]);
+  // AI 가 못 찾은 단어. 고를 수는 없지만 **목록 맨 아래에 남긴다** — 배너를 닫은 뒤
+  // "얘는 왜 안 채워지지"를 확인할 자리가 여기밖에 없다. 눌러 열면 철자를 고칠 수 있고,
+  // 고치면 표시가 풀려 다시 대상이 된다.
+  const [unfillable, setUnfillable] = useState<ReadonlySet<string>>(() => new Set());
+  useEffect(() => {
+    let alive = true;
+    (async () => { const ids = await loadUnfillable(); if (alive) setUnfillable(ids); })();
+    return () => { alive = false; };
+  }, []);
+
+  const split = useMemo(() => splitBareWords(allWords, unfillable), [allWords, unfillable]);
+  /** 고를 수 있는 대상 — 언제나 오래 담아둔 것부터. */
+  const bare = split.fillable;
 
   /**
    * 고를 수 있는 상한과, 그 상한을 **한도가 만든 것인지** 를 나눠 둔다.
@@ -64,9 +75,15 @@ export default function FillBareScreen() {
   const quotaCaps = quotaLeft != null && quotaLeft < bare.length;
 
   // 기본 선택은 오래 담아둔 것부터 한도만큼. 사용자가 건드리면 그 뒤로는 사용자 것이다.
-  const [selected, setSelected] = useState<Set<string>>(
-    () => new Set(bareWordsOldestFirst(allWords).slice(0, limit).map(w => w.id)),
-  );
+  const [selected, setSelected] = useState<Set<string>>(() => new Set());
+  // 처음 한 번, 오래 담아둔 것부터 한도만큼 골라 둔다. 목록·한도가 늦게 오므로
+  // 값이 갖춰진 첫 순간에 세운다(이후에는 사용자 선택이 이긴다).
+  const seeded = useRef(false);
+  useEffect(() => {
+    if (seeded.current || bare.length === 0) return;
+    seeded.current = true;
+    setSelected(new Set(bare.slice(0, limit).map(w => w.id)));
+  }, [bare, limit]);
 
   const filtered = useMemo(() => {
     const rows = bare.filter(w => {
@@ -81,6 +98,14 @@ export default function FillBareScreen() {
     else sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
     return sorted;
   }, [bare, filterStarred, filterStatus, sortOrder]);
+
+  /** 못 찾은 단어 — 같은 필터를 적용하되 정렬은 하지 않고 맨 아래에 붙인다. */
+  const notFoundRows = useMemo(() => split.unfillable.filter(w => {
+    if (filterStarred && !w.isStarred) return false;
+    if (filterStatus === 'learning' && w.isMemorized) return false;
+    if (filterStatus === 'memorized' && !w.isMemorized) return false;
+    return true;
+  }), [split.unfillable, filterStarred, filterStatus]);
 
   const atLimit = quotaCaps && selected.size >= limit;
 
@@ -187,6 +212,46 @@ export default function FillBareScreen() {
     );
   };
 
+  /**
+   * 못 찾은 단어 — 목록 **맨 아래**에 모은다. 고를 수 있는 것이 위에 모여야 고르기가 쉽다.
+   * 선택은 못 하고, 누르면 단어가 열려 철자를 고칠 수 있다(고치면 표시가 풀린다).
+   */
+  const renderNotFound = () => {
+    if (notFoundRows.length === 0) return null;
+    return (
+      <View>
+        <Text style={[styles.groupHead, { color: colors.textSecondary, borderTopColor: colors.borderLight }]}>
+          {t('bareWords.notFoundGroup', { count: notFoundRows.length })}
+        </Text>
+        {notFoundRows.map(w => (
+          <Pressable
+            key={w.id}
+            onPress={() => {
+              // 표제어를 고치면 다시 대상이 된다 — 그래서 여기서 표시를 미리 푼다.
+              void clearUnfillable([w.id]);
+              router.push({ pathname: '/add-word', params: { listId: id!, wordId: w.id } });
+            }}
+            style={[styles.row, { borderBottomColor: colors.borderLight, opacity: 0.55 }]}
+          >
+            <Ionicons name="help-circle-outline" size={22} color={colors.textTertiary} />
+            <Ionicons
+              name={w.isStarred ? 'star' : 'star-outline'}
+              size={20}
+              color={w.isStarred ? colors.starGold : colors.textTertiary}
+            />
+            <View style={styles.rowText}>
+              <Text style={[styles.term, { color: colors.text }]} numberOfLines={1}>{w.term}</Text>
+              <Text style={[styles.miss, { color: colors.textTertiary }]} numberOfLines={1}>
+                {t('bareWords.notFoundRow')}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textTertiary} />
+          </Pressable>
+        ))}
+      </View>
+    );
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, borderBottomColor: colors.border }]}>
@@ -236,6 +301,7 @@ export default function FillBareScreen() {
         data={filtered}
         keyExtractor={w => w.id}
         renderItem={renderRow}
+        ListFooterComponent={renderNotFound()}
         contentContainerStyle={{ paddingBottom: insets.bottom + 90 }}
         showsVerticalScrollIndicator={false}
       />
@@ -265,6 +331,7 @@ const styles = StyleSheet.create({
   statusBtn: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   filterText: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
   statusText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', textTransform: 'uppercase' },
+  groupHead: { fontSize: 11.5, fontFamily: 'Pretendard_600SemiBold', paddingHorizontal: 16, paddingTop: 18, paddingBottom: 8, borderTopWidth: StyleSheet.hairlineWidth, marginTop: 8 },
   hint: { fontSize: 11.5, fontFamily: 'Pretendard_400Regular', paddingHorizontal: 16, paddingVertical: 8, lineHeight: 17 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 16, paddingVertical: 11, borderBottomWidth: 1 },
   rowText: { flex: 1, gap: 2 },

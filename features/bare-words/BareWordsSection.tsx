@@ -60,15 +60,16 @@ export default function BareWordsSection({
     void saveBareNoticeEntry(listId, next);
   }, [listId]);
 
-  // 못 찾은 단어 목록을 읽고, 더 이상 반쪽이 아닌 id 는 걷어낸다(지우거나 옮긴 단어).
-  useEffect(() => {
+  // 못 찾은 단어 목록. 🔴 화면에 돌아올 때마다 다시 읽는다 — 고르기 화면에서 철자를
+  // 고치면 거기서 표시가 풀리는데, 마운트 때만 읽으면 이 화면이 옛 값을 계속 쓴다.
+  useFocusEffect(useCallback(() => {
     let alive = true;
     (async () => {
       const ids = await loadUnfillable();
       if (alive) setUnfillable(ids);
     })();
     return () => { alive = false; };
-  }, []);
+  }, []));
 
   // 🔴 화면에 들어올 때마다 저장값을 현재값까지 낮춘다. 이 한 줄이 없으면 174에서 닫고 →
   // 채우고 → 다시 174가 돼도 `174 > 174`가 거짓이라 배너가 영영 돌아오지 않는다.

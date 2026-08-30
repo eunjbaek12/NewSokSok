@@ -18,7 +18,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, Pressable, FlatList, StyleSheet, Platform } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -52,11 +52,13 @@ export default function FillBareScreen() {
   // "얘는 왜 안 채워지지"를 확인할 자리가 여기밖에 없다. 눌러 열면 철자를 고칠 수 있고,
   // 고치면 표시가 풀려 다시 대상이 된다.
   const [unfillable, setUnfillable] = useState<ReadonlySet<string>>(() => new Set());
-  useEffect(() => {
+  // 🔴 마운트 때 한 번만 읽으면 안 된다 — 여기서 단어를 눌러 철자를 고치고 돌아와도
+  // 목록이 옛 값이라 그 단어가 "못 찾음"에 그대로 남는다(실기에서 확인).
+  useFocusEffect(useCallback(() => {
     let alive = true;
     (async () => { const ids = await loadUnfillable(); if (alive) setUnfillable(ids); })();
     return () => { alive = false; };
-  }, []);
+  }, []));
 
   const split = useMemo(() => splitBareWords(allWords, unfillable), [allWords, unfillable]);
   /** 고를 수 있는 대상 — 언제나 오래 담아둔 것부터. */
@@ -99,6 +101,18 @@ export default function FillBareScreen() {
     return sorted;
   }, [bare, filterStarred, filterStatus, sortOrder]);
 
+  /**
+   * 🔴 선택은 **항상 현재 대상 안으로 좁힌다.** 못 찾은 목록은 비동기로 늦게 오므로,
+   * 첫 렌더에서 자동 선택된 단어가 그 뒤 대상에서 빠져도 선택에는 남는다 — 실기에서
+   * 고를 수 있는 것이 0개인데 "3/0", "3개를 골라 뒀어요", 활성화된 "3개 채우기"가 나왔고,
+   * 눌러도 넘길 id 가 없어 조용히 아무 일도 일어나지 않았다.
+   */
+  const selectable = useMemo(() => new Set(bare.map(w => w.id)), [bare]);
+  const picked = useMemo(
+    () => new Set([...selected].filter(id => selectable.has(id))),
+    [selected, selectable],
+  );
+
   /** 못 찾은 단어 — 같은 필터를 적용하되 정렬은 하지 않고 맨 아래에 붙인다. */
   const notFoundRows = useMemo(() => split.unfillable.filter(w => {
     if (filterStarred && !w.isStarred) return false;
@@ -107,7 +121,7 @@ export default function FillBareScreen() {
     return true;
   }), [split.unfillable, filterStarred, filterStatus]);
 
-  const atLimit = quotaCaps && selected.size >= limit;
+  const atLimit = quotaCaps && picked.size >= limit;
 
   const toggle = useCallback((wordId: string) => {
     setSelected(prev => {
@@ -144,10 +158,10 @@ export default function FillBareScreen() {
 
   const confirm = () => {
     // 정렬을 바꿨으면 채우는 순서도 그 순서를 따른다 — 사용자가 정한 순서가 기본값을 이긴다.
-    const ordered = filtered.filter(w => selected.has(w.id)).map(w => w.id);
+    const ordered = filtered.filter(w => picked.has(w.id)).map(w => w.id);
     // 필터 밖에 있지만 선택된 것은 원래 순서(오래된 것부터)로 뒤에 붙인다.
     const inOrder = new Set(ordered);
-    const rest = bare.filter(w => selected.has(w.id) && !inOrder.has(w.id)).map(w => w.id);
+    const rest = bare.filter(w => picked.has(w.id) && !inOrder.has(w.id)).map(w => w.id);
     setPendingFill(id!, [...ordered, ...rest]);
     // 🔴 router.back() 이면 안 된다 — 이 화면은 단어장 상세(배너)에서도, 목록 탭의 ⋯ 메뉴에서도
     // 열린다. 메뉴로 들어온 경우 back 은 **목록 탭**으로 가는데 채우기를 이어받는 쪽은 상세
@@ -175,11 +189,11 @@ export default function FillBareScreen() {
   const statusColor = filterStatus === 'learning' ? colors.primary : filterStatus === 'memorized' ? colors.success : colors.textTertiary;
   const statusLabel = filterStatus === 'learning' ? t('list.filterLearning') : filterStatus === 'memorized' ? t('list.filterMemorized') : t('list.filterAll');
 
-  const allFilteredOn = filtered.length > 0 && filtered.every(w => selected.has(w.id));
+  const allFilteredOn = filtered.length > 0 && filtered.every(w => picked.has(w.id));
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const renderRow = ({ item }: { item: Word }) => {
-    const on = selected.has(item.id);
+    const on = picked.has(item.id);
     const blocked = !on && atLimit;
     return (
       <Pressable
@@ -261,9 +275,11 @@ export default function FillBareScreen() {
         <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
           {t('bareWords.pickTitle')}
         </Text>
-        <Text style={[styles.counter, { color: atLimit ? colors.warning : colors.primary }]}>
-          {selected.size}/{limit}
-        </Text>
+        {bare.length > 0 && (
+          <Text style={[styles.counter, { color: atLimit ? colors.warning : colors.primary }]}>
+            {picked.size}/{limit}
+          </Text>
+        )}
       </View>
 
       {/* 네 열이 세로로 맞는다 — ☑ 전체선택 · ★ 별표필터 · 정렬 · ◯ 상태필터가
@@ -291,32 +307,37 @@ export default function FillBareScreen() {
         </Pressable>
       </View>
 
-      <Text style={[styles.hint, { color: atLimit ? colors.warning : colors.textSecondary, backgroundColor: atLimit ? colors.warningLight : 'transparent' }]}>
-        {atLimit
-          ? t('bareWords.pickLimitHint', { total: filtered.length, limit })
-          : t('bareWords.pickHint', { count: selected.size })}
-      </Text>
+      {/* 고를 수 있는 것이 없으면 안내도 버튼도 그리지 않는다 — 아래 "못 찾은 단어"만 남는다. */}
+      {bare.length > 0 && (
+        <Text style={[styles.hint, { color: atLimit ? colors.warning : colors.textSecondary, backgroundColor: atLimit ? colors.warningLight : 'transparent' }]}>
+          {atLimit
+            ? t('bareWords.pickLimitHint', { total: filtered.length, limit })
+            : t('bareWords.pickHint', { count: picked.size })}
+        </Text>
+      )}
 
       <FlatList
         data={filtered}
         keyExtractor={w => w.id}
         renderItem={renderRow}
         ListFooterComponent={renderNotFound()}
-        contentContainerStyle={{ paddingBottom: insets.bottom + 90 }}
+        contentContainerStyle={{ paddingBottom: insets.bottom + (bare.length > 0 ? 90 : 24) }}
         showsVerticalScrollIndicator={false}
       />
 
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 12, backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
-        <Pressable
-          onPress={confirm}
-          disabled={selected.size === 0}
-          style={[styles.btn, { backgroundColor: colors.primaryButton, opacity: selected.size === 0 ? 0.5 : 1 }]}
-        >
-          <Text style={[styles.btnText, { color: colors.onPrimary }]}>
-            {t('bareWords.fillCount', { count: selected.size })}
-          </Text>
-        </Pressable>
-      </View>
+      {bare.length > 0 && (
+        <View style={[styles.footer, { paddingBottom: insets.bottom + 12, backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
+          <Pressable
+            onPress={confirm}
+            disabled={picked.size === 0}
+            style={[styles.btn, { backgroundColor: colors.primaryButton, opacity: picked.size === 0 ? 0.5 : 1 }]}
+          >
+            <Text style={[styles.btnText, { color: colors.onPrimary }]}>
+              {t('bareWords.fillCount', { count: picked.size })}
+            </Text>
+          </Pressable>
+        </View>
+      )}
     </View>
   );
 }

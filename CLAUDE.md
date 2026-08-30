@@ -163,6 +163,24 @@ in code review and only show up on a device.
   export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
   value**. It is not just console noise — 27 gradient stops were being dropped on the
   avocado character, flattening its gradient. Write `"0.2135"`.
+- **`ListHeaderComponent` must be given an *element*, not a function, if anything inside it
+  holds state.** `VirtualizedList` renders a non-element as `<ListHeaderComponent />`
+  (`VirtualizedList.js:939`), so a header render function defined inline in the screen body is
+  a **new component type on every render** — React unmounts and remounts the whole header
+  subtree, wiping its state. Pass `ListHeaderComponent={renderHeader()}` (called) instead.
+  *(The fill-bare-words banner could never show its progress or result: every filled word
+  re-rendered the list, which remounted the banner and reset its state. It hid well because
+  the work itself ran in a closure and finished correctly — the screen lied, the DB told the
+  truth. Verify list-header UI against stored state, not the screen.)*
+- **A value that arrives asynchronously must not be frozen into state on first render.** The
+  same feature shipped two bugs from this: the header above, and a pick screen that seeded its
+  selection before the "unfillable" list loaded, then kept 3 selected items that were no longer
+  selectable ("3/0", an enabled button that silently did nothing). Derive from the current
+  value each render, or re-read on focus — don't snapshot on mount.
+- **Only `DialogModal` pads its body. `ModalOverlay` does not.** The rule above about not
+  double-padding applies to `DialogModal`; a `ModalOverlay` sheet gets no horizontal padding
+  and its text will sit flush against the screen edge unless the caller adds
+  `PopupTokens.padding.container` (see `WhatsNewSheet`).
 
 When you find a new instance of "the default made this easy to get wrong", prefer
 fixing the default over adding a rule here.

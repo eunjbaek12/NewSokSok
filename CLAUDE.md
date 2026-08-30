@@ -181,6 +181,18 @@ in code review and only show up on a device.
   double-padding applies to `DialogModal`; a `ModalOverlay` sheet gets no horizontal padding
   and its text will sit flush against the screen edge unless the caller adds
   `PopupTokens.padding.container` (see `WhatsNewSheet`).
+- **Never `new DOMException(...)` — Hermes has no such global.** Use `abortError()`
+  (`lib/abort-error.ts`) for cancellation. The old code threw
+  `ReferenceError: Property 'DOMException' doesn't exist` *inside an abort listener*, so the
+  promise was never rejected and every `e?.name === 'AbortError'` branch above it missed
+  (`lib/enrich-queue-core.ts`, `lib/ai/edge-*.ts`, curation/study screens). It surfaced only
+  when a **[Stop] button** finally existed to hit that path — search cancel, batch-import
+  cancel and photo-scan cancel had been quietly broken the whole time.
+- **A cancel/stop button cannot be verified against a cached path.** Filling 12 words finished
+  in 3 seconds on cache hits, so [Stop] was never reachable — one attempt landed on the *done*
+  banner's ✕ instead and looked like "stop doesn't work". Inject a delay into the request
+  function to open the window. *(Related: uiautomator reported the banner's right-hand tap
+  target 93px off in x — read coordinates off a screenshot, not the dump.)*
 
 When you find a new instance of "the default made this easy to get wrong", prefer
 fixing the default over adding a rule here.

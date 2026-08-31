@@ -37,9 +37,13 @@ const KO_SENTENCE_ENDING = /(니다|어요|아요|여요|에요|예요|세요|�
 const JA_SENTENCE_ENDING = /(ます|ました|ません|でした|です|でしょう)$/;
 const MAX_WORD_LEN = 24;
 
+// 판정용 사본에서만 떼는 끝 구두점 — 없으면 종결어미 검사(`니다$`)가 `걸렸습니다.`
+// 처럼 구두점 붙은 OCR 결과에 통째로 헛돈다. 자세한 근거는 lib/stopwords.ts 주석.
+const TRAILING_PUNCT = /[.,!?;:…。！？、"'”』」]+$/;
+
 // 토큰이 단어가 아니라 문장/구로 보이면 true(=제외). 보수적 — 오탐 회피.
 export function isLikelyPhrase(term: string, sourceLang: string): boolean {
-  const t = term.trim();
+  const t = term.trim().replace(TRAILING_PUNCT, '').trim();
   if (!t) return false;
   if (t.split(/\s+/).filter(Boolean).length >= 3) return true;
   if (t.length > MAX_WORD_LEN) return true;

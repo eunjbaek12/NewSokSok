@@ -2,8 +2,8 @@
 // Body: { term: string, sourceLang: string, targetLang: string, mode?: 'autocomplete'|'generate'|'photo' }
 // Headers: Authorization: Bearer <supabase JWT>
 //
-// 흐름: JWT 검증 → rate-limit → consume_ai_quota RPC → 공용 캐시 조회 → Vertex AI 호출
-//      → 실패 시 quota 환불(refund_ai_quota) → 결과 반환
+// 흐름: JWT 검증 → 표제어 게이트 → rate-limit → consume_ai_quota RPC → 공용 캐시 조회
+//      → Vertex AI 호출 → 실패 시 quota 환불(refund_ai_quota) → 결과 반환
 //
 // ⚠️ 차감이 캐시 조회보다 먼저다. 캐시 히트도 차감한다 — 사용자는 어떤 단어가 캐시에
 //    있는지 보지도 예측하지도 못하므로, 무차감은 "AI 가 채워준 단어 수만큼 깎인다"는
@@ -12,9 +12,10 @@
 //
 // 응답:
 //   200 { result: {...}, quota: {...}, enrichment_level: 'full' | 'basic' }
-//   400 { error: 'invalid_request' }
+//   400 { error: 'invalid_request' }                      — 파라미터 자체가 잘못됨
 //   401 { error: 'unauthorized' }
-//   404 { error: 'not_found', quota }
+//   404 { error: 'not_found', quota }                     — AI가 모르는 단어(차감 후 환불)
+//   404 { error: 'not_found', detail: <defect> }          — 표제어가 깨졌다(차감 전 차단)
 //   429 { error: 'rate_limited' | 'quota_exceeded', quota?, retry_after? }
 //   500 { error: 'upstream_failure' | 'internal_error' }
 
@@ -22,6 +23,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { analyzeWord } from '../_shared/gemini-vertex.ts';
 import { translateMeaningOnly } from '../_shared/gemini-meaning.ts';
 import { checkRateLimit } from '../_shared/rate-limit.ts';
+import { headwordDefectOf, normalizeHeadword } from '../_shared/headword-guard.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -130,7 +132,15 @@ Deno.serve(async (req) => {
   const term = (body.term ?? '').trim();
   // 캐시 키·Vertex 입력 정규화. 클라이언트 로컬 캐시(lib/enrich-cache.ts)와 동일 규칙
   // (소문자) → "Apple"/"apple"이 같은 공용 캐시 항목을 공유.
-  const termKey = term.toLowerCase();
+  //
+  // normalizeHeadword 는 **단일 토큰의 끝 구두점·감싼 따옴표**만 벗긴다("Apple?" →
+  // "apple"). 두 단어 이상이면 손대지 않는다 — 덱의 표현·인용 카드
+  // (`off with their heads!`·`데워 드릴까요?`)는 구두점이 의미의 일부다.
+  // 🔑 이 정규화는 캐시 키와 Vertex 입력에만 쓴다. 사용자 기기에 저장되는 표제어는
+  //    클라이언트가 정한 것이고 서버가 바꿀 수 없다 — 다만 "session?" 이 기존 "session"
+  //    캐시를 히트하므로 Vertex 호출이 사라지고, 물음표 때문에 모델이 단어를 "표현"으로
+  //    읽어 동음이의 ①②③ 병기를 놓치던 것도 함께 고쳐진다.
+  const termKey = normalizeHeadword(term).toLowerCase();
   const sourceLang = (body.sourceLang ?? '').toLowerCase();
   const targetLang = (body.targetLang ?? '').toLowerCase();
   const mode = (body.mode ?? 'autocomplete').toLowerCase();
@@ -140,6 +150,36 @@ Deno.serve(async (req) => {
   if (!ALLOWED_LANGS.has(targetLang)) return json(400, { error: 'invalid_request', detail: 'targetLang' });
   const cost = COST_BY_MODE[mode];
   if (!cost) return json(400, { error: 'invalid_request', detail: 'mode' });
+
+  // ── 표제어 게이트 ─────────────────────────────────────────────────
+  // 🔑 차감보다 **먼저**다. 표제어가 깨진 채 보강이 돌면 한도가 나가고 되돌릴 수 없다 —
+  //    AI 는 무엇을 넣어도 거부하지 않고 그럴듯한 답을 만들기 때문에(`appropriate : 적절한`
+  //    → 뜻·품사·예문 전부 정상, 표제어만 깨짐) 응답을 보고 판별하는 방법이 원리적으로
+  //    없다. runawayFieldOf 도 isReal 도 이런 입력엔 걸리지 않는다.
+  //
+  // 이 게이트가 서버에 있어야 하는 이유는 클라이언트 수정으로 못 덮기 때문이다 —
+  // 스토어에 나가 있는 앱은 영원히 옛 파서를 쓴다. 2026-07-06 에 13건을 만든 그 버전이
+  // 지금도 누군가의 기기에서 돌고 있다. enrich-word 는 자동완성·사진·AI생성이 모두
+  // 합류하는 유일한 관문이라 여기 하나면 전 경로가 덮인다.
+  //
+  // 판정은 **원본 term** 으로 한다(정규화한 termKey 가 아니다). 옛 앱이 보낸
+  // `1. apple` 을 조용히 `apple` 로 고치면 기기에 저장된 표제어와 어긋난 카드가 된다 —
+  // 막아서 '찾지 못함' 으로 되돌리는 쪽이 맞다.
+  // 🔑 400 이 아니라 **404 not_found** 로 돌려보낸다. 클라이언트에 이미 배선이 있어
+  //    앱을 한 줄도 안 고치고 옛 스토어 빌드까지 곧바로 옳게 동작하기 때문이다:
+  //      404 → isReal:false → 단어 추가 "찾지 못함" 안내 / 일괄 추가 'failed' 카드
+  //            (카드는 지워지지 않아 사용자가 표제어를 고칠 수 있다)
+  //    400 을 쓰면 'invalid' 로 분류돼 사전 폴백을 타고 "서버에 문제가 있습니다"로
+  //    잘못 안내되며, 일괄 추가는 빈 결과를 **'done'** 으로 처리해 뜻 없는 카드가
+  //    완료 표시로 남는다(빈 객체도 truthy). 서버 우선 배포의 이점이 거기서 사라진다.
+  //
+  //    detail 은 옛 앱이 무시하고 새 앱이 읽는다 — script_mix(학습 언어와 다른 문자로
+  //    쓴 표제어)는 "찾지 못함" 이 오해를 부르므로 별도 안내가 필요하다.
+  const defect = headwordDefectOf(term, sourceLang);
+  if (defect) {
+    console.log('headword rejected', { term, sourceLang, targetLang, mode, defect });
+    return json(404, { error: 'not_found', detail: defect });
+  }
 
   // Rate limit (per-isolate, best-effort)
   const rl = checkRateLimit(userId);

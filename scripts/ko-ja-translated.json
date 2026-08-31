@@ -427,7 +427,7 @@
     "phonetic": "ttareuda",
     "definition": "従う、ついていく、注ぐ",
     "meaningKr": "従う、ついていく、注ぐ",
-    "exampleEn": "길을 잃지 않으려면 앞 사람을 따르세요.",
+    "exampleEn": "길을 잃지 않으려면 앞사람을 따르세요.",
     "exampleKr": "道に迷わないように前の人について行ってください。",
     "category": "verb"
   },
@@ -2071,7 +2071,7 @@
     "phonetic": "bam",
     "definition": "夜、栗",
     "meaningKr": "夜、栗",
-    "exampleEn": "어제 밤에 잠을 잘 잤어요.",
+    "exampleEn": "어젯밤에 잠을 잘 잤어요.",
     "exampleKr": "昨夜はよく眠りました。",
     "category": "noun"
   },
@@ -2167,8 +2167,8 @@
     "phonetic": "mutda",
     "definition": "尋ねる、埋める",
     "meaningKr": "尋ねる、埋める",
-    "exampleEn": "선생님께 질문을 묻고 싶어요.",
-    "exampleKr": "先生に質問をしたいです。",
+    "exampleEn": "선생님께 궁금한 것을 묻고 싶어요.",
+    "exampleKr": "先生に知りたいことを聞きたいです。",
     "category": "verb"
   },
   {
@@ -3967,7 +3967,7 @@
     "phonetic": "gareuchida",
     "definition": "教える",
     "meaningKr": "教える",
-    "exampleEn": "선생님은 학생들을 한국어를 가르치세요.",
+    "exampleEn": "선생님은 학생들에게 한국어를 가르치세요.",
     "exampleKr": "先生は学生たちに韓国語を教えます。",
     "category": "verb"
   },

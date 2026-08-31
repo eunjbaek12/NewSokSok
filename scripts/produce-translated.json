@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "과일",
+    "pos": "noun",
+    "meaningEn": "fruit",
+    "romaja": "gwail",
+    "exampleKo": "냉장고에 시원한 과일이 있어요.",
+    "exampleEn": "There is some chilled fruit in the fridge.",
+    "category": "과일"
+  },
+  {
+    "rank": 2,
+    "term": "사과",
+    "pos": "noun",
+    "meaningEn": "apple",
+    "romaja": "sagwa",
+    "exampleKo": "아침에 먹는 사과가 제일 맛있어요.",
+    "exampleEn": "Apples eaten in the morning are the best.",
+    "category": "과일"
+  },
+  {
+    "rank": 3,
+    "term": "배",
+    "pos": "noun",
+    "meaningEn": "Korean pear",
+    "romaja": "bae",
+    "exampleKo": "명절 선물로 달콤한 배를 받았어요.",
+    "exampleEn": "We received sweet Korean pears as a holiday gift.",
+    "category": "과일"
+  },
+  {
+    "rank": 4,
+    "term": "딸기",
+    "pos": "noun",
+    "meaningEn": "strawberry",
+    "romaja": "ttalgi",
+    "exampleKo": "딸기를 깨끗이 씻어서 간식으로 먹자.",
+    "exampleEn": "Let's wash the strawberries clean and eat them as a snack.",
+    "category": "과일"
+  },
+  {
+    "rank": 5,
+    "term": "포도",
+    "pos": "noun",
+    "meaningEn": "grapes",
+    "romaja": "podo",
+    "exampleKo": "보라색 포도가 아주 달고 싱싱해요.",
+    "exampleEn": "The purple grapes are very sweet and fresh.",
+    "category": "과일"
+  },
+  {
+    "rank": 6,
+    "term": "수박",
+    "pos": "noun",
+    "meaningEn": "watermelon",
+    "romaja": "subak",
+    "exampleKo": "시원한 수박을 먹으니 여름 같네.",
+    "exampleEn": "Eating cold watermelon really feels like summer.",
+    "category": "과일"
+  },
+  {
+    "rank": 7,
+    "term": "참외",
+    "pos": "noun",
+    "meaningEn": "Korean melon",
+    "romaja": "chamoe",
+    "exampleKo": "노란 참외를 깎아서 접시에 담았어요.",
+    "exampleEn": "I peeled the yellow Korean melon and put it on a plate.",
+    "category": "과일"
+  },
+  {
+    "rank": 8,
+    "term": "복숭아",
+    "pos": "noun",
+    "meaningEn": "peach",
+    "romaja": "boksunga",
+    "exampleKo": "말랑한 복숭아는 껍질이 잘 벗겨져요.",
+    "exampleEn": "Soft peaches peel their skin off very easily.",
+    "category": "과일"
+  },
+  {
+    "rank": 9,
+    "term": "감",
+    "pos": "noun",
+    "meaningEn": "persimmon",
+    "romaja": "gam",
+    "exampleKo": "주황색 감이 베란다에서 익어가고 있어요.",
+    "exampleEn": "Orange persimmons are ripening out on the balcony.",
+    "category": "과일"
+  },
+  {
+    "rank": 10,
+    "term": "귤",
+    "pos": "noun",
+    "meaningEn": "mandarin orange",
+    "romaja": "gyul",
+    "exampleKo": "따뜻한 방에서 귤을 까먹는 게 낙이야.",
+    "exampleEn": "Peeling and eating mandarins in a warm room is the best.",
+    "category": "과일"
+  },
+  {
+    "rank": 11,
+    "term": "바나나",
+    "pos": "noun",
+    "meaningEn": "banana",
+    "romaja": "banana",
+    "exampleKo": "바나나가 금방 익어서 빨리 먹어야 해요.",
+    "exampleEn": "The bananas are ripening fast, so we need to eat them soon.",
+    "category": "과일"
+  },
+  {
+    "rank": 12,
+    "term": "오렌지",
+    "pos": "noun",
+    "meaningEn": "orange",
+    "romaja": "orenji",
+    "exampleKo": "상큼한 오렌지로 주스를 만들어 볼까?",
+    "exampleEn": "Shall we make some juice with these fresh oranges?",
+    "category": "과일"
+  },
+  {
+    "rank": 13,
+    "term": "키위",
+    "pos": "noun",
+    "meaningEn": "kiwi fruit",
+    "romaja": "kiwi",
+    "exampleKo": "새콤달콤한 키위는 숟가락으로 떠먹어요.",
+    "exampleEn": "We scoop out and eat sweet-and-sour kiwi with a spoon.",
+    "category": "과일"
+  },
+  {
+    "rank": 14,
+    "term": "자두",
+    "pos": "noun",
+    "meaningEn": "plum",
+    "romaja": "jadu",
+    "exampleKo": "새콤한 자두를 몇 개 씻어 왔어요.",
+    "exampleEn": "I washed a few tart plums and brought them over.",
+    "category": "과일"
+  },
+  {
+    "rank": 15,
+    "term": "레몬",
+    "pos": "noun",
+    "meaningEn": "lemon",
+    "romaja": "remon",
+    "exampleKo": "탄산수에 레몬을 띄워서 마셔요.",
+    "exampleEn": "We drop a slice of lemon into sparkling water to drink.",
+    "category": "과일"
+  },
+  {
+    "rank": 16,
+    "term": "밤",
+    "pos": "noun",
+    "meaningEn": "chestnut",
+    "romaja": "bam",
+    "exampleKo": "가을에 주운 밤을 삶아서 간식으로 먹어요.",
+    "exampleEn": "We boil the chestnuts we gathered in autumn for a snack.",
+    "category": "과일"
+  },
+  {
+    "rank": 17,
+    "term": "대추",
+    "pos": "noun",
+    "meaningEn": "jujube",
+    "romaja": "daechu",
+    "exampleKo": "삼계탕에 넣을 대추를 깨끗이 씻었어요.",
+    "exampleEn": "I washed the jujubes clean to put in the ginseng chicken soup.",
+    "category": "과일"
+  },
+  {
+    "rank": 18,
+    "term": "채소",
+    "pos": "noun",
+    "meaningEn": "vegetables",
+    "romaja": "chaeso",
+    "exampleKo": "오늘 마트에서 신선한 채소를 샀어요.",
+    "exampleEn": "I bought some fresh vegetables at the mart today.",
+    "category": "채소"
+  },
+  {
+    "rank": 19,
+    "term": "배추",
+    "pos": "noun",
+    "meaningEn": "napa cabbage",
+    "romaja": "baechu",
+    "exampleKo": "김장하려고 커다란 배추 열 포기를 절였어요.",
+    "exampleEn": "We salted ten large napa cabbages to make winter kimchi.",
+    "category": "채소"
+  },
+  {
+    "rank": 20,
+    "term": "무",
+    "pos": "noun",
+    "meaningEn": "Korean radish",
+    "romaja": "mu",
+    "exampleKo": "시원한 무국을 끓이려고 무를 나뭇잎 모양으로 썰었어요.",
+    "exampleEn": "I sliced the radish into pieces to make a refreshing radish soup.",
+    "category": "채소"
+  },
+  {
+    "rank": 21,
+    "term": "오이",
+    "pos": "noun",
+    "meaningEn": "cucumber",
+    "romaja": "oi",
+    "exampleKo": "오이를 길쭉하게 썰어서 된장에 찍어 먹자.",
+    "exampleEn": "Let's cut the cucumbers lengthwise and dip them in soybean paste.",
+    "category": "채소"
+  },
+  {
+    "rank": 22,
+    "term": "당근",
+    "pos": "noun",
+    "meaningEn": "carrot",
+    "romaja": "danggeun",
+    "exampleKo": "김밥에 넣을 당근을 곱게 채 썰었어요.",
+    "exampleEn": "I julienned the carrots finely to put in the kimbap.",
+    "category": "채소"
+  },
+  {
+    "rank": 23,
+    "term": "감자",
+    "pos": "noun",
+    "meaningEn": "potato",
+    "romaja": "gamja",
+    "exampleKo": "저녁에 먹으려고 감자 껍질을 벗기고 있어요.",
+    "exampleEn": "I'm peeling potatoes to eat for dinner.",
+    "category": "채소"
+  },
+  {
+    "rank": 24,
+    "term": "고구마",
+    "pos": "noun",
+    "meaningEn": "sweet potato",
+    "romaja": "goguma",
+    "exampleKo": "겨울에는 역시 호박고구마를 구워 먹어야 해요.",
+    "exampleEn": "In winter, you simply have to bake and eat sweet potatoes.",
+    "category": "채소"
+  },
+  {
+    "rank": 25,
+    "term": "양파",
+    "pos": "noun",
+    "meaningEn": "onion",
+    "romaja": "yangpa",
+    "exampleKo": "양파를 볶을 때 눈이 조금 매웠어요.",
+    "exampleEn": "My eyes stung a bit while stir-frying the onions.",
+    "category": "채소"
+  },
+  {
+    "rank": 26,
+    "term": "마늘",
+    "pos": "noun",
+    "meaningEn": "garlic",
+    "romaja": "man-eul",
+    "exampleKo": "김치에 넣을 마늘을 곱게 다져 주세요.",
+    "exampleEn": "Please finely mince the garlic to put in the kimchi.",
+    "category": "채소"
+  },
+  {
+    "rank": 27,
+    "term": "파",
+    "pos": "noun",
+    "meaningEn": "green onion",
+    "romaja": "pa",
+    "exampleKo": "된장찌개에 파를 송송 썰어 넣었어요.",
+    "exampleEn": "I chopped up some green onion and put it in the soybean paste stew.",
+    "category": "채소"
+  },
+  {
+    "rank": 28,
+    "term": "고추",
+    "pos": "noun",
+    "meaningEn": "chili pepper",
+    "romaja": "go-chu",
+    "exampleKo": "텃밭에서 딴 고추가 정말 매워 보여요.",
+    "exampleEn": "The chili peppers picked from the garden look really spicy.",
+    "category": "채소"
+  },
+  {
+    "rank": 29,
+    "term": "호박",
+    "pos": "noun",
+    "meaningEn": "squash; pumpkin",
+    "romaja": "ho-bak",
+    "exampleKo": "애호박을 채 썰어서 부침개를 부쳐 먹자.",
+    "exampleEn": "Let's julienne the young squash and make savory pancakes.",
+    "category": "채소"
+  },
+  {
+    "rank": 30,
+    "term": "가지",
+    "pos": "noun",
+    "meaningEn": "eggplant",
+    "romaja": "ga-ji",
+    "exampleKo": "가지를 길쭉하게 썰어서 쪄 주세요.",
+    "exampleEn": "Please cut the eggplant lengthwise and steam it.",
+    "category": "채소"
+  },
+  {
+    "rank": 31,
+    "term": "상추",
+    "pos": "noun",
+    "meaningEn": "lettuce",
+    "romaja": "sang-chu",
+    "exampleKo": "고기를 먹을 때 상추에 싸서 먹어요.",
+    "exampleEn": "When eating meat, we wrap it in lettuce to eat.",
+    "category": "채소"
+  },
+  {
+    "rank": 32,
+    "term": "깻잎",
+    "pos": "noun",
+    "meaningEn": "perilla leaf",
+    "romaja": "kkaennip",
+    "exampleKo": "향긋한 깻잎 장아찌를 맛있게 담갔어요.",
+    "exampleEn": "I deliciously pickled some aromatic perilla leaves.",
+    "category": "채소"
+  },
+  {
+    "rank": 33,
+    "term": "시금치",
+    "pos": "noun",
+    "meaningEn": "spinach",
+    "romaja": "si-geum-chi",
+    "exampleKo": "시금치는 살짝 데쳐서 무쳐야 맛있어요.",
+    "exampleEn": "Spinach tastes best when lightly blanched and seasoned.",
+    "category": "채소"
+  },
+  {
+    "rank": 34,
+    "term": "콩나물",
+    "pos": "noun",
+    "meaningEn": "soybean sprouts",
+    "romaja": "kong-na-mul",
+    "exampleKo": "콩나물국을 시원하게 끓여서 먹자.",
+    "exampleEn": "Let's boil a refreshing bowl of soybean sprout soup.",
+    "category": "채소"
+  },
+  {
+    "rank": 35,
+    "term": "버섯",
+    "pos": "noun",
+    "meaningEn": "mushroom",
+    "romaja": "beo-seot",
+    "exampleKo": "여러 가지 버섯을 넣고 볶음을 만들었어요.",
+    "exampleEn": "I made a stir-fry with a variety of mushrooms.",
+    "category": "채소"
+  },
+  {
+    "rank": 36,
+    "term": "옥수수",
+    "pos": "noun",
+    "meaningEn": "corn",
+    "romaja": "ok-su-su",
+    "exampleKo": "간식으로 먹으려고 옥수수를 삶는 중이야.",
+    "exampleEn": "I am boiling some corn to eat as a snack.",
+    "category": "채소"
+  },
+  {
+    "rank": 37,
+    "term": "토마토",
+    "pos": "noun",
+    "meaningEn": "tomato",
+    "romaja": "to-ma-to",
+    "exampleKo": "방울토마토가 아주 빨갛게 잘 익었어요.",
+    "exampleEn": "The cherry tomatoes have ripened to a nice bright red.",
+    "category": "채소"
+  },
+  {
+    "rank": 38,
+    "term": "브로콜리",
+    "pos": "noun",
+    "meaningEn": "broccoli",
+    "romaja": "beuro-kol-li",
+    "exampleKo": "브로콜리는 살짝 데쳐서 초장에 찍어 먹어.",
+    "exampleEn": "Blanch the broccoli slightly and dip it in chogochujang.",
+    "category": "채소"
+  },
+  {
+    "rank": 39,
+    "term": "껍질",
+    "pos": "noun",
+    "meaningEn": "skin; peel",
+    "romaja": "kkeop-jil",
+    "exampleKo": "사과 껍질을 얇게 깎아서 접시에 담아.",
+    "exampleEn": "Peel the apple skin thinly and put it on a plate.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 40,
+    "term": "씨",
+    "pos": "noun",
+    "meaningEn": "seed; pit",
+    "romaja": "ssi",
+    "exampleKo": "수박 씨를 발라내며 맛있게 먹었어요.",
+    "exampleEn": "We ate it deliciously while picking out the watermelon seeds.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 41,
+    "term": "익다",
+    "pos": "verb",
+    "meaningEn": "to ripen; to be cooked through",
+    "romaja": "ik-da",
+    "exampleKo": "김치가 알맞게 잘 익어서 새콤해요.",
+    "exampleEn": "The kimchi has fermented just right and is pleasantly sour.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 42,
+    "term": "썩다",
+    "pos": "verb",
+    "meaningEn": "to rot; to go bad",
+    "romaja": "sseok-da",
+    "exampleKo": "냉장고 구석에 두었던 감자가 썩었어요.",
+    "exampleEn": "The potatoes left in the corner of the fridge went bad.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 43,
+    "term": "무르다",
+    "pos": "adjective",
+    "meaningEn": "to be soft or mushy",
+    "romaja": "mu-reu-da",
+    "exampleKo": "복숭아 아랫부분이 너무 물러서 얼른 도려냈어.",
+    "exampleEn": "The bottom part of the peach was too mushy, so I quickly cut it out.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 44,
+    "term": "새콤하다",
+    "pos": "adjective",
+    "meaningEn": "pleasantly tart",
+    "romaja": "sae-kom-ha-da",
+    "exampleKo": "식초를 살짝 넣었더니 국물이 새콤해서 입맛이 돌아요.",
+    "exampleEn": "I added a bit of vinegar, and the broth is pleasantly tart and appetizing.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 45,
+    "term": "아삭하다",
+    "pos": "adjective",
+    "meaningEn": "crisp and crunchy",
+    "romaja": "a-sak-ha-da",
+    "exampleKo": "오이가 아주 싱싱해서 씹을 때마다 아삭해요.",
+    "exampleEn": "The cucumbers are so fresh that they are crisp with every bite.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 46,
+    "term": "다듬다",
+    "pos": "verb",
+    "meaningEn": "to trim vegetables",
+    "romaja": "da-deum-da",
+    "exampleKo": "엄마와 함께 거실에 앉아서 파를 다듬었어요.",
+    "exampleEn": "I sat in the living room with Mom and trimmed the green onions.",
+    "category": "손질·상태"
+  },
+  {
+    "rank": 47,
+    "term": "텃밭",
+    "pos": "noun",
+    "meaningEn": "home vegetable patch",
+    "romaja": "teot-bat",
+    "exampleKo": "우리 집 텃밭에서 상추를 직접 길러요.",
+    "exampleEn": "We grow lettuce ourselves in our home vegetable patch.",
+    "category": "기르기"
+  },
+  {
+    "rank": 48,
+    "term": "농사",
+    "pos": "noun",
+    "meaningEn": "farming",
+    "romaja": "nong-sa",
+    "exampleKo": "올해도 부모님께서 주말마다 텃밭 농사를 지으셔요.",
+    "exampleEn": "This year too, my parents do garden farming every weekend.",
+    "category": "기르기"
+  },
+  {
+    "rank": 49,
+    "term": "심다",
+    "pos": "verb",
+    "meaningEn": "to plant",
+    "romaja": "sim-da",
+    "exampleKo": "봄이 되어서 마당에 상추 모종을 심었어.",
+    "exampleEn": "Spring has come, so I planted lettuce seedlings in the yard.",
+    "category": "기르기"
+  },
+  {
+    "rank": 50,
+    "term": "수확하다",
+    "pos": "verb",
+    "meaningEn": "to harvest",
+    "romaja": "su-hwak-ha-da",
+    "exampleKo": "드디어 잘 자란 고추를 오늘 수확했어요.",
+    "exampleEn": "We finally harvested the well-grown chili peppers today.",
+    "category": "기르기"
+  }
+]

@@ -20,6 +20,8 @@ import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-cont
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
 import { senseChipLabel, CIRCLED_NUMBERS } from '@/lib/senses';
+import { formatBaseFormLine } from '@/lib/inflection';
+import type { HeadwordDefect } from '@/utils/headword-guard';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
 let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
@@ -47,6 +49,7 @@ import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { getQuotaLeft, useQuota, useQuotaStore, pickBasicNoticeCopy, pickRewardedCopy, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
+import { bareWordsOldestFirst, setPendingFill } from '@/features/bare-words';
 import { useAuth } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -337,6 +340,7 @@ export default function AddWordScreen() {
         exampleKr, setExampleKr,
         tags, setTags,
         errors, setErrors,
+        baseForm,
         resetForLanguageChange,
         hasFillContent,
         handleAutoFill,
@@ -349,12 +353,26 @@ export default function AddWordScreen() {
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        autoFillDefect,
         enrichFallback,
         enrichmentLevel,
         sensePicker,
         toggleSense,
         dismissSensePicker,
     } = useAddWord(listId, wordId, existingWord, draftState, sourceLang, targetLang, apiKey || undefined);
+
+    // 굴절형 원형 한 줄("abandon의 과거분사"). 어순이 언어마다 달라 조립은 i18n 이 한다.
+    // 굴절형이 아니면 null 이라 아무것도 그리지 않는다(lib/inflection.ts).
+    const baseFormLine = formatBaseFormLine(baseForm.baseForm, baseForm.inflection, t);
+    const baseFormTerm = (baseForm.baseForm ?? '').trim();
+    /*
+     * 원형 줄을 눌러 그 원형을 검색하는 동선(목업 "굴절형 원형 표기안" B안).
+     *
+     * 🔴 편집 중에는 누를 수 없다. 편집 화면에서 표제어를 바꾸는 것은 "다른 단어를 찾는다"가
+     *    아니라 **편집 중인 단어의 이름이 바뀌는 것**이라, 저장하면 anomalies 가 anomaly 로
+     *    개명된다. 새 단어를 담는 중일 때만 검색으로 해석한다.
+     */
+    const canSearchBaseForm = !!baseFormLine && !!baseFormTerm && !isEditing;
 
     useEffect(() => {
         if (aiQuotaHitAt) {
@@ -565,6 +583,27 @@ export default function AddWordScreen() {
         if (last && lists.some(l => l.id === last)) return last;
         return lists.length > 0 ? lists[0].id : '';
     });
+    /*
+     * 광고 보상 직후, 남은 보너스로 이 단어장의 반쪽 단어를 채우자고 권한다.
+     *
+     * 이 자리가 필요한 이유는 2026-08-29 실측 그대로다 — 한 사용자가 223개를 담고
+     * **마지막에** 광고를 봐서 20을 받았는데 `retryAfterReward` 가 그 순간 보던 한 건만
+     * 재시도해 **1개만 쓰고 끝났다.** 나머지 19가 버려졌고, 이미 basic 으로 저장된 174개는
+     * 애초에 대상이 아니었다.
+     *
+     * 🔑 판정을 새로 만들지 않는다 — 보상이 실제로 지급됐는지는 `grantedAmount`, 잔량은
+     * `getQuotaLeft` 하나가 답한다. 보이는 조건이 곧 누를 수 있는 조건이다.
+     */
+    const rewardFollowUp = useMemo(() => {
+        if (rewarded.grantedAmount == null || !selectedListId) return null;
+        const bare = bareWordsOldestFirst(selectWordsForList(lists, selectedListId));
+        if (bare.length === 0) return null;
+        const left = apiKey ? bare.length : (getQuotaLeft(quotaStatus) ?? 0);
+        const fillable = Math.min(left, bare.length);
+        if (fillable <= 0) return null;
+        return { bareCount: bare.length, fillable, ids: bare.slice(0, fillable).map(w => w.id) };
+    }, [rewarded.grantedAmount, selectedListId, lists, apiKey, quotaStatus]);
+
     const [listPickerOpen, setListPickerOpen] = useState(false);
     const [newListName, setNewListName] = useState('');
     const [showNewListInput, setShowNewListInput] = useState(false);
@@ -573,6 +612,9 @@ export default function AddWordScreen() {
     // 사전에서 찾지 못한 단어. 인라인 배너로 표시되며, 사용자가 term을 한 글자라도
     // 수정하면 자동으로 사라진다. 토스트보다 명시적이고 흐름을 끊지 않는 안내.
     const [notFoundTerm, setNotFoundTerm] = useState('');
+    // 배너 문구를 가르는 사유 — 배너를 띄운 그 순간의 값을 함께 굳힌다(뒤에 사유만
+    // 바뀌면 지난 배너에 새 문구가 붙는다).
+    const [notFoundDefect, setNotFoundDefect] = useState<HeadwordDefect | null>(null);
     // 뜻 칩 토글 거부 안내('min'=마지막 1개 못 끔 · 'overflow'=저장 한도 초과). 잠시 후 자동 소멸.
     const [senseHint, setSenseHint] = useState<'min' | 'overflow' | null>(null);
     useEffect(() => {
@@ -593,11 +635,13 @@ export default function AddWordScreen() {
         if (autoFillNotFoundAt) {
             // 현재 term을 캡처해 인라인 배너 표시 — term이 바뀌면 별도 effect가 clear.
             setNotFoundTerm(term.trim());
+            setNotFoundDefect(autoFillDefect);
         }
     }, [autoFillNotFoundAt]);
     useEffect(() => {
         if (notFoundTerm && term.trim() !== notFoundTerm) {
             setNotFoundTerm('');
+            setNotFoundDefect(null);
         }
     }, [term, notFoundTerm]);
     const [tagInput, setTagInput] = useState('');
@@ -903,6 +947,21 @@ export default function AddWordScreen() {
         // 의도한 blur이므로 테두리 강조도 함께 끈다.
         termInputRef.current?.blur();
         setIsTermFocused(false);
+    };
+
+    // 원형 줄 탭 = 그 원형으로 검색. 자동완성 후보 탭(아래 suggestionItem)과 같은 절차다 —
+    // 표제어를 바꾸고, 열려 있던 후보 목록을 접고, 키보드를 내린 뒤 검색한다.
+    const handleSearchBaseForm = () => {
+        if (!canSearchBaseForm) return;
+        if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+        suggestionsDismissedRef.current = true;
+        setTerm(baseFormTerm);
+        setSuggestions([]);
+        setShowSuggestions(false);
+        setSuggestLoading(false);
+        Haptics.selectionAsync();
+        blurTermInput();
+        handleAutoFillWithTerm(baseFormTerm);
     };
 
     // 저장 후 다음 단어를 바로 칠 수 있게 입력창으로 돌아온다(포커스 + 키보드).
@@ -1240,6 +1299,30 @@ export default function AddWordScreen() {
                                 )}
                             </Pressable>
                         )}
+
+                        {rewardFollowUp && (
+                            <View style={styles.quotaBannerRow}>
+                                <View style={styles.quotaBannerTextCol}>
+                                    <Text style={[styles.quotaBannerBody, { color: colors.textSecondary }]}>
+                                        {t('bareWords.afterAdBody', { count: rewardFollowUp.bareCount })}
+                                    </Text>
+                                </View>
+                                <Pressable
+                                    onPress={() => {
+                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                        setPendingFill(selectedListId, rewardFollowUp.ids);
+                                        // 단어장 화면이 포커스를 받으면 BareWordsSection 이 이어받아 채운다.
+                                        // replace 로 가야 어디서 들어왔든 그 단어장에 확실히 닿는다.
+                                        router.replace({ pathname: '/list/[id]', params: { id: selectedListId } });
+                                    }}
+                                    style={[styles.quotaBannerCta, { backgroundColor: colors.primaryButton, marginTop: 0 }]}
+                                >
+                                    <Text style={[styles.quotaBannerCtaText, { color: colors.onPrimary }]}>
+                                        {t('bareWords.fillCount', { count: rewardFollowUp.fillable })}
+                                    </Text>
+                                </Pressable>
+                            </View>
+                        )}
                     </View>
                 )}
 
@@ -1463,6 +1546,41 @@ export default function AddWordScreen() {
                                                 )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
+                                                {/* 굴절형이면 원형을 한 줄로. 담기 직전이 원형을 가장 보고 싶은 순간이라
+                                                    단어 상세(WordDetailModal)와 같은 줄을 여기에도 둔다 — 목업이 정한
+                                                    B안의 화면 두 곳이다. 검색 중에는 아래 진행 안내에 자리를 내준다:
+                                                    새 표제어의 결과가 오기 전까지는 앞 단어의 원형이 남아 있어 오해를 부른다. */}
+                                                {!!baseFormLine && !isPendingFill && (
+                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.baseFormWrap}>
+                                                        {/* 누를 수 있을 때만 Pressable 로 감싼다 — 편집 중에는 돋보기도
+                                                            안 그려서 "눌러도 되는 것"으로 보이지 않게 한다. */}
+                                                        {canSearchBaseForm ? (
+                                                            <Pressable
+                                                                onPress={handleSearchBaseForm}
+                                                                accessibilityRole="button"
+                                                                accessibilityLabel={t('inflection.searchBase', { base: baseFormTerm })}
+                                                                hitSlop={6}
+                                                                style={({ pressed }) => [
+                                                                    styles.baseFormRow,
+                                                                    { backgroundColor: colors.primaryLight, opacity: pressed ? 0.7 : 1 },
+                                                                ]}
+                                                            >
+                                                                <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                                                                <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                                                    {baseFormLine}
+                                                                </Text>
+                                                                <Ionicons name="search-outline" size={12} color={colors.primary} />
+                                                            </Pressable>
+                                                        ) : (
+                                                            <View style={[styles.baseFormRow, { backgroundColor: colors.primaryLight }]}>
+                                                                <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                                                                <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                                                    {baseFormLine}
+                                                                </Text>
+                                                            </View>
+                                                        )}
+                                                    </Animated.View>
+                                                )}
                                                 {/* 검색 진행 안내. 돋보기 자리의 스피너가 "돌아가는 중"을, 이 줄이 "무엇을
                                                     하는 중"을 맡는다(그래서 여기엔 스피너를 겹치지 않는다). 표제어를 함께
                                                     보여주므로, 검색 중 단어를 고쳐 결과가 버려져도 무슨 일인지 읽힌다. */}
@@ -1502,7 +1620,11 @@ export default function AddWordScreen() {
                                                     <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
                                                         <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
                                                         <Text style={[styles.notFoundBannerText, { color: colors.warning }]}>
-                                                            {t('addWord.autoFillNotFound', { term: notFoundTerm })}
+                                                            {notFoundDefect === 'script_mix'
+                                                                ? t('addWord.headwordScriptMix', { term: notFoundTerm })
+                                                                : notFoundDefect
+                                                                    ? t('addWord.headwordMalformed', { term: notFoundTerm })
+                                                                    : t('addWord.autoFillNotFound', { term: notFoundTerm })}
                                                         </Text>
                                                     </View>
                                                 )}
@@ -2138,6 +2260,16 @@ const styles = StyleSheet.create({
     senseHintText: { fontSize: 11.5, fontFamily: 'Pretendard_500Medium' },
     // 검색 진행 안내 줄 — 중복 안내(dupHintRow)와 같은 자리·같은 리듬.
     searchingRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 6, paddingHorizontal: 2 },
+    // 굴절형 원형 줄. WordDetailModal 의 같은 이름 스타일과 값을 맞춘다 — 같은 정보가
+    // 두 화면에서 다르게 보이면 안 된다.
+    // ⚠️ overflow:'hidden' 은 장식이 아니다. Android(Fabric)에서 backgroundColor +
+    //    borderRadius 만으로는 모서리가 각지게 그려진다(CLAUDE.md 의 UI 체크리스트).
+    // 알약이 줄 전체로 늘어나지 않게 감싸는 자리. Pressable 쪽에 alignSelf 를 두면
+    // 눌리는 영역이 글자에 딱 붙어 좁아진다 — 바깥에서 폭을 잡고 안쪽은 알약만 그린다.
+    baseFormWrap: { alignSelf: 'flex-start', marginTop: 8 },
+    baseFormRow: { flexDirection: 'row', alignItems: 'center', gap: 4, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 8, overflow: 'hidden' },
+    baseFormArrow: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
+    baseFormText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flexShrink: 1 },
     searchingText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium', lineHeight: 17 },
     tagsContainer: { marginTop: 0, gap: 6 },
     tagsLabel: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },

@@ -182,3 +182,63 @@ describe('Scenario F: 통합 흐름 (BatchImportWorkflow.handleNextStage 시뮬)
     });
 });
 
+describe('Scenario E: parseImportedText (대시·콜론 구분자 — 2026-08-26 실사고)', () => {
+    // 사용자가 "영어 — 한국어" 목록을 붙여넣었는데 줄이 갈리지 않아 통째로 표제어가 되었다.
+    // 그대로 AI 보강이 돌아 enrich 캐시 83행이 오염되고 한도 83단어가 헛되이 나갔다.
+    test('em dash 로 구분된 목록은 첫 컬럼만 표제어가 된다', () => {
+        const result = parseImportedText('lemon — 레몬\nstrawberry — 딸기\nbroccoli — 브로콜리');
+        expect(result.map(w => w.term)).toEqual(['lemon', 'strawberry', 'broccoli']);
+    });
+
+    test('en dash 와 공백 하이픈도 자른다', () => {
+        expect(parseImportedText('apple – 사과')[0].term).toBe('apple');
+        expect(parseImportedText('banana - 바나나')[0].term).toBe('banana');
+    });
+
+    test('콜론은 뒤에 공백이 있을 때만 자른다', () => {
+        expect(parseImportedText('hello: 안녕')[0].term).toBe('hello');
+        // 붙여 쓴 콜론은 자르지 않는다 (정상 표제어에 낀 콜론을 먼저 지킨다)
+        expect(parseImportedText('note:memo')[0].term).toBe('note:memo');
+    });
+
+    test('파이프로 구분된 목록도 자른다', () => {
+        expect(parseImportedText('water|물')[0].term).toBe('water');
+    });
+
+    // 🔴 여기가 이 수정에서 깨뜨리면 안 되는 자리다 — 단어 안의 하이픈은 구분자가 아니다.
+    test('단어 안에 붙어 있는 하이픈은 자르지 않는다', () => {
+        const result = parseImportedText('e-mail\nK-pop\nself-esteem\nT-shirt');
+        expect(result.map(w => w.term)).toEqual(['e-mail', 'K-pop', 'self-esteem', 'T-shirt']);
+    });
+
+    test('구분자로 시작하는 줄은 컬럼 분리로 자르지 않는다 (빈 표제어 방지)', () => {
+        // COLUMN_SEP 은 index 0 에서 자르지 않는다 — 자르면 표제어가 빈다.
+        // 대신 normalizeHeadword 가 목록 표지로 보고 벗겨 `레몬` 을 남긴다.
+        // 🔑 원래 의도(빈 표제어 방지)는 그대로이고 결과만 나아졌다 — 예전에는
+        //    `— 레몬` 이 통째로 표제어가 돼 게이트에 걸렸다.
+        const result = parseImportedText('— 레몬');
+        expect(result[0].term).toBe('레몬');
+    });
+
+    test('목록 표지를 벗긴다 — 번호·불릿 (COLUMN_SEP 이 전혀 못 자르던 형태)', () => {
+        const result = parseImportedText('1. apple\n2) banana\n• cherry\n#3 date');
+        expect(result.map(w => w.term)).toEqual(['apple', 'banana', 'cherry', 'date']);
+    });
+
+    test('🔴 목록 표지처럼 보이는 정상 표제어는 건드리지 않는다', () => {
+        const result = parseImportedText('1.5kg\n-apple\n24시간');
+        expect(result.map(w => w.term)).toEqual(['1.5kg', '-apple', '24시간']);
+    });
+
+    test('단일 토큰의 끝 구두점을 벗긴다 — 여러 단어면 남긴다', () => {
+        expect(parseImportedText('Apple?')[0].term).toBe('Apple');
+        expect(parseImportedText('"자랑스러운')[0].term).toBe('자랑스러운');
+        // 구두점이 의미의 일부인 표현은 그대로 (덱에 실재하는 형태)
+        expect(parseImportedText('off with their heads!')[0].term).toBe('off with their heads!');
+    });
+
+    test('탭·콤마가 대시보다 앞서면 탭·콤마에서 자른다', () => {
+        expect(parseImportedText('apple\t사과 — fruit')[0].term).toBe('apple');
+        expect(parseImportedText('apple,사과 — fruit')[0].term).toBe('apple');
+    });
+});

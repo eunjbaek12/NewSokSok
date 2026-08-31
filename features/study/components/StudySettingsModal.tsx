@@ -444,8 +444,14 @@ export default function StudySettingsModal({
                         </ScrollView>
 
                         <View style={styles.bottomButtons}>
+                            {/* 🔴 [닫기]에는 **면을 칠하지 않는다.** 이 버튼만 섹션 카드 밖(모달 배경
+                                위)에 놓이는데, 모달 배경과 대비되는 면 토큰이 다섯 테마 전부를 만족시키지
+                                못한다 — surfaceSecondary 는 라이트 네 테마에서 surfaceModal 과 같고
+                                (lab·y2k 는 1.00), surface 는 다크에서 surfaceModal 과 **같은 값**이다.
+                                어느 쪽을 칠해도 한 테마가 배신한다. 반면 테두리는 1.22~1.76 으로 전부
+                                넘기므로, 형태는 테두리에 맡기고 면은 비운다(시트의 부차 버튼과 같은 방향). */}
                             <Pressable
-                                style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+                                style={[styles.btnCancel, { backgroundColor: 'transparent', borderColor: colors.border }]}
                                 onPress={onClose}
                             >
                                 <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>

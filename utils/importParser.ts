@@ -1,7 +1,13 @@
+import { normalizeHeadword, type HeadwordDefect } from './headword-guard';
+
 export interface ParsedWord {
   id: string;          // 임시 키 (React list key)
   term: string;        // 정제된 단어
   enrichStatus: 'pending' | 'done' | 'failed';
+  // 표제어 게이트가 막은 사유(있을 때만). 실패 카드의 안내 문구를 가른다 —
+  // 'script_mix'(배우는 언어와 다른 문자)에 "사전에서 찾지 못했다"고 하면
+  // 오해를 부른다. utils/headword-guard.ts 참조.
+  headwordDefect?: HeadwordDefect;
   definition: string;
   phonetic: string;
   pos: string;
@@ -12,10 +18,22 @@ export interface ParsedWord {
 
 // 일괄 추가 입력 텍스트를 단어 후보 배열로 변환.
 // - 한 줄에 한 단어가 원칙
-// - 탭/콤마가 포함된 줄(엑셀·CSV 붙여넣기)은 첫 컬럼만 단어로 사용
+// - 구분자(탭·콤마·대시·콜론·파이프)가 있는 줄은 첫 컬럼만 단어로 사용
 // - 빈 줄, 공백만, 글자 없는 토큰(숫자·기호만) 제외
 // - 헤더로 보이는 첫 줄(단어/word/term 등) 자동 스킵
 // - 대소문자 무시 중복 제거 (먼저 등장한 표기 보존)
+// 컬럼 구분자. 목록을 붙여넣을 때 실제로 쓰이는 형태를 모아 둔다.
+//
+// 🔴 2026-08-26 실측: "lemon — 레몬" 형태 목록이 통째로 표제어가 되어 enrich 캐시 83행을
+//    오염시키고 AI 한도 83단어를 헛되이 썼다(결과가 이상해 사용자가 단어장을 지웠다).
+//    원인은 구분자에 탭·콤마밖에 없었던 것 — em dash 가 없어 줄이 갈리지 않았다.
+//    🔑 표제어가 깨지면 대가를 **보강이 돌기 전에** 막을 방법이 없다. 한도가 먼저 깎인다.
+//
+// ⚠️ 하이픈(-)은 e-mail·K-pop 처럼 단어 안에 쓰이므로 **공백에 둘러싸인 경우만** 자른다.
+//    em/en dash(—–)·파이프(|)는 단어 안에 나타나지 않아 공백과 무관하게 자른다.
+//    콜론은 "word: 뜻" 형태라 **뒤에 공백이 올 때만** 자른다. 붙여 쓴 "word:뜻" 은 드물고,
+//    정상 표제어에 콜론이 낀 경우를 먼저 지키는 쪽이 안전하다.
+const COLUMN_SEP = /\t|,|\s+-\s+|[–—|]|:\s/;
 const HEADER_KEYWORDS = new Set(['단어', 'word', 'term', 'vocab', '어휘', '영단어', 'english']);
 
 export function parseImportedText(text: string): ParsedWord[] {
@@ -32,15 +50,12 @@ export function parseImportedText(text: string): ParsedWord[] {
     const line = raw.trim();
     if (!line) continue;
 
-    // 탭/콤마가 있으면 첫 컬럼만 사용. CSV의 따옴표 처리는 안 함 (사용자가 단어만 적는 게 원칙).
+    // 구분자가 있으면 첫 컬럼만 사용. CSV의 따옴표 처리는 안 함 (사용자가 단어만 적는 게 원칙).
     let term = line;
-    const tabIdx = line.indexOf('\t');
-    const commaIdx = line.indexOf(',');
-    const splitAt = tabIdx >= 0
-      ? (commaIdx >= 0 ? Math.min(tabIdx, commaIdx) : tabIdx)
-      : commaIdx;
-    if (splitAt >= 0) {
-      term = line.slice(0, splitAt).trim().replace(/^"|"$/g, '');
+    const sep = line.match(COLUMN_SEP);
+    // index 0 이면 줄이 구분자로 시작한 것 — 자르면 빈 표제어가 되므로 그대로 둔다.
+    if (sep?.index) {
+      term = line.slice(0, sep.index).trim().replace(/^"|"$/g, '');
     }
 
     // 헤더 스킵 (첫 비어있지 않은 줄에 한해)
@@ -48,6 +63,13 @@ export function parseImportedText(text: string): ParsedWord[] {
       isFirstNonEmpty = false;
       if (HEADER_KEYWORDS.has(term.toLowerCase())) continue;
     }
+
+    // 남은 잡티를 벗긴다 — 목록 표지(`1.`·`2)`·`•`)·감싼 따옴표·단일 토큰의 끝 구두점.
+    // 🔴 번호 매긴 목록은 붙여넣기에서 가장 흔한 형태 중 하나인데 위 COLUMN_SEP 이
+    //    전혀 못 자른다(`1. apple` 이 통째로 표제어가 됐다). 여기서 벗기지 않으면
+    //    서버 게이트가 막아 '찾지 못함' 이 되고, 사용자는 목록을 손으로 고쳐야 한다.
+    // ⚠️ 두 단어 이상의 구두점은 의미라 남는다(`off with their heads!`).
+    term = normalizeHeadword(term);
 
     if (!term) continue;
     if (!/\p{L}/u.test(term)) continue;  // 글자 없는 토큰 제외 (숫자·기호만)

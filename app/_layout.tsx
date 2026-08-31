@@ -226,6 +226,7 @@ function AppStack() {
       <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="list/[id]" options={{ headerShown: false }} />
+      <Stack.Screen name="fill-bare/[id]" options={{ headerShown: false }} />
       <Stack.Screen
         name="add-word"
         options={{

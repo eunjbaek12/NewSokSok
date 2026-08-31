@@ -12,11 +12,9 @@ import {
   selectWordsForList,
   toggleStarred,
   updateWord,
-  saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
-import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import SpeakerButton from '@/components/ui/SpeakerButton';
@@ -168,7 +166,9 @@ export default function ExamplesScreen() {
   const contentHeight = useRef(0);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
-  const sessionCompletedRef = useAbandonRecord(results);
+  // 완주 플래그 — finishSession 이 세우면 이탈 경로(헤더 백·하드웨어 백)가 이중
+  // 커밋하지 않는다. useSessionCommit 의 주석 참조.
+  const sessionCompletedRef = useRef(false);
   const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -592,7 +592,6 @@ export default function ExamplesScreen() {
     sessionCompletedRef.current = true;
     const finalResults = results.current;
     await commitSessionResults(id!, finalResults);
-    await saveLastResult(id!);
     // 계획 학습으로 들어왔으면 진행도를 올린다 — 플래시카드·퀴즈와 같은 규칙.
     // 잠금 자체는 단어 상태에서 유도하므로(deriveUnlockedDay) 이 줄이 없어도 갇히진
     // 않지만, planUpdatedAt이 안 움직이면 홈 카드가 "오늘 달성"으로 안 가고

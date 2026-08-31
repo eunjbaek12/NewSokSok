@@ -5,6 +5,7 @@ import { enrichWord, type EnrichFallback } from '@/lib/translation-api';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
+import type { HeadwordDefect } from '@/utils/headword-guard';
 import { staleAutoFillKeys, type AutoFillField, type AutoFillFields, type LastAutoFill } from '@/lib/autofill-form';
 import type { AutoFillResult } from '@/lib/types';
 
@@ -48,6 +49,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // 모델이 "사전에 존재하지 않는 단어"로 판정한 경우만 set. 일반 실패(네트워크/timeout)와
     // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
     const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
+    // 표제어 게이트가 막은 경우의 사유. null 이면 "AI 가 모르는 단어"라는 뜻이다.
+    // 🔑 'script_mix'(배우는 언어와 다른 문자)에 "사전에서 찾지 못했다"고 하면
+    //    오해를 부른다 — `독일` 은 존재하는 단어이고 문제는 학습 언어 설정이다.
+    const [autoFillDefect, setAutoFillDefect] = useState<HeadwordDefect | null>(null);
 
     const [senseState, setSenseState] = useState<SenseState | null>(null);
     // 사용자가 필드를 직접 고치기 시작하면 true — 제안 탭이 편집 내용을 덮어쓰는 사고 방지.
@@ -68,6 +73,31 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
      * 자동완성이 채우는 칸들. 위 termRef와 같은 이유로 ref에 복사해 둔다 — runAutoFill의
      * 의존성에 6개 문자열을 넣으면 타이핑 한 글자마다 콜백이 새로 만들어진다.
      */
+    /**
+     * 굴절형 원형·형태(lib/inflection.ts). 자동완성이 채우고 저장이 읽는다.
+     * 표제어가 바뀌면 낡으므로 그때 비운다 (`abandoned` 를 지우고 `apple` 을 넣었는데
+     * 원형 `abandon` 이 남으면 안 된다).
+     *
+     * 🔑 ref 와 state 를 **둘 다** 든다. ref 는 저장이 읽고(handleSaveWord 의 의존성을
+     *    건드리지 않는다), state 는 화면이 원형 줄을 그리는 데 쓴다 — ref 만으로는
+     *    값이 바뀌어도 리렌더가 없어 화면에 영영 안 나온다.
+     *
+     * 🔴 쓰는 곳은 반드시 applyBaseForm 하나로 모은다. 두 저장소를 각자 대입하면
+     *    한쪽만 갱신되는 순간이 생기고, 그 증상은 "가끔 원형이 안 나온다"로만 보인다
+     *    (이 저장소에서 "수정 시 함께 갱신" 주석은 세 번 지켜지지 않았다).
+     */
+    const baseFormRef = useRef<{ baseForm?: string; inflection?: string }>({
+        baseForm: existingWord?.baseForm,
+        inflection: existingWord?.inflection,
+    });
+    const [baseForm, setBaseFormState] = useState<{ baseForm?: string; inflection?: string }>({
+        baseForm: existingWord?.baseForm,
+        inflection: existingWord?.inflection,
+    });
+    const applyBaseForm = useCallback((next: { baseForm?: string; inflection?: string }) => {
+        baseFormRef.current = next;
+        setBaseFormState(next);
+    }, []);
     const fieldsRef = useRef({ definition, meaningKr, phonetic, pos, exampleEn, exampleKr });
     useEffect(() => {
         fieldsRef.current = { definition, meaningKr, phonetic, pos, exampleEn, exampleKr };
@@ -144,7 +174,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             exampleKr: setExampleKr,
         };
         for (const key of stale) setters[key]('');
-    }, []);
+        // 원형은 표제어에 딸린 값이라 칸별 stale 판정과 무관하게 통째로 버린다.
+        applyBaseForm({});
+    }, [applyBaseForm]);
 
     const applyFill = useCallback((fill: SenseFill, filledTerm: string) => {
         setMeaningKr(fill.meaningKr);
@@ -231,8 +263,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             clearStaleAutoFill(trimmed);
             if (result?.isReal === false) {
                 // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
+                // headwordDefect 가 있으면 AI 를 부르지도 않고 게이트가 막은 것이다.
+                setAutoFillDefect(result.headwordDefect ?? null);
                 setAutoFillNotFoundAt(Date.now());
             } else if (hasAny && result) {
+                // 원형은 뜻 선택(칩)과 무관하게 표제어 하나에 대한 값이다 — 분기 앞에서 한 번 담는다.
+                applyBaseForm(result.baseForm
+                    ? { baseForm: result.baseForm, inflection: result.inflection }
+                    : {});
                 const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
                 if (senses) {
                     // 동음이의어: 사진/일괄 저장(전 뜻 병기)과 맞춰 기본 전체 선택으로 채우고
@@ -283,7 +321,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             setIsPendingFill(false);
             setPendingFillTerm('');
         }
-    }, [sourceLang, targetLang, apiKey, clearStaleAutoFill, rememberFill]);
+    }, [sourceLang, targetLang, apiKey, clearStaleAutoFill, rememberFill, applyBaseForm]);
 
     useEffect(() => { runAutoFillRef.current = runAutoFill; }, [runAutoFill]);
 
@@ -339,6 +377,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     tags,
                     sourceLang,
                     targetLang,
+                    ...baseFormRef.current,
                 });
                 onSuccess(term.trim());
             } else {
@@ -360,6 +399,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                     tags,
                     sourceLang,
                     targetLang,
+                    ...baseFormRef.current,
                 });
 
                 // Reset states
@@ -375,6 +415,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setErrors({});
                 setSenseState(null);
                 setSenseDismissed(false);
+                applyBaseForm({});
                 onSuccess(savedTerm);
             }
         } catch (error: any) {
@@ -408,6 +449,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         setSenseDismissed(false);
         setAutoFillFailedAt(0);
         setAutoFillNotFoundAt(0);
+        setAutoFillDefect(null);
     }, []);
 
     // 초기화로 날아갈 내용이 있는지 — 호출자(add-word)가 확인 Alert 표시 여부를 결정.
@@ -427,6 +469,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isStarred, setIsStarred,
         tags, setTags,
         errors, setErrors,
+        // 굴절형 원형·형태. 화면이 표제어 아래 한 줄로 그린다(lib/inflection.ts).
+        baseForm,
         resetForLanguageChange,
         hasFillContent,
         handleAutoFill,
@@ -439,6 +483,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        autoFillDefect,
         enrichFallback,
         enrichmentLevel,
         // 동음이의어 토글 칩 — 숨김(수동 편집) 상태면 null.

@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "메뉴판",
+    "pos": "noun",
+    "meaningEn": "menu",
+    "romaja": "menyupan",
+    "exampleKo": "여기 메뉴판 좀 주세요.",
+    "exampleEn": "Please give me the menu here.",
+    "category": "주문"
+  },
+  {
+    "rank": 2,
+    "term": "주문하다",
+    "pos": "verb",
+    "meaningEn": "to order",
+    "romaja": "jumunhada",
+    "exampleKo": "지금 주문하시겠어요?",
+    "exampleEn": "Would you like to order now?",
+    "category": "주문"
+  },
+  {
+    "rank": 3,
+    "term": "시키다",
+    "pos": "verb",
+    "meaningEn": "to order food",
+    "romaja": "sikida",
+    "exampleKo": "우리 뭐시키고 있어?",
+    "exampleEn": "What are we ordering?",
+    "category": "주문"
+  },
+  {
+    "rank": 4,
+    "term": "일인분",
+    "pos": "noun",
+    "meaningEn": "one portion",
+    "romaja": "irinbun",
+    "exampleKo": "삼겹살 일인분 더 주세요.",
+    "exampleEn": "Please give us one more portion of pork belly.",
+    "category": "주문"
+  },
+  {
+    "rank": 5,
+    "term": "공깃밥",
+    "pos": "noun",
+    "meaningEn": "bowl of rice",
+    "romaja": "gonggitbap",
+    "exampleKo": "공깃밥 하나 추가할게요.",
+    "exampleEn": "I'll add one bowl of rice.",
+    "category": "주문"
+  },
+  {
+    "rank": 6,
+    "term": "리필",
+    "pos": "noun",
+    "meaningEn": "refill",
+    "romaja": "ripil",
+    "exampleKo": "반찬 리필 좀 부탁드려요.",
+    "exampleEn": "Could I get a refill on the side dishes?",
+    "category": "주문"
+  },
+  {
+    "rank": 7,
+    "term": "추가",
+    "pos": "noun",
+    "meaningEn": "extra order",
+    "romaja": "chuga",
+    "exampleKo": "고기 하나 추가할까요?",
+    "exampleEn": "Shall we add another order of meat?",
+    "category": "주문"
+  },
+  {
+    "rank": 8,
+    "term": "예약하다",
+    "pos": "verb",
+    "meaningEn": "to book a table",
+    "romaja": "yeyakhada",
+    "exampleKo": "저녁 여섯 시에 예약했어요.",
+    "exampleEn": "I booked a table for six in the evening.",
+    "category": "주문"
+  },
+  {
+    "rank": 9,
+    "term": "자리",
+    "pos": "noun",
+    "meaningEn": "seat",
+    "romaja": "jari",
+    "exampleKo": "창가 자리로 부탁드려요.",
+    "exampleEn": "I would like a seat by the window, please.",
+    "category": "주문"
+  },
+  {
+    "rank": 10,
+    "term": "웨이팅",
+    "pos": "noun",
+    "meaningEn": "wait",
+    "romaja": "weiting",
+    "exampleKo": "오늘 웨이팅이 좀 기네요.",
+    "exampleEn": "The wait is a bit long today.",
+    "category": "주문"
+  },
+  {
+    "rank": 11,
+    "term": "번호표",
+    "pos": "noun",
+    "meaningEn": "numbered ticket",
+    "romaja": "beonhopyo",
+    "exampleKo": "여기 번호표 가지고 계세요.",
+    "exampleEn": "Please hold on to this numbered ticket.",
+    "category": "주문"
+  },
+  {
+    "rank": 12,
+    "term": "몇 분이세요",
+    "pos": "phrase",
+    "meaningEn": "how many in your party",
+    "romaja": "myeot buniseyo",
+    "exampleKo": "안녕하세요, 몇 분이세요?",
+    "exampleEn": "Hello, how many are in your party?",
+    "category": "주문"
+  },
+  {
+    "rank": 13,
+    "term": "여기요",
+    "pos": "phrase",
+    "meaningEn": "excuse me",
+    "romaja": "yeogiyo",
+    "exampleKo": "저기요, 여기요!",
+    "exampleEn": "Excuse me, over here!",
+    "category": "주문"
+  },
+  {
+    "rank": 14,
+    "term": "계산서",
+    "pos": "noun",
+    "meaningEn": "bill",
+    "romaja": "gyesanseo",
+    "exampleKo": "계산서 먼저 주세요.",
+    "exampleEn": "Please give us the bill first.",
+    "category": "계산"
+  },
+  {
+    "rank": 15,
+    "term": "더치페이",
+    "pos": "noun",
+    "meaningEn": "splitting the bill",
+    "romaja": "deochipei",
+    "exampleKo": "우리 오늘 더치페이하자.",
+    "exampleEn": "Let's split the bill evenly today.",
+    "category": "계산"
+  },
+  {
+    "rank": 16,
+    "term": "각자 내다",
+    "pos": "phrase",
+    "meaningEn": "to pay separately",
+    "romaja": "gakja naeda",
+    "exampleKo": "계산은 각자 내요.",
+    "exampleEn": "Let's pay for our own meals.",
+    "category": "계산"
+  },
+  {
+    "rank": 17,
+    "term": "잘 먹었습니다",
+    "pos": "phrase",
+    "meaningEn": "that was a good meal",
+    "romaja": "jal meogeotseumnida",
+    "exampleKo": "사장님, 잘 먹었습니다.",
+    "exampleEn": "Thank you for the meal, boss.",
+    "category": "계산"
+  },
+  {
+    "rank": 18,
+    "term": "맛집",
+    "pos": "noun",
+    "meaningEn": "great restaurant",
+    "romaja": "matjip",
+    "exampleKo": "이 근처가 맛집이래요.",
+    "exampleEn": "They say this neighborhood is full of great restaurants.",
+    "category": "계산"
+  },
+  {
+    "rank": 19,
+    "term": "단골집",
+    "pos": "noun",
+    "meaningEn": "regular spot",
+    "romaja": "dangoljip",
+    "exampleKo": "여기는 내 단골집이야.",
+    "exampleEn": "This place is my regular spot.",
+    "category": "계산"
+  },
+  {
+    "rank": 20,
+    "term": "회식",
+    "pos": "noun",
+    "meaningEn": "company dinner",
+    "romaja": "hoesik",
+    "exampleKo": "이번 주 금요일에 회식이 있어요.",
+    "exampleEn": "We have a company dinner this Friday.",
+    "category": "계산"
+  },
+  {
+    "rank": 21,
+    "term": "물수건",
+    "pos": "noun",
+    "meaningEn": "wet towel",
+    "romaja": "mulsug-eon",
+    "exampleKo": "물수건으로 손을 닦으세요.",
+    "exampleEn": "Wipe your hands with the wet towel.",
+    "category": "상차림"
+  },
+  {
+    "rank": 22,
+    "term": "앞접시",
+    "pos": "noun",
+    "meaningEn": "small personal plate",
+    "romaja": "apjeopsi",
+    "exampleKo": "앞접시 좀 더 주실래요?",
+    "exampleEn": "Could you give me another small plate?",
+    "category": "상차림"
+  },
+  {
+    "rank": 23,
+    "term": "숟가락",
+    "pos": "noun",
+    "meaningEn": "spoon",
+    "romaja": "sutgarak",
+    "exampleKo": "숟가락은 옆에 있어요.",
+    "exampleEn": "The spoon is on the side.",
+    "category": "상차림"
+  },
+  {
+    "rank": 24,
+    "term": "젓가락",
+    "pos": "noun",
+    "meaningEn": "chopsticks",
+    "romaja": "jeotgarak",
+    "exampleKo": "젓가락을 떨어뜨렸어요.",
+    "exampleEn": "I dropped my chopsticks.",
+    "category": "상차림"
+  },
+  {
+    "rank": 25,
+    "term": "컵",
+    "pos": "noun",
+    "meaningEn": "cup",
+    "romaja": "keop",
+    "exampleKo": "물컵이 어디 있죠?",
+    "exampleEn": "Where is the water cup?",
+    "category": "상차림"
+  },
+  {
+    "rank": 26,
+    "term": "냅킨",
+    "pos": "noun",
+    "meaningEn": "a napkin",
+    "romaja": "naepkin",
+    "exampleKo": "여기 냅킨 좀 더 주시겠어요?",
+    "exampleEn": "Could you please bring me some more napkins?",
+    "category": "상차림"
+  },
+  {
+    "rank": 27,
+    "term": "국자",
+    "pos": "noun",
+    "meaningEn": "a ladle",
+    "romaja": "gukja",
+    "exampleKo": "국물이 뜨거우니까 국자로 떠 드세요.",
+    "exampleEn": "The soup is hot, so please use the ladle.",
+    "category": "상차림"
+  },
+  {
+    "rank": 28,
+    "term": "집게",
+    "pos": "noun",
+    "meaningEn": "tongs",
+    "romaja": "jipge",
+    "exampleKo": "고기는 집게로 직접 뒤집어 주세요.",
+    "exampleEn": "Please flip the meat over yourself with the tongs.",
+    "category": "상차림"
+  },
+  {
+    "rank": 29,
+    "term": "불판",
+    "pos": "noun",
+    "meaningEn": "a grill plate",
+    "romaja": "bulpan",
+    "exampleKo": "사장님, 불판 한번 더 갈아 주세요.",
+    "exampleEn": "Excuse me, could you change the grill plate once more?",
+    "category": "상차림"
+  },
+  {
+    "rank": 30,
+    "term": "덜 맵게",
+    "pos": "phrase",
+    "meaningEn": "less spicy",
+    "romaja": "deol maepge",
+    "exampleKo": "주문할 때 찌개는 덜 맵게 해 주세요.",
+    "exampleEn": "When ordering, please make the stew less spicy.",
+    "category": "요청"
+  },
+  {
+    "rank": 31,
+    "term": "안 맵게",
+    "pos": "phrase",
+    "meaningEn": "not spicy at all",
+    "romaja": "an maepge",
+    "exampleKo": "아이와 먹을 거라서 안 맵게 해 주세요.",
+    "exampleEn": "Since I'm eating with a child, please make it not spicy at all.",
+    "category": "요청"
+  },
+  {
+    "rank": 32,
+    "term": "곱빼기",
+    "pos": "noun",
+    "meaningEn": "a double portion",
+    "romaja": "goppaegi",
+    "exampleKo": "배가 많이 고파서 냉면 곱빼기로 시켰어요.",
+    "exampleEn": "I was really hungry, so I ordered a double portion of naengmyeon.",
+    "category": "요청"
+  },
+  {
+    "rank": 33,
+    "term": "빼 주세요",
+    "pos": "phrase",
+    "meaningEn": "please leave it out",
+    "romaja": "ppae juseyo",
+    "exampleKo": "저는 오이를 못 먹어서 빼 주세요.",
+    "exampleEn": "I can't eat cucumbers, so please leave them out.",
+    "category": "요청"
+  },
+  {
+    "rank": 34,
+    "term": "싸 주세요",
+    "pos": "phrase",
+    "meaningEn": "please wrap this up",
+    "romaja": "ssa juseyo",
+    "exampleKo": "남은 음식이 아까워서 싸 주세요.",
+    "exampleEn": "The leftover food is going to waste, so please wrap it up.",
+    "category": "요청"
+  },
+  {
+    "rank": 35,
+    "term": "남기다",
+    "pos": "verb",
+    "meaningEn": "to leave food uneaten",
+    "romaja": "namgida",
+    "exampleKo": "음식을 너무 많이 시켜서 다 남겼어요.",
+    "exampleEn": "We ordered too much food and left all of it uneaten.",
+    "category": "요청"
+  },
+  {
+    "rank": 36,
+    "term": "아메리카노",
+    "pos": "noun",
+    "meaningEn": "americano",
+    "romaja": "amerikano",
+    "exampleKo": "따뜻한 아메리카노 한 잔 주문할게요.",
+    "exampleEn": "I'd like to order one hot americano.",
+    "category": "카페"
+  },
+  {
+    "rank": 37,
+    "term": "라떼",
+    "pos": "noun",
+    "meaningEn": "latte",
+    "romaja": "ratte",
+    "exampleKo": "여기 아이스 라떼 한 잔 주세요.",
+    "exampleEn": "Please give me one iced latte here.",
+    "category": "카페"
+  },
+  {
+    "rank": 38,
+    "term": "아이스",
+    "pos": "noun",
+    "meaningEn": "iced",
+    "romaja": "aiseu",
+    "exampleKo": "요즘 날씨가 더워서 아이스로 마셔요.",
+    "exampleEn": "The weather is hot these days, so I drink it iced.",
+    "category": "카페"
+  },
+  {
+    "rank": 39,
+    "term": "따뜻한 거",
+    "pos": "phrase",
+    "meaningEn": "the hot one",
+    "romaja": "ttatteuthan geo",
+    "exampleKo": "저는 속이 추워서 따뜻한 거로 할게요.",
+    "exampleEn": "My stomach feels cold, so I'll go with the hot one.",
+    "category": "카페"
+  },
+  {
+    "rank": 40,
+    "term": "사이즈",
+    "pos": "noun",
+    "meaningEn": "drink size",
+    "romaja": "saijeu",
+    "exampleKo": "음료 사이즈는 어떤 것으로 드릴까요?",
+    "exampleEn": "What size would you like for your drink?",
+    "category": "카페"
+  },
+  {
+    "rank": 41,
+    "term": "텀블러",
+    "pos": "noun",
+    "meaningEn": "a reusable tumbler",
+    "romaja": "teombeulleo",
+    "exampleKo": "텀블러에 커피를 담아 주시겠어요?",
+    "exampleEn": "Could you please put the coffee in my tumbler?",
+    "category": "카페"
+  },
+  {
+    "rank": 42,
+    "term": "진동벨",
+    "pos": "noun",
+    "meaningEn": "a buzzer",
+    "romaja": "jindongbel",
+    "exampleKo": "음료가 준비되면 진동벨이 울릴 거예요.",
+    "exampleEn": "The buzzer will ring when your drink is ready.",
+    "category": "카페"
+  },
+  {
+    "rank": 43,
+    "term": "매장에서",
+    "pos": "phrase",
+    "meaningEn": "for here",
+    "romaja": "maejang-eseo",
+    "exampleKo": "주문하신 커피는 매장에서 드시나요?",
+    "exampleEn": "Will you be drinking the coffee you ordered here?",
+    "category": "카페"
+  },
+  {
+    "rank": 44,
+    "term": "테이크아웃",
+    "pos": "noun",
+    "meaningEn": "takeout",
+    "romaja": "teikeuaut",
+    "exampleKo": "시간이 없어서 테이크아웃으로 부탁해요.",
+    "exampleEn": "I don't have time, so I'll take it to go please.",
+    "category": "카페"
+  },
+  {
+    "rank": 45,
+    "term": "디카페인",
+    "pos": "noun",
+    "meaningEn": "decaf",
+    "romaja": "dikapein",
+    "exampleKo": "저녁이라서 디카페인으로 변경해 주세요.",
+    "exampleEn": "Since it's evening, please change it to decaf.",
+    "category": "카페"
+  },
+  {
+    "rank": 46,
+    "term": "샷 추가",
+    "pos": "phrase",
+    "meaningEn": "adding an extra espresso shot",
+    "romaja": "syat chuga",
+    "exampleKo": "진한 맛을 위해 샷 추가해 주세요.",
+    "exampleEn": "Please add an extra shot for a stronger taste.",
+    "category": "카페"
+  },
+  {
+    "rank": 47,
+    "term": "얼음",
+    "pos": "noun",
+    "meaningEn": "ice",
+    "romaja": "eoreum",
+    "exampleKo": "목이 아파서 얼음은 조금만 넣어 주세요.",
+    "exampleEn": "My throat hurts, so please put in just a little ice.",
+    "category": "카페"
+  },
+  {
+    "rank": 48,
+    "term": "빨대",
+    "pos": "noun",
+    "meaningEn": "a straw",
+    "romaja": "ppaldae",
+    "exampleKo": "주문대에 빨대와 휴지가 있어요.",
+    "exampleEn": "There are straws and tissues at the counter.",
+    "category": "카페"
+  },
+  {
+    "rank": 49,
+    "term": "케이크",
+    "pos": "noun",
+    "meaningEn": "cake",
+    "romaja": "keikeu",
+    "exampleKo": "쇼케이스 안에 있는 케이크 하나 주세요.",
+    "exampleEn": "Please give me one of the cakes inside the showcase.",
+    "category": "카페"
+  },
+  {
+    "rank": 50,
+    "term": "디저트",
+    "pos": "noun",
+    "meaningEn": "dessert",
+    "romaja": "dijeoteu",
+    "exampleKo": "식사 후에 카페에서 디저트를 먹었어요.",
+    "exampleEn": "We had dessert at a cafe after the meal.",
+    "category": "카페"
+  }
+]

@@ -3823,9 +3823,9 @@
     "rank": 1647,
     "meaningEn": "step, pace, walk",
     "romaja": "georeum",
-    "exampleKo": "아이가 첫 걸음을 뗄 때 부모님은 정말 행복해해요.",
+    "exampleKo": "아이가 첫걸음을 뗄 때 부모님은 정말 행복해해요.",
     "exampleEn": "Parents are truly happy when their child takes their first step.",
-    "usedForm": "걸음을"
+    "usedForm": "첫걸음을"
   },
   {
     "deck": "inter2",
@@ -4699,7 +4699,7 @@
     "rank": 1841,
     "meaningEn": "to swell, to pour, to deposit",
     "romaja": "butda",
-    "exampleKo": "어제 밤에 라면을 먹고 잤더니 아침에 얼굴이 많이 부었어요.",
+    "exampleKo": "어젯밤에 라면을 먹고 잤더니 아침에 얼굴이 많이 부었어요.",
     "exampleEn": "I ate ramen last night before sleeping, so my face was very swollen this morning.",
     "usedForm": "부었어요"
   },
@@ -5539,7 +5539,7 @@
     "rank": 2082,
     "meaningEn": "to succeed",
     "romaja": "seonggonghada",
-    "exampleKo": "꾸준히 노력하면 분명히 원하는 것을 성공할 수 있을 거예요.",
+    "exampleKo": "꾸준히 노력하면 분명히 원하는 일에 성공할 수 있을 거예요.",
     "exampleEn": "If you work hard consistently, you will surely be able to succeed in what you want.",
     "usedForm": "성공할"
   },
@@ -6139,8 +6139,8 @@
     "rank": 2210,
     "meaningEn": "height",
     "romaja": "nopi",
-    "exampleKo": "이 산은 해발 1000미터의 높은 높이를 자랑하고 있습니다.",
-    "exampleEn": "This mountain boasts a high altitude of 1000 meters above sea level.",
+    "exampleKo": "이 산은 해발 1000미터의 높이를 자랑하고 있습니다.",
+    "exampleEn": "This mountain boasts a height of 1000 meters above sea level.",
     "usedForm": "높이를"
   },
   {
@@ -6955,8 +6955,8 @@
     "rank": 2332,
     "meaningEn": "finally, in the end, to the end",
     "romaja": "kkeutnae",
-    "exampleKo": "그는 오랜 노력 끝에 마침내 목표를 끝내 달성했습니다.",
-    "exampleEn": "After long effort, he finally achieved his goal in the end.",
+    "exampleKo": "그는 오랜 노력 끝에 목표를 끝내 달성했습니다.",
+    "exampleEn": "After long effort, he achieved his goal in the end.",
     "usedForm": "끝내"
   },
   {
@@ -7579,7 +7579,7 @@
     "rank": 2544,
     "meaningEn": "valley, ravine, gorge",
     "romaja": "gyegok",
-    "exampleKo": "여름 휴가철을 맞아 깊은 산속 계곡마다 피서객들이 버린 쓰레기로살살 앓고 있다.",
+    "exampleKo": "여름 휴가철을 맞아 깊은 산속 계곡마다 피서객들이 버린 쓰레기로 몸살을 앓고 있다.",
     "exampleEn": "Welcoming the summer vacation season, every valley deep in the mountains is suffering severely from trash discarded by vacationers.",
     "usedForm": "계곡마다"
   },
@@ -9031,7 +9031,7 @@
     "rank": 2635,
     "meaningEn": "cooking oil, edible oil",
     "romaja": "sigyongyu",
-    "exampleKo": "후라이팬에 식용유를 두르고 계란을 부쳤어요.",
+    "exampleKo": "프라이팬에 식용유를 두르고 계란을 부쳤어요.",
     "exampleEn": "I poured cooking oil on the frying pan and fried an egg.",
     "usedForm": "식용유를"
   },
@@ -10003,8 +10003,8 @@
     "rank": 2825,
     "meaningEn": "to turn around, to turn away",
     "romaja": "doraseoda",
-    "exampleKo": "그는 아쉬운 표정으로 발걸음을 돌아서서 집으로 향했습니다.",
-    "exampleEn": "With a regretful look, he turned his steps around and headed home.",
+    "exampleKo": "그는 아쉬운 표정으로 돌아서서 집으로 향했습니다.",
+    "exampleEn": "With a regretful look, he turned around and headed home.",
     "usedForm": "돌아서서"
   },
   {
@@ -13879,7 +13879,7 @@
     "rank": 2818,
     "meaningEn": "curiosity, inquisitive mind",
     "romaja": "hogisim",
-    "exampleKo": "인간의 끊없는 지적 호기심은 문명을 발전시키는 원동력이자 동시에 새로운 도전의 시발점이다.",
+    "exampleKo": "인간의 끊임없는 지적 호기심은 문명을 발전시키는 원동력이자 동시에 새로운 도전의 시발점이다.",
     "exampleEn": "Humanity's endless intellectual curiosity is the driving force for developing civilization and simultaneously the starting point for new challenges.",
     "usedForm": "호기심은"
   },
@@ -15379,9 +15379,9 @@
     "rank": 3180,
     "meaningEn": "to lay, to spread, to pave, to install",
     "romaja": "kkalda",
-    "exampleKo": "도시 전역에 초고속 통신망을 깔음으로써 스마트 시티 구현을 위한 기반이 마련되었다.",
+    "exampleKo": "도시 전역에 초고속 통신망을 깔면서 스마트 시티 구현을 위한 기반이 마련되었다.",
     "exampleEn": "By laying a high-speed communication network across the entire city, the foundation for realizing a smart city was established.",
-    "usedForm": "깔음으로써"
+    "usedForm": "깔면서"
   },
   {
     "deck": "advanced",
@@ -15883,9 +15883,9 @@
     "rank": 3261,
     "meaningEn": "to starve, to skip a meal, to go hungry",
     "romaja": "gumda",
-    "exampleKo": "바쁜 업무로 인해 점심을 굶다 시피 하며 프로젝트 마감 시한을 맞추었다.",
+    "exampleKo": "바쁜 업무로 인해 점심을 굶다시피 하며 프로젝트 마감 시한을 맞추었다.",
     "exampleEn": "Due to busy work, I practically skipped lunch and met the project deadline.",
-    "usedForm": "굶다"
+    "usedForm": "굶다시피"
   },
   {
     "deck": "advanced",
@@ -16735,7 +16735,7 @@
     "rank": 3399,
     "meaningEn": "to refine, to polish, to trim",
     "romaja": "dadeumda",
-    "exampleKo": "작가 오랜 기간 동안 심혈을 기울여 원고의 문장을 다듬은 끝에 마침내 완성도 높은 소설을 출간했다.",
+    "exampleKo": "작가는 오랜 기간 동안 심혈을 기울여 원고의 문장을 다듬은 끝에 마침내 완성도 높은 소설을 출간했다.",
     "exampleEn": "After pouring his heart and soul into refining the sentences of the manuscript for a long period, the author finally published a highly polished novel.",
     "usedForm": "다듬은"
   },
@@ -16987,9 +16987,9 @@
     "rank": 3441,
     "meaningEn": "to take responsibility for, to shoulder",
     "romaja": "chaegimjida",
-    "exampleKo": "기업은 이윤 창출을 넘어 환경 오염과 사회적 피해에 대해 적극적으로 책임을지는 자세를 보여야 한다.",
+    "exampleKo": "기업은 이윤 창출을 넘어 환경 오염과 사회적 피해에 대해 적극적으로 책임을 지는 자세를 보여야 한다.",
     "exampleEn": "Corporations must show an attitude of actively taking responsibility for environmental pollution and social damages beyond profit generation.",
-    "usedForm": "책임을지는"
+    "usedForm": "책임을 지는"
   },
   {
     "deck": "advanced",
@@ -18979,8 +18979,8 @@
     "rank": 3791,
     "meaningEn": "to be related to, to be connected with",
     "romaja": "gwangyedoeda",
-    "exampleKo": "이번 경제 위기는 국가 간의 복잡한 무역 갈등과 직결되어 깊이 관계되어 있다.",
-    "exampleEn": "This economic crisis is directly linked to and deeply connected with complex trade conflicts between nations.",
+    "exampleKo": "이번 경제 위기는 국가 간의 복잡한 무역 갈등과 깊이 관계되어 있다.",
+    "exampleEn": "This economic crisis is deeply connected with complex trade conflicts between nations.",
     "usedForm": "관계되어"
   },
   {
@@ -19219,9 +19219,9 @@
     "rank": 3831,
     "meaningEn": "to move, to shift, to transfer",
     "romaja": "idonghada",
-    "exampleKo": "태풍이 북상함에 따라 수도권 지역의 주민들은 안전한 지대급으로 신속하게 이동해야만 했다.",
+    "exampleKo": "태풍이 북상함에 따라 수도권 지역의 주민들은 안전한 지대로 신속하게 이동해야만 했다.",
     "exampleEn": "As the typhoon moved northward, residents in the metropolitan area had to quickly evacuate to safe zones.",
-    "usedForm": "이동해야"
+    "usedForm": "이동해야만"
   },
   {
     "deck": "advanced",
@@ -19783,7 +19783,7 @@
     "rank": 3913,
     "meaningEn": "amount of money, sum",
     "romaja": "geumaek",
-    "exampleKo": "정부에서 발표한 지원금의 총 금액은 예상보다 훨씬 턱없이 부족했다.",
+    "exampleKo": "정부에서 발표한 지원금의 총 금액은 예상보다 턱없이 부족했다.",
     "exampleEn": "The total amount of the subsidy announced by the government fell far short of expectations.",
     "usedForm": "금액은"
   },

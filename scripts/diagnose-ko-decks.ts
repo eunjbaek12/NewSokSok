@@ -67,6 +67,9 @@ for (const d of targets) {
     allowHangulInTranslation: koToKo,
     skipRomaja: koToKo || !asSource,
     koreanIsTranslation: !asSource,
+    // 맞춤법 덱만 표제어가 낱말이 아니라 표기 대조쌍이다. 같은 ko→ko 라도 유행어 덱은
+    // 표제어가 실제 낱말이므로 예문에 나와야 한다 — koToKo 로 뭉뚱그리면 안 된다.
+    termIsSpellingPair: d.id === 'curated-spelling-ko-1',
   });
   const hard = findings.filter(f => !f.advisory);
   totalWords += entries.length;

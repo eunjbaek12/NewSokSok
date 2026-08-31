@@ -25,6 +25,12 @@ interface DeckConfig {
   voice: string;
 }
 
+// 🔴 예문 길이 지시(4-8 어절 / 14-24자)는 기존 4덱의 **실측값**에서 왔다.
+//    2026-08-27 측정: market 15.3자 · clinic 17.2 · convenience 17.7 · hiking 18.5 = 평균 17.2자·4.4어절.
+//    그런데 그때 지시는 20-38자였다 — 2.5-flash 가 지시를 흘렸을 뿐이다. 3.5-flash-lite 는
+//    지시를 실제로 따르므로 그대로 뒀더니 24.2자·6.5어절이 나왔다(신규 food 50장 실측).
+//    같은 시리즈 덱이 나란히 놓이는데 길이만 갈리므로 지시를 실측에 맞췄다.
+//    🔑 모델은 지정 범위의 하한 + 2~4 근처를 낸다 — 목표 17자면 하한을 14로 둔다.
 const DECKS: Record<string, DeckConfig> = {
   market: {
     setting:
@@ -49,6 +55,36 @@ const DECKS: Record<string, DeckConfig> = {
       'going to a Korean neighborhood clinic (내과/이비인후과) with a cold — checking in, describing symptoms to the doctor, being examined, then filling the prescription at the pharmacy',
     voice:
       'a patient describing symptoms, or the doctor / receptionist / pharmacist speaking to the patient. Polite 해요체/합쇼체 as actually used in a clinic.',
+  },
+  food: {
+    setting:
+      'everyday Korean food and eating — cooking at home, the rice-soup-banchan table, and the dishes people actually order out',
+    voice:
+      'family or friends at the table or in the kitchen — deciding what to eat, tasting it, offering more. Casual 반말 between close friends and family, 해요체 to someone older.',
+  },
+  produce: {
+    setting:
+      'fruit and vegetables in Korean daily life — what is in season, prepping them in the kitchen, and eating them at home',
+    voice:
+      'people at home talking about what to wash, peel, trim or cook, or offering fruit to someone. Warm 해요체, or 반말 within a family.',
+  },
+  sports: {
+    setting:
+      'sports and exercise in Korea — playing a sport, working out, and watching a game',
+    voice:
+      'friends who exercise together, or two people watching a match and reacting to it. Casual 반말 between friends, 해요체 at a gym or a club.',
+  },
+  restaurant: {
+    setting:
+      'a Korean restaurant and a cafe — being seated, ordering, the shared table with its side dishes and tabletop grill, paying, then ordering coffee',
+    voice:
+      'a customer and the staff across the table or counter in polite 해요체, or friends deciding what to order between themselves in 반말.',
+  },
+  travel: {
+    setting:
+      'traveling in Korea — the airport, the subway and buses, taxis, the KTX, checking into a place to stay, and asking the way',
+    voice:
+      'a traveler speaking to staff or a driver in polite 해요체, or asking a passerby for directions. Short and practical, the way it is really said on the move.',
   },
 };
 
@@ -128,7 +164,7 @@ Each item:
   "pos": "noun | verb | adjective | adverb | phrase | interjection",
   "meaningEn": "The English meaning as a pocket dictionary would give it: a short noun/verb phrase, NOT a sentence. Under 60 characters. Use the everyday English equivalent when one exists (e.g. \\"a rip-off\\", \\"to haggle\\", \\"out of breath\\"). Give a second sense after a semicolon only if the first is genuinely ambiguous. If there is no English equivalent, give the shortest plain-English gloss that works — never a transliteration, never an encyclopedic explanation.",
   "romaja": "Revised Romanization of how the term is actually pronounced aloud (apply pronunciation rules, e.g. 국립공원 -> \\"gungnipgongwon\\"). For multi-word phrases, space the words the same way.",
-  "exampleKo": "ONE natural Korean sentence — exactly one, never two — that would really be said in this exact situation, actually using the term. ${CONFIG.voice} 6-12 어절, 20-38 characters — long enough to carry the situation, short enough for a flashcard. Hangul only (numbers and units are fine).",
+  "exampleKo": "ONE natural Korean sentence — exactly one, never two — that would really be said in this exact situation, actually using the term. ${CONFIG.voice} 4-8 어절, 14-24 characters — long enough to carry the situation, short enough for a flashcard. Hangul only (numbers and units are fine).",
   "exampleEn": "Natural English translation of exampleKo — how an English speaker would actually say the same thing, not a word-for-word gloss."
 }
 

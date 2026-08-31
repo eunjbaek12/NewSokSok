@@ -204,7 +204,7 @@
     "hint": "relationship, connection, relation; crucial for describing interactions and links",
     "meaningEn": "relationship, connection",
     "romaja": "gwangye",
-    "exampleKo": "그들은 좋은 인간 관계를 맺었다.",
+    "exampleKo": "그들은 좋은 인간관계를 맺었다.",
     "exampleEn": "They formed good human relationships."
   },
   {
@@ -252,8 +252,8 @@
     "hint": "era, period, age; used to refer to historical or current times",
     "meaningEn": "era, period, age",
     "romaja": "sidae",
-    "exampleKo": "현대 시대에는 기술 발달이 빠르다.",
-    "exampleEn": "In the modern era, technological development is fast."
+    "exampleKo": "지금 시대에는 기술 발달이 빠르다.",
+    "exampleEn": "In this era, technological development is fast."
   },
   {
     "rank": 17,
@@ -332,8 +332,8 @@
     "hint": "to treat (people/things), to face (a situation), to be about (a topic)",
     "meaningEn": "to treat, to face, to be about",
     "romaja": "dae-ha-da",
-    "exampleKo": "그는 어려운 문제에 대했다.",
-    "exampleEn": "He faced a difficult problem."
+    "exampleKo": "그는 어려운 문제에 침착하게 대했다.",
+    "exampleEn": "He faced a difficult problem calmly."
   },
   {
     "rank": 22,
@@ -3394,7 +3394,7 @@
     "hint": "the public, the masses",
     "meaningEn": "The public, the masses",
     "romaja": "daejung",
-    "exampleKo": "대중 문화는 많은 사람들에게 인기가 많습니다.",
+    "exampleKo": "대중문화는 많은 사람들에게 인기가 많습니다.",
     "exampleEn": "Popular culture is popular with many people."
   },
   {
@@ -4258,8 +4258,8 @@
     "hint": "to appear, to emerge, to manifest; used for physical and abstract appearances",
     "meaningEn": "to appear, emerge, manifest",
     "romaja": "natanada",
-    "exampleKo": "갑자기 이상한 소리가 나타났어요.",
-    "exampleEn": "A strange sound suddenly appeared."
+    "exampleKo": "갑자기 눈앞에 이상한 그림자가 나타났어요.",
+    "exampleEn": "A strange shadow suddenly appeared before my eyes."
   },
   {
     "rank": 268,
@@ -4690,7 +4690,7 @@
     "hint": "to be caused by, to result from, to stem from (indicates causality)",
     "meaningEn": "to be caused by, to stem from",
     "romaja": "inhada",
-    "exampleKo": "이 문제는 여러 요인으로 인합니다.",
+    "exampleKo": "이 문제는 여러 요인으로 인한 것입니다.",
     "exampleEn": "This problem stems from various factors."
   },
   {

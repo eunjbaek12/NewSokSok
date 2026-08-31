@@ -7,6 +7,8 @@ import { supabase } from '@/lib/supabase/client';
 import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
 import { cleanPhonetic } from './phonetic';
 import { RateLimitedError } from './enrich-queue-core';
+import { headwordDefectOf, normalizeHeadword } from '@/utils/headword-guard';
+import { abortError } from '@/lib/abort-error';
 
 /**
  * AI 보강이 실패해 무료 사전(dictionaryapi.dev)으로 떨어진 이유.
@@ -83,8 +85,22 @@ export async function enrichWord(
   onByokQuota?: () => void,
   opts?: EnrichOpts,
 ): Promise<AutoFillResult | null> {
-  const trimmed = term.trim();
+  // 표제어 잡티를 벗긴다 — 단일 토큰의 끝 구두점·감싼 따옴표·목록 표지만
+  // (`Apple?` → `Apple`, `1. apple` → `apple`). 두 단어 이상의 구두점은 의미라 남는다.
+  // 저장되는 표제어는 호출부가 정하므로 여기서는 조회 키만 다듬는다.
+  const trimmed = normalizeHeadword(term);
   if (!trimmed) return null;
+
+  // ── 표제어 게이트 ─────────────────────────────────────────────────
+  // 🔑 여기 두는 이유는 enrichWord 가 **모든 경로의 단일 진입점**이기 때문이다.
+  //    서버(enrich-word Edge)에도 같은 게이트가 있지만 **BYOK 는 Edge 를 타지 않는다** —
+  //    사용자 키로 곧장 Gemini 를 부르므로 서버 게이트가 닿지 않는다. 여기서 막아야
+  //    BYOK 사용자도 깨진 표제어에 자기 키를 헛되이 쓰지 않는다.
+  // 네트워크를 타기 전에 끊으므로 왕복도 사라진다.
+  const defect = headwordDefectOf(trimmed, sourceLang);
+  if (defect) {
+    return { definition: '', meaningKr: '', exampleEn: '', isReal: false, headwordDefect: defect };
+  }
 
   // Operator-path requests always go through Edge, including local/cache hits,
   // because quota now measures product entitlement rather than Vertex cost.
@@ -96,11 +112,11 @@ export async function enrichWord(
       const timer = setTimeout(() => reject(new Error('timeout')), ms);
       const onAbort = () => {
         clearTimeout(timer);
-        reject(new DOMException('Aborted', 'AbortError'));
+        reject(abortError());
       };
       if (signal?.aborted) {
         clearTimeout(timer);
-        reject(new DOMException('Aborted', 'AbortError'));
+        reject(abortError());
         return;
       }
       signal?.addEventListener('abort', onAbort, { once: true });
@@ -162,6 +178,7 @@ export async function autoFillWord(
         mnemonic: data.mnemonic || '',
         pos: data.pos || '',
         phonetic: data.phonetic || '',
+        ...(data.baseForm ? { baseForm: data.baseForm, inflection: data.inflection } : {}),
         ...(byokSenses ? { senses: byokSenses } : {}),
       };
     } catch (e: any) {
@@ -204,13 +221,19 @@ export async function autoFillWord(
             mnemonic: d.mnemonic || '',
             pos: d.pos || '',
             phonetic: d.phonetic || '',
+            ...(d.baseForm ? { baseForm: d.baseForm, inflection: d.inflection } : {}),
             ...(edgeSenses ? { senses: edgeSenses } : {}),
           };
         }
         // 서버가 입력 철자를 검증해 없는 단어로 확정했다. 연결 실패가 아니며,
         // 무료 사전으로 재시도하면 잘못된 fallback 안내만 남으므로 여기서 종료한다.
         if (edge.kind === 'not_found') {
-          return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
+          // headwordDefect 가 있으면 "AI 가 모르는 단어"가 아니라 서버 게이트가 막은
+          // 것이다 — 안내 문구를 가른다(404 의 의미가 둘이다).
+          return {
+            definition: '', meaningKr: '', exampleEn: '', isReal: false,
+            ...(edge.headwordDefect ? { headwordDefect: edge.headwordDefect } : {}),
+          };
         }
         // 배치 흐름은 429를 큐가 retry_after 대기 후 재시도할 수 있게 신호로 올린다.
         // (autocomplete 단건은 기존대로 조용히 사전 폴백 — 아래 계속)

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from '@/lib/supabase';
 import type { Word } from '@/lib/types';
+import { normalizeInflection } from '@/lib/inflection';
 
 // 공식 큐레이션 덱을 서버에서 읽는다 (docs/curation-server-migration-spec.md).
 //
@@ -104,7 +105,7 @@ async function writeCatalogCache(themes: OfficialThemeMeta[]): Promise<void> {
 const deckCache = new Map<string, Word[]>();
 
 const DECK_SELECT =
-  'id, position, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags';
+  'id, position, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags, base_form, inflection';
 
 // 🔴 PostgREST 는 한 응답에 1,000행까지만 준다 — 넘으면 에러가 아니라 **조용히 잘린다**.
 // NGSL 1,001 · BSL 1,000 · NAWL 957 이라 이 상한에 정확히 걸린다(실제로 NGSL 을 받아
@@ -149,6 +150,10 @@ export async function fetchOfficialDeck(themeId: string): Promise<Word[]> {
     exampleKr: w.example_kr ?? undefined,
     phonetic: w.pronunciation ?? undefined,
     pos: w.pos ?? undefined,
+    // 굴절형 원형(lib/inflection.ts). 지금 덱 데이터에는 값이 없지만 배선을 미리 해 둔다 —
+    // 덱을 다시 만들 때 컬럼만 채우면 화면까지 이어진다.
+    baseForm: w.base_form ?? undefined,
+    inflection: normalizeInflection(w.inflection),
     tags: Array.isArray(w.tags) ? w.tags.map(String) : [],
     isMemorized: false,
     isStarred: false,

@@ -45,6 +45,7 @@ import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
 import FastScrollHandle from '@/components/ui/FastScrollHandle';
 import { LIST_TITLE_MAX } from '@shared/contracts';
+import { BareWordsSection, isBareWord } from '@/features/bare-words';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za';
@@ -455,6 +456,16 @@ export default function ListDetailScreen() {
           {/* 우측 아이콘 영역 */}
           <View style={styles.cardActions}>
 
+            {/*
+              뜻만 있는 단어 표시. 이 점이 없으면 사용자는 어느 단어가 반쪽인지 영영 모른다
+              — 배너는 권유고 점은 사실이라, 배너를 닫아도 점은 남는다.
+              🔴 배경색 + borderRadius 만으로는 Android(Fabric)가 사각형으로 그린다.
+              overflow:'hidden' 이 둥근 클리핑을 강제한다.
+            */}
+            {isBareWord(item) && (
+              <View style={[styles.bareDot, { backgroundColor: colors.warning }]} />
+            )}
+
             {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
             <SpeakerButton
               text={getSpeakableText(item.term, item.phonetic, getStudySourceLang(item, list))}
@@ -703,8 +714,22 @@ export default function ListDetailScreen() {
     );
   };
 
+  /*
+   * 🔴 이 함수는 **호출해서 엘리먼트로** 넘긴다(ListHeaderComponent={renderListHeader()}).
+   *
+   * VirtualizedList 는 함수를 받으면 `<ListHeaderComponent />` 로 만드는데
+   * (VirtualizedList.js:939 `isValidElement(...) ? ... : <ListHeaderComponent />`),
+   * 이 함수는 매 렌더 새로 정의되므로 **컴포넌트 타입이 매번 바뀌어 헤더가 통째로
+   * 재마운트된다** — 헤더 안 컴포넌트의 state 가 전부 날아간다.
+   *
+   * 실기에서 이것 때문에 채우기의 진행·완료 배너를 끝내 볼 수 없었다: updateWord 가
+   * 단어마다 리렌더를 일으키고, 그때마다 BareWordsSection 이 새로 마운트돼 진행 상태가
+   * 사라졌다(채우기 자체는 클로저에서 돌아 끝까지 완료됐다 — 그래서 더 눈치채기 어렵다).
+   */
   const renderListHeader = () => (
     <View>
+      {/* 선택 모드에서는 숨긴다 — 그때 화면의 주어는 "고른 단어"이지 반쪽 단어가 아니다. */}
+      {!editMode && <BareWordsSection listId={id!} list={list} words={allWords} />}
       {renderFilterHeader()}
     </View>
   );
@@ -831,7 +856,8 @@ export default function ListDetailScreen() {
           data={filteredWords}
           keyExtractor={(item) => item.id}
           renderItem={renderWordCard}
-          ListHeaderComponent={renderListHeader}
+          // 🔴 함수가 아니라 엘리먼트를 넘긴다 — renderListHeader 정의부 주석 참고.
+          ListHeaderComponent={renderListHeader()}
           ListEmptyComponent={renderEmpty}
           contentContainerStyle={[
             styles.listContent,
@@ -1124,6 +1150,15 @@ const styles = StyleSheet.create({
   speakerBtn: {
     justifyContent: 'center',
     padding: 4,
+  },
+  // 🔴 overflow:'hidden' 이 없으면 Android(Fabric)가 배경색 + borderRadius 를
+  // 사각형으로 그린다. borderWidth 로는 안 고쳐진다 — 달력 마커에서 다섯 번 틀렸던 자리다.
+  bareDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    overflow: 'hidden',
+    marginRight: 2,
   },
   memorizeBtn: {
     justifyContent: 'center',

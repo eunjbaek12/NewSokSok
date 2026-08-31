@@ -907,7 +907,7 @@
     "phonetic": "eomeoni",
     "definition": "mẹ",
     "meaningKr": "mẹ",
-    "exampleEn": "우리 어머니는 요리를 잘 하세요.",
+    "exampleEn": "우리 어머니는 요리를 잘하세요.",
     "exampleKr": "Mẹ tôi nấu ăn rất ngon.",
     "category": "noun"
   },
@@ -2071,7 +2071,7 @@
     "phonetic": "bam",
     "definition": "đêm, hạt dẻ",
     "meaningKr": "đêm, hạt dẻ",
-    "exampleEn": "어제 밤에 잠을 잘 잤어요.",
+    "exampleEn": "어젯밤에 잠을 잘 잤어요.",
     "exampleKr": "Tối qua tôi đã ngủ ngon.",
     "category": "noun"
   },
@@ -2167,7 +2167,7 @@
     "phonetic": "mutda",
     "definition": "hỏi, chôn",
     "meaningKr": "hỏi, chôn",
-    "exampleEn": "선생님께 질문을 묻고 싶어요.",
+    "exampleEn": "선생님께 궁금한 것을 묻고 싶어요.",
     "exampleKr": "Tôi muốn hỏi thầy giáo.",
     "category": "verb"
   },
@@ -3967,7 +3967,7 @@
     "phonetic": "gareuchida",
     "definition": "dạy",
     "meaningKr": "dạy",
-    "exampleEn": "선생님은 학생들을 한국어를 가르치세요.",
+    "exampleEn": "선생님은 학생들에게 한국어를 가르치세요.",
     "exampleKr": "Cô giáo dạy tiếng Hàn cho học sinh.",
     "category": "verb"
   },

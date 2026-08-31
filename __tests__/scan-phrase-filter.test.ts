@@ -45,6 +45,33 @@ describe('isLikelyPhrase — 문장·구 판정', () => {
   });
 });
 
+describe('🔴 구두점이 붙어도 문장을 잡는다 (2026-06-10 회귀)', () => {
+  // 종결어미 검사가 `니다$`(문자열 끝)라, OCR 결과처럼 구두점이 붙어 오면
+  // 매치가 깨져 거르개가 통째로 헛돌았다. 판정 직전에만 구두점을 뗀다.
+  test('ko: 마침표·물음표·느낌표가 붙은 종결형', () => {
+    expect(isLikelyPhrase('걸렸습니다.', 'ko')).toBe(true);
+    expect(isLikelyPhrase('맛있어요!', 'ko')).toBe(true);
+    expect(isLikelyPhrase('안녕하세요.', 'ko')).toBe(true);
+    expect(isLikelyPhrase('데워 드릴까요?', 'ko')).toBe(true);
+  });
+
+  test('ja: 구두점이 붙은 정중형', () => {
+    expect(isLikelyPhrase('食べます。', 'ja')).toBe(true);
+    expect(isLikelyPhrase('行きました！', 'ja')).toBe(true);
+  });
+
+  test('기본형은 구두점이 붙어도 통과한다', () => {
+    expect(isLikelyPhrase('예쁘다.', 'ko')).toBe(false);
+    expect(isLikelyPhrase('食べる。', 'ja')).toBe(false);
+    expect(isLikelyPhrase('apple.', 'en')).toBe(false);
+    expect(isLikelyPhrase('학교.', 'ko')).toBe(false);
+  });
+
+  test('구두점만 있는 토큰은 빈 문자열로 취급', () => {
+    expect(isLikelyPhrase('...', 'ko')).toBe(false);
+  });
+});
+
 describe('filterExtractedWords — 문장 백스톱 통합', () => {
   test('ko 사진: 문장 덩어리 제외, 기본형·명사 유지', () => {
     const raw = ['하는중입니다', '학교', '사과', '맛있어요', '예쁘다'];
@@ -60,6 +87,9 @@ describe('패리티 — lib/stopwords와 Edge script-filter isLikelyPhrase 일�
     '학교에서 공부를 합니다', 'the quick brown fox', 'a'.repeat(25),
     'sinh viên', 'ice cream', '食べます', '行きました', '食べる', '猫',
     'apple', 'escuela', '学校', '',
+    // 구두점 회귀(6/10) — 두 구현이 함께 갱신됐는지 검증
+    '걸렸습니다.', '맛있어요!', '안녕하세요.', '데워 드릴까요?',
+    '食べます。', '行きました！', '예쁘다.', '食べる。', 'apple.', '학교.', '...',
   ];
   const langs = ['ko', 'ja', 'zh', 'en', 'es', 'vi', 'fr'];
 

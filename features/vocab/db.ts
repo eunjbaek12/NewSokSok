@@ -3,6 +3,7 @@ import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
 import { recordMemorizedWords } from '@/features/stats';
 import { cleanPhonetic } from '@/lib/phonetic';
+import { normalizeInflection } from '@/lib/inflection';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -51,6 +52,9 @@ function rowToWord(row: any): Word {
     targetLang: row.targetLang ?? 'ko',
     lastReviewedAt: row.lastReviewedAt ?? null,
     reviewSuccessCount: row.reviewSuccessCount ?? 0,
+    baseForm: row.baseForm ?? undefined,
+    // 모르는 코드는 버린다 — 자유 텍스트가 들어오면 화면이 i18n 키를 그대로 노출한다.
+    inflection: normalizeInflection(row.inflection),
   };
 }
 
@@ -145,18 +149,21 @@ export async function initSeedDataIfEmpty(seed: SeedData): Promise<void> {
   if (countValue === 0) {
     const defaultListId = generateId();
     await db.runAsync(
+      // lastStudiedAt=0 — 아직 학습한 적 없다는 뜻. ListCard 의 getRelativeTime 이
+      // 0/undefined 를 "학습 기록 없음"으로 표시한다(스키마가 NOT NULL 이라 0 을 쓴다).
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt) VALUES (?, ?, ?, ?, ?)`,
-      [defaultListId, seed.listTitle, 1, Date.now(), Date.now()]
+      [defaultListId, seed.listTitle, 1, Date.now(), 0]
     );
 
     for (const w of seed.words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, baseForm, inflection)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(), defaultListId,
           w.term, w.definition, w.phonetic, w.pos, w.exampleEn, w.exampleKr, w.meaningKr,
           0, 0, JSON.stringify(w.tags),
+          (w as any).baseForm ?? null, normalizeInflection((w as any).inflection) ?? null,
         ]
       );
     }
@@ -180,8 +187,10 @@ export async function createList(title: string): Promise<VocaList> {
   const now = Date.now();
 
   await db.runAsync(
+    // ⚠️ lastStudiedAt 만 0 이다 — position 은 정렬 기준이라 now 를 그대로 쓴다
+    //    (둘을 같이 옮기면 새 단어장이 목록 맨 아래로 간다).
     `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [id, title, 1, now, now, now, now]
+    [id, title, 1, now, 0, now, now]
   );
 
   return {
@@ -190,7 +199,7 @@ export async function createList(title: string): Promise<VocaList> {
     words: [],
     isVisible: true,
     createdAt: now,
-    lastStudiedAt: now,
+    lastStudiedAt: 0,
     position: now,
     updatedAt: now,
   } as VocaList;
@@ -210,13 +219,14 @@ export async function createCuratedList(
 
   await runInTransaction(async () => {
     await db.runAsync(
+      // lastStudiedAt=0 — 담기만 한 덱은 "학습 기록 없음"이다(position 은 정렬용이라 now).
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [id, title, 1, now, now, 1, icon, now, now, srcLang, tgtLang]
+      [id, title, 1, now, 0, 1, icon, now, now, srcLang, tgtLang]
     );
 
     for (const w of words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           id,
@@ -235,6 +245,8 @@ export async function createCuratedList(
           // 'en'/'ko' 하드코딩 폴백은 비영어 덱 단어 전체를 en→ko로 오염시켰다.
           (w as any).sourceLang ?? srcLang,
           (w as any).targetLang ?? tgtLang,
+          (w as any).baseForm ?? null,
+          normalizeInflection((w as any).inflection) ?? null,
         ]
       );
     }
@@ -337,7 +349,7 @@ export async function addWord(
   try {
     await runInTransaction(async () => {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           newWord.id,
           listId,
@@ -354,6 +366,8 @@ export async function addWord(
           now,
           newWord.sourceLang ?? 'en',
           newWord.targetLang ?? 'ko',
+          newWord.baseForm ?? null,
+          normalizeInflection(newWord.inflection) ?? null,
         ]
       );
     });
@@ -430,7 +444,7 @@ export async function addBatchWords(
   await runInTransaction(async () => {
     for (const data of bulkData) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           data.id,
           listId,
@@ -449,6 +463,8 @@ export async function addBatchWords(
           (data as any).updatedAt,
           data.sourceLang ?? 'en',
           data.targetLang ?? 'ko',
+          data.baseForm ?? null,
+          normalizeInflection(data.inflection) ?? null,
         ]
       );
     }
@@ -479,6 +495,8 @@ export async function updateWord(
   if (updates.tags !== undefined) { setClauses.push('tags = ?'); values.push(JSON.stringify(updates.tags)); }
   if (updates.sourceLang !== undefined) { setClauses.push('sourceLang = ?'); values.push(updates.sourceLang); }
   if (updates.targetLang !== undefined) { setClauses.push('targetLang = ?'); values.push(updates.targetLang); }
+  if (updates.baseForm !== undefined) { setClauses.push('baseForm = ?'); values.push(updates.baseForm || null); }
+  if (updates.inflection !== undefined) { setClauses.push('inflection = ?'); values.push(normalizeInflection(updates.inflection) ?? null); }
 
   if (setClauses.length > 0) {
     values.push(wordId);
@@ -487,13 +505,8 @@ export async function updateWord(
         `UPDATE words SET ${setClauses.join(', ')} WHERE id = ?`,
         ...values
       );
-      // touch list lastStudiedAt? optional but consistent with AsyncStore logic although maybe slow for every word edit
-      // update list record for sync/last activity tracking
-      await db.runAsync(
-        `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-        Date.now(),
-        listId
-      );
+      // ⚠️ 여기서 lastStudiedAt 을 건드리지 않는다 — 단어 편집은 학습이 아니다.
+      //    갱신 지점은 updateStudyTime 하나뿐이다(그 함수의 주석 참조).
     });
   }
 
@@ -553,7 +566,8 @@ export async function toggleMemorized(
         wordId,
       );
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
+    // ⚠️ lastStudiedAt 은 건드리지 않는다 — 목록·단어 상세의 암기 체크는 학습이 아니다.
+    //    학습 세션의 암기 전환은 commitSessionResults 가 updateStudyTime 으로 따로 남긴다.
   });
 
   if (becameMemorized) await recordMemorizedWords([wordId]).catch(() => {});
@@ -575,7 +589,7 @@ export async function toggleStarred(
     } else {
       await db.runAsync('UPDATE words SET isStarred = CASE WHEN isStarred = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
+    // ⚠️ 별표는 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 
@@ -599,7 +613,7 @@ export async function mergeLists(
   await runInTransaction(async () => {
     for (const w of wordsToAdd) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang, baseForm, inflection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetId,
@@ -616,11 +630,13 @@ export async function mergeLists(
           mergeNow,
           w.sourceLang ?? 'en',
           w.targetLang ?? 'ko',
+          w.baseForm ?? null,
+          normalizeInflection(w.inflection) ?? null,
         ]
       );
     }
 
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, mergeNow, targetId);
+    // ⚠️ 병합은 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
 
     if (deleteSource) {
       // Soft-delete source list + cascade to its words. Sync engine picks up via dirty set.
@@ -651,21 +667,41 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
   });
 }
 
-export async function saveLastResult(listId: string): Promise<void> {
-  const db = await getDb();
-  const row = await db.getFirstAsync<{ memorized: number; total: number }>(
-    `SELECT COUNT(*) as total, SUM(CASE WHEN isMemorized = 1 THEN 1 ELSE 0 END) as memorized FROM words WHERE listId = ? AND deletedAt IS NULL`,
-    [listId]
-  );
-  const memorized = row?.memorized ?? 0;
-  const total = row?.total ?? 0;
-  const percent = total > 0 ? Math.round((memorized / total) * 100) : 0;
-  await db.runAsync(
-    `UPDATE lists SET lastResultMemorized = ?, lastResultTotal = ?, lastResultPercent = ? WHERE id = ?`,
-    [memorized, total, percent, listId]
-  );
-}
+/**
+ * 🔴 `saveLastResult` 는 2026-08-29 에 삭제했다 — **되살리지 말 것.**
+ *
+ * 완주할 때마다 단어장 전체 암기율을 `lists.lastResult{Memorized,Total,Percent}` 에
+ * 저장했는데, **화면에서 읽는 곳이 0곳**이었다. ListCard 는 이 스냅샷을 일부러 안 쓴다
+ * — 완주 시점에 고정돼 이후의 단어 추가·삭제·암기 토글을 반영하지 못하고, 상세 화면의
+ * 라이브 카운트와 어긋나기 때문이다(`components/ListCard.tsx` 주석). 그래서 남은 것은
+ * **쓰기뿐**이었고, 완주마다 아무도 안 보는 값 때문에 단어장이 dirty 로 찍혀 클라우드
+ * push 가 일어났다.
+ *
+ * 컬럼과 동기화 배선(`features/sync/mapping.ts`·`engine.ts`)은 **그대로 둔다** — 서버에
+ * 이미 있고, 구버전 앱이 여전히 값을 올린다. 읽어서 화면에 쓸 일이 생기면 스냅샷이
+ * 아니라 그때 라이브로 계산할 것.
+ */
 
+/**
+ * `lists.lastStudiedAt` 을 갱신하는 **유일한** 지점.
+ *
+ * 🔴 2026-08-29 이전에는 갱신 지점이 8곳이었고 그중 **학습 경로는 하나도 없었다** —
+ *    updateWord·toggleMemorized·toggleStarred·mergeLists·setWordsMemorized·
+ *    copyWords·moveWords. 그래서 덱을 담기만 하거나 별표 하나만 눌러도 단어장 목록이
+ *    "마지막 학습: 방금 전"이라고 표시했다. 이 함수는 이름이 맞는 유일한 함수였는데
+ *    아무 데서도 부르지 않아 죽어 있었다.
+ *
+ * 🔑 이제 부르는 곳은 `commitSessionResults`(features/study/use-session-commit.ts)
+ *    하나다 — 학습 결과가 DB 에 닿는 유일한 지점이라, 완주·헤더 뒤로가기·하드웨어
+ *    뒤로가기 세 경로가 자동으로 같은 규칙을 받는다.
+ *
+ * ⚠️ 다른 곳에서 부르지 말 것. 단어를 만지는 동작(편집·별표·복사·이동·병합·목록의
+ *    암기 체크)은 학습이 아니다. 낭독은 기존 결정대로 통계에서 빠지며, 이 함수를
+ *    거치지 않는 경로라 자동으로 지켜진다.
+ *
+ * 🔑 정렬은 이 컬럼과 무관하다(`ORDER BY position DESC`) — 마이그레이션 006 에서
+ *    position 으로 옮겨갔다. 이 값은 화면 표시(ListCard) 전용이다.
+ */
 export async function updateStudyTime(listId: string): Promise<void> {
   const db = await getDb();
   await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), listId);
@@ -698,11 +734,9 @@ export async function setWordsMemorized(
       status,
       ...wordIds
     );
-    await db.runAsync(
-      `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      Date.now(),
-      listId
-    );
+    // ⚠️ 여기서 갱신하면 안 된다 — 이 함수는 학습 세션(commitSessionResults)과
+    //    목록의 일괄 암기 체크 양쪽에서 불린다. 학습 쪽 갱신은 호출자인
+    //    commitSessionResults 가 updateStudyTime 으로 따로 남긴다.
   });
 
   // 트랜잭션 커밋 후 기록(중첩 트랜잭션 방지).
@@ -723,8 +757,8 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
   await runInTransaction(async () => {
     for (const w of sourceWords) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt, sourceLang, targetLang)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt, sourceLang, targetLang, baseForm, inflection)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetListId,
@@ -742,10 +776,12 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
           copyNow, // createdAt = copy time
           w.sourceLang ?? 'en',
           w.targetLang ?? 'ko',
+          w.baseForm ?? null,
+          normalizeInflection(w.inflection) ?? null,
         ]
       );
     }
-    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', copyNow, targetListId);
+    // ⚠️ 복사는 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 
@@ -761,7 +797,7 @@ export async function moveWords(targetListId: string, wordIds: string[]): Promis
       Date.now(),
       ...wordIds
     );
-    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
+    // ⚠️ 이동은 학습이 아니다 — lastStudiedAt 을 건드리지 않는다.
   });
 }
 

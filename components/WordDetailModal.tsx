@@ -15,6 +15,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { displayTag } from '@/lib/tag-display';
+import { formatBaseFormLine } from '@/lib/inflection';
 import { useTheme } from '@/features/theme';
 import { useListWords, toggleStarred } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
@@ -54,6 +55,9 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLan
     targetLang: string | undefined;
 }) {
     const hasExample = !!(word.exampleEn || word.exampleKr);
+    // 어순이 언어마다 달라(ko "abandon의 과거분사" / en "past participle of abandon")
+    // 문장 조립을 i18n에 맡긴다. 원형이 없으면 null → 줄 자체를 그리지 않는다.
+    const baseFormLine = formatBaseFormLine(word.baseForm, word.inflection, t);
 
     return (
         <>
@@ -104,6 +108,18 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLan
                                     /{word.phonetic}/
                                 </Text>
                             ) : null}
+                        </View>
+                    ) : null}
+
+                    {/* 굴절형이면 원형을 한 줄로. 뜻 칸에 문법 설명이 섞이는 것을 막는 자리다
+                        — 뜻은 플래시카드 뒷면·퀴즈 선택지에 그대로 나가므로 거기에 "go의
+                        과거 시제" 같은 것이 들어가면 외울 것이 사라진다. lib/inflection.ts */}
+                    {baseFormLine ? (
+                        <View style={[styles.baseFormRow, { backgroundColor: colors.primaryLight }]}>
+                            <Text style={[styles.baseFormArrow, { color: colors.primary }]}>↳</Text>
+                            <Text style={[styles.baseFormText, { color: colors.primary }]} numberOfLines={2}>
+                                {baseFormLine}
+                            </Text>
                         </View>
                     ) : null}
                 </View>
@@ -573,6 +589,11 @@ const styles = StyleSheet.create({
     roTerm: { flex: 1, fontSize: 30, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
     roTtsBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center' },
     roMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+    // 원형 줄. 배경 있는 둥근 칩이라 Android(Fabric)에서 네모로 그려지는 것을 막으려면
+    // overflow:'hidden'이 필요하다 — CLAUDE.md의 달력 마커 항목과 같은 함정이다.
+    baseFormRow: { flexDirection: 'row', alignItems: 'baseline', gap: 4, marginTop: 9, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 8, alignSelf: 'flex-start', overflow: 'hidden' },
+    baseFormArrow: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
+    baseFormText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flexShrink: 1 },
     roDivider: { borderTopWidth: StyleSheet.hairlineWidth, marginHorizontal: 0 },
     roSection: { paddingHorizontal: 24, paddingVertical: 16 },
     roLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.5, marginBottom: 6 },

@@ -51,7 +51,8 @@
     "aiApiKeyRequiredDesc": "Las funciones de IA requieren una clave API de Gemini. Puedes obtener una gratis en Google AI Studio.",
     "setupNow": "Configurar ahora",
     "later": "Más tarde",
-    "appName": "Avocado"
+    "appName": "Avocado",
+    "stop": "Detener"
   },
   "tabs": {
     "home": "Inicio",
@@ -698,6 +699,8 @@
     "aiQuotaMessage": "Tu clave API de Gemini ha alcanzado su límite diario gratuito. El límite se reinicia cada día; habilitar la facturación en el proyecto de Google Cloud de la clave lo aumenta. (Por ahora, solo se autocompletará la información del diccionario de inglés).",
     "autoFillFailed": "No se pudo cargar el autocompletado. Por favor, inténtalo de nuevo en un momento.",
     "autoFillNotFound": "No se pudo encontrar \"{{term}}\" en el diccionario. Comprueba la ortografía o introdúcela manualmente.",
+    "headwordScriptMix": "\"{{term}}\" no está escrito en el idioma que estás aprendiendo. Comprueba la configuración de idioma o prueba con otra palabra.",
+    "headwordMalformed": "\"{{term}}\" contiene caracteres que no forman parte de una palabra. Deja solo la palabra e inténtalo de nuevo.",
     "searchingFill": "Buscando '{{term}}'…",
     "suggestLoading": "Buscando sugerencias…",
     "langChangeResetTitle": "Cambiar idioma",
@@ -1037,6 +1040,8 @@
     "fileReadErrorMessage": "Algo salió mal al leer el archivo."
   },
   "batchImport": {
+    "headwordScriptMix": "No está en el idioma que estás aprendiendo. Comprueba la configuración de idioma.",
+    "headwordMalformed": "Contiene caracteres que no forman parte de una palabra. Deja solo la palabra.",
     "title": "Añadir con autocompletado",
     "previewTitle": "Revisar y editar palabras",
     "reviewDesc": "{{count}} palabras listas. Rellenaremos el significado, la pronunciación y los ejemplos del diccionario.",
@@ -1086,7 +1091,7 @@
     "phoneticLabel": "Pronunciación"
   },
   "listCard": {
-    "noStudyRecord": "Sin registro de estudio",
+    "noStudyRecord": "todavía no",
     "justNow": "Justo ahora",
     "minutesAgo": "hace {{count}}m",
     "hoursAgo": "hace {{count}}h",
@@ -1291,5 +1296,54 @@
     "w3ExampleTr": "La práctica constante crea la habilidad.",
     "w3Meaning": "ser constante, perseverante",
     "w3Tags": "Hábito"
+  },
+  "inflection": {
+    "line": "{{form}} de {{base}}",
+    "plural": "plural",
+    "past": "pasado",
+    "past_participle": "participio pasado",
+    "third_person": "tercera persona del singular",
+    "ing_form": "forma en -ing",
+    "comparative": "comparativo",
+    "superlative": "superlativo",
+    "conjugated": "forma conjugada",
+    "searchBase": "Buscar {{base}}"
+  },
+  "bareWords": {
+    "bannerTitle": "{{count}} palabras solo con significado",
+    "bannerSubtitle": "También se pueden completar la pronunciación y los ejemplos",
+    "bannerAdded": "Se añadieron {{count}} más",
+    "running": "Completando · {{filled}} / {{total}}",
+    "runningTerm": "Completando {{term}}…",
+    "stoppedTitle": "Se completaron {{count}} hasta ahora",
+    "filledTitle": "Se completaron {{count}} palabras",
+    "remaining": "{{count}} palabras aún tienen solo el significado",
+    "resume": "Seguir completando",
+    "tomorrow": "Continuar mañana",
+    "tomorrowNote": "Te lo mostraremos de nuevo en esta lista mañana",
+    "proLink": "Completarlas todas con Pro ›",
+    "doneTitle": "Se completaron las {{count}} palabras",
+    "doneBody": "La pronunciación, los ejemplos y las definiciones están listos",
+    "sheetTitle": "Completar palabras que solo tienen significado",
+    "sheetDesc": "Completa la pronunciación, los ejemplos y las definiciones. Los significados que ya escribiste se mantienen. Se completan primero las más antiguas.",
+    "factBare": "Palabras solo con significado",
+    "factFillable": "Se pueden completar ahora",
+    "factAfterAd": "Al ver un anuncio",
+    "leftoverNote": "Las otras {{count}} se pueden completar mañana.",
+    "fillCount": "Completar {{count}} palabras",
+    "pick": "Elegir cuáles completar",
+    "countWords": "{{count}}",
+    "menuItem": "Completar palabras solo con significado",
+    "pickTitle": "Elegir palabras para completar",
+    "pickMissing": "Sin pronunciación, ejemplo ni definición",
+    "pickBlocked": "Supera el límite: no se puede seleccionar",
+    "pickHint": "Elegimos las {{count}} más antiguas. Cambiar el orden mantiene tu selección.",
+    "pickLimitHint": "Puedes elegir hasta {{limit}} de {{total}}. Las demás se pueden completar mañana.",
+    "afterAdBody": "Esta lista tiene {{count}} palabras solo con significado",
+    "notFoundTitle": "No se completaron {{count}} palabras",
+    "notFoundMore": "{{terms}} y {{count}} más",
+    "notFoundBody": "La IA no las reconoció. Revisa la ortografía.",
+    "notFoundGroup": "{{count}} palabras que la IA no reconoció",
+    "notFoundRow": "Toca para corregir la ortografía"
   }
 }

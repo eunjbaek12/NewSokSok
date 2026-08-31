@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -20,6 +20,7 @@ import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
 import { LIST_TITLE_MAX } from '@shared/contracts';
+import { splitBareWords, loadUnfillable } from '@/features/bare-words';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
@@ -57,6 +58,21 @@ export default function ListContextMenu({
   const [shareTargetList, setShareTargetList] = useState<VocaList | null>(null);
   const [shareDescription, setShareDescription] = useState('');
   const [shareSubmitting, setShareSubmitting] = useState(false);
+  // 뜻만 있는 단어 수 — 메뉴가 열려 있을 때만 센다(닫혀 있으면 menuList 가 null).
+  //
+  // 🔴 **AI 가 못 찾은 단어는 빼고 센다.** 안 빼면 메뉴가 "5"라고 부르고 들어간 화면은
+  // 3개만 고르라고 한다(실기에서 그렇게 어긋났다). 배너·시트가 이미 빼는 수이고,
+  // spec §11 의 축이 그것이다 — 권할 수 없는 것을 권하지 않는다.
+  const [unfillable, setUnfillable] = useState<ReadonlySet<string>>(() => new Set());
+  useEffect(() => {
+    // 메뉴를 열 때마다 다시 읽는다 — 고르기 화면에서 철자를 고치면 그 표시가 풀린다.
+    if (!menuList) return;
+    let alive = true;
+    void loadUnfillable().then(ids => { if (alive) setUnfillable(ids); });
+    return () => { alive = false; };
+  }, [menuList]);
+  const bareCount = menuList ? splitBareWords(menuList.words, unfillable).fillable.length : 0;
+
   const [renameModalOpen, setRenameModalOpen] = useState(false);
   const [renameValue, setRenameValue] = useState('');
   const [renameTargetList, setRenameTargetList] = useState<VocaList | null>(null);
@@ -255,6 +271,17 @@ export default function ListContextMenu({
     }, 0);
   }, [menuList, onClose]);
 
+  // 뜻만 있는 단어 채우기 — 배너를 닫은 사람에게 남는 유일한 통로다.
+  // 단어장 상세 화면에는 ⋯ 메뉴가 없어(헤더가 '학습 계획' 버튼을 쓴다) 여기에 둔다.
+  const handleMenuFillBare = useCallback(() => {
+    if (!menuList) return;
+    const listId = menuList.id;
+    onClose();
+    setTimeout(() => {
+      router.push({ pathname: '/fill-bare/[id]', params: { id: listId } });
+    }, 0);
+  }, [menuList, onClose]);
+
   const handleDeleteConfirm = useCallback(async () => {
     if (!deleteTargetList) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
@@ -303,6 +330,21 @@ export default function ListContextMenu({
         </Pressable>
 
         <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
+
+        {bareCount > 0 && (
+          <Pressable
+            onPress={handleMenuFillBare}
+            style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+          >
+            <Ionicons name="sparkles-outline" size={16} color={colors.primary} />
+            {/* 이름은 배너·시트와 **같은 낱말**이라야 세 자리가 한 기능으로 이어진다.
+                오른쪽 개수는 배너를 닫은 사람에게 남은 양을 알리는 유일한 자리다. */}
+            <Text style={[styles.menuItemText, { color: colors.primary, flex: 1 }]}>
+              {t('bareWords.menuItem')}
+            </Text>
+            <Text style={[styles.menuItemText, { color: colors.textSecondary }]}>{bareCount}</Text>
+          </Pressable>
+        )}
 
         <Pressable
           onPress={handleMenuImport}

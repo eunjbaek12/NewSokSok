@@ -41,7 +41,7 @@ const VARIANT_DEFAULTS: Record<ModalVariant, {
   dialog:        { bg: 'surface',      radius: PopupTokens.radius.standard,      animation: 'fade',  maxWidth: PopupTokens.maxWidth.standard,   maxHeight: PopupTokens.maxHeight.standard, align: 'center' },
   settingsPanel: { bg: 'surfaceModal', radius: PopupTokens.radius.standard,      animation: 'fade',  maxWidth: PopupTokens.maxWidth.standard,   maxHeight: PopupTokens.maxHeight.standard, align: 'center' },
   formDialog:    { bg: 'surface',      radius: PopupTokens.radius.standard,      animation: 'fade',  maxWidth: PopupTokens.maxWidth.form,       maxHeight: PopupTokens.maxHeight.standard, align: 'center' },
-  bottomSheet:   { bg: 'surfaceModal', radius: PopupTokens.radius.standard,      animation: 'slide', maxWidth: PopupTokens.maxWidth.standard,   maxHeight: undefined,                      align: 'bottom' },
+  bottomSheet:   { bg: 'surface',      radius: PopupTokens.radius.bottomSheet,   animation: 'slide', maxWidth: PopupTokens.maxWidth.standard,   maxHeight: undefined,                      align: 'bottom' },
   contextMenu:   { bg: 'surface',      radius: PopupTokens.radius.contextMenu,   animation: 'fade',  maxWidth: PopupTokens.maxWidth.contextMenu, maxHeight: undefined,                      align: 'free', overlayBg: PopupTokens.overlay.contextMenu },
   blurOverlay:   { bg: 'blur',         radius: PopupTokens.radius.standard,      animation: 'fade',  maxWidth: PopupTokens.maxWidth.standard,   maxHeight: undefined,                      align: 'center' },
 };

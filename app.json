@@ -2,7 +2,7 @@
   "expo": {
     "name": "Avocado",
     "slug": "soksok-voca",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "orientation": "portrait",
     "locales": {
       "ko": "./languages/ko.json",

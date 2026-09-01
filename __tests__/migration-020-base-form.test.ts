@@ -48,10 +48,13 @@ async function migrateAll(db: Db) {
 }
 
 describeIfSqlite('migration 020 — words.baseForm / words.inflection', () => {
-  it('레지스트리가 연속이고 020 이 마지막이다', () => {
+  // "020 이 마지막"으로 고정하지 않는다 — 뒤에 마이그레이션이 붙을 때마다 이 테스트가
+  // 깨지고, 그러면 고치는 사람이 숫자만 올리게 된다. 확인할 것은 020 이 제자리에 등록돼
+  // 있다는 것과 사다리가 연속이라는 것뿐이다.
+  it('레지스트리가 연속이고 020 이 제자리에 있다', () => {
     expect(() => assertContiguous()).not.toThrow();
-    expect(SCHEMA_VERSION).toBe(20);
-    expect(MIGRATIONS[MIGRATIONS.length - 1].version).toBe(20);
+    expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(20);
+    expect(MIGRATIONS[19].version).toBe(20);
   });
 
   it('001→020 사다리를 재생하면 두 컬럼이 생긴다', async () => {

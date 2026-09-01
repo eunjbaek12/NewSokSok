@@ -159,7 +159,7 @@ export const PULL_PAGE = 500;
  * pull이 로컬에 쓰는 단어 INSERT의 컬럼 수. 아래 청크 크기 계산의 입력이므로 컬럼
  * 목록을 고칠 때 반드시 함께 갱신한다(어긋나면 SQL이 통째로 실패한다).
  */
-export const WORD_COLUMN_COUNT = 22;
+export const WORD_COLUMN_COUNT = 24;
 
 /**
  * 한 INSERT 문에 실을 단어 행 수.
@@ -460,7 +460,9 @@ export async function pullChanges(): Promise<void> {
           word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang,
           // null과 0을 구별해서 넣어야 한다: 0은 1970-01-01이라 "즉시 due"가 되고,
           // null이라야 "학습 이력 없음"(due 아님)으로 읽힌다.
-          word.lastReviewedAt ?? null, word.reviewSuccessCount ?? 0, null,
+          word.lastReviewedAt ?? null, word.reviewSuccessCount ?? 0,
+          // 굴절형 원형(lib/inflection.ts). dbRowToWord가 이미 코드를 정규화해 둔다.
+          word.baseForm ?? null, word.inflection ?? null, null,
         ]);
       }
 
@@ -486,7 +488,7 @@ export async function pullChanges(): Promise<void> {
             id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
             meaningKr, isMemorized, isStarred, tags, position, createdAt, updatedAt,
             wrongCount, assignedDay, sourceLang, targetLang,
-            lastReviewedAt, reviewSuccessCount, deletedAt
+            lastReviewedAt, reviewSuccessCount, baseForm, inflection, deletedAt
           ) VALUES ${new Array(chunk.length).fill(tuple).join(', ')}`,
           chunk.flat(),
         );
@@ -589,6 +591,12 @@ function rowToWord(r: any) {
     // `?? null`이지 `?? 0`이 아니다 — 아래 pull INSERT 주석 참조.
     lastReviewedAt: r.lastReviewedAt ?? null,
     reviewSuccessCount: r.reviewSuccessCount ?? 0,
+    // 굴절형 원형(lib/inflection.ts). 여기서 빠뜨리면 wordToCloudRow가 undefined를 받아
+    // **항상 null을 올린다** — 로컬 화면은 멀쩡하고 서버만 비어서 조용히 샌다. 실제로
+    // 그렇게 새어 cloud_words 44,376행의 base_form이 전부 NULL이었다(2026-09-01 실측).
+    // 코드 정규화는 wordToCloudRow가 한다.
+    baseForm: r.baseForm ?? undefined,
+    inflection: r.inflection ?? undefined,
   };
 }
 

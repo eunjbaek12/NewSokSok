@@ -6,8 +6,28 @@ import { vocaListToCloudRow, wordToCloudRow, dbRowToVocaList, dbRowToWord } from
 
 const DEBOUNCE_MS = 30000;
 
+/**
+ * 실패·스킵한 push를 다시 시도하는 간격(ms). 마지막 값에 도달하면 거기 머문다.
+ *
+ * 왜 필요한가: 이게 없을 때 push는 **한 번 실패하면 영영 다시 시도하지 않았다.** dirty는
+ * 남으니 데이터는 안 사라지지만, 다음 사용자 변경이나 앱 재시작 전까지 무기한 로컬에만
+ * 머문다 — 2026-09-01에 저장한 단어가 2시간 44분 뒤 앱 재실행으로야 올라갔다. 그 사이에
+ * 앱을 지우면 로컬 SQLite와 함께 dirty도 사라지고 서버엔 애초에 없어 **영구 유실**이다.
+ *
+ * 하필 가장 끊기기 쉬운 자리가 무방비였다: 백그라운드 진입 시 `use-bootstrap.ts`가 즉시
+ * 부르는 push는 OS가 네트워크를 끊는 바로 그 순간에 나간다. 실제로 단어장은 올라가고
+ * (`flushPush`가 단어장 먼저 → 단어 나중) 단어에서 잘렸다.
+ *
+ * 왜 고정 간격이 아니라 백오프인가: 실패가 영구적일 수 있다(서버가 거부하는 행). 30초
+ * 고정이면 그런 행 하나가 끝없이 요청을 만든다. 10분까지 벌리면 살아 있는 재시도는
+ * 유지하면서 비용은 무시할 수준이 된다.
+ */
+const RETRY_BACKOFF_MS = [30_000, 60_000, 120_000, 300_000, 600_000];
+
 let pushTimer: ReturnType<typeof setTimeout> | null = null;
 let pushInFlight = false;
+/** 연속 실패 횟수. 성공하면 0으로 돌아간다(= 다음 실패는 다시 30초부터). */
+let retryAttempt = 0;
 
 // 클라우드 동기화 대상 = Google 또는 Apple 로그인 사용자(둘 다 Supabase 세션 보유).
 // Apple도 포함해야 Apple 사용자 데이터가 클라우드에 백업되고, 로그아웃 시 wipe가
@@ -46,12 +66,31 @@ async function upsertInChunks(
   }
 }
 
-export function schedulePush(): void {
+function armPushTimer(delayMs: number): void {
   if (pushTimer) clearTimeout(pushTimer);
   pushTimer = setTimeout(() => {
     pushTimer = null;
+    // flushPush가 자기 실패를 재시도로 예약하므로 여기서는 기록만 한다.
     void flushPush().catch(e => console.warn('[sync] push failed:', e?.message ?? e));
-  }, DEBOUNCE_MS);
+  }, delayMs);
+}
+
+/** 실패·스킵한 push를 백오프 간격으로 다시 예약한다. */
+function scheduleRetry(): void {
+  const delay = RETRY_BACKOFF_MS[Math.min(retryAttempt, RETRY_BACKOFF_MS.length - 1)];
+  retryAttempt++;
+  armPushTimer(delay);
+}
+
+/**
+ * 로컬 변경을 디바운스 뒤에 push하도록 예약한다.
+ *
+ * 사용자 변경이 들어왔다는 것은 앱이 살아 움직인다는 뜻이라 백오프를 처음으로 되돌린다 —
+ * 안 그러면 한 번 실패한 뒤로는 사용자가 뭘 하든 10분씩 기다리게 된다.
+ */
+export function schedulePush(): void {
+  retryAttempt = 0;
+  armPushTimer(DEBOUNCE_MS);
 }
 
 export async function flushPush(): Promise<void> {
@@ -62,7 +101,13 @@ export async function flushPush(): Promise<void> {
     clearDirtyLists, clearDirtyWords, clearDirtyStatDates,
   } = useSyncStore.getState();
   if (dirtyListIds.size === 0 && dirtyWordIds.size === 0 && dirtyStatDates.size === 0) return;
-  if (pushInFlight) return;
+  // 앞 push가 아직 안 끝났다. 이 변경분은 그 배치에 안 실렸을 수 있으므로 **반드시 다시
+  // 예약해야 한다** — 그냥 return하면 dirty만 남고 다시 시도할 계기가 사라진다.
+  // 앞 push가 성공해 전부 비웠다면 이 재시도는 위 early-return으로 조용히 끝난다.
+  if (pushInFlight) {
+    armPushTimer(DEBOUNCE_MS);
+    return;
+  }
 
   pushInFlight = true;
   setIsSyncing(true);
@@ -143,6 +188,13 @@ export async function flushPush(): Promise<void> {
     clearDirtyLists(listIds);
     clearDirtyWords(wordIds);
     clearDirtyStatDates(statDates);
+    retryAttempt = 0;
+  } catch (e) {
+    // dirty를 안 지우는 것만으로는 부족하다 — 다시 시도할 **계기**까지 남겨야 한다.
+    // 재던지기는 유지한다: 호출자(use-bootstrap의 첫 로그인 경로)가 이 오류로 사용자에게
+    // 알림을 띄운다.
+    scheduleRetry();
+    throw e;
   } finally {
     pushInFlight = false;
     setIsSyncing(false);

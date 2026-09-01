@@ -106,7 +106,15 @@ export function useVocabBootstrap(): void {
 
   useEffect(() => {
     const sub = AppState.addEventListener('change', (state) => {
-      if (state !== 'active') void flushPush();
+      // 🔴 `.catch`가 없으면 여기서 난 실패는 unhandled rejection으로 **로그에도 안 남는다.**
+      //    하필 여기가 가장 끊기기 쉬운 자리다 — OS가 네트워크를 끊는 바로 그 순간에 나가는
+      //    push라, 2026-09-01엔 단어장만 올라가고 단어에서 잘렸는데 흔적이 하나도 없었다.
+      //    실패한 push의 재시도는 flushPush가 예약한다(engine.ts RETRY_BACKOFF_MS).
+      if (state !== 'active') {
+        void flushPush().catch(e =>
+          console.warn('[sync] background push failed:', e?.message ?? e),
+        );
+      }
     });
     return () => sub.remove();
   }, []);

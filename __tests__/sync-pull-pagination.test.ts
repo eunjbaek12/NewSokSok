@@ -22,6 +22,10 @@ let mockLocalDirtyWordRows: any[] = [];
 let mockPageRequests = 0; // supabase 쿼리 실행 횟수(페이지 요청 수 검증용)
 let mockInListIdQueries = 0; // by-list 완전성 조회 횟수
 let mockUpsertCalls: { table: string; rows: any[] }[] = [];
+/** 설정하면 그 테이블의 upsert가 실패한다(끊긴 push 재현용). */
+let mockUpsertFailsFor: string | null = null;
+/** 설정하면 upsert가 이 promise가 풀릴 때까지 멈춘다(push in-flight 재현용). */
+let mockUpsertGate: Promise<void> | null = null;
 
 jest.mock('react-native', () => ({ Platform: { OS: 'android' } }));
 
@@ -71,6 +75,9 @@ jest.mock('@/lib/supabase', () => {
       limit: (n: number) => { state.limit = n; return q; },
       upsert: async (payload: any[]) => {
         mockUpsertCalls.push({ table, rows: payload });
+        const gate = mockUpsertGate;
+        if (gate) await gate;
+        if (mockUpsertFailsFor === table) return { error: { message: 'network cut' } };
         return { error: null };
       },
       then: (resolve: any, reject: any) => {
@@ -123,7 +130,7 @@ jest.mock('expo-sqlite', () => {
 
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { pullChanges, flushPush, PULL_PAGE, WORD_COLUMN_COUNT, WORD_INSERT_CHUNK } from '@/features/sync/engine';
+import { pullChanges, flushPush, schedulePush, PULL_PAGE, WORD_COLUMN_COUNT, WORD_INSERT_CHUNK } from '@/features/sync/engine';
 import { useSyncStore } from '@/features/sync/store';
 
 const fullList = (over: Record<string, any>) => ({
@@ -170,6 +177,8 @@ beforeEach(async () => {
   mockPageRequests = 0;
   mockInListIdQueries = 0;
   mockUpsertCalls = [];
+  mockUpsertFailsFor = null;
+  mockUpsertGate = null;
   await useSyncStore.getState().resetAll();
 });
 
@@ -312,5 +321,87 @@ describe('flushPush — 워터마크 불변', () => {
     expect(mockUpsertCalls.map(c => c.table)).toContain('cloud_words');
     expect(useSyncStore.getState().lastPulledAt).toBe(7); // 예전 echo-prevention 점프 제거
     expect(useSyncStore.getState().dirtyWordIds.size).toBe(0);
+  });
+});
+
+/**
+ * Regression: "저장했는데 서버에 없다" — 그런데 **유실이 아니라 무기한 지연**이었다.
+ *
+ * push가 실패하면 dirty는 남으니 데이터는 안 사라진다. 문제는 **다시 시도할 계기가
+ * 없었다**는 것이다: `flushPush`는 catch 없이 finally만 있어 재예약을 하지 않았고,
+ * `pushInFlight` 스킵도 그냥 return이었다. 2026-09-01에 저장한 단어는 앱을 다시 켜서야
+ * (부트스트랩 push) 2시간 44분 만에 올라갔다. 그 사이에 앱을 지웠으면 로컬 SQLite와 함께
+ * dirty도 사라져 영구 유실이다.
+ */
+describe('flushPush — 실패하면 스스로 다시 시도한다', () => {
+  const markOneDirtyWord = () => {
+    useSyncStore.getState().markWordDirty('W1');
+    mockLocalDirtyWordRows = [{
+      id: 'W1', listId: 'L1', term: 't', definition: '', meaningKr: 'm',
+      exampleEn: '', position: 0, deletedAt: null,
+    }];
+  };
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    // 백오프 카운터는 모듈 전역이라 테스트끼리 샌다. schedulePush()가 그것을 0으로
+    // 되돌리므로 그것으로 초기화하고, 그때 걸린 타이머는 버린다.
+    schedulePush();
+    jest.clearAllTimers();
+  });
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
+  it('끊긴 push는 dirty를 남기고, 30초 뒤 재시도가 실제로 올린다', async () => {
+    markOneDirtyWord();
+    mockUpsertFailsFor = 'cloud_words';
+
+    await expect(flushPush()).rejects.toBeDefined();
+    expect(useSyncStore.getState().dirtyWordIds.size).toBe(1); // 안 지웠다
+
+    mockUpsertFailsFor = null;
+    mockUpsertCalls = [];
+    await jest.advanceTimersByTimeAsync(30_000);
+
+    expect(mockUpsertCalls.map(c => c.table)).toContain('cloud_words');
+    expect(useSyncStore.getState().dirtyWordIds.size).toBe(0);
+  });
+
+  it('연속 실패는 간격이 벌어진다 (30초 → 60초)', async () => {
+    markOneDirtyWord();
+    mockUpsertFailsFor = 'cloud_words';
+
+    await expect(flushPush()).rejects.toBeDefined();
+
+    mockUpsertCalls = [];
+    await jest.advanceTimersByTimeAsync(30_000); // 1차 재시도 — 또 실패
+    expect(mockUpsertCalls.length).toBeGreaterThan(0);
+
+    mockUpsertCalls = [];
+    await jest.advanceTimersByTimeAsync(30_000); // 아직 이르다(다음은 60초)
+    expect(mockUpsertCalls).toHaveLength(0);
+
+    mockUpsertFailsFor = null;
+    await jest.advanceTimersByTimeAsync(30_000); // 누적 60초 — 2차 재시도
+    expect(mockUpsertCalls.map(c => c.table)).toContain('cloud_words');
+    expect(useSyncStore.getState().dirtyWordIds.size).toBe(0);
+  });
+
+  it('앞 push가 진행 중이면 스킵하되 재예약은 남긴다', async () => {
+    let release: () => void = () => {};
+    mockUpsertGate = new Promise<void>(r => { release = r; });
+    markOneDirtyWord();
+
+    const inFlight = flushPush();
+    await Promise.resolve(); // upsert 게이트까지 진입시킨다
+
+    await flushPush(); // pushInFlight → 스킵
+    expect(jest.getTimerCount()).toBe(1); // 그냥 버리지 않았다
+
+    mockUpsertGate = null;
+    release();
+    await inFlight;
   });
 });

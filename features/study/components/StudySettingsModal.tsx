@@ -133,7 +133,7 @@ export default function StudySettingsModal({
                             keyboardShouldPersistTaps="handled"
                         >
                             {/* 공통: 출제 대상 */}
-                            {!hideTargetFilter && <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                            {!hideTargetFilter && <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                 <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.targetWords')}</Text>
 
                                 <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary }]}>
@@ -193,7 +193,7 @@ export default function StudySettingsModal({
                             </View>}
 
                             {/* 공통: 학습 단위 */}
-                            <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                            <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                 <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyUnit')}</Text>
                                 <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary }]}>
                                     {['all', 10, 20, 30].map(size => {
@@ -221,7 +221,7 @@ export default function StudySettingsModal({
 
                             {/* 플래시카드, 문장완성, 자동재생 공통: 학습 옵션 */}
                             {(mode === 'flashcard' || mode === 'examples' || mode === 'autoplay') && (
-                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyOptions')}</Text>
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
@@ -311,7 +311,7 @@ export default function StudySettingsModal({
 
                             {/* 플래시카드 및 자동재생 공통: 카드 뒷면 표시 */}
                             {(mode === 'flashcard' || mode === 'autoplay') && (
-                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
 
@@ -381,7 +381,7 @@ export default function StudySettingsModal({
 
                             {/* 문장완성 전용: 표시 설정 */}
                             {mode === 'examples' && (
-                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
                                     <View style={styles.settingRow}>
@@ -401,7 +401,7 @@ export default function StudySettingsModal({
 
                             {/* 퀴즈 전용: 문제 옵션 */}
                             {mode === 'quiz' && (
-                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.questionOptions')}</Text>
 
                                     <View style={styles.settingRow}>
@@ -501,6 +501,13 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         paddingHorizontal: 14,
         paddingVertical: 5,
+        // 🔴 면만으로는 다크에서 카드가 사라진다 — surface 와 surfaceModal(모달 배경)이
+        //    다크에서 **같은 값**(#281E18)이라 대비가 정확히 1.00 이다. 라이트 넷은
+        //    1.10~1.25 로 면이 제 역할을 하지만 다크만 배신한다.
+        //    같은 모달의 [닫기] 가 이미 같은 뿌리로 두 번 고쳐졌다(443558f → 1fbf2cd):
+        //    **어느 면을 칠해도 한 테마가 배신하므로 테두리로 세운다.**
+        //    테두리/모달배경 대비는 다섯 테마에서 1.22~1.76 으로 하나도 빠지지 않는다.
+        borderWidth: StyleSheet.hairlineWidth,
     },
     sectionTitle: {
         fontSize: 10,

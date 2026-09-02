@@ -43,19 +43,25 @@ export const ANNOUNCEMENTS: Announcement[] = [
     // 1.6.1 은 따로 적지 않는다 — 그 릴리스의 사용자 체감 변화(다 외운 Day 잠김)를
     // 여기 세 번째 줄에 함께 담았다. 1.6.1 을 건너뛰고 올라온 사람도 그대로 읽힌다.
     version: '1.6.2',
-    date: '2026-09-02',
+    date: '2026-09-03',
     items: [
+      // 맨 위는 제보에서 나온 것 — 1.5.0·1.6.0 때 방침 그대로다. 이건 레딧 제보
+      // (2026-08-26, Basic Korean 500 의 Day 8 이 며칠째 잠김)에서 나왔고 답글도
+      // 나갔다. "Day 7 을 다시 할 필요 없다"는 답글에서 지킨 문장을 그대로 옮겼다 —
+      // 이미 40/40 을 외운 사람에게 그게 지금 가장 궁금한 것이다.
+      { key: 'whatsNew.v162_1', icon: 'lock-open' },
       // 이번 릴리스의 얼굴. 배너·시트가 쓰는 아이콘을 그대로 가져왔다.
-      { key: 'whatsNew.v162_1', icon: 'sparkles' },
+      { key: 'whatsNew.v162_2', icon: 'sparkles' },
       // 원형 줄은 화면에서 ↳ 로 시작한다 — 그 모양을 그대로 쓰는 아이콘.
-      { key: 'whatsNew.v162_2', icon: 'return-down-forward' },
-      // 사용자 제보에서 나온 것을 위로 올리는 1.5.0·1.6.0 때 방침 그대로다.
-      { key: 'whatsNew.v162_3', icon: 'lock-open' },
+      { key: 'whatsNew.v162_3', icon: 'return-down-forward' },
       { key: 'whatsNew.v162_4', icon: 'clipboard' },
+      // 덱 이야기 둘은 한 줄에 욱여넣지 않고 나눴다. 아이콘도 갈라야 한 덩어리로
+      // 읽히지 않는다 — 뜻·예문은 book, 급수 덱은 1.6.0 과 같은 school.
       { key: 'whatsNew.v162_5', icon: 'book' },
-      { key: 'whatsNew.v162_6', icon: 'text' },
+      { key: 'whatsNew.v162_6', icon: 'school' },
+      { key: 'whatsNew.v162_7', icon: 'text' },
       // 마지막 줄은 1.6.0 과 같은 아이콘 — "계속 들려주세요"가 같은 자리에 온다.
-      { key: 'whatsNew.v162_7', icon: 'chatbubble-ellipses' },
+      { key: 'whatsNew.v162_8', icon: 'chatbubble-ellipses' },
     ],
   },
   {

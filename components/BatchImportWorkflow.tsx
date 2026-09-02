@@ -8,7 +8,7 @@ import { useTheme } from '@/features/theme';
 import { useSettings } from '@/features/settings';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
 import { Button } from '@/components/ui/Button';
-import { parseImportedText, ParsedWord } from '@/utils/importParser';
+import { parseImportedTextWithStats, ParsedWord } from '@/utils/importParser';
 import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 import * as Haptics from 'expo-haptics';
 
@@ -82,7 +82,7 @@ export default function BatchImportWorkflow({
 
     // STAGE 1 → STAGE 2: 텍스트 파싱 + 보강 시작
     const handleNextStage = () => {
-        const parsed = parseImportedText(rawText);
+        const { words: parsed, droppedWords } = parseImportedTextWithStats(rawText, sourceLang);
         const filtered = parsed.filter(p => !existingSet.has(p.term.toLowerCase()));
 
         if (filtered.length === 0) {
@@ -90,6 +90,26 @@ export default function BatchImportWorkflow({
             return;
         }
 
+        // 🔴 한 줄에 여러 단어를 쉼표로 나열하면 첫 컬럼만 남고 나머지는 사라진다. 그대로
+        //    넘어가면 미리보기 개수 말고는 잃었다는 신호가 없어, 사용자는 원인을 AI 한도로
+        //    읽는다(2026-09-02 실측: 24개 중 4개). 다음 단계는 곧장 보강을 시작해 한도를
+        //    깎으므로 **여기서, 차감 전에** 묻는다.
+        if (droppedWords > 0) {
+            Alert.alert(
+                t('batchImport.droppedTitle'),
+                t('batchImport.droppedMessage', { dropped: droppedWords, kept: filtered.length }),
+                [
+                    { text: t('batchImport.droppedFix'), style: 'cancel' },
+                    { text: t('batchImport.droppedProceed'), onPress: () => startReview(filtered) },
+                ],
+            );
+            return;
+        }
+
+        startReview(filtered);
+    };
+
+    const startReview = (filtered: ParsedWord[]) => {
         const firstPage = filtered.slice(0, PAGE_SIZE);
         const rest = filtered.slice(PAGE_SIZE).map(p => p.term);
 

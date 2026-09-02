@@ -26,6 +26,7 @@ import { enrichWord } from '@/lib/translation-api';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
 import { updateWord } from '@/features/vocab';
 import { markUnfillable } from './unfillable';
+import { fillableUpdates } from './merge';
 import type { AutoFillResult, Word, VocaList } from '@/lib/types';
 
 const CONCURRENCY = 4;
@@ -137,14 +138,9 @@ export function useBareFill(
       }
       if (!result) return;
 
-      // 🔴 뜻은 덮지 않는다 — 사용자가 손으로 고쳐 둔 것일 수 있고, 애초에 채우려는
-      // 칸이 아니다. 값이 실제로 온 칸만 쓴다(빈 문자열로 덮으면 있던 값을 지운다).
-      const updates: Partial<Word> = {};
-      if (result.phonetic) updates.phonetic = result.phonetic;
-      if (result.exampleEn) updates.exampleEn = result.exampleEn;
-      if (result.exampleKr) updates.exampleKr = result.exampleKr;
-      if (result.definition) updates.definition = result.definition;
-      if (result.pos) updates.pos = result.pos;
+      // 빈 칸만 채운다. 규칙과 그 근거는 merge.ts 에 있다 — 여기 두면 조건 두 겹이
+      // 훅 안 클로저에 갇혀 테스트로 붙들 수가 없다(face.ts 와 같은 이유).
+      const updates = fillableUpdates(target, result);
       if (Object.keys(updates).length === 0) return;
 
       filled += 1;

@@ -13,4 +13,5 @@ export { useBareFill, type BareFillOutcome, type BareFillState } from './useBare
 export { default as BareWordsSection } from './BareWordsSection';
 export { setPendingFill, takePendingFill } from './pick-handoff';
 export { splitBareWords } from './detect';
+export { fillableUpdates } from './merge';
 export { loadUnfillable, markUnfillable, clearUnfillable, pruneUnfillable } from './unfillable';

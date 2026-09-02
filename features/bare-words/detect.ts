@@ -19,8 +19,14 @@
 
 import type { Word } from '@/lib/types';
 
-/** 값이 실제로 채워져 있는가. 공백뿐인 칸은 빈 것으로 본다. */
-function filled(v: string | null | undefined): boolean {
+/**
+ * 값이 실제로 채워져 있는가. 공백뿐인 칸은 빈 것으로 본다.
+ *
+ * 🔑 내보내는 이유: 채우기 실행부(useBareFill)도 "이 칸이 비었나"를 물어야 하는데,
+ * 판정이 두 벌이면 **여기서 빈 칸이라 대상에 넣고 저기서는 찬 칸이라 안 쓰는** 어긋남이
+ * 조용히 생긴다. 대상 판정과 쓰기 판정은 같은 함수를 봐야 한다.
+ */
+export function hasText(v: string | null | undefined): boolean {
   return typeof v === 'string' && v.trim().length > 0;
 }
 
@@ -31,8 +37,8 @@ function filled(v: string | null | undefined): boolean {
  * AI 에 보낼 근거(표제어 말고는)도 없다.
  */
 export function isBareWord(w: Word): boolean {
-  if (!filled(w.meaningKr)) return false;
-  return !filled(w.phonetic) && !filled(w.exampleEn) && !filled(w.definition);
+  if (!hasText(w.meaningKr)) return false;
+  return !hasText(w.phonetic) && !hasText(w.exampleEn) && !hasText(w.definition);
 }
 
 /**

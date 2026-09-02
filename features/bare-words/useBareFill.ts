@@ -125,6 +125,16 @@ export function useBareFill(
     setState({ running: true, filled: 0, total: batch.length, currentTerm: batch[0].term, notFound: [], outcome: null });
 
     const byId = new Map(batch.map(w => [w.id, w]));
+    /**
+     * 저장 약속들.
+     *
+     * 🔴 **"배치가 끝났다"는 저장까지 끝난 것이어야 한다.** 예전에는 updateWord 를 던져만
+     * 놓고(void) 큐가 비는 순간 끝났다고 알렸는데, 그러면 마지막 몇 건의 쓰기가 아직 스토어에
+     * 도착하기 전이다. 실기에서 7개를 채우고 「7개를 채웠어요」가 뜬 순간 학습에 들어온 것은
+     * **4개뿐**이었다(나머지 셋은 그 뒤에 도착). 결과를 보고 무언가를 세는 화면은 전부 이
+     * 경계를 믿으므로, 여기서 기다린다.
+     */
+    const writes: Promise<unknown>[] = [];
     let filled = 0;
     const notFoundIds: string[] = [];
     const notFoundTerms: string[] = [];
@@ -163,7 +173,7 @@ export function useBareFill(
       if (countsRef.current ? countsRef.current(updates) : true) filled += 1;
       setState(prev => (prev.running ? { ...prev, filled, currentTerm: target.term } : prev));
       // 저장 실패가 배치를 멈추지 않게 한다 — 한 단어 때문에 나머지를 버릴 이유가 없다.
-      void updateWord(listId, id, updates).catch(() => {});
+      writes.push(updateWord(listId, id, updates).catch(() => {}));
     };
 
     try {
@@ -175,6 +185,8 @@ export function useBareFill(
         controller.signal,
       );
     } finally {
+      // 위 주석의 이유로 저장을 먼저 기다린다. 실패는 이미 삼켰으므로 여기서 터지지 않는다.
+      await Promise.all(writes);
       const aborted = controller.signal.aborted;
       abortRef.current = null;
       // 끝난 이유: 멈췄으면 stopped, 한도로 잘렸으면 quota, 아니면 done.

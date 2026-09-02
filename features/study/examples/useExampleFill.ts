@@ -130,6 +130,26 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
     if (targets.length === 0) setDismissed(false);
   }, [targets.length]);
 
+  /**
+   * 🔴 결과 배너는 **학습 화면에 오래 머물면 안 된다.**
+   *
+   * 배너가 떠 있는 동안 예문 카드가 그만큼을 잃는다 — 실기(Galaxy S22)에서 문장 칸이
+   * 143dp → **51dp** 가 됐고, 그러면 가장 작은 글자(16dp)로도 두 줄(58dp)이 안 들어가
+   * 둘째 줄이 반쯤 잘린 채 보인다. 크기 엔진은 잘못이 없다 — 로그로 확인하니 0→1→2→3
+   * 까지 이미 다 줄였고, 그 아래로는 줄이지 않기로 한 결정이다(sentence-size.ts 머리말).
+   * 그러니 고칠 자리는 배너 쪽이고, 처방은 **머무르지 않는 것**이다.
+   *
+   * 🔑 성과는 몇 초면 읽히고, 행동(광고·내일·Pro)은 **시트에 그대로 있다** — 배너가 사라져도
+   * 대상이 남아 있으면 권유 배너로 돌아가므로 길이 닫히지 않는다. 진행 배너는 대상이 아니다
+   * (사용자가 지금 그것을 보고 있고, 몇 초 뒤 결과로 바뀐다).
+   */
+  const { running: filling, outcome, clearOutcome } = fill;
+  useEffect(() => {
+    if (filling || !outcome) return;
+    const timer = setTimeout(clearOutcome, 8000);
+    return () => clearTimeout(timer);
+  }, [filling, outcome, clearOutcome]);
+
   // 고르기 화면에서 돌아왔다 — 고른 것을 그 순서대로 채운다(읽으면서 비우므로 1회만).
   useFocusEffect(useCallback(() => {
     const ids = takePendingFill(listId);

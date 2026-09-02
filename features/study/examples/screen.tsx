@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ActivityIndicator, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import type { LayoutChangeEvent } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -11,7 +11,6 @@ import {
   useLists,
   selectWordsForList,
   toggleStarred,
-  updateWord,
   updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/features/study';
@@ -26,8 +25,8 @@ import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
-import { enrichWord } from '@/lib/translation-api';
-import type { AutoFillResult } from '@/lib/types';
+import { BareWordsBanner, BareWordsSheet } from '@/features/bare-words';
+import { useExampleFill } from './useExampleFill';
 import {
   SENTENCE_SIZES,
   nextSentenceStep,
@@ -101,7 +100,7 @@ export default function ExamplesScreen() {
   const lists = useLists();
   const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
   const setStudyResults = useStudyResultsStore(s => s.setResults);
-  const { studySettings, updateStudySettings, apiKey } = useSettings();
+  const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
 
@@ -129,15 +128,14 @@ export default function ExamplesScreen() {
   }, [studySettings.studyBatchSize, studySettings.shuffle, updateStudySettings]);
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
-  // 백그라운드 enrich 상태. 모달로 차단하지 않고 진행 배너로 노출.
-  // hadAnyReady: 시작 시점에 예문 있는 단어가 하나라도 있었는지(전체 미생성 케이스 UI 분기용).
-  const [bgEnrich, setBgEnrich] = useState<{
-    running: boolean;
-    total: number;
-    completed: number;
-    hadAnyReady: boolean;
-  }>({ running: false, total: 0, completed: 0, hadAnyReady: true });
-  const enrichAbortRef = useRef<AbortController | null>(null);
+  /**
+   * 이번 세션이 다루는 단어의 id — 필터에 걸린 것 전부(예문 유무는 안 본다).
+   * 채우기 대상도, 채운 뒤 학습에 합류하는 단어도 이 울타리 안이다. 화면에 안 걸린 단어를
+   * 몰래 학습에 넣지 않는다.
+   */
+  const [poolIds, setPoolIds] = useState<ReadonlySet<string>>(() => new Set());
+  /** 「전체」 묶음의 크기 — 세션을 열 때 굳힌다(아래 batchSizeNum 주석). */
+  const [allBatchSize, setAllBatchSize] = useState(0);
 
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -173,86 +171,6 @@ export default function ExamplesScreen() {
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel });
-
-  // 누락된 예문을 백그라운드에서 sliding-window 동시성으로 채운다.
-  // - 완성될 때마다 studyWords에 append → 진행 중 다음 batch부터 자동 등장
-  // - 빈 결과/에러는 지수 backoff로 최대 3회 시도 (429/quota 회복용)
-  // - AbortController로 화면 이탈/재초기화 시 즉시 중단
-  const startBackgroundEnrich = useCallback(async (missing: Word[]) => {
-    if (missing.length === 0) return;
-    enrichAbortRef.current?.abort();
-    const ctrl = new AbortController();
-    enrichAbortRef.current = ctrl;
-
-    const CONCURRENCY = 3;
-    const MAX_ATTEMPTS = 3;
-    let index = 0;
-
-    const worker = async () => {
-      while (!ctrl.signal.aborted) {
-        const i = index++;
-        if (i >= missing.length) return;
-        const word = missing[i];
-
-        let enriched: AutoFillResult | null = null;
-        for (let attempt = 0; attempt < MAX_ATTEMPTS && !ctrl.signal.aborted; attempt++) {
-          try {
-            enriched = await enrichWord(
-              word.term,
-              word.sourceLang || 'en',
-              word.targetLang || 'ko',
-              apiKey || undefined,
-              ctrl.signal,
-            );
-          } catch (e: any) {
-            if (e?.name === 'AbortError') return;
-            enriched = null;
-          }
-          if (enriched?.exampleEn) break;
-          // A basic quota-exhausted result is intentionally usable for other
-          // study modes but cannot produce an example. Do not repeatedly call
-          // Edge trying to auto-upgrade it in the background.
-          if (enriched?.enrichmentLevel === 'basic') break;
-          if (attempt < MAX_ATTEMPTS - 1) {
-            const backoff = Math.min(1500 * Math.pow(2, attempt), 8000);
-            await new Promise(r => setTimeout(r, backoff));
-          }
-        }
-
-        if (ctrl.signal.aborted) return;
-
-        if (enriched?.exampleEn) {
-          const updates: Partial<Omit<Word, 'id'>> = { exampleEn: enriched.exampleEn };
-          if (enriched.exampleKr) updates.exampleKr = enriched.exampleKr;
-          try {
-            await updateWord(id!, word.id, updates);
-          } catch { /* DB write 실패는 무시 — 다음 진입 시 재시도 */ }
-          // 예문 자체는 저장한다(플래시카드 등 다른 모드에서 쓰인다). 다만 빈칸을
-          // 만들 수 없는 예문이면 이 화면의 출제 목록에는 넣지 않는다.
-          if (!ctrl.signal.aborted && canBlankExample(enriched.exampleEn, word.term)) {
-            const enrichedWord = { ...word, ...updates };
-            setStudyWords(prev => prev.some(w => w.id === word.id) ? prev : [...prev, enrichedWord]);
-          }
-        }
-
-        if (!ctrl.signal.aborted) {
-          setBgEnrich(s => ({ ...s, completed: s.completed + 1 }));
-        }
-      }
-    };
-
-    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-    if (!ctrl.signal.aborted) {
-      setBgEnrich(s => ({ ...s, running: false }));
-    }
-  }, [id, apiKey]);
-
-  // 화면 이탈 시 in-flight enrich 중단
-  useEffect(() => {
-    return () => {
-      enrichAbortRef.current?.abort();
-    };
-  }, []);
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -308,18 +226,17 @@ export default function ExamplesScreen() {
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, sel };
       isInitialLoad.current = false;
 
-      const missing = all.filter(w => !w.exampleEn);
       // 예문이 있어도 표제어 자리를 찾지 못하면 빈칸을 만들 수 없다. 그대로 출제하면
       // 문장이 통째로 보여 정답이 공개되므로 출제 목록에서 뺀다.
       const ready = all.filter(w => !!w.exampleEn && canBlankExample(w.exampleEn, w.term));
       setStudyWords(ready);
-
-      if (missing.length > 0) {
-        setBgEnrich({ running: true, total: missing.length, completed: 0, hadAnyReady: ready.length > 0 });
-        startBackgroundEnrich(missing);
-      } else {
-        setBgEnrich({ running: false, total: 0, completed: 0, hadAnyReady: true });
-      }
+      // 🔴 예문 없는 단어를 여기서 **자동으로 채우지 않는다.** 예전에는 이 자리에서 전부
+      // AI 로 돌렸고, 그 한 번의 탭이 하루치 한도를 넘겼다(Free 50단어/일). 이제는 배너로
+      // 알리고 사용자가 누른 뒤에만 채운다(useExampleFill).
+      setPoolIds(new Set(all.map(w => w.id)));
+      // 「전체」 묶음은 시작 시점의 크기로 굳힌다 — 채우기로 단어가 늘어도 지금 묶음이
+      // 커지면 안 된다(스펙 §6).
+      setAllBatchSize(ready.length);
     } else {
       setStudyWords(prev => {
         const newMap = new Map(all.map(w => [w.id, w]));
@@ -328,7 +245,14 @@ export default function ExamplesScreen() {
     }
   }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, studySettings.studyBatchSize]);
 
-  const batchSizeNum = studySettings.studyBatchSize === 'all' ? (studyWords.length || 1) : studySettings.studyBatchSize;
+  /**
+   * 🔴 「전체」를 `studyWords.length` 로 그때그때 재면 안 된다. 채우기로 단어가 늘 때마다
+   * 묶음 크기가 따라 늘어 **지금 묶음 한가운데서 남은 문항 수가 바뀐다**(3/8 이 3/20 이 된다).
+   * 세션을 열 때 굳혀 두면 늘어난 단어는 다음 묶음이 된다.
+   */
+  const batchSizeNum = studySettings.studyBatchSize === 'all'
+    ? (allBatchSize || studyWords.length || 1)
+    : studySettings.studyBatchSize;
   const currentBatchWords = React.useMemo(() => {
     if (studyWords.length === 0) return [];
     const start = currentBatchIndex * batchSizeNum;
@@ -409,6 +333,67 @@ export default function ExamplesScreen() {
   const allListWords = useMemo(() => getWordsForList(id!), [getWordsForList, id]);
 
   /**
+   * 이번 세션의 울타리 안 단어들 — **살아 있는 값**이다. 채우기가 예문을 저장하면 여기가
+   * 먼저 바뀌고, 아래 둘(채울 대상·합류 후보)이 저절로 따라 움직인다.
+   */
+  const poolWords = useMemo(() => allListWords.filter(w => poolIds.has(w.id)), [allListWords, poolIds]);
+
+  // 채우기 배선(대상·시트·광고·실행)은 훅 하나에 모여 있다. 🔴 컴포넌트가 아니라 훅인 이유는
+  // 아래 이른 return 때문이다 — useExampleFill 머리말 참조.
+  const fillUi = useExampleFill({
+    listId: id!,
+    list,
+    words: poolWords,
+    idleBanner: studyWords.length > 0,
+  });
+
+  /**
+   * 채워져서 이제 출제할 수 있게 된 단어들.
+   *
+   * 🔑 상태로 쌓아 두지 않고 **매번 다시 센다.** 저장이 끝나는 시점과 배치가 끝나는 시점이
+   * 달라서(마지막 단어의 쓰기가 결과 배너보다 늦게 도착한다) 한 번 찍어 두면 그 한 개를
+   * 놓친다. 여기 있는 것은 언제나 "지금 학습에 없고, 예문이 있고, 빈칸을 뚫을 수 있는 것"이다.
+   */
+  const joinable = useMemo(() => {
+    const have = new Set(studyWords.map(w => w.id));
+    return poolWords.filter(w => !have.has(w.id) && !!w.exampleEn && canBlankExample(w.exampleEn, w.term));
+  }, [poolWords, studyWords]);
+  // 묶음 경계 판정은 타이머 콜백 안에서 일어난다 — 의존성에 넣으면 문항마다 타이머가 다시
+  // 걸리므로 최신 값은 ref 로 읽는다.
+  const joinableRef = useRef(joinable);
+  joinableRef.current = joinable;
+
+  /**
+   * 지킬 묶음이 없으면(= 아직 출제할 것이 하나도 없으면) 기다리지 않고 바로 연다.
+   * 「N개 채우기」를 누른 사람의 의도는 *지금* 학습하는 것이다.
+   *
+   * 🔴 다만 **채우는 중에는 열지 않는다.** 첫 단어가 들어오자마자 열면 그 한 개로 묶음
+   * 크기가 굳어(「전체」 설정) 이후 단어가 한 개짜리 묶음으로 줄줄이 쏟아진다. 배치가
+   * 끝난 뒤 한 번에 여는 것이 §6 의 "한 번에 합류"와도 같은 규칙이다.
+   */
+  useEffect(() => {
+    if (studyWords.length > 0 || joinable.length === 0 || fillUi.running) return;
+    setStudyWords(joinable);
+    if (studySettings.studyBatchSize === 'all') setAllBatchSize(joinable.length);
+  }, [studyWords.length, joinable, fillUi.running, studySettings.studyBatchSize]);
+
+  /**
+   * 채운 단어를 학습에 합류시킨다 — **묶음이 끝나는 순간에만**(스펙 §6).
+   *
+   * 진행 중 하나씩 붙이면 총 문항이 슬금슬금 늘어 진도 표시가 흔들리고, 다음 진입으로
+   * 미루면 "지금 하고 싶다"는 의도를 배신한다. 실제로 늘어난 수를 돌려준다.
+   */
+  const flushJoin = useCallback((): number => {
+    const add = joinableRef.current;
+    if (add.length === 0) return 0;
+    setStudyWords(prev => {
+      const have = new Set(prev.map(w => w.id));
+      return [...prev, ...add.filter(w => !have.has(w.id))];
+    });
+    return add.length;
+  }, []);
+
+  /**
    * 다중정답 판정 재료(docs/example-choices-multi-answer-spec.md).
    * 단어장이 바뀔 때만 다시 만든다 — 500단어면 segmentExample을 500번 도는 일이라
    * 카드마다 계산하면 안 된다.
@@ -473,28 +458,41 @@ export default function ExamplesScreen() {
     // 밀어서 읽는 중이면 넘기지 않는다. 이미 걸려 있던 타이머는 이 effect 가 다시 돌며
     // cleanup 으로 취소된다.
     if (advanceHeld) return;
+    const goNext = () => {
+      const nextIndex = currentIndex + 1;
+      const nextAnswer = batchAnswers[nextIndex];
+      setCurrentIndex(nextIndex);
+      setSelectedAnswer(nextAnswer ? nextAnswer.selectedId : null);
+      setIsCorrect(nextAnswer ? nextAnswer.isCorrect : null);
+      setIsNewAnswer(false);
+    };
     const timer = setTimeout(async () => {
       if (currentIndexRef.current === currentIndex) {
         if (currentIndex >= currentBatchWords.length - 1) {
+          // 채운 단어는 **묶음이 끝나는 이 순간에만** 합류한다(스펙 §6).
+          const joined = flushJoin();
+          const total = studyWords.length + joined;
           const nextStart = (currentBatchIndex + 1) * batchSizeNum;
-          if (nextStart < studyWords.length) {
+          // 🔴 합류로 **지금 묶음이 늘어났으면 끝이 아니다.** 예문 있는 단어 8개로 시작한
+          // 세션(묶음 크기 20)에 12개가 붙으면 그것은 다음 묶음이 아니라 이 묶음의 9번째
+          // 문항이다 — 여기서 세션을 끝내면 방금 채운 12개가 이번 세션에서 통째로 빠지고,
+          // 「지금 하고 싶다」로 누른 버튼이 「다음에 오세요」가 된다.
+          const batchEnd = Math.min(nextStart, total);
+          if (currentIndex < batchEnd - 1) {
+            goNext();
+          } else if (nextStart < total) {
             setShowBatchOverlay(true);
           } else {
             finishSession();
           }
         } else {
-          const nextIndex = currentIndex + 1;
-          const nextAnswer = batchAnswers[nextIndex];
-          setCurrentIndex(nextIndex);
-          setSelectedAnswer(nextAnswer ? nextAnswer.selectedId : null);
-          setIsCorrect(nextAnswer ? nextAnswer.isCorrect : null);
-          setIsNewAnswer(false);
+          goNext();
         }
       }
     }, isCorrect ? ADVANCE_DELAY_CORRECT_MS : ADVANCE_DELAY_WRONG_MS);
     return () => clearTimeout(timer);
     // isCorrect가 지연 시간을 정하므로 의존성에 있어야 한다 — 빠지면 이전 카드의 정오답으로 타이머가 잡힌다.
-  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers, advanceHeld]);
+  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers, advanceHeld, flushJoin]);
 
   useEffect(() => {
     setShowHint(false);
@@ -619,37 +617,45 @@ export default function ExamplesScreen() {
     router.back();
   }, [commitSession]);
 
-  // 모두 예문 없음 + 백그라운드 enrich 진행 중 → 풀스크린 진행 상태.
-  // 첫 단어가 완성되면 studyWords.length > 0이 되어 자동으로 학습 화면으로 전환됨.
-  if (studyWords.length === 0 && bgEnrich.running) {
+  /*
+   * 출제할 것이 하나도 없다 — 갈래 셋을 **가르지 않으면 거짓말이 된다.**
+   *
+   *   ① 채울 수 있는 단어가 있다 → 「예문이 있는 단어가 없어요 / N개를 채우면 시작할 수 있어요」
+   *   ② 예문은 있는데 표제어가 안 나와 빈칸을 못 뚫는다 → 그 사실을 말한다(스펙 §8)
+   *   ③ 조건에 맞는 단어 자체가 없다 → 설정을 확인하라는 기존 문구
+   *
+   * 🔴 ②를 ③으로 뭉치면 "설정을 확인해 주세요"가 거짓이 된다 — 설정에는 문제가 없고 예문
+   * 쪽 결함이다(근본은 AI 생성 프롬프트, backlog-examples-enrich.md P6). 반대로 ②에서
+   * 「채우면 시작할 수 있어요」를 내면 채울 것이 없는데 채우라고 하는 셈이다.
+   */
+  if (studyWords.length === 0) {
+    const canFill = fillUi.targets.length > 0;
+    const unblankable = !canFill && poolWords.length > 0 && poolWords.every(w => !!w.exampleEn);
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center', padding: 24 }]}>
-        <ActivityIndicator size="large" color={colors.primary} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', marginTop: 24, textAlign: 'center' }}>
-          {t('examples.bgGenerateAllMissing')}
-        </Text>
-        <Text style={{ color: colors.textSecondary, marginTop: 8, fontFamily: 'Pretendard_500Medium' }}>
-          {bgEnrich.completed} / {bgEnrich.total}
-        </Text>
-        <Pressable onPress={handleClose} style={{ marginTop: 24 }}>
-          <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.back')}</Text>
-        </Pressable>
-      </View>
-    );
-  }
-
-  if (studyWords.length === 0) {
-    return (
-      <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
+        {/* 채우는 중·채운 뒤의 배너는 여기서도 나온다 — 눌렀는데 화면이 아무 말도 안 하면 안 된다. */}
+        {fillUi.showBanner && (
+          <View style={styles.emptyBanner}>
+            <BareWordsBanner {...fillUi.bannerProps} />
+          </View>
+        )}
         <Ionicons name="document-text-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>{t('examples.noExamples')}</Text>
-        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>{t('examples.noExamplesDesc')}</Text>
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>
+          {canFill ? t('examples.noReadyTitle') : unblankable ? t('examples.noBlankableTitle') : t('examples.noExamples')}
+        </Text>
+        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 16 }}>
+          {canFill
+            ? t('examples.noReadyDesc', { count: fillUi.targets.length })
+            : unblankable ? t('examples.noBlankableDesc') : t('examples.noExamplesDesc')}
+        </Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
-            onPress={() => setSettingsVisible(true)}
+            onPress={canFill ? fillUi.openSheet : () => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
+            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>
+              {canFill ? t('bareWords.fillCount', { count: fillUi.targets.length }) : t('common.settingsChange')}
+            </Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
@@ -666,6 +672,7 @@ export default function ExamplesScreen() {
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
         />
+        <BareWordsSheet {...fillUi.sheetProps} />
       </View>
     );
   }
@@ -710,14 +717,8 @@ export default function ExamplesScreen() {
           </Text>
         </View>
 
-        {bgEnrich.running && (
-          <View style={[styles.bgEnrichBanner, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
-            <ActivityIndicator size="small" color={colors.primary} />
-            <Text style={[styles.bgEnrichBannerText, { color: colors.textSecondary }]} numberOfLines={1}>
-              {t('examples.bgGenerating', { completed: bgEnrich.completed, total: bgEnrich.total })}
-            </Text>
-          </View>
-        )}
+        {/* 예문 없는 단어 안내·진행·결과. 얼굴은 face.ts 가 고르고 여기서는 자리만 준다. */}
+        {fillUi.showBanner && <BareWordsBanner {...fillUi.bannerProps} />}
       </View>
 
       <View style={styles.body}>
@@ -896,6 +897,8 @@ export default function ExamplesScreen() {
         onApply={applySettings}
       />
 
+      <BareWordsSheet {...fillUi.sheetProps} />
+
       <BatchResultOverlay
         visible={showBatchOverlay}
         completedCount={results.current.length}
@@ -985,22 +988,8 @@ const styles = StyleSheet.create({
     minWidth: 70,
     textAlign: 'right',
   },
-  bgEnrichBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 8,
-    borderWidth: StyleSheet.hairlineWidth,
-    marginTop: 4,
-    marginBottom: 8,
-  },
-  bgEnrichBannerText: {
-    flex: 1,
-    fontSize: 12,
-    fontFamily: 'Pretendard_500Medium',
-  },
+  // 배너는 자기 여백을 갖고 있다(marginVertical). 가운데 정렬된 빈 화면에서는 폭만 펴 준다.
+  emptyBanner: { alignSelf: 'stretch' },
   cardArea: {
     flex: 1,
     paddingHorizontal: 24,

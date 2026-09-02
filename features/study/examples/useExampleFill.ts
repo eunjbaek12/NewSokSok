@@ -156,17 +156,13 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
   const collapseBanner = useCallback(() => setCollapsed(true), []);
 
   /**
-   * 문항이 바뀌면 결과 얼굴을 거둔다 — 성과는 몇 초면 읽힌다.
+   * 문항이 바뀌면 결과 얼굴을 거둔다 — 성과는 몇 초면 읽힌다. 한도 도달은 남는다.
    *
-   * 🔴 **한도 도달은 예외다.** 그것은 방금 한 일의 결과가 아니라 «오늘의 상태»다. 문항이
-   * 바뀌었다고 칩이 ✨ 로 돌아가면 «다시 눌러 보라»는 뜻이 되는데 오늘은 안 된다 —
-   * 다음 배치를 시작하거나 광고를 보기 전까지 ⏱ 로 남겨 둔다.
+   * 🔴 여기서 `fill.outcome` 을 읽어 판정하면 **결과가 세팅되는 순간 스스로를 지운다** —
+   * 이 함수가 새로 만들어지고, 그것을 의존성에 넣은 화면의 effect 가 다시 돌기 때문이다.
+   * 판정은 useBareFill 안(setState 콜백)에 두고 여기서는 **영원히 같은 함수**만 넘긴다.
    */
-  const { outcome: fillOutcome, clearOutcome } = fill;
-  const clearResult = useCallback(() => {
-    if (fillOutcome === 'quota') return;
-    clearOutcome();
-  }, [fillOutcome, clearOutcome]);
+  const clearResult = fill.clearMomentaryResult;
 
   // 고르기 화면에서 돌아왔다 — 고른 것을 그 순서대로 채운다(읽으면서 비우므로 1회만).
   useFocusEffect(useCallback(() => {

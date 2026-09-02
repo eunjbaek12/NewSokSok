@@ -113,7 +113,13 @@ export default function BareWordsSheet({
   // 잔량을 모르면(응답 대기) 막지 않는다 — 화면은 ①로 그리고 실제 자르기는 실행부가 한다.
   const known = unlimited ? bareCount : quotaLeft;
   const fillable = known == null ? bareCount : Math.min(known, bareCount);
-  const canFill = known == null || fillable > 0;
+  /*
+   * 🔴 **채울 것이 없으면 광고를 권하지 않는다.** `fillable` 은 대상과 잔량의 min 이라
+   * 대상이 0 이어도 0 이 되는데, 그것만 보고 ②(광고·내일·Pro) 얼굴로 가면 **다 채운 사람에게
+   * 「광고 보고 +20단어」를 권한다.** 실기에서 실제로 그랬다(예문 없는 단어 0개인데 광고 버튼).
+   * 광고가 뜻을 갖는 것은 «채울 것은 있는데 잔량이 모자랄 때»뿐이다.
+   */
+  const canFill = bareCount === 0 || known == null || fillable > 0;
   const leftover = bareCount - fillable;
   // 광고로 한 번에 끝낼 수 있는가. 판정과 개수는 순수 함수가 정한다(ad-offer.ts).
   const adOffer = onFillWithAd

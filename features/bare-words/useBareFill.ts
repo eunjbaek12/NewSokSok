@@ -276,5 +276,23 @@ export function useBareFill(
       : prev));
   }, []);
 
-  return { ...state, fill, stop, teardown, clearOutcome, quotaLeft };
+  /**
+   * 문항이 바뀔 때처럼 **성과만** 거둔다 — 한도 도달은 남긴다.
+   *
+   * 🔴 판정을 여기(setState 콜백 안)서 하는 이유: 호출부가 `outcome` 을 읽어 판정하면 그
+   *    콜백이 outcome 이 바뀔 때마다 새로 만들어지고, 그것을 effect 의존성에 넣은 화면은
+   *    **결과가 세팅되는 순간 effect 가 다시 돌아 그 결과를 즉시 지운다.** 실기에서 결과
+   *    칩(✓ N)이 한 프레임도 못 살고 사라졌다 — 화면은 «아무 일도 없었다»가 됐다.
+   *    여기서 판정하면 의존성이 비어 함수가 영원히 같다.
+   */
+  const clearMomentaryResult = useCallback(() => {
+    setState(prev => {
+      // 한도 도달은 방금 한 일의 결과가 아니라 「오늘의 상태」다.
+      if (prev.outcome === 'quota') return prev;
+      if (!prev.outcome && prev.notFound.length === 0) return prev;
+      return { ...prev, outcome: null, notFound: [] };
+    });
+  }, []);
+
+  return { ...state, fill, stop, teardown, clearOutcome, clearMomentaryResult, quotaLeft };
 }

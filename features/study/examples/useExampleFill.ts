@@ -33,8 +33,8 @@ import { useSettings } from '@/features/settings';
 import { useQuotaStore, useRewardedAd, getQuotaLeft } from '@/features/quota';
 import { deriveDisplayLanguages } from '@/constants/languages';
 import {
-  needsExample, splitFillTargets, pickBannerFace, useBareFill, takePendingFill, loadUnfillable,
-  countsExampleFilled, type BareWordsBannerProps, type BareWordsSheetProps,
+  needsExample, splitFillTargets, pickBannerFace, pickChip, useBareFill, takePendingFill, loadUnfillable,
+  countsExampleFilled, type BareWordsBannerProps, type BareWordsSheetProps, type ChipView,
 } from '@/features/bare-words';
 import type { VocaList, Word } from '@/lib/types';
 
@@ -55,12 +55,26 @@ export interface ExampleFillUi {
   targets: Word[];
   /** 지금 채우는 중인가. 화면은 이 값으로 **합류를 미룬다**(screen.tsx 의 즉시 합류 주석). */
   running: boolean;
-  /** 배너를 그릴 자리인가. 화면은 이 값만 보고 <BareWordsBanner {...bannerProps} /> 를 그린다. */
+  /**
+   * **카드가 없는 화면**(출제할 것이 하나도 없을 때)에서 배너를 그릴 자리인가.
+   * 거기서는 뺏을 카드가 없으므로 배너가 모든 얼굴을 그대로 진다.
+   */
   showBanner: boolean;
+  /**
+   * **카드가 있는 화면**에서 권유 배너를 그릴 자리인가 — 세션의 **첫 문항 동안만** 참이다.
+   * 나머지는 전부 칩이 진다(chip.ts 머리말: 배너가 카드의 몫을 먹는다).
+   */
+  showIntroBanner: boolean;
+  /** 진도 줄에 얹을 칩. `null` 이면 그릴 것이 없다(대상 0이거나 지금 배너가 그 말을 하고 있다). */
+  chip: ChipView | null;
   bannerProps: BareWordsBannerProps;
   sheetProps: BareWordsSheetProps;
   /** 「N개 채우기」를 화면이 직접 낼 때(출제할 것이 없는 화면) 쓰는 진입점. */
   openSheet: () => void;
+  /** 첫 문항이 끝났다 — 권유 배너를 칩으로 접는다. */
+  collapseBanner: () => void;
+  /** 문항이 바뀌었다 — 결과 얼굴을 거둔다. */
+  clearResult: () => void;
 }
 
 export function useExampleFill({ listId, list, words, idleBanner }: Args): ExampleFillUi {
@@ -131,24 +145,28 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
   }, [targets.length]);
 
   /**
-   * 🔴 결과 배너는 **학습 화면에 오래 머물면 안 된다.**
+   * 권유 배너를 접었는가 — **세션의 첫 문항이 끝나면** 참이 되고 다시 열리지 않는다.
    *
-   * 배너가 떠 있는 동안 예문 카드가 그만큼을 잃는다 — 실기(Galaxy S22)에서 문장 칸이
-   * 143dp → **51dp** 가 됐고, 그러면 가장 작은 글자(16dp)로도 두 줄(58dp)이 안 들어가
-   * 둘째 줄이 반쯤 잘린 채 보인다. 크기 엔진은 잘못이 없다 — 로그로 확인하니 0→1→2→3
-   * 까지 이미 다 줄였고, 그 아래로는 줄이지 않기로 한 결정이다(sentence-size.ts 머리말).
-   * 그러니 고칠 자리는 배너 쪽이고, 처방은 **머무르지 않는 것**이다.
-   *
-   * 🔑 성과는 몇 초면 읽히고, 행동(광고·내일·Pro)은 **시트에 그대로 있다** — 배너가 사라져도
-   * 대상이 남아 있으면 권유 배너로 돌아가므로 길이 닫히지 않는다. 진행 배너는 대상이 아니다
-   * (사용자가 지금 그것을 보고 있고, 몇 초 뒤 결과로 바뀐다).
+   * 🔑 8초 타이머가 아니라 **문항 전환**에 맞추는 이유: 글자 크기 단계는 문항이 바뀔 때만
+   * 초기화된다(screen.tsx 의 setSentenceSteps(INITIAL)). 타이머로 접으면 문항 **도중에**
+   * 칸만 커지고 글자는 작은 채 남는다 — 단계는 단조 증가라 스스로 되돌아오지 않는다.
+   * 접히는 자리를 초기화 자리에 포개면 한 번에 제 크기로 돌아온다.
    */
-  const { running: filling, outcome, clearOutcome } = fill;
-  useEffect(() => {
-    if (filling || !outcome) return;
-    const timer = setTimeout(clearOutcome, 8000);
-    return () => clearTimeout(timer);
-  }, [filling, outcome, clearOutcome]);
+  const [collapsed, setCollapsed] = useState(false);
+  const collapseBanner = useCallback(() => setCollapsed(true), []);
+
+  /**
+   * 문항이 바뀌면 결과 얼굴을 거둔다 — 성과는 몇 초면 읽힌다.
+   *
+   * 🔴 **한도 도달은 예외다.** 그것은 방금 한 일의 결과가 아니라 «오늘의 상태»다. 문항이
+   * 바뀌었다고 칩이 ✨ 로 돌아가면 «다시 눌러 보라»는 뜻이 되는데 오늘은 안 된다 —
+   * 다음 배치를 시작하거나 광고를 보기 전까지 ⏱ 로 남겨 둔다.
+   */
+  const { outcome: fillOutcome, clearOutcome } = fill;
+  const clearResult = useCallback(() => {
+    if (fillOutcome === 'quota') return;
+    clearOutcome();
+  }, [fillOutcome, clearOutcome]);
 
   // 고르기 화면에서 돌아왔다 — 고른 것을 그 순서대로 채운다(읽으면서 비우므로 1회만).
   useFocusEffect(useCallback(() => {
@@ -163,6 +181,8 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
 
   const face = pickBannerFace({
     running: fill.running,
+    stopping: fill.stopping,
+    waitingUntil: fill.waitingUntil,
     filled: fill.filled,
     total: fill.total,
     currentTerm: fill.currentTerm,
@@ -177,11 +197,19 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
 
   const openSheet = useCallback(() => setSheetOpen(true), []);
 
+  // 권유 배너는 첫 문항까지, 그 뒤로는 칩. 배너가 떠 있는 동안은 칩을 내지 않는다 —
+  // 같은 말을 두 번 하지 않는다.
+  const showIntroBanner = !collapsed && face.kind === 'idle' && idleBanner && !dismissed && targets.length > 0;
+
   return {
     targets,
     running: fill.running,
     // 권유 얼굴만 조건부다. 진행·결과는 사용자가 누른 것에 대한 응답이라 언제나 보여준다.
     showBanner: face.kind !== 'idle' || (idleBanner && !dismissed && targets.length > 0),
+    showIntroBanner,
+    chip: showIntroBanner ? null : pickChip(face),
+    collapseBanner,
+    clearResult,
     bannerProps: {
       variant: 'example',
       face,
@@ -200,6 +228,11 @@ export function useExampleFill({ listId, list, words, idleBanner }: Args): Examp
     sheetProps: {
       variant: 'example',
       visible: sheetOpen,
+      // 🔑 시트가 **지금 얼굴 그대로** 열린다 — 칩을 누르면 언제든 진행 상황이 보인다.
+      // 배너가 지던 [중단]·[이어서 채우기]가 여기로 옮겨 왔다.
+      face,
+      onStop: fill.stop,
+      onResume: () => { setSheetOpen(false); fill.clearOutcome(); void fill.fill(targets); },
       bareCount: targets.length,
       quotaLeft: quotaLeftForUi,
       unlimited: !!apiKey,

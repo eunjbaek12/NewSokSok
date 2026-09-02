@@ -42,6 +42,13 @@ export type BareFillOutcome =
 
 export interface BareFillState {
   running: boolean;
+  /**
+   * [중단]을 눌렀고 **이미 나간 요청을 받는 중**이다. `running` 은 아직 참이다 —
+   * 배치가 끝난 것이 아니라 새 요청을 안 낼 뿐이기 때문이다.
+   */
+  stopping: boolean;
+  /** 429 로 쉬는 중이면 다시 부를 시각(epoch ms). 남은 초는 화면이 센다. */
+  waitingUntil: number | null;
   /** 이번 배치에서 실제로 채운 수. */
   filled: number;
   /** 이번 배치의 목표 수(= 잘라낸 대상 수). */
@@ -56,7 +63,7 @@ export interface BareFillState {
   outcome: BareFillOutcome | null;
 }
 
-const IDLE: BareFillState = { running: false, filled: 0, total: 0, currentTerm: null, notFound: [], outcome: null };
+const IDLE: BareFillState = { running: false, stopping: false, waitingUntil: null, filled: 0, total: 0, currentTerm: null, notFound: [], outcome: null };
 
 export interface BareFillOptions {
   /**
@@ -78,7 +85,20 @@ export function useBareFill(
   options?: BareFillOptions,
 ) {
   const [state, setState] = useState<BareFillState>(IDLE);
+  /**
+   * 신호가 둘인 이유 — **[중단]은 하드 abort 가 아니다.**
+   *
+   * 서버는 AI 를 부르기 **전에** 차감한다(consume_ai_quota → Vertex). 그래서 진행 중인 요청을
+   * 끊으면 그 단어는 차감만 되고 사라진다 — 동시성이 4니 [중단] 한 번에 최대 4단어다.
+   * 실제로 화면은 「2개를 채웠어요」인데 한도는 6이 줄어 있을 수 있었다.
+   *
+   *   stopRef  — [중단]. 새 요청을 내지 않되 **이미 나간 것은 받아서 저장한다.**
+   *   abortRef — 진짜 teardown. 받을 사람이 없을 때만 끊는다. 재진입 가드도 겸한다.
+   */
   const abortRef = useRef<AbortController | null>(null);
+  const stopRef = useRef<AbortController | null>(null);
+  /** 429 로 쉬는 워커 수. 여럿이 동시에 걸릴 수 있어 세어야 한다. */
+  const waitingRef = useRef(0);
   // 매 렌더 새 함수라 의존성에 넣을 수 없다 — 최신 것을 ref 로 가리킨다(useRewardedAd 와 같은 갈래).
   const countsRef = useRef(options?.countsAsFilled);
   countsRef.current = options?.countsAsFilled;
@@ -95,7 +115,21 @@ export function useBareFill(
     return getQuotaLeft(useQuotaStore.getState().status);
   }, [apiKey]);
 
+  /**
+   * [중단] — **새 요청을 내지 않는다**는 뜻이다.
+   *
+   * 이미 나간 fetch 는 그대로 응답을 받아 저장한다(**차감된 것은 반드시 받는다**). 429 로
+   * 기다리던 것은 즉시 버린다 — 아직 차감 전이라(서버가 rate-limit 를 차감 앞에서 판정한다)
+   * 잃는 것이 없고, 그것까지 붙들면 중단이 최대 60초 걸린다.
+   */
   const stop = useCallback(() => {
+    if (!stopRef.current || stopRef.current.signal.aborted) return;
+    stopRef.current.abort();
+    setState(prev => (prev.running ? { ...prev, stopping: true, waitingUntil: null } : prev));
+  }, []);
+
+  /** 화면이 사라진다 — 받을 사람이 없으므로 진짜로 끊는다. */
+  const teardown = useCallback(() => {
     abortRef.current?.abort();
   }, []);
 
@@ -121,8 +155,12 @@ export function useBareFill(
     }
 
     const controller = new AbortController();
+    const stopper = new AbortController();
     abortRef.current = controller;
-    setState({ running: true, filled: 0, total: batch.length, currentTerm: batch[0].term, notFound: [], outcome: null });
+    stopRef.current = stopper;
+    waitingRef.current = 0;
+    setState({ running: true, stopping: false, waitingUntil: null, filled: 0, total: batch.length,
+      currentTerm: batch[0].term, notFound: [], outcome: null });
 
     const byId = new Map(batch.map(w => [w.id, w]));
     /**
@@ -176,6 +214,27 @@ export function useBareFill(
       writes.push(updateWord(listId, id, updates).catch(() => {}));
     };
 
+    /**
+     * 429 로 쉬는 동안을 화면에 올린다.
+     *
+     * 🔑 이것이 없으면 「apple 채우는 중…」이 최대 60초 얼어붙어 **고장으로 보인다.** 큐는
+     * 멀쩡히 기다렸다 다시 부르는데 화면만 그 사실을 모른다.
+     * 🔴 워커가 여럿이라 세어야 한다 — 하나가 깨어났다고 «기다림 끝»이라고 하면 아직 자는
+     * 워커가 있는데 진행 중으로 보인다.
+     */
+    const onWait = (sec: number | null) => {
+      if (sec != null) {
+        waitingRef.current += 1;
+        const until = Date.now() + sec * 1000;
+        setState(prev => (prev.running ? { ...prev, waitingUntil: until } : prev));
+        return;
+      }
+      waitingRef.current = Math.max(0, waitingRef.current - 1);
+      if (waitingRef.current === 0) {
+        setState(prev => (prev.running ? { ...prev, waitingUntil: null } : prev));
+      }
+    };
+
     try {
       await runEnrichBatchWithRecovery<AutoFillResult>(
         batch.map(w => ({ id: w.id, term: w.term })),
@@ -183,29 +242,39 @@ export function useBareFill(
         onResult,
         CONCURRENCY,
         controller.signal,
+        { stopSignal: stopper.signal, onWait },
       );
     } finally {
       // 위 주석의 이유로 저장을 먼저 기다린다. 실패는 이미 삼켰으므로 여기서 터지지 않는다.
       await Promise.all(writes);
-      const aborted = controller.signal.aborted;
+      const stopped = stopper.signal.aborted || controller.signal.aborted;
       abortRef.current = null;
+      stopRef.current = null;
+      waitingRef.current = 0;
       // 끝난 이유: 멈췄으면 stopped, 한도로 잘렸으면 quota, 아니면 done.
-      const outcome: BareFillOutcome = aborted
+      const outcome: BareFillOutcome = stopped
         ? 'stopped'
         : batch.length < targets.length
           ? 'quota'
           : 'done';
       // 다음 배치부터 이 단어들을 건너뛴다 — 안 그러면 오래된 순 맨 앞을 영구히 차지한다.
       if (notFoundIds.length > 0) void markUnfillable(notFoundIds);
-      setState({ running: false, filled, total: batch.length, currentTerm: null,
-        notFound: notFoundTerms, outcome });
+      setState({ running: false, stopping: false, waitingUntil: null, filled, total: batch.length,
+        currentTerm: null, notFound: notFoundTerms, outcome });
     }
   }, [apiKey, fallbackLangs.source, fallbackLangs.target, list, listId, quotaLeft]);
 
-  /** 배너를 닫거나 다음 배치를 시작할 때 결과 상태를 지운다. */
+  /**
+   * 배너·칩의 결과를 지운다(닫았거나 다음 배치를 시작할 때).
+   *
+   * 🔴 `notFound` 도 같이 지운다. 얼굴 판정에서 못 찾음은 outcome 과 **무관하게** 앞서므로
+   * (face.ts), outcome 만 비우면 「채우지 못한 단어 2개」가 영원히 남는다 — 닫아도 안 닫혔다.
+   */
   const clearOutcome = useCallback(() => {
-    setState(prev => (prev.outcome ? { ...prev, outcome: null } : prev));
+    setState(prev => (prev.outcome || prev.notFound.length > 0
+      ? { ...prev, outcome: null, notFound: [] }
+      : prev));
   }, []);
 
-  return { ...state, fill, stop, clearOutcome, quotaLeft };
+  return { ...state, fill, stop, teardown, clearOutcome, quotaLeft };
 }

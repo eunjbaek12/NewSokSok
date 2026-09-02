@@ -23,6 +23,14 @@
  * 주 버튼 그대로 두고 그 아래 「광고 보고 12개 다 채우기」를 놓는다 — 없으면 12개를 다
  * 채우려고 *5개 채우고 → 벽에 부딪히고 → 그제서야 광고* 두 단계를 밟아야 했다. 개수 판정은
  * ad-offer.ts 가 한다(못 받을 보상을 약속하지 않기 위해).
+ *
+ * 🔑 **얼굴이 셋에서 다섯으로 늘었다**(2026-09-02). 예문 학습 화면에서 배너가 카드의 몫을
+ * 먹기 때문에 진행·결과를 칩으로 접었고(chip.ts 머리말), 배너가 지던 말이 전부 이리로 왔다:
+ *
+ *   ④ 진행   [중단] · 진행바 · 지금 채우는 단어 — 「마무리하는 중」·「기다리는 중」 포함
+ *   ⑤ 결과   채운 수 · 남은 수 · [이어서 채우기] — 못 찾은 단어는 이름을 댄다
+ *
+ * 그래서 **칩을 누르면 언제든 지금이 보인다.** 진행 상황을 보려고 기다릴 필요가 없다.
  */
 
 import React from 'react';
@@ -34,19 +42,33 @@ import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import ModalOverlay from '@/components/ui/ModalOverlay';
 import { PopupTokens } from '@/constants/popup';
 import { pickAdFillOffer } from './ad-offer';
+import type { BannerFace } from './face';
 
 /** 무엇을 채우는 시트인가 — 제목·설명·개수 라벨만 갈린다. */
 export type SheetVariant = 'bare' | 'example';
 
 /** 변주별 문구. 갈리는 것은 이 셋뿐이고 버튼·사실 라벨은 공용이다. */
-const COPY: Record<SheetVariant, { title: string; desc: string; fact: string }> = {
-  bare: { title: 'bareWords.sheetTitle', desc: 'bareWords.sheetDesc', fact: 'bareWords.factBare' },
-  example: { title: 'examples.fillSheetTitle', desc: 'examples.fillSheetDesc', fact: 'examples.fillFactMissing' },
+const COPY: Record<SheetVariant, {
+  title: string; desc: string; fact: string; runningDesc: string; remaining: string;
+}> = {
+  bare: {
+    title: 'bareWords.sheetTitle', desc: 'bareWords.sheetDesc', fact: 'bareWords.factBare',
+    runningDesc: 'bareWords.runningDesc', remaining: 'bareWords.remaining',
+  },
+  example: {
+    title: 'examples.fillSheetTitle', desc: 'examples.fillSheetDesc', fact: 'examples.fillFactMissing',
+    runningDesc: 'examples.fillRunningDesc', remaining: 'examples.fillRemaining',
+  },
 };
 
 export interface BareWordsSheetProps {
   visible: boolean;
   variant?: SheetVariant;
+  /**
+   * 지금 얼굴. 진행·결과일 때 이 시트가 그 얼굴로 열린다 — 배너가 하던 말을 그대로 받는다.
+   * 없거나 권유·한도면 아래 ①②③ 그대로다(그 판정은 quotaLeft 가 한다).
+   */
+  face?: BannerFace;
   /** 이 시트가 채울 대상 수(변주에 따라 「뜻만 있는 단어」 또는 「예문 없는 단어」). */
   bareCount: number;
   /**
@@ -74,11 +96,15 @@ export interface BareWordsSheetProps {
   onFillWithAd?: () => void;
   onSnooze: () => void;
   onOpenPlans: () => void;
+  /** 진행 얼굴의 [중단]. */
+  onStop?: () => void;
+  /** 결과 얼굴의 [이어서 채우기]. */
+  onResume?: () => void;
 }
 
 export default function BareWordsSheet({
-  visible, variant = 'bare', bareCount, quotaLeft, unlimited, canWatchAd, adLoading, adError, rewardAmount,
-  onClose, onFill, onPick, onWatchAd, onFillWithAd, onSnooze, onOpenPlans,
+  visible, variant = 'bare', face, bareCount, quotaLeft, unlimited, canWatchAd, adLoading, adError, rewardAmount,
+  onClose, onFill, onPick, onWatchAd, onFillWithAd, onSnooze, onOpenPlans, onStop, onResume,
 }: BareWordsSheetProps) {
   const { colors } = useTheme();
   const { t } = useTranslation();
@@ -98,6 +124,24 @@ export default function BareWordsSheet({
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     fn();
   };
+
+  // ④ 도는 중 — 「채우는 중」·「기다리는 중」·「마무리하는 중」이 한 몸이다(진행바 + 다음 수단).
+  if (face && (face.kind === 'running' || face.kind === 'waiting' || face.kind === 'stopping')) {
+    return (
+      <ModalOverlay visible={visible} onClose={onClose} variant="bottomSheet" scrollable={false}>
+        <ProgressBody face={face} copy={copy} onStop={onStop} onClose={onClose} />
+      </ModalOverlay>
+    );
+  }
+
+  // ⑤ 끝난 뒤 — 성과와 남은 것. 못 찾았으면 이름을 댄다.
+  if (face && (face.kind === 'stopped' || face.kind === 'partial' || face.kind === 'done' || face.kind === 'notFound')) {
+    return (
+      <ModalOverlay visible={visible} onClose={onClose} variant="bottomSheet" scrollable={false}>
+        <ResultBody face={face} copy={copy} onResume={onResume} onPick={onPick} onClose={onClose} />
+      </ModalOverlay>
+    );
+  }
 
   return (
     <ModalOverlay visible={visible} onClose={onClose} variant="bottomSheet" scrollable={false}>
@@ -227,6 +271,177 @@ export default function BareWordsSheet({
   );
 }
 
+type SheetCopy = (typeof COPY)[SheetVariant];
+
+/**
+ * ④ 도는 중.
+ *
+ * 🔴 **「마무리하는 중」에는 [중단]을 두지 않는다.** 이미 멈춘 뒤라 멈출 것이 없는데 버튼이
+ * 남아 있으면 «아직 안 멈췄나»로 읽힌다 — 회색으로 죽여 놔도 마찬가지다. 닫는 길만 주고,
+ * 닫아도 저장은 계속된다는 사실을 한 줄로 적는다(안 적으면 닫기를 취소로 읽는다).
+ */
+function ProgressBody({
+  face, copy, onStop, onClose,
+}: {
+  face: Extract<BannerFace, { kind: 'running' | 'waiting' | 'stopping' }>;
+  copy: SheetCopy;
+  onStop?: () => void;
+  onClose: () => void;
+}) {
+  const { colors } = useTheme();
+  const { t } = useTranslation();
+  const stopping = face.kind === 'stopping';
+  const waiting = face.kind === 'waiting';
+
+  // 🔑 남은 초는 **여기서만** 센다. 얼굴 판정에 초를 넣으면 도는 내내 화면 전체가 초당 한 번씩
+  // 다시 그려진다(face.ts 의 waitingUntil 주석).
+  const until = waiting ? face.waitingUntil : 0;
+  const [left, setLeft] = React.useState(() => secondsLeft(until));
+  React.useEffect(() => {
+    if (!waiting) return;
+    setLeft(secondsLeft(until));
+    const timer = setInterval(() => setLeft(secondsLeft(until)), 1000);
+    return () => clearInterval(timer);
+  }, [waiting, until]);
+
+  const pct = face.total > 0 ? Math.round((face.filled / face.total) * 100) : 0;
+  const accent = waiting ? colors.warning : colors.primary;
+
+  return (
+    <View style={styles.body}>
+      <View style={[styles.grab, { backgroundColor: colors.border }]} />
+
+      <Text style={[styles.title, { color: waiting ? colors.warning : colors.text }]}>
+        {stopping ? t('bareWords.stoppingTitle')
+          : waiting ? t('bareWords.waitingTitle')
+          : t('bareWords.running', { filled: face.filled, total: face.total })}
+      </Text>
+      <Text style={[styles.desc, { color: colors.textSecondary }]}>
+        {stopping ? t('bareWords.stoppingDesc')
+          : waiting ? t('bareWords.waitingDesc')
+          : t(copy.runningDesc)}
+      </Text>
+
+      <View style={[styles.facts, { backgroundColor: colors.surfaceSecondary }]}>
+        <Fact
+          label={stopping ? t('bareWords.factReceiving') : t('bareWords.factFilled')}
+          value={t('bareWords.progressOf', { filled: face.filled, total: face.total })}
+          highlight
+        />
+        {waiting && (
+          <Fact label={t('bareWords.waitingFact')} value={t('bareWords.waitingSec', { count: left })} warn />
+        )}
+      </View>
+
+      <View style={[styles.progTrack, { backgroundColor: colors.surfaceSecondary }]}>
+        <View style={[styles.progFill, { width: `${pct}%`, backgroundColor: accent }]} />
+      </View>
+
+      {face.kind === 'running' && !!face.term && (
+        <Text style={[styles.note, { color: colors.textSecondary, textAlign: 'center' }]} numberOfLines={1}>
+          {t('bareWords.runningTerm', { term: face.term })}
+        </Text>
+      )}
+
+      <View style={styles.actions}>
+        {!stopping && !!onStop && (
+          <Pressable
+            onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); onStop(); }}
+            style={[styles.btn, { backgroundColor: colors.surfaceSecondary }]}
+          >
+            <Text style={[styles.btnText, { color: colors.textSecondary }]}>{t('common.stop')}</Text>
+          </Pressable>
+        )}
+        <Pressable onPress={onClose} style={[styles.btn, styles.ghost]}>
+          <Text style={[styles.btnText, styles.ghostText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
+        </Pressable>
+        {stopping && (
+          <Text style={[styles.undertext, { color: colors.textTertiary }]}>{t('bareWords.stoppingNote')}</Text>
+        )}
+      </View>
+    </View>
+  );
+}
+
+/** 남은 초. 지났으면 0 — 음수를 그리면 「-3초」가 뜬다. */
+function secondsLeft(until: number): number {
+  return Math.max(0, Math.ceil((until - Date.now()) / 1000));
+}
+
+/**
+ * ⑤ 끝난 뒤.
+ *
+ * 🔴 성과가 없으면 성과를 말하지 않는다 — 못 찾은 것뿐이면 **이름을 댄다.** 이름 없이
+ * 「철자를 확인해 보세요」라고 하면 확인할 방법이 없다(BareWordsBanner 의 같은 판단).
+ */
+function ResultBody({
+  face, copy, onResume, onPick, onClose,
+}: {
+  face: Extract<BannerFace, { kind: 'stopped' | 'partial' | 'done' | 'notFound' }>;
+  copy: SheetCopy;
+  onResume?: () => void;
+  onPick: () => void;
+  onClose: () => void;
+}) {
+  const { colors } = useTheme();
+  const { t } = useTranslation();
+  const notFound = face.kind === 'notFound';
+  const remaining = face.kind === 'stopped' || face.kind === 'partial' ? face.remaining : 0;
+
+  return (
+    <View style={styles.body}>
+      <View style={[styles.grab, { backgroundColor: colors.border }]} />
+
+      <Text style={[styles.title, { color: notFound ? colors.warning : colors.text }]}>
+        {notFound ? t('bareWords.notFoundTitle', { count: face.terms.length })
+          : face.kind === 'stopped' ? t('bareWords.stoppedTitle', { count: face.filled })
+          : face.kind === 'done' ? t(copy === COPY.example ? 'examples.fillDoneTitle' : 'bareWords.doneTitle', { count: face.filled })
+          : t('bareWords.filledTitle', { count: face.filled })}
+      </Text>
+      <Text style={[styles.desc, { color: colors.textSecondary }]}>
+        {notFound ? t('bareWords.notFoundBody')
+          : face.kind === 'stopped' ? t('bareWords.stoppingDesc')
+          : t(copy === COPY.example ? 'examples.fillDoneBody' : 'bareWords.doneBody')}
+      </Text>
+
+      {notFound ? (
+        // 이름을 대고, 눌러서 철자를 고치러 갈 수 있게 한다(고르기 화면이 그 자리다).
+        <View style={[styles.facts, { backgroundColor: colors.surfaceSecondary }]}>
+          {face.terms.slice(0, 5).map(term => (
+            <Pressable key={term} onPress={onPick} style={styles.fact}>
+              <Text style={[styles.factLabel, { color: colors.text }]} numberOfLines={1}>{term}</Text>
+              <Text style={[styles.factLabel, { color: colors.textTertiary, flex: 0 }]}>
+                {t('bareWords.fixSpelling')} ›
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      ) : (
+        <View style={[styles.facts, { backgroundColor: colors.surfaceSecondary }]}>
+          <Fact label={t('bareWords.factFilled')} value={t('bareWords.countWords', { count: face.filled })} highlight />
+          {remaining > 0 && (
+            <Fact label={t(copy.fact)} value={t('bareWords.countWords', { count: remaining })} />
+          )}
+        </View>
+      )}
+
+      <View style={styles.actions}>
+        {!!onResume && (remaining > 0 || notFound) && (
+          <Pressable
+            onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); onResume(); }}
+            style={[styles.btn, { backgroundColor: colors.primaryButton }]}
+          >
+            <Text style={[styles.btnText, { color: colors.onPrimary }]}>{t('bareWords.resume')}</Text>
+          </Pressable>
+        )}
+        <Pressable onPress={onClose} style={[styles.btn, styles.ghost]}>
+          <Text style={[styles.btnText, styles.ghostText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
 function Fact({ label, value, highlight, warn }: { label: string; value: string; highlight?: boolean; warn?: boolean }) {
   const { colors } = useTheme();
   const color = warn ? colors.warning : highlight ? colors.primary : colors.text;
@@ -278,4 +493,7 @@ const styles = StyleSheet.create({
   ghostText: { fontSize: FontSize.body, fontFamily: FontWeight.medium },
   undertext: { fontSize: FontSize.caption, fontFamily: FontWeight.regular, textAlign: 'center' },
   link: { fontSize: FontSize.small, fontFamily: FontWeight.medium, textAlign: 'center', paddingVertical: 4 },
+  // 진행바. 배너의 것과 같은 치수다 — 두 자리가 같은 일을 말하므로 모양도 같아야 한다.
+  progTrack: { height: 5, borderRadius: Radius.xs, overflow: 'hidden' },
+  progFill: { height: '100%', borderRadius: Radius.xs },
 });

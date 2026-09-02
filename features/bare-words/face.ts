@@ -14,6 +14,21 @@ import type { BareFillOutcome } from './useBareFill';
 export type BannerFace =
   | { kind: 'idle'; count: number; added?: number }
   | { kind: 'running'; filled: number; total: number; term: string | null }
+  /**
+   * 서버가 429 로 «조금 쉬라»고 답해 다음 호출을 기다리는 중.
+   *
+   * 🔑 **진행의 한 갈래이지 실패가 아니다.** 큐는 그 단어를 버리지 않고 남은 초만큼 기다렸다
+   * 다시 부른다. 이 얼굴이 없으면 화면이 최대 60초 동안 「채우는 중」에 얼어붙어 고장으로
+   * 보인다(그 60초는 `MAX_RETRY_AFTER_SEC`).
+   */
+  | { kind: 'waiting'; filled: number; total: number; term: string | null; waitingUntil: number }
+  /**
+   * [중단]을 눌렀고, **이미 나간 요청을 받는 중**이다.
+   *
+   * 🔴 이 얼굴에는 다시 멈출 길을 주지 않는다 — 이미 멈춘 뒤라 멈출 것이 없는데 버튼이
+   * 남아 있으면 «아직 안 멈췄나»로 읽힌다.
+   */
+  | { kind: 'stopping'; filled: number; total: number }
   /** 사용자가 [중단] 을 눌렀다. */
   | { kind: 'stopped'; filled: number; remaining: number }
   /**
@@ -32,6 +47,14 @@ export type BannerFace =
 export interface FacePick {
   /** 배치 실행 상태(useBareFill). */
   running: boolean;
+  /** [중단]을 눌렀고 아직 받는 중. `running` 과 함께 참일 때만 뜻이 있다. */
+  stopping?: boolean;
+  /**
+   * 429 로 쉬는 중이면 **다시 부를 시각**(epoch ms). 아니면 null.
+   * 🔑 남은 초가 아니라 시각인 이유: 초로 주면 1초마다 이 판정을 다시 돌려야 하는데,
+   * 그러면 도는 내내 화면 전체가 초당 한 번씩 다시 그려진다. 세는 것은 시트가 혼자 한다.
+   */
+  waitingUntil?: number | null;
   filled: number;
   total: number;
   currentTerm: string | null;
@@ -48,9 +71,19 @@ export interface FacePick {
   rewardAmount: number;
 }
 
-/** 얼굴은 상태 하나로 갈린다 — 진행 중 > 결과 > 권유 순. */
+/**
+ * 얼굴은 상태 하나로 갈린다 — 진행 중 > 결과 > 권유 순.
+ *
+ * 도는 동안은 다시 셋으로 갈린다: **멈추는 중 > 기다리는 중 > 도는 중**. 순서가 이런 이유는
+ * [중단]을 누른 뒤에도 429 대기가 남아 있을 수 있는데, 그때 사용자에게 중요한 것은
+ * «곧 멈춘다»이지 «서버를 기다린다»가 아니기 때문이다.
+ */
 export function pickBannerFace(s: FacePick): BannerFace {
   if (s.running) {
+    if (s.stopping) return { kind: 'stopping', filled: s.filled, total: s.total };
+    if (s.waitingUntil != null) {
+      return { kind: 'waiting', filled: s.filled, total: s.total, term: s.currentTerm, waitingUntil: s.waitingUntil };
+    }
     return { kind: 'running', filled: s.filled, total: s.total, term: s.currentTerm };
   }
 

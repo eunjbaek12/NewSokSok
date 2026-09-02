@@ -180,6 +180,9 @@ export default function BareWordsSection({
 
   const face = pickBannerFace({
     running: fill.running,
+    // 「마무리하는 중」·「기다리는 중」도 배너가 진다 — 단어장 화면에는 칩이 없다.
+    stopping: fill.stopping,
+    waitingUntil: fill.waitingUntil,
     filled: fill.filled,
     total: fill.total,
     currentTerm: fill.currentTerm,

@@ -23,6 +23,8 @@ export { default as BareWordsSection } from './BareWordsSection';
 export { default as BareWordsBanner, type BannerVariant, type BareWordsBannerProps } from './BareWordsBanner';
 export { default as BareWordsSheet, type SheetVariant, type BareWordsSheetProps } from './BareWordsSheet';
 export { pickBannerFace, type BannerFace } from './face';
+export { pickChip, type ChipView, type ChipTone, type ChipIcon } from './chip';
+export { default as FillChip } from './FillChip';
 export { pickAdFillOffer, type AdFillOffer } from './ad-offer';
 export { setPendingFill, takePendingFill } from './pick-handoff';
 export { splitBareWords, splitFillTargets } from './detect';

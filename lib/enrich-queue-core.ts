@@ -28,18 +28,48 @@ export type EnrichAttempt<R> = (item: EnrichQueueItem, signal: AbortSignal) => P
  */
 export type EnrichResultCallback<R> = (id: string, result: R | null, final: boolean) => void;
 
-/** ms 대기하되 signal abort 시 즉시 resolve(다음 루프의 aborted 체크가 중단 처리). */
-export function abortableDelay(ms: number, signal: AbortSignal): Promise<void> {
+/**
+ * ms 대기하되 **어느 신호든** abort 되면 즉시 resolve(다음 루프의 aborted 체크가 중단 처리).
+ *
+ * 신호를 여럿 받는 이유는 [중단]이 두 갈래이기 때문이다 — 아래 BatchStopOptions 참고.
+ * 429 대기는 **부드러운 중단에도 즉시 깨야 한다**: 기다리는 단어는 아직 차감 전이라
+ * (서버가 rate-limit 를 consume_ai_quota 앞에서 판정한다) 기다려 봐야 얻을 것이 없고,
+ * 그것까지 붙들면 [중단]이 최대 60초 걸린다.
+ */
+export function abortableDelay(ms: number, ...signals: (AbortSignal | undefined)[]): Promise<void> {
+  const live = signals.filter((s): s is AbortSignal => !!s);
   return new Promise((resolve) => {
-    if (signal.aborted) { resolve(); return; }
+    if (live.some(s => s.aborted)) { resolve(); return; }
     const timer = setTimeout(finish, ms);
     function finish() {
-      signal.removeEventListener('abort', finish);
+      live.forEach(s => s.removeEventListener('abort', finish));
       clearTimeout(timer);
       resolve();
     }
-    signal.addEventListener('abort', finish, { once: true });
+    live.forEach(s => s.addEventListener('abort', finish, { once: true }));
   });
+}
+
+/**
+ * 배치를 멈추는 두 가지 방식과, 기다리는 동안을 알리는 통로.
+ *
+ * 🔴 **[중단]은 하드 abort 가 아니다.** 하드로 끊으면 이미 나간 요청이 AbortError 로 죽고
+ * 그 결과가 버려지는데, 서버는 **AI 를 부르기 전에 차감**하므로(consume_ai_quota → Vertex)
+ * 그만큼이 조용히 사라진다. 동시성이 4면 [중단] 한 번에 최대 4단어를 잃는다 — 화면은
+ * 「2개를 채웠어요」인데 한도는 6이 줄어 있다.
+ *
+ * 그래서 규칙을 이렇게 세운다: **차감된 것은 반드시 받는다.**
+ *   - `stopSignal` = "새 요청을 내지 않는다". 이미 나간 fetch 는 그대로 응답을 받는다.
+ *   - `signal`     = 진짜 teardown(화면이 사라짐). 이때는 받을 사람이 없으므로 끊는다.
+ */
+export interface BatchStopOptions {
+  /** [중단] — 새 작업을 시작하지 않는다. 진행 중인 요청은 끝까지 받는다. */
+  stopSignal?: AbortSignal;
+  /**
+   * 429 로 쉬는 동안을 알린다. 시작할 때 남은 초, 끝나면 `null`.
+   * 화면이 이걸 안 쓰면 「채우는 중」이 최대 60초 얼어붙어 **고장으로 보인다.**
+   */
+  onWait?: (retryAfterSec: number | null) => void;
 }
 
 const MAX_RETRY_AFTER_SEC = 60; // rate limit 윈도(60초) 이상 기다릴 이유 없음
@@ -51,16 +81,25 @@ async function attemptWithRateLimitRetry<R>(
   item: EnrichQueueItem,
   enrich: EnrichAttempt<R>,
   signal: AbortSignal,
+  stop?: AbortSignal,
+  onWait?: (retryAfterSec: number | null) => void,
 ): Promise<R | null> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       return await enrich(item, signal);
     } catch (e: any) {
       if (e?.name === 'AbortError') throw e;
-      if (e instanceof RateLimitedError && attempt === 0 && !signal.aborted) {
+      if (e instanceof RateLimitedError && attempt === 0 && !signal.aborted && !stop?.aborted) {
         const sec = Math.min(e.retryAfter ?? DEFAULT_RETRY_AFTER_SEC, MAX_RETRY_AFTER_SEC);
-        await abortableDelay(sec * 1000, signal);
-        if (signal.aborted) return null;
+        // 🔑 기다린다는 사실을 밖으로 알린다. finally 로 짝을 맞춰야 예외가 나도 「기다리는 중」이
+        // 화면에 남지 않는다.
+        onWait?.(sec);
+        try {
+          await abortableDelay(sec * 1000, signal, stop);
+        } finally {
+          onWait?.(null);
+        }
+        if (signal.aborted || stop?.aborted) return null;
         continue;
       }
       return null;
@@ -80,8 +119,13 @@ export async function runEnrichBatchWithRecovery<R>(
   onResult: EnrichResultCallback<R>,
   concurrency: number,
   signal: AbortSignal,
+  opts?: BatchStopOptions,
 ): Promise<void> {
   if (items.length === 0) return;
+
+  const stop = opts?.stopSignal;
+  // 새 작업을 시작해도 되는가. teardown 이든 [중단]이든 여기서 멈춘다.
+  const halted = () => signal.aborted || !!stop?.aborted;
 
   const failed: EnrichQueueItem[] = [];
 
@@ -89,15 +133,17 @@ export async function runEnrichBatchWithRecovery<R>(
     let cursor = 0;
     const workers = Array.from({ length: Math.min(concurrency, passItems.length) }, async () => {
       while (cursor < passItems.length) {
-        if (signal.aborted) return;
+        if (halted()) return;
         const item = passItems[cursor++];
         let result: R | null;
         try {
-          result = await attemptWithRateLimitRetry(item, enrich, signal);
+          result = await attemptWithRateLimitRetry(item, enrich, signal, stop, opts?.onWait);
         } catch {
           return; // AbortError — 배치 자체가 중단됨
         }
-        if (result === null && !isFinalPass) {
+        // 🔑 [중단] 뒤에 도착한 응답도 통지한다 — **차감된 것은 반드시 받는다.**
+        // 2차 패스는 돌지 않으므로(아래) 여기서는 final 로 올린다.
+        if (result === null && !isFinalPass && !halted()) {
           failed.push(item);
           onResult(item.id, null, false);
         } else {
@@ -109,7 +155,7 @@ export async function runEnrichBatchWithRecovery<R>(
   };
 
   await runPass(items, false);
-  if (failed.length > 0 && !signal.aborted) {
+  if (failed.length > 0 && !halted()) {
     await runPass(failed, true);
   }
 }

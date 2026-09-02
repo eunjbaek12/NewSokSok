@@ -21,8 +21,34 @@ import type { BannerFace } from './face';
 
 export type { BannerFace } from './face';
 
-interface Props {
+/**
+ * 어느 대상의 배너인가. 얼굴 판정(face.ts)은 한 벌이고 **낱말만** 갈린다 —
+ * 예문 학습에서는 "예문 없는 단어"를 세고, 다 채우면 "다음 묶음부터 학습에 나와요"가 된다.
+ */
+export type BannerVariant = 'bare' | 'example';
+
+const COPY: Record<BannerVariant, {
+  title: string; sub: string; doneTitle: string; doneBody: string; remaining: string;
+}> = {
+  bare: {
+    title: 'bareWords.bannerTitle',
+    sub: 'bareWords.bannerSubtitle',
+    doneTitle: 'bareWords.doneTitle',
+    doneBody: 'bareWords.doneBody',
+    remaining: 'bareWords.remaining',
+  },
+  example: {
+    title: 'examples.fillBannerTitle',
+    sub: 'examples.fillBannerSubtitle',
+    doneTitle: 'examples.fillDoneTitle',
+    doneBody: 'examples.fillDoneBody',
+    remaining: 'examples.fillRemaining',
+  },
+};
+
+export interface BareWordsBannerProps {
   face: BannerFace;
+  variant?: BannerVariant;
   onOpenSheet: () => void;
   onDismiss: () => void;
   onStop: () => void;
@@ -33,10 +59,11 @@ interface Props {
 }
 
 export default function BareWordsBanner({
-  face, onOpenSheet, onDismiss, onStop, onResume, onWatchAd, onSnooze, onOpenPlans,
-}: Props) {
+  face, variant = 'bare', onOpenSheet, onDismiss, onStop, onResume, onWatchAd, onSnooze, onOpenPlans,
+}: BareWordsBannerProps) {
   const { colors } = useTheme();
   const { t } = useTranslation();
+  const copy = COPY[variant];
 
   // ── 권유 ──────────────────────────────────────────────────────────────
   // 배너 전체가 시트를 여는 하나의 터치 타깃이고, ✕ 만 따로 선다.
@@ -48,7 +75,7 @@ export default function BareWordsBanner({
           <View style={[styles.dot, { backgroundColor: colors.warning }]} />
           <View style={styles.idleText}>
             <Text style={[styles.title, { color: colors.text }]}>
-              {t('bareWords.bannerTitle', { count: face.count })}
+              {t(copy.title, { count: face.count })}
             </Text>
             {/*
               🔴 다시 뜰 때는 큰 수가 앞이고 늘어난 수는 둘째 줄이다. "새로 86개"만 쓰면
@@ -58,7 +85,7 @@ export default function BareWordsBanner({
             <Text style={[styles.sub, { color: colors.textSecondary }]}>
               {face.added
                 ? t('bareWords.bannerAdded', { count: face.added })
-                : t('bareWords.bannerSubtitle')}
+                : t(copy.sub)}
             </Text>
           </View>
           <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
@@ -105,7 +132,7 @@ export default function BareWordsBanner({
           <View style={styles.titleWithIcon}>
             <Ionicons name="checkmark-circle" size={18} color={colors.success} />
             <Text style={[styles.title, { color: colors.success }]}>
-              {t('bareWords.doneTitle', { count: face.filled })}
+              {t(copy.doneTitle, { count: face.filled })}
             </Text>
           </View>
           <Pressable onPress={onDismiss} hitSlop={12}>
@@ -113,7 +140,7 @@ export default function BareWordsBanner({
           </Pressable>
         </View>
         <Progress percent={100} color={colors.success} track={colors.surfaceSecondary} />
-        <Text style={[styles.sub, { color: colors.textSecondary }]}>{t('bareWords.doneBody')}</Text>
+        <Text style={[styles.sub, { color: colors.textSecondary }]}>{t(copy.doneBody)}</Text>
       </View>
     );
   }
@@ -170,7 +197,7 @@ export default function BareWordsBanner({
       />
 
       <Text style={[styles.sub, { color: colors.textSecondary }]}>
-        {t('bareWords.remaining', { count: face.remaining })}
+        {t(copy.remaining, { count: face.remaining })}
       </Text>
 
       {face.kind === 'quota' ? (

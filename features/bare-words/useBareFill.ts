@@ -58,15 +58,30 @@ export interface BareFillState {
 
 const IDLE: BareFillState = { running: false, filled: 0, total: 0, currentTerm: null, notFound: [], outcome: null };
 
+export interface BareFillOptions {
+  /**
+   * 이 단어를 "채웠다"로 셀 것인가. 기본은 **한 칸이라도 찼으면** 센다.
+   *
+   * 🔴 호출부가 정해야 하는 이유: 무엇을 채우러 왔는지가 화면마다 다르다. 예문 학습은
+   * 예문을 받으러 왔으므로 발음만 차고 예문이 안 오면 그건 0개다 — 기본 규칙으로 세면
+   * 「12개를 채웠어요」가 거짓이 된다(docs/example-study-consent-spec.md §5).
+   */
+  countsAsFilled?: (updates: Partial<Word>) => boolean;
+}
+
 export function useBareFill(
   listId: string,
   list: VocaList | undefined,
   /** 단어장 대표 언어 — 단어에 값이 없을 때만 쓴다(deriveDisplayLanguages 결과). */
   fallbackLangs: { source: string; target: string },
   apiKey: string | undefined,
+  options?: BareFillOptions,
 ) {
   const [state, setState] = useState<BareFillState>(IDLE);
   const abortRef = useRef<AbortController | null>(null);
+  // 매 렌더 새 함수라 의존성에 넣을 수 없다 — 최신 것을 ref 로 가리킨다(useRewardedAd 와 같은 갈래).
+  const countsRef = useRef(options?.countsAsFilled);
+  countsRef.current = options?.countsAsFilled;
 
   /**
    * 지금 채울 수 있는 수. BYOK 는 앱 차원의 한도가 없으므로 제한하지 않는다.
@@ -143,7 +158,9 @@ export function useBareFill(
       const updates = fillableUpdates(target, result);
       if (Object.keys(updates).length === 0) return;
 
-      filled += 1;
+      // 세는 기준은 호출부의 것이다(BareFillOptions.countsAsFilled). 안 세는 경우에도
+      // 저장은 한다 — 받은 값을 버릴 이유가 없고, 한도는 이미 그 단어에 쓰였다.
+      if (countsRef.current ? countsRef.current(updates) : true) filled += 1;
       setState(prev => (prev.running ? { ...prev, filled, currentTerm: target.term } : prev));
       // 저장 실패가 배치를 멈추지 않게 한다 — 한 단어 때문에 나머지를 버릴 이유가 없다.
       void updateWord(listId, id, updates).catch(() => {});

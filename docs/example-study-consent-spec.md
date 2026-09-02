@@ -222,15 +222,39 @@ P6 에 이미 있다. 여기서는 하나만 다룬다:
 
 ---
 
-## §9 손댈 곳
+## §9 손댈 곳 — ✅ 구현 완료 (2026-09-02)
 
 | 파일 | 무엇 |
 |---|---|
-| `features/study/examples/screen.tsx` | `startBackgroundEnrich` 자동 호출 제거 · 배너/빈 화면 · 합류 시점 |
-| `features/bare-words/BareWordsSheet.tsx` | 대상·문구를 파라미터로 받게 |
-| `features/bare-words/detect.ts` | 예문 기준 대상 선택자 추가 (`isBareWord` 는 그대로 둔다) |
-| `features/bare-words/useBareFill.ts` | 세는 기준을 호출부가 정하게 |
+| `features/study/examples/screen.tsx` | `startBackgroundEnrich` **통째로 삭제** · 배너/빈 화면 세 갈래 · 합류 시점 |
+| `features/study/examples/useExampleFill.ts` | 🆕 대상·시트·광고·실행 배선 |
+| `features/bare-words/BareWordsSheet.tsx` | `variant` 로 문구를 갈아 끼우고, 부분 한도 광고 버튼 추가 |
+| `features/bare-words/BareWordsBanner.tsx` | 같은 `variant` (얼굴 판정은 그대로 `face.ts`) |
+| `features/bare-words/ad-offer.ts` | 🆕 광고 개수 판정 — 순수 함수 |
+| `features/bare-words/detect.ts` | `needsExample` · `splitFillTargets(선택자)` (`isBareWord` 는 그대로) |
+| `features/bare-words/merge.ts` | `countsExampleFilled` — 예문이 채워진 것만 센다 |
+| `features/bare-words/useBareFill.ts` | 세는 기준을 호출부가 정하게(`countsAsFilled`) |
+| `app/fill-bare/[id].tsx` | `target=example` 파라미터 · 확정 후 학습으로 되돌아가기 |
 | `i18n/locales/{ko,en,es}.json` | 예문 쪽 문구 |
 
 ✅ **선행 작업은 끝났다** — 채우기가 손으로 적어 둔 칸을 덮어쓰던 것을 먼저 떼어
 고쳤다(`9756de7`). 대상을 넓히면 460행이 걸리던 자리다.
+
+### 구현하며 갈린 것 넷
+
+1. **컴포넌트가 아니라 훅**(`useExampleFill`). 예문 학습 화면은 출제할 것이 없으면 이른
+   return 으로 다른 트리를 그린다 — 배선을 컴포넌트로 두면 채우다가 첫 단어가 들어오는
+   순간 그 갈래를 넘어가며 **언마운트돼 진행 배너가 통째로 사라진다.**
+2. **채우는 중에는 학습을 열지 않는다.** 상태 B 에서 첫 단어가 들어오자마자 열면 그 한
+   개로 묶음 크기가 굳어(「전체」 설정) 이후 단어가 한 개짜리 묶음으로 쏟아진다. 배치가
+   끝난 뒤 한 번에 연다 — §6 의 "한 번에 합류"와 같은 규칙이다.
+3. **합류로 지금 묶음이 늘어나면 세션을 끝내지 않는다.** 예문 있는 단어 8개로 시작한
+   세션(묶음 크기 20)에 12개가 붙으면 그것은 다음 묶음이 아니라 이 묶음의 9번째 문항이다.
+   여기서 끝내면 방금 채운 12개가 이번 세션에서 통째로 빠진다. 그래서 완료 문구도
+   「다음 묶음부터」가 아니라 **「지금 묶음이 끝나면 이어서 나와요」**다 — 두 경우 모두 참이다.
+4. **「전체」 묶음 크기를 세션 시작 시점에 굳힌다**(`allBatchSize`). 안 굳히면 채울 때마다
+   묶음 크기가 따라 늘어 지금 묶음의 남은 문항 수가 바뀐다(3/8 이 3/20 이 된다).
+
+⏭️ **실기 검증은 아직이다.** 1.6.2 채우기 때 **결함 12개가 전부 실기에서만 나왔고 코드
+검토는 하나도 못 잡았다**([[project_fill_bare_words]]). 특히 볼 것: 상태 B → 채우기 →
+학습이 열리는 전환, 묶음 경계에서의 진도 숫자, 고르기 화면에서 학습으로 되돌아오는 경로.

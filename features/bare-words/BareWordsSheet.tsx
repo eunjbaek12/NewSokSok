@@ -14,6 +14,15 @@
  *
  * 🔑 제목은 배너·⋯ 메뉴와 **같은 낱말**이다("뜻만 있는 단어 채우기"). 세 자리가 한 기능으로
  * 이어지지 않으면 배너를 닫은 사람이 메뉴에서 같은 것을 찾지 못한다.
+ *
+ * 🔑 시트는 **한 벌이고 대상만 갈아 끼운다**(variant). 예문 학습에서 열면 대상이 「예문 없는
+ * 단어」가 되고 제목·설명·개수 라벨만 그쪽 낱말이 된다 — 모양·차감·부분 채움 판정·고르기
+ * 화면은 그대로다(docs/example-study-consent-spec.md §3).
+ *
+ * 🔑 ①에도 광고 길이 하나 열려 있다. 잔량이 **일부만** 남았을 때(12개 중 5개) 무료 경로는
+ * 주 버튼 그대로 두고 그 아래 「광고 보고 12개 다 채우기」를 놓는다 — 없으면 12개를 다
+ * 채우려고 *5개 채우고 → 벽에 부딪히고 → 그제서야 광고* 두 단계를 밟아야 했다. 개수 판정은
+ * ad-offer.ts 가 한다(못 받을 보상을 약속하지 않기 위해).
  */
 
 import React from 'react';
@@ -24,10 +33,21 @@ import { useTheme } from '@/features/theme';
 import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import ModalOverlay from '@/components/ui/ModalOverlay';
 import { PopupTokens } from '@/constants/popup';
+import { pickAdFillOffer } from './ad-offer';
 
-interface Props {
+/** 무엇을 채우는 시트인가 — 제목·설명·개수 라벨만 갈린다. */
+export type SheetVariant = 'bare' | 'example';
+
+/** 변주별 문구. 갈리는 것은 이 셋뿐이고 버튼·사실 라벨은 공용이다. */
+const COPY: Record<SheetVariant, { title: string; desc: string; fact: string }> = {
+  bare: { title: 'bareWords.sheetTitle', desc: 'bareWords.sheetDesc', fact: 'bareWords.factBare' },
+  example: { title: 'examples.fillSheetTitle', desc: 'examples.fillSheetDesc', fact: 'examples.fillFactMissing' },
+};
+
+export interface BareWordsSheetProps {
   visible: boolean;
-  /** 이 단어장의 반쪽 전체 수. */
+  variant?: SheetVariant;
+  /** 이 시트가 채울 대상 수(변주에 따라 「뜻만 있는 단어」 또는 「예문 없는 단어」). */
   bareCount: number;
   /**
    * 지금 채울 수 있는 수. `null`은 **"모른다"**(quota 응답이 아직 안 옴)이지 0이 아니다 —
@@ -44,22 +64,35 @@ interface Props {
   onFill: (count: number) => void;
   onPick: () => void;
   onWatchAd: () => void;
+  /**
+   * 잔량이 일부 남은 상태에서 「광고 보고 N개 채우기」를 눌렀다.
+   *
+   * 🔴 `onWatchAd` 와 갈라 두는 이유: 잔량 0 에서 광고를 보면 시트가 ①의 얼굴로 **돌아오고**
+   * 사용자가 어느 것을 채울지 다시 고르지만, 이 버튼은 이미 개수를 약속했으므로 광고가
+   * 끝나면 **그대로 채워야** 한다. 같은 콜백을 쓰면 약속과 동작이 어긋난다.
+   */
+  onFillWithAd?: () => void;
   onSnooze: () => void;
   onOpenPlans: () => void;
 }
 
 export default function BareWordsSheet({
-  visible, bareCount, quotaLeft, unlimited, canWatchAd, adLoading, adError, rewardAmount,
-  onClose, onFill, onPick, onWatchAd, onSnooze, onOpenPlans,
-}: Props) {
+  visible, variant = 'bare', bareCount, quotaLeft, unlimited, canWatchAd, adLoading, adError, rewardAmount,
+  onClose, onFill, onPick, onWatchAd, onFillWithAd, onSnooze, onOpenPlans,
+}: BareWordsSheetProps) {
   const { colors } = useTheme();
   const { t } = useTranslation();
+  const copy = COPY[variant];
 
   // 잔량을 모르면(응답 대기) 막지 않는다 — 화면은 ①로 그리고 실제 자르기는 실행부가 한다.
   const known = unlimited ? bareCount : quotaLeft;
   const fillable = known == null ? bareCount : Math.min(known, bareCount);
   const canFill = known == null || fillable > 0;
   const leftover = bareCount - fillable;
+  // 광고로 한 번에 끝낼 수 있는가. 판정과 개수는 순수 함수가 정한다(ad-offer.ts).
+  const adOffer = onFillWithAd
+    ? pickAdFillOffer({ target: bareCount, fillable, rewardAmount, canWatchAd, unlimited })
+    : null;
 
   const tap = (fn: () => void) => () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -71,15 +104,15 @@ export default function BareWordsSheet({
       <View style={styles.body}>
         <View style={[styles.grab, { backgroundColor: colors.border }]} />
 
-        <Text style={[styles.title, { color: colors.text }]}>{t('bareWords.sheetTitle')}</Text>
-        <Text style={[styles.desc, { color: colors.textSecondary }]}>{t('bareWords.sheetDesc')}</Text>
+        <Text style={[styles.title, { color: colors.text }]}>{t(copy.title)}</Text>
+        <Text style={[styles.desc, { color: colors.textSecondary }]}>{t(copy.desc)}</Text>
 
         {/*
           사실은 여기서 한 번만 말한다. 숫자 몇 줄이면 충분하고 "한도"라는 낱말은 쓰지 않는다 —
           지금 몇 개가 되는지, 광고를 보면 몇 개가 되는지가 사용자에게 필요한 전부다.
         */}
         <View style={[styles.facts, { backgroundColor: colors.surfaceSecondary }]}>
-          <Fact label={t('bareWords.factBare')} value={t('bareWords.countWords', { count: bareCount })} />
+          <Fact label={t(copy.fact)} value={t('bareWords.countWords', { count: bareCount })} />
           {!unlimited && (
             <Fact
               label={t('bareWords.factFillable')}
@@ -88,7 +121,8 @@ export default function BareWordsSheet({
               warn={!canFill}
             />
           )}
-          {!canFill && canWatchAd && (
+          {/* 잔량 0(②)이든 일부 남았든(①+광고) 광고가 무엇을 주는지는 같은 줄로 말한다. */}
+          {((!canFill && canWatchAd) || adOffer) && (
             <Fact
               label={t('bareWords.factAfterAd')}
               value={t('bareWords.countWords', { count: rewardAmount })}
@@ -99,7 +133,10 @@ export default function BareWordsSheet({
 
         {/* ① 남은 것의 행방을 같은 화면에서 답한다 — "174개 채우기"를 눌렀는데 50에서 멈추고
             한도까지 사라지면 속았다고 느낀다. 그래서 버튼에도 174가 아니라 50이 찍힌다. */}
-        {canFill && leftover > 0 && (
+        {/* 🔑 광고 길이 열려 있으면 이 줄을 내지 않는다 — 바로 아래 버튼이 「지금 다 채우기」인데
+            그 위에서 「나머지는 내일」이라고 하면 두 문장이 서로를 배반한다. 광고를 볼 수 없을
+            때(상한 소진)는 그대로 내일이 유일한 길이므로 다시 나온다. */}
+        {canFill && leftover > 0 && !adOffer && (
           <Text style={[styles.note, { color: colors.warning }]}>
             {t('bareWords.leftoverNote', { count: leftover })}
           </Text>
@@ -120,6 +157,21 @@ export default function BareWordsSheet({
                 {t('bareWords.fillCount', { count: fillable })}
               </Text>
             </Pressable>
+            {/* 🔴 개수는 ad-offer.ts 가 준 값 그대로 적는다 — 남은 한도 + 보상을 넘는 수를
+                약속하면 안 된다(대상 30·잔량 5 면 「다 채우기」가 아니라 「25개 채우기」). */}
+            {adOffer && (
+              <Pressable
+                onPress={tap(onFillWithAd!)}
+                disabled={adLoading}
+                style={[styles.btn, styles.adBtn, { borderColor: colors.primary, opacity: adLoading ? 0.6 : 1 }]}
+              >
+                {adLoading
+                  ? <ActivityIndicator size="small" color={colors.primary} />
+                  : <Text style={[styles.btnText, { color: colors.primary }]}>
+                      {t(adOffer.coversAll ? 'bareWords.fillAllWithAd' : 'bareWords.fillWithAd', { count: adOffer.count })}
+                    </Text>}
+              </Pressable>
+            )}
             <Pressable onPress={tap(onPick)} style={[styles.btn, styles.ghost]}>
               <Text style={[styles.btnText, styles.ghostText, { color: colors.textSecondary }]}>
                 {t('bareWords.pick')}
@@ -214,6 +266,10 @@ const styles = StyleSheet.create({
   // 테두리를 두르면 주 버튼과 덩치가 같아 무게까지 같아지고, 높이를 줄이면 위아래로
   // 쌓인 두 버튼의 크기만 어긋나 보인다. 터치 타겟(51dp)도 그대로 남는다.
   ghost: { backgroundColor: 'transparent' },
+  // 🔑 광고 경로는 **주 버튼과 부차 글자 사이**의 무게다. 채워진 상자면 무료 경로와 무게가
+  // 같아져 어느 쪽이 기본인지 사라지고, 상자가 아예 없으면 [채울 단어 고르기]와 구분되지
+  // 않는다. 테두리만 두르고 높이는 공유한다.
+  adBtn: { backgroundColor: 'transparent', borderWidth: 1 },
   btnText: { fontSize: FontSize.action, fontFamily: FontWeight.semibold },
   // 14/500 은 앱의 부차 버튼 관례를 따른 값이다(사진 가져오기 [분석 취소] 15/500,
   // 학습 설정 [닫기] 14/600). 13/400 까지 내리지 않는 이유: 이 시트의 설명글이

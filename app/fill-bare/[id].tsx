@@ -27,7 +27,7 @@ import { useTheme } from '@/features/theme';
 import { useListWords } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useQuotaStore, getQuotaLeft } from '@/features/quota';
-import { splitBareWords, setPendingFill, loadUnfillable, clearUnfillable } from '@/features/bare-words';
+import { splitFillTargets, isBareWord, needsExample, setPendingFill, loadUnfillable, clearUnfillable } from '@/features/bare-words';
 import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import type { Word } from '@/lib/types';
 
@@ -35,7 +35,13 @@ type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za';
 
 export default function FillBareScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  /**
+   * `target` 은 **무엇을 채울 것인가** 하나만 정한다(기본 = 뜻만 있는 단어).
+   * 예문 학습에서 열면 「예문 없는 단어」가 대상이 된다 — 두 집합은 28% 어긋난다
+   * (docs/example-study-consent-spec.md §3). 나머지(정렬·상한·순서·확정)는 한 벌이다.
+   */
+  const { id, target } = useLocalSearchParams<{ id: string; target?: string }>();
+  const forExamples = target === 'example';
   const { colors } = useTheme();
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
@@ -60,7 +66,10 @@ export default function FillBareScreen() {
     return () => { alive = false; };
   }, []));
 
-  const split = useMemo(() => splitBareWords(allWords, unfillable), [allWords, unfillable]);
+  const split = useMemo(
+    () => splitFillTargets(allWords, unfillable, forExamples ? needsExample : isBareWord),
+    [allWords, unfillable, forExamples],
+  );
   /** 고를 수 있는 대상 — 언제나 오래 담아둔 것부터. */
   const bare = split.fillable;
 
@@ -163,9 +172,13 @@ export default function FillBareScreen() {
     const inOrder = new Set(ordered);
     const rest = bare.filter(w => picked.has(w.id) && !inOrder.has(w.id)).map(w => w.id);
     setPendingFill(id!, [...ordered, ...rest]);
-    // 🔴 router.back() 이면 안 된다 — 이 화면은 단어장 상세(배너)에서도, 목록 탭의 ⋯ 메뉴에서도
-    // 열린다. 메뉴로 들어온 경우 back 은 **목록 탭**으로 가는데 채우기를 이어받는 쪽은 상세
-    // 화면이라, 사용자가 "채우기"를 눌러도 아무 일도 일어나지 않는다(실기에서 확인).
+    // 🔴 예문 학습에서 왔으면 **학습으로 돌아가야 한다.** dismissTo 로 단어장에 내려놓으면
+    // 하던 세션에서 쫓겨나고 고른 단어는 거기서 채워진다 — "지금 하고 싶다"는 의도의 반대다.
+    // 이 경로는 예문 학습 화면에서만 열리므로 back 이 언제나 그 화면이다.
+    if (forExamples) { router.back(); return; }
+    // 🔴 아래는 router.back() 이면 안 된다 — 이 화면은 단어장 상세(배너)에서도, 목록 탭의 ⋯
+    // 메뉴에서도 열린다. 메뉴로 들어온 경우 back 은 **목록 탭**으로 가는데 채우기를 이어받는
+    // 쪽은 상세 화면이라, 사용자가 "채우기"를 눌러도 아무 일도 일어나지 않는다(실기에서 확인).
     // dismissTo 는 스택에 그 화면이 있으면 되돌아가고, 없으면 이동한다 — 두 경로 모두 맞다.
     router.dismissTo({ pathname: '/list/[id]', params: { id: id! } });
   };
@@ -214,7 +227,7 @@ export default function FillBareScreen() {
         <View style={styles.rowText}>
           <Text style={[styles.term, { color: colors.text }]} numberOfLines={1}>{item.term}</Text>
           <Text style={[styles.miss, { color: blocked ? colors.textTertiary : colors.warning }]} numberOfLines={1}>
-            {blocked ? t('bareWords.pickBlocked') : t('bareWords.pickMissing')}
+            {blocked ? t('bareWords.pickBlocked') : t(forExamples ? 'examples.pickMissing' : 'bareWords.pickMissing')}
           </Text>
         </View>
         <Ionicons

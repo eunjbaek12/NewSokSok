@@ -29,6 +29,20 @@ const FILLABLE = ['phonetic', 'exampleEn', 'exampleKr', 'definition', 'pos'] as 
 
 type FillableKey = (typeof FILLABLE)[number];
 
+/**
+ * 이 결과를 "한 개 채웠다"로 셀 것인가 — **예문 학습의 기준**.
+ *
+ * 🔴 기본 규칙(한 칸이라도 차면 1)으로 세면 발음만 채워진 단어도 1이 되어 「12개를
+ * 채웠어요」가 거짓이 된다(docs/example-study-consent-spec.md §5). 발음·정의도 함께 채우지만
+ * **세지는 않는다** — 사용자가 누른 버튼은 「예문 없는 단어 채우기」였고, 그 약속만 센다.
+ *
+ * 판정을 위 fillableUpdates 와 같은 파일에 두는 이유는 둘이 같은 값을 보기 때문이다.
+ * 쓰기와 세기가 다른 곳에 있으면 "썼는데 안 세는" 어긋남이 조용히 생긴다.
+ */
+export function countsExampleFilled(updates: Partial<Word>): boolean {
+  return hasText(updates.exampleEn);
+}
+
 /** 대상 단어의 빈 칸 중 AI 결과가 채울 수 있는 것만 골라 낸다. */
 export function fillableUpdates(
   target: Pick<Word, FillableKey>,

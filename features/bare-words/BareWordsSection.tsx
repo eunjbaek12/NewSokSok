@@ -6,7 +6,7 @@
  * 것인지 구분이 안 된다.
  */
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { router, useFocusEffect } from 'expo-router';
 import { useSettings } from '@/features/settings';
 import { useQuotaStore, useRewardedAd, getQuotaLeft } from '@/features/quota';
@@ -119,15 +119,36 @@ export default function BareWordsSection({
     persist(consumeSnooze(entry));
   }, [loaded, hiddenNow, bareCount, entry, today, persist]);
 
-  // 🔴 onGranted 는 setLoading(false) **앞에서** 불린다. 여기서 시트를 ①의 얼굴로 되돌리기만
-  // 하고 곧장 채우지 않는 것이 설계다 — 174개 중 20개만 되는 상황에서는 어느 20개인지가
-  // 실제로 중요하고, ①에 [채울 단어 고르기]가 있다. 그대로 갈 사람은 한 번 더 누르면 된다.
+  /**
+   * 광고를 본 뒤 무엇을 할 것인가.
+   *
+   * 잔량 0 에서 본 광고는 시트를 ①의 얼굴로 **되돌린다** — 174개 중 20개만 되는 상황에서는
+   * 어느 20개인지가 실제로 중요하고 ①에 [채울 단어 고르기]가 있다. 반대로 「광고 보고 N개
+   * 채우기」는 **개수를 이미 약속했으므로** 광고가 끝나면 그대로 채운다. 약속한 문장이 다르면
+   * 다음 동작도 달라야 한다.
+   */
+  const adIntentRef = useRef<'reopen' | 'fillAll'>('reopen');
+
+  // 🔴 onGranted 는 setLoading(false) **앞에서** 불린다. 재진입 가드로 loading 을 보면
+  // 여기서 시작한 채우기가 조용히 죽는다(useBareFill 은 AbortController 로 판정한다).
   const rewarded = useRewardedAd({
     onGranted: () => {
       fill.clearOutcome();
+      if (adIntentRef.current === 'fillAll') {
+        adIntentRef.current = 'reopen';
+        setSheetOpen(false);
+        // 대상은 전부 넘긴다 — 한도 자르기는 실행부가 하므로 여기서 수를 다시 세지 않는다.
+        void fill.fill(bare);
+        return;
+      }
       setSheetOpen(true);
     },
   });
+
+  const watchAd = useCallback((intent: 'reopen' | 'fillAll') => {
+    adIntentRef.current = intent;
+    rewarded.watch();
+  }, [rewarded]);
 
   // 배치가 끝나면 방금 표시된 "못 찾은 단어"를 반영한다 — 그래야 다음 배치에서 빠진다.
   // 동시에 더 이상 반쪽이 아닌 id 를 정리해 기억이 무한히 자라지 않게 한다.
@@ -186,7 +207,7 @@ export default function BareWordsSection({
         }}
         onStop={fill.stop}
         onResume={() => { fill.clearOutcome(); void fill.fill(bare); }}
-        onWatchAd={rewarded.watch}
+        onWatchAd={() => watchAd('reopen')}
         onSnooze={() => {
           persist(afterSnooze(bareCount, addDaysStr(today, 1)));
           fill.clearOutcome();
@@ -213,7 +234,8 @@ export default function BareWordsSection({
           setSheetOpen(false);
           router.push({ pathname: '/fill-bare/[id]', params: { id: listId } });
         }}
-        onWatchAd={rewarded.watch}
+        onWatchAd={() => watchAd('reopen')}
+        onFillWithAd={() => watchAd('fillAll')}
         onSnooze={() => {
           setSheetOpen(false);
           persist(afterSnooze(bareCount, addDaysStr(today, 1)));

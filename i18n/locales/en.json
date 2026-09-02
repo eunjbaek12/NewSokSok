@@ -1327,6 +1327,8 @@
     "pickMissing": "No example",
     "noReadyTitle": "No words have an example",
     "noReadyDesc": "Fill in {{count}} words to get started",
+    "fillingTitle": "Almost ready to start",
+    "fillingDesc": "Study opens as soon as this finishes",
     "noBlankableTitle": "No blank can be made",
     "noBlankableDesc": "The word doesn't appear in its own example, so no question can be made. Editing the example lets you study it.",
     "hintLabel": "Meaning: {{meaning}}"

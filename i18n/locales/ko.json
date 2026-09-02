@@ -1327,6 +1327,8 @@
     "pickMissing": "예문 없음",
     "noReadyTitle": "예문이 있는 단어가 없어요",
     "noReadyDesc": "{{count}}개를 채우면 시작할 수 있어요",
+    "fillingTitle": "곧 시작할 수 있어요",
+    "fillingDesc": "다 채우면 바로 학습이 열려요",
     "noBlankableTitle": "빈칸을 만들 수 없어요",
     "noBlankableDesc": "예문에 그 단어가 나오지 않아 문제를 만들 수 없어요. 예문을 고치면 학습할 수 있어요.",
     "hintLabel": "뜻: {{meaning}}"

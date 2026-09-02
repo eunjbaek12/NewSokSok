@@ -631,6 +631,27 @@ export default function ExamplesScreen() {
   if (studyWords.length === 0) {
     const canFill = fillUi.targets.length > 0;
     const unblankable = !canFill && poolWords.length > 0 && poolWords.every(w => !!w.exampleEn);
+    /*
+     * 🔴 **채우는 동안 이 블록은 대상 수를 읽으면 안 되고, 채우기 버튼을 내면 안 된다.**
+     *
+     * 이 갈래는 fillUi.running 을 보지 않아 배너만 진행 얼굴로 바뀌고 아래는 그대로였다.
+     * 셋이 한꺼번에 어긋났다:
+     *
+     *   ① [N개 채우기] 가 그대로 서 있는데 눌러도 **아무 일이 없다** — 시트가 열리고
+     *      그 버튼은 useBareFill 의 재진입 가드(abortRef)에 걸려 조용히 return 한다.
+     *   ② 그 시트의 [채울 단어 고르기] 로 갔다 오면 takePendingFill 이 선택을 읽으면서
+     *      비우고, 이어지는 fill() 이 같은 가드에 걸려 **고른 것이 통째로 증발한다.**
+     *      채우는 중에 시트로 들어가는 문은 이 버튼 하나뿐이라 여기서 같이 닫힌다.
+     *   ③ 숫자가 서로 반대로 움직인다 — 배너는 1/7→2/7 로 올라가는데 제목·설명·버튼은
+     *      targets 파생이라 7→6→5 로 내려갔다. 마지막 저장이 도착하고 running 이 내려가기
+     *      전 한 프레임에는 canFill 이 false 라 「빈칸을 만들 수 없어요」가 번쩍이기까지 했다.
+     *
+     * 그래서 진행 중에는 **숫자를 배너 한 곳에서만 세고**(고정 문구), 행동은 배너의 [중단]
+     * 하나만 남긴다. 결과 얼굴(중단·한도·못 찾음)에서는 버튼을 그대로 둔다 — 결과 배너는
+     * 8초 뒤 스스로 사라지고 이 갈래는 권유 배너를 내지 않으므로(idleBanner: false),
+     * 그때는 이 버튼이 채우기로 가는 유일한 길이다.
+     */
+    const filling = fillUi.running;
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center', padding: 24 }]}>
         {/* 채우는 중·채운 뒤의 배너는 여기서도 나온다 — 눌렀는데 화면이 아무 말도 안 하면 안 된다. */}
@@ -641,22 +662,26 @@ export default function ExamplesScreen() {
         )}
         <Ionicons name="document-text-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
         <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>
-          {canFill ? t('examples.noReadyTitle') : unblankable ? t('examples.noBlankableTitle') : t('examples.noExamples')}
+          {filling ? t('examples.fillingTitle')
+            : canFill ? t('examples.noReadyTitle')
+            : unblankable ? t('examples.noBlankableTitle') : t('examples.noExamples')}
         </Text>
         <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 16 }}>
-          {canFill
-            ? t('examples.noReadyDesc', { count: fillUi.targets.length })
+          {filling ? t('examples.fillingDesc')
+            : canFill ? t('examples.noReadyDesc', { count: fillUi.targets.length })
             : unblankable ? t('examples.noBlankableDesc') : t('examples.noExamplesDesc')}
         </Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
-          <Pressable
-            onPress={canFill ? fillUi.openSheet : () => setSettingsVisible(true)}
-            style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
-          >
-            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>
-              {canFill ? t('bareWords.fillCount', { count: fillUi.targets.length }) : t('common.settingsChange')}
-            </Text>
-          </Pressable>
+          {!filling && (
+            <Pressable
+              onPress={canFill ? fillUi.openSheet : () => setSettingsVisible(true)}
+              style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+            >
+              <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>
+                {canFill ? t('bareWords.fillCount', { count: fillUi.targets.length }) : t('common.settingsChange')}
+              </Text>
+            </Pressable>
+          )}
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}

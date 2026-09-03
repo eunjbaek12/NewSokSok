@@ -1248,7 +1248,7 @@ export default function AddWordScreen() {
                                 </Text>
                             </Pressable>
                         )}
-                        <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
+                        <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.fieldSettings')} onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
                             <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                         </Pressable>
                     </View>
@@ -1360,17 +1360,17 @@ export default function AddWordScreen() {
                                                         <>
                                                             {/* Expo Go / 모듈 로드 실패 시 죽은 버튼 노출 방지 — 음성 인식은 dev build 이상에서만 동작. */}
                                                             {ExpoSpeechRecognitionModule && (
-                                                                <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                <Pressable accessibilityRole="button" accessibilityLabel={t(isListening ? 'addWord.voiceInputStop' : 'addWord.voiceInput')} onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                                     <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
                                                                 </Pressable>
                                                             )}
-                                                            <Pressable onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.photoCamera')} onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                                 <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
                                                             </Pressable>
-                                                            <Pressable onPress={() => openPhotoScan('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.photoGallery')} onPress={() => openPhotoScan('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                                 <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
                                                             </Pressable>
-                                                            <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Pressable accessibilityRole="button" accessibilityLabel={t('batchImport.title')} onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                                 <MaterialCommunityIcons name="auto-fix" size={16} color={colors.textSecondary} />
                                                             </Pressable>
                                                         </>
@@ -1460,6 +1460,8 @@ export default function AddWordScreen() {
                                                             방금 누른 이 지점에 있다. 아이콘(22)과 인디케이터의 실제 폭이
                                                             달라 옆 버튼이 밀리므로 슬롯 크기를 고정한다. */}
                                                         <Pressable
+                                                            accessibilityRole="button"
+                                                            accessibilityLabel={t('common.search')}
                                                             onPressIn={() => { suppressBlurRef.current = true; }}
                                                             onPress={handleSearch}
                                                             onPressOut={() => { suppressBlurRef.current = false; }}
@@ -1825,6 +1827,8 @@ export default function AddWordScreen() {
                                                         autoCapitalize="none"
                                                     />
                                                     <Pressable
+                                                        accessibilityRole="button"
+                                                        accessibilityLabel={t('addWord.addTag')}
                                                         onPress={handleAddTag}
                                                         disabled={!tagInput.trim()}
                                                         style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
@@ -1838,7 +1842,7 @@ export default function AddWordScreen() {
                                                         {tags.map((tag, idx) => (
                                                             <View key={`${tag}-${idx}`} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
                                                                 <Text style={[styles.tagChipText, { color: colors.text }]}>#{displayTag(tag, t)}</Text>
-                                                                <Pressable onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
+                                                                <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.removeTag', { tag: displayTag(tag, t) })} onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
                                                                     <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
                                                                 </Pressable>
                                                             </View>
@@ -1920,7 +1924,7 @@ export default function AddWordScreen() {
 
                                 <View style={styles.modalHeader}>
                                     <Text style={[styles.modalTitle, { color: colors.text }]}>{t('addWord.fieldSettings')}</Text>
-                                    <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={12} style={{ backgroundColor: colors.surfaceSecondary, padding: 6, borderRadius: 20 }}>
+                                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={() => setFieldSettingsOpen(false)} hitSlop={12} style={{ backgroundColor: colors.surfaceSecondary, padding: 6, borderRadius: 20 }}>
                                         <Ionicons name="close" size={20} color={colors.textSecondary} />
                                     </Pressable>
                                 </View>

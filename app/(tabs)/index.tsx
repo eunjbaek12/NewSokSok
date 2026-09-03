@@ -450,6 +450,8 @@ export default function DashboardScreen() {
                             </Text>
                           </View>
                           <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t('home.removePlanTitle')}
                             onPress={(e) => {
                               e.stopPropagation();
                               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -635,6 +637,8 @@ export default function DashboardScreen() {
                           </Text>
                         </View>
                         <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel={t('home.stopStudyTitle')}
                           onPress={(e) => {
                             e.stopPropagation();
                             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);

@@ -183,6 +183,8 @@ export default function VocabListsScreen() {
           </Text>
         </View>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('manage.title')}
           onPress={openManageModal}
           hitSlop={8}
           style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
@@ -262,6 +264,8 @@ export default function VocabListsScreen() {
           pointerEvents="box-none"
         >
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('common.scrollToTop')}
             onPress={() => {
               scrollRef.current?.scrollToOffset({ offset: 0, animated: true });
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);

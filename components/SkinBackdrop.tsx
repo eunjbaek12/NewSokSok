@@ -42,6 +42,14 @@ export function SkinBackdrop({ skinId }: { skinId: SkinId }) {
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants"
     >
+      {/* 🔑 여기서 그림을 밀거나 자르지 않는다. 화면 어디에 무엇이 오는지는 **그림
+          파일이 이미 그렇게 만들어져 있다**(1080×2340, 화면과 같은 비율).
+
+          🔴 한때 top 오프셋으로 위치를 맞추려 했다가 두 번 실패했다 — absoluteFill 이
+             top·bottom 을 둘 다 0 으로 박아 두어, top 만 덮어쓰면 컨테이너가 길어지고
+             cover 가 그림을 확대했다. bottom 을 떼고 height 로 고쳐도 그림이 아예
+             사라졌다. 배치를 두 곳(코드와 그림)에서 정하려던 것이 잘못이었다.
+             **자리는 그림에서만 정한다.** */}
       <Image
         source={source}
         style={[StyleSheet.absoluteFill, { opacity: OPACITY }]}

@@ -86,6 +86,18 @@ const DECKS: Record<string, DeckConfig> = {
     voice:
       'a traveler speaking to staff or a driver in polite 해요체, or asking a passerby for directions. Short and practical, the way it is really said on the move.',
   },
+  ceremony: {
+    setting:
+      'Korean family ceremonies and the manners around them — a wedding at a 예식장, a funeral 빈소, the Seollal and Chuseok holidays with their rites, a first-birthday party, and how one speaks and bows to elders',
+    voice:
+      'lines that would actually be SAID out loud in that moment — a guest speaking to the hosting family, two guests talking on the way in, or family at home before a holiday rite. Polite 해요체/합쇼체 to hosts and elders; 반말 only within a family. 🔴 These are spoken lines, not written narration: never end a sentence with the written -했다/-였다/-갔다 form. 🔴 For the funeral items the register is subdued — short, respectful, never cheerful and never chatty.',
+  },
+  sightseeing: {
+    setting:
+      'sightseeing in Korea — palaces, hanok villages, museums, temples and festivals: buying a ticket and going in, looking round with a guide, renting a hanbok, and taking photos',
+    voice:
+      'a visitor speaking to staff at the ticket office or information desk, or two friends looking round together. Polite 해요체 to staff, casual 반말 between friends.',
+  },
 };
 
 const deckArg = process.argv.find(a => a.startsWith('--deck='));

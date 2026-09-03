@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "결혼",
+    "pos": "noun",
+    "meaningEn": "marriage; getting married",
+    "romaja": "gyeolhon",
+    "exampleKo": "친구의 결혼 소식을 듣고 정말 기뻤어요.",
+    "exampleEn": "I was really glad to hear the news of my friend's marriage.",
+    "category": "결혼"
+  },
+  {
+    "rank": 2,
+    "term": "결혼식",
+    "pos": "noun",
+    "meaningEn": "wedding ceremony",
+    "romaja": "gyeolhonsik",
+    "exampleKo": "이번 주 토요일에 친구 결혼식에 가요.",
+    "exampleEn": "I am going to a friend's wedding ceremony this Saturday.",
+    "category": "결혼"
+  },
+  {
+    "rank": 3,
+    "term": "신랑",
+    "pos": "noun",
+    "meaningEn": "groom",
+    "romaja": "sillang",
+    "exampleKo": "오늘 신랑이 긴장한 것 같아요.",
+    "exampleEn": "The groom looks nervous today.",
+    "category": "결혼"
+  },
+  {
+    "rank": 4,
+    "term": "신부",
+    "pos": "noun",
+    "meaningEn": "bride",
+    "romaja": "sinbu",
+    "exampleKo": "신부의 드레스가 정말 아름답네요.",
+    "exampleEn": "The bride's dress is truly beautiful.",
+    "category": "결혼"
+  },
+  {
+    "rank": 5,
+    "term": "청첩장",
+    "pos": "noun",
+    "meaningEn": "wedding invitation card",
+    "romaja": "cheongcheopjang",
+    "exampleKo": "모바일로 청첩장을 받았습니다.",
+    "exampleEn": "I received a mobile wedding invitation.",
+    "category": "결혼"
+  },
+  {
+    "rank": 6,
+    "term": "축의금",
+    "pos": "noun",
+    "meaningEn": "congratulatory money",
+    "romaja": "chugui-geum",
+    "exampleKo": "접수처에 축의금을 내고 봉투를 받았어요.",
+    "exampleEn": "I handed over the congratulatory money at the reception desk and got an envelope.",
+    "category": "결혼"
+  },
+  {
+    "rank": 7,
+    "term": "하객",
+    "pos": "noun",
+    "meaningEn": "wedding guest",
+    "romaja": "hagaek",
+    "exampleKo": "예식장 안에 하객들이 많이 모였어요.",
+    "exampleEn": "Many wedding guests have gathered inside the wedding hall.",
+    "category": "결혼"
+  },
+  {
+    "rank": 8,
+    "term": "예식장",
+    "pos": "noun",
+    "meaningEn": "wedding hall",
+    "romaja": "yesikjang",
+    "exampleKo": "강남에 있는 예식장으로 찾아가세요.",
+    "exampleEn": "Please head to the wedding hall located in Gangnam.",
+    "category": "결혼"
+  },
+  {
+    "rank": 9,
+    "term": "폐백",
+    "pos": "noun",
+    "meaningEn": "pyebaek",
+    "romaja": "pyebaek",
+    "exampleKo": "예식이 끝나고 친지들 앞에서 폐백을 드립니다.",
+    "exampleEn": "After the ceremony, they perform pyebaek in front of the family relatives.",
+    "category": "결혼"
+  },
+  {
+    "rank": 10,
+    "term": "신혼여행",
+    "pos": "noun",
+    "meaningEn": "honeymoon",
+    "romaja": "sinhonyeohaeng",
+    "exampleKo": "결혼식이 끝나면 하와이로 신혼여행을 갑니다.",
+    "exampleEn": "After the wedding ceremony, they are going on a honeymoon to Hawaii.",
+    "category": "결혼"
+  },
+  {
+    "rank": 11,
+    "term": "장례식",
+    "pos": "noun",
+    "meaningEn": "funeral",
+    "romaja": "jangnyesik",
+    "exampleKo": "슬픈 소식을 듣고 장례식장에 다녀왔어요.",
+    "exampleEn": "I heard the sad news and went to the funeral.",
+    "category": "장례"
+  },
+  {
+    "rank": 12,
+    "term": "빈소",
+    "pos": "noun",
+    "meaningEn": "funeral hall room",
+    "romaja": "binso",
+    "exampleKo": "조용히 빈소로 들어가서 절을 올렸습니다.",
+    "exampleEn": "I quietly entered the funeral room and made a bow.",
+    "category": "장례"
+  },
+  {
+    "rank": 13,
+    "term": "조문",
+    "pos": "noun",
+    "meaningEn": "paying condolences",
+    "romaja": "jomun",
+    "exampleKo": "늦은 시간이지만 조문을 다녀오겠습니다.",
+    "exampleEn": "It is late, but I will go pay my condolences.",
+    "category": "장례"
+  },
+  {
+    "rank": 14,
+    "term": "문상",
+    "pos": "noun",
+    "meaningEn": "condolence visit",
+    "romaja": "munsang",
+    "exampleKo": "검은색 옷을 입고 문상을 갔습니다.",
+    "exampleEn": "I wore black clothes and went for a condolence visit.",
+    "category": "장례"
+  },
+  {
+    "rank": 15,
+    "term": "상주",
+    "pos": "noun",
+    "meaningEn": "chief mourner",
+    "romaja": "sangju",
+    "exampleKo": "상주에게 위로의 말을 건넸습니다.",
+    "exampleEn": "I offered words of comfort to the chief mourner.",
+    "category": "장례"
+  },
+  {
+    "rank": 16,
+    "term": "부의금",
+    "pos": "noun",
+    "meaningEn": "condolence money",
+    "romaja": "bu-uigeum",
+    "exampleKo": "입구에서 부의금을 내고 방명록을 썼어요.",
+    "exampleEn": "I gave the condolence money at the entrance and signed the guestbook.",
+    "category": "장례"
+  },
+  {
+    "rank": 17,
+    "term": "고인",
+    "pos": "noun",
+    "meaningEn": "the deceased",
+    "romaja": "goin",
+    "exampleKo": "고인의 명복을 빌며 묵념을 했습니다.",
+    "exampleEn": "I offered a silent prayer wishing the deceased rest in peace.",
+    "category": "장례"
+  },
+  {
+    "rank": 18,
+    "term": "조의",
+    "pos": "noun",
+    "meaningEn": "condolences",
+    "romaja": "jo-ui",
+    "exampleKo": "유가족에게 깊은 조의를 표합니다.",
+    "exampleEn": "I express my deep condolences to the bereaved family.",
+    "category": "장례"
+  },
+  {
+    "rank": 19,
+    "term": "상복",
+    "pos": "noun",
+    "meaningEn": "mourning clothes",
+    "romaja": "sangbok",
+    "exampleKo": "상주들은 모두 검은색 상복을 입고 있습니다.",
+    "exampleEn": "All the chief mourners are wearing black mourning clothes.",
+    "category": "장례"
+  },
+  {
+    "rank": 20,
+    "term": "명복을 빌다",
+    "pos": "phrase",
+    "meaningEn": "to pray for the departed to rest in peace",
+    "romaja": "myeongbogeul bilda",
+    "exampleKo": "삼가 고인의 명복을 빕니다.",
+    "exampleEn": "I sincerely pray that the departed rests in peace.",
+    "category": "장례"
+  },
+  {
+    "rank": 21,
+    "term": "명절",
+    "pos": "noun",
+    "meaningEn": "traditional holiday",
+    "romaja": "myeongjeol",
+    "exampleKo": "이번 명절에는 고향에 내려가지 않습니다.",
+    "exampleEn": "I am not going down to my hometown this traditional holiday.",
+    "category": "명절"
+  },
+  {
+    "rank": 22,
+    "term": "설날",
+    "pos": "noun",
+    "meaningEn": "Seollal",
+    "romaja": "seollal",
+    "exampleKo": "설날 아침에 온 가족이 모여 떡국을 먹어요.",
+    "exampleEn": "On Seollal morning, the whole family gathers and eats rice cake soup.",
+    "category": "명절"
+  },
+  {
+    "rank": 23,
+    "term": "추석",
+    "pos": "noun",
+    "meaningEn": "Chuseok",
+    "romaja": "chuseok",
+    "exampleKo": "추석에 친척들과 함께 송편을 만들었습니다.",
+    "exampleEn": "I made songpyeon with my relatives on Chuseok.",
+    "category": "명절"
+  },
+  {
+    "rank": 24,
+    "term": "세배",
+    "pos": "noun",
+    "meaningEn": "new year bow to elders",
+    "romaja": "sebae",
+    "exampleKo": "새해를 맞아 할아버지께 세배를 드렸어요.",
+    "exampleEn": "I gave a new year bow to my grandfather to welcome the new year.",
+    "category": "명절"
+  },
+  {
+    "rank": 25,
+    "term": "세뱃돈",
+    "pos": "noun",
+    "meaningEn": "new year money",
+    "romaja": "sebaetdon",
+    "exampleKo": "세배를 마치고 할머니에게 세뱃돈을 받았습니다.",
+    "exampleEn": "After finishing the new year bow, I received new year money from my grandmother.",
+    "category": "명절"
+  },
+  {
+    "rank": 26,
+    "term": "차례",
+    "pos": "noun",
+    "meaningEn": "ancestral rite on Seollal and Chuseok",
+    "romaja": "charye",
+    "exampleKo": "명절 아침에 온 가족이 모여서 차례를 지냈어요.",
+    "exampleEn": "The whole family gathered on holiday morning to hold the ancestral rite.",
+    "category": "명절"
+  },
+  {
+    "rank": 27,
+    "term": "제사",
+    "pos": "noun",
+    "meaningEn": "ancestral memorial rite",
+    "romaja": "jesa",
+    "exampleKo": "내일 모레가 할아버지 제사라서 준비할 게 많아요.",
+    "exampleEn": "There is a lot to prepare because grandfather's memorial rite is the day after tomorrow.",
+    "category": "명절"
+  },
+  {
+    "rank": 28,
+    "term": "성묘",
+    "pos": "noun",
+    "meaningEn": "visiting and tending a grave",
+    "romaja": "seongmyo",
+    "exampleKo": "추석 연휴에 가족들과 함께 할아버지 산소에 성묘를 갔어요.",
+    "exampleEn": "I went to visit my grandfather's grave with my family during the Chuseok holiday.",
+    "category": "명절"
+  },
+  {
+    "rank": 29,
+    "term": "떡국",
+    "pos": "noun",
+    "meaningEn": "rice-cake soup for Seollal",
+    "romaja": "tteokguk",
+    "exampleKo": "새해 아침에는 어머니가 끓여주신 떡국을 맛있게 먹었어요.",
+    "exampleEn": "On New Year's morning, I deliciously ate the rice-cake soup my mother cooked.",
+    "category": "명절"
+  },
+  {
+    "rank": 30,
+    "term": "송편",
+    "pos": "noun",
+    "meaningEn": "half-moon rice cakes",
+    "romaja": "songpyeon",
+    "exampleKo": "추석 전날 밤에 온 가족이 둘러앉아 송편을 빚었어요.",
+    "exampleEn": "The night before Chuseok, the whole family sat together and made half-moon rice cakes.",
+    "category": "명절"
+  },
+  {
+    "rank": 31,
+    "term": "잔치",
+    "pos": "noun",
+    "meaningEn": "feast or celebration party",
+    "romaja": "janchi",
+    "exampleKo": "마을 어르신들을 모시고 맛있는 음식을 대접하는 잔치를 열었어요.",
+    "exampleEn": "We held a feast to invite the village elders and serve them delicious food.",
+    "category": "잔치"
+  },
+  {
+    "rank": 32,
+    "term": "돌잔치",
+    "pos": "noun",
+    "meaningEn": "baby's first-birthday party",
+    "romaja": "doljanchi",
+    "exampleKo": "조카의 첫돌을 축하하기 위해서 돌잔치 장소에 갔어요.",
+    "exampleEn": "I went to the first-birthday party venue to celebrate my nephew's first birthday.",
+    "category": "잔치"
+  },
+  {
+    "rank": 33,
+    "term": "집들이",
+    "pos": "noun",
+    "meaningEn": "housewarming party",
+    "romaja": "jipdeuri",
+    "exampleKo": "이번 주말에 친구들을 새로 이사한 집으로 초대해서 집들이를 해요.",
+    "exampleEn": "This weekend, I'm inviting friends to my newly moved house for a housewarming party.",
+    "category": "잔치"
+  },
+  {
+    "rank": 34,
+    "term": "생일",
+    "pos": "noun",
+    "meaningEn": "birthday",
+    "romaja": "saengil",
+    "exampleKo": "부모님 생일에 미역국을 직접 끓여서 대접해 드렸어요.",
+    "exampleEn": "I cooked seaweed soup myself and served it to my parents on their birthday.",
+    "category": "잔치"
+  },
+  {
+    "rank": 35,
+    "term": "회갑",
+    "pos": "noun",
+    "meaningEn": "60th-birthday celebration",
+    "romaja": "hoegap",
+    "exampleKo": "아버지의 회갑을 맞이해서 친척들과 함께 조촐한 식사를 했어요.",
+    "exampleEn": "To celebrate my father's 60th birthday, we had a modest meal with relatives.",
+    "category": "잔치"
+  },
+  {
+    "rank": 36,
+    "term": "초대하다",
+    "pos": "verb",
+    "meaningEn": "to invite",
+    "romaja": "chodaehada",
+    "exampleKo": "소중한 친구들을 집에 초대해서 맛있는 저녁을 대접했어요.",
+    "exampleEn": "I invited dear friends to my house and treated them to a delicious dinner.",
+    "category": "잔치"
+  },
+  {
+    "rank": 37,
+    "term": "축하하다",
+    "pos": "verb",
+    "meaningEn": "to congratulate",
+    "romaja": "chukahada",
+    "exampleKo": "친구가 좋은 회사에 취직해서 진심으로 축하해 주었어요.",
+    "exampleEn": "My friend got a job at a good company, so I congratulated them sincerely.",
+    "category": "잔치"
+  },
+  {
+    "rank": 38,
+    "term": "선물",
+    "pos": "noun",
+    "meaningEn": "gift",
+    "romaja": "seonmul",
+    "exampleKo": "고마운 분께 드릴 정성스러운 선물을 골라서 포장했어요.",
+    "exampleEn": "I picked out and wrapped a sincere gift to give to someone I am grateful to.",
+    "category": "잔치"
+  },
+  {
+    "rank": 39,
+    "term": "예절",
+    "pos": "noun",
+    "meaningEn": "etiquette, manners",
+    "romaja": "yejeol",
+    "exampleKo": "어른을 만났을 때 지켜야 할 기본적인 예절을 배웠어요.",
+    "exampleEn": "I learned the basic etiquette to follow when meeting an elder.",
+    "category": "예절"
+  },
+  {
+    "rank": 40,
+    "term": "어른",
+    "pos": "noun",
+    "meaningEn": "grown-up, elder",
+    "romaja": "eoreun",
+    "exampleKo": "명절에 집에 오신 어른들께 두 손로 공손하게 인사를 드렸어요.",
+    "exampleEn": "I greeted the elders who came to the house for the holiday politely with both hands.",
+    "category": "예절"
+  },
+  {
+    "rank": 41,
+    "term": "웃어른",
+    "pos": "noun",
+    "meaningEn": "respectable elder",
+    "romaja": "useoreun",
+    "exampleKo": "집안의 웃어른들께 먼저 차례상을 올린 뒤에 식사를 시작했어요.",
+    "exampleEn": "We started eating after first offering the ritual table to the elders of the family.",
+    "category": "예절"
+  },
+  {
+    "rank": 42,
+    "term": "모시다",
+    "pos": "verb",
+    "meaningEn": "to attend on, accompany senior",
+    "romaja": "mosida",
+    "exampleKo": "주말에 부모님을 모시고 가까운 공원으로 산책을 다녀왔어요.",
+    "exampleEn": "Over the weekend, I accompanied my parents and went for a walk in a nearby park.",
+    "category": "예절"
+  },
+  {
+    "rank": 43,
+    "term": "드리다",
+    "pos": "verb",
+    "meaningEn": "to give (humble)",
+    "romaja": "deurida",
+    "exampleKo": "할아버지께 건강에 좋은 홍삼을 선물로 사서 드렸어요.",
+    "exampleEn": "I bought and gave red ginseng, which is good for health, as a gift to my grandfather.",
+    "category": "예절"
+  },
+  {
+    "rank": 44,
+    "term": "말씀드리다",
+    "pos": "verb",
+    "meaningEn": "to tell, say (humble)",
+    "romaja": "malsseumdeurida",
+    "exampleKo": "선생님께 다음 주 수업 참석이 어렵다고 미리 말씀드렸어요.",
+    "exampleEn": "I told the teacher in advance that it would be difficult to attend next week's class.",
+    "category": "예절"
+  },
+  {
+    "rank": 45,
+    "term": "여쭤보다",
+    "pos": "verb",
+    "meaningEn": "to ask (humble)",
+    "romaja": "yeojjwoboda",
+    "exampleKo": "궁금한 점이 있어서 교수님 연구실에 가서 여쭤보았어요.",
+    "exampleEn": "I had something I was curious about, so I went to the professor's office and asked.",
+    "category": "예절"
+  },
+  {
+    "rank": 46,
+    "term": "뵙다",
+    "pos": "verb",
+    "meaningEn": "to see, meet senior (humble)",
+    "romaja": "boepda",
+    "exampleKo": "내일 오후에 찾아뵙고 인사드려도 괜찮을까요?",
+    "exampleEn": "Would it be alright if I visit and greet you tomorrow afternoon?",
+    "category": "예절"
+  },
+  {
+    "rank": 47,
+    "term": "존댓말",
+    "pos": "noun",
+    "meaningEn": "polite speech, honorifics",
+    "romaja": "jondaenmal",
+    "exampleKo": "처음 만난 분에게는 실례가 되지 않도록 존댓말을 써야 해요.",
+    "exampleEn": "You should use polite speech so as not to be rude to someone you meet for the first time.",
+    "category": "예절"
+  },
+  {
+    "rank": 48,
+    "term": "절하다",
+    "pos": "verb",
+    "meaningEn": "to bow deeply",
+    "romaja": "jeolhada",
+    "exampleKo": "설날 아침에 한복을 입고 할아버지께 절했어요.",
+    "exampleEn": "On Seollal morning I put on a hanbok and bowed to my grandfather.",
+    "category": "예절"
+  },
+  {
+    "rank": 49,
+    "term": "인사",
+    "pos": "noun",
+    "meaningEn": "greeting",
+    "romaja": "insa",
+    "exampleKo": "결혼식장에서 만난 하객들에게 밝은 얼굴로 인사를 건넸어요.",
+    "exampleEn": "I greeted the guests I met at the wedding venue with a bright face.",
+    "category": "예절"
+  },
+  {
+    "rank": 50,
+    "term": "한복",
+    "pos": "noun",
+    "meaningEn": "hanbok, traditional dress",
+    "romaja": "hanbok",
+    "exampleKo": "추석 명절을 맞이해서 예쁜 색동한복을 곱게 차려입었어요.",
+    "exampleEn": "To celebrate the Chuseok holiday, I neatly dressed up in a pretty striped hanbok.",
+    "category": "예절"
+  }
+]

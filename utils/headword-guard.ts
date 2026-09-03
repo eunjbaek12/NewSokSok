@@ -151,6 +151,35 @@ export function headwordDefectOf(term: string, sourceLang: string): HeadwordDefe
   return null;
 }
 
+// 출발어가 기대하는 문자 체계. 관대하게 잡는다 — 이 판정은 막는 데 쓰지 않으므로
+// 애매하면 통과시키는 쪽이 옳다(ko 의 한자어 표기, ja 의 한자 표제어).
+const EXPECTED_SCRIPTS: Record<string, Script[]> = {
+  en: ['latin'], es: ['latin'], vi: ['latin'],
+  ko: ['hangul', 'han'],
+  ja: ['kana', 'han'],
+  zh: ['han'],
+};
+
+/**
+ * 표제어가 **배우는 언어의 문자 체계와 하나도 겹치지 않는가.** 안내 문구를 가르는 데만 쓴다.
+ *
+ * 🔴 이것을 headwordDefectOf(게이트)로 올리지 말 것. 한국어 단어장의 `TV`·`DNA`,
+ * 일본어의 로마자 입력처럼 **정당한 표제어가 있고**, 막으면 그것들이 함께 죽는다.
+ * AI 가 모르면 404 로 돌아오고 한도는 환불되므로 시도 자체에는 손해가 없다.
+ *
+ * 🔴 2026-09-03 실측: 한국어 단어장에 `running` 을 넣으면 서버가 "한국어 단어가 아니다"
+ * (isReal=false) 로 404 를 주고, 앱은 **"철자를 확인하세요"** 라고 안내했다. 원인은
+ * 철자가 아니라 언어 설정이라 사용자는 확인할 방법이 없었다. 반대 방향(영어 단어장에
+ * 한글)에는 이미 정확한 안내가 있었는데, 게이트가 그쪽만 검사해 이쪽은 비어 있었다.
+ */
+export function isForeignScriptFor(term: string, sourceLang: string): boolean {
+  const expected = EXPECTED_SCRIPTS[(sourceLang ?? '').toLowerCase()];
+  if (!expected) return false;               // 모르는 언어는 판단하지 않는다
+  const scripts = scriptsOf((term ?? '').trim());
+  if (scripts.size === 0) return false;      // 숫자·기호만 — 다른 안내가 맡는다
+  return !expected.some(s => scripts.has(s));
+}
+
 /** 정규화 후에도 결함이 남는지 — 클라이언트 입력 경계용 한 번에 쓰는 헬퍼. */
 export function inspectHeadword(raw: string, sourceLang: string): {
   term: string;

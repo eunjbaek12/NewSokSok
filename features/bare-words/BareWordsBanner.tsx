@@ -100,24 +100,35 @@ export default function BareWordsBanner({
   // ── 진행 ──────────────────────────────────────────────────────────────
   // 화면을 막지 않는다. 사진 스캔과 달리 결과를 기다릴 이유가 없으므로 전체 화면을
   // 덮지 않고, 채워진 단어는 그 자리에서 주황 점이 사라지고 발음이 붙는다.
-  if (face.kind === 'running') {
+  //
+  // 🔑 도는 동안은 셋이 한 틀을 쓴다 — 「채우는 중」·「기다리는 중」(429)·「마무리하는 중」(중단).
+  // 🔴 마무리에는 [중단]을 두지 않는다. 이미 멈춘 뒤라 멈출 것이 없는데 버튼이 남으면
+  //    «아직 안 멈췄나»로 읽힌다.
+  if (face.kind === 'running' || face.kind === 'waiting' || face.kind === 'stopping') {
     const pct = face.total > 0 ? Math.round((face.filled / face.total) * 100) : 0;
+    const waiting = face.kind === 'waiting';
+    const stopping = face.kind === 'stopping';
+    const term = face.kind === 'stopping' ? null : face.term;
     return (
       <View style={[styles.wrap, styles.column, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
         <View style={styles.headRow}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            {t('bareWords.running', { filled: face.filled, total: face.total })}
+          <Text style={[styles.title, { color: waiting ? colors.warning : colors.text, flex: 1 }]}>
+            {stopping ? t('bareWords.stoppingTitle')
+              : waiting ? t('bareWords.waitingTitle')
+              : t('bareWords.running', { filled: face.filled, total: face.total })}
           </Text>
-          <Pressable onPress={onStop} hitSlop={10}>
-            <Text style={[styles.linkSmall, { color: colors.textSecondary }]}>{t('common.stop')}</Text>
-          </Pressable>
+          {!stopping && (
+            <Pressable onPress={onStop} hitSlop={10}>
+              <Text style={[styles.linkSmall, { color: colors.textSecondary }]}>{t('common.stop')}</Text>
+            </Pressable>
+          )}
         </View>
-        <Progress percent={pct} color={colors.primary} track={colors.surfaceSecondary} />
-        {!!face.term && (
-          <Text style={[styles.sub, { color: colors.textSecondary }]} numberOfLines={1}>
-            {t('bareWords.runningTerm', { term: face.term })}
-          </Text>
-        )}
+        <Progress percent={pct} color={waiting ? colors.warning : colors.primary} track={colors.surfaceSecondary} />
+        <Text style={[styles.sub, { color: colors.textSecondary }]} numberOfLines={1}>
+          {stopping ? t('bareWords.stoppingDesc')
+            : waiting ? t('bareWords.waitingTitle')
+            : term ? t('bareWords.runningTerm', { term }) : ''}
+        </Text>
       </View>
     );
   }

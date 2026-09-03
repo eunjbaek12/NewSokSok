@@ -1,4 +1,4 @@
-import { normalizeHeadword, type HeadwordDefect } from './headword-guard';
+import { headwordDefectOf, normalizeHeadword, type HeadwordDefect } from './headword-guard';
 
 export interface ParsedWord {
   id: string;          // 임시 키 (React list key)
@@ -36,8 +36,45 @@ export interface ParsedWord {
 const COLUMN_SEP = /\t|,|\s+-\s+|[–—|]|:\s/;
 const HEADER_KEYWORDS = new Set(['단어', 'word', 'term', 'vocab', '어휘', '영단어', 'english']);
 
+export interface ImportParseResult {
+  words: ParsedWord[];
+  /**
+   * 구분자 뒤에서 잘려 나갔지만 **또 다른 단어로 보이는** 토큰 수.
+   *
+   * 🔴 2026-09-02: `a, b, c` 로 나열한 24개를 붙여넣었더니 각 줄의 첫 단어 4개만 저장되고
+   *    20개가 **아무 안내 없이** 사라졌다. 화면에 남는 신호는 미리보기 개수뿐이라
+   *    사용자는 "AI 한도 때문인가"로 읽었다 — 원인을 짐작할 방법이 없었다.
+   *    첫 컬럼만 쓰는 것 자체는 `apple, 사과` 를 위해 필요하므로, 규칙을 바꾸는 대신
+   *    **잃은 것을 세어 부르는 쪽**에서 답한다(차감이 시작되기 전에 물어볼 수 있다).
+   */
+  droppedWords: number;
+}
+
+/**
+ * 잘려 나간 토큰이 '뜻'이 아니라 '또 다른 단어'인가.
+ *
+ * 🔑 판정을 새로 만들지 않고 headwordDefectOf 의 G3(공백으로 나뉜 토큰의 문자 체계가
+ * 갈리면 표제어+뜻)를 그대로 빌린다. 두 벌이 되면 "여기선 뜻이고 저기선 단어인" 어긋남이
+ * 조용히 생긴다 — 이 저장소가 이미 여러 번 밟은 자리다.
+ *
+ *   `alacrity` + `ebullient` → 둘 다 라틴 → 단어 나열 (센다)
+ *   `apple`    + `사과`      → 라틴 vs 한글 → 뜻      (안 센다)
+ *   `りんご`    + `사과`      → 가나 vs 한글 → 뜻      (안 센다)
+ */
+function looksLikeAnotherWord(head: string, token: string, sourceLang: string): boolean {
+  if (!token || !/\p{L}/u.test(token)) return false;
+  // 토큰 자체가 결함이면(목록 표지·구분자 잔재) 단어로 세지 않는다.
+  if (headwordDefectOf(token, sourceLang)) return false;
+  if (!head) return true;
+  return headwordDefectOf(`${head} ${token}`, sourceLang) !== 'script_mix';
+}
+
 export function parseImportedText(text: string): ParsedWord[] {
-  if (!text || !text.trim()) return [];
+  return parseImportedTextWithStats(text).words;
+}
+
+export function parseImportedTextWithStats(text: string, sourceLang = ''): ImportParseResult {
+  if (!text || !text.trim()) return { words: [], droppedWords: 0 };
 
   const lines = text.split(/\r?\n/);
   const seen = new Set<string>();
@@ -45,6 +82,7 @@ export function parseImportedText(text: string): ParsedWord[] {
   const baseTs = Date.now();
   let idx = 0;
   let isFirstNonEmpty = true;
+  let droppedWords = 0;
 
   for (const raw of lines) {
     const line = raw.trim();
@@ -56,6 +94,11 @@ export function parseImportedText(text: string): ParsedWord[] {
     // index 0 이면 줄이 구분자로 시작한 것 — 자르면 빈 표제어가 되므로 그대로 둔다.
     if (sep?.index) {
       term = line.slice(0, sep.index).trim().replace(/^"|"$/g, '');
+      const head = normalizeHeadword(term);
+      for (const rest of line.slice(sep.index).split(COLUMN_SEP)) {
+        const token = normalizeHeadword(rest.trim().replace(/^"|"$/g, ''));
+        if (looksLikeAnotherWord(head, token, sourceLang)) droppedWords += 1;
+      }
     }
 
     // 헤더 스킵 (첫 비어있지 않은 줄에 한해)
@@ -91,5 +134,5 @@ export function parseImportedText(text: string): ParsedWord[] {
     });
   }
 
-  return result;
+  return { words: result, droppedWords };
 }

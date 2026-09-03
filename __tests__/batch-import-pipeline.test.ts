@@ -5,7 +5,7 @@
  * (worker 큐 알고리즘 테스트는 enrich-queue-core.test.ts로 이전)
  */
 
-import { parseImportedText } from '../utils/importParser';
+import { parseImportedText, parseImportedTextWithStats } from '../utils/importParser';
 
 describe('Scenario A: parseImportedText (단어만 입력)', () => {
     it('한 줄에 한 단어 → 그대로 파싱', () => {
@@ -240,5 +240,48 @@ describe('Scenario E: parseImportedText (대시·콜론 구분자 — 2026-08-26
     test('탭·콤마가 대시보다 앞서면 탭·콤마에서 자른다', () => {
         expect(parseImportedText('apple\t사과 — fruit')[0].term).toBe('apple');
         expect(parseImportedText('apple,사과 — fruit')[0].term).toBe('apple');
+    });
+});
+
+/**
+ * 2026-09-02: `a, b, c` 로 나열한 24개를 넣었더니 줄머리 4개만 저장되고 20개가 아무 안내
+ * 없이 사라졌다. 첫 컬럼만 쓰는 규칙 자체는 `apple, 사과` 때문에 필요하므로, 규칙을 바꾸는
+ * 대신 **잃은 개수를 세어** 차감 전에 물을 수 있게 한다.
+ *
+ * 🔑 갈림은 '뜻이냐 또 다른 단어냐' 하나뿐이고, 판정은 headwordDefectOf 의 G3 를 빌린다.
+ */
+describe('Scenario F: parseImportedTextWithStats — 버려진 단어 세기', () => {
+    test('같은 문자 체계의 나열은 단어로 센다', () => {
+        const { words, droppedWords } = parseImportedTextWithStats('alacrity, ebullient, effulgent', 'en');
+        expect(words.map(w => w.term)).toEqual(['alacrity']);
+        expect(droppedWords).toBe(2);
+    });
+
+    test('🔴 단어+뜻(문자 체계가 갈림)은 세지 않는다 — 정상 CSV 에 헛경고 금지', () => {
+        expect(parseImportedTextWithStats('apple, 사과', 'en').droppedWords).toBe(0);
+        expect(parseImportedTextWithStats('apple\t사과', 'en').droppedWords).toBe(0);
+        expect(parseImportedTextWithStats('apple - 사과', 'en').droppedWords).toBe(0);
+        // 출발어가 라틴이 아니어도 갈린다 — 가나 vs 한글
+        expect(parseImportedTextWithStats('りんご, 사과', 'ja').droppedWords).toBe(0);
+        // 배우는 언어가 한국어면 반대 방향도 뜻이다
+        expect(parseImportedTextWithStats('사과, apple', 'ko').droppedWords).toBe(0);
+    });
+
+    test('여러 줄이면 줄마다 더한다', () => {
+        const { words, droppedWords } = parseImportedTextWithStats('alacrity, ebullient\nwinsome, zephyr, quiddity', 'en');
+        expect(words.map(w => w.term)).toEqual(['alacrity', 'winsome']);
+        expect(droppedWords).toBe(3);
+    });
+
+    test('구분자가 없으면 0', () => {
+        expect(parseImportedTextWithStats('apple\nbanana\ncherry', 'en').droppedWords).toBe(0);
+    });
+
+    test('숫자·기호만인 토큰은 단어로 세지 않는다', () => {
+        expect(parseImportedTextWithStats('apple, 3, !!!', 'en').droppedWords).toBe(0);
+    });
+
+    test('parseImportedText 는 그대로 단어 배열만 돌려준다(기존 호출부 보호)', () => {
+        expect(parseImportedText('alacrity, ebullient').map(w => w.term)).toEqual(['alacrity']);
     });
 });

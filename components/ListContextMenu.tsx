@@ -82,7 +82,13 @@ export default function ListContextMenu({
   const [mergeTargetId, setMergeTargetId] = useState<string | null>(null);
   const [mergeSourceList, setMergeSourceList] = useState<VocaList | null>(null);
 
-  const POPUP_WIDTH = 192;
+  // 🔴 192 에서는 「뜻만 있는 단어 채우기」가 **낱말 한가운데**(채우/기)에서 갈렸다.
+  //    항목 폭은 192 − 패딩 28 − 아이콘 16 − gap 20 − 개수 ≈ 112px 인데 그 문구는 약
+  //    148px 이다. 개수를 함께 놓는 항목이 생기면서 처음으로 모자랐다.
+  //    ⚠️ 폭만으로는 못 덮는다 — 같은 문구가 en 30자 · es 39자다(≈216 · 281px). 그래서
+  //    넓히는 것은 **한국어를 한 줄로 만들기 위한 것**이고, 넘치는 언어는 아래
+  //    numberOfLines={2} + 어절 단위 줄바꿈으로 받는다.
+  const POPUP_WIDTH = 240;
   const POPUP_ESTIMATED_HEIGHT = 340;
   const popupLeft = menuPos
     ? Math.max(8, Math.min(menuPos.x + menuPos.width - POPUP_WIDTH, screenWidth - POPUP_WIDTH - 8))
@@ -339,10 +345,18 @@ export default function ListContextMenu({
             <Ionicons name="sparkles-outline" size={16} color={colors.primary} />
             {/* 이름은 배너·시트와 **같은 낱말**이라야 세 자리가 한 기능으로 이어진다.
                 오른쪽 개수는 배너를 닫은 사람에게 남은 양을 알리는 유일한 자리다. */}
-            <Text style={[styles.menuItemText, { color: colors.primary, flex: 1 }]}>
+            <Text
+              style={[styles.menuItemText, { color: colors.primary, flex: 1 }]}
+              numberOfLines={2}
+              // 한국어는 기본 줄바꿈이 **글자 단위**라 '채우/기'로 갈린다. 두 속성 모두
+              // 플랫폼 하나씩만 듣는다(iOS·Android) — 한쪽만 주면 다른 쪽에서 그대로다.
+              lineBreakStrategyIOS="hangul-word"
+              textBreakStrategy="balanced"
+            >
               {t('bareWords.menuItem')}
             </Text>
-            <Text style={[styles.menuItemText, { color: colors.textSecondary }]}>{bareCount}</Text>
+            {/* 개수는 줄어들지 않는다 — 여기가 눌리면 남은 양을 알 유일한 자리다. */}
+            <Text style={[styles.menuItemText, { color: colors.textSecondary, flexShrink: 0 }]}>{bareCount}</Text>
           </Pressable>
         )}
 

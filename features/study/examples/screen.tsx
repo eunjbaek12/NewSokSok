@@ -25,7 +25,7 @@ import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
-import { BareWordsBanner, BareWordsSheet } from '@/features/bare-words';
+import { BareWordsBanner, BareWordsSheet, FillChip } from '@/features/bare-words';
 import { useExampleFill } from './useExampleFill';
 import {
   SENTENCE_SIZES,
@@ -135,7 +135,6 @@ export default function ExamplesScreen() {
    */
   const [poolIds, setPoolIds] = useState<ReadonlySet<string>>(() => new Set());
   /** 「전체」 묶음의 크기 — 세션을 열 때 굳힌다(아래 batchSizeNum 주석). */
-  const [allBatchSize, setAllBatchSize] = useState(0);
 
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -234,9 +233,6 @@ export default function ExamplesScreen() {
       // AI 로 돌렸고, 그 한 번의 탭이 하루치 한도를 넘겼다(Free 50단어/일). 이제는 배너로
       // 알리고 사용자가 누른 뒤에만 채운다(useExampleFill).
       setPoolIds(new Set(all.map(w => w.id)));
-      // 「전체」 묶음은 시작 시점의 크기로 굳힌다 — 채우기로 단어가 늘어도 지금 묶음이
-      // 커지면 안 된다(스펙 §6).
-      setAllBatchSize(ready.length);
     } else {
       setStudyWords(prev => {
         const newMap = new Map(all.map(w => [w.id, w]));
@@ -246,12 +242,22 @@ export default function ExamplesScreen() {
   }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, studySettings.studyBatchSize]);
 
   /**
-   * 🔴 「전체」를 `studyWords.length` 로 그때그때 재면 안 된다. 채우기로 단어가 늘 때마다
-   * 묶음 크기가 따라 늘어 **지금 묶음 한가운데서 남은 문항 수가 바뀐다**(3/8 이 3/20 이 된다).
-   * 세션을 열 때 굳혀 두면 늘어난 단어는 다음 묶음이 된다.
+   * 「전체」는 말 그대로 전부다 — **굳히지 않는다.**
+   *
+   * 한때 세션 시작 시점 수로 굳혀 두었다. 이유는 «채우기로 단어가 늘면 묶음 한가운데서 남은
+   * 문항 수가 바뀐다(3/8 이 3/20 이 된다)»였는데, 🔑 **합류를 묶음 경계로 옮기면서 그 일은
+   * 일어날 수 없게 됐다** — `setStudyWords` 를 부르는 다섯 자리를 다 보면 개수가 느는 것은
+   * 세션 시작·상태 B 첫 개방·묶음 경계의 `flushJoin` 뿐이고, 묶음 도중은 하나도 없다.
+   *
+   * 그래서 고정이 지금 하는 일은 원래 막으려던 것이 아니라 **원치 않은 세트 경계를 만드는 것**
+   * 뿐이었다: 예문 8개로 시작해 12개를 채우면, 끊어 달라고 한 적 없는 사람에게 8문항 뒤
+   * 「수고하셨습니다 / 다음 세트」가 떴다. 거기서 [학습 종료하기]를 누르면 방금 채운 12개가
+   * 통째로 빠진다 — 스펙 §6 이 막으려던 손해를 사용자 손으로 내는 셈이다.
+   *
+   * 🔑 묶음 크기를 **숫자로 정한 사람은 그대로다.** 그 경계는 그 사람이 원한 것이다.
    */
   const batchSizeNum = studySettings.studyBatchSize === 'all'
-    ? (allBatchSize || studyWords.length || 1)
+    ? (studyWords.length || 1)
     : studySettings.studyBatchSize;
   const currentBatchWords = React.useMemo(() => {
     if (studyWords.length === 0) return [];
@@ -374,8 +380,7 @@ export default function ExamplesScreen() {
   useEffect(() => {
     if (studyWords.length > 0 || joinable.length === 0 || fillUi.running) return;
     setStudyWords(joinable);
-    if (studySettings.studyBatchSize === 'all') setAllBatchSize(joinable.length);
-  }, [studyWords.length, joinable, fillUi.running, studySettings.studyBatchSize]);
+  }, [studyWords.length, joinable, fillUi.running]);
 
   /**
    * 채운 단어를 학습에 합류시킨다 — **묶음이 끝나는 순간에만**(스펙 §6).
@@ -472,7 +477,16 @@ export default function ExamplesScreen() {
           // 채운 단어는 **묶음이 끝나는 이 순간에만** 합류한다(스펙 §6).
           const joined = flushJoin();
           const total = studyWords.length + joined;
-          const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+          /*
+           * 🔑 **「전체」면 채운 단어가 지금 묶음에 그대로 붙는다** — 경계를 만들지 않는다.
+           *
+           * `batchSizeNum` 은 이 콜백이 잡힐 때의 값(늘기 전 8)이라 그대로 쓰면 8에서 세트가
+           * 끊긴다. 「전체」는 «끊지 말라»는 뜻이므로 합류분까지 더한 수를 묶음 크기로 본다:
+           * 8번째를 풀면 멈춤 없이 9번째가 나오고 진도만 8/8 → 9/20 이 된다.
+           * 숫자로 정한 묶음은 그대로 끊는다 — 그 경계는 사용자가 원한 것이다.
+           */
+          const size = studySettings.studyBatchSize === 'all' ? total : batchSizeNum;
+          const nextStart = (currentBatchIndex + 1) * size;
           // 🔴 합류로 **지금 묶음이 늘어났으면 끝이 아니다.** 예문 있는 단어 8개로 시작한
           // 세션(묶음 크기 20)에 12개가 붙으면 그것은 다음 묶음이 아니라 이 묶음의 9번째
           // 문항이다 — 여기서 세션을 끝내면 방금 채운 12개가 이번 세션에서 통째로 빠지고,
@@ -492,9 +506,25 @@ export default function ExamplesScreen() {
     }, isCorrect ? ADVANCE_DELAY_CORRECT_MS : ADVANCE_DELAY_WRONG_MS);
     return () => clearTimeout(timer);
     // isCorrect가 지연 시간을 정하므로 의존성에 있어야 한다 — 빠지면 이전 카드의 정오답으로 타이머가 잡힌다.
-  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers, advanceHeld, flushJoin]);
+  }, [selectedAnswer, isNewAnswer, isCorrect, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studySettings.studyBatchSize, studyWords.length, batchAnswers, advanceHeld, flushJoin]);
 
+  /**
+   * 문항이 바뀔 때 화면을 원래대로 되돌린다.
+   *
+   * 🔑 채우기 배너·결과도 **여기서** 거둔다. 이 자리가 글자 크기 초기화 자리라, 배너가 사라져
+   * 칸이 커지는 것과 글자가 커지는 것이 한 프레임에 맞는다 — 타이머로 거두면 문항 도중에
+   * 칸만 커지고 글자는 작은 채 남는다(단계는 단조 증가라 스스로 되돌아오지 않는다).
+   * 🔴 첫 실행은 건너뛴다. 마운트 때도 이 effect 가 도는데 거기서 접으면 **권유 배너를 한 번도
+   * 못 보고** 곧장 칩이 된다.
+   */
+  const { collapseBanner, clearResult } = fillUi;
+  const questionSettled = useRef(false);
   useEffect(() => {
+    if (questionSettled.current) {
+      collapseBanner();
+      clearResult();
+    }
+    questionSettled.current = true;
     setShowHint(false);
     // 다음 문장은 짧을 수 있으므로 크기도 원래대로 되돌린다. 안 되돌리면 한 번 긴 문장을
     // 만난 뒤 세션 내내 작은 글자로 남는다.
@@ -506,7 +536,7 @@ export default function ExamplesScreen() {
     contentHeight.current = 0;
     // 앞 문항에서 밀어 두었다고 이번 문항까지 자동 넘김을 멈출 이유는 없다.
     setAdvanceHeld(false);
-  }, [currentIndex, currentBatchIndex]);
+  }, [currentIndex, currentBatchIndex, collapseBanner, clearResult]);
 
   const sentenceSize = SENTENCE_SIZES[currentStep(sentenceSteps, showHint)];
 
@@ -631,6 +661,27 @@ export default function ExamplesScreen() {
   if (studyWords.length === 0) {
     const canFill = fillUi.targets.length > 0;
     const unblankable = !canFill && poolWords.length > 0 && poolWords.every(w => !!w.exampleEn);
+    /*
+     * 🔴 **채우는 동안 이 블록은 대상 수를 읽으면 안 되고, 채우기 버튼을 내면 안 된다.**
+     *
+     * 이 갈래는 fillUi.running 을 보지 않아 배너만 진행 얼굴로 바뀌고 아래는 그대로였다.
+     * 셋이 한꺼번에 어긋났다:
+     *
+     *   ① [N개 채우기] 가 그대로 서 있는데 눌러도 **아무 일이 없다** — 시트가 열리고
+     *      그 버튼은 useBareFill 의 재진입 가드(abortRef)에 걸려 조용히 return 한다.
+     *   ② 그 시트의 [채울 단어 고르기] 로 갔다 오면 takePendingFill 이 선택을 읽으면서
+     *      비우고, 이어지는 fill() 이 같은 가드에 걸려 **고른 것이 통째로 증발한다.**
+     *      채우는 중에 시트로 들어가는 문은 이 버튼 하나뿐이라 여기서 같이 닫힌다.
+     *   ③ 숫자가 서로 반대로 움직인다 — 배너는 1/7→2/7 로 올라가는데 제목·설명·버튼은
+     *      targets 파생이라 7→6→5 로 내려갔다. 마지막 저장이 도착하고 running 이 내려가기
+     *      전 한 프레임에는 canFill 이 false 라 「빈칸을 만들 수 없어요」가 번쩍이기까지 했다.
+     *
+     * 그래서 진행 중에는 **숫자를 배너 한 곳에서만 세고**(고정 문구), 행동은 배너의 [중단]
+     * 하나만 남긴다. 결과 얼굴(중단·한도·못 찾음)에서는 버튼을 그대로 둔다 — 결과 배너는
+     * 8초 뒤 스스로 사라지고 이 갈래는 권유 배너를 내지 않으므로(idleBanner: false),
+     * 그때는 이 버튼이 채우기로 가는 유일한 길이다.
+     */
+    const filling = fillUi.running;
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center', padding: 24 }]}>
         {/* 채우는 중·채운 뒤의 배너는 여기서도 나온다 — 눌렀는데 화면이 아무 말도 안 하면 안 된다. */}
@@ -641,22 +692,26 @@ export default function ExamplesScreen() {
         )}
         <Ionicons name="document-text-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
         <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>
-          {canFill ? t('examples.noReadyTitle') : unblankable ? t('examples.noBlankableTitle') : t('examples.noExamples')}
+          {filling ? t('examples.fillingTitle')
+            : canFill ? t('examples.noReadyTitle')
+            : unblankable ? t('examples.noBlankableTitle') : t('examples.noExamples')}
         </Text>
         <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 16 }}>
-          {canFill
-            ? t('examples.noReadyDesc', { count: fillUi.targets.length })
+          {filling ? t('examples.fillingDesc')
+            : canFill ? t('examples.noReadyDesc', { count: fillUi.targets.length })
             : unblankable ? t('examples.noBlankableDesc') : t('examples.noExamplesDesc')}
         </Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
-          <Pressable
-            onPress={canFill ? fillUi.openSheet : () => setSettingsVisible(true)}
-            style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
-          >
-            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>
-              {canFill ? t('bareWords.fillCount', { count: fillUi.targets.length }) : t('common.settingsChange')}
-            </Text>
-          </Pressable>
+          {!filling && (
+            <Pressable
+              onPress={canFill ? fillUi.openSheet : () => setSettingsVisible(true)}
+              style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+            >
+              <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>
+                {canFill ? t('bareWords.fillCount', { count: fillUi.targets.length }) : t('common.settingsChange')}
+              </Text>
+            </Pressable>
+          )}
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
@@ -715,10 +770,16 @@ export default function ExamplesScreen() {
           <Text style={[styles.progressText, { color: colors.textTertiary }]}>
             {currentIndex + 1} / {currentBatchWords.length}
           </Text>
+          {/*
+            🔑 채우기 상태는 **이미 있는 이 줄 안에서** 말한다 — 줄 높이가 안 바뀌므로 카드는
+            1dp도 내주지 않는다. 배너로 두면 어느 얼굴이든 문장 칸을 143 → 51dp 바닥으로
+            떨어뜨린다(chip.ts 머리말). 긴 말은 눌러서 시트에서 본다.
+          */}
+          {!!fillUi.chip && <FillChip chip={fillUi.chip} onPress={fillUi.openSheet} />}
         </View>
 
-        {/* 예문 없는 단어 안내·진행·결과. 얼굴은 face.ts 가 고르고 여기서는 자리만 준다. */}
-        {fillUi.showBanner && <BareWordsBanner {...fillUi.bannerProps} />}
+        {/* 권유 배너는 **세션의 첫 문항 동안만**. 그 뒤 얼굴은 전부 위의 칩이 진다. */}
+        {fillUi.showIntroBanner && <BareWordsBanner {...fillUi.bannerProps} />}
       </View>
 
       <View style={styles.body}>

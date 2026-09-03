@@ -21,7 +21,7 @@ import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
 import { senseChipLabel, CIRCLED_NUMBERS } from '@/lib/senses';
 import { formatBaseFormLine } from '@/lib/inflection';
-import type { HeadwordDefect } from '@/utils/headword-guard';
+import { isForeignScriptFor, type HeadwordDefect } from '@/utils/headword-guard';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
 let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
@@ -1620,7 +1620,11 @@ export default function AddWordScreen() {
                                                     <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
                                                         <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
                                                         <Text style={[styles.notFoundBannerText, { color: colors.warning }]}>
-                                                            {notFoundDefect === 'script_mix'
+                                                            {/* 게이트가 잡은 script_mix 와, 게이트는 통과했지만 배우는 언어와
+                                                                문자 체계가 어긋난 경우를 같은 문구로 묶는다 — 둘 다 원인이
+                                                                철자가 아니라 언어 설정이다. 후자는 서버가 404 로만 알려 와
+                                                                여태 "철자를 확인하세요"로 나갔다. */}
+                                                            {notFoundDefect === 'script_mix' || (!notFoundDefect && isForeignScriptFor(notFoundTerm, sourceLang))
                                                                 ? t('addWord.headwordScriptMix', { term: notFoundTerm })
                                                                 : notFoundDefect
                                                                     ? t('addWord.headwordMalformed', { term: notFoundTerm })

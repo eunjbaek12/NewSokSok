@@ -1030,6 +1030,10 @@
     "preservedDiscard": "지우고 게스트 시작"
   },
   "plan": {
+    "prevDay": "이전 Day",
+    "nextDay": "다음 Day",
+    "decreaseDaily": "하루 분량 줄이기",
+    "increaseDaily": "하루 분량 늘리기",
     "title": "학습 계획",
     "studyInProgress": "학습 진행 중",
     "daysRemaining": "{{remaining}}일 남음 · 총 {{totalDays}}일 계획",
@@ -1077,6 +1081,12 @@
     "planDesc": "선택한 {{count}}개 단어를 하루 학습량에 맞게 나눕니다."
   },
   "list": {
+    "starOn": "별표 하기",
+    "starOff": "별표 지우기",
+    "markMemorized": "외운 단어로 표시",
+    "markUnmemorized": "안 외운 단어로 표시",
+    "filterStarred": "별표 단어만 보기",
+    "endEdit": "편집 끝내기",
     "renameTitle": "단어장 이름 변경",
     "deleteWordsConfirm": "선택한 {{count}}개의 단어를 삭제하시겠습니까?",
     "wordsDeleted": "{{count}}개의 단어가 삭제되었습니다.",
@@ -1300,6 +1310,7 @@
     "continue": "계속하기"
   },
   "flashcards": {
+    "flip": "카드 뒤집기",
     "title": "카드 학습",
     "tapToReveal": "탭하여 뜻 보기",
     "meaningHidden": "[뜻 숨김]",
@@ -1344,6 +1355,8 @@
     "hintLabel": "뜻: {{meaning}}"
   },
   "autoplay": {
+    "play": "재생",
+    "pause": "일시정지",
     "title": "자동재생",
     "noWords": "재생할 단어가 없습니다.",
     "complete": "완료!",

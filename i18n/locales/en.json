@@ -1030,6 +1030,10 @@
     "preservedDiscard": "Erase and continue as guest"
   },
   "plan": {
+    "prevDay": "Previous day",
+    "nextDay": "Next day",
+    "decreaseDaily": "Decrease daily amount",
+    "increaseDaily": "Increase daily amount",
     "title": "Study Plan",
     "studyInProgress": "Study in Progress",
     "daysRemaining": "{{remaining}} days left · {{totalDays}}-day plan",
@@ -1077,6 +1081,12 @@
     "planDesc": "Divide {{count}} selected words into daily portions."
   },
   "list": {
+    "starOn": "Add star",
+    "starOff": "Remove star",
+    "markMemorized": "Mark as memorized",
+    "markUnmemorized": "Mark as not memorized",
+    "filterStarred": "Show starred only",
+    "endEdit": "Exit edit mode",
     "renameTitle": "Rename List",
     "deleteWordsConfirm": "Delete {{count}} selected words?",
     "wordsDeleted": "{{count}} words deleted.",
@@ -1300,6 +1310,7 @@
     "continue": "Continue"
   },
   "flashcards": {
+    "flip": "Flip card",
     "title": "Flashcards",
     "tapToReveal": "Tap to reveal meaning",
     "meaningHidden": "[Meaning hidden]",
@@ -1344,6 +1355,8 @@
     "hintLabel": "Meaning: {{meaning}}"
   },
   "autoplay": {
+    "play": "Play",
+    "pause": "Pause",
     "title": "Autoplay",
     "noWords": "No words to play.",
     "complete": "Done!",

@@ -612,6 +612,10 @@
     "preservedDiscard": "Borrar y continuar como invitado"
   },
   "plan": {
+    "prevDay": "Día anterior",
+    "nextDay": "Día siguiente",
+    "decreaseDaily": "Reducir la cantidad diaria",
+    "increaseDaily": "Aumentar la cantidad diaria",
     "title": "Plan de estudio",
     "studyInProgress": "Estudio en curso",
     "daysRemaining": "{{remaining}} días restantes · Plan de {{totalDays}} días",
@@ -659,6 +663,12 @@
     "planDesc": "Dividir las {{count}} palabras seleccionadas en porciones diarias."
   },
   "list": {
+    "starOn": "Añadir estrella",
+    "starOff": "Quitar estrella",
+    "markMemorized": "Marcar como memorizada",
+    "markUnmemorized": "Marcar como no memorizada",
+    "filterStarred": "Ver solo las marcadas",
+    "endEdit": "Salir del modo de edición",
     "renameTitle": "Cambiar nombre de la lista",
     "deleteWordsConfirm": "¿Quieres eliminar {{count}} palabras seleccionadas?",
     "wordsDeleted": "Se eliminaron {{count}} palabras.",
@@ -882,6 +892,7 @@
     "continue": "Continuar"
   },
   "flashcards": {
+    "flip": "Girar la tarjeta",
     "title": "Tarjetas de estudio",
     "tapToReveal": "Toca para ver el significado",
     "meaningHidden": "[Significado oculto]",
@@ -926,6 +937,8 @@
     "hintLabel": "Significado: {{meaning}}"
   },
   "autoplay": {
+    "play": "Reproducir",
+    "pause": "Pausar",
     "title": "Reproducción automática",
     "noWords": "No hay palabras para reproducir.",
     "complete": "¡Completado!",

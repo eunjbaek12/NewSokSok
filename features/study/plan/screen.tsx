@@ -410,6 +410,8 @@ export default function PlanScreen() {
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top + 8 }]}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('common.back')}
           onPress={() => router.back()}
           style={({ pressed }) => [styles.backBtn, { opacity: pressed ? 0.6 : 1 }]}
           hitSlop={8}
@@ -424,6 +426,8 @@ export default function PlanScreen() {
         </View>
         {planStatus !== 'none' && (
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('plan.resetPlan')}
             onPress={handleOpenSetup}
             style={({ pressed }) => [styles.resetBtn, { opacity: pressed ? 0.6 : 1 }]}
             hitSlop={8}
@@ -471,6 +475,8 @@ export default function PlanScreen() {
       {hasDays && (
         <View style={[styles.dayNavRow, { borderBottomColor: colors.borderLight }]}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('plan.prevDay')}
             onPress={goToPrevDay}
             disabled={currentDayIndex <= 0}
             style={({ pressed }) => [
@@ -492,6 +498,8 @@ export default function PlanScreen() {
             </Text>
           </View>
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('plan.nextDay')}
             onPress={goToNextDay}
             disabled={currentDayIndex >= allDays.length - 1}
             style={({ pressed }) => [
@@ -681,6 +689,8 @@ export default function PlanScreen() {
               <Text style={[styles.inputLabel, { color: colors.textSecondary }]}>{t('plan.dailyAmount')}</Text>
               <View style={styles.stepperControls}>
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={t('plan.decreaseDaily')}
                   onPress={handleDecrement}
                   style={({ pressed }) => [styles.stepperBtn, { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.7 : 1 }]}
                   hitSlop={8}
@@ -697,6 +707,8 @@ export default function PlanScreen() {
                   selectTextOnFocus
                 />
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={t('plan.increaseDaily')}
                   onPress={handleIncrement}
                   style={({ pressed }) => [styles.stepperBtn, { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.7 : 1 }]}
                   hitSlop={8}

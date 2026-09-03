@@ -286,7 +286,7 @@ export default function QuizScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
-          <Pressable onPress={handleClose} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={handleClose} hitSlop={12}>
             <Ionicons name="chevron-back" size={24} color={colors.text} />
           </Pressable>
 
@@ -296,7 +296,7 @@ export default function QuizScreen() {
             </Text>
           </View>
 
-          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('studySettings.quizSettings')} onPress={() => setSettingsVisible(true)} hitSlop={12}>
             <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
           </Pressable>
         </View>
@@ -322,7 +322,7 @@ export default function QuizScreen() {
       <View style={styles.body}>
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
-            <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t(currentWord.isStarred ? 'list.starOff' : 'list.starOn')} onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
               <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
 

@@ -60,7 +60,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
       },
       frontStyle
     ]}>
-      <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
+      <Pressable accessibilityRole="button" accessibilityLabel={t(word.isStarred ? 'list.starOff' : 'list.starOn')} onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
         <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? colors.starGold : colors.textTertiary} />
       </Pressable>
 
@@ -113,7 +113,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       },
       backStyle
     ]}>
-      <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
+      <Pressable accessibilityRole="button" accessibilityLabel={t(word.isStarred ? 'list.starOff' : 'list.starOn')} onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
         <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? colors.starGold : colors.textTertiary} />
       </Pressable>
 
@@ -545,7 +545,7 @@ export default function FlashcardsScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
-          <Pressable onPress={handleClose} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={handleClose} hitSlop={12}>
             <Ionicons name="chevron-back" size={24} color={colors.text} />
           </Pressable>
 
@@ -555,7 +555,7 @@ export default function FlashcardsScreen() {
             </Text>
           </View>
 
-          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('studySettings.flashcardsSettings')} onPress={() => setSettingsVisible(true)} hitSlop={12}>
             <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
           </Pressable>
         </View>

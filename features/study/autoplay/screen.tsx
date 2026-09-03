@@ -323,7 +323,7 @@ export default function AutoPlayScreen() {
             {/* Header */}
             <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
                 <View style={styles.headerRow}>
-                    <Pressable onPress={handleClose} hitSlop={12}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={handleClose} hitSlop={12}>
                         <Ionicons name="chevron-back" size={24} color={colors.text} />
                     </Pressable>
 
@@ -333,7 +333,7 @@ export default function AutoPlayScreen() {
                         </Text>
                     </View>
 
-                    <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={t('studySettings.autoplaySettings')} onPress={() => setSettingsVisible(true)} hitSlop={12}>
                         <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                     </Pressable>
                 </View>
@@ -388,6 +388,8 @@ export default function AutoPlayScreen() {
                 <Animated.View style={[styles.cardContainer, cardStyle]}>
                     <Pressable onPress={handleCardClick} style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
                         <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t(currentWord.isStarred ? 'list.starOff' : 'list.starOn')}
                             onPress={(e) => { e.stopPropagation(); handleToggleStar(currentWord.id); }}
                             hitSlop={12}
                             style={styles.starBtn}
@@ -461,7 +463,7 @@ export default function AutoPlayScreen() {
 
             {/* Controls */}
             <View style={[styles.controlsArea, { paddingBottom: insets.bottom + (adsBottomInset || 40) }]}>
-                <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
+                <Pressable accessibilityRole="button" accessibilityLabel={t('common.previous')} onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
                     <Ionicons
                         name="play-skip-back"
                         size={24}
@@ -480,6 +482,8 @@ export default function AutoPlayScreen() {
                         bgColor={colors.surfaceSecondary}
                     >
                         <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t(isPlaying ? 'autoplay.pause' : 'autoplay.play')}
                             onPress={togglePlayPause}
                             style={[styles.playPauseBtn, { backgroundColor: colors.primaryButton, shadowColor: colors.shadow }]}
                             hitSlop={12}
@@ -497,7 +501,7 @@ export default function AutoPlayScreen() {
                     </Text>
                 </View>
 
-                <Pressable onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
+                <Pressable accessibilityRole="button" accessibilityLabel={t('common.next')} onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
                     <Ionicons
                         name="play-skip-forward"
                         size={24}

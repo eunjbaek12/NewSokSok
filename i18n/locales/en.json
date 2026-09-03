@@ -21,6 +21,9 @@
     }
   },
   "common": {
+    "clearInput": "Clear input",
+    "select": "Select",
+    "deselect": "Deselect",
     "close": "Close",
     "search": "Search",
     "scrollToTop": "Scroll to top",
@@ -172,6 +175,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "Compact view",
+    "viewDetailed": "Detailed view",
     "catalogLoadFailed": "Couldn't load the curation list.",
     "deckLoadFailed": "Couldn't load the words.",
     "needsConnection": "Connect to the internet and try again.",
@@ -1471,6 +1476,9 @@
     "exportSavedMessage": "Saved {{name}} to the folder you chose."
   },
   "manage": {
+    "show": "Show list",
+    "hide": "Hide list",
+    "rename": "Rename",
     "title": "Manage Vocab Lists",
     "newListPlaceholder": "New list name",
     "newLabel": "New",

@@ -21,6 +21,9 @@
     }
   },
   "common": {
+    "clearInput": "입력 지우기",
+    "select": "선택",
+    "deselect": "선택 해제",
     "close": "닫기",
     "search": "검색",
     "scrollToTop": "맨 위로",
@@ -172,6 +175,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "간단히 보기",
+    "viewDetailed": "자세히 보기",
     "catalogLoadFailed": "큐레이션 목록을 불러오지 못했어요.",
     "deckLoadFailed": "단어를 불러오지 못했어요.",
     "needsConnection": "인터넷에 연결한 뒤 다시 시도해 주세요.",
@@ -1471,6 +1476,9 @@
     "exportSavedMessage": "{{name}} 파일을 선택한 폴더에 저장했어요."
   },
   "manage": {
+    "show": "단어장 보이기",
+    "hide": "단어장 숨기기",
+    "rename": "이름 바꾸기",
     "title": "나의 단어장 관리",
     "newListPlaceholder": "새로운 단어장 이름",
     "newLabel": "새로운",

@@ -138,7 +138,7 @@ function ManageRowItem({
       )}
 
       <View style={styles.manageRowActions}>
-        <Pressable onPress={() => onToggleVisibility(ml.id, ml.isVisible)} hitSlop={6}>
+        <Pressable accessibilityRole="button" accessibilityLabel={`${ml.title} ${t(ml.isVisible ? 'manage.hide' : 'manage.show')}`} onPress={() => onToggleVisibility(ml.id, ml.isVisible)} hitSlop={6}>
           <Ionicons
             name={ml.isVisible ? 'eye-outline' : 'eye-off-outline'}
             size={18}
@@ -146,11 +146,11 @@ function ManageRowItem({
           />
         </Pressable>
         {editingId !== ml.id && (
-          <Pressable onPress={() => onStartRename(ml.id, ml.title)} hitSlop={6}>
+          <Pressable accessibilityRole="button" accessibilityLabel={`${ml.title} ${t('manage.rename')}`} onPress={() => onStartRename(ml.id, ml.title)} hitSlop={6}>
             <Ionicons name="pencil-outline" size={18} color={colors.textSecondary} />
           </Pressable>
         )}
-        <Pressable onPress={() => onDelete(ml.id, ml.isNew)} hitSlop={6}>
+        <Pressable accessibilityRole="button" accessibilityLabel={`${ml.title} ${t('common.delete')}`} onPress={() => onDelete(ml.id, ml.isNew)} hitSlop={6}>
           <Ionicons name="trash-outline" size={18} color={colors.error} />
         </Pressable>
       </View>
@@ -388,6 +388,8 @@ export default function ManageModal({
               returnKeyType="done"
             />
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('vocabLists.createList')}
               onPress={handleManageAdd}
               disabled={!newListName.trim()}
               style={[styles.manageAddBtn, { backgroundColor: newListName.trim() ? colors.primaryButton : colors.surfaceSecondary }]}

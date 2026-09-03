@@ -261,6 +261,8 @@ export default function SearchModalScreen() {
             >
                 {/* 별표 — 표시가 아니라 토글이다. 조건으로 골라낸 자리에서 바로 정리할 수 있어야 한다. */}
                 <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`${w.term} ${t(w.isStarred ? 'list.starOff' : 'list.starOn')}`}
                     onPress={() => { Haptics.selectionAsync(); toggleStarred(item.listId, w.id); }}
                     hitSlop={12}
                     style={styles.rowIconBtn}
@@ -309,6 +311,8 @@ export default function SearchModalScreen() {
                         stopPropagation
                     />
                     <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel={`${w.term} ${t(w.isMemorized ? 'list.markUnmemorized' : 'list.markMemorized')}`}
                         onPress={() => { Haptics.selectionAsync(); toggleMemorized(item.listId, w.id); }}
                         hitSlop={12}
                         style={styles.rowIconBtn}
@@ -454,7 +458,7 @@ export default function SearchModalScreen() {
                      * 우측 40 스페이서가 제목을 시각적 가운데로 민다.
                      */
                     <View style={styles.titleRow}>
-                        <Pressable onPress={() => router.back()} hitSlop={12} style={styles.headerBtn}>
+                        <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={() => router.back()} hitSlop={12} style={styles.headerBtn}>
                             <Ionicons name="close" size={26} color={colors.text} />
                         </Pressable>
                         <Text style={[styles.screenTitle, { color: colors.text }]} numberOfLines={1}>
@@ -478,7 +482,7 @@ export default function SearchModalScreen() {
                                 returnKeyType="search"
                             />
                             {query.length > 0 && (
-                                <Pressable onPress={() => setQuery('')} hitSlop={10}>
+                                <Pressable accessibilityRole="button" accessibilityLabel={t('common.clearInput')} onPress={() => setQuery('')} hitSlop={10}>
                                     <Ionicons name="close-circle" size={17} color={colors.textTertiary} />
                                 </Pressable>
                             )}

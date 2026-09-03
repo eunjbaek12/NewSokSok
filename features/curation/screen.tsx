@@ -1124,11 +1124,13 @@ export default function CurationScreen() {
                         scrollEventThrottle={16}
                     >
                         <View style={[styles.detailHero, { backgroundColor: colors.surfaceSecondary, paddingTop: topInset + 16 }]}>
-                            <Pressable onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
+                            <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
                                 <Ionicons name="arrow-back" size={24} color={colors.text} />
                             </Pressable>
                             {activeTab === 'community' && canDeleteCuration(selectedTheme) && (
                                 <Pressable
+                                    accessibilityRole="button"
+                                    accessibilityLabel={t('curation.deleteConfirmTitle')}
                                     onPress={() => handleDeleteCuration(selectedTheme)}
                                     style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
                                     hitSlop={8}
@@ -1138,6 +1140,8 @@ export default function CurationScreen() {
                             )}
                             {activeTab === 'community' && canReportCuration(selectedTheme) && (
                                 <Pressable
+                                    accessibilityRole="button"
+                                    accessibilityLabel={t('curation.report.title')}
                                     onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); setReportModalTheme(selectedTheme); }}
                                     style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
                                     hitSlop={8}
@@ -1197,7 +1201,7 @@ export default function CurationScreen() {
                                     {t('curation.selectedCount', { selected: selectedCount, total: totalCount })}
                                 </Text>
                                 <View style={{ paddingRight: 16 }}>
-                                    <Pressable onPress={toggleSelectAll} hitSlop={8}>
+                                    <Pressable accessibilityRole="button" accessibilityLabel={t(allSelected ? 'curation.deselectAll' : 'curation.selectAll')} onPress={toggleSelectAll} hitSlop={8}>
                                         <Ionicons
                                             name={allSelected ? 'checkbox' : selectedCount > 0 ? 'checkbox-outline' : 'square-outline'}
                                             size={24}
@@ -1256,6 +1260,9 @@ export default function CurationScreen() {
                                                 ) : null}
                                             </View>
                                             <Pressable
+                                                accessibilityRole="checkbox"
+                                                accessibilityState={{ checked: isSelected }}
+                                                accessibilityLabel={w.term}
                                                 onPress={(e) => { e.stopPropagation(); Haptics.selectionAsync(); toggleWordSelection(i); }}
                                                 hitSlop={8}
                                                 style={styles.checkboxHit}
@@ -1353,6 +1360,8 @@ export default function CurationScreen() {
                         pointerEvents="box-none"
                     >
                         <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t('common.scrollToTop')}
                             onPress={() => { detailScrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
                             style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', shadowColor: colors.shadow, opacity: pressed ? 0.7 : 1 }]}
                         >
@@ -1373,7 +1382,7 @@ export default function CurationScreen() {
                             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={2}>{dailyTip}</Text>
                         </View>
-                        <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
+                        <Pressable accessibilityRole="button" accessibilityLabel={t(viewMode === 'detailed' ? 'curation.viewCompact' : 'curation.viewDetailed')} onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
                             <Ionicons name={viewMode === 'detailed' ? 'reorder-three-outline' : 'reader-outline'} size={22} color={colors.textSecondary} />
                         </Pressable>
                     </View>
@@ -1390,7 +1399,7 @@ export default function CurationScreen() {
                                     style={[styles.searchInput, { color: colors.text }]}
                                 />
                                 {searchQuery.length > 0 && (
-                                    <Pressable onPress={() => setSearchQuery('')}>
+                                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.clearInput')} onPress={() => setSearchQuery('')}>
                                         <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
                                     </Pressable>
                                 )}
@@ -1502,6 +1511,8 @@ export default function CurationScreen() {
                                                 )}
                                                 {canDelete && (
                                                     <Pressable
+                                                        accessibilityRole="button"
+                                                        accessibilityLabel={`${theme.title} ${t('curation.deleteConfirmTitle')}`}
                                                         onPress={(e) => { e.stopPropagation(); handleDeleteCuration(theme); }}
                                                         hitSlop={8}
                                                         style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, padding: 2 })}
@@ -1663,6 +1674,8 @@ export default function CurationScreen() {
                         pointerEvents="box-none"
                     >
                         <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t('common.scrollToTop')}
                             onPress={() => { scrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
                             style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', shadowColor: colors.shadow, opacity: pressed ? 0.7 : 1 }]}
                         >

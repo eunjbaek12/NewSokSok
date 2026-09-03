@@ -21,6 +21,9 @@
     }
   },
   "common": {
+    "clearInput": "Borrar el texto",
+    "select": "Seleccionar",
+    "deselect": "Anular la selección",
     "close": "Cerrar",
     "search": "Buscar",
     "scrollToTop": "Ir arriba",
@@ -172,6 +175,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "Vista compacta",
+    "viewDetailed": "Vista detallada",
     "catalogLoadFailed": "No se pudo cargar la lista de colecciones.",
     "deckLoadFailed": "No se pudieron cargar las palabras.",
     "needsConnection": "Conéctate a internet e inténtalo de nuevo.",
@@ -1053,6 +1058,9 @@
     "exportSavedMessage": "Se ha guardado {{name}} en la carpeta que elegiste."
   },
   "manage": {
+    "show": "Mostrar la lista",
+    "hide": "Ocultar la lista",
+    "rename": "Cambiar el nombre",
     "title": "Gestionar listas de vocabulario",
     "newListPlaceholder": "Nombre de la nueva lista",
     "newLabel": "Nuevo",

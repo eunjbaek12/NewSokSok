@@ -53,6 +53,14 @@ const FILL: Record<string, string> = {
   //    표현이 달라 겹침이 실패했다: `승리` 덱="a win" 캐시="Victory in a contest or conflict".
   'curated-sports-ko-1': '승리',
 
+  // ── 경조사·관광 2덱 (2026-09-03 시딩). 다섯 다 캐시가 **맞는 뜻을 갖고 있는데**
+  //    덱 뜻(영어)과 표현이 달라 겹침이 실패했다. 비우면 멀쩡한 뜻풀이를 버리게 된다:
+  //      문상 덱="condolence visit" 캐시="부고를 듣고 찾아가서 위문하는 일"
+  //      조의 덱="condolences"       캐시="죽었을 때 슬퍼하며 보내는 뜻"
+  //      탑   덱="a pagoda"          캐시="높이 솟아 있는 구조물"
+  'curated-ceremony-ko-1': '문상 조의 제사',
+  'curated-sightseeing-ko-1': '탑 일정',
+
   // 수능 필수 500 (en>ko) — 이 41개는 definition 이 **빈칸**이었다. 캐시엔 뜻풀이가
   // 멀쩡히 있는데(캐시 없음 0) 한국어 표현 차이로 겹침이 실패했다: `pitch` 덱="던지다"
   // 캐시="던지기" · `resign` 덱="사임하다" 캐시="직책을 그만두다".
@@ -132,6 +140,17 @@ const BLANK: Record<string, string> = {
   'curated-food-ko-1': '면 맛없다 김치 시다',
   'curated-sports-ko-1': '골',
   'curated-produce-ko-1': '복숭아',
+
+  // 상주 — 캐시가 **다른 두 한자어**를 설명한다: ①경상북도 尙州(지명) ②常住(계속 머묾).
+  // 덱이 가르치는 喪主(상제)는 캐시에 아예 없다. 사극 신(神/臣)과 같은 유형이다.
+  'curated-ceremony-ko-1': '상주',
+
+  // 역사 — 캐시는 이 단어를 맞게 설명하는데도 blank 다. 뜻 둘이 다 sense-drops 에 걸려
+  // (drop=[1,2] · 둘 다 덱 뜻 history 와 같은 말) senses-all-dropped 로 캐시를 통째로 못
+  // 쓰고, 그러면 definition 자리에 덱 뜻 "history" 가 영어 그대로 남는다. 위 주석의
+  // '아래 셋'과 같은 자리이므로 같은 처방을 한다 — 중복이라도 지우려고 비운다.
+  // 🔑 sense-drops 가 고쳐지면 fill 로 되돌릴 것.
+  'curated-sightseeing-ko-1': '역사',
 
   // 🔴 아래 셋은 **캐시가 이 단어를 맞게 설명하는데도** blank 다. 뜻이 전부
   //    `sense-drops` 에 걸려(drop=[1,2]) `senses-all-dropped` 로 캐시를 통째로 못 쓴다.

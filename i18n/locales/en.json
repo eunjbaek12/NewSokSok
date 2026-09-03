@@ -1651,6 +1651,8 @@
   "skinY2k": "Y2K",
   "skinLab": "Lab",
   "skinOcean": "Summer Sea",
+  "skinAutumn": "Autumn Leaves",
+  "skinHangul": "Hangul",
   "reviewNotif": {
     "channelName": "Review reminders",
     "title": "{{count}} words ready for review 🌱",

@@ -1233,6 +1233,8 @@
   "skinY2k": "Y2K",
   "skinLab": "Laboratorio",
   "skinOcean": "Mar de Verano",
+  "skinAutumn": "Hojas de Otoño",
+  "skinHangul": "Hangul",
   "reviewNotif": {
     "channelName": "Recordatorios de repaso",
     "title": "{{count}} palabras listas para repasar 🌱",

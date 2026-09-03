@@ -22,7 +22,51 @@ export function CharacterAccessoryPaths({ accessory }: { accessory: AccessoryTyp
     <G transform={[{ translateX: ACCESSORY_CENTER_OFFSET_X }]}>
       {accessory === 'y2k-ribbon' && <Y2kRibbon />}
       {accessory === 'ocean-hat' && <OceanHat />}
+      {accessory === 'autumn-leaf' && <AutumnLeaf />}
+      {accessory === 'hangul-gat' && <HangulGat />}
     </G>
+  );
+}
+
+function AutumnLeaf() {
+  // 단풍잎 한 장이 머리 위에 내려앉았다. 모자처럼 머리를 덮지 않고 살짝 얹혀
+  // 기울어 있어야 "떨어진 잎"으로 읽힌다 — 반듯하면 장식으로 보인다.
+  return (
+    <G transform={[{ translateX: 118 }, { translateY: 24 }, { rotate: '-16' }]}>
+      {/* 잎자루 */}
+      <Path d="M2 30 C0 42, -2 50, -5 56" stroke="#7E4A2A" strokeWidth={3} fill="none" strokeLinecap="round" />
+      {/* 잎몸 — 다섯 갈래 단풍 */}
+      <Path
+        d="M2 30 L-10 22 L-4 20 L-22 8 L-12 8 L-20 -6 L-6 -2 L-4 -16 L2 -6 L8 -16 L10 -2 L24 -6 L16 8 L26 8 L8 20 L14 22 Z"
+        fill="#B14A2C"
+      />
+      {/* 잎맥 — 잎이 평평해 보이지 않게 */}
+      <Path d="M2 28 L2 -4 M2 14 L-12 6 M2 14 L16 6 M2 4 L-6 -6 M2 4 L10 -6"
+        stroke="#8A3820" strokeWidth={1.4} fill="none" opacity={0.55} strokeLinecap="round" />
+    </G>
+  );
+}
+
+function HangulGat() {
+  // 갓 — 조선 시대 사대부의 검은 말총 모자. 밀짚모자와 달리 챙이 평평하고
+  // 크라운이 원통형이며, 반투명해 보이는 것이 특징이다.
+  return (
+    <>
+      {/* 챙 아래 그림자 */}
+      <Ellipse cx={125} cy={47} rx={78} ry={13} fill="#1A1A1E" opacity={0.28} />
+      {/* 양태(챙) — 평평하고 넓다 */}
+      <Ellipse cx={125} cy={44} rx={78} ry={13} fill="#2B2B30" />
+      <Ellipse cx={125} cy={44} rx={78} ry={13} fill="none" stroke="#45454C" strokeWidth={1.6} />
+      {/* 총모자(크라운) — 위가 평평한 원통 */}
+      <Path d="M97 44 L97 14 C97 9, 153 9, 153 14 L153 44 Z" fill="#2B2B30" />
+      <Ellipse cx={125} cy={14} rx={28} ry={6} fill="#35353B" />
+      {/* 말총의 성긴 결 — 갓을 갓처럼 보이게 하는 것은 이 세로선이다 */}
+      <Path d="M106 16 L106 43 M116 14 L116 44 M125 13 L125 44 M134 14 L134 44 M144 16 L144 43"
+        stroke="#4A4A52" strokeWidth={1.1} opacity={0.6} />
+      {/* 갓끈 — 턱 아래로 내려가는 두 줄 */}
+      <Path d="M92 46 C88 58, 90 68, 94 76" stroke="#2B2B30" strokeWidth={2} fill="none" strokeLinecap="round" opacity={0.75} />
+      <Path d="M158 46 C162 58, 160 68, 156 76" stroke="#2B2B30" strokeWidth={2} fill="none" strokeLinecap="round" opacity={0.75} />
+    </>
   );
 }
 

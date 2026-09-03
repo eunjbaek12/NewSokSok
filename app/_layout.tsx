@@ -15,6 +15,7 @@ import { useSettings, useSettingsStore } from "@/features/settings";
 import { LocaleProvider } from "@/features/locale";
 import { useFonts } from "expo-font";
 import { Jua_400Regular } from "@expo-google-fonts/jua";
+import { GowunBatang_400Regular, GowunBatang_700Bold } from "@expo-google-fonts/gowun-batang";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
 import { reconcileSubscriptionOnLaunch } from "@/features/billing";
@@ -40,6 +41,11 @@ export default function RootLayout() {
     Pretendard_600SemiBold: require("../assets/fonts/Pretendard-SemiBold.otf"),
     Pretendard_700Bold: require("../assets/fonts/Pretendard-Bold.otf"),
     Jua_400Regular,
+    // 한글 스킨 전용. 스킨을 고르지 않은 사용자도 함께 받지만, 폰트 게이트가
+    // 여기 하나뿐이라 스킨별 지연 로딩을 넣으면 "폰트 준비 전 렌더" 문제를
+    // 다시 열게 된다(글자 끝이 잘리던 그 버그다).
+    GowunBatang_400Regular,
+    GowunBatang_700Bold,
   });
   const [splashElapsed, setSplashElapsed] = useState(false);
 

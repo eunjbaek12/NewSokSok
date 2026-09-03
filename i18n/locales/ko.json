@@ -1651,6 +1651,8 @@
   "skinY2k": "Y2K",
   "skinLab": "실험실",
   "skinOcean": "여름 바다",
+  "skinAutumn": "가을 단풍",
+  "skinHangul": "한글",
   "reviewNotif": {
     "channelName": "복습 알림",
     "title": "복습하기 좋은 단어 {{count}}개 🌱",

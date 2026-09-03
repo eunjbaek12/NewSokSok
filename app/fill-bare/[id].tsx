@@ -282,7 +282,7 @@ export default function FillBareScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, borderBottomColor: colors.border }]}>
-        <Pressable onPress={() => router.back()} hitSlop={12}>
+        <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => router.back()} hitSlop={12}>
           <Ionicons name="chevron-back" size={28} color={colors.text} />
         </Pressable>
         <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
@@ -298,14 +298,14 @@ export default function FillBareScreen() {
       {/* 네 열이 세로로 맞는다 — ☑ 전체선택 · ★ 별표필터 · 정렬 · ◯ 상태필터가
           각 행의 같은 열 바로 위에 서서, 무엇을 거르는 스위치인지 선으로 보인다. */}
       <View style={[styles.filterBar, { borderBottomColor: colors.borderLight }]}>
-        <Pressable onPress={toggleAll} hitSlop={8}>
+        <Pressable accessibilityRole="button" accessibilityLabel={t(allFilteredOn ? 'curation.deselectAll' : 'curation.selectAll')} onPress={toggleAll} hitSlop={8}>
           <Ionicons
             name={allFilteredOn ? 'checkbox' : 'square-outline'}
             size={22}
             color={allFilteredOn ? colors.primary : colors.textTertiary}
           />
         </Pressable>
-        <Pressable onPress={() => { setFilterStarred(v => !v); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }} hitSlop={8}>
+        <Pressable accessibilityRole="button" accessibilityLabel={t('list.filterStarred')} accessibilityState={{ selected: filterStarred }} onPress={() => { setFilterStarred(v => !v); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }} hitSlop={8}>
           <Ionicons name={filterStarred ? 'star' : 'star-outline'} size={20} color={filterStarred ? colors.starGold : colors.textTertiary} />
         </Pressable>
         <Pressable onPress={cycleSort} hitSlop={8} style={styles.sortBtn}>

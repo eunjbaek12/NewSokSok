@@ -21,6 +21,12 @@
     }
   },
   "common": {
+    "removeFromList": "Remove from list",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "showValue": "Show value",
+    "hideValue": "Hide value",
+    "moreInfo": "More information",
     "clearInput": "Clear input",
     "select": "Select",
     "deselect": "Deselect",
@@ -1263,6 +1269,8 @@
     "recentMeta": "{{when}} · {{count}} words"
   },
   "stats": {
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
     "title": "My Learning",
     "streakLabel": "Day streak",
     "memorizedLabel": "Words learned",

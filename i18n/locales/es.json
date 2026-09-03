@@ -21,6 +21,12 @@
     }
   },
   "common": {
+    "removeFromList": "Quitar de la lista",
+    "expand": "Desplegar",
+    "collapse": "Plegar",
+    "showValue": "Mostrar el valor",
+    "hideValue": "Ocultar el valor",
+    "moreInfo": "Ver la explicación",
     "clearInput": "Borrar el texto",
     "select": "Seleccionar",
     "deselect": "Anular la selección",
@@ -845,6 +851,8 @@
     "recentMeta": "{{when}} · {{count}} palabras"
   },
   "stats": {
+    "prevMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
     "title": "Mi aprendizaje",
     "streakLabel": "Racha de días",
     "memorizedLabel": "Total aprendidas",

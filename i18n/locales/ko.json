@@ -21,6 +21,12 @@
     }
   },
   "common": {
+    "removeFromList": "목록에서 빼기",
+    "expand": "펼치기",
+    "collapse": "접기",
+    "showValue": "입력한 값 보기",
+    "hideValue": "입력한 값 가리기",
+    "moreInfo": "설명 보기",
     "clearInput": "입력 지우기",
     "select": "선택",
     "deselect": "선택 해제",
@@ -1263,6 +1269,8 @@
     "recentMeta": "{{when}} · {{count}}개"
   },
   "stats": {
+    "prevMonth": "이전 달",
+    "nextMonth": "다음 달",
     "title": "내 학습",
     "streakLabel": "연속 학습",
     "memorizedLabel": "외운 단어",

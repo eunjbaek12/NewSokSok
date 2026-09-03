@@ -98,7 +98,7 @@ export default function AdvancedSettingsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 8 }]}>
-        <Pressable style={styles.backBtn} onPress={() => router.back()} hitSlop={12}>
+        <Pressable style={styles.backBtn} accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => router.back()} hitSlop={12}>
           <Ionicons name="chevron-back" size={26} color={colors.text} />
         </Pressable>
         <Text style={[styles.headerTitle, { color: colors.text }]}>
@@ -206,7 +206,7 @@ export default function AdvancedSettingsScreen() {
               returnKeyType="done"
               onSubmitEditing={handleSaveApiKey}
             />
-            <Pressable onPress={() => setApiKeyVisible(v => !v)} style={{ padding: 4 }}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t(apiKeyVisible ? 'common.hideValue' : 'common.showValue')} onPress={() => setApiKeyVisible(v => !v)} style={{ padding: 4 }}>
               <Ionicons name={apiKeyVisible ? 'eye-off-outline' : 'eye-outline'} size={18} color={colors.textTertiary} />
             </Pressable>
           </View>

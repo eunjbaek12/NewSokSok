@@ -409,7 +409,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                         <Text style={[styles.headerBtnText, { color: colors.textSecondary }]}>{retakeLabel}</Text>
                     </Pressable>
                     <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.reviewTitle')}</Text>
-                    <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
                         <Ionicons name="close" size={22} color={colors.textSecondary} />
                     </Pressable>
                 </View>
@@ -442,7 +442,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                 {item.enrichStatus === 'pending' && (
                                     <ActivityIndicator size="small" color={colors.primary} style={{ marginRight: 8 }} />
                                 )}
-                                <Pressable onPress={() => removeWord(item.id)} hitSlop={8}>
+                                <Pressable accessibilityRole="button" accessibilityLabel={`${item.term} ${t('common.removeFromList')}`} onPress={() => removeWord(item.id)} hitSlop={8}>
                                     <Ionicons name="close-circle" size={20} color={colors.error} />
                                 </Pressable>
                             </View>
@@ -560,7 +560,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                 }]}>
                     <View style={styles.headerBtn} />
                     <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.previewTitle')}</Text>
-                    <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
                         <Ionicons name="close" size={22} color={colors.textSecondary} />
                     </Pressable>
                 </View>

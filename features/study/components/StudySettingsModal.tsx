@@ -120,7 +120,7 @@ export default function StudySettingsModal({
                             <Text style={[styles.settingsTitle, { color: colors.text }]}>
                                 {mode === 'flashcard' ? t('studySettings.flashcardsSettings') : mode === 'quiz' ? t('studySettings.quizSettings') : mode === 'examples' ? t('studySettings.examplesSettings') : t('studySettings.autoplaySettings')}
                             </Text>
-                            <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
+                            <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.closeBtn}>
                                 <Ionicons name="close" size={20} color={colors.textSecondary} />
                             </Pressable>
                         </View>

@@ -160,7 +160,7 @@ export default function ListDayPicker({
           {/* 헤더 */}
           <View style={styles.header}>
             <Text style={[styles.title, { color: colors.text }]}>{t('dayPicker.title')}</Text>
-            <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.closeBtn}>
               <Ionicons name="close" size={20} color={colors.textSecondary} />
             </Pressable>
           </View>
@@ -213,7 +213,7 @@ export default function ListDayPicker({
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
                       {hasDays && selected && (
-                        <Pressable onPress={(e) => { e.stopPropagation(); toggleExpand(list.id); }} hitSlop={8} style={styles.expandBtn}>
+                        <Pressable accessibilityRole="button" accessibilityLabel={`${list.title} ${t(expanded ? 'common.collapse' : 'common.expand')}`} onPress={(e) => { e.stopPropagation(); toggleExpand(list.id); }} hitSlop={8} style={styles.expandBtn}>
                           <Ionicons
                             name={expanded ? 'chevron-up' : 'chevron-down'}
                             size={16}

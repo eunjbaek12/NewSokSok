@@ -179,7 +179,7 @@ export default function FaqScreen() {
       <View style={[styles.header, { paddingTop: topPadding + 8 }]}>
         <Pressable
           style={styles.backBtn}
-          onPress={() => router.back()}
+          accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => router.back()}
           hitSlop={12}
         >
           <Ionicons name="chevron-back" size={26} color={colors.text} />

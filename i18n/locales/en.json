@@ -447,6 +447,7 @@
     "v162_6": "Rebuilt the HSK 3 and HSK 5 Collections with no words left out",
     "v162_7": "Fixed letters looking clipped the first time you open the app",
     "v162_8": "This update started with your reports too. Keep them coming from Settings › Contact us",
+    "v162_9": "Example study now asks before filling in words that have no example. It used to spend your AI quota without asking",
     "v160_1": "We rebuilt all four Korean learning decks so the levels actually match. Thanks for the report!",
     "v160_2": "Example questions now have sharper choices — words that would also fit the blank no longer show up together",
     "v160_3": "A new Intermediate Korean II deck is here. Set your meaning language to English to see it",

@@ -43,7 +43,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
     // 1.6.1 은 따로 적지 않는다 — 그 릴리스의 사용자 체감 변화(다 외운 Day 잠김)를
     // 여기 세 번째 줄에 함께 담았다. 1.6.1 을 건너뛰고 올라온 사람도 그대로 읽힌다.
     version: '1.6.2',
-    date: '2026-09-03',
+    date: '2026-09-04',
     items: [
       // 맨 위는 제보에서 나온 것 — 1.5.0·1.6.0 때 방침 그대로다. 이건 레딧 제보
       // (2026-08-26, Basic Korean 500 의 Day 8 이 며칠째 잠김)에서 나왔고 답글도
@@ -52,6 +52,12 @@ export const ANNOUNCEMENTS: Announcement[] = [
       { key: 'whatsNew.v162_1', icon: 'lock-open' },
       // 이번 릴리스의 얼굴. 배너·시트가 쓰는 아이콘을 그대로 가져왔다.
       { key: 'whatsNew.v162_2', icon: 'sparkles' },
+      // 키 번호가 순서와 어긋나는 유일한 자리다. 이 소식이 쓰인 뒤에 기능이 들어와
+      // 번호가 밀렸는데, 읽는 순서로는 바로 위 줄과 한 쌍이라 여기 둔다 — 둘 다
+      // "AI 가 빈 칸을 채운다"는 같은 이야기다. 아이콘은 sparkles 를 다시 쓰지 않고
+      // 예문 학습 버튼의 것을 그대로 가져왔다(app/list/[id].tsx:692). 같은 아이콘이
+      // 연달아 오면 두 줄이 한 덩어리로 읽혀 무엇이 다른지 훑을 수가 없다.
+      { key: 'whatsNew.v162_9', icon: 'chatbubbles-outline' },
       // 원형 줄은 화면에서 ↳ 로 시작한다 — 그 모양을 그대로 쓰는 아이콘.
       { key: 'whatsNew.v162_3', icon: 'return-down-forward' },
       { key: 'whatsNew.v162_4', icon: 'clipboard' },

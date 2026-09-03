@@ -49,6 +49,10 @@ const FILL: Record<string, string> = {
   'curated-convenience-ko-1': '포장',
   'curated-hiking-ko-1': '내리막',
 
+  // ── 주제·상황 5덱 (2026-09-03 시딩). 캐시가 같은 단어를 설명하는데 덱 뜻(영어)과
+  //    표현이 달라 겹침이 실패했다: `승리` 덱="a win" 캐시="Victory in a contest or conflict".
+  'curated-sports-ko-1': '승리',
+
   // 수능 필수 500 (en>ko) — 이 41개는 definition 이 **빈칸**이었다. 캐시엔 뜻풀이가
   // 멀쩡히 있는데(캐시 없음 0) 한국어 표현 차이로 겹침이 실패했다: `pitch` 덱="던지다"
   // 캐시="던지기" · `resign` 덱="사임하다" 캐시="직책을 그만두다".
@@ -114,6 +118,20 @@ const BLANK: Record<string, string> = {
   'curated-untrans-ko-1': '한',
   'curated-spelling-ko-1': '넘어',
   'curated-jp-advanced-1': '運命',
+
+  // ── 주제·상황 5덱 (2026-09-03 시딩 검증에서 드러났다) ──
+  // 앞의 셋은 **캐시가 다른 한자어를 설명**한다 — 사극 신/짐과 같은 유형이다.
+  //   면 덱=noodles(麵) ↔ 캐시 ①얼굴 ②겉으로 드러난 부분 ③한쪽 면(面)
+  //   골 덱=a goal(축구) ↔ 캐시 ①몸을 이루는 단단한 부분 ②중심이 되는 부분(骨)
+  //   맛없다 — 캐시에 뜻풀이도 senses 도 없다(빈 문자열). 채울 수단이 없어 중복만 없앤다.
+  // 뒤의 셋은 **순환 정의**라 정보가 0이다. 캐시를 고치면 fill 로 되돌릴 것:
+  //   복숭아 = "① 털이 있는 복숭아 ② 털이 없는 복숭아"
+  //   시다   = "① 맛이 매우 시다"
+  //   김치   = "① 고춧가루를 넣은 김치 ② 젓갈을 넣지 않고 담근 김치" — 김치를 김치로 설명한다
+  // 🔑 비우지 않으면 definition 자리에 덱 뜻(영어)이 그대로 남아 카드에 영어가 두 번 뜬다.
+  'curated-food-ko-1': '면 맛없다 김치 시다',
+  'curated-sports-ko-1': '골',
+  'curated-produce-ko-1': '복숭아',
 
   // 🔴 아래 셋은 **캐시가 이 단어를 맞게 설명하는데도** blank 다. 뜻이 전부
   //    `sense-drops` 에 걸려(drop=[1,2]) `senses-all-dropped` 로 캐시를 통째로 못 쓴다.

@@ -21,6 +21,7 @@
     }
   },
   "common": {
+    "playPronunciation": "Play pronunciation",
     "removeFromList": "Remove from list",
     "expand": "Expand",
     "collapse": "Collapse",

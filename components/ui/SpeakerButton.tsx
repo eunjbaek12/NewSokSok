@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, StyleProp, StyleSheet, ViewStyle, GestureResponderEvent } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/features/theme';
@@ -26,6 +27,10 @@ interface SpeakerButtonProps {
   stopPropagation?: boolean;
   /** 읽을 내용이 아직 없을 때(입력 전 등). 눌리지 않고 흐린 색으로 표시된다. */
   disabled?: boolean;
+  /**
+   * 스크린리더가 읽을 이름. **넘기지 않아도 된다** — 기본값이 "발음 듣기"다.
+   * 한 화면에 스피커가 여럿이라 구분이 필요할 때만(표제어용·예문용) 덮어쓴다.
+   */
   accessibilityLabel?: string;
 }
 
@@ -55,6 +60,7 @@ export default function SpeakerButton({
   accessibilityLabel,
 }: SpeakerButtonProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
   const mounted = useRef(true);
 
@@ -98,7 +104,12 @@ export default function SpeakerButton({
       hitSlop={hitSlop}
       style={[styles.btn, style]}
       accessibilityRole="button"
-      accessibilityLabel={accessibilityLabel}
+      // 넘어온 게 없으면 기본 이름을 준다. 비워 두면 RN 이 자식을 대신 읽는데,
+      // 자식은 Ionicons = 아이콘 폰트 Text 라 **글리프 코드포인트가 그대로 이름이
+      // 된다**(실기 덤프에서 content-desc=""). 스크린리더에는 뜻 없는 문자다.
+      // 실제로 호출자 11 곳이 전부 이 prop 을 안 넘기고 있었다 — 잊기 쉬운 쪽이
+      // 기본값이었으므로 호출자를 고치는 대신 기본값을 고친다.
+      accessibilityLabel={accessibilityLabel ?? t('common.playPronunciation')}
       accessibilityState={{ busy: isPlaying, disabled }}
     >
       {({ pressed }) => (

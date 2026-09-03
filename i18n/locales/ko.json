@@ -21,6 +21,7 @@
     }
   },
   "common": {
+    "playPronunciation": "발음 듣기",
     "removeFromList": "목록에서 빼기",
     "expand": "펼치기",
     "collapse": "접기",

@@ -42,6 +42,7 @@ import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import ModalOverlay from '@/components/ui/ModalOverlay';
 import { PopupTokens } from '@/constants/popup';
 import { pickAdFillOffer } from './ad-offer';
+import { planFill } from './fill-plan';
 import type { BannerFace } from './face';
 
 /** 무엇을 채우는 시트인가 — 제목·설명·개수 라벨만 갈린다. */
@@ -110,17 +111,13 @@ export default function BareWordsSheet({
   const { t } = useTranslation();
   const copy = COPY[variant];
 
-  // 잔량을 모르면(응답 대기) 막지 않는다 — 화면은 ①로 그리고 실제 자르기는 실행부가 한다.
-  const known = unlimited ? bareCount : quotaLeft;
-  const fillable = known == null ? bareCount : Math.min(known, bareCount);
   /*
-   * 🔴 **채울 것이 없으면 광고를 권하지 않는다.** `fillable` 은 대상과 잔량의 min 이라
-   * 대상이 0 이어도 0 이 되는데, 그것만 보고 ②(광고·내일·Pro) 얼굴로 가면 **다 채운 사람에게
-   * 「광고 보고 +20단어」를 권한다.** 실기에서 실제로 그랬다(예문 없는 단어 0개인데 광고 버튼).
-   * 광고가 뜻을 갖는 것은 «채울 것은 있는데 잔량이 모자랄 때»뿐이다.
+   * 숫자와 갈래는 **순수 함수가 한 벌로** 정한다(fill-plan.ts).
+   * 🔴 「다 채웠다」와 「한도가 막았다」가 **둘 다 `fillable` 0** 이라, 이 계산이 컴포넌트 안에
+   *    있던 동안 그 둘을 못 갈라 다 채운 사람에게 「광고 보고 +20단어」를 권했다(2026-09-03 실기).
+   *    테스트가 물어볼 손잡이가 없어 1,565건이 전부 지나쳤다 — 그래서 밖으로 뺐다.
    */
-  const canFill = bareCount === 0 || known == null || fillable > 0;
-  const leftover = bareCount - fillable;
+  const { fillable, leftover, canFill, quotaUnknown } = planFill({ bareCount, quotaLeft, unlimited });
   // 광고로 한 번에 끝낼 수 있는가. 판정과 개수는 순수 함수가 정한다(ad-offer.ts).
   const adOffer = onFillWithAd
     ? pickAdFillOffer({ target: bareCount, fillable, rewardAmount, canWatchAd, unlimited })
@@ -166,7 +163,7 @@ export default function BareWordsSheet({
           {!unlimited && (
             <Fact
               label={t('bareWords.factFillable')}
-              value={known == null ? '—' : t('bareWords.countWords', { count: fillable })}
+              value={quotaUnknown ? '—' : t('bareWords.countWords', { count: fillable })}
               highlight={canFill}
               warn={!canFill}
             />

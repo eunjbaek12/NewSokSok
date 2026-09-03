@@ -26,6 +26,7 @@ export { pickBannerFace, type BannerFace } from './face';
 export { pickChip, type ChipView, type ChipTone, type ChipIcon } from './chip';
 export { default as FillChip } from './FillChip';
 export { pickAdFillOffer, type AdFillOffer } from './ad-offer';
+export { planFill, type FillPlan, type FillPlanInput } from './fill-plan';
 export { setPendingFill, takePendingFill } from './pick-handoff';
 export { splitBareWords, splitFillTargets } from './detect';
 export { fillableUpdates, countsExampleFilled } from './merge';

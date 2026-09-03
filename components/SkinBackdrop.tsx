@@ -49,10 +49,25 @@ export function SkinBackdrop({ skinId }: { skinId: SkinId }) {
              top·bottom 을 둘 다 0 으로 박아 두어, top 만 덮어쓰면 컨테이너가 길어지고
              cover 가 그림을 확대했다. bottom 을 떼고 height 로 고쳐도 그림이 아예
              사라졌다. 배치를 두 곳(코드와 그림)에서 정하려던 것이 잘못이었다.
-             **자리는 그림에서만 정한다.** */}
+             **자리는 그림에서만 정한다.**
+
+          🔴 그런데 `absoluteFill`을 **Image 에 주면 안 된다** — 그림이 3배로 확대돼
+             위쪽 30%만 화면을 채웠다(가을은 잎 하나, 한글은 처마만 보였다). 화면에
+             값을 찍어 갈랐다:
+
+                 win 360x780 | OUTER 360x780 | INNER 1080x2340 | asset 1080x2340 s1
+
+             부모(OUTER)는 멀쩡한데 Image(INNER)만 1080×2340 dp 로 잡혔다. 파일명에
+             밀도 접미사가 없어 에셋이 scale 1 로 읽히고(s1), 그 고유 크기가
+             absoluteFill 의 top/bottom/left/right: 0 을 이겼다. 상자가 이미 화면보다
+             크니 `cover` 는 할 일이 없었고, 결과는 왼쪽 위 기준 3배 확대다.
+
+             `width/height: '100%'` 는 부모를 기준으로 재므로 고유 크기에 밀리지 않는다.
+             ⚠️ 여기를 absoluteFill 로 되돌리지 말 것. 밀도 접미사(@3x)를 붙이는 것도
+             답이 아니다 — 이 기기(dpr 3)에서만 맞고 dpr 2 기기에서 같은 증상이 난다. */}
       <Image
         source={source}
-        style={[StyleSheet.absoluteFill, { opacity: OPACITY }]}
+        style={{ width: '100%', height: '100%', opacity: OPACITY }}
         resizeMode="cover"
       />
     </View>

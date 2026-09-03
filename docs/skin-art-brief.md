@@ -32,15 +32,30 @@
 1300 ├──────────────────────────┤
      │ ███ 칩 · 단어장 카드 …   │  카드 사이 60px 틈으로만 비침
      │ ███                      │
-2000 ├──────────────────────────┤
-     │ ███ 탭바(면이 깔림)      │
+2006 ├══════════════════════════┤  ← 여기부터 아래는 절대 안 보인다
+     │ ███ 앱 탭바              │
+2180 ├──────────────────────────┤
+     │ ███ 폰 내비게이션 바     │
 2340 └──────────────────────────┘
 
-     좌우 여백 60px 은 위아래로 계속 열려 있다
+     좌우 여백 60px 은 위아래로 계속 열려 있다 (카드 x 60~1019)
 ```
 
 🔑 **결론: 그림의 무게를 위쪽에 둔다.** 아래는 카드가 거의 다 덮으므로, 아래쪽 요소는
 "틈으로 언뜻 비치는 것"으로만 설계한다. 아래에 공들인 그림을 그리면 아무도 못 본다.
+
+### 🔴 y 2006 아래 334px(14%)는 **어떤 경우에도 안 보인다**
+
+첫 그림 두 장이 이 사실을 모른 채 만들어져, **아래쪽 띠를 통째로 못 쓰게 됐다** —
+한옥 담장은 y 2028~2336, 가을 낙엽 더미는 y 1980~2336 에 그려졌는데 탭바가 y 2006 부터
+시작한다. 한옥은 100%, 가을은 26px 만 빼고 다 가려졌다.
+
+**스크롤해도 안 나온다.** 탭바는 `position:absolute · bottom:0` 이라 화면에 고정이고,
+카드가 탭바 **밑으로** 지나간다. 목록을 끝까지 밀어도 y 2006 아래는 탭바·내비바다.
+(실측: 끝까지 스크롤한 뒤 y 2050·2150 = `#FAF9F6` 탭바, y 2250 = `#FFFEFE` 내비바.)
+
+🔑 **아래쪽에 뭔가 보이게 하려면 y 2006 위에 그린다.** 그 아래는 비율이 다른 기기를 위한
+여백(bleed)으로만 쓴다 — 그래서 아래쪽은 **가로로 이어지는 무늬**여야 잘려도 티가 안 난다.
 
 ⚠️ 단, **단어장이 없는 새 사용자**는 화면이 거의 비어 배경이 통째로 보인다.
 아래쪽이 허전해도 안 되므로 **잔잔하게 채우되 공들이지는 않는다.**
@@ -114,8 +129,12 @@
 가운데 (360~1300) 빛이 잦아들며 종이 바탕으로. 잎은 작고 성글게 몇 장.
                 카드 틈과 좌우 여백으로만 비치므로 잔잔해야 한다.
 
-아래 (1300~)     낙엽이 바닥에 쌓인다. 아래로 갈수록 촘촘하고 진하게.
+아래 (1300~2006) 낙엽이 바닥에 쌓인다. 아래로 갈수록 촘촘하고 진하게.
                 거의 가려지지만 새 사용자에게는 다 보인다.
+                🔴 **쌓임의 윗머리를 y 1800 안쪽에 둔다.** 첫 판은 y 1980 에서
+                시작해 26px 만 빼고 탭바에 다 가렸다(§1).
+
+여백 (2006~2340) 잎이 화면 밖으로 이어지는 것처럼만. 여기는 안 보인다.
 ```
 
 - **잎은 세 종류**를 섞는다 — 단풍(손바닥 모양) · 은행(부채꼴) · 참나무(길쭉한 타원)
@@ -127,25 +146,48 @@
 
 ## §5 한글 한옥 — 무엇을 그리나
 
-> **한 문장:** 한옥 마루에 앉아 창호를 마주 본 자리. 위는 처마, 아래는 창살, 사이는 한지.
+> **한 문장:** 한옥 툇마루에 앉아 밖을 내다본 자리. 머리 위에 처마, 양옆에 기둥,
+> 발밑에 마루. 그 사이는 비어 있다.
+
+### 🔴 첫 그림이 왜 안 됐나 (2026-09-04 실기)
+
+「지붕 + 빈 벽 + 담장」으로 나왔는데 **화면에서는 지붕만 떠 있었다.**
+
+- 빈 벽 구간(y 700~1900)을 가로로 훑으니 **가장 큰 색차가 4/255** — 사실상 완전한 단색이다.
+  불투명도 0.35 를 거치면 1.4 로 줄어 아무것도 안 보인다. **지붕을 받치는 것이 없다.**
+- 담장은 y 2028~2336 이라 §1 대로 **통째로 탭바 아래**였다.
+- 게다가 **기둥 없이 담장만 있는 것은 구조가 안 맞는다.** 담장은 마당 저편의 경계이지
+  처마 바로 밑에 오는 것이 아니다.
+
+🔑 **고치는 방향: 건물이 서 있게 만든다.** 처마 → 기둥 → 마루로 위아래를 잇는다.
+기둥은 **카드가 절대 덮지 않는 좌우 여백 60px**에 세운다.
 
 ```
-위 (0~360)      기와 처마가 화면을 위에서 덮는다. 완만한 곡선 한 겹,
-                그 끝에 단청 선 한 줄(청색). 아래로 서까래가 짧게 뻗는다.
-                ★ 여기가 가장 많이 보이는 곳 — 공을 들인다.
+위 (0~590)        기와 처마. 지금 것이 잘 보이므로 ★ 그대로 간다.
+                  완만한 곡선 한 겹, 끝에 단청 선 한 줄, 서까래가 짧게 아래로.
 
-가운데 (360~1300) 한지 결. 아주 옅은 섬유 무늬가 화면 전체에 깔린다.
-                이 층이 "전체적으로 한옥"을 실제로 만드는 것이다.
+좌우 (590~1850)   ★ 새로 — 나무 기둥 둘. 처마에서 마루까지 내려온다.
+    x 0~110       카드(x 60~1019)에 안쪽 절반이 가리고 바깥 60px 만 남는다.
+    x 970~1080    그 가려짐이 오히려 "가까이 서서 처마 밑을 올려다본" 깊이를 만든다.
 
-아래 (1300~)     창호 격자. 나무 창살이 가로세로로 짜인다.
-                위로 갈수록 흐려져 한지 결에 녹아든다.
+가운데 (590~1800) 빈 한지. 아주 옅은 섬유 결만. ❌ 여기에 기둥·무늬를 넣지 않는다.
+
+아래 (1800~2340)  ★ 새로 — 툇마루. 가로로 이어지는 널 몇 줄.
+                  y 2006 위(1800~2006)가 실제로 보이는 부분이고,
+                  그 아래는 비율 다른 기기를 위한 여백이다.
+                  가로 무늬라 잘려도 티가 안 난다 → §2 의 권장 그대로.
 ```
 
 - **한옥은 위에서 덮는 집**이다. 지붕이 위에 있어야 건물로 읽힌다
-- 격자 칸은 **정사각에 가깝게**, 살은 가늘게(2~3px 상당)
+- 기둥은 **원기둥**이다 — 한쪽에 옅은 그림자를 넣어야 둥글게 읽힌다
+- 기둥 밑은 **마루에 닿는다.** 허공에서 끊기면 안 된다
 - 단청은 **선 한 줄만.** 처마 끝에만 쓰고 다른 곳에 칠하지 않는다
 - 한지 결은 **가는 사선 두 벌**이 겹친 느낌 — 종이를 빛에 비췄을 때의 섬유
-- ❌ 마당·기와 한 장 한 장·꽃·한복 입은 사람을 그리지 않는다. 재료와 구조만.
+- ❌ **담장·마당·꽃·한복 입은 사람을 그리지 않는다.** 재료와 구조만.
+- ❌ 창호 격자도 넣지 않는다 — 처마·기둥·마루로 이미 한옥이 된다
+
+⚠️ **좌우 잘림 여유** — 20:9 기기에서 좌우가 각 14px 쯤 잘린다. 기둥의 **안쪽 윤곽**을
+x 100 / x 980 근처에 두고 바깥은 화면 끝까지 흘리면, 잘려도 기둥이 상하지 않는다.
 
 ---
 
@@ -166,22 +208,46 @@ Flat illustration, subtle, low contrast, lots of empty space in the middle.
 No trees, no people, no landscape. Nothing in the center third.
 ```
 
-**한옥**
+**한옥** — 2026-09-04 개정. 첫 판(지붕+빈벽+담장)이 §5 의 이유로 안 됐다.
+
+좌표를 **비율(%)로** 준다. 모델은 픽셀 좌표를 잘 못 지키지만 "위 25%" 같은 말은 지킨다.
+
 ```
-Vertical mobile wallpaper, 1080x2340. Warm hanji paper background with
-very subtle fiber texture across the whole image.
-Top: a curved Korean hanok tile roof eave seen from below, dark slate grey,
-with a single thin dancheong blue line along its edge, and short wooden
-rafters extending downward.
-Bottom: a wooden lattice window screen (changho), thin square grid,
-fading upward into the paper.
-Middle: empty warm paper.
-Muted palette: slate grey, warm wood brown, one blue accent, on cream paper.
-Flat illustration, architectural, calm, low contrast.
-No courtyard, no flowers, no people. Nothing in the center third.
+Vertical mobile wallpaper, 1080x2340, flat vector illustration,
+calm and low contrast, lots of empty space.
+Warm cream hanji paper background with a very faint fiber texture.
+
+The viewpoint is sitting on the wooden veranda of a Korean hanok, looking outward:
+the eave is overhead, two pillars frame the view at the far left and right,
+and the veranda floor is underfoot. Everything between them is empty paper.
+
+TOP 25%: a curved hanok tile roof eave seen from below, spanning the full width,
+dark slate grey, with short wooden rafters pointing down and a single thin
+blue dancheong line along the eave edge.
+
+FAR LEFT AND FAR RIGHT EDGES, from the eave down to the floor: two round wooden
+pillars, warm brown, each only about 10% of the image width, standing at the very
+edges of the frame. Soft shading on one side so they read as round. They rest on
+the veranda floor and do not stop in mid-air.
+
+CENTER (between the two pillars, from below the eave down to 77%): completely
+empty cream paper. No pattern, no objects, no structure at all.
+
+BOTTOM 23%: a wooden veranda floor (maru) — simple horizontal plank lines running
+across the full width, warm brown, slightly darker toward the bottom edge.
+
+Muted palette: slate grey roof, warm wood brown pillars and floor, one thin blue
+accent line, on warm cream paper.
+No boundary wall, no fence, no lattice window, no courtyard, no flowers, no people,
+no furniture, no text. The middle of the image must stay empty.
 ```
 
-🔑 두 프롬프트 모두 **"Nothing in the center third"** 가 핵심이다. §1 의 이유다.
+🔑 두 프롬프트 모두 **가운데를 비우라는 지시**가 핵심이다. §1 의 이유다.
+한옥 쪽은 거기에 더해 **기둥을 양 끝으로 밀어내는 지시**가 핵심이다 — 가운데로 오면
+카드에 완전히 묻히고, 가장자리에 있어야 §1 의 열린 60px 띠에 걸린다.
+
+⚠️ **받은 뒤 반드시 확인** — 모델은 "far left and right edges" 를 무시하고 기둥을
+가운데로 모으는 일이 잦다. §7 에 확인 항목으로 넣어 뒀다.
 
 ---
 
@@ -190,8 +256,14 @@ No courtyard, no flowers, no people. Nothing in the center third.
 1. **크기·용량** — 1080×2340 · WebP · 250KB 이하
 2. **가운데가 조용한가** — 카드를 얹었을 때 무늬가 비쳐 어수선하지 않은가
 3. **카드 테두리가 보이는가** — 배경이 진하면 테두리가 묻힌다
-4. **실기 확인** — 갤럭시 S22 에 얹어 스크린샷. 새 사용자(빈 화면)와 카드가 찬 화면 둘 다
-5. ⚠️ **`preview` 프로필로 한 번** — 릴리스 빌드에서만 나는 UI 문제를 겪은 적이 있다
+4. 🔴 **y 2006 아래에 공들인 것이 없는가** — §1. 첫 두 장이 여기서 걸렸다
+5. 🔴 **기둥이 양 끝에 있는가** — 가운데로 모였으면 다시 뽑는다(§6)
+6. 🔴 **원본을 화면과 겹쳐 볼 것** — "헤더 뒤가 비었다"만 보고 통과시켰다가
+   **3배 확대된 것을 못 잡았다.** 확인은 이렇게 한다:
+   `OPACITY` 를 잠깐 `1.0` 으로 올리고 스크린샷 → 원본과 나란히 놓고 대조.
+   두 그림의 같은 부분이 같은 높이에 있어야 한다.
+7. **실기 확인** — 갤럭시 S22 에 얹어 스크린샷. 새 사용자(빈 화면)와 카드가 찬 화면 둘 다
+8. ⚠️ **`preview` 프로필로 한 번** — 릴리스 빌드에서만 나는 UI 문제를 겪은 적이 있다
 
 ---
 
@@ -203,11 +275,27 @@ No courtyard, no flowers, no people. Nothing in the center third.
 ```tsx
 <Image
   source={require('@/assets/images/skin-autumn-bg.webp')}
-  style={StyleSheet.absoluteFill}
+  style={{ width: '100%', height: '100%', opacity: 0.35 }}
   resizeMode="cover"
-  pointerEvents="none"
 />
 ```
+
+🔴 **`StyleSheet.absoluteFill` 을 Image 에 주면 안 된다.** 이 문서가 처음에 그렇게 적어
+두었고, 그대로 얹었더니 **그림이 3배로 확대돼 위쪽 30%만 화면을 채웠다**(가을은 잎 하나,
+한옥은 처마만 보였다). 화면에 값을 찍어 갈랐다:
+
+```
+win 360x780  |  OUTER 360x780  |  INNER 1080x2340  |  asset 1080x2340 s1
+```
+
+감싼 View(OUTER)는 멀쩡한데 Image(INNER)만 1080×2340 **dp** 로 잡혔다. 파일명에 밀도
+접미사가 없어 에셋이 scale 1 로 읽히고(`s1`), 그 고유 크기가 `absoluteFill` 의
+top/bottom/left/right: 0 을 이겼다. 상자가 이미 화면보다 크니 `cover` 는 할 일이 없었고,
+결과는 **왼쪽 위 모서리 기준 3배 확대**다.
+
+`width/height: '100%'` 는 부모를 기준으로 재므로 고유 크기에 밀리지 않는다.
+⚠️ **파일명에 `@3x` 를 붙이는 것은 답이 아니다** — dpr 3 기기에서만 우연히 맞고
+dpr 2 기기에서 같은 증상이 다시 난다. (감싸는 View 는 `absoluteFill` 그대로 둔다.)
 
 🔴 **층 규칙은 그대로다.** 배경 뒤 · 내용 앞. 절대 위치 요소는 DOM 순서만으로 뒤로 가지
 않으므로 내용 쪽에 층을 명시해야 한다(웹 목업에서 이걸 놓쳐 낙엽이 카드 위에 그려졌다).

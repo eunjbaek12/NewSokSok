@@ -46,14 +46,16 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 ### 역산 일정
 
 ```
-9/4           1.6.2 배포 예정일 — 다른 세션 수정이 끝나면 재빌드(동기화 2건 포함)
-9/5  ─ 9/9    접근성 작업  ← §5·§6 을 정직하게 체크하려면 제출 전에 끝나야 한다
-9/10   ★      지명 제출 3벌 (애플 2 · Play 1)
-9/10 ─ 9/20   스킨 2종 · 완주 자랑하기 · iOS 관용 동작
+9/3    ✅     접근성 109개 · 스킨 2종 · ko>en 주제 덱 7종 — 모두 완료
+9/4    ✅     PR #128 머지(160c058) — 위 셋이 main 에 들어갔다
+9/4    ✅     1.6.2 양 스토어 배포 (동기화 2건 포함)
+9/7           iOS 신규 이탈 재측정
+9/10   ★      지명 제출 3벌 (애플 2 · Play 1)          ← 다음 마감
+9/10 ─ 9/20   완주 자랑하기 · iOS 관용 동작
 9/15          인앱 이벤트 등록 → 심사 (9/17 부터 스토어 노출 가능)
 9/22 ─ 9/25   한글날 덱 서버 반영
 9/26 ─ 9/28   1.7.0 빌드 → 심사 → 수동 출시 홀드
-10/1   🚀     공개
+10/1   🚀     공개 + 스킨 플래그 ON
 10/9          한글날 — 인앱 이벤트 ②
 10/29         Play 지명 폼 만료
 ```
@@ -89,7 +91,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 |---|---|
 | **① 완주 자랑하기** | 단어장을 끝까지 외운 순간을 카드로 만들어 나눈다 |
 | **② 계절 스킨 2종** | 가을 · 한글 — 기존 5종에 더해 7종 |
-| **③ 접근성** | VoiceOver 전면 지원 + Dynamic Type 대응 |
+| **③ 접근성** | VoiceOver 전면 지원 — 아이콘 전용 버튼 109개 전량 |
 | **④ iOS 관용 동작** | 전체 화면 스와이프 뒤로 · 시트 당겨 닫기 · 탭 재탭 |
 
 - 직전 업데이트(1.6.2, 9월 초)에서 나간 것 — 필요하면 보조로 언급:
@@ -119,7 +121,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 ```
 이번 업데이트는 '끝내는 순간'에 집중했습니다. 단어장을 끝까지 외우면 완주 카드가 만들어지고, 그대로 친구에게 보낼 수 있습니다. 단어 앱에서 가장 드문 순간이 "다 외웠다"인데, 그 순간을 앱이 조용히 지나쳐 버리는 게 늘 아쉬웠습니다.
 
-접근성을 이번에 제대로 손봤습니다. 화면의 모든 버튼에 VoiceOver 이름을 붙였고, 시스템 글자 크기를 끝까지 키워도 레이아웃이 무너지지 않도록 학습 화면 전체를 다시 쟀습니다. 화면 어디서나 스와이프로 뒤로 가기, 시트를 아래로 당겨 닫기, 탭을 다시 눌러 목록 맨 위로 — 아이폰 사용자가 손이 먼저 아는 동작들도 함께 맞췄습니다.
+접근성을 이번에 제대로 손봤습니다. 아이콘만 있어 스크린리더가 "버튼"이라고만 읽던 컨트롤이 109개였는데 전부에 이름과 역할을 붙였고, 다섯 화면의 접근성 트리를 전수로 훑어 읽지 못하는 버튼이 0인 것을 확인했습니다. 화면 어디서나 스와이프로 뒤로 가기, 시트를 아래로 당겨 닫기, 탭을 다시 눌러 목록 맨 위로 — 아이폰 사용자가 손이 먼저 아는 동작들도 함께 맞췄습니다.
 
 아보카도는 한국에서 만든, 6개 언어(한·영·일·중·베·스)를 어느 방향으로든 학습할 수 있는 어휘 앱입니다. 딱딱한 암기 앱들 사이에서 따뜻한 크림 톤과 아보카도 캐릭터·스킨 7종(이번에 가을·한글 추가)으로 손맛 있는 디자인을 지향했습니다.
 
@@ -135,7 +137,7 @@ This update lands eight days before Hangul Day (October 9), the Korean national 
 
 The headline feature is Finish Cards. When you memorize every word in a deck, the app makes a card of that moment and lets you share it. "I finished" is the rarest moment in a vocabulary app, and it always bothered us that ours let it pass in silence.
 
-We also took accessibility seriously this round: every control now has a VoiceOver label, and we re-measured the entire study flow so nothing breaks at the largest Dynamic Type sizes. Full-screen swipe back, pull-to-dismiss sheets, tap-to-top on the tab bar — the gestures an iPhone owner's hands already know.
+We also took accessibility seriously: 109 icon-only controls that a screen reader could only call "button" now carry a name and a role — verified by dumping the accessibility tree on five screens. Full-screen swipe back, pull-to-dismiss sheets, tap-to-top on the tab bar — the gestures an iPhone owner's hands already know.
 
 Avocado is a Korea-made vocabulary app that lets you learn any of six languages (English, Korean, Japanese, Chinese, Vietnamese, Spanish) in any direction — 30 language pairs. Against a sea of utilitarian flashcard apps, we chased a warm, hand-crafted feel: a soft cream palette, an avocado mascot, and seven swappable skins.
 
@@ -147,7 +149,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 ### 짧은 버전 (글자수 제한이 빡빡할 때, ~280자)
 
 ```
-이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(VoiceOver 전 버튼·Dynamic Type)과 아이폰 관용 제스처(전체화면 스와이프 뒤로·시트 당겨 닫기·탭 재탭)도 함께. 가을·한글 스킨 추가로 총 7종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
+이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(아이콘 전용 버튼 109개 전량에 VoiceOver 이름)과 아이폰 관용 제스처(전체화면 스와이프 뒤로·시트 당겨 닫기·탭 재탭)도 함께. 가을·한글 스킨 추가로 총 7종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
 ```
 
 ---
@@ -237,7 +239,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 ```
 
 **Supplemental Materials (URL 최대 5개)** — 에디터가 실물을 만져보게 하는 가장 강한 카드:
-1. App Store 제품 페이지 (9/5 배포된 1.6.2가 라이브)
+1. App Store 제품 페이지 (9/4 배포된 1.6.2가 라이브)
 2. TestFlight 공개 링크 (1.7.0 빌드가 나온 9/28 이후라면 교체)
 3. 지원 웹사이트
 4. (여유) 완주 카드 샘플 이미지

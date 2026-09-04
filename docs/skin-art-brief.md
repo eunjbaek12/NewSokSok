@@ -108,9 +108,14 @@
 | 바탕 | `#F4EFE3` | 한지 |
 | 카드 면 | `#FCF9F2` | 창호지 |
 | 기와 | `#333A3F` | 지붕 — 가장 진한 색 |
-| 나무 기둥 | `#8B6A42` | 기둥·서까래·창살 |
-| 단청 청 | `#1F5C8C` | 처마 끝 선 한 줄. **아껴 쓸 것** |
+| 나무 | `#8B6A42` | 서까래·마루 널 |
+| 기둥(석간주) | `#9E5A3C` | 궁궐 기둥의 붉은 갈색 |
+| 단청 청 | `#1F5C8C` | 처마 밑 단청 |
+| 단청 녹 | `#3F6B4A` | 처마 밑 단청 |
 | 글자 | `#22201C` | 그림에 쓰지 말 것 |
+
+🏛 **단청 두 색은 처마 밑에서만 쓴다**(§5). 거기서는 아끼지 않되 다른 데로 번지지
+않게 한다 — 그 대비가 「궁궐 처마 + 조용한 나머지」를 만든다.
 
 ⚠️ **진하기 상한** — 가장 진한 색도 **불투명도 25% 를 넘지 않는다.** 배경은 배경이다.
 카드가 그 위에 얹혀도 카드 테두리(`#E3CDB0` / `#C9AC82`)가 보여야 한다.
@@ -146,8 +151,38 @@
 
 ## §5 한글 한옥 — 무엇을 그리나
 
-> **한 문장:** 한옥 툇마루에 앉아 밖을 내다본 자리. 머리 위에 처마, 양옆에 기둥,
-> 발밑에 마루. 그 사이는 비어 있다.
+> **한 문장:** 경복궁 **수정전** 툇마루에 앉아 밖을 내다본 자리. 머리 위에 처마,
+> 양옆에 기둥, 발밑에 마루. 그 사이는 비어 있다.
+
+### 🏛 왜 수정전인가 [고증 — 프롬프트에 반드시 넣을 것]
+
+**아무 한옥이 아니다.** 경복궁 **수정전(修政殿)** 이다. 한글 스킨이 이 건물을 쓰는
+이유는 하나 — **세종 때 집현전이 있던 자리**이기 때문이다. 지금 건물은 1867년
+경복궁 중건 때 세워진 것이다(국가유산청·위키 확인).
+
+⚠️ **앱 문구에서 "집현전에서 한글을 만들었다"고 단정하지 말 것.** 세종 친제 기록이
+있고, 집현전 학자 일부는 오히려 반대 상소를 올렸다. 그림은 **자리**를 가리키는 것이지
+창제 장면이 아니다.
+
+🔴 **이 고증이 첫 브리프에 없었다.** 그래서 프롬프트가 "Korean hanok" 로만 적혔고,
+민가인지 궁궐인지 모를 그림이 나왔다. **건물 이름을 프롬프트에 직접 적는 것이 가장
+센 지시다** — 모델이 수정전·경복궁을 안다.
+
+**궁궐이라서 달라지는 것** (민가 한옥과 갈리는 지점):
+
+| | 민가 | 수정전 |
+|---|---|---|
+| 처마 밑 | 나무색 그대로 | **단청** — 초록·청·주홍이 칸칸이 |
+| 기둥 | 나무색 | **둥근 기둥에 석간주(붉은 갈색) 칠** |
+| 규모 | 서너 칸 | **정면이 길다** — 기둥 사이가 넓게 반복된다 |
+| 바닥 | 흙마당·쪽마루 | **돌 기단 위** |
+
+⚠️ 지붕 형태·기단 층수 같은 **세부는 사진을 보고 확인할 것.** 여기 적은 것은
+"궁궐로 읽히게 하는 최소한"이고, 정확한 실측치가 아니다.
+
+🔑 **첫 브리프의 「단청은 처마 끝 선 한 줄·아껴 쓸 것」은 민가 기준이었다.** 수정전이라면
+처마 밑 단청이 **건물의 정체 그 자체**다. 진하기는 색을 빼서가 아니라 `opacity 0.35` 로
+잡는다 — 그 값은 이미 실기로 정해져 있다. §3 팔레트도 그에 맞춰 고쳤다(청+녹 두 색).
 
 ### 🔴 첫 그림이 왜 안 됐나 (2026-09-04 실기)
 
@@ -163,10 +198,11 @@
 기둥은 **카드가 절대 덮지 않는 좌우 여백 60px**에 세운다.
 
 ```
-위 (0~590)        기와 처마. 지금 것이 잘 보이므로 ★ 그대로 간다.
-                  완만한 곡선 한 겹, 끝에 단청 선 한 줄, 서까래가 짧게 아래로.
+위 (0~590)        기와 처마 + 그 밑 단청. 지금 지붕은 잘 보이므로 ★ 살려 간다.
+                  기와는 완만한 곡선 한 겹, 그 아래로 단청 띠와 서까래 마구리.
+                  ★ 여기가 «수정전»을 만드는 유일한 자리다 — 공을 들인다.
 
-좌우 (590~1850)   ★ 새로 — 나무 기둥 둘. 처마에서 마루까지 내려온다.
+좌우 (590~1850)   ★ 새로 — 궁궐 기둥 둘(석간주 붉은 갈색). 처마에서 마루까지.
     x 0~110       카드(x 60~1019)에 안쪽 절반이 가리고 바깥 60px 만 남는다.
     x 970~1080    그 가려짐이 오히려 "가까이 서서 처마 밑을 올려다본" 깊이를 만든다.
 
@@ -181,10 +217,11 @@
 - **한옥은 위에서 덮는 집**이다. 지붕이 위에 있어야 건물로 읽힌다
 - 기둥은 **원기둥**이다 — 한쪽에 옅은 그림자를 넣어야 둥글게 읽힌다
 - 기둥 밑은 **마루에 닿는다.** 허공에서 끊기면 안 된다
-- 단청은 **선 한 줄만.** 처마 끝에만 쓰고 다른 곳에 칠하지 않는다
+- **단청은 처마 밑에만.** 거기서는 아끼지 않는다(궁궐의 정체다). 대신 기둥·마루·
+  가운데로는 **번지지 않는다** — 진하기는 색을 빼서가 아니라 `opacity 0.35` 로 잡는다
 - 한지 결은 **가는 사선 두 벌**이 겹친 느낌 — 종이를 빛에 비췄을 때의 섬유
 - ❌ **담장·마당·꽃·한복 입은 사람을 그리지 않는다.** 재료와 구조만.
-- ❌ 창호 격자도 넣지 않는다 — 처마·기둥·마루로 이미 한옥이 된다
+- ❌ 창호 격자·현판도 넣지 않는다 — 처마·기둥·마루로 이미 수정전이 된다
 
 ⚠️ **좌우 잘림 여유** — 20:9 기기에서 좌우가 각 14px 쯤 잘린다. 기둥의 **안쪽 윤곽**을
 x 100 / x 980 근처에 두고 바깥은 화면 끝까지 흘리면, 잘려도 기둥이 상하지 않는다.
@@ -217,37 +254,44 @@ Vertical mobile wallpaper, 1080x2340, flat vector illustration,
 calm and low contrast, lots of empty space.
 Warm cream hanji paper background with a very faint fiber texture.
 
-The viewpoint is sitting on the wooden veranda of a Korean hanok, looking outward:
-the eave is overhead, two pillars frame the view at the far left and right,
-and the veranda floor is underfoot. Everything between them is empty paper.
+Subject: Sujeongjeon Hall at Gyeongbokgung Palace, Seoul — a Joseon royal palace
+building, NOT a common folk house. The viewpoint is sitting on its wooden veranda
+looking outward: the painted eave is overhead, two palace pillars frame the view at
+the far left and right, and the veranda floor is underfoot.
 
-TOP 25%: a curved hanok tile roof eave seen from below, spanning the full width,
-dark slate grey, with short wooden rafters pointing down and a single thin
-blue dancheong line along the eave edge.
+TOP 25%: the eave of Sujeongjeon seen from below, spanning the full width —
+grey clay roof tiles above, and beneath them the dancheong: the traditional Korean
+palace beam painting in muted green, blue and deep red, repeating panel by panel,
+with round rafter ends showing in a row. This painted beam is the single most
+important element; it is what makes the building read as a palace.
 
-FAR LEFT AND FAR RIGHT EDGES, from the eave down to the floor: two round wooden
-pillars, warm brown, each only about 10% of the image width, standing at the very
-edges of the frame. Soft shading on one side so they read as round. They rest on
-the veranda floor and do not stop in mid-air.
+FAR LEFT AND FAR RIGHT EDGES, from the eave down to the floor: two round palace
+pillars in muted iron-oxide reddish brown, each only about 10% of the image width,
+standing at the very edges of the frame. Soft shading on one side so they read as
+round. They rest on the veranda floor and do not stop in mid-air.
 
 CENTER (between the two pillars, from below the eave down to 77%): completely
 empty cream paper. No pattern, no objects, no structure at all.
 
-BOTTOM 23%: a wooden veranda floor (maru) — simple horizontal plank lines running
+BOTTOM 23%: the wooden veranda floor (maru) — simple horizontal plank lines running
 across the full width, warm brown, slightly darker toward the bottom edge.
 
-Muted palette: slate grey roof, warm wood brown pillars and floor, one thin blue
-accent line, on warm cream paper.
+Muted palette: grey roof tiles, green-blue-red dancheong, iron-oxide red pillars,
+warm brown floor, on warm cream paper. Everything desaturated and calm.
 No boundary wall, no fence, no lattice window, no courtyard, no flowers, no people,
-no furniture, no text. The middle of the image must stay empty.
+no furniture, no signboard, no text. The middle of the image must stay empty.
 ```
 
 🔑 두 프롬프트 모두 **가운데를 비우라는 지시**가 핵심이다. §1 의 이유다.
-한옥 쪽은 거기에 더해 **기둥을 양 끝으로 밀어내는 지시**가 핵심이다 — 가운데로 오면
-카드에 완전히 묻히고, 가장자리에 있어야 §1 의 열린 60px 띠에 걸린다.
+한옥 쪽은 거기에 더해 둘이 더 있다:
+
+1. **건물 이름을 적는다**(Sujeongjeon · Gyeongbokgung). §5 의 고증이 여기서 걸린다.
+   이름을 빼고 "Korean hanok" 이라고만 하면 민가가 나온다 — 첫 판이 그랬다.
+2. **기둥을 양 끝으로 밀어낸다.** 가운데로 오면 카드에 완전히 묻히고, 가장자리라야
+   §1 의 열린 60px 띠에 걸린다.
 
 ⚠️ **받은 뒤 반드시 확인** — 모델은 "far left and right edges" 를 무시하고 기둥을
-가운데로 모으는 일이 잦다. §7 에 확인 항목으로 넣어 뒀다.
+가운데로 모으는 일이 잦다. 단청을 통째로 빼먹기도 한다. §7 에 항목으로 넣어 뒀다.
 
 ---
 
@@ -258,12 +302,14 @@ no furniture, no text. The middle of the image must stay empty.
 3. **카드 테두리가 보이는가** — 배경이 진하면 테두리가 묻힌다
 4. 🔴 **y 2006 아래에 공들인 것이 없는가** — §1. 첫 두 장이 여기서 걸렸다
 5. 🔴 **기둥이 양 끝에 있는가** — 가운데로 모였으면 다시 뽑는다(§6)
-6. 🔴 **원본을 화면과 겹쳐 볼 것** — "헤더 뒤가 비었다"만 보고 통과시켰다가
+6. 🏛 **궁궐로 읽히는가** — 처마 밑 **단청**과 **붉은 기둥**이 있어야 수정전이다.
+   나무색 그대로면 민가다(§5). 지붕·기단 세부는 수정전 사진과 대조할 것
+7. 🔴 **원본을 화면과 겹쳐 볼 것** — "헤더 뒤가 비었다"만 보고 통과시켰다가
    **3배 확대된 것을 못 잡았다.** 확인은 이렇게 한다:
    `OPACITY` 를 잠깐 `1.0` 으로 올리고 스크린샷 → 원본과 나란히 놓고 대조.
    두 그림의 같은 부분이 같은 높이에 있어야 한다.
-7. **실기 확인** — 갤럭시 S22 에 얹어 스크린샷. 새 사용자(빈 화면)와 카드가 찬 화면 둘 다
-8. ⚠️ **`preview` 프로필로 한 번** — 릴리스 빌드에서만 나는 UI 문제를 겪은 적이 있다
+8. **실기 확인** — 갤럭시 S22 에 얹어 스크린샷. 새 사용자(빈 화면)와 카드가 찬 화면 둘 다
+9. ⚠️ **`preview` 프로필로 한 번** — 릴리스 빌드에서만 나는 UI 문제를 겪은 적이 있다
 
 ---
 

@@ -456,7 +456,7 @@
     "v162_1": "In Study, fixed a Day that stayed locked even after you had memorized every word. Thanks for the report!",
     "v162_2": "AI fills in words that have a meaning but no pronunciation or example, all at once. Your list tells you at the top when they pile up",
     "v162_3": "Save a word like ran and we'll tell you it is the past tense of run. Tap it to search the base form",
-    "v162_4": "Fixed pasting a word with its meaning (like \"lemon - \ub808\ubaac\") saving the whole line as a single word",
+    "v162_4": "Fixed pasting a word with its meaning (like \"lemon - 레몬\") saving the whole line as a single word",
     "v162_5": "Polished the examples and meanings in Korean Collections: examples that never used the word, and grammar slips, are fixed",
     "v162_6": "Rebuilt the HSK 3 and HSK 5 Collections with no words left out",
     "v162_7": "Fixed letters looking clipped the first time you open the app",
@@ -1312,6 +1312,12 @@
     "saveDenied": "Photo access is needed. Please allow it in Settings.",
     "shareError": "Something went wrong. Please try again.",
     "unavailable": "Sharing isn't available on this device."
+  },
+  "completionShare": {
+    "done": "Completed!",
+    "wordsMastered": "{{memorized}}/{{total}} words mastered",
+    "share": "Share",
+    "shareMessage": "Finished “{{title}}” with Avocado! 🥑 {{count}} words done"
   },
   "milestone": {
     "daysReached": "{{count}}-day streak!",

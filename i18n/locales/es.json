@@ -456,7 +456,7 @@
     "v162_1": "En Estudiar, corregimos el Día que seguía bloqueado aunque ya te hubieras aprendido todas las palabras. ¡Gracias por avisar!",
     "v162_2": "La IA completa de una vez las palabras que tienen significado pero no pronunciación ni ejemplo. Te avisamos arriba de la lista cuando se acumulen",
     "v162_3": "Guarda una palabra como ran y te diremos que es el pasado de run. Tócala para buscar directamente la forma base",
-    "v162_4": "Corregimos que al pegar una palabra junto a su significado (como \"lemon - \ub808\ubaac\") se guardara la línea entera como una sola palabra",
+    "v162_4": "Corregimos que al pegar una palabra junto a su significado (como \"lemon - 레몬\") se guardara la línea entera como una sola palabra",
     "v162_5": "Pulimos las Colecciones de coreano: corregimos los ejemplos que no usaban la palabra y los fallos de gramática",
     "v162_6": "Rehicimos las Colecciones HSK 3 y HSK 5 sin dejar fuera ninguna palabra",
     "v162_7": "Corregimos las letras que se veían cortadas al abrir la app por primera vez",
@@ -894,6 +894,12 @@
     "saveDenied": "Se necesita acceso a las fotos. Por favor, actívalo en Ajustes.",
     "shareError": "Ha ocurrido un problema. Inténtalo de nuevo más tarde.",
     "unavailable": "Compartir no está disponible en este dispositivo."
+  },
+  "completionShare": {
+    "done": "¡Completado!",
+    "wordsMastered": "{{memorized}}/{{total}} palabras dominadas",
+    "share": "Compartir",
+    "shareMessage": "¡He completado «{{title}}» con Avocado! 🥑 {{count}} palabras"
   },
   "milestone": {
     "daysReached": "¡Racha de {{count}} días de estudio!",

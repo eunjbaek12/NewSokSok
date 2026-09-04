@@ -1313,6 +1313,12 @@
     "shareError": "문제가 생겼어요. 잠시 후 다시 시도해 주세요.",
     "unavailable": "이 기기에서는 공유를 사용할 수 없어요."
   },
+  "completionShare": {
+    "done": "완주!",
+    "wordsMastered": "{{memorized}}/{{total}} 단어 마스터",
+    "share": "자랑하기",
+    "shareMessage": "「{{title}}」 완주! 🥑 {{count}}단어를 끝냈어요"
+  },
   "milestone": {
     "daysReached": "{{count}}일 연속 학습 달성!",
     "stage3": "새내기 아보카도 탄생! 이제 시작이에요",

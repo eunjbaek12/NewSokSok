@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
   Switch,
 } from 'react-native';
 import { router } from 'expo-router';
+import { useScrollToTop } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -44,6 +45,10 @@ import { resetWhatsNewSeen } from '@/features/whats-new';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
+  // 설정 탭을 다시 누르면 맨 위로. 나머지 세 탭(홈·단어장·큐레이션)은 예전부터 이렇게
+  // 동작하고 있었고 설정만 빠져 있었다 — 탭마다 손이 다르게 반응하는 게 더 어색하다.
+  const scrollRef = useRef<ScrollView>(null);
+  useScrollToTop(scrollRef);
   const insets = useSafeAreaInsets();
   const bottomPadding = useTabContentBottomInset(24);
   const { t } = useTranslation();
@@ -254,6 +259,7 @@ export default function SettingsScreen() {
       </View>
 
       <ScrollView
+        ref={scrollRef}
         contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
         showsVerticalScrollIndicator={false}
       >

@@ -153,7 +153,7 @@ export default function StatsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 8 }]}>
-        <Pressable style={styles.backBtn} onPress={() => router.back()} hitSlop={12}>
+        <Pressable style={styles.backBtn} accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => router.back()} hitSlop={12}>
           <Ionicons name="chevron-back" size={26} color={colors.text} />
         </Pressable>
         <Text style={[styles.headerTitle, { color: colors.text }]}>{t('stats.title')}</Text>
@@ -204,11 +204,11 @@ export default function StatsScreen() {
         {/* 월 달력 — 이진 표시(학습한 날 = 채움). 학습한 과거~오늘만 탭 가능. */}
         <View style={[styles.cal, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={styles.calHead}>
-            <Pressable onPress={() => moveMonth(-1)} disabled={prevDisabled} hitSlop={8} style={styles.calArrow}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t('stats.prevMonth')} onPress={() => moveMonth(-1)} disabled={prevDisabled} hitSlop={8} style={styles.calArrow}>
               <Ionicons name="chevron-back" size={18} color={prevDisabled ? colors.borderLight : colors.textSecondary} />
             </Pressable>
             <Text style={[styles.calMonth, { color: colors.text }]}>{monthTitle}</Text>
-            <Pressable onPress={() => moveMonth(1)} disabled={nextDisabled} hitSlop={8} style={styles.calArrow}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t('stats.nextMonth')} onPress={() => moveMonth(1)} disabled={nextDisabled} hitSlop={8} style={styles.calArrow}>
               <Ionicons name="chevron-forward" size={18} color={nextDisabled ? colors.borderLight : colors.textSecondary} />
             </Pressable>
           </View>
@@ -348,6 +348,8 @@ export default function StatsScreen() {
                 </Text>
               </Text>
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('common.moreInfo')}
                 onPress={() => Alert.alert(t('stats.termInfoTitle'), t('stats.termInfoBody'))}
                 hitSlop={10}
               >

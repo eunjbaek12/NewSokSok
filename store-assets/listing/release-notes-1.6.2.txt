@@ -1,0 +1,181 @@
+＊ 버전을 타지 않는 규칙(500자 제한 · 영어가 먼저 넘침 · 스페인어 20~25% ·
+＊ 뜻 언어 필터 확인 · 요금제 이름 · Play 에 iOS 전용 수정 금지)은
+＊ README.md 「출시 노트를 쓸 때」에 있다. 이 파일에는 1.6.2 에만 해당하는 것만 적는다.
+＊
+＊ 🔑 아래 블록은 **Play Console 이 주는 템플릿과 글자 하나까지 같은 형식**이다.
+＊    맨 아래 첫 여는 태그부터 마지막 닫는 태그까지 그대로 긁어 붙여넣으면 된다.
+＊    ⑴ 닫는 태그가 있다 — 1.6.0·1.6.1 파일에는 여는 태그만 있어 그대로
+＊       쓸 수 없었다. 새 버전은 이 형식으로 쓸 것.
+＊    ⑵ 순서는 **로케일 알파벳순**이다(en-US 가 먼저 · ko-KR 은 다섯 번째).
+＊       1.6.0 메모에 적힌 "기본 언어(ko-KR) 먼저"는 지금 Console 과 다르다 —
+＊       2026-09-03 에 받은 실제 템플릿으로 확인했다.
+＊    ⑶ 이 메모에는 태그를 글자 그대로 쓰지 않는다. 메모에 한 번이라도 적어 두면
+＊       본문을 찾는 스크립트가 메모를 먼저 물어 엉뚱한 구간을 집는다(실제로 겪었다).
+＊
+＊ 🔴 설명은 한 항목에 한 문장이다. 두 문장을 이어 붙이지 말 것.
+＊    2026-09-03 Play Console 에 붙여넣었더니 긴 줄에서 글자가 사라졌다. 두 건 다
+＊    두 문장짜리 줄이었고 잘린 자리도 달랐다 — ① "그런 단어가 쌓이면 단어장 맨 위"가
+＊    통째로 빠지고 공백 3칸만 남았고, ② "눌러서 원형을" 뒤가 없어졌다.
+＊    파일은 멀쩡했다(코드포인트로 확인 · 제로폭 문자 0). 잘린 곳은 붙여넣기 경로다.
+＊    🔑 그래서 문구를 짧게 유지하는 것이 첫 번째 방어이고, 두 번째는 터미널 출력을
+＊       복사하지 않는 것이다 — 이 파일에서 직접 복사할 것.
+＊    ⚠️ 붙여넣은 뒤 Console 화면에서 **각 줄의 끝까지** 눈으로 확인할 것. 가운데가
+＊       빠져도 문장은 그럴듯하게 읽힌다(①이 그랬다).
+＊
+＊ 🔴 짧게 줄이되 **주어·목적어까지 줄이지 말 것.** 2026-09-03 검토에서 걸렸다.
+＊    "예문 학습이 먼저 물어봐요"에는 **무엇을** 묻는지가 없었다. 앱 소식 원문의
+＊    "예문이 없는 단어를 채울지"를 압축하다 날린 것이다.
+＊    같은 눈으로 다시 보니 첫 항목 넷이 동사 없는 명사구로 끝나 있었다(en·es·vi 와
+＊    ja·zh 의 "뜻만 있고"). 여유가 100자 넘게 남아 있었는데도 그랬다 — 줄이는 데
+＊    급해 문장을 깬 것이지 한도 때문이 아니었다.
+＊    🔑 압축한 뒤 **그 줄 하나만 떼어 읽어** 볼 것. 앞뒤를 아는 사람에게는 멀쩡해
+＊       보이고, 처음 읽는 사용자에게만 빈다.
+＊
+＊ ⑷ 표제어 막기(v162_4)도 뺐다 — **네 판을 헛짚고 마지막에 지운 자리**라 조사한 것을 남긴다.
+＊    · 앱 소식은 "붙여넣으면 줄 전체가 하나의 단어로 저장되던 문제"라고 적어 일괄 추가
+＊      (importParser 의 구분자 확장)를 가리킨다. 그래서 처음엔 "나뉘어요"로 썼고
+＊      importParser.ts:91 과 batch-import-pipeline.test.ts:195 도 그렇게 말한다.
+＊    · 🔴 그러나 사용자가 실제로 서는 자리는 **단어 추가 화면**이고, 거기서 그 줄은
+＊      표제어 게이트에 **막힌다** — 나뉘지도 담기지도 않는다. **코드와 테스트가 「나뉜다」를
+＊      뒷받침해도, 사용자가 선 화면이 다르면 노트도 달라야 한다.**
+＊      안내는 입력 형태로 갈린다(실기 확인): `lemon-레몬` 붙여 쓰면 script_mix,
+＊      `lemon - 레몬` 띄우면 형식 문구. 배선은 정상이다(add-word.tsx:1630).
+＊    · 게이트(utils/headword-guard.ts · 159bc95)는 1.6.2 가 처음이라 **중복은 아니었다.**
+＊      그런데도 뺀 이유는 ⑴과 같다 — **대부분의 사용자는 이 문제를 겪은 적이 없다.**
+＊      뜻을 붙여 넣는 입력은 8/26 사고 한 건이 근거의 전부다. 겸해서 남은 세 줄이 전부
+＊      "해드려요"인데 이 줄만 "막아드려요"라 톤도 어긋났다.
+＊    🔑 겪은 사람은 앱 소식에서 본다 — 스토어 노트에 없다고 알리지 않는 것이 아니다.
+＊ 🔴 앱 소식 아홉 줄을 그대로 옮기지 않았다. **다섯을 뺐다.**
+＊
+＊ ⑴ Day 잠금(v162_1)·글자 잘림(v162_7)은 **1.6.1 노트로 이미 나갔다.**
+＊    1.6.1 은 Android vc26 으로 8/28 에 배포됐고(bc80d7c) release-notes-1.6.1.txt 가
+＊    그 빌드에 붙어 있다. 앱 소식이 두 줄을 1.6.2 에 담은 것은 **1.6.1 을 건너뛰고
+＊    올라온 사람**을 위한 것이지만(announcements.ts 주석), Play 노트는 빌드별로 고정돼
+＊    이미 스토어에 있다. 여기 또 적으면 같은 수정을 두 번 알리는 꼴이고, 500자를
+＊    새 기능이 아니라 지난 버전에 쓰게 된다.
+＊
+＊ ⑵ HSK 3·5급(v162_6)은 적지 않는다 — **1.6.1 에서 내린 판단 그대로다.**
+＊    서버 반영이 8/25 에 끝나 1.6.0 사용자도 이미 받고 있다. 업데이트로 오는 것처럼
+＊    적으면 거짓이다. 겸해서: HSK 3덱은 **zh→ko** 라 뜻 언어가 한국어인 사용자에게만
+＊    보인다. zh-CN·zh-TW 노트에 적었다면 목록에 없는 덱을 광고할 뻔했다.
+＊
+＊ ⑶ 문의 유도(v162_8)는 앱 소식의 마지막 줄 관례다. Play 노트는 1.6.0·1.6.1 둘 다
+＊    넣지 않았고 이번에도 넣지 않는다.
+＊
+＊ 🔴 한국어 덱 손질(v162_5)은 **en-US 에만** 적는다. 번들 실측으로 ko 출발은 26덱이고
+＊    뜻 언어가 ko→en 20 · ko→vi 2 · ko→ja 1 · ko→zh 1 · ko→ko 2 로 갈린다.
+＊    고친 76장(89d870a 47 + 911b5b1 29)은 대부분 ko→en 사다리 4덱이다. vi·ja·zh 판에
+＊    간 것은 Basic Korean 500 네 판이 공유하는 한국어 예문 9건뿐이라, 그 로케일에
+＊    "예문과 뜻을 다듬었다"고 적으면 실제보다 크게 들린다.
+＊    ko-KR 사용자에게 보이는 ko 출발 덱은 맞춤법 2덱(ko→ko)뿐이라 역시 적지 않는다.
+＊
+＊ 🔑 굴절형 원형(v162_3)은 로케일을 안 가른다. 덱 157행을 채운 f83bfe2 는 서버 작업이라
+＊    이미 보이지만, 소식이 말하는 것은 **사용자가 자기 단어를 담을 때** 붙는 표기다 —
+＊    그건 이 빌드로 온다.
+＊
+＊ 자수 실측(코드포인트 / UTF-16, 한도 500): ko-KR 174/176 · en-US 374/377 ·
+＊ es-419·es-ES 각 348/350 · ja-JP 161/163 · vi 329/331 · zh-CN 130/132 · zh-TW 129/131.
+＊ 항목 수는 en-US 넷(한국어 덱 포함) · 나머지 셋이다.
+＊ 가장 긴 줄은 82자다(es 의 첫 설명). 두 문장짜리였을 때는 106자였다.
+＊ 🔑 처음 쓴 판은 en 624 · es 572 로 넘쳐 줄인 것인데(영어가 먼저 넘치는 규칙이 네 번째로
+＊ 맞았다), 붙여넣기 사고 뒤 한 문장씩으로 다시 줄여 이제는 어느 로케일도 400을 넘지 않는다.
+
+<en-US>
+1.6.2 update
+
+✨ AI fills the empty fields
+Words with a meaning but no pronunciation or example get filled together.
+
+💬 Words with no example: we ask first
+Example practice used to spend your AI quota without asking.
+
+🔎 Base forms for changed words
+Save ran and we'll say it's the past tense of run.
+
+📚 Korean Collections polished
+Examples that never used the word are fixed.
+</en-US>
+<es-419>
+Actualización 1.6.2
+
+✨ La IA rellena de una vez los campos vacíos
+Se rellenan juntas las palabras con significado pero sin pronunciación ni ejemplo.
+
+💬 Preguntamos antes por las palabras sin ejemplo
+El estudio con ejemplos gastaba tu cuota de IA sin avisar.
+
+🔎 Forma base de las palabras que cambian
+Guarda ran y te diremos que es el pasado de run.
+</es-419>
+<es-ES>
+Actualización 1.6.2
+
+✨ La IA rellena de una vez los campos vacíos
+Se rellenan juntas las palabras con significado pero sin pronunciación ni ejemplo.
+
+💬 Preguntamos antes por las palabras sin ejemplo
+El estudio con ejemplos gastaba tu cuota de IA sin avisar.
+
+🔎 Forma base de las palabras que cambian
+Guarda ran y te diremos que es el pasado de run.
+</es-ES>
+<ja-JP>
+1.6.2 アップデート
+
+✨ 空いた項目を AI が一度に埋めます
+意味だけあって発音・例文がない単語をまとめて埋めます。
+
+💬 例文がない単語を埋めるか先に聞きます
+確認せずに AI の上限を使っていた問題を直しました。
+
+🔎 形が変わった単語も原形がわかります
+ran を保存すると「run の過去形」と表示します。
+</ja-JP>
+<ko-KR>
+1.6.2 업데이트
+
+✨ 비어 있는 칸을 AI가 한 번에 채워요
+뜻만 있고 발음·예문이 없는 단어를 모아서 채워드려요.
+
+💬 예문이 없는 단어, 채울지 물어봐요
+예문 학습이 묻지 않고 AI 한도를 쓰던 것을 고쳤어요.
+
+🔎 모양이 바뀐 단어도 원형을 알려줘요
+ran을 담으면 「run의 과거형」이라고 알려드려요.
+</ko-KR>
+<vi>
+Cập nhật 1.6.2
+
+✨ AI điền một lượt những ô còn trống
+Những từ chỉ có nghĩa mà chưa có phát âm hay câu ví dụ sẽ được điền cùng lúc.
+
+💬 Hỏi trước khi điền từ chưa có câu ví dụ
+Trước đây phần học theo câu ví dụ dùng hạn mức AI mà không hỏi.
+
+🔎 Từ đã biến đổi cũng cho biết dạng gốc
+Lưu ran và chúng tôi sẽ báo đó là quá khứ của run.
+</vi>
+<zh-CN>
+1.6.2 更新
+
+✨ 空着的栏目由 AI 一次补齐
+只有意思、没有发音和例句的单词会一次性补齐。
+
+💬 先问要不要补齐没有例句的单词
+修复了例句学习不询问就消耗 AI 额度的问题。
+
+🔎 变形的单词也会告诉你原形
+保存 ran 时会显示「run 的过去式」。
+</zh-CN>
+<zh-TW>
+1.6.2 更新
+
+✨ 空著的欄位由 AI 一次補齊
+只有意思、沒有發音和例句的單字會一次補齊。
+
+💬 先問要不要補齊沒有例句的單字
+修正了例句學習不詢問就消耗 AI 額度的問題。
+
+🔎 變形的單字也會告訴你原形
+儲存 ran 時會顯示「run 的過去式」。
+</zh-TW>

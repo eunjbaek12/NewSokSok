@@ -15,8 +15,11 @@ import { REVIEW_NOTIFICATION_KIND } from "@/features/study/review/notifications"
 
 function AddWordTabButton() {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   return (
     <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={t('addWord.addWordTitle')}
       onPress={() => router.push('/add-word')}
       style={({ pressed }) => ({
         top: -20,

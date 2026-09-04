@@ -90,7 +90,7 @@ export default function BareWordsBanner({
           </View>
           <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
         </Pressable>
-        <Pressable onPress={onDismiss} hitSlop={12} style={styles.close}>
+        <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onDismiss} hitSlop={12} style={styles.close}>
           <Ionicons name="close" size={18} color={colors.textTertiary} />
         </Pressable>
       </View>
@@ -146,7 +146,7 @@ export default function BareWordsBanner({
               {t(copy.doneTitle, { count: face.filled })}
             </Text>
           </View>
-          <Pressable onPress={onDismiss} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onDismiss} hitSlop={12}>
             <Ionicons name="close" size={18} color={colors.textTertiary} />
           </Pressable>
         </View>
@@ -169,7 +169,7 @@ export default function BareWordsBanner({
           <Text style={[styles.title, { color: colors.warning, flex: 1 }]}>
             {t('bareWords.notFoundTitle', { count: face.terms.length })}
           </Text>
-          <Pressable onPress={onDismiss} hitSlop={12}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onDismiss} hitSlop={12}>
             <Ionicons name="close" size={18} color={colors.textTertiary} />
           </Pressable>
         </View>
@@ -196,7 +196,7 @@ export default function BareWordsBanner({
     <View style={[styles.wrap, styles.column, { backgroundColor: warn ? colors.warningLight : colors.surface, borderColor: accent }]}>
       <View style={styles.headRow}>
         <Text style={[styles.title, { color: accent, flex: 1 }]}>{title}</Text>
-        <Pressable onPress={onDismiss} hitSlop={12}>
+        <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onDismiss} hitSlop={12}>
           <Ionicons name="close" size={18} color={colors.textTertiary} />
         </Pressable>
       </View>

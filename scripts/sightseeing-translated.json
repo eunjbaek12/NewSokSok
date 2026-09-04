@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "궁궐",
+    "pos": "noun",
+    "meaningEn": "a royal palace",
+    "romaja": "gunggwol",
+    "exampleKo": "경복궁은 서울에서 가장 큰 궁궐이에요.",
+    "exampleEn": "Gyeongbokgung is the largest royal palace in Seoul.",
+    "category": "명소"
+  },
+  {
+    "rank": 2,
+    "term": "한옥마을",
+    "pos": "noun",
+    "meaningEn": "a traditional hanok village",
+    "romaja": "hanongmaeul",
+    "exampleKo": "한옥마을 골목길이 참 예쁘네요.",
+    "exampleEn": "The alleys of the hanok village are really pretty.",
+    "category": "명소"
+  },
+  {
+    "rank": 3,
+    "term": "박물관",
+    "pos": "noun",
+    "meaningEn": "a museum",
+    "romaja": "bangmulgwan",
+    "exampleKo": "국립중앙박물관에 가고 싶어요.",
+    "exampleEn": "I want to go to the National Museum of Korea.",
+    "category": "명소"
+  },
+  {
+    "rank": 4,
+    "term": "미술관",
+    "pos": "noun",
+    "meaningEn": "an art museum",
+    "romaja": "misulgwan",
+    "exampleKo": "이번 주말에 미술관 전시를 보러 가자.",
+    "exampleEn": "Let's go see the art exhibition this weekend.",
+    "category": "명소"
+  },
+  {
+    "rank": 5,
+    "term": "유적",
+    "pos": "noun",
+    "meaningEn": "historic remains",
+    "romaja": "yujeok",
+    "exampleKo": "경주에는 오래된 역사 유적이 많아요.",
+    "exampleEn": "There are many old historical remains in Gyeongju.",
+    "category": "명소"
+  },
+  {
+    "rank": 6,
+    "term": "탑",
+    "pos": "noun",
+    "meaningEn": "a pagoda",
+    "romaja": "tap",
+    "exampleKo": "절 마당에 높이 솟은 석탑이 있어요.",
+    "exampleEn": "There is a tall stone pagoda in the temple courtyard.",
+    "category": "명소"
+  },
+  {
+    "rank": 7,
+    "term": "사찰",
+    "pos": "noun",
+    "meaningEn": "a Buddhist temple",
+    "romaja": "sachal",
+    "exampleKo": "산속에 있는 조용한 사찰을 방문했어요.",
+    "exampleEn": "I visited a quiet Buddhist temple in the mountains.",
+    "category": "명소"
+  },
+  {
+    "rank": 8,
+    "term": "성곽",
+    "pos": "noun",
+    "meaningEn": "a fortress wall",
+    "romaja": "seonggwak",
+    "exampleKo": "수원 화성 성곽을 따라 걸었어요.",
+    "exampleEn": "I walked along the Suwon Hwaseong fortress wall.",
+    "category": "명소"
+  },
+  {
+    "rank": 9,
+    "term": "온천",
+    "pos": "noun",
+    "meaningEn": "a hot spring",
+    "romaja": "oncheon",
+    "exampleKo": "여행 피로를 풀러 온천에 가자.",
+    "exampleEn": "Let's go to the hot spring to relieve our travel fatigue.",
+    "category": "명소"
+  },
+  {
+    "rank": 10,
+    "term": "섬",
+    "pos": "noun",
+    "meaningEn": "an island",
+    "romaja": "seom",
+    "exampleKo": "배를 타고 제주도라는 아름다운 섬에 갔어요.",
+    "exampleEn": "I took a boat and went to a beautiful island called Jeju.",
+    "category": "명소"
+  },
+  {
+    "rank": 11,
+    "term": "관광",
+    "pos": "noun",
+    "meaningEn": "sightseeing",
+    "romaja": "gwangwang",
+    "exampleKo": "오늘 시내 관광을 어떻게 할까요?",
+    "exampleEn": "How should we do our city sightseeing today?",
+    "category": "관람"
+  },
+  {
+    "rank": 12,
+    "term": "관광객",
+    "pos": "noun",
+    "meaningEn": "a tourist",
+    "romaja": "gwangwanggaek",
+    "exampleKo": "궁궐 안에는 외국인 관광객들이 많았어요.",
+    "exampleEn": "There were many foreign tourists inside the palace.",
+    "category": "관람"
+  },
+  {
+    "rank": 13,
+    "term": "관람",
+    "pos": "noun",
+    "meaningEn": "viewing an exhibition",
+    "romaja": "gwallam",
+    "exampleKo": "특별 전시 관람은 예약해야 해요.",
+    "exampleEn": "You need to make a reservation to view the special exhibition.",
+    "category": "관람"
+  },
+  {
+    "rank": 14,
+    "term": "구경하다",
+    "pos": "verb",
+    "meaningEn": "to look around",
+    "romaja": "gugyeonghada",
+    "exampleKo": "시장 안을 천천히 구경하면서 걸었어요.",
+    "exampleEn": "I walked slowly while looking around the market.",
+    "category": "관람"
+  },
+  {
+    "rank": 15,
+    "term": "둘러보다",
+    "pos": "verb",
+    "meaningEn": "to look round",
+    "romaja": "dulleoboda",
+    "exampleKo": "한 시간 동안 박물관을 둘러보자.",
+    "exampleEn": "Let's look round the museum for an hour.",
+    "category": "관람"
+  },
+  {
+    "rank": 16,
+    "term": "입장료",
+    "pos": "noun",
+    "meaningEn": "an admission fee",
+    "romaja": "ipjangnyo",
+    "exampleKo": "성인 한 명 입장료가 얼마예요?",
+    "exampleEn": "How much is the admission fee for one adult?",
+    "category": "관람"
+  },
+  {
+    "rank": 17,
+    "term": "매표소",
+    "pos": "noun",
+    "meaningEn": "a ticket office",
+    "romaja": "maepyoso",
+    "exampleKo": "입장권은 저기 매표소에서 살 수 있어요.",
+    "exampleEn": "You can buy admission tickets at that ticket office over there.",
+    "category": "관람"
+  },
+  {
+    "rank": 18,
+    "term": "안내소",
+    "pos": "noun",
+    "meaningEn": "an information desk",
+    "romaja": "annaeso",
+    "exampleKo": "한국어 지도는 입구 안내소에 있어요.",
+    "exampleEn": "Korean maps are at the information desk at the entrance.",
+    "category": "관람"
+  },
+  {
+    "rank": 19,
+    "term": "해설",
+    "pos": "noun",
+    "meaningEn": "a guide's commentary",
+    "romaja": "haeseol",
+    "exampleKo": "오전 열 시에 문화재 해설이 시작돼요.",
+    "exampleEn": "Cultural asset commentary starts at 10 AM.",
+    "category": "관람"
+  },
+  {
+    "rank": 20,
+    "term": "휴관일",
+    "pos": "noun",
+    "meaningEn": "a closing day",
+    "romaja": "hyugwanil",
+    "exampleKo": "월요일은 박물관 휴관일이라 문을 닫아요.",
+    "exampleEn": "Monday is the museum's closing day, so it's closed.",
+    "category": "관람"
+  },
+  {
+    "rank": 21,
+    "term": "사진",
+    "pos": "noun",
+    "meaningEn": "a photograph",
+    "romaja": "sajin",
+    "exampleKo": "여기 예쁜 풍경을 사진으로 남기자.",
+    "exampleEn": "Let's capture this pretty scenery in a photograph.",
+    "category": "사진"
+  },
+  {
+    "rank": 22,
+    "term": "찍다",
+    "pos": "verb",
+    "meaningEn": "to take a photo",
+    "romaja": "jjikda",
+    "exampleKo": "경복궁 앞에서 사진 한 장 찍어 주세요.",
+    "exampleEn": "Please take a picture of us in front of Gyeongbokgung.",
+    "category": "사진"
+  },
+  {
+    "rank": 23,
+    "term": "기념사진",
+    "pos": "noun",
+    "meaningEn": "a commemorative photo",
+    "romaja": "ginyeomsajin",
+    "exampleKo": "탑 앞에서 멋진 기념사진을 찍었어요.",
+    "exampleEn": "I took a wonderful commemorative photo in front of the pagoda.",
+    "category": "사진"
+  },
+  {
+    "rank": 24,
+    "term": "포토존",
+    "pos": "noun",
+    "meaningEn": "a photo spot",
+    "romaja": "potojon",
+    "exampleKo": "이 포토존에서 찍으면 사진이 잘 나와요.",
+    "exampleEn": "If you take a photo at this photo spot, it comes out well.",
+    "category": "사진"
+  },
+  {
+    "rank": 25,
+    "term": "풍경",
+    "pos": "noun",
+    "meaningEn": "scenery",
+    "romaja": "punggyeong",
+    "exampleKo": "한옥마을의 전통적인 풍경이 정말 아름다워요.",
+    "exampleEn": "The traditional scenery of the hanok village is truly beautiful.",
+    "category": "사진"
+  },
+  {
+    "rank": 26,
+    "term": "야경",
+    "pos": "noun",
+    "meaningEn": "night view",
+    "romaja": "yagyeong",
+    "exampleKo": "여기서 보는 궁궐 야경이 정말 아름다워요.",
+    "exampleEn": "The night view of the palace from here is really beautiful.",
+    "category": "사진"
+  },
+  {
+    "rank": 27,
+    "term": "경치",
+    "pos": "noun",
+    "meaningEn": "scenery",
+    "romaja": "gyeongchi",
+    "exampleKo": "산에 올라와서 보니까 경치가 참 좋네요.",
+    "exampleEn": "The scenery is really nice now that we've climbed up the mountain.",
+    "category": "사진"
+  },
+  {
+    "rank": 28,
+    "term": "역사",
+    "pos": "noun",
+    "meaningEn": "history",
+    "romaja": "yeoksa",
+    "exampleKo": "이 박물관에서 조선 시대의 역사를 배울 수 있어요.",
+    "exampleEn": "You can learn about the history of the Joseon dynasty at this museum.",
+    "category": "역사"
+  },
+  {
+    "rank": 29,
+    "term": "문화재",
+    "pos": "noun",
+    "meaningEn": "cultural heritage",
+    "romaja": "munhwajae",
+    "exampleKo": "중요한 문화재가 많아서 조용히 관람해야 해요.",
+    "exampleEn": "There are many important cultural heritage items, so we need to view them quietly.",
+    "category": "역사"
+  },
+  {
+    "rank": 30,
+    "term": "전통",
+    "pos": "noun",
+    "meaningEn": "tradition",
+    "romaja": "jeontong",
+    "exampleKo": "이 마을에서는 한국의 전통 문화를 체험할 수 있어요.",
+    "exampleEn": "You can experience traditional Korean culture in this village.",
+    "category": "역사"
+  },
+  {
+    "rank": 31,
+    "term": "왕",
+    "pos": "noun",
+    "meaningEn": "king",
+    "romaja": "wang",
+    "exampleKo": "옛날에 왕이 살던 궁궐이라서 규모가 아주 커요.",
+    "exampleEn": "Since this is the palace where the king used to live, the scale is huge.",
+    "category": "역사"
+  },
+  {
+    "rank": 32,
+    "term": "조선 시대",
+    "pos": "noun",
+    "meaningEn": "Joseon dynasty",
+    "romaja": "joseon sidae",
+    "exampleKo": "이 건축물은 조선 시대에 만들어진 것입니다.",
+    "exampleEn": "This building was constructed during the Joseon dynasty.",
+    "category": "역사"
+  },
+  {
+    "rank": 33,
+    "term": "국보",
+    "pos": "noun",
+    "meaningEn": "national treasure",
+    "romaja": "gukbo",
+    "exampleKo": "이 탑은 우리 나라의 소중한 국보예요.",
+    "exampleEn": "This pagoda is a precious national treasure of our country.",
+    "category": "역사"
+  },
+  {
+    "rank": 34,
+    "term": "체험",
+    "pos": "noun",
+    "meaningEn": "hands-on experience",
+    "romaja": "cheheom",
+    "exampleKo": "한복 입기 체험은 어디서 신청하면 되나요?",
+    "exampleEn": "Where should I sign up for the hanbok-wearing experience?",
+    "category": "역사"
+  },
+  {
+    "rank": 35,
+    "term": "유명하다",
+    "pos": "adjective",
+    "meaningEn": "to be famous",
+    "romaja": "yumyeonghada",
+    "exampleKo": "이 절은 단풍이 예쁘기로 아주 유명해요.",
+    "exampleEn": "This temple is very famous for its pretty autumn foliage.",
+    "category": "역사"
+  },
+  {
+    "rank": 36,
+    "term": "시내",
+    "pos": "noun",
+    "meaningEn": "downtown",
+    "romaja": "sinae",
+    "exampleKo": "궁궐 구경을 마치고 시내로 갈 거예요.",
+    "exampleEn": "After finishing our palace tour, we are going to head downtown.",
+    "category": "도시"
+  },
+  {
+    "rank": 37,
+    "term": "거리",
+    "pos": "noun",
+    "meaningEn": "street",
+    "romaja": "geori",
+    "exampleKo": "한옥 마을 거리가 예뻐서 사진 찍기 좋아요.",
+    "exampleEn": "The streets of the hanbok village are pretty, so it is great for taking photos.",
+    "category": "도시"
+  },
+  {
+    "rank": 38,
+    "term": "마을",
+    "pos": "noun",
+    "meaningEn": "village",
+    "romaja": "maeul",
+    "exampleKo": "전통 가옥이 모여 있는 예쁜 마을이에요.",
+    "exampleEn": "It is a pretty village where traditional houses are gathered together.",
+    "category": "도시"
+  },
+  {
+    "rank": 39,
+    "term": "바다",
+    "pos": "noun",
+    "meaningEn": "sea",
+    "romaja": "bada",
+    "exampleKo": "절 위에서 내려다보는 바다 풍경이 정말 멋져요.",
+    "exampleEn": "The sea view looking down from the temple is really wonderful.",
+    "category": "도시"
+  },
+  {
+    "rank": 40,
+    "term": "축제",
+    "pos": "noun",
+    "meaningEn": "festival",
+    "romaja": "chukje",
+    "exampleKo": "마침 오늘 광화문에서 빛 축제가 열려요.",
+    "exampleEn": "As it turns out, a light festival is being held at Gwanghwamun today.",
+    "category": "도시"
+  },
+  {
+    "rank": 41,
+    "term": "야시장",
+    "pos": "noun",
+    "meaningEn": "night market",
+    "romaja": "yasijang",
+    "exampleKo": "축제가 끝나면 근처 야시장에 가 보자.",
+    "exampleEn": "Let's check out the nearby night market once the festival is over.",
+    "category": "도시"
+  },
+  {
+    "rank": 42,
+    "term": "명소",
+    "pos": "noun",
+    "meaningEn": "famous spot",
+    "romaja": "myeongso",
+    "exampleKo": "여기가 외국인들에게 인기 있는 관광 명소예요.",
+    "exampleEn": "This place is a popular tourist spot among foreigners.",
+    "category": "도시"
+  },
+  {
+    "rank": 43,
+    "term": "볼거리",
+    "pos": "noun",
+    "meaningEn": "attraction",
+    "romaja": "bolgeori",
+    "exampleKo": "전통 공연이나 전시 같은 볼거리가 많아요.",
+    "exampleEn": "There are many things to see, such as traditional performances and exhibitions.",
+    "category": "도시"
+  },
+  {
+    "rank": 44,
+    "term": "일정",
+    "pos": "noun",
+    "meaningEn": "itinerary",
+    "romaja": "iljeong",
+    "exampleKo": "오늘 오후 일정은 경복궁 관람이에요.",
+    "exampleEn": "Our itinerary for this afternoon is visiting Gyeongbokgung Palace.",
+    "category": "방문"
+  },
+  {
+    "rank": 45,
+    "term": "줄을 서다",
+    "pos": "phrase",
+    "meaningEn": "to queue up",
+    "romaja": "jureul seoda",
+    "exampleKo": "입장권을 사기 위해 사람들이 길게 줄을 서 있어요.",
+    "exampleEn": "People are standing in a long line to buy admission tickets.",
+    "category": "방문"
+  },
+  {
+    "rank": 46,
+    "term": "붐비다",
+    "pos": "verb",
+    "meaningEn": "to be crowded",
+    "romaja": "bumbida",
+    "exampleKo": "주말이라서 한옥 마을에 사람이 아주 많이 붐벼요.",
+    "exampleEn": "It is the weekend, so the hanbok village is very crowded with people.",
+    "category": "방문"
+  },
+  {
+    "rank": 47,
+    "term": "대여하다",
+    "pos": "verb",
+    "meaningEn": "to rent",
+    "romaja": "daeyeohada",
+    "exampleKo": "여기서 예쁜 한복을 하루 동안 대여할 수 있어요.",
+    "exampleEn": "You can rent a pretty hanbok here for the day.",
+    "category": "방문"
+  },
+  {
+    "rank": 48,
+    "term": "무료",
+    "pos": "noun",
+    "meaningEn": "free of charge",
+    "romaja": "muryo",
+    "exampleKo": "오늘 한복을 입고 오면 입장료가 무료예요.",
+    "exampleEn": "Admission is free today if you come wearing a hanbok.",
+    "category": "방문"
+  },
+  {
+    "rank": 49,
+    "term": "입구",
+    "pos": "noun",
+    "meaningEn": "entrance",
+    "romaja": "ipgu",
+    "exampleKo": "매표소는 저기 보이는 큰 정문 입구 옆에 있어요.",
+    "exampleEn": "The ticket office is next to the big main gate entrance you see over there.",
+    "category": "방문"
+  },
+  {
+    "rank": 50,
+    "term": "출구",
+    "pos": "noun",
+    "meaningEn": "exit",
+    "romaja": "chulgu",
+    "exampleKo": "관람을 마치고 나오는 출구는 어느 쪽인가요?",
+    "exampleEn": "Which way is the exit after finishing the tour?",
+    "category": "방문"
+  }
+]

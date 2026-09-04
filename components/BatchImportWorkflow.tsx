@@ -214,7 +214,7 @@ export default function BatchImportWorkflow({
                     borderBottomColor: colors.borderLight,
                     paddingTop: Math.max(insets.top, 14),
                 }]}>
-                    <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtn}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.headerBtn}>
                         <Ionicons name="close" size={22} color={colors.textSecondary} />
                     </Pressable>
                     <Text style={[styles.title, { color: colors.text }]}>{t('batchImport.title')}</Text>
@@ -283,11 +283,11 @@ export default function BatchImportWorkflow({
                 borderBottomColor: colors.borderLight,
                 paddingTop: Math.max(insets.top, 14),
             }]}>
-                <Pressable onPress={handleBackToInput} hitSlop={8} style={styles.headerBtn}>
+                <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={handleBackToInput} hitSlop={8} style={styles.headerBtn}>
                     <Ionicons name="arrow-back" size={22} color={colors.textSecondary} />
                 </Pressable>
                 <Text style={[styles.title, { color: colors.text }]}>{t('batchImport.previewTitle')}</Text>
-                <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
+                <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
                     <Ionicons name="close" size={22} color={colors.textSecondary} />
                 </Pressable>
             </View>
@@ -314,7 +314,7 @@ export default function BatchImportWorkflow({
                             {item.enrichStatus === 'pending' && (
                                 <ActivityIndicator size="small" color={colors.primary} style={{ marginRight: 8 }} />
                             )}
-                            <Pressable onPress={() => removeWord(item.id)} hitSlop={8}>
+                            <Pressable accessibilityRole="button" accessibilityLabel={`${item.term} ${t('common.removeFromList')}`} onPress={() => removeWord(item.id)} hitSlop={8}>
                                 <Ionicons name="close-circle" size={20} color={colors.error} />
                             </Pressable>
                         </View>

@@ -1,0 +1,135 @@
+App Store Connect 1.6.2 제출용 텍스트
+=====================================
+형식은 1.6.1 을 그대로 따른다(ios-ko.md 「새로운 기능」):
+  첫 줄에 "1.6.2 업데이트 - 한 줄 요약", 항목 제목은 대괄호로 감싸고,
+  제목은 문제가 아니라 결과를 사용자 말투로 쓴다("~해요" / "~어요").
+  항목이 셋뿐이라 "그 밖에" 불릿은 없다(en 만 넷).
+
+거부 문자(2026-08-24 실측): 홍보 텍스트와 이 버전의 새로운 기능 두 칸은
+  가운뎃점(U+00B7)과 이모지를 거부한다. em dash 도 쓰지 않는다. ASCII 하이픈만.
+  설명(Description) 칸은 통과하므로 그쪽 원고는 손대지 않는다.
+  Play 노트(release-notes-1.6.2.txt)는 이모지를 쓰므로 그대로 복사하면 안 된다.
+  ⚠️ ios-es.md 에 "심사를 안 거치는 칸이라 이모지가 안전하다"는 옛 메모가 남아 있는데
+     8/24 실측이 그것을 뒤집었다. 이 파일의 규칙을 따를 것.
+
+로케일: ASC 등록은 여섯이다 - ko, en, es, ja, vi, zh-Hant. (Play 의 zh-CN 은 여기 없다.)
+
+🔴 앱 UI 언어는 ko / en / es 셋뿐이라 ja / vi / zh-Hant 사용자는 앱을 영어로 본다.
+  그 세 로케일 원고에서는 앱 문구를 그 언어로 인용하지 않는다 - 사용자가 본 적 없는
+  문장을 인용하는 꼴이 된다. 그래서 원형 표기 항목의 "run의 과거형"은 ko / en / es 에서만
+  인용이고, ja / vi / zh-Hant 에서는 인용 없이 서술로 풀었다(1.6.1 의 plan.locked 처리와 같다).
+
+🔴 홍보 텍스트: **매 버전 다시 넣어야 한다.** ASC 는 새 버전 폼에 설명과 키워드는 채워
+  주면서 **홍보 텍스트만 비운 채로 띄운다**(2026-09-03 제출 화면에서 확인). 비어 있다고
+  해서 값이 없는 것이 아니다 - 라이브 ko 페이지 설명 맨 앞에 지금도 그대로 나가 있다
+  (apps.apple.com/kr/app/id6776714408 에서 확인: "사진 찍으면 단어장 완성...").
+  ⚠️ 비운 채 제출하면 그 문장이 스토어에서 사라진다. 반드시 아래 값을 다시 넣을 것.
+  🔑 이 칸은 lookup API 에 안 나온다(description 에도 포함되지 않는다). 확인은 스토어
+     웹페이지 본문으로 해야 한다 - 홍보 텍스트가 설명 위에 붙어 렌더링된다.
+  값은 맨 아래 절에 여섯 로케일 그대로 옮겨 두었다(ios-*.md 원고와 같은 값이고 바꾸지 않는다).
+
+🔴 iOS 전용 수정은 이번에 없다. dd4f929..e556764 를 훑어 확인했다 - 걸린 것은
+  1.6.1 검증 문서 하나뿐이다. 그러니 Play 노트와 항목이 같다(en 의 덱 항목 포함).
+
+앱 소식 아홉 줄 중 다섯을 뺀 근거는 release-notes-1.6.2.txt 상단에 있다. 요약하면
+  Day 잠금과 글자 잘림은 1.6.1(iOS build 39)로 이미 나갔고, HSK 와 표제어 막기는
+  사용자가 겪은 적 없는 것이며, 문의 유도는 앱 소식의 관례다.
+
+
+===== 이번 버전의 새로운 기능 / What's New =====
+
+--- ko ---
+1.6.2 업데이트 - 비어 있는 칸을 AI가 한 번에 채워요.
+
+[뜻만 있는 단어를 모아서 채워요]
+한도를 넘겨 담느라 뜻만 들어온 단어, 손으로 적다 만 단어를 한 번에 채워드려요. 발음과 예문이 비어 있는 단어가 쌓이면 단어장 맨 위에서 알려드리고, 어떤 단어를 채울지 골라서 시작할 수 있어요.
+
+[예문 학습이 먼저 물어봐요]
+예문이 없는 단어를 채울지 시작할 때 여쭤봐요. 그동안은 묻지 않고 AI 한도를 쓰고 있었어요.
+
+[모양이 바뀐 단어도 원형을 알려줘요]
+ran처럼 형태가 바뀐 단어를 담으면 "run의 과거형"이라고 알려드려요. 눌러서 원형을 바로 검색할 수 있어요.
+
+--- en ---
+1.6.2 - AI fills the empty fields in one go.
+
+[Fill the words that only have a meaning]
+Words saved past your daily limit come back with the meaning alone, and hand-typed entries often stay half filled. Now they get filled together. Your list tells you at the top when they pile up, and you can pick which ones to fill before you start.
+
+[Example practice asks first]
+It now asks before filling in words that have no example. It used to spend your AI quota without asking.
+
+[Base forms for words that changed shape]
+Save a word like ran and we will tell you it is the past tense of run. Tap it to search the base form.
+
+[Korean Collections polished]
+Examples that never used the word, and grammar slips, are fixed across the Korean decks.
+
+--- es ---
+Actualización 1.6.2 - La IA rellena de una vez los campos vacíos.
+
+[Rellena las palabras que solo tienen significado]
+Las palabras guardadas al pasar el límite diario vuelven solo con el significado, y las escritas a mano suelen quedar a medias. Ahora se rellenan juntas. Te avisamos arriba de la lista cuando se acumulan y puedes elegir cuáles rellenar antes de empezar.
+
+[El estudio con ejemplos pregunta antes]
+Ahora pregunta antes de completar las palabras sin ejemplo. Antes gastaba tu cuota de IA sin avisar.
+
+[La forma base de las palabras que cambian]
+Guarda una palabra como ran y te diremos que es el pasado de run. Tocala para buscar la forma base.
+
+--- ja ---
+1.6.2 アップデート - 空いた項目を AI が一度に埋めます。
+
+[意味だけの単語をまとめて埋めます]
+上限を超えて保存した単語は意味だけが入り、手で入力した単語も途中のままになりがちです。それをまとめて埋めます。たまってくると単語帳の一番上でお知らせし、どれを埋めるか選んでから始められます。
+
+[例文学習が先に確認します]
+例文がない単語を埋めるかどうか、始めるときに聞くようにしました。これまでは確認せずに AI の上限を使っていました。
+
+[形が変わった単語も原形がわかります]
+ran のように形が変わった単語を保存すると、元の形が run であることを教えます。タップすれば原形をそのまま検索できます。
+
+--- vi ---
+Cập nhật 1.6.2 - AI điền một lượt những ô còn trống.
+
+[Điền những từ chỉ có nghĩa]
+Từ được lưu khi đã vượt hạn mức trong ngày chỉ có phần nghĩa, và từ gõ tay cũng thường dở dang. Nay chúng được điền cùng lúc. Khi dồn lại, danh sách sẽ báo ngay ở trên đầu, và bạn có thể chọn những từ muốn điền trước khi bắt đầu.
+
+[Học theo câu ví dụ sẽ hỏi trước]
+Nay ứng dụng hỏi trước khi điền những từ chưa có câu ví dụ. Trước đây nó dùng hạn mức AI của bạn mà không hỏi.
+
+[Từ đã biến đổi cũng cho biết dạng gốc]
+Lưu một từ như ran, ứng dụng sẽ cho biết đó là dạng quá khứ của run. Chạm để tìm ngay dạng gốc.
+
+--- zh-Hant ---
+1.6.2 更新 - AI 一次補齊空著的欄位。
+
+[把只有意思的單字一次補齊]
+超過每日上限後儲存的單字只會有意思，手動輸入的單字也常常只填了一半。現在可以一次補齊。這樣的單字多了，會在單字本最上方提醒你，開始前還能挑選要補哪些。
+
+[例句學習會先詢問]
+現在開始前會問你要不要補齊沒有例句的單字。先前不會詢問就消耗 AI 額度。
+
+[變形過的單字也會告訴你原形]
+儲存 ran 這類變化過的單字時，會告訴你原形是 run。點一下就能直接搜尋原形。
+
+
+===== 홍보 텍스트 / Promotional Text (버전마다 비어서 뜬다 - 아래 값을 다시 넣을 것) =====
+
+--- ko ---
+사진 찍으면 단어장 완성. 뜻과 예문, 발음은 AI가 채우고, 잊을 때쯤 복습까지 알아서 챙겨요. 가입 첫날 300단어, 이후에도 하루 50단어는 계속 무료예요.
+
+--- en ---
+Korean decks built level by level, or your own words. AI fills in meanings, examples and pronunciation. Your first day comes with 300 words, and 50 a day stays free.
+
+--- es ---
+Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 50 al día gratis.
+
+--- ja ---
+韓国語の単語をAIが発音、意味、例文まで自動生成。写真1枚で単語帳を丸ごと。登録初日は300語、そのあとも1日50語はずっと無料です。
+
+--- vi ---
+AI tự động tạo nghĩa, phát âm và câu ví dụ cho từ vựng tiếng Hàn. Quét một tấm ảnh để thêm cả bộ thẻ. Ngày đầu tiên có 300 từ, sau đó mỗi ngày 50 từ vẫn miễn phí.
+
+--- zh-Hant ---
+課本拍一張，整頁單字就變成單字卡。AI自動補上意思、發音和例句。註冊第一天300個單字，之後每天50個也一直免費。

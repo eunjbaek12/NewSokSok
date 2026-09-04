@@ -21,7 +21,19 @@
     }
   },
   "common": {
+    "playPronunciation": "Play pronunciation",
+    "removeFromList": "Remove from list",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "showValue": "Show value",
+    "hideValue": "Hide value",
+    "moreInfo": "More information",
+    "clearInput": "Clear input",
+    "select": "Select",
+    "deselect": "Deselect",
     "close": "Close",
+    "search": "Search",
+    "scrollToTop": "Scroll to top",
     "cancel": "Cancel",
     "apply": "Apply",
     "delete": "Delete",
@@ -170,6 +182,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "Compact view",
+    "viewDetailed": "Detailed view",
     "catalogLoadFailed": "Couldn't load the curation list.",
     "deckLoadFailed": "Couldn't load the words.",
     "needsConnection": "Connect to the internet and try again.",
@@ -1028,6 +1042,10 @@
     "preservedDiscard": "Erase and continue as guest"
   },
   "plan": {
+    "prevDay": "Previous day",
+    "nextDay": "Next day",
+    "decreaseDaily": "Decrease daily amount",
+    "increaseDaily": "Increase daily amount",
     "title": "Study Plan",
     "studyInProgress": "Study in Progress",
     "daysRemaining": "{{remaining}} days left · {{totalDays}}-day plan",
@@ -1075,6 +1093,12 @@
     "planDesc": "Divide {{count}} selected words into daily portions."
   },
   "list": {
+    "starOn": "Add star",
+    "starOff": "Remove star",
+    "markMemorized": "Mark as memorized",
+    "markUnmemorized": "Mark as not memorized",
+    "filterStarred": "Show starred only",
+    "endEdit": "Exit edit mode",
     "renameTitle": "Rename List",
     "deleteWordsConfirm": "Delete {{count}} selected words?",
     "wordsDeleted": "{{count}} words deleted.",
@@ -1154,6 +1178,12 @@
     "photoScan": "Photo Scan",
     "excelUpload": "Excel Upload",
     "fieldSettings": "Field Settings",
+    "voiceInput": "Voice input",
+    "voiceInputStop": "Stop voice input",
+    "photoCamera": "Take a photo",
+    "photoGallery": "Choose from photos",
+    "addTag": "Add tag",
+    "removeTag": "Remove tag {{tag}}",
     "fullscreenMode": "Full Screen Mode",
     "inputLanguage": "Input Language",
     "meaningLanguage": "Meaning Language",
@@ -1240,6 +1270,8 @@
     "recentMeta": "{{when}} · {{count}} words"
   },
   "stats": {
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
     "title": "My Learning",
     "streakLabel": "Day streak",
     "memorizedLabel": "Words learned",
@@ -1292,6 +1324,7 @@
     "continue": "Continue"
   },
   "flashcards": {
+    "flip": "Flip card",
     "title": "Flashcards",
     "tapToReveal": "Tap to reveal meaning",
     "meaningHidden": "[Meaning hidden]",
@@ -1336,6 +1369,8 @@
     "hintLabel": "Meaning: {{meaning}}"
   },
   "autoplay": {
+    "play": "Play",
+    "pause": "Pause",
     "title": "Autoplay",
     "noWords": "No words to play.",
     "complete": "Done!",
@@ -1450,6 +1485,9 @@
     "exportSavedMessage": "Saved {{name}} to the folder you chose."
   },
   "manage": {
+    "show": "Show list",
+    "hide": "Hide list",
+    "rename": "Rename",
     "title": "Manage Vocab Lists",
     "newListPlaceholder": "New list name",
     "newLabel": "New",
@@ -1613,6 +1651,8 @@
   "skinY2k": "Y2K",
   "skinLab": "Lab",
   "skinOcean": "Summer Sea",
+  "skinAutumn": "Autumn Leaves",
+  "skinHangul": "Hangul",
   "reviewNotif": {
     "channelName": "Review reminders",
     "title": "{{count}} words ready for review 🌱",

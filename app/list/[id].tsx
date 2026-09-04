@@ -421,6 +421,8 @@ export default function ListDetailScreen() {
 
           {/* 1. 별표 (가장 왼쪽) - 항상 표시되며 클릭 시 상태 토글 */}
           <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={`${item.term} ${t(item.isStarred ? 'list.starOff' : 'list.starOn')}`}
             onPress={(e) => {
               e.stopPropagation();
               Haptics.selectionAsync();
@@ -479,6 +481,8 @@ export default function ListDetailScreen() {
 
             {/* 4. 학습 상태 (가장 우측) */}
             <TouchableOpacity
+              accessibilityRole="button"
+              accessibilityLabel={`${item.term} ${t(item.isMemorized ? 'list.markUnmemorized' : 'list.markMemorized')}`}
               onPress={(e) => {
                 e.stopPropagation();
                 Haptics.selectionAsync();
@@ -582,6 +586,9 @@ export default function ListDetailScreen() {
         <View style={styles.filterContent}>
           {/* Header for Star (Left) */}
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('list.filterStarred')}
+            accessibilityState={{ selected: filterStarred }}
             onPress={toggleStarredFilter}
             hitSlop={8}
             style={styles.starBtn}
@@ -768,11 +775,11 @@ export default function ListDetailScreen() {
       <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
           {editMode ? (
-            <Pressable onPress={exitEditMode} hitSlop={12}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t('list.endEdit')} onPress={exitEditMode} hitSlop={12}>
               <Ionicons name="close" size={28} color={colors.text} />
             </Pressable>
           ) : (
-            <Pressable onPress={() => router.back()} hitSlop={12}>
+            <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => router.back()} hitSlop={12}>
               <Ionicons name="chevron-back" size={28} color={colors.text} />
             </Pressable>
           )}
@@ -794,6 +801,8 @@ export default function ListDetailScreen() {
           {editMode && (
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('list.copyToList')}
                 onPress={handleCopyPress}
                 hitSlop={12}
                 style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
@@ -801,6 +810,8 @@ export default function ListDetailScreen() {
                 <Ionicons name="copy-outline" size={24} color={colors.primary} />
               </Pressable>
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('list.moveToList')}
                 onPress={handleMovePress}
                 hitSlop={12}
                 style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
@@ -808,6 +819,8 @@ export default function ListDetailScreen() {
                 <Ionicons name="git-branch-outline" size={24} color={colors.primary} />
               </Pressable>
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('common.delete')}
                 onPress={handleBatchDelete}
                 hitSlop={12}
                 style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
@@ -902,6 +915,8 @@ export default function ListDetailScreen() {
             }}
           >
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('addWord.addWordTitle')}
               onPress={handleAddWord}
               style={({ pressed }) => [
                 styles.fab,
@@ -936,6 +951,8 @@ export default function ListDetailScreen() {
             pointerEvents="box-none"
           >
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('common.scrollToTop')}
               onPress={() => {
                 flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);

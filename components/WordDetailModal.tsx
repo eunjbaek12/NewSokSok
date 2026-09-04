@@ -436,7 +436,7 @@ export default function WordDetailModal({
                                                 />
                                             ) : null}
                                             {!readOnly && (
-                                                <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
+                                                <Pressable accessibilityRole="button" accessibilityLabel={t(isStarred ? 'list.starOff' : 'list.starOn')} onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
                                                     <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? colors.starGold : colors.textTertiary} />
                                                 </Pressable>
                                             )}
@@ -520,7 +520,7 @@ export default function WordDetailModal({
                                                         value={tagInput} onChangeText={setTagInput}
                                                         onSubmitEditing={handleAddTag} returnKeyType="done" autoCapitalize="none"
                                                     />
-                                                    <Pressable onPress={handleAddTag} disabled={!tagInput.trim()}
+                                                    <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.addTag')} onPress={handleAddTag} disabled={!tagInput.trim()}
                                                         style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}>
                                                         <Ionicons name="add" size={20} color={tagInput.trim() ? colors.onPrimary : colors.textTertiary} />
                                                     </Pressable>
@@ -532,7 +532,7 @@ export default function WordDetailModal({
                                                         <View key={`${tag}-${idx}`} style={[styles.tagChip, { backgroundColor: mode === 'read' ? colors.surfaceSecondary : colors.primaryLight }]}>
                                                             <Text style={[styles.tagChipText, { color: mode === 'read' ? colors.text : colors.primary }]}>#{displayTag(tag, t)}</Text>
                                                             {mode !== 'read' && (
-                                                                <Pressable onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
+                                                                <Pressable accessibilityRole="button" accessibilityLabel={t('addWord.removeTag', { tag: displayTag(tag, t) })} onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
                                                                     <Ionicons name="close-circle" size={16} color={colors.primary} />
                                                                 </Pressable>
                                                             )}

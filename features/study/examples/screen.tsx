@@ -27,6 +27,7 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
 import { BareWordsBanner, BareWordsSheet, FillChip } from '@/features/bare-words';
 import { useExampleFill } from './useExampleFill';
+import { shouldJoinNow } from './join-plan';
 import {
   SENTENCE_SIZES,
   nextSentenceStep,
@@ -397,6 +398,21 @@ export default function ExamplesScreen() {
     });
     return add.length;
   }, []);
+
+  /**
+   * 「전체」는 경계가 없으므로 **채우기가 끝나는 즉시** 붙인다 — 묶음이 끝나기를 기다리지
+   * 않는다. 판정은 join-plan.ts 가 하고 그 머리말에 왜인지가 있다(요지: 설계자 본인이
+   * 「다 채워졌는데 문항은 5개야」로 읽었다).
+   */
+  useEffect(() => {
+    if (!shouldJoinNow({
+      batchSize: studySettings.studyBatchSize,
+      filling: fillUi.running,
+      studyCount: studyWords.length,
+      joinableCount: joinable.length,
+    })) return;
+    flushJoin();
+  }, [studySettings.studyBatchSize, fillUi.running, studyWords.length, joinable.length, flushJoin]);
 
   /**
    * 다중정답 판정 재료(docs/example-choices-multi-answer-spec.md).

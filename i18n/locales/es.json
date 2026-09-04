@@ -21,7 +21,19 @@
     }
   },
   "common": {
+    "playPronunciation": "Escuchar la pronunciación",
+    "removeFromList": "Quitar de la lista",
+    "expand": "Desplegar",
+    "collapse": "Plegar",
+    "showValue": "Mostrar el valor",
+    "hideValue": "Ocultar el valor",
+    "moreInfo": "Ver la explicación",
+    "clearInput": "Borrar el texto",
+    "select": "Seleccionar",
+    "deselect": "Anular la selección",
     "close": "Cerrar",
+    "search": "Buscar",
+    "scrollToTop": "Ir arriba",
     "cancel": "Cancelar",
     "apply": "Aplicar",
     "delete": "Eliminar",
@@ -170,6 +182,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "Vista compacta",
+    "viewDetailed": "Vista detallada",
     "catalogLoadFailed": "No se pudo cargar la lista de colecciones.",
     "deckLoadFailed": "No se pudieron cargar las palabras.",
     "needsConnection": "Conéctate a internet e inténtalo de nuevo.",
@@ -610,6 +624,10 @@
     "preservedDiscard": "Borrar y continuar como invitado"
   },
   "plan": {
+    "prevDay": "Día anterior",
+    "nextDay": "Día siguiente",
+    "decreaseDaily": "Reducir la cantidad diaria",
+    "increaseDaily": "Aumentar la cantidad diaria",
     "title": "Plan de estudio",
     "studyInProgress": "Estudio en curso",
     "daysRemaining": "{{remaining}} días restantes · Plan de {{totalDays}} días",
@@ -657,6 +675,12 @@
     "planDesc": "Dividir las {{count}} palabras seleccionadas en porciones diarias."
   },
   "list": {
+    "starOn": "Añadir estrella",
+    "starOff": "Quitar estrella",
+    "markMemorized": "Marcar como memorizada",
+    "markUnmemorized": "Marcar como no memorizada",
+    "filterStarred": "Ver solo las marcadas",
+    "endEdit": "Salir del modo de edición",
     "renameTitle": "Cambiar nombre de la lista",
     "deleteWordsConfirm": "¿Quieres eliminar {{count}} palabras seleccionadas?",
     "wordsDeleted": "Se eliminaron {{count}} palabras.",
@@ -736,6 +760,12 @@
     "photoScan": "Escaneo de foto",
     "excelUpload": "Subir Excel",
     "fieldSettings": "Configuración de campos",
+    "voiceInput": "Entrada por voz",
+    "voiceInputStop": "Detener la entrada por voz",
+    "photoCamera": "Hacer una foto",
+    "photoGallery": "Elegir de las fotos",
+    "addTag": "Añadir etiqueta",
+    "removeTag": "Quitar la etiqueta {{tag}}",
     "fullscreenMode": "Modo de pantalla completa",
     "inputLanguage": "Idioma de entrada",
     "meaningLanguage": "Idioma del significado",
@@ -822,6 +852,8 @@
     "recentMeta": "{{when}} · {{count}} palabras"
   },
   "stats": {
+    "prevMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
     "title": "Mi aprendizaje",
     "streakLabel": "Racha de días",
     "memorizedLabel": "Total aprendidas",
@@ -874,6 +906,7 @@
     "continue": "Continuar"
   },
   "flashcards": {
+    "flip": "Girar la tarjeta",
     "title": "Tarjetas de estudio",
     "tapToReveal": "Toca para ver el significado",
     "meaningHidden": "[Significado oculto]",
@@ -918,6 +951,8 @@
     "hintLabel": "Significado: {{meaning}}"
   },
   "autoplay": {
+    "play": "Reproducir",
+    "pause": "Pausar",
     "title": "Reproducción automática",
     "noWords": "No hay palabras para reproducir.",
     "complete": "¡Completado!",
@@ -1032,6 +1067,9 @@
     "exportSavedMessage": "Se ha guardado {{name}} en la carpeta que elegiste."
   },
   "manage": {
+    "show": "Mostrar la lista",
+    "hide": "Ocultar la lista",
+    "rename": "Cambiar el nombre",
     "title": "Gestionar listas de vocabulario",
     "newListPlaceholder": "Nombre de la nueva lista",
     "newLabel": "Nuevo",
@@ -1195,6 +1233,8 @@
   "skinY2k": "Y2K",
   "skinLab": "Laboratorio",
   "skinOcean": "Mar de Verano",
+  "skinAutumn": "Hojas de Otoño",
+  "skinHangul": "Hangul",
   "reviewNotif": {
     "channelName": "Recordatorios de repaso",
     "title": "{{count}} palabras listas para repasar 🌱",

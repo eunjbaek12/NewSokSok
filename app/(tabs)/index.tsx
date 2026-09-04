@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import CharacterSvg from '@/components/CharacterSvg';
 import { OceanBackdrop } from '@/components/OceanBackdrop';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { Radius } from '@/constants/tokens';
@@ -241,6 +242,8 @@ export default function DashboardScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* 여름 바다 스킨 — 홈 하단 파도 배경(맨 뒤 레이어, 터치 통과) */}
       {skin.id === 'ocean' && <OceanBackdrop />}
+      {/* 가을·한글 스킨 — 화면 전체 배경 그림. 같은 자리·같은 규칙이다. */}
+      <SkinBackdrop skinId={skin.id} />
 
       {/* Fixed Header / Greeting */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
@@ -450,6 +453,8 @@ export default function DashboardScreen() {
                             </Text>
                           </View>
                           <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel={t('home.removePlanTitle')}
                             onPress={(e) => {
                               e.stopPropagation();
                               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -635,6 +640,8 @@ export default function DashboardScreen() {
                           </Text>
                         </View>
                         <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel={t('home.stopStudyTitle')}
                           onPress={(e) => {
                             e.stopPropagation();
                             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);

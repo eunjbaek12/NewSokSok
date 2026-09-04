@@ -21,7 +21,19 @@
     }
   },
   "common": {
+    "playPronunciation": "발음 듣기",
+    "removeFromList": "목록에서 빼기",
+    "expand": "펼치기",
+    "collapse": "접기",
+    "showValue": "입력한 값 보기",
+    "hideValue": "입력한 값 가리기",
+    "moreInfo": "설명 보기",
+    "clearInput": "입력 지우기",
+    "select": "선택",
+    "deselect": "선택 해제",
     "close": "닫기",
+    "search": "검색",
+    "scrollToTop": "맨 위로",
     "cancel": "취소",
     "apply": "적용",
     "delete": "삭제",
@@ -170,6 +182,8 @@
     ]
   },
   "curation": {
+    "viewCompact": "간단히 보기",
+    "viewDetailed": "자세히 보기",
     "catalogLoadFailed": "큐레이션 목록을 불러오지 못했어요.",
     "deckLoadFailed": "단어를 불러오지 못했어요.",
     "needsConnection": "인터넷에 연결한 뒤 다시 시도해 주세요.",
@@ -1028,6 +1042,10 @@
     "preservedDiscard": "지우고 게스트 시작"
   },
   "plan": {
+    "prevDay": "이전 Day",
+    "nextDay": "다음 Day",
+    "decreaseDaily": "하루 분량 줄이기",
+    "increaseDaily": "하루 분량 늘리기",
     "title": "학습 계획",
     "studyInProgress": "학습 진행 중",
     "daysRemaining": "{{remaining}}일 남음 · 총 {{totalDays}}일 계획",
@@ -1075,6 +1093,12 @@
     "planDesc": "선택한 {{count}}개 단어를 하루 학습량에 맞게 나눕니다."
   },
   "list": {
+    "starOn": "별표 하기",
+    "starOff": "별표 지우기",
+    "markMemorized": "외운 단어로 표시",
+    "markUnmemorized": "안 외운 단어로 표시",
+    "filterStarred": "별표 단어만 보기",
+    "endEdit": "편집 끝내기",
     "renameTitle": "단어장 이름 변경",
     "deleteWordsConfirm": "선택한 {{count}}개의 단어를 삭제하시겠습니까?",
     "wordsDeleted": "{{count}}개의 단어가 삭제되었습니다.",
@@ -1154,6 +1178,12 @@
     "photoScan": "사진 스캔",
     "excelUpload": "엑셀 업로드",
     "fieldSettings": "입력 항목 설정",
+    "voiceInput": "음성으로 입력",
+    "voiceInputStop": "음성 입력 멈추기",
+    "photoCamera": "카메라로 찍기",
+    "photoGallery": "사진에서 가져오기",
+    "addTag": "태그 추가",
+    "removeTag": "{{tag}} 태그 지우기",
     "fullscreenMode": "전체 화면 모드",
     "inputLanguage": "입력 언어",
     "meaningLanguage": "뜻 언어",
@@ -1240,6 +1270,8 @@
     "recentMeta": "{{when}} · {{count}}개"
   },
   "stats": {
+    "prevMonth": "이전 달",
+    "nextMonth": "다음 달",
     "title": "내 학습",
     "streakLabel": "연속 학습",
     "memorizedLabel": "외운 단어",
@@ -1292,6 +1324,7 @@
     "continue": "계속하기"
   },
   "flashcards": {
+    "flip": "카드 뒤집기",
     "title": "카드 학습",
     "tapToReveal": "탭하여 뜻 보기",
     "meaningHidden": "[뜻 숨김]",
@@ -1336,6 +1369,8 @@
     "hintLabel": "뜻: {{meaning}}"
   },
   "autoplay": {
+    "play": "재생",
+    "pause": "일시정지",
     "title": "자동재생",
     "noWords": "재생할 단어가 없습니다.",
     "complete": "완료!",
@@ -1450,6 +1485,9 @@
     "exportSavedMessage": "{{name}} 파일을 선택한 폴더에 저장했어요."
   },
   "manage": {
+    "show": "단어장 보이기",
+    "hide": "단어장 숨기기",
+    "rename": "이름 바꾸기",
     "title": "나의 단어장 관리",
     "newListPlaceholder": "새로운 단어장 이름",
     "newLabel": "새로운",
@@ -1613,6 +1651,8 @@
   "skinY2k": "Y2K",
   "skinLab": "실험실",
   "skinOcean": "여름 바다",
+  "skinAutumn": "가을 단풍",
+  "skinHangul": "한글",
   "reviewNotif": {
     "channelName": "복습 알림",
     "title": "복습하기 좋은 단어 {{count}}개 🌱",

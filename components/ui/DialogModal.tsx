@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { ScrollView as GHScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
@@ -49,6 +50,9 @@ export default function DialogModal({
   bodyPadding = true,
 }: DialogModalProps) {
   const { colors } = useTheme();
+  // 닫기 버튼에 스크린리더가 읽을 이름을 주려고 들여왔다. 이 컴포넌트가 화면에
+  // 직접 그리는 글자는 그것 하나뿐이다 — 나머지 문구는 전부 호출자가 넘긴다.
+  const { t } = useTranslation();
   const h = compact ? PopupTokens.header.compact : PopupTokens.header.standard;
 
   const Body = scrollable ? (compact ? GHScrollView : ScrollView) : View;
@@ -87,7 +91,7 @@ export default function DialogModal({
           {title}
         </Text>
         {showCloseButton && (
-          <Pressable onPress={onClose} hitSlop={12} style={styles.closeBtn}>
+          <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={12} style={styles.closeBtn}>
             <Ionicons name="close" size={h.closeSize} color={colors.textSecondary} />
           </Pressable>
         )}

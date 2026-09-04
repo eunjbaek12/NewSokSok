@@ -2,6 +2,1736 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-sightseeing-ko-1",
+    "title": "Korean Sightseeing & Landmarks 50",
+    "icon": "🏛️",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Palaces, museums and festivals — 궁궐, 한옥마을, 사찰, 입장료, 매표소, 해설, 포토존, 야경, 문화재 and the words for getting in and looking round. Korean→English; meanings & examples from the ticket line and the tour, AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1788434446156,
+    "words": [
+      {
+        "id": "word-sightseeing-0-1788434446156",
+        "term": "궁궐",
+        "definition": "a royal palace",
+        "meaningKr": "a royal palace",
+        "exampleEn": "경복궁은 서울에서 가장 큰 궁궐이에요.",
+        "exampleKr": "Gyeongbokgung is the largest royal palace in Seoul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gunggwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-1-1788434446156",
+        "term": "한옥마을",
+        "definition": "a traditional hanok village",
+        "meaningKr": "a traditional hanok village",
+        "exampleEn": "한옥마을 골목길이 참 예쁘네요.",
+        "exampleKr": "The alleys of the hanok village are really pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "hanongmaeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-2-1788434446156",
+        "term": "박물관",
+        "definition": "a museum",
+        "meaningKr": "a museum",
+        "exampleEn": "국립중앙박물관에 가고 싶어요.",
+        "exampleKr": "I want to go to the National Museum of Korea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "bangmulgwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-3-1788434446156",
+        "term": "미술관",
+        "definition": "an art museum",
+        "meaningKr": "an art museum",
+        "exampleEn": "이번 주말에 미술관 전시를 보러 가자.",
+        "exampleKr": "Let's go see the art exhibition this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "misulgwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-4-1788434446156",
+        "term": "유적",
+        "definition": "historic remains",
+        "meaningKr": "historic remains",
+        "exampleEn": "경주에는 오래된 역사 유적이 많아요.",
+        "exampleKr": "There are many old historical remains in Gyeongju.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "yujeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-5-1788434446156",
+        "term": "탑",
+        "definition": "a pagoda",
+        "meaningKr": "a pagoda",
+        "exampleEn": "절 마당에 높이 솟은 석탑이 있어요.",
+        "exampleKr": "There is a tall stone pagoda in the temple courtyard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "tap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-6-1788434446156",
+        "term": "사찰",
+        "definition": "a Buddhist temple",
+        "meaningKr": "a Buddhist temple",
+        "exampleEn": "산속에 있는 조용한 사찰을 방문했어요.",
+        "exampleKr": "I visited a quiet Buddhist temple in the mountains.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "sachal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-7-1788434446156",
+        "term": "성곽",
+        "definition": "a fortress wall",
+        "meaningKr": "a fortress wall",
+        "exampleEn": "수원 화성 성곽을 따라 걸었어요.",
+        "exampleKr": "I walked along the Suwon Hwaseong fortress wall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "seonggwak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-8-1788434446156",
+        "term": "온천",
+        "definition": "a hot spring",
+        "meaningKr": "a hot spring",
+        "exampleEn": "여행 피로를 풀러 온천에 가자.",
+        "exampleKr": "Let's go to the hot spring to relieve our travel fatigue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "oncheon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-9-1788434446156",
+        "term": "섬",
+        "definition": "an island",
+        "meaningKr": "an island",
+        "exampleEn": "배를 타고 제주도라는 아름다운 섬에 갔어요.",
+        "exampleKr": "I took a boat and went to a beautiful island called Jeju.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "seom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-10-1788434446156",
+        "term": "관광",
+        "definition": "sightseeing",
+        "meaningKr": "sightseeing",
+        "exampleEn": "오늘 시내 관광을 어떻게 할까요?",
+        "exampleKr": "How should we do our city sightseeing today?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gwangwang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-11-1788434446156",
+        "term": "관광객",
+        "definition": "a tourist",
+        "meaningKr": "a tourist",
+        "exampleEn": "궁궐 안에는 외국인 관광객들이 많았어요.",
+        "exampleKr": "There were many foreign tourists inside the palace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gwangwanggaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-12-1788434446156",
+        "term": "관람",
+        "definition": "viewing an exhibition",
+        "meaningKr": "viewing an exhibition",
+        "exampleEn": "특별 전시 관람은 예약해야 해요.",
+        "exampleKr": "You need to make a reservation to view the special exhibition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gwallam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-13-1788434446156",
+        "term": "구경하다",
+        "definition": "to look around",
+        "meaningKr": "to look around",
+        "exampleEn": "시장 안을 천천히 구경하면서 걸었어요.",
+        "exampleKr": "I walked slowly while looking around the market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gugyeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sightseeing-14-1788434446156",
+        "term": "둘러보다",
+        "definition": "to look round",
+        "meaningKr": "to look round",
+        "exampleEn": "한 시간 동안 박물관을 둘러보자.",
+        "exampleKr": "Let's look round the museum for an hour.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "dulleoboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sightseeing-15-1788434446156",
+        "term": "입장료",
+        "definition": "an admission fee",
+        "meaningKr": "an admission fee",
+        "exampleEn": "성인 한 명 입장료가 얼마예요?",
+        "exampleKr": "How much is the admission fee for one adult?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "ipjangnyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-16-1788434446156",
+        "term": "매표소",
+        "definition": "a ticket office",
+        "meaningKr": "a ticket office",
+        "exampleEn": "입장권은 저기 매표소에서 살 수 있어요.",
+        "exampleKr": "You can buy admission tickets at that ticket office over there.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "maepyoso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-17-1788434446156",
+        "term": "안내소",
+        "definition": "an information desk",
+        "meaningKr": "an information desk",
+        "exampleEn": "한국어 지도는 입구 안내소에 있어요.",
+        "exampleKr": "Korean maps are at the information desk at the entrance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "annaeso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-18-1788434446156",
+        "term": "해설",
+        "definition": "a guide's commentary",
+        "meaningKr": "a guide's commentary",
+        "exampleEn": "오전 열 시에 문화재 해설이 시작돼요.",
+        "exampleKr": "Cultural asset commentary starts at 10 AM.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "haeseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-19-1788434446156",
+        "term": "휴관일",
+        "definition": "a closing day",
+        "meaningKr": "a closing day",
+        "exampleEn": "월요일은 박물관 휴관일이라 문을 닫아요.",
+        "exampleKr": "Monday is the museum's closing day, so it's closed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "hyugwanil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-20-1788434446156",
+        "term": "사진",
+        "definition": "a photograph",
+        "meaningKr": "a photograph",
+        "exampleEn": "여기 예쁜 풍경을 사진으로 남기자.",
+        "exampleKr": "Let's capture this pretty scenery in a photograph.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "sajin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-21-1788434446156",
+        "term": "찍다",
+        "definition": "to take a photo",
+        "meaningKr": "to take a photo",
+        "exampleEn": "경복궁 앞에서 사진 한 장 찍어 주세요.",
+        "exampleKr": "Please take a picture of us in front of Gyeongbokgung.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "jjikda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sightseeing-22-1788434446156",
+        "term": "기념사진",
+        "definition": "a commemorative photo",
+        "meaningKr": "a commemorative photo",
+        "exampleEn": "탑 앞에서 멋진 기념사진을 찍었어요.",
+        "exampleKr": "I took a wonderful commemorative photo in front of the pagoda.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "ginyeomsajin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-23-1788434446156",
+        "term": "포토존",
+        "definition": "a photo spot",
+        "meaningKr": "a photo spot",
+        "exampleEn": "이 포토존에서 찍으면 사진이 잘 나와요.",
+        "exampleKr": "If you take a photo at this photo spot, it comes out well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "potojon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-24-1788434446156",
+        "term": "풍경",
+        "definition": "scenery",
+        "meaningKr": "scenery",
+        "exampleEn": "한옥마을의 전통적인 풍경이 정말 아름다워요.",
+        "exampleKr": "The traditional scenery of the hanok village is truly beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "punggyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-25-1788434446156",
+        "term": "야경",
+        "definition": "night view",
+        "meaningKr": "night view",
+        "exampleEn": "여기서 보는 궁궐 야경이 정말 아름다워요.",
+        "exampleKr": "The night view of the palace from here is really beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "yagyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-26-1788434446156",
+        "term": "경치",
+        "definition": "scenery",
+        "meaningKr": "scenery",
+        "exampleEn": "산에 올라와서 보니까 경치가 참 좋네요.",
+        "exampleKr": "The scenery is really nice now that we've climbed up the mountain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gyeongchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-27-1788434446156",
+        "term": "역사",
+        "definition": "history",
+        "meaningKr": "history",
+        "exampleEn": "이 박물관에서 조선 시대의 역사를 배울 수 있어요.",
+        "exampleKr": "You can learn about the history of the Joseon dynasty at this museum.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "yeoksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-28-1788434446156",
+        "term": "문화재",
+        "definition": "cultural heritage",
+        "meaningKr": "cultural heritage",
+        "exampleEn": "중요한 문화재가 많아서 조용히 관람해야 해요.",
+        "exampleKr": "There are many important cultural heritage items, so we need to view them quietly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "munhwajae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-29-1788434446156",
+        "term": "전통",
+        "definition": "tradition",
+        "meaningKr": "tradition",
+        "exampleEn": "이 마을에서는 한국의 전통 문화를 체험할 수 있어요.",
+        "exampleKr": "You can experience traditional Korean culture in this village.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "jeontong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-30-1788434446156",
+        "term": "왕",
+        "definition": "king",
+        "meaningKr": "king",
+        "exampleEn": "옛날에 왕이 살던 궁궐이라서 규모가 아주 커요.",
+        "exampleKr": "Since this is the palace where the king used to live, the scale is huge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "wang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-31-1788434446156",
+        "term": "조선 시대",
+        "definition": "Joseon dynasty",
+        "meaningKr": "Joseon dynasty",
+        "exampleEn": "이 건축물은 조선 시대에 만들어진 것입니다.",
+        "exampleKr": "This building was constructed during the Joseon dynasty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "joseon sidae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-32-1788434446156",
+        "term": "국보",
+        "definition": "national treasure",
+        "meaningKr": "national treasure",
+        "exampleEn": "이 탑은 우리 나라의 소중한 국보예요.",
+        "exampleKr": "This pagoda is a precious national treasure of our country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "gukbo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-33-1788434446156",
+        "term": "체험",
+        "definition": "hands-on experience",
+        "meaningKr": "hands-on experience",
+        "exampleEn": "한복 입기 체험은 어디서 신청하면 되나요?",
+        "exampleKr": "Where should I sign up for the hanbok-wearing experience?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "cheheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-34-1788434446156",
+        "term": "유명하다",
+        "definition": "to be famous",
+        "meaningKr": "to be famous",
+        "exampleEn": "이 절은 단풍이 예쁘기로 아주 유명해요.",
+        "exampleKr": "This temple is very famous for its pretty autumn foliage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "yumyeonghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-sightseeing-35-1788434446156",
+        "term": "시내",
+        "definition": "downtown",
+        "meaningKr": "downtown",
+        "exampleEn": "궁궐 구경을 마치고 시내로 갈 거예요.",
+        "exampleKr": "After finishing our palace tour, we are going to head downtown.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "sinae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-36-1788434446156",
+        "term": "거리",
+        "definition": "street",
+        "meaningKr": "street",
+        "exampleEn": "한옥 마을 거리가 예뻐서 사진 찍기 좋아요.",
+        "exampleKr": "The streets of the hanbok village are pretty, so it is great for taking photos.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "geori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-37-1788434446156",
+        "term": "마을",
+        "definition": "village",
+        "meaningKr": "village",
+        "exampleEn": "전통 가옥이 모여 있는 예쁜 마을이에요.",
+        "exampleKr": "It is a pretty village where traditional houses are gathered together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "maeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-38-1788434446156",
+        "term": "바다",
+        "definition": "sea",
+        "meaningKr": "sea",
+        "exampleEn": "절 위에서 내려다보는 바다 풍경이 정말 멋져요.",
+        "exampleKr": "The sea view looking down from the temple is really wonderful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "bada",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-39-1788434446156",
+        "term": "축제",
+        "definition": "festival",
+        "meaningKr": "festival",
+        "exampleEn": "마침 오늘 광화문에서 빛 축제가 열려요.",
+        "exampleKr": "As it turns out, a light festival is being held at Gwanghwamun today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "chukje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-40-1788434446156",
+        "term": "야시장",
+        "definition": "night market",
+        "meaningKr": "night market",
+        "exampleEn": "축제가 끝나면 근처 야시장에 가 보자.",
+        "exampleKr": "Let's check out the nearby night market once the festival is over.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "yasijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-41-1788434446156",
+        "term": "명소",
+        "definition": "famous spot",
+        "meaningKr": "famous spot",
+        "exampleEn": "여기가 외국인들에게 인기 있는 관광 명소예요.",
+        "exampleKr": "This place is a popular tourist spot among foreigners.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "myeongso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-42-1788434446156",
+        "term": "볼거리",
+        "definition": "attraction",
+        "meaningKr": "attraction",
+        "exampleEn": "전통 공연이나 전시 같은 볼거리가 많아요.",
+        "exampleKr": "There are many things to see, such as traditional performances and exhibitions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "bolgeori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-43-1788434446156",
+        "term": "일정",
+        "definition": "itinerary",
+        "meaningKr": "itinerary",
+        "exampleEn": "오늘 오후 일정은 경복궁 관람이에요.",
+        "exampleKr": "Our itinerary for this afternoon is visiting Gyeongbokgung Palace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "iljeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-44-1788434446156",
+        "term": "줄을 서다",
+        "definition": "to queue up",
+        "meaningKr": "to queue up",
+        "exampleEn": "입장권을 사기 위해 사람들이 길게 줄을 서 있어요.",
+        "exampleKr": "People are standing in a long line to buy admission tickets.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "jureul seoda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-sightseeing-45-1788434446156",
+        "term": "붐비다",
+        "definition": "to be crowded",
+        "meaningKr": "to be crowded",
+        "exampleEn": "주말이라서 한옥 마을에 사람이 아주 많이 붐벼요.",
+        "exampleKr": "It is the weekend, so the hanbok village is very crowded with people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "bumbida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sightseeing-46-1788434446156",
+        "term": "대여하다",
+        "definition": "to rent",
+        "meaningKr": "to rent",
+        "exampleEn": "여기서 예쁜 한복을 하루 동안 대여할 수 있어요.",
+        "exampleKr": "You can rent a pretty hanbok here for the day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "daeyeohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-sightseeing-47-1788434446156",
+        "term": "무료",
+        "definition": "free of charge",
+        "meaningKr": "free of charge",
+        "exampleEn": "오늘 한복을 입고 오면 입장료가 무료예요.",
+        "exampleKr": "Admission is free today if you come wearing a hanbok.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "muryo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-48-1788434446156",
+        "term": "입구",
+        "definition": "entrance",
+        "meaningKr": "entrance",
+        "exampleEn": "매표소는 저기 보이는 큰 정문 입구 옆에 있어요.",
+        "exampleKr": "The ticket office is next to the big main gate entrance you see over there.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "ipgu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-sightseeing-49-1788434446156",
+        "term": "출구",
+        "definition": "exit",
+        "meaningKr": "exit",
+        "exampleEn": "관람을 마치고 나오는 출구는 어느 쪽인가요?",
+        "exampleKr": "Which way is the exit after finishing the tour?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Travel",
+          "Culture"
+        ],
+        "phonetic": "chulgu",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-ceremony-ko-1",
+    "title": "Korean Ceremonies & Etiquette 50",
+    "icon": "💐",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Weddings, funerals and the holidays in between — 청첩장, 축의금, 폐백, 빈소, 부의금, 세배, 차례, 돌잔치 and the humble verbs (드리다, 뵙다, 여쭤보다) you need around elders. Korean→English; meanings & spoken examples from real ceremonies, AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1788434543846,
+    "words": [
+      {
+        "id": "word-ceremony-0-1788434543846",
+        "term": "결혼",
+        "definition": "marriage; getting married",
+        "meaningKr": "marriage; getting married",
+        "exampleEn": "친구의 결혼 소식을 듣고 정말 기뻤어요.",
+        "exampleKr": "I was really glad to hear the news of my friend's marriage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "gyeolhon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-1-1788434543846",
+        "term": "결혼식",
+        "definition": "wedding ceremony",
+        "meaningKr": "wedding ceremony",
+        "exampleEn": "이번 주 토요일에 친구 결혼식에 가요.",
+        "exampleKr": "I am going to a friend's wedding ceremony this Saturday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "gyeolhonsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-2-1788434543846",
+        "term": "신랑",
+        "definition": "groom",
+        "meaningKr": "groom",
+        "exampleEn": "오늘 신랑이 긴장한 것 같아요.",
+        "exampleKr": "The groom looks nervous today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sillang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-3-1788434543846",
+        "term": "신부",
+        "definition": "bride",
+        "meaningKr": "bride",
+        "exampleEn": "신부의 드레스가 정말 아름답네요.",
+        "exampleKr": "The bride's dress is truly beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sinbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-4-1788434543846",
+        "term": "청첩장",
+        "definition": "wedding invitation card",
+        "meaningKr": "wedding invitation card",
+        "exampleEn": "모바일로 청첩장을 받았습니다.",
+        "exampleKr": "I received a mobile wedding invitation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "cheongcheopjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-5-1788434543846",
+        "term": "축의금",
+        "definition": "congratulatory money",
+        "meaningKr": "congratulatory money",
+        "exampleEn": "접수처에 축의금을 내고 봉투를 받았어요.",
+        "exampleKr": "I handed over the congratulatory money at the reception desk and got an envelope.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "chugui-geum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-6-1788434543846",
+        "term": "하객",
+        "definition": "wedding guest",
+        "meaningKr": "wedding guest",
+        "exampleEn": "예식장 안에 하객들이 많이 모였어요.",
+        "exampleKr": "Many wedding guests have gathered inside the wedding hall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "hagaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-7-1788434543846",
+        "term": "예식장",
+        "definition": "wedding hall",
+        "meaningKr": "wedding hall",
+        "exampleEn": "강남에 있는 예식장으로 찾아가세요.",
+        "exampleKr": "Please head to the wedding hall located in Gangnam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "yesikjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-8-1788434543846",
+        "term": "폐백",
+        "definition": "pyebaek",
+        "meaningKr": "pyebaek",
+        "exampleEn": "예식이 끝나고 친지들 앞에서 폐백을 드립니다.",
+        "exampleKr": "After the ceremony, they perform pyebaek in front of the family relatives.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "pyebaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-9-1788434543846",
+        "term": "신혼여행",
+        "definition": "honeymoon",
+        "meaningKr": "honeymoon",
+        "exampleEn": "결혼식이 끝나면 하와이로 신혼여행을 갑니다.",
+        "exampleKr": "After the wedding ceremony, they are going on a honeymoon to Hawaii.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sinhonyeohaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-10-1788434543846",
+        "term": "장례식",
+        "definition": "funeral",
+        "meaningKr": "funeral",
+        "exampleEn": "슬픈 소식을 듣고 장례식장에 다녀왔어요.",
+        "exampleKr": "I heard the sad news and went to the funeral.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jangnyesik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-11-1788434543846",
+        "term": "빈소",
+        "definition": "funeral hall room",
+        "meaningKr": "funeral hall room",
+        "exampleEn": "조용히 빈소로 들어가서 절을 올렸습니다.",
+        "exampleKr": "I quietly entered the funeral room and made a bow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "binso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-12-1788434543846",
+        "term": "조문",
+        "definition": "paying condolences",
+        "meaningKr": "paying condolences",
+        "exampleEn": "늦은 시간이지만 조문을 다녀오겠습니다.",
+        "exampleKr": "It is late, but I will go pay my condolences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jomun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-13-1788434543846",
+        "term": "문상",
+        "definition": "condolence visit",
+        "meaningKr": "condolence visit",
+        "exampleEn": "검은색 옷을 입고 문상을 갔습니다.",
+        "exampleKr": "I wore black clothes and went for a condolence visit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "munsang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-14-1788434543846",
+        "term": "상주",
+        "definition": "chief mourner",
+        "meaningKr": "chief mourner",
+        "exampleEn": "상주에게 위로의 말을 건넸습니다.",
+        "exampleKr": "I offered words of comfort to the chief mourner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sangju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-15-1788434543846",
+        "term": "부의금",
+        "definition": "condolence money",
+        "meaningKr": "condolence money",
+        "exampleEn": "입구에서 부의금을 내고 방명록을 썼어요.",
+        "exampleKr": "I gave the condolence money at the entrance and signed the guestbook.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "bu-uigeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-16-1788434543846",
+        "term": "고인",
+        "definition": "the deceased",
+        "meaningKr": "the deceased",
+        "exampleEn": "고인의 명복을 빌며 묵념을 했습니다.",
+        "exampleKr": "I offered a silent prayer wishing the deceased rest in peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "goin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-17-1788434543846",
+        "term": "조의",
+        "definition": "condolences",
+        "meaningKr": "condolences",
+        "exampleEn": "유가족에게 깊은 조의를 표합니다.",
+        "exampleKr": "I express my deep condolences to the bereaved family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jo-ui",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-18-1788434543846",
+        "term": "상복",
+        "definition": "mourning clothes",
+        "meaningKr": "mourning clothes",
+        "exampleEn": "상주들은 모두 검은색 상복을 입고 있습니다.",
+        "exampleKr": "All the chief mourners are wearing black mourning clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sangbok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-19-1788434543846",
+        "term": "명복을 빌다",
+        "definition": "to pray for the departed to rest in peace",
+        "meaningKr": "to pray for the departed to rest in peace",
+        "exampleEn": "삼가 고인의 명복을 빕니다.",
+        "exampleKr": "I sincerely pray that the departed rests in peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "myeongbogeul bilda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ceremony-20-1788434543846",
+        "term": "명절",
+        "definition": "traditional holiday",
+        "meaningKr": "traditional holiday",
+        "exampleEn": "이번 명절에는 고향에 내려가지 않습니다.",
+        "exampleKr": "I am not going down to my hometown this traditional holiday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "myeongjeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-21-1788434543846",
+        "term": "설날",
+        "definition": "Seollal",
+        "meaningKr": "Seollal",
+        "exampleEn": "설날 아침에 온 가족이 모여 떡국을 먹어요.",
+        "exampleKr": "On Seollal morning, the whole family gathers and eats rice cake soup.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "seollal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-22-1788434543846",
+        "term": "추석",
+        "definition": "Chuseok",
+        "meaningKr": "Chuseok",
+        "exampleEn": "추석에 친척들과 함께 송편을 만들었습니다.",
+        "exampleKr": "I made songpyeon with my relatives on Chuseok.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "chuseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-23-1788434543846",
+        "term": "세배",
+        "definition": "new year bow to elders",
+        "meaningKr": "new year bow to elders",
+        "exampleEn": "새해를 맞아 할아버지께 세배를 드렸어요.",
+        "exampleKr": "I gave a new year bow to my grandfather to welcome the new year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sebae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-24-1788434543846",
+        "term": "세뱃돈",
+        "definition": "new year money",
+        "meaningKr": "new year money",
+        "exampleEn": "세배를 마치고 할머니에게 세뱃돈을 받았습니다.",
+        "exampleKr": "After finishing the new year bow, I received new year money from my grandmother.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "sebaetdon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-25-1788434543846",
+        "term": "차례",
+        "definition": "ancestral rite on Seollal and Chuseok",
+        "meaningKr": "ancestral rite on Seollal and Chuseok",
+        "exampleEn": "명절 아침에 온 가족이 모여서 차례를 지냈어요.",
+        "exampleKr": "The whole family gathered on holiday morning to hold the ancestral rite.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "charye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-26-1788434543846",
+        "term": "제사",
+        "definition": "ancestral memorial rite",
+        "meaningKr": "ancestral memorial rite",
+        "exampleEn": "내일 모레가 할아버지 제사라서 준비할 게 많아요.",
+        "exampleKr": "There is a lot to prepare because grandfather's memorial rite is the day after tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jesa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-27-1788434543846",
+        "term": "성묘",
+        "definition": "visiting and tending a grave",
+        "meaningKr": "visiting and tending a grave",
+        "exampleEn": "추석 연휴에 가족들과 함께 할아버지 산소에 성묘를 갔어요.",
+        "exampleKr": "I went to visit my grandfather's grave with my family during the Chuseok holiday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "seongmyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-28-1788434543846",
+        "term": "떡국",
+        "definition": "rice-cake soup for Seollal",
+        "meaningKr": "rice-cake soup for Seollal",
+        "exampleEn": "새해 아침에는 어머니가 끓여주신 떡국을 맛있게 먹었어요.",
+        "exampleKr": "On New Year's morning, I deliciously ate the rice-cake soup my mother cooked.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "tteokguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-29-1788434543846",
+        "term": "송편",
+        "definition": "half-moon rice cakes",
+        "meaningKr": "half-moon rice cakes",
+        "exampleEn": "추석 전날 밤에 온 가족이 둘러앉아 송편을 빚었어요.",
+        "exampleKr": "The night before Chuseok, the whole family sat together and made half-moon rice cakes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "songpyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-30-1788434543846",
+        "term": "잔치",
+        "definition": "feast or celebration party",
+        "meaningKr": "feast or celebration party",
+        "exampleEn": "마을 어르신들을 모시고 맛있는 음식을 대접하는 잔치를 열었어요.",
+        "exampleKr": "We held a feast to invite the village elders and serve them delicious food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "janchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-31-1788434543846",
+        "term": "돌잔치",
+        "definition": "baby's first-birthday party",
+        "meaningKr": "baby's first-birthday party",
+        "exampleEn": "조카의 첫돌을 축하하기 위해서 돌잔치 장소에 갔어요.",
+        "exampleKr": "I went to the first-birthday party venue to celebrate my nephew's first birthday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "doljanchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-32-1788434543846",
+        "term": "집들이",
+        "definition": "housewarming party",
+        "meaningKr": "housewarming party",
+        "exampleEn": "이번 주말에 친구들을 새로 이사한 집으로 초대해서 집들이를 해요.",
+        "exampleKr": "This weekend, I'm inviting friends to my newly moved house for a housewarming party.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jipdeuri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-33-1788434543846",
+        "term": "생일",
+        "definition": "birthday",
+        "meaningKr": "birthday",
+        "exampleEn": "부모님 생일에 미역국을 직접 끓여서 대접해 드렸어요.",
+        "exampleKr": "I cooked seaweed soup myself and served it to my parents on their birthday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "saengil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-34-1788434543846",
+        "term": "회갑",
+        "definition": "60th-birthday celebration",
+        "meaningKr": "60th-birthday celebration",
+        "exampleEn": "아버지의 회갑을 맞이해서 친척들과 함께 조촐한 식사를 했어요.",
+        "exampleKr": "To celebrate my father's 60th birthday, we had a modest meal with relatives.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "hoegap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-35-1788434543846",
+        "term": "초대하다",
+        "definition": "to invite",
+        "meaningKr": "to invite",
+        "exampleEn": "소중한 친구들을 집에 초대해서 맛있는 저녁을 대접했어요.",
+        "exampleKr": "I invited dear friends to my house and treated them to a delicious dinner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "chodaehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-36-1788434543846",
+        "term": "축하하다",
+        "definition": "to congratulate",
+        "meaningKr": "to congratulate",
+        "exampleEn": "친구가 좋은 회사에 취직해서 진심으로 축하해 주었어요.",
+        "exampleKr": "My friend got a job at a good company, so I congratulated them sincerely.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "chukahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-37-1788434543846",
+        "term": "선물",
+        "definition": "gift",
+        "meaningKr": "gift",
+        "exampleEn": "고마운 분께 드릴 정성스러운 선물을 골라서 포장했어요.",
+        "exampleKr": "I picked out and wrapped a sincere gift to give to someone I am grateful to.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "seonmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-38-1788434543846",
+        "term": "예절",
+        "definition": "etiquette, manners",
+        "meaningKr": "etiquette, manners",
+        "exampleEn": "어른을 만났을 때 지켜야 할 기본적인 예절을 배웠어요.",
+        "exampleKr": "I learned the basic etiquette to follow when meeting an elder.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "yejeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-39-1788434543846",
+        "term": "어른",
+        "definition": "grown-up, elder",
+        "meaningKr": "grown-up, elder",
+        "exampleEn": "명절에 집에 오신 어른들께 두 손로 공손하게 인사를 드렸어요.",
+        "exampleKr": "I greeted the elders who came to the house for the holiday politely with both hands.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "eoreun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-40-1788434543846",
+        "term": "웃어른",
+        "definition": "respectable elder",
+        "meaningKr": "respectable elder",
+        "exampleEn": "집안의 웃어른들께 먼저 차례상을 올린 뒤에 식사를 시작했어요.",
+        "exampleKr": "We started eating after first offering the ritual table to the elders of the family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "useoreun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-41-1788434543846",
+        "term": "모시다",
+        "definition": "to attend on, accompany senior",
+        "meaningKr": "to attend on, accompany senior",
+        "exampleEn": "주말에 부모님을 모시고 가까운 공원으로 산책을 다녀왔어요.",
+        "exampleKr": "Over the weekend, I accompanied my parents and went for a walk in a nearby park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "mosida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-42-1788434543846",
+        "term": "드리다",
+        "definition": "to give (humble)",
+        "meaningKr": "to give (humble)",
+        "exampleEn": "할아버지께 건강에 좋은 홍삼을 선물로 사서 드렸어요.",
+        "exampleKr": "I bought and gave red ginseng, which is good for health, as a gift to my grandfather.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "deurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-43-1788434543846",
+        "term": "말씀드리다",
+        "definition": "to tell, say (humble)",
+        "meaningKr": "to tell, say (humble)",
+        "exampleEn": "선생님께 다음 주 수업 참석이 어렵다고 미리 말씀드렸어요.",
+        "exampleKr": "I told the teacher in advance that it would be difficult to attend next week's class.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "malsseumdeurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-44-1788434543846",
+        "term": "여쭤보다",
+        "definition": "to ask (humble)",
+        "meaningKr": "to ask (humble)",
+        "exampleEn": "궁금한 점이 있어서 교수님 연구실에 가서 여쭤보았어요.",
+        "exampleKr": "I had something I was curious about, so I went to the professor's office and asked.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "yeojjwoboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-45-1788434543846",
+        "term": "뵙다",
+        "definition": "to see, meet senior (humble)",
+        "meaningKr": "to see, meet senior (humble)",
+        "exampleEn": "내일 오후에 찾아뵙고 인사드려도 괜찮을까요?",
+        "exampleKr": "Would it be alright if I visit and greet you tomorrow afternoon?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "boepda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-46-1788434543846",
+        "term": "존댓말",
+        "definition": "polite speech, honorifics",
+        "meaningKr": "polite speech, honorifics",
+        "exampleEn": "처음 만난 분에게는 실례가 되지 않도록 존댓말을 써야 해요.",
+        "exampleKr": "You should use polite speech so as not to be rude to someone you meet for the first time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jondaenmal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-47-1788434543846",
+        "term": "절하다",
+        "definition": "to bow deeply",
+        "meaningKr": "to bow deeply",
+        "exampleEn": "설날 아침에 한복을 입고 할아버지께 절했어요.",
+        "exampleKr": "On Seollal morning I put on a hanbok and bowed to my grandfather.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "jeolhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ceremony-48-1788434543846",
+        "term": "인사",
+        "definition": "greeting",
+        "meaningKr": "greeting",
+        "exampleEn": "결혼식장에서 만난 하객들에게 밝은 얼굴로 인사를 건넸어요.",
+        "exampleKr": "I greeted the guests I met at the wedding venue with a bright face.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "insa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ceremony-49-1788434543846",
+        "term": "한복",
+        "definition": "hanbok, traditional dress",
+        "meaningKr": "hanbok, traditional dress",
+        "exampleEn": "추석 명절을 맞이해서 예쁜 색동한복을 곱게 차려입었어요.",
+        "exampleKr": "To celebrate the Chuseok holiday, I neatly dressed up in a pretty striped hanbok.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Daily Life"
+        ],
+        "phonetic": "hanbok",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-travel-ko-1",
     "title": "Korean Travel & Transit 50",
     "icon": "🚄",

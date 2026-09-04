@@ -17,6 +17,7 @@
     "i18n:fill": "node scripts/i18n-fill.mjs"
   },
   "dependencies": {
+    "@expo-google-fonts/gowun-batang": "^0.4.1",
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo-google-fonts/jua": "^0.4.1",
     "@expo/vector-icons": "^15.0.3",

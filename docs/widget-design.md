@@ -1,6 +1,83 @@
 # 위젯 설계 — 타당성 검토와 결정
 
+> 🔬 **2026-09-03 spike 결과 — 이 문서의 전제 두 개가 틀렸다. 아래 §-1 을 먼저 읽을 것.**
+> 요약: **Android 먼저**로 방향을 바꿨고, iOS 는 1 월로 미뤘다.
+
+---
+
+## §-1. spike 결과 (2026-09-03) — 실제로 돌려 보고 알아낸 것
+
+10/1 피처링 모멘트에 위젯을 넣을 수 있는지 이틀 예산으로 재 봤다. 판단 기준은 하나였다:
+**"Hello World 위젯이 실기 홈 화면에 뜨는가."** 거기까진 못 갔지만, **그 전에 갈림길이
+드러나** 반나절에 결론이 났다.
+
+방법: 본 저장소를 건드리지 않으려고 **OneDrive 밖에 클론**을 떠서 실험했다
+(`C:\Users\kimos\dev\soksok-widget-spike`, bundle id `com.soksokvoca.spike`).
+
+### 🔴 틀린 전제 ① — "OneDrive 때문에 prebuild 가 안 된다"
+
+**iOS 는 OneDrive 와 무관하게 Windows 에서 원천 불가다.**
+
+```
+$ npx expo prebuild -p ios --no-install --clean
+⚠️ Skipping generating the iOS native project files.
+   Run npx expo prebuild again from macOS or Linux to generate the iOS project.
+```
+
+OneDrive 밖에서도 똑같이 건너뛴다. 이게 §2 가 말한 "여백 하나에 EAS 빌드 30분"보다
+나쁜 이유는 — **Xcode 프로젝트가 어떻게 생성되는지 로컬에서 볼 수조차 없다.** 검증 수단이
+0 이고 오류는 EAS 빌드 로그로만 진단해야 한다.
+
+**반면 Android 는 Windows 에서 성공한다.**
+
+```
+$ npx expo prebuild -p android --no-install --clean
+✔ Finished prebuild            # android/app/src/main 생성 확인
+```
+
+처음엔 실패했는데 원인이 플랫폼이 아니라 **`google-services.json` 이 없어서**였다
+(gitignore 라 클론에 안 따라온다). 원본에서 복사하니 통과했다.
+🔑 환경도 이미 갖춰져 있다 — Android SDK(`%LOCALAPPDATA%\Android\Sdk`) · JDK 17 · `gradlew`.
+**Android Studio 실시간 프리뷰로 개발할 수 있다.**
+
+### 🔴 틀린 전제 ② — "iOS 위젯은 100% SwiftUI, RN 재사용 0%"
+
+**Expo 가 공식 `expo-widgets` SDK 를 냈다**(iOS 전용). SwiftUI 를 손으로 짜지 않고
+**TSX 로 위젯을 쓴다**(`@expo/ui/swift-ui` 컴포넌트). `addUserInteractionListener` 로
+버튼 탭도 되므로 **W1(인터랙티브 위젯)이 지원된다.**
+
+→ **"Mac 확보가 전제"라는 이 문서의 판단은 이제 낡았을 수 있다.** 막는 것은 언어가 아니라
+검증(prebuild 불가)이다. 1 월 iOS 이식은 SwiftUI 학습도 Mac 대여도 없이 될 가능성이 있다.
+
+### `@bacons/apple-targets` 를 쓸 때의 함정 (iOS 를 다시 시도할 때 볼 것)
+
+- 버전 5.0.0. 플러그인이 프로비저닝에 필요한
+  `extra.eas.build.experimental.ios.appExtensions` 를 **자동으로 채우는데, 그게 prebuild
+  단계(`withXcodeProjectBeta`)에서 돈다.** EAS 는 빌드를 **시작하기 전에** 인증서를
+  준비하므로 그 시점엔 비어 있다 → 널리 보고된 "확장 프로파일 자동 생성 실패"가 이것이다.
+  **수동으로 선언해야 한다.**
+- `ios.appleTeamId` 가 없으면 경고와 함께 "iOS builds may fail" 이 뜬다.
+  **저장소 어디에도 Team ID 가 없다** — 은정님만 알 수 있다.
+- App Group 은 spike 에서 일부러 뺐다. 데이터 공유는 다음 문제이고, Apple Developer 에
+  그룹을 따로 등록해야 할 수 있어 실패 지점만 늘린다.
+
+### ✅ 결정 (2026-09-03)
+
+| | |
+|---|---|
+| **10/1 피처링 §5 의 WidgetKit** | ❌ **체크하지 않는다.** 로컬 검증 0 인 채로 4 주에 완성하는 건 도박이고, 못 나가면 없는 기능을 주장한 게 된다 |
+| **Android 위젯** | ✅ **먼저 만든다.** Windows 에서 실시간 개발 가능 · 주력 사용자층 · Play 지명(10/29 만료)에 실을 수 있다 |
+| **iOS 위젯** | ⏭️ **1 월 모멘트.** Android 에서 §6 데이터 질문 6 개를 풀어 두면 화면만 옮기면 된다 |
+| 도구 후보 | Android = `react-native-android-widget`(Expo config plugin · JSX · `WIDGET_CLICK`) · iOS = `expo-widgets` |
+
+⚠️ **`android/` 는 커밋하지 않는다.** prebuild 로 언제든 재생성되고, 여러 세션이 공유하는
+트리를 bare workflow 로 바꾸는 건 되돌리기 어렵다. 위젯 소스와 매니페스트 변경은
+**config plugin 으로** 저장소에 남긴다.
+
+---
+
 > 📌 **상태 (2026-07-22): 화면 확정. 데이터 설계 남음. 구현 금지.**
+> ⚠️ 아래는 spike 이전 기록이다. §-1 과 어긋나는 곳은 §-1 이 최신이다.
 > 은정님 지시 — **목업이 완성되기 전까지 코드를 쓰지 않는다.** 이유는 §2에 있다(Mac이
 > 없어 시행착오 비용이 비정상적으로 비싸므로, 화면을 먼저 확정하고 한 번에 옮겨야 한다).
 > 화면은 확정됐으나 **§6 데이터 질문 6개가 미해결**이라 아직 구현 단계가 아니다.

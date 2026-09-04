@@ -82,13 +82,13 @@ export default function ListContextMenu({
   const [mergeTargetId, setMergeTargetId] = useState<string | null>(null);
   const [mergeSourceList, setMergeSourceList] = useState<VocaList | null>(null);
 
-  // 🔴 192 에서는 「뜻만 있는 단어 채우기」가 **낱말 한가운데**(채우/기)에서 갈렸다.
-  //    항목 폭은 192 − 패딩 28 − 아이콘 16 − gap 20 − 개수 ≈ 112px 인데 그 문구는 약
-  //    148px 이다. 개수를 함께 놓는 항목이 생기면서 처음으로 모자랐다.
-  //    ⚠️ 폭만으로는 못 덮는다 — 같은 문구가 en 30자 · es 39자다(≈216 · 281px). 그래서
-  //    넓히는 것은 **한국어를 한 줄로 만들기 위한 것**이고, 넘치는 언어는 아래
-  //    numberOfLines={2} + 어절 단위 줄바꿈으로 받는다.
-  const POPUP_WIDTH = 240;
+  // 🔴 폭은 **토큰에서 읽는다 — 여기에 숫자를 적지 말 것.** 이 값은 팝업을 ⋯ 버튼
+  //    오른쪽에 맞추는 위치 계산에만 쓰이고, 상자의 실제 폭은 ModalOverlay 가
+  //    PopupTokens.maxWidth.contextMenu 로 건다. 둘이 갈리면 상자는 안 넓어지고 위치만
+  //    어긋난다 — 27eec16 이 이 자리에 240 을 적고 토큰은 192 로 둔 탓에 팝업이 48px
+  //    왼쪽에 섰고, 「뜻만 있는 단어 채우기」는 개수가 두 자리가 되는 순간 두 줄이 됐다.
+  //    폭을 바꿔야 하면 constants/popup.ts 를 고칠 것(거기에 실측 근거가 있다).
+  const POPUP_WIDTH = PopupTokens.maxWidth.contextMenu;
   const POPUP_ESTIMATED_HEIGHT = 340;
   const popupLeft = menuPos
     ? Math.max(8, Math.min(menuPos.x + menuPos.width - POPUP_WIDTH, screenWidth - POPUP_WIDTH - 8))

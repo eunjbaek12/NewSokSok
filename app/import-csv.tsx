@@ -90,7 +90,7 @@ export default function ImportCsvScreen() {
 
   const header = (title: string, onBack: () => void, backIcon: 'close' | 'arrow-back') => (
     <View style={[styles.header, { borderBottomColor: colors.borderLight, paddingTop: Math.max(insets.top, 14) }]}>
-      <Pressable onPress={onBack} hitSlop={8} style={styles.headerBtn}>
+      <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={onBack} hitSlop={8} style={styles.headerBtn}>
         <Ionicons name={backIcon} size={22} color={colors.textSecondary} />
       </Pressable>
       <Text style={[styles.title, { color: colors.text }]} numberOfLines={1}>{title}</Text>

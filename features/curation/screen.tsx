@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import CharacterSvg from '@/components/CharacterSvg';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -422,7 +423,7 @@ export default function CurationScreen() {
     const isDetailTopBtnVisible = useRef(false);
 
     const insets = useSafeAreaInsets();
-    const { colors, isDark, fontFamily } = useTheme();
+    const { colors, isDark, skinId, fontFamily } = useTheme();
     const { t } = useTranslation();
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
@@ -1114,6 +1115,11 @@ export default function CurationScreen() {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={[styles.container, { backgroundColor: colors.background }]}>
+            {/* 스킨 배경 그림 — 홈과 같은 자리·같은 규칙(맨 뒤 레이어, 터치 통과).
+                여기 한 곳에만 단다. 아래 selectedTheme 갈래(덱 상세)는 자체 히어로가
+                있는 드릴다운이라 배경을 덮는 것이 맞고, 목록 갈래는 fragment 라
+                가릴 것이 없다. */}
+            <SkinBackdrop skinId={skinId} />
             {selectedTheme ? (
                 <View style={[styles.container, { backgroundColor: colors.background }]}>
                     <ScrollView

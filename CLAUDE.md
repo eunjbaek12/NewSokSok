@@ -177,6 +177,14 @@ in code review and only show up on a device.
   selection before the "unfillable" list loaded, then kept 3 selected items that were no longer
   selectable ("3/0", an enabled button that silently did nothing). Derive from the current
   value each render, or re-read on focus — don't snapshot on mount.
+- **An inner view painting `colors.background` is invisible until a background exists —
+  then it becomes an opaque stripe.** The vocab-lists search bar wrapper carried
+  `backgroundColor: colors.background`, the same color as its container, so it did nothing
+  for five skins. The moment `SkinBackdrop` (autumn/hangul) went in behind it, the pattern
+  **cut out along that one band**. Nothing scrolled under it — the paint was pure redundancy.
+  Before mounting a full-screen backdrop on a screen, grep it for `colors.background` and
+  make every hit but the container transparent. *(Redundant paint reads as correct in review
+  precisely because it changes nothing — until something is put behind it.)*
 - **Only `DialogModal` pads its body. `ModalOverlay` does not.** The rule above about not
   double-padding applies to `DialogModal`; a `ModalOverlay` sheet gets no horizontal padding
   and its text will sit flush against the screen edge unless the caller adds

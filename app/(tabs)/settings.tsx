@@ -21,6 +21,7 @@ import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { SkinSelector } from '@/components/SkinSelector';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useLocale } from '@/features/locale';
 import { UI_LOCALES } from '@/i18n';
@@ -254,6 +255,13 @@ export default function SettingsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* 스킨 배경 그림 — 홈과 같은 자리·같은 규칙(맨 뒤 레이어, 터치 통과).
+          네 탭에 다 깐다: 배경이 홈에만 있으면 스킨이 아니라 홈 장식이 된다.
+          🔑 홈용으로 그린 구도가 여기서도 맞는 이유는 세 탭의 «열린 자리»가 같기
+             때문이다(실측: 헤더 띠 87~97%% 열림 · 좌우 60px 레일 99%% · 가운데는
+             카드가 덮는다). 그림의 무게가 정확히 그 배분이다 — docs/skin-art-brief.md §1. */}
+      <SkinBackdrop skinId={skinId} />
+
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
         <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('settings.title')}</Text>
       </View>

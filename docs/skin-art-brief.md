@@ -6,9 +6,9 @@
 두 스킨의 홈 배경 규격서다. 색·구도·무게가 여기서 어긋나면 좋은 그림이라도 앱에서
 안 보이거나 글자를 덮는다.
 
-- **가을** — AI 로 그린다. §4 구도 · §6 프롬프트
-- **한글** — **코드로 만든다.** §5 · `scripts/gen-skin-hanok-bg.py`
-  (수정전 그림을 만들었다가 접었다. 이유는 §5.)
+둘 다 AI 로 그린다. 가을은 §4 구도, 한글은 §5 구도, 프롬프트는 §6 에 있다.
+⚠️ **한글은 세 번 접었다**(수정전 그림 · 훈민정음 판식 · 자모). 왜 접었는지가
+§5 에 있고, 그게 다음 시안을 고르는 기준이다.
 
 ---
 
@@ -112,13 +112,12 @@
 |---|---|---|
 | 바탕 | `#F4EFE3` | 한지 |
 | 카드 면 | `#FCF9F2` | 창호지 |
-| 먹 | `#333A3F` | **변란·계선** — 지금 배경이 쓰는 유일한 색 |
+| 먹 | `#333A3F` | **구름 윤곽선** — 기본이 되는 색 |
+| 단청 청 | `#1F5C8C` | **구름 두세 점에만** 얹는 악센트 |
 | 글자 | `#22201C` | 그림에 쓰지 말 것 |
-| ~~나무~~ | ~~`#8B6A42`~~ | 한옥 시안용. 지금은 안 쓴다 |
-| ~~기둥(석간주)~~ | ~~`#9E5A3C`~~ | 〃 |
-| ~~단청 청·녹~~ | ~~`#1F5C8C` `#3F6B4A`~~ | 〃 |
+| ~~나무·석간주·단청 녹~~ | ~~`#8B6A42` `#9E5A3C` `#3F6B4A`~~ | 접은 한옥 시안용 |
 
-🔑 **한글 스킨 배경은 먹 한 색이다**(§5). 판식은 선이지 그림이 아니다.
+🔑 **구름은 선으로만 그린다**(§5). 면을 채우면 덩어리가 되고 화면이 답답해진다.
 
 ⚠️ **진하기 상한** — 가장 진한 색도 **불투명도 25% 를 넘지 않는다.** 배경은 배경이다.
 카드가 그 위에 얹혀도 카드 테두리(`#E3CDB0` / `#C9AC82`)가 보여야 한다.
@@ -177,29 +176,32 @@
 
 ## §5 한글 — 무엇을 그리나
 
-> **한 문장:** 훈민정음 해례본의 **판식**. 사주쌍변 한 겹과 계선 일곱 칸이
-> 한지 위에 있고, 그 안에 앱이 얹힌다. **글자는 넣지 않는다.**
+> **한 문장:** 한지 위를 **여의두 구름무늬**가 천천히 흘러가는 결.
+> 위에 크게 떠 있고, 가운데를 지나며, 아래에 모인다.
 
-### ✅ 결론: 그림이 아니라 코드다
+### ☁️ 무엇이 이 스킨을 만드나 [프롬프트에 반드시 넣을 것]
 
-`scripts/gen-skin-hanok-bg.py` 가 만든다. 자를 대고 그은 선뿐이라 생성 모델보다
-코드가 정확하고, 좌표를 §1 의 실측 구역에 그대로 맞출 수 있으며, 다시 뽑아도
-결과가 변하지 않는다. **이 스킨에는 §6 의 프롬프트가 필요 없다.**
+**여의두(如意頭) 구름무늬** — 둥근 잎 서넛이 뭉친 머리에 꼬리가 말려 나가는 그 형태다.
+단청·나전칠기·궁중 자수에 두루 쓰인 무늬라 **한 눈에 «우리 것»으로 읽힌다.**
+그냥 뭉게구름을 그리면 어느 나라 하늘도 되므로, **여의두 형태를 지키는 것이 전부다.**
 
-| | |
-|---|---|
-| 변란(사주쌍변) | x 34~1046 · y 300~1946 · 바깥 7px / 안쪽 3px, 사이 15px |
-| 계선 | 7칸(해례본 반엽 7행) |
-| 한지 결 | 옅은 섬유 2,000 획 |
+- **선묘(線描)** — 면을 채우지 않고 윤곽선으로 그린다. 채우면 무거워진다
+- 먹 한 색이 기본. 단청 청(`#1F5C8C`)은 **몇 점에만** 얹어 악센트로
+- 구름은 **흘러가는 중**이다 — 위는 크고 성글게, 아래로 갈수록 작고 모인다
 
-🔑 **좌우 변란이 x 34 · 1046 인 것이 핵심이다** — §1 의 «카드가 안 덮는 60px 띠»
-안이라 위아래로 계속 보인다. 안쪽으로 밀면 카드에 가려 사라진다.
+### 🔴 왜 글자를 안 쓰나 (2026-09-04)
 
-🔴 **alpha 는 `opacity 0.35` 를 통과한다.** 첫 시안을 34 로 그렸다가 화면에서 12 로
-줄어 **아무것도 안 보였다.** 눈으로 확인해 165/100/82 로 올렸다.
+자모·판식·큰 글자를 다 목업으로 만들어 봤다. **배경에 글자를 두면 UI 의 한글 텍스트와
+싸운다** — 인사말 뒤의 큰 ㄱ·ㅍ 이 잘려 «저게 뭐지»가 된다.
 
-🔴 **옛한글은 넣지 않는다.** 원문이 「나랏말ᄊᆞ미 듕귁에 달아…」처럼 아래아·ᄊᆞ 같은
-옛 자모라 전용 폰트가 필요하다. **한글 스킨에서 한글을 틀리면 곤란하다.**
+🔴 **훈민정음 판식도 같은 이유로 접었다.** 화면은 가벼워졌지만(중앙값 0.0) 변란이
+그냥 네모 테두리로 읽혀 **«저게 뭔가 할 것 같다»** 는 판정을 받았다. 판식은 목판본을
+아는 사람에게만 판식이다.
+
+🔑 **여기서 얻은 규칙: 배경은 «읽는 것»이 아니라 «보는 것»이어야 한다.**
+UI 가 이미 글자로 가득하다.
+
+⚠️ 이름은 「한글」 그대로 간다(은정님 판단). 무늬는 한글 자체가 아니라 그 시대의 결이다.
 
 ### 🔴 왜 한옥 그림을 접었나 (2026-09-04 실기)
 
@@ -208,8 +210,8 @@
 | 좌우 여백이 원래 바탕보다 어두워진 정도 | 중앙값 | 상위10% |
 |---|---|---|
 | 수정전(기둥) | **54.2** | 58.3 |
-| 판식 | **0.0** | 35.9 |
-| *가을(잘 되는 쪽)* | *0.8* | *46.5* |
+| 선으로 그린 것(판식) | **0.0** | 35.9 |
+| *가을 잎(잘 되는 쪽)* | *0.8* | *46.5* |
 
 🔑 **기둥이 위아래로 이어진 «덩어리»라 띠 전체가 균일하게 어두워진다.** 잎은 흩어져
 있어 대부분이 원래 바탕이고 잎이 있는 곳만 어둡다. 이 차이가 «가볍다/답답하다»를 가른다.
@@ -217,8 +219,14 @@
 
 곁가지로 헤더 부제(`textSecondary`) 대비도 **6.20 → 8.46** 으로 올랐다.
 
-🔑 **근거도 판식이 낫다.** 수정전은 집현전 자리라는 연결이 있지만 **그 사실을 아는
-사용자가 없다.** 훈민정음 판식은 설명이 필요 없다.
+🔑 **근거도 약했다.** 수정전은 집현전 자리라는 연결이 있지만 **그 사실을 아는
+사용자가 없다.** 배경 하나에 설명이 필요하면 그 배경은 진 것이다.
+
+### ⏳ 지금 들어 있는 그림은 자리 표시용이다
+
+`assets/images/skin-hanok-bg.webp` 는 **접은 수정전 그림**이다. 스킨이 플래그 뒤에
+있어(§8) 사용자에게 안 보이지만, `require()` 가 파일을 찾으므로 비워 둘 수 없다.
+**§6 프롬프트로 구름무늬를 받으면 교체한다.**
 
 ### 🏛 수정전 고증 [보류 — 스토어 이미지 등에 쓸 수 있어 남긴다]
 
@@ -255,7 +263,15 @@
 1. **지붕 + 빈 벽 + 담장** — 빈 벽의 색차가 4/255 라 «지붕만 떠 있었다». 담장은
    y 2028~2336 이라 통째로 탭바 아래였고, 기둥 없이 담장만 있는 것은 구조도 안 맞았다.
 2. **처마 + 기둥 + 마루** — 1번을 고쳐 만들었고 구조는 섰지만, 위의 실측대로
-   **기둥 덩어리가 화면을 가뒀다.** → 판식으로 갈아탔다.
+   **기둥 덩어리가 화면을 가뒀다.**
+3. **훈민정음 판식**(사주쌍변+계선, 코드 생성) — 화면은 가벼웠으나 **변란이 그냥
+   네모 테두리로 읽혔다.** → 구름무늬로.
+
+🔑 **1·2·3 을 하나로 꿰는 교훈: 실기에 얹기 전에 목업을 본다.** 세 번 다 만들어
+얹은 뒤에야 아니라는 걸 알았다. 지금은 합성 목업을 만드는 길이 있다 —
+`OPACITY = 0` 으로 배경 없는 스크린샷을 받고, 바탕색(`background` 토큰)과 같은
+픽셀만 마스크로 잡아 후보를 `0.35` 로 합성하면 **기기에 얹지 않고도 실제 화면을
+볼 수 있다.** 후보 열 개를 한 시트로 만들어 고르는 데 몇 분이면 된다.
 
 ⚠️ 남는 교훈 하나 — **좌우 잘림 여유**: 20:9 기기에서 좌우가 각 14px 쯤 잘린다.
 세로 요소는 바깥 윤곽을 화면 끝까지 흘려야 잘려도 상하지 않는다.
@@ -300,46 +316,45 @@ No trees, no branches, no people, no landscape, no buildings, no text. Leaves an
 light only. The center of the image must stay quiet.
 ```
 
-**한옥** — ❌ **폐기.** 한글 스킨은 그림을 쓰지 않는다.
-
-`scripts/gen-skin-hanok-bg.py` 로 만든다(§5). 프롬프트가 필요 없다 —
-자를 대고 그은 선뿐이라 코드가 정확하고, 좌표를 §1 에 그대로 맞출 수 있다.
-
-```bash
-python scripts/gen-skin-hanok-bg.py     # → assets/images/skin-hanok-bg.webp
-```
-
-<details><summary>폐기한 수정전 프롬프트 (스토어 이미지 등에 쓸 일이 있으면)</summary>
+**한글(구름무늬)** — 2026-09-04. 건물·글자·판식을 다 접고 온 자리다(§5).
 
 ```
-Vertical mobile wallpaper, 1080x2340, flat vector illustration,
+Vertical mobile wallpaper, 1080x2340, flat line illustration,
 calm and low contrast, lots of empty space.
 Warm cream hanji paper background with a very faint fiber texture.
 
-Subject: Sujeongjeon Hall at Gyeongbokgung Palace, Seoul — a Joseon royal palace
-building, NOT a common folk house. The viewpoint is sitting on its wooden veranda
-looking outward: the painted eave is overhead, two palace pillars frame the view at
-the far left and right, and the veranda floor is underfoot.
+Subject: yeouidu cloud motifs — the traditional Korean decorative cloud found in
+dancheong painting, mother-of-pearl lacquerware and court embroidery. Each cloud is
+a cluster of three or four rounded lobes with a curling tail trailing off to one
+side. Draw them as OUTLINES ONLY, thin ink strokes, never filled in. This specific
+lobed-and-curling shape is what makes the image read as Korean — plain fluffy
+clouds would not.
 
-TOP 25%: the eave of Sujeongjeon seen from below, spanning the full width —
-grey clay roof tiles above, and beneath them the dancheong: the traditional Korean
-palace beam painting in muted green, blue and deep red, repeating panel by panel,
-with round rafter ends showing in a row.
+The clouds drift slowly down through the frame: large and sparse at the top,
+small along the edges in the middle, gathering at the bottom.
 
-FAR LEFT AND FAR RIGHT EDGES, from the eave down to the floor: two round palace
-pillars in muted iron-oxide reddish brown, each only about 10% of the image width.
+TOP 25%: three or four large clouds floating apart from one another, tilted at
+different angles. Leave clear space between them — they must not overlap into a
+tangle.
 
-CENTER: completely empty cream paper.
+MIDDLE (25% to 77%): almost empty paper. A few SMALL clouds placed ALONG THE LEFT
+AND RIGHT EDGES of the frame, within about the outer 10% on each side. Keep the
+central area of this band completely empty — nothing there at all.
 
-BOTTOM 23%: the wooden veranda floor (maru) — horizontal plank lines.
+BOTTOM 23%: a drift of clouds gathering across the full width, denser toward the
+bottom edge. The top of the drift begins right at the 77% line, not lower.
 
-No boundary wall, no fence, no lattice window, no courtyard, no people, no text.
+Muted palette: soft ink grey outlines on warm cream paper, with a single dusty blue
+used on only two or three clouds as an accent. Everything desaturated and quiet.
+No sky, no landscape, no buildings, no people, no letters, no text, no frame or
+border. The middle of the image must stay empty.
 ```
 
-이 프롬프트는 **의도대로 나왔다.** 접은 이유는 그림이 나빠서가 아니라 §5 의
-실측대로 **기둥 덩어리가 화면을 가둬서**다.
+🔴 **«outlines only, never filled» 를 빼지 말 것.** 면을 채우면 덩어리가 되고,
+덩어리는 화면을 가둔다 — 수정전 기둥이 그래서 접혔다(§5).
 
-</details>
+🔴 **«must not overlap into a tangle» 도 마찬가지다.** 목업에서 구름 셋을 겹쳤더니
+낙서처럼 엉켰다. 서로 떨어뜨려야 무늬로 읽힌다.
 
 🔑 두 프롬프트 모두 **가운데를 조용히 두라는 지시**가 핵심이다. §1 의 이유다.
 
@@ -407,9 +422,9 @@ print('아래 보임    ', peak(1800, 2006, ALL),  ' 60 이상')
 print('아래 가려짐  ', peak(2006, 2340, ALL),  ' 얼마든 (안 보인다)')
 ```
 
-⚠️ **이 잣대는 «그림»용이다.** 한글 판식처럼 **선으로 된 배경**은 한복판에도 계선이
-지나가므로 「한복판 14 미만」에 걸린다(실측 74). 그건 결함이 아니다 — 선은 얇아서
-화면을 어둡게 하지 않는다.
+⚠️ **이 잣대는 «면으로 그린 그림»용이다.** 구름무늬·판식처럼 **선으로 된 배경**은
+한복판에 선이 지나가면 「한복판 14 미만」에 걸린다(판식 실측 74). 그건 결함이 아니다
+— 선은 얇아서 화면을 어둡게 하지 않는다.
 
 🔑 **선·그림을 가리지 않는 더 나은 잣대는 기기 쪽에 있다.** 좌우 여백이 원래 바탕보다
 얼마나 어두워지는지를 재고 **중앙값**을 본다. 덩어리는 중앙값이 올라가고, 흩어진 것은

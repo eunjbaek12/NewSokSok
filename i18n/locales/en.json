@@ -1314,10 +1314,14 @@
     "unavailable": "Sharing isn't available on this device."
   },
   "completionShare": {
-    "done": "Completed!",
-    "wordsMastered": "{{memorized}}/{{total}} words mastered",
     "share": "Share",
-    "shareMessage": "Finished “{{title}}” with Avocado! 🥑 {{count}} words done"
+    "shareMessage": "Finished “{{title}}” with Avocado! 🥑 {{count}} words done",
+    "certTitle": "CERTIFICATE",
+    "certBody1": "For learning all *{{count}}* words in *{{days}} days*,",
+    "certBody1NoDays": "For learning all *{{count}}* words in this deck,",
+    "certBody2": "this certificate is hereby awarded.",
+    "certLastWord": "Last word learned · *{{term}}*",
+    "certSeal": "DONE"
   },
   "milestone": {
     "daysReached": "{{count}}-day streak!",

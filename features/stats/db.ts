@@ -9,6 +9,7 @@ import { useSyncStore } from '@/features/sync/store';
 // eslint-disable-next-line no-restricted-imports
 import { schedulePush } from '@/features/sync/engine';
 import { todayStr, startOfWeekStr } from './date';
+import { COMPLETION_DAYS_SQL, COMPLETION_LAST_TERM_SQL } from './completion';
 import { computeStreak, computeLongestStreak, sumMemorized, type StudyDay } from './streak';
 
 /**
@@ -171,4 +172,29 @@ export async function getDayDetail(date: string): Promise<DayDetail> {
       isMemorized: (w.isMemorized ?? 0) === 1,
     })),
   };
+}
+
+/** 완주 상장에 새길 두 값. 둘 다 memorized_log(017, 2026-07-09~)에서 나온다. */
+export interface CompletionFacts {
+  /**
+   * 이 단어장의 단어를 실제로 외운 날의 수. 달력 일수(planStartedAt→planUpdatedAt)가
+   * 아니다 — 그쪽은 쉰 날이 다 포함돼 "42일 걸림"처럼 노력이 아니라 방치를 자랑하게 된다.
+   */
+  studyDays: number;
+  /** 마지막으로 외운 단어. 고른 이유가 분명한 한 개다. */
+  lastTerm: string | null;
+}
+
+/**
+ * 017 이전(2026-07-09)에 외운 단어는 로그가 없다 → 그때 완주한 단어장은
+ * `{ studyDays: 0, lastTerm: null }`이 나오고, 상장은 그 줄들을 빼고 그린다.
+ * 삭제된 단어는 제외한다(그날 상세와 같은 규칙).
+ */
+export async function getCompletionFacts(listId: string): Promise<CompletionFacts> {
+  const db = await getDb();
+  const [dayRow, lastRow] = await Promise.all([
+    db.getFirstAsync<{ n: number }>(COMPLETION_DAYS_SQL, listId),
+    db.getFirstAsync<{ term: string }>(COMPLETION_LAST_TERM_SQL, listId),
+  ]);
+  return { studyDays: dayRow?.n ?? 0, lastTerm: lastRow?.term ?? null };
 }

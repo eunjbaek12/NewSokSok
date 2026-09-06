@@ -896,10 +896,14 @@
     "unavailable": "Compartir no está disponible en este dispositivo."
   },
   "completionShare": {
-    "done": "¡Completado!",
-    "wordsMastered": "{{memorized}}/{{total}} palabras dominadas",
     "share": "Compartir",
-    "shareMessage": "¡He completado «{{title}}» con Avocado! 🥑 {{count}} palabras"
+    "shareMessage": "¡He completado «{{title}}» con Avocado! 🥑 {{count}} palabras",
+    "certTitle": "CERTIFICADO",
+    "certBody1": "Por aprender las *{{count}}* palabras en *{{days}} días*,",
+    "certBody1NoDays": "Por aprender las *{{count}}* palabras de esta lista,",
+    "certBody2": "se le otorga este certificado.",
+    "certLastWord": "Última palabra aprendida · *{{term}}*",
+    "certSeal": "FIN"
   },
   "milestone": {
     "daysReached": "¡Racha de {{count}} días de estudio!",

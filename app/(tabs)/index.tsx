@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState, useRef } from 'react';
+import React, { useMemo, useCallback, useState, useRef, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -23,6 +23,9 @@ import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
 import CompletionShareCard from '@/features/stats/CompletionShareCard';
 import { shareStatsCard } from '@/features/stats/share';
+import { getCompletionFacts, type CompletionFacts } from '@/features/stats';
+import { useLocale } from '@/features/locale';
+import { localeTag } from '@/i18n';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/features/vocab';
@@ -82,6 +85,7 @@ export default function DashboardScreen() {
   const { t } = useTranslation();
   const { dashboardFilterMode: filterMode, updateDashboardFilter, profileSettings } = useSettings();
   const { user } = useAuth();
+  const { locale } = useLocale();
   const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const scrollRef = useRef(null);
@@ -90,6 +94,20 @@ export default function DashboardScreen() {
   // 완주 자랑하기 — 화면 밖 카드를 캡처해 OS 공유 시트로 넘긴다(통계·마일스톤과 같은 흐름).
   const completionCardRef = useRef<View>(null);
   const [sharingCompletion, setSharingCompletion] = useState(false);
+
+  // 상장에 새길 두 값(실제로 외운 날 수·마지막 단어)은 memorized_log 를 읽어야 나온다.
+  // 시트가 열릴 때마다 다시 읽는다 — 열려 있는 동안 계속 바뀔 값이 아니고, 첫 렌더에
+  // 얼어붙지 않아야 다른 단어장을 연 다음에도 그 단어장의 값이 나온다.
+  const [completionFacts, setCompletionFacts] = useState<CompletionFacts | null>(null);
+  useEffect(() => {
+    if (!resultList) { setCompletionFacts(null); return; }
+    let alive = true;
+    getCompletionFacts(resultList.id)
+      .then(f => { if (alive) setCompletionFacts(f); })
+      // 실패해도 상장은 나온다 — 이름·규모만 남고 두 줄이 빠진다(017 이전 완주와 같은 모습).
+      .catch(() => { if (alive) setCompletionFacts({ studyDays: 0, lastTerm: null }); });
+    return () => { alive = false; };
+  }, [resultList]);
 
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomPadding = useTabContentBottomInset(16);
@@ -848,10 +866,11 @@ export default function DashboardScreen() {
                 <CompletionShareCard
                   ref={completionCardRef}
                   title={resultList.title}
-                  icon={resultList.icon}
-                  memorized={memorizedWords}
                   total={totalWords}
-                  percent={percent}
+                  studyDays={completionFacts?.studyDays ?? 0}
+                  lastTerm={completionFacts?.lastTerm ?? null}
+                  completedAt={resultList.planUpdatedAt ?? Date.now()}
+                  localeTag={localeTag(locale)}
                 />
               </View>
               <Text style={[styles.resultNote, { color: colors.textTertiary }]}>

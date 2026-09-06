@@ -50,30 +50,26 @@ describe('스킨 등록', () => {
 });
 
 /**
- * 🚩 1.7.0(10/1) 플래그 — **걷었다**(2026-09-04). autumn·hangul 이 선택기에 뜬다.
+ * 🚩 1.7.0(10/1) 플래그 — autumn·hangul 은 그때까지 선택기에 뜨지 않는다.
  *
- * 이 블록은 원래 「아직 선택기에는 없다」를 지키다가, 플래그를 열면 실패해서 그
- * 사실이 커밋에 드러나게 하는 것이었다. 걷으면서 **지우는 대신 뒤집었다** — 감시할
- * 대상이 「조용히 살아나는 것」에서 「조용히 죽는 것」으로 바뀌었을 뿐, 목록이 손으로
- * 관리되는 한 감시는 계속 필요하다. (ocean 이 실제로 그렇게 새어 나간 적이 있다.)
+ * 이 테스트는 **켤 때 같이 지우라고** 있는 것이다. 목록에 두 스킨을 더하면 여기서
+ * 실패하므로, 플래그를 걷었다는 사실이 커밋에 드러난다. 가려 둔 코드가 조용히
+ * 살아나거나 조용히 죽어 있는 것을 둘 다 막는다.
+ *
+ * 실제로 한 번 걷혔다가(c3e864a) 되돌아왔다 — 기준은 그림의 완성이 아니라 공개 시점이다.
  */
-describe('가을·한글 스킨 (1.7.0 에 공개)', () => {
-  it('팔레트와 정의가 들어가 있다', () => {
+describe('가을·한글 스킨 플래그 (10/1 에 걷는다)', () => {
+  it('팔레트와 정의는 들어가 있다', () => {
     expect(SKINS.autumn).toBeDefined();
     expect(SKINS.hangul).toBeDefined();
     expect(getSkinColors('autumn').primary).toBe('#A8442A');
     expect(getSkinColors('hangul').primary).toBe('#333A3F');
   });
 
-  it('선택기에 뜬다', () => {
+  it('아직 선택기에는 없다', () => {
     const ids = SKIN_LIST.map(s => s.id);
-    expect(ids).toContain('autumn');
-    expect(ids).toContain('hangul');
-  });
-
-  it('맨 뒤에 붙는다 — 기존 스킨의 자리가 밀리지 않는다', () => {
-    const ids = SKIN_LIST.map(s => s.id);
-    expect(ids.slice(-2)).toEqual(['autumn', 'hangul']);
+    expect(ids).not.toContain('autumn');
+    expect(ids).not.toContain('hangul');
   });
 
   it('한글 스킨은 명조를 쓴다', () => {

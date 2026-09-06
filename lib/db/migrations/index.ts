@@ -32,6 +32,7 @@ import migration_018 from './018_add_word_review';
 import migration_019 from './019_fix_curated_word_languages';
 import migration_020 from './020_add_word_base_form';
 import migration_021 from './021_push_base_form_to_cloud';
+import migration_022 from './022_add_completions';
 
 export const MIGRATIONS: readonly Migration[] = [
   migration_001,
@@ -55,6 +56,7 @@ export const MIGRATIONS: readonly Migration[] = [
   migration_019,
   migration_020,
   migration_021,
+  migration_022,
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS.length;

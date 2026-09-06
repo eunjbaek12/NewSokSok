@@ -1,6 +1,6 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal, Image, Dimensions } from 'react-native';
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -19,7 +19,10 @@ import {
   ShareCard,
   shareStatsCard,
   saveStatsCard,
+  getCompletionSummary,
+  type CompletionSummary,
 } from '@/features/stats';
+import { CERT_GOLD } from '@/constants/colors';
 import { requestManualReview } from '@/features/reviews';
 
 export default function StatsScreen() {
@@ -37,6 +40,19 @@ export default function StatsScreen() {
   const [busy, setBusy] = useState(false);
 
   const quote = useMemo(() => pickDailyQuote(todayStr(), i18n.language), [i18n.language]);
+
+  // 완주 기록 요약. 포커스마다 다시 읽는다 — 이 화면을 떠나 단어장을 완주하고 돌아오는 게
+  // 정상 경로라, 첫 렌더에 얼리면 방금 받은 상장이 없는 것처럼 보인다.
+  const [completions, setCompletions] = useState<CompletionSummary | null>(null);
+  useFocusEffect(
+    useCallback(() => {
+      let alive = true;
+      getCompletionSummary()
+        .then(s => { if (alive) setCompletions(s); })
+        .catch(() => { if (alive) setCompletions(null); });
+      return () => { alive = false; };
+    }, []),
+  );
 
   const today = todayStr();
   const currentMonth = monthPrefix();
@@ -287,6 +303,44 @@ export default function StatsScreen() {
           <Text style={[styles.calHint, { color: colors.textTertiary }]}>{t('stats.calHint')}</Text>
         </View>
 
+        {/*
+          완주한 단어장 — 달력 «아래», 명언 위.
+          🔴 달력 위에 두면 안 된다: S22 실측으로 달력이 끝나는 y1844 에 내비바 위 한계가
+          ≈2250 이라 여유가 406px뿐이고, 1080×1920 짧은 폰은 지금도 아래가 잘린다.
+          완주가 하나도 없으면 줄 자체를 내지 않는다 — 빈 줄은 높이만 먹는다.
+        */}
+        {!!completions && completions.books > 0 && (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('completions.title')}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/completions');
+            }}
+            style={({ pressed }) => [
+              styles.doneRow,
+              { backgroundColor: colors.surface, borderColor: colors.borderLight, opacity: pressed ? 0.85 : 1 },
+            ]}
+          >
+            <View style={[styles.doneRibbon, { borderColor: CERT_GOLD }]}>
+              <Text style={[styles.doneRibbonText, { color: CERT_GOLD }]}>
+                {t('completionShare.certSeal').slice(0, 1)}
+              </Text>
+            </View>
+            <View style={styles.doneText}>
+              <Text style={[styles.doneTitle, { color: colors.text }]} numberOfLines={1}>
+                {t('completions.title')}
+              </Text>
+              <Text style={[styles.doneMeta, { color: colors.textTertiary }]} numberOfLines={1}>
+                {t('completions.metaBooks', { count: completions.books })}
+                {' · '}
+                {t('completions.metaWords', { count: completions.words })}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={colors.textTertiary} />
+          </Pressable>
+        )}
+
         {/* 오늘의 명언 */}
         <View style={[styles.quote, { backgroundColor: colors.primaryLight, borderColor: colors.borderLight }]}>
           <Text style={[styles.quoteLabel, { color: colors.primary }]}>{t('stats.quoteLabel')}</Text>
@@ -481,6 +535,25 @@ const styles = StyleSheet.create({
   },
   calDayNum: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold' },
   calHint: { fontSize: 10.5, fontFamily: 'Pretendard_500Medium', textAlign: 'center', paddingTop: 8 },
+
+  doneRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1,
+    borderRadius: 16,
+    paddingVertical: 13,
+    paddingHorizontal: 14,
+    marginTop: 12,
+  },
+  doneRibbon: {
+    width: 32, height: 32, borderRadius: 16, borderWidth: 1,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  doneRibbonText: { fontSize: 14, fontFamily: 'GowunBatang_700Bold' },
+  doneText: { flex: 1, minWidth: 0 },
+  doneTitle: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
+  doneMeta: { fontSize: 12.5, fontFamily: 'Pretendard_500Medium', marginTop: 3 },
 
   quote: {
     borderRadius: 16,

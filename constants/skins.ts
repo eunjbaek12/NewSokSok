@@ -133,11 +133,14 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
 
 // 표시 순서 — 기본(classic)이 맨 앞, 나중에 추가한 스킨이 뒤로 간다.
 //
-// 🚩 autumn·hangul 은 1.7.0(10/1)의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·
-//    소품은 이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도
-//    보이지 않는다. 10/1 빌드에서 이 배열에 둘을 더하기만 하면 된다 —
-//    skin-store 의 복원 조건은 이 목록에서 파생하므로 따로 고칠 곳이 없다.
-//    __tests__/skin-registry.test.ts 가 그때 실패해 "걷었다"는 사실을 커밋에 남긴다.
+// 🚩 autumn·hangul 은 1.7.0(10/1)의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·소품은
+//    이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도 보이지 않는다.
+//    10/1 빌드에서 이 배열에 둘을 더하기만 하면 된다 — skin-store 의 복원 조건은 이 목록에서
+//    파생하므로 따로 고칠 곳이 없다.
+//
+//    그림이 완성돼 한 번 걷었다가(2026-09-04, c3e864a) 되돌린다 — 완성 여부가 아니라
+//    **공개 시점**이 기준이기 때문이다(은정님, 2026-09-07). 미리 나가면 10/1 에 보여 줄
+//    새것이 남지 않는다. __tests__/skin-registry.test.ts 가 이 상태를 지킨다.
 export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab, SKINS.ocean];
 
 export const LEGACY_THEME_TO_SKIN: Record<string, SkinId> = {

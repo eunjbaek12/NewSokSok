@@ -1313,6 +1313,29 @@
     "shareError": "문제가 생겼어요. 잠시 후 다시 시도해 주세요.",
     "unavailable": "이 기기에서는 공유를 사용할 수 없어요."
   },
+  "completionShare": {
+    "share": "자랑하기",
+    "shareMessage": "「{{title}}」 완주! 🥑 {{count}}단어를 끝냈어요",
+    "certTitle": "완주상장",
+    "certBody1": "위 단어장의 단어 *{{count}}*개를 *{{days}}일* 동안",
+    "certBody1NoDays": "위 단어장의 단어 *{{count}}*개를",
+    "certBody2": "모두 외웠기에 이 상장을 드립니다.",
+    "certLastWord": "마지막으로 외운 단어 · *{{term}}*",
+    "certSeal": "완주"
+  },
+  "completions": {
+    "title": "완주한 단어장",
+    "emptyTitle": "아직 완주한 단어장이 없어요",
+    "emptyBody": "학습 계획을 세우고 마지막 날까지 마치면\n상장이 여기에 쌓입니다.",
+    "unitBooks": "권",
+    "unitWords": "단어",
+    "unitDays": "학습한 날",
+    "metaBooks": "{{count}}권",
+    "metaWords": "{{count}}단어",
+    "metaDays": "{{count}}일",
+    "openCertificate": "{{title}} 상장 보기",
+    "openList": "단어장 열기"
+  },
   "milestone": {
     "daysReached": "{{count}}일 연속 학습 달성!",
     "stage3": "새내기 아보카도 탄생! 이제 시작이에요",

@@ -11,9 +11,18 @@ export {
   getMemorizedTotal,
   getAllStudyDays,
   getDayDetail,
+  getCompletionFacts,
+  recordCompletion,
+  backfillCompletions,
+  getCompletions,
+  getCompletionSummary,
+  getCompletionForPlan,
   type StatsSummary,
   type DayDetail,
   type DayWordEntry,
+  type CompletionFacts,
+  type CompletionRecord,
+  type CompletionSummary,
 } from './db';
 export { loadMaxCelebrated, saveMaxCelebrated } from './milestones-storage';
 export { useStatsSummary } from './useStats';

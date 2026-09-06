@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState, useRef } from 'react';
+import React, { useMemo, useCallback, useState, useRef, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -21,6 +21,11 @@ import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
+import CompletionShareCard from '@/features/stats/CompletionShareCard';
+import { shareStatsCard } from '@/features/stats/share';
+import { getCompletionFacts, getCompletionForPlan } from '@/features/stats';
+import { useLocale } from '@/features/locale';
+import { localeTag } from '@/i18n';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/features/vocab';
@@ -37,6 +42,14 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
 import { useWhatsNew, WhatsNewSheet } from '@/features/whats-new';
+
+/** 상장에 새길 값 — 완주 기록(022)에서 오거나, 없으면 지금 값으로 채운다. */
+interface CertFacts {
+  totalWords: number;
+  studyDays: number;
+  lastTerm: string | null;
+  completedAt: number;
+}
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
   const size = 148;
@@ -80,10 +93,44 @@ export default function DashboardScreen() {
   const { t } = useTranslation();
   const { dashboardFilterMode: filterMode, updateDashboardFilter, profileSettings } = useSettings();
   const { user } = useAuth();
+  const { locale } = useLocale();
   const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const scrollRef = useRef(null);
   useScrollToTop(scrollRef);
+
+  // 완주 자랑하기 — 화면 밖 카드를 캡처해 OS 공유 시트로 넘긴다(통계·마일스톤과 같은 흐름).
+  const completionCardRef = useRef<View>(null);
+  const [sharingCompletion, setSharingCompletion] = useState(false);
+
+  // 상장에 새길 값. **완주 기록(022)이 있으면 그것이 우선이다** — 완주한 뒤 단어를 더 넣어도
+  // 시트는 계속 열리는데(계획은 이미 넘어가 있다), 그때 살아 있는 수로 그리면 카드가
+  // "15개를 모두 외웠기에"라고 거짓말을 한다. 완주는 «그때»의 사건이라 그때 굳힌 값을 쓴다.
+  // 기록이 없을 때만(017 이전·기록 이전 버전) memorized_log 에서 직접 뽑아 채운다.
+  //
+  // 시트가 열릴 때마다 다시 읽는다 — 첫 렌더에 얼어붙으면 다른 단어장을 연 다음에도 앞
+  // 단어장의 값이 남는다.
+  const [cert, setCert] = useState<CertFacts | null>(null);
+  useEffect(() => {
+    if (!resultList) { setCert(null); return; }
+    let alive = true;
+    const listId = resultList.id;
+    const startedAt = resultList.planStartedAt ?? 0;
+    const liveTotal = resultList.words.length;
+    const liveCompletedAt = resultList.planUpdatedAt ?? Date.now();
+    (async () => {
+      const recorded = startedAt ? await getCompletionForPlan(listId, startedAt) : null;
+      if (recorded) return recorded;
+      const facts = await getCompletionFacts(listId);
+      return { ...facts, totalWords: liveTotal, completedAt: liveCompletedAt };
+    })()
+      .then(c => { if (alive) setCert(c); })
+      // 실패해도 상장은 나온다 — 이름·규모만 남고 두 줄이 빠진다(017 이전 완주와 같은 모습).
+      .catch(() => {
+        if (alive) setCert({ studyDays: 0, lastTerm: null, totalWords: liveTotal, completedAt: liveCompletedAt });
+      });
+    return () => { alive = false; };
+  }, [resultList]);
 
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomPadding = useTabContentBottomInset(16);
@@ -790,6 +837,35 @@ export default function DashboardScreen() {
                 {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
               </Text>
               <Pressable
+                onPress={async () => {
+                  if (sharingCompletion) return;
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                  setSharingCompletion(true);
+                  const outcome = await shareStatsCard(
+                    completionCardRef,
+                    t('completionShare.shareMessage', { title: resultList.title, count: memorizedWords }),
+                  );
+                  setSharingCompletion(false);
+                  if (outcome === 'unavailable') Alert.alert(t('completionShare.share'), t('shareCard.unavailable'));
+                  else if (outcome === 'error') Alert.alert(t('completionShare.share'), t('shareCard.shareError'));
+                }}
+                disabled={sharingCompletion}
+                accessibilityRole="button"
+                accessibilityLabel={t('completionShare.share')}
+                style={({ pressed }) => [
+                  styles.resultShareBtn,
+                  {
+                    borderColor: colors.primary,
+                    opacity: pressed || sharingCompletion ? 0.6 : 1,
+                  },
+                ]}
+              >
+                <Ionicons name="share-social-outline" size={18} color={colors.primary} />
+                <Text style={[styles.resultShareBtnText, { color: colors.primary }]}>
+                  {t('completionShare.share')}
+                </Text>
+              </Pressable>
+              <Pressable
                 onPress={() => {
                   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
                   const listId = resultList.id;
@@ -803,6 +879,23 @@ export default function DashboardScreen() {
               >
                 <Text style={[styles.resultRestartBtnText, { color: colors.onPrimary }]}>{t('home.restartPlan')}</Text>
               </Pressable>
+
+              {/*
+                캡처 전용 화면 밖 카드(통계·마일스톤과 동일 패턴). 시트 안에 두는 이유는
+                resultList 가 살아 있는 동안에만 렌더되면 충분하고, 그래야 제목·수치가
+                지금 보고 있는 완주와 항상 같기 때문이다.
+              */}
+              <View style={styles.resultOffscreen} pointerEvents="none">
+                <CompletionShareCard
+                  ref={completionCardRef}
+                  title={resultList.title}
+                  total={cert?.totalWords ?? totalWords}
+                  studyDays={cert?.studyDays ?? 0}
+                  lastTerm={cert?.lastTerm ?? null}
+                  completedAt={cert?.completedAt ?? resultList.planUpdatedAt ?? Date.now()}
+                  localeTag={localeTag(locale)}
+                />
+              </View>
               <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
                 {t('home.restartPlanNote')}
               </Text>
@@ -1172,6 +1265,29 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
     textAlign: 'center',
+  },
+  // 자랑하기는 테두리만 — 「새 계획 세우기」가 이 시트의 주 동작인 것은 그대로 두고,
+  // 완주의 순간에만 있는 선택지를 그 위에 얹는다.
+  resultShareBtn: {
+    alignSelf: 'stretch',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderRadius: Radius.xl,
+    borderWidth: 1.5,
+    paddingVertical: 14,
+    marginTop: 12,
+  },
+  resultShareBtnText: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  // 캡처 전용. 화면 밖으로 밀어 두고 pointerEvents 를 끈다.
+  resultOffscreen: {
+    position: 'absolute',
+    left: -9999,
+    top: 0,
   },
 
   // Empty Plans

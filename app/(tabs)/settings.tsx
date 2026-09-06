@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
   Switch,
 } from 'react-native';
 import { router } from 'expo-router';
+import { useScrollToTop } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -20,6 +21,7 @@ import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { SkinSelector } from '@/components/SkinSelector';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useLocale } from '@/features/locale';
 import { UI_LOCALES } from '@/i18n';
@@ -44,6 +46,10 @@ import { resetWhatsNewSeen } from '@/features/whats-new';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
+  // 설정 탭을 다시 누르면 맨 위로. 나머지 세 탭(홈·단어장·큐레이션)은 예전부터 이렇게
+  // 동작하고 있었고 설정만 빠져 있었다 — 탭마다 손이 다르게 반응하는 게 더 어색하다.
+  const scrollRef = useRef<ScrollView>(null);
+  useScrollToTop(scrollRef);
   const insets = useSafeAreaInsets();
   const bottomPadding = useTabContentBottomInset(24);
   const { t } = useTranslation();
@@ -249,11 +255,19 @@ export default function SettingsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* 스킨 배경 그림 — 홈과 같은 자리·같은 규칙(맨 뒤 레이어, 터치 통과).
+          네 탭에 다 깐다: 배경이 홈에만 있으면 스킨이 아니라 홈 장식이 된다.
+          🔑 홈용으로 그린 구도가 여기서도 맞는 이유는 세 탭의 «열린 자리»가 같기
+             때문이다(실측: 헤더 띠 87~97%% 열림 · 좌우 60px 레일 99%% · 가운데는
+             카드가 덮는다). 그림의 무게가 정확히 그 배분이다 — docs/skin-art-brief.md §1. */}
+      <SkinBackdrop skinId={skinId} />
+
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
         <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('settings.title')}</Text>
       </View>
 
       <ScrollView
+        ref={scrollRef}
         contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
         showsVerticalScrollIndicator={false}
       >

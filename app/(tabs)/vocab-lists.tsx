@@ -13,6 +13,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import CharacterSvg from '@/components/CharacterSvg';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
@@ -45,7 +46,7 @@ import ListContextMenu from '@/components/ListContextMenu';
 export default function VocabListsScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { colors, isDark, fontFamily } = useTheme();
+  const { colors, isDark, skinId, fontFamily } = useTheme();
 
   const dailyTip = useMemo(() => {
     const tips = t('vocabLists.tips', { returnObjects: true }) as string[];
@@ -164,6 +165,13 @@ export default function VocabListsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* 스킨 배경 그림 — 홈과 같은 자리·같은 규칙(맨 뒤 레이어, 터치 통과).
+          네 탭에 다 깐다: 배경이 홈에만 있으면 스킨이 아니라 홈 장식이 된다.
+          🔑 홈용으로 그린 구도가 여기서도 맞는 이유는 세 탭의 «열린 자리»가 같기
+             때문이다(실측: 헤더 띠 87~97%% 열림 · 좌우 60px 레일 99%% · 가운데는
+             카드가 덮는다). 그림의 무게가 정확히 그 배분이다 — docs/skin-art-brief.md §1. */}
+      <SkinBackdrop skinId={skinId} />
+
       {/* Header */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
         <CharacterSvg size={56} isDark={isDark} />
@@ -194,7 +202,12 @@ export default function VocabListsScreen() {
       </View>
 
       {/* Fixed Search Bar */}
-      <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
+      {/* 🔴 배경색을 칠하지 않는다. 목록(FlatList)은 이 띠 «아래» 형제로 놓여 밑으로
+          스크롤되지 않고(scrollY 는 FAB 만 움직인다) 헤더도 안 접히므로, 여기 칠하는
+          colors.background 는 컨테이너와 같은 색이라 원래 아무 일도 안 했다. 그런데
+          스킨 배경 그림이 깔리는 순간 **그림 위에 불투명 띠**가 되어 무늬가 그 줄에서만
+          끊긴다. 안 보이던 중복이 배경이 생기자 결함이 됐다. */}
+      <View style={styles.searchBarWrapper}>
         <Pressable
           onPress={() => router.push('/search-modal')}
           style={({ pressed }) => [

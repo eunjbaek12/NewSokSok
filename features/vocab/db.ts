@@ -1,7 +1,7 @@
 import * as Crypto from 'expo-crypto';
 import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
-import { recordMemorizedWords } from '@/features/stats';
+import { recordMemorizedWords, recordCompletion } from '@/features/stats';
 import { cleanPhonetic } from '@/lib/phonetic';
 import { normalizeInflection } from '@/lib/inflection';
 
@@ -912,6 +912,9 @@ export async function savePlan(
 
 export async function clearPlan(listId: string): Promise<void> {
   const db = await getDb();
+  // 지우기 전에 적어 둔다 — 완주는 파생 상태라 아래 UPDATE 가 근거를 없애면 «없던 일»이 된다.
+  // 정상 경로(updatePlanProgress)에서 이미 적혔으면 PK 가 같아 무시된다.
+  await recordCompletion(listId);
   await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE lists SET planTotalDays = 0, planCurrentDay = 1, planWordsPerDay = 10, planStartedAt = NULL, planUpdatedAt = NULL WHERE id = ?`,
@@ -927,6 +930,9 @@ export async function updatePlanProgress(listId: string, currentDay: number): Pr
     'UPDATE lists SET planCurrentDay = MAX(planCurrentDay, ?), planUpdatedAt = ? WHERE id = ?',
     [currentDay, Date.now(), listId]
   );
+  // 계획이 마지막 날을 넘긴 순간이 완주다. 학습 화면 셋이 모두 이 함수를 지나므로 완주 사건을
+  // 적기에 맞는 자리다. 완주가 아니면 SQL 의 WHERE 가 걸러 아무 일도 일어나지 않는다.
+  await recordCompletion(listId);
 }
 
 export async function resetPlanCurrentDayToTotal(listId: string): Promise<void> {

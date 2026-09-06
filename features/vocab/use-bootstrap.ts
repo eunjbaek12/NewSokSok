@@ -18,6 +18,7 @@ import {
 import { initSeedDataIfEmpty, clearAllData } from './db';
 import { buildSeedData } from './seed';
 import { invalidateLists } from './queries';
+import { backfillCompletions } from '@/features/stats';
 
 const LAST_GOOGLE_ID_KEY = '@soksok_last_google_id';
 
@@ -196,7 +197,10 @@ export function useVocabBootstrap(): void {
           await loadCloudData();
         } else {
           void loadCloudData()
-            .then(() => {
+            .then(async () => {
+              // 새 기기: 022 백필은 단어장이 도착하기 전에 이미 돌았으므로 여기서 한 번 더
+              // 훑어야 클라우드에서 받아 온 «완주 상태» 단어장이 기록으로 남는다.
+              await backfillCompletions();
               if (!cancelled) return invalidateLists();
             })
             .catch(e => console.warn('[bootstrap] background sync failed:', e?.message ?? e));
@@ -222,6 +226,11 @@ export function useVocabBootstrap(): void {
           await initSeedDataIfEmpty(buildSeedData());
         }
       }
+      // 완주 기록 보강 — 022 백필 이후에 생긴 것(첫 동기화로 받아 온 단어장, 옛 게스트 데이터)을
+      // 채운다. 이미 있는 줄은 PK 로 무시되므로 매 실행 돌려도 값이 변하지 않는다.
+      await backfillCompletions().catch(e =>
+        console.warn('[bootstrap] completion backfill failed:', e?.message ?? e),
+      );
       await invalidateLists();
       if (!cancelled) useBootstrapStore.getState().setLoading(false);
     };

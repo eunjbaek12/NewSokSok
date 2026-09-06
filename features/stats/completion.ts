@@ -97,5 +97,88 @@ export const COMPLETION_LAST_TERM_SQL =
   `SELECT w.term
      FROM memorized_log l JOIN words w ON w.id = l.wordId
     WHERE w.listId = ? AND w.deletedAt IS NULL
-    ORDER BY l.date DESC, l.createdAt DESC
+    ORDER BY l.date DESC, l.createdAt DESC, w.term ASC
     LIMIT 1`;
+
+// ── 완주 기록(022 completions) ─────────────────────────────────────────────
+//
+// ⚠️ 아래 SQL 은 022 마이그레이션의 백필과 모양이 같지만 **일부러 나눠 둔다.**
+// 마이그레이션은 «그때 실행된 것»이라 손대면 안 되는 역사이고, 이쪽은 앞으로 바뀔 수 있는
+// 현재 규칙이다. 한 상수를 둘이 나눠 쓰면 규칙을 고치는 순간 과거까지 뜻이 달라진다.
+
+/** 완주 판정 — `computePlanStatus` 의 'completed' 와 같은 조건을 SQL 로 옮긴 것. */
+const COMPLETED_WHERE = `l.deletedAt IS NULL
+        AND l.planStartedAt IS NOT NULL
+        AND l.planUpdatedAt IS NOT NULL
+        AND l.planTotalDays > 0
+        AND l.planCurrentDay > l.planTotalDays`;
+
+/** 완주 순간의 스냅숏. 나중에 단어를 더 넣어도 지난 상장이 거짓말하지 않게 «그때» 값을 굳힌다. */
+const COMPLETION_SNAPSHOT = `l.id,
+        l.planStartedAt,
+        l.planUpdatedAt,
+        l.title,
+        (SELECT COUNT(*) FROM words w
+          WHERE w.listId = l.id AND w.deletedAt IS NULL),
+        (SELECT COUNT(DISTINCT ml.date) FROM memorized_log ml
+           JOIN words w2 ON w2.id = ml.wordId
+          WHERE w2.listId = l.id AND w2.deletedAt IS NULL),
+        (SELECT w3.term FROM memorized_log ml2
+           JOIN words w3 ON w3.id = ml2.wordId
+          WHERE w3.listId = l.id AND w3.deletedAt IS NULL
+          ORDER BY ml2.date DESC, ml2.createdAt DESC, w3.term ASC
+          LIMIT 1)`;
+
+const COMPLETION_COLUMNS =
+  `(listId, startedAt, completedAt, title, totalWords, studyDays, lastTerm)`;
+
+/**
+ * 단어장 하나가 지금 완주 상태면 기록한다. PK 가 (listId, startedAt) 이라 같은 계획을
+ * 여러 번 넣어도 줄은 하나다 — 완주 뒤 더 학습해 planUpdatedAt 이 움직여도 늘지 않는다.
+ */
+export const COMPLETION_RECORD_SQL =
+  `INSERT OR IGNORE INTO completions ${COMPLETION_COLUMNS}
+     SELECT ${COMPLETION_SNAPSHOT}
+       FROM lists l
+      WHERE l.id = ? AND ${COMPLETED_WHERE}`;
+
+/**
+ * 지금 완주 상태인 단어장 전부를 훑어 빠진 줄을 채운다. 앱 시작마다 돌려도 되는 값이다.
+ * 새 기기에서 클라우드로 단어장을 받아 온 경우가 이 경로다 — 022 백필은 그 전에 이미 돌았다.
+ */
+export const COMPLETION_BACKFILL_SQL =
+  `INSERT OR IGNORE INTO completions ${COMPLETION_COLUMNS}
+     SELECT ${COMPLETION_SNAPSHOT}
+       FROM lists l
+      WHERE ${COMPLETED_WHERE}`;
+
+/**
+ * 완주 기록 목록(최신순). 제목은 «살아 있는 단어장의 것»이 우선이다 — 이름을 바꿔도 같은
+ * 단어장이기 때문이고, 단어장을 지운 뒤에는 기록에 굳혀 둔 이름으로 떨어진다.
+ */
+export const COMPLETION_LIST_SQL =
+  `SELECT c.listId, c.startedAt, c.completedAt, c.totalWords, c.studyDays, c.lastTerm,
+          COALESCE(l.title, c.title) AS title,
+          (l.id IS NOT NULL) AS listAlive
+     FROM completions c
+     LEFT JOIN lists l ON l.id = c.listId AND l.deletedAt IS NULL
+    ORDER BY c.completedAt DESC`;
+
+/**
+ * 지금 걸려 있는 계획의 완주 기록. 학습결과 시트의 상장이 이걸 쓴다.
+ *
+ * 🔴 살아 있는 단어 수로 상장을 그리면 «거짓말»이 된다: 완주한 뒤 단어를 5개 더 넣어도
+ * `computePlanStatus` 는 계속 'completed' 라(planCurrentDay 가 이미 넘어가 있다) 시트가 열리는데,
+ * 그때 카드는 "위 단어장의 단어 15개를 모두 외웠기에"라고 쓴다 — 10개만 외운 상태에서.
+ * 완주는 «그때»의 사건이므로 그때 굳힌 값으로 그린다.
+ */
+export const COMPLETION_FOR_PLAN_SQL =
+  `SELECT totalWords, studyDays, lastTerm, completedAt
+     FROM completions WHERE listId = ? AND startedAt = ?`;
+
+/** 내 학습의 진입 줄이 쓰는 한 줄 요약 — 「N권 · N단어」. */
+export const COMPLETION_SUMMARY_SQL =
+  `SELECT COUNT(*) as books,
+          COALESCE(SUM(totalWords), 0) as words,
+          COALESCE(SUM(studyDays), 0) as days
+     FROM completions`;

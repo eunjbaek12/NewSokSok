@@ -23,7 +23,7 @@ import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
 import CompletionShareCard from '@/features/stats/CompletionShareCard';
 import { shareStatsCard } from '@/features/stats/share';
-import { getCompletionFacts, type CompletionFacts } from '@/features/stats';
+import { getCompletionFacts, getCompletionForPlan } from '@/features/stats';
 import { useLocale } from '@/features/locale';
 import { localeTag } from '@/i18n';
 import { useTranslation } from 'react-i18next';
@@ -42,6 +42,14 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
 import { useWhatsNew, WhatsNewSheet } from '@/features/whats-new';
+
+/** 상장에 새길 값 — 완주 기록(022)에서 오거나, 없으면 지금 값으로 채운다. */
+interface CertFacts {
+  totalWords: number;
+  studyDays: number;
+  lastTerm: string | null;
+  completedAt: number;
+}
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
   const size = 148;
@@ -95,17 +103,32 @@ export default function DashboardScreen() {
   const completionCardRef = useRef<View>(null);
   const [sharingCompletion, setSharingCompletion] = useState(false);
 
-  // 상장에 새길 두 값(실제로 외운 날 수·마지막 단어)은 memorized_log 를 읽어야 나온다.
-  // 시트가 열릴 때마다 다시 읽는다 — 열려 있는 동안 계속 바뀔 값이 아니고, 첫 렌더에
-  // 얼어붙지 않아야 다른 단어장을 연 다음에도 그 단어장의 값이 나온다.
-  const [completionFacts, setCompletionFacts] = useState<CompletionFacts | null>(null);
+  // 상장에 새길 값. **완주 기록(022)이 있으면 그것이 우선이다** — 완주한 뒤 단어를 더 넣어도
+  // 시트는 계속 열리는데(계획은 이미 넘어가 있다), 그때 살아 있는 수로 그리면 카드가
+  // "15개를 모두 외웠기에"라고 거짓말을 한다. 완주는 «그때»의 사건이라 그때 굳힌 값을 쓴다.
+  // 기록이 없을 때만(017 이전·기록 이전 버전) memorized_log 에서 직접 뽑아 채운다.
+  //
+  // 시트가 열릴 때마다 다시 읽는다 — 첫 렌더에 얼어붙으면 다른 단어장을 연 다음에도 앞
+  // 단어장의 값이 남는다.
+  const [cert, setCert] = useState<CertFacts | null>(null);
   useEffect(() => {
-    if (!resultList) { setCompletionFacts(null); return; }
+    if (!resultList) { setCert(null); return; }
     let alive = true;
-    getCompletionFacts(resultList.id)
-      .then(f => { if (alive) setCompletionFacts(f); })
+    const listId = resultList.id;
+    const startedAt = resultList.planStartedAt ?? 0;
+    const liveTotal = resultList.words.length;
+    const liveCompletedAt = resultList.planUpdatedAt ?? Date.now();
+    (async () => {
+      const recorded = startedAt ? await getCompletionForPlan(listId, startedAt) : null;
+      if (recorded) return recorded;
+      const facts = await getCompletionFacts(listId);
+      return { ...facts, totalWords: liveTotal, completedAt: liveCompletedAt };
+    })()
+      .then(c => { if (alive) setCert(c); })
       // 실패해도 상장은 나온다 — 이름·규모만 남고 두 줄이 빠진다(017 이전 완주와 같은 모습).
-      .catch(() => { if (alive) setCompletionFacts({ studyDays: 0, lastTerm: null }); });
+      .catch(() => {
+        if (alive) setCert({ studyDays: 0, lastTerm: null, totalWords: liveTotal, completedAt: liveCompletedAt });
+      });
     return () => { alive = false; };
   }, [resultList]);
 
@@ -866,10 +889,10 @@ export default function DashboardScreen() {
                 <CompletionShareCard
                   ref={completionCardRef}
                   title={resultList.title}
-                  total={totalWords}
-                  studyDays={completionFacts?.studyDays ?? 0}
-                  lastTerm={completionFacts?.lastTerm ?? null}
-                  completedAt={resultList.planUpdatedAt ?? Date.now()}
+                  total={cert?.totalWords ?? totalWords}
+                  studyDays={cert?.studyDays ?? 0}
+                  lastTerm={cert?.lastTerm ?? null}
+                  completedAt={cert?.completedAt ?? resultList.planUpdatedAt ?? Date.now()}
                   localeTag={localeTag(locale)}
                 />
               </View>

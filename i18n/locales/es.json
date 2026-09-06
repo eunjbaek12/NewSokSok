@@ -905,6 +905,19 @@
     "certLastWord": "Última palabra aprendida · *{{term}}*",
     "certSeal": "FIN"
   },
+  "completions": {
+    "title": "Listas completadas",
+    "emptyTitle": "Aún no has completado ninguna lista",
+    "emptyBody": "Termina un plan de estudio hasta el último día\ny su certificado aparecerá aquí.",
+    "unitBooks": "listas",
+    "unitWords": "palabras",
+    "unitDays": "días estudiados",
+    "metaBooks": "{{count}} listas",
+    "metaWords": "{{count}} palabras",
+    "metaDays": "{{count}} días",
+    "openCertificate": "Ver el certificado de {{title}}",
+    "openList": "Abrir lista"
+  },
   "milestone": {
     "daysReached": "¡Racha de {{count}} días de estudio!",
     "stage3": "¡Nace un Avocado novato! Esto es solo el principio.",

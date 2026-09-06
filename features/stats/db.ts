@@ -9,7 +9,11 @@ import { useSyncStore } from '@/features/sync/store';
 // eslint-disable-next-line no-restricted-imports
 import { schedulePush } from '@/features/sync/engine';
 import { todayStr, startOfWeekStr } from './date';
-import { COMPLETION_DAYS_SQL, COMPLETION_LAST_TERM_SQL } from './completion';
+import {
+  COMPLETION_DAYS_SQL, COMPLETION_LAST_TERM_SQL, COMPLETION_RECORD_SQL,
+  COMPLETION_BACKFILL_SQL, COMPLETION_LIST_SQL, COMPLETION_SUMMARY_SQL,
+  COMPLETION_FOR_PLAN_SQL,
+} from './completion';
 import { computeStreak, computeLongestStreak, sumMemorized, type StudyDay } from './streak';
 
 /**
@@ -70,7 +74,11 @@ export async function recordMemorizedWords(wordIds: string[]): Promise<void> {
   for (let i = 0; i < wordIds.length; i += CHUNK) {
     const chunk = wordIds.slice(i, i + CHUNK);
     const values = chunk.map(() => '(?, ?, ?)').join(',');
-    const params = chunk.flatMap(id => [date, id, now]);
+    // 🔴 한 배치에 같은 now 를 찍으면 «마지막으로 외운 단어»가 없어진다 — 10개를 한 세션에
+    //    외우면 열 행의 (date, createdAt) 이 전부 같아져 ORDER BY 가 무승부가 되고, 상장이
+    //    같은 완주를 두고 매번 다른 단어를 보여 준다(실기에서 evaluate → analyze 로 바뀌었다).
+    //    인덱스를 더해 표시한 순서를 남긴다. 배치가 커도 밀리초 단위라 날짜에는 영향이 없다.
+    const params = chunk.flatMap((id, j) => [date, id, now + i + j]);
     const r = await db.runAsync(
       `INSERT OR IGNORE INTO memorized_log (date, wordId, createdAt) VALUES ${values}`,
       ...params
@@ -197,4 +205,76 @@ export async function getCompletionFacts(listId: string): Promise<CompletionFact
     db.getFirstAsync<{ term: string }>(COMPLETION_LAST_TERM_SQL, listId),
   ]);
   return { studyDays: dayRow?.n ?? 0, lastTerm: lastRow?.term ?? null };
+}
+
+/** 완주 기록 한 줄. 숫자는 완주 «그때»의 스냅숏이고, 제목만 살아 있는 단어장을 따라간다. */
+export interface CompletionRecord {
+  listId: string;
+  /** 계획 시작 시각 — 이 계획 인스턴스의 신원(같은 단어장을 다시 완주하면 달라진다). */
+  startedAt: number;
+  completedAt: number;
+  title: string;
+  totalWords: number;
+  studyDays: number;
+  lastTerm: string | null;
+  /** 단어장이 아직 살아 있는가. 지워졌으면 기록만 남고 열 곳이 없다. */
+  listAlive: boolean;
+}
+
+/**
+ * 단어장 하나가 지금 완주 상태면 기록한다.
+ *
+ * 부르는 자리는 둘이다: 계획이 하루 넘어가는 순간(`updatePlanProgress`)과, 근거가 지워지기
+ * 직전(`clearPlan`). 앞의 것이 정상 경로이고 뒤의 것은 안전망이다 — 어느 쪽으로 와도 줄은
+ * 하나다(PK 가 계획 인스턴스라 중복 삽입이 무시된다).
+ */
+export async function recordCompletion(listId: string): Promise<void> {
+  const db = await getDb();
+  await db.runAsync(COMPLETION_RECORD_SQL, listId);
+}
+
+/** 지금 완주 상태인데 줄이 없는 단어장을 채운다(앱 시작·클라우드 pull 직후). */
+export async function backfillCompletions(): Promise<void> {
+  const db = await getDb();
+  await db.runAsync(COMPLETION_BACKFILL_SQL);
+}
+
+/** 완주 기록 전체(최신순). */
+export async function getCompletions(): Promise<CompletionRecord[]> {
+  const db = await getDb();
+  const rows = await db.getAllAsync<any>(COMPLETION_LIST_SQL);
+  return rows.map((r: any) => ({
+    listId: r.listId,
+    startedAt: r.startedAt ?? 0,
+    completedAt: r.completedAt ?? 0,
+    title: r.title ?? '',
+    totalWords: r.totalWords ?? 0,
+    studyDays: r.studyDays ?? 0,
+    lastTerm: r.lastTerm ?? null,
+    listAlive: (r.listAlive ?? 0) === 1,
+  }));
+}
+
+/** 지금 걸려 있는 계획의 완주 기록. 없으면 null(아직 안 적혔거나 완주가 아니다). */
+export async function getCompletionForPlan(
+  listId: string, startedAt: number,
+): Promise<{ totalWords: number; studyDays: number; lastTerm: string | null; completedAt: number } | null> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<any>(COMPLETION_FOR_PLAN_SQL, listId, startedAt);
+  if (!row) return null;
+  return {
+    totalWords: row.totalWords ?? 0,
+    studyDays: row.studyDays ?? 0,
+    lastTerm: row.lastTerm ?? null,
+    completedAt: row.completedAt ?? 0,
+  };
+}
+
+/** 완주 기록 한 줄 요약. 내 학습의 진입 줄이 쓴다. */
+export interface CompletionSummary { books: number; words: number; days: number }
+
+export async function getCompletionSummary(): Promise<CompletionSummary> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<CompletionSummary>(COMPLETION_SUMMARY_SQL);
+  return { books: row?.books ?? 0, words: row?.words ?? 0, days: row?.days ?? 0 };
 }

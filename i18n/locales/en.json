@@ -1323,6 +1323,19 @@
     "certLastWord": "Last word learned · *{{term}}*",
     "certSeal": "DONE"
   },
+  "completions": {
+    "title": "Completed decks",
+    "emptyTitle": "No completed decks yet",
+    "emptyBody": "Finish a study plan to the last day\nand its certificate lands here.",
+    "unitBooks": "decks",
+    "unitWords": "words",
+    "unitDays": "days studied",
+    "metaBooks": "{{count}} decks",
+    "metaWords": "{{count}} words",
+    "metaDays": "{{count}} days",
+    "openCertificate": "View certificate for {{title}}",
+    "openList": "Open deck"
+  },
   "milestone": {
     "daysReached": "{{count}}-day streak!",
     "stage3": "A freshman avocado is born — this is just the beginning",

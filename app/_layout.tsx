@@ -272,6 +272,7 @@ function AppStack() {
       />
       <Stack.Screen name="study-results" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="stats" options={{ headerShown: false }} />
+      <Stack.Screen name="completions" options={{ headerShown: false }} />
       <Stack.Screen name="faq" options={{ headerShown: false }} />
       <Stack.Screen name="plans" options={{ headerShown: false }} />
       <Stack.Screen name="terms" options={{ headerShown: false }} />

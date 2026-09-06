@@ -525,3 +525,116 @@ dpr 2 기기에서 같은 증상이 다시 난다. (감싸는 View 는 `absolute
 
 플래그는 `SKIN_LIST` 에서 두 스킨을 빼는 것으로 건다 — 팔레트와 이미지는 들어가 있되
 선택기에 안 뜬다. 10/1 빌드에서 그 한 줄만 되돌린다.
+
+---
+
+## §9 할로윈 — 보랏빛 밤 [⏭️ 다음, 1.7.x]
+
+> **한 문장:** 보랏빛 밤 속을 호박과 작은 유령이 **흩어져 내려가는** 화면.
+> 위에 크게 떠 있고, 좌우 레일을 지나며, 아래에 성글게 모인다.
+
+은정님 선택(9/6): **바탕 = 보랏빛 밤(어두운 스킨)** · **무늬 = 호박·유령 실루엣**.
+
+### 🎃 왜 «밤»인가 — 색이 남아 있지 않았다
+
+주황은 이미 가을(은행 노랑 `#D9A22B`·단풍 빨강 `#A8442A`)과 다크 액센트(`#D4784A`)가,
+보라는 Y2K 액센트(`#8B50D4`)가 쓰고 있다. **할로윈이 혼자 가질 수 있는 축은 «밤»뿐**이고,
+기존 다크 스킨은 갈색 계열(`#1C1410`)이라 보랏빛 밤과 안 겹친다.
+
+### 🔴 어두운 스킨이라 뒤집히는 것 셋
+
+1. **무늬가 바탕보다 밝아야 한다.** 검정 실루엣은 어두운 바탕에서 안 보인다.
+   달빛을 받아 «희미하게 떠오르는» 형태로 그린다.
+2. **§7 의 잣대가 뒤집힌다.** 「좌우 여백이 얼마나 **어두워졌나**」가 아니라
+   **밝아졌나**를 재고, 합격선은 그대로 중앙값 5 이하다.
+3. **다크 팔레트를 새로 짜야 한다**(`Colors.halloween`). 가을·한글처럼 밝은 팔레트
+   하나를 얹는 것으로 끝나지 않는다 — `constants/colors.ts` 에 `Colors.dark` 급의
+   한 벌이 필요하다.
+
+### §9-1 팔레트 [제안 — 확정 아님]
+
+| 쓰임 | 색 | 비고 |
+|---|---|---|
+| 바탕 | `#191327` | 보랏빛 밤 |
+| 카드 면 | `#241B36` | 한 겹 밝은 보라 |
+| primary | `#E8873A` | 호박 주황 |
+| accent | `#7FC244` | 독 초록 — 유령·연기 몇 점에만 |
+| 글자 | `#EDE6F2` | 그림에 쓰지 말 것 |
+| 무늬(기본) | `#3A2C55` ~ `#4A3768` | 바탕보다 밝은 보라. 실루엣은 여기서 |
+| 호박 불빛 | `#C97A34` | 두세 개에만 |
+
+⚠️ **밝기 상한** — 무늬가 카드 면(`#241B36`)보다 밝아지면 카드가 배경에 묻힌다.
+`#4A3768` 언저리가 상한이다. 밝은 스킨의 「불투명도 25% 상한」에 해당하는 자리다.
+
+### §9-2 🔴 덩어리 금지는 «면 금지»가 아니다
+
+호박·유령은 채운 형태라 §5 의 「덩어리」에 걸릴 것처럼 보이지만, **정확히는 «연속된»
+덩어리가 문제였다.** 수정전 기둥은 위아래로 이어져 좌우 띠 전체를 균일하게 눌렀고
+(중앙값 54.2), **가을 잎은 채운 면인데도 흩어져 있어 0.8** 이었다.
+
+🔑 **가르는 것은 «면이냐 선이냐»가 아니라 «이어졌냐 흩어졌냐»다.**
+호박을 쌓으면 진다. 잎처럼 흩뿌리면 이긴다 — 프롬프트에 그렇게 적었다.
+
+### §9-3 프롬프트
+
+🔴 앞선 두 프롬프트의 **「outer 10%」는 틀렸다**(§1). 카드가 `x 60~1019` 를 덮으므로
+레일은 **바깥 6%** 다. 그리고 **49~60% 띠가 전체 폭으로 열려 있다** — 앞선 둘은
+이 자리를 몰라 비워 뒀다.
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+dark, calm, low contrast. A deep purple night.
+
+Ground: deep indigo-purple night, almost black, with a soft paper-like
+grain. Everything drawn on it is LIGHTER than the ground — this is a
+night scene, so the shapes read as dim forms catching moonlight, never
+as black on black.
+
+Subject: jack-o'-lanterns and small ghosts drifting down through the
+frame. Keep every shape SMALL and SEPARATE — never a pile, never a
+heap, never a cluster that merges into one mass. Think of autumn
+leaves falling one by one, not a pumpkin patch.
+
+TOP 15% (0 to 15%): three or four larger shapes floating apart from one
+another, tilted at different angles, with clear space between them.
+This band is where the picture is seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY. Place a few small shapes only
+within the OUTER 6% of the left and right edges — narrow vertical
+rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small shapes across it, well apart.
+
+62% to 85%: the outer 6% rails again, small shapes only, centre empty.
+
+BOTTOM: a loose drift of shapes gathering across the full width, its
+top edge beginning right at 75% and continuing off the bottom edge.
+Keep it airy — separate shapes with gaps of night between them, not a
+solid bank.
+
+Palette: deep indigo-purple ground; shapes in a slightly lighter dusty
+violet; a warm pumpkin glow on only two or three of the lanterns; one
+or two touches of a cold pale green. Desaturated and quiet throughout.
+No moon, no landscape, no trees, no houses, no people, no gravestones,
+no letters, no text, no frame or border. The centre must stay empty.
+```
+
+### §9-4 받은 뒤 확인
+
+§7 을 그대로 쓰되 **부호를 뒤집는다**(밝아짐). 더해서:
+
+1. 🔴 **무늬가 카드 면보다 어두운가** — 밝으면 카드가 배경에 묻힌다
+2. 🔴 **호박이 쌓여 있지 않은가** — 좌우 레일의 밝아짐 **중앙값 5 이하**
+3. **49~60% 띠가 비어 있지 않은가** — 앞선 둘이 놓친 자리다
+4. **75% 위에서 아래 모임이 시작하는가** — `y 2006`(85.7%) 아래는 안 보인다
+
+### §9-5 배경 말고도 필요한 것
+
+- `constants/colors.ts` 에 **`Colors.halloween` 한 벌**(다크 팔레트)
+- `constants/skins.ts` 에 정의 + `SKIN_LIST` 등록 + `getSkinColors` 분기
+- `components/SkinBackdrop.tsx` 의 `ART` 에 파일 등록
+- `components/CharacterAccessory.tsx` 에 소품 — 마녀 모자? 호박 바구니? **미정**
+- `features/theme/types.ts` 의 `SkinId`·`CharacterAccessory` 유니온
+- `i18n/locales/*.json` 에 `skinHalloween`
+- `__tests__/skin-registry.test.ts` 의 `ALL` 배열

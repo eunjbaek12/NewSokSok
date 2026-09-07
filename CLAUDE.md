@@ -163,6 +163,20 @@ in code review and only show up on a device.
   export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
   value**. It is not just console noise — 27 gradient stops were being dropped on the
   avocado character, flattening its gradient. Write `"0.2135"`.
+- **Animating an SVG works only through reanimated's `transform` array — and it fails
+  silently.** RN's `Animated` cannot update `react-native-svg` props under New Arch: the
+  value changes, nothing moves, no error. Moving to reanimated is not enough either — a
+  `<G>` with `originX`/`originY` + an animated `rotation` still sits still; it must be a
+  `transform` array (translate → rotate → translate), the form `CharacterAccessory`
+  already uses. The one SVG animation that actually runs in this repo is
+  `components/ui/TimerRing.tsx` (`useAnimatedProps`) — copy that. *(The character's wave
+  had `AnimatedG` built but never attached to the arm, so `wave` did nothing for a year;
+  once attached it hit both layers above. What separated them: **loop it forever and paint
+  the moving part red** — red visible but coordinates frozen means the prop is the
+  problem, not Fast Refresh. And an animation cannot be measured with screenshots —
+  `screenrecord` → ffmpeg frames → judge by a pixel boundary. Careful which boundary:
+  normalizing the arm tip by the character's own width gave a constant 1.0, because the
+  arm **is** the right edge.)*
 - **`ListHeaderComponent` must be given an *element*, not a function, if anything inside it
   holds state.** `VirtualizedList` renders a non-element as `<ListHeaderComponent />`
   (`VirtualizedList.js:939`), so a header render function defined inline in the screen body is

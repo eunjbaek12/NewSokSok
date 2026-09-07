@@ -49,15 +49,18 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 9/3    ✅     접근성 109개 · 스킨 2종 · ko>en 주제 덱 7종 — 모두 완료
 9/4    ✅     PR #128 머지(160c058) — 위 셋이 main 에 들어갔다
 9/4    ✅     1.6.2 양 스토어 배포 (동기화 2건 포함)
+9/6 ─ 9/7 ✅  완주 자랑하기 전 단계 · 할로윈 스킨 — 구현 완료, 둘 다 플래그 뒤
 9/7           iOS 신규 이탈 재측정
 9/10   ★      지명 제출 3벌 (애플 2 · Play 1)          ← 다음 마감
-9/10 ─ 9/20   완주 자랑하기 · iOS 관용 동작
+9/중          1.6.3 배포 — 테마 3종 손질 + 잔버그
+              🚩 완주 자랑하기 · 새 스킨 3종은 플래그 뒤에 둔 채로 낸다
 9/15          인앱 이벤트 등록 → 심사 (9/17 부터 스토어 노출 가능)
 9/22 ─ 9/25   한글날 덱 서버 반영
 9/26 ─ 9/28   1.7.0 빌드 → 심사 → 수동 출시 홀드
-10/1   🚀     공개 + 스킨 플래그 ON
+10/1   🚀     공개 + 플래그 ON — 스킨 3종(가을·한글·할로윈) + 완주 자랑하기
 10/9          한글날 — 인앱 이벤트 ②
 10/29         Play 지명 폼 만료
+10/31         할로윈 — 스킨 ③ 이 여기에 걸린다
 ```
 
 🔑 **9/10 제출 시점에 1.7.0 은 아직 없다.** 지명은 출시 전에 넣는 것이 정상이므로 §4는
@@ -90,7 +93,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 | | 내용 |
 |---|---|
 | **① 완주 자랑하기** | 단어장을 끝까지 외운 순간을 카드로 만들어 나눈다 |
-| **② 계절 스킨 2종** | 가을 · 한글 — 기존 5종에 더해 7종 |
+| **② 계절 스킨 3종** | 가을 · 한글 · 할로윈 — 기존 5종에 더해 8종. 10월 한 달 동안 앱이 계절을 따라 옷을 갈아입는다 |
 | **③ 접근성** | VoiceOver 전면 지원 — 아이콘 전용 버튼 109개 전량 |
 | **④ iOS 관용 동작** | 화면 어디서나 스와이프 뒤로 (`7d3f894`) |
 
@@ -108,6 +111,9 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 - **배포 예정일: 2026년 10월 1일** (수동 출시로 홀드해 둔다)
 - 제출: **9월 10일** — 애플 공식 요구 리드타임(출시 최소 3주 전) 준수
 - 모멘트: **10월 9일 한글날** (출시 8일 후). 제출 ②의 앵글이 여기에 걸린다.
+  이어서 **10월 31일 할로윈** — 스킨 ③이 여기에 걸린다. 모멘트가 하나 더 붙는 게 아니라,
+  10/1 · 10/9 · 10/31 이 이어지면서 **「계절을 따라 옷을 갈아입는 앱」** 이라는 이야기가
+  10월 내내 선다.
   제출 ①은 **수능 D-40대**의 어휘 마무리 시즌.
 
 ---
@@ -116,21 +122,21 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 > 이 텍스트 박스가 지명의 핵심. **제출 ①과 ②가 서로 다른 본문을 쓴다.**
 
-### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, 약 800자)
+### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, 약 940자)
 
 ```
 이번 업데이트는 '끝내는 순간'에 집중했습니다. 단어장을 끝까지 외우면 완주 카드가 만들어지고, 그대로 친구에게 보낼 수 있습니다. 단어 앱에서 가장 드문 순간이 "다 외웠다"인데, 그 순간을 앱이 조용히 지나쳐 버리는 게 늘 아쉬웠습니다.
 
 접근성을 이번에 제대로 손봤습니다. 아이콘만 있어 스크린리더가 "버튼"이라고만 읽던 컨트롤이 109개였는데 전부에 이름과 역할을 붙였고, 다섯 화면의 접근성 트리를 전수로 훑어 읽지 못하는 버튼이 0인 것을 확인했습니다. 화면 어느 지점을 잡아도 스와이프로 뒤로 가도록 바꿨습니다 — 왼쪽 가장자리 몇 픽셀에서만 되던 동작이라, 큰 화면에서는 한 손으로 닿지 않는 자리였습니다.
 
-아보카도는 한국에서 만든, 6개 언어(한·영·일·중·베·스)를 어느 방향으로든 학습할 수 있는 어휘 앱입니다. 딱딱한 암기 앱들 사이에서 따뜻한 크림 톤과 아보카도 캐릭터·스킨 7종(이번에 가을·한글 추가)으로 손맛 있는 디자인을 지향했습니다.
+아보카도는 한국에서 만든, 6개 언어(한·영·일·중·베·스)를 어느 방향으로든 학습할 수 있는 어휘 앱입니다. 딱딱한 암기 앱들 사이에서 따뜻한 크림 톤과 아보카도 캐릭터로 손맛 있는 디자인을 지향했고, 이번에 스킨을 세 벌 더 그려 여덟이 되었습니다 — 단풍 지는 가을, 한지와 먹의 한글, 보랏빛 밤의 할로윈. 색만 바꾼 게 아니라 화면마다 배경 그림을 따로 그렸습니다. 그래서 10월에는 앱이 계절을 따라 옷을 갈아입습니다 — 한글날에는 한지 위에서, 월말에는 호박과 유령 사이에서 단어를 외웁니다.
 
 AI는 과하지 않게, 쓸모 있게 녹였습니다. 단어 하나만 넣으면 발음·뜻·예문·동의어까지 카드가 완성되고, 사진 한 장이면 단어장이 통째로, 주제만 적으면("카페에서 주문하기", "토익 빈출 동사") AI가 단어장을 만듭니다. 본인 Gemini 키로 AI를 무제한 무료로 쓰는 BYOK 모드는 사용자를 존중하는 흔치 않은 선택입니다.
 
 오프라인 우선, 프라이버시 존중(광고는 비로그인·무료 사용자에게만, ATT 준수, 요청 권한은 마이크 하나), Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
 ```
 
-### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,300 chars)
+### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,820 chars)
 
 ```
 This update lands eight days before Hangul Day (October 9), the Korean national holiday celebrating the invention of the Korean alphabet — and we built for it. A new Hangul skin dresses the app in hanji paper and ink, and a limited-time deck of native Korean words (순우리말 — words with no Chinese roots) goes live for the week.
@@ -139,7 +145,7 @@ The headline feature is Finish Cards. When you memorize every word in a deck, th
 
 We also took accessibility seriously: 109 icon-only controls that a screen reader could only call "button" now carry a name and a role — verified by dumping the accessibility tree on five screens. Swipe back from anywhere on the screen, not just the few pixels at its left edge — the gesture an iPhone owner's hands already know.
 
-Avocado is a Korea-made vocabulary app that lets you learn any of six languages (English, Korean, Japanese, Chinese, Vietnamese, Spanish) in any direction — 30 language pairs. Against a sea of utilitarian flashcard apps, we chased a warm, hand-crafted feel: a soft cream palette, an avocado mascot, and seven swappable skins.
+Avocado is a Korea-made vocabulary app that lets you learn any of six languages (English, Korean, Japanese, Chinese, Vietnamese, Spanish) in any direction — 30 language pairs. Against a sea of utilitarian flashcard apps, we chased a warm, hand-crafted feel: a soft cream palette, an avocado mascot, and eight swappable skins — three of them new this month. Through October the app changes with the season: maple reds for autumn, hanji paper and ink for Hangul Day, and a purple night of pumpkins and ghosts for Halloween. Each is a hand-drawn backdrop, not a recolor.
 
 AI is woven in tastefully: type one word and a full card appears; snap a photo and a whole deck is built from it; describe a topic and AI generates the list. Our BYOK mode — bring your own Gemini key for unlimited free AI — is a rare, user-respecting stance.
 
@@ -149,7 +155,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 ### 짧은 버전 (글자수 제한이 빡빡할 때, ~280자)
 
 ```
-이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(아이콘 전용 버튼 109개 전량에 VoiceOver 이름)과 화면 어디서나 스와이프 뒤로도 함께. 가을·한글 스킨 추가로 총 7종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
+이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(아이콘 전용 버튼 109개 전량에 VoiceOver 이름)과 화면 어디서나 스와이프 뒤로도 함께. 가을·한글·할로윈 스킨 추가로 총 8종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
 ```
 
 ---
@@ -166,7 +172,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 | ✅ | **In-App Purchases / StoreKit** | 자동 갱신 구독(월/연) |
 | ✅ | **App Tracking Transparency** | 로컬라이즈된 안내 문구 |
 | ✅ | **Text-to-Speech (AVSpeechSynthesizer)** | 발음·쉐도잉·오토플레이 낭독 |
-| ✅ | **Dark Mode** | 라이트/다크 + 스킨 테마 7종 |
+| ✅ | **Dark Mode** | 라이트/다크 + 스킨 테마 8종 |
 | ✅ | **Localization** | UI 3개 언어 · 학습 6개 언어 · 스토어 7개 로케일 |
 | ✅ | **Camera / Photo** | 사진 스캔으로 단어 추출 |
 | ✅ | **Haptic Feedback** | 39개 화면·컴포넌트에 촘촘히 적용 |
@@ -207,7 +213,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 ### 그 밖에 실제 강점
 
-- **다크 모드 + 스킨 테마 7종** — 대비를 고를 수 있다
+- **다크 모드 + 스킨 테마 8종** — 대비를 고를 수 있다
 - **TTS 기반 듣기·발음 학습** — 화면을 읽지 않고도 학습이 성립하는 경로가 있다
 - **햅틱** 39개 화면·컴포넌트에 적용
 
@@ -234,7 +240,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 - 개발: 산녀와 나무꾼 (소규모 인디팀, 대한민국)
 - 지원/웹: https://eunjbaek12.github.io/NewSokSok/
 - 개인정보처리방침: https://eunjbaek12.github.io/NewSokSok/privacy-policy
-- 디자인 특징: 아보카도 마스코트 + 크림 톤 커스텀 아트, 스킨 7종
+- 디자인 특징: 아보카도 마스코트 + 크림 톤 커스텀 아트, 스킨 8종
 - 차별점: BYOK(본인 키로 AI 무제한 무료) — 사용자 존중형 과금 모델
 ```
 
@@ -243,7 +249,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 2. TestFlight 공개 링크 (1.7.0 빌드가 나온 9/28 이후라면 교체)
 3. 지원 웹사이트
 4. (여유) 완주 카드 샘플 이미지
-5. (여유) 스킨 7종 비교 이미지
+5. (여유) 스킨 8종 비교 이미지
 
 ---
 
@@ -257,11 +263,19 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 |---|---|---|---|---|
 | **①** | **Major Update** | 10/1 ~ 10/31 | 1.7.0의 새 기능들 | 개발 0 |
 | **②** | **Special Event** | 10/9 ~ 10/16 | 한글날 한정 덱 (서버 반영) | 덱 생성 ~₩1,000 |
+| **③** | **Special Event** ⏳미결 | 10/25 ~ 10/31 | 할로윈 한정 덱 (서버 반영) | 덱 생성 ~₩1,000 |
 
 🔑 **모든 이벤트는 "앱 안에서 실제로 그 일이 일어나야" 한다.** 카드만 걸고 앱에 실체가
 없으면 반려된다. ②의 실체를 스킨이 아니라 **기간 한정 덱**으로 잡은 이유가 이것이다 —
 스킨은 상시 자산이라 "10/9~10/16만의 일"이 아니고, 큐레이션 덱은 1.6.0부터 서버에서
 내려오므로 **앱 업데이트 없이** 실체를 만들 수 있다.
+
+⏳ **③ 할로윈은 미결이다 — 같은 제약이 그대로 걸린다.** 할로윈 스킨은 10/1에 열려 그대로
+남는 **상시 자산**이라, 스킨만으로는 "10/25~10/31만의 일"이 되지 못한다(②와 같은 이유).
+넣으려면 ②와 똑같이 **기간 한정 덱이 하나 더** 있어야 한다 — 서버 반영이라 앱 업데이트는
+없고, 드는 것은 덱 하나(~₩1,000)와 카드 이미지 2장(16:9 · 9:16)이다.
+⚠️ ③은 **지명(9/10 마감)과 무관하다.** 인앱 이벤트 등록은 9/15 트랙이므로, 이 판단은
+지명 제출을 붙잡지 않는다.
 
 **규격 (2026-09 기준, 애플 공식)**
 
@@ -290,7 +304,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 | 기준 | 2026-07-21 | 2026-09-02 목표 | 근거 |
 |---|---|---|---|
-| UI 디자인 | 🟢 | 🟢 | 아보카도 캐릭터·크림 톤·스킨 7종 |
+| UI 디자인 | 🟢 | 🟢 | 아보카도 캐릭터·크림 톤·스킨 8종 |
 | 로컬라이제이션 | 🟢 | 🟢 | UI 3개 언어 + 30개 언어쌍 + 스토어 7로케일 |
 | 독창성 | 🟢 | 🟢 | 모바일 BYOK는 사실상 유일 |
 | 제품 페이지 품질 | 🟢 | 🟢 | Play 스토어 전환율 38.71%(통상 20~30%) |

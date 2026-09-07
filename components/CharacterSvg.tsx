@@ -1,10 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Animated, AccessibilityInfo } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { AccessibilityInfo } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, RadialGradient, Stop, G } from 'react-native-svg';
+import Animated, {
+  useSharedValue,
+  useAnimatedProps,
+  withDelay,
+  withSequence,
+  withTiming,
+  cancelAnimation,
+} from 'react-native-reanimated';
 import { CharacterAccessoryPaths } from '@/components/CharacterAccessory';
 import { useTheme, type CharacterAccessory as AccessoryType } from '@/features/theme';
 
+/**
+ * 🔴 RN 의 Animated 로는 팔이 움직이지 않는다. New Arch(Fabric)에서 react-native-svg 의
+ * prop 은 그 경로로 갱신되지 않아, armRot 을 팔에 연결해도 화면은 0° 그대로였다
+ * (실측: 홈 캐릭터의 오른쪽 끝 x 가 애니메이션 전후 161 로 동일). 저장소에서 실제로
+ * 도는 SVG 애니메이션은 TimerRing 의 reanimated useAnimatedProps 하나뿐이고,
+ * 그 패턴을 따른다.
+ */
 const AnimatedG = Animated.createAnimatedComponent(G);
+
+/**
+ * 손 흔들기의 회전 축 — 어깨끝(181.5, 117)이 아니라 몸통 쪽으로 들어온 자리다.
+ * 어깨끝을 축으로 잡으면 14°만 돌려도 팔 윗부분이 몸통에서 떨어져 틈이 보인다.
+ *
+ * 🔴 축을 `originX`/`originY` 로 주고 `rotation` 을 애니메이트하면 **화면이 안 움직인다**.
+ * G 의 `rotation` 은 animatedProps 로 갱신되지 않는다 — 무한 반복을 걸고 팔을 빨갛게
+ * 칠해 재도 x 범위가 (148,161) 에 고정이었다. `transform` 배열로 바꾸자 같은 조건에서
+ * (148,163)~(148,171) 로 움직였다. 그래서 축을 translate 로 직접 감싼다.
+ */
+const ARM_PIVOT_X = 174;
+const ARM_PIVOT_Y = 124;
 
 /**
  * 스킨 액세서리(모자·리본)는 여기서 함께 그린다. 캐릭터가 나오는 자리는 곧 스킨이
@@ -13,7 +40,7 @@ const AnimatedG = Animated.createAnimatedComponent(G);
  */
 export default function CharacterSvg({ size = 56, wave = true, accessory }: { size?: number; wave?: boolean; accessory?: AccessoryType }) {
   const { skin } = useTheme();
-  const armRot = useRef(new Animated.Value(0)).current;
+  const armRot = useSharedValue(0);
   const [reduceMotion, setReduceMotion] = useState(false);
   const resolvedAccessory = accessory ?? skin.characterAccessory;
 
@@ -31,18 +58,24 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
 
   useEffect(() => {
     if (!wave || reduceMotion) return;
-    const timeout = setTimeout(() => {
-      Animated.sequence([
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 10,  duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 10,  duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 0,   duration: 220, useNativeDriver: false }),
-      ]).start();
-    }, 400);
-    return () => clearTimeout(timeout);
-  }, [wave, reduceMotion]);
+    armRot.value = withDelay(400, withSequence(
+      withTiming(-22, { duration: 200 }),
+      withTiming(-6,  { duration: 160 }),
+      withTiming(-22, { duration: 160 }),
+      withTiming(-6,  { duration: 160 }),
+      withTiming(-22, { duration: 160 }),
+      withTiming(0,   { duration: 220 }),
+    ));
+    return () => cancelAnimation(armRot);
+  }, [wave, reduceMotion, armRot]);
+
+  const armProps = useAnimatedProps(() => ({
+    transform: [
+      { translateX: ARM_PIVOT_X }, { translateY: ARM_PIVOT_Y },
+      { rotate: `${armRot.value}deg` },
+      { translateX: -ARM_PIVOT_X }, { translateY: -ARM_PIVOT_Y },
+    ],
+  }));
 
   return (
     <Svg width={size} height={size} viewBox="0 0 250 250" fill="none">
@@ -150,8 +183,12 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
       {/* 몸통 (노란 배) */}
       <Path d="m113.4 46.2c-23.66 0-41.55 15.87-51.77 47.29-4.3 13.53-5.27 21.26-10.58 35.79-4.12 11.5-4.99 20.33-4.99 28.43 0 30.11 25.27 57.37 66.37 57.37 36.55 0 67.24-26.6 67.24-57.69 0-12.55-5.84-29.64-10.63-44.28-8.2-26-16.11-66.91-55.64-66.91z" fill="url(#c_p8)" />
 
-      {/* 오른쪽 팔 */}
-      <Path d="m181.5 117c6.91 13.11 9.16 37.13 8.97 58.56 10.1 2.98 14.71-8.52 13.2-16.83-3.22-17.89-13.97-31.6-22.17-41.73z" fill="url(#c_p2)" />
+      {/* 오른쪽 팔 — 흔드는 팔. 각도는 음수(바깥)로만 간다: 양수로 돌리면 팔이 몸통
+          위로 겹쳐 묻힌다. 팔이 거의 수직으로 뻗은 그림이라 «번쩍 드는» 손 흔들기는
+          원천 불가능하고, −22° 언저리가 접합이 안 벌어지는 한계다. */}
+      <AnimatedG animatedProps={armProps}>
+        <Path d="m181.5 117c6.91 13.11 9.16 37.13 8.97 58.56 10.1 2.98 14.71-8.52 13.2-16.83-3.22-17.89-13.97-31.6-22.17-41.73z" fill="url(#c_p2)" />
+      </AnimatedG>
 
       {/* 씨앗 (갈색 타원) */}
       <Path d="m113.2 201.6c19.84 0 35.55-16.88 35.55-34.12 0-19.14-15.71-38.15-36.03-38.15-19.99 0-36.05 16.56-36.05 38.09 0 18.3 15.64 34.18 36.53 34.18z" fill="url(#c_p9)" stroke="#6F5635" strokeMiterlimit={10} strokeWidth={1.142} />

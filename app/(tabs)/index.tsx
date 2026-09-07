@@ -23,7 +23,7 @@ import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
 import CompletionShareCard from '@/features/stats/CompletionShareCard';
 import { shareStatsCard } from '@/features/stats/share';
-import { getCompletionFacts, getCompletionForPlan } from '@/features/stats';
+import { getCompletionFacts, getCompletionForPlan, COMPLETION_SHARE_ENABLED } from '@/features/stats';
 import { useLocale } from '@/features/locale';
 import { localeTag } from '@/i18n';
 import { useTranslation } from 'react-i18next';
@@ -836,35 +836,38 @@ export default function DashboardScreen() {
               <Text style={[styles.resultStats, { color: colors.textSecondary }]}>
                 {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
               </Text>
-              <Pressable
-                onPress={async () => {
-                  if (sharingCompletion) return;
-                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                  setSharingCompletion(true);
-                  const outcome = await shareStatsCard(
-                    completionCardRef,
-                    t('completionShare.shareMessage', { title: resultList.title, count: memorizedWords }),
-                  );
-                  setSharingCompletion(false);
-                  if (outcome === 'unavailable') Alert.alert(t('completionShare.share'), t('shareCard.unavailable'));
-                  else if (outcome === 'error') Alert.alert(t('completionShare.share'), t('shareCard.shareError'));
-                }}
-                disabled={sharingCompletion}
-                accessibilityRole="button"
-                accessibilityLabel={t('completionShare.share')}
-                style={({ pressed }) => [
-                  styles.resultShareBtn,
-                  {
-                    borderColor: colors.primary,
-                    opacity: pressed || sharingCompletion ? 0.6 : 1,
-                  },
-                ]}
-              >
-                <Ionicons name="share-social-outline" size={18} color={colors.primary} />
-                <Text style={[styles.resultShareBtnText, { color: colors.primary }]}>
-                  {t('completionShare.share')}
-                </Text>
-              </Pressable>
+              {/* 🚩 완주 자랑하기는 공개 시점까지 감춘다 — features/stats/completion.ts */}
+              {COMPLETION_SHARE_ENABLED && (
+                <Pressable
+                  onPress={async () => {
+                    if (sharingCompletion) return;
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    setSharingCompletion(true);
+                    const outcome = await shareStatsCard(
+                      completionCardRef,
+                      t('completionShare.shareMessage', { title: resultList.title, count: memorizedWords }),
+                    );
+                    setSharingCompletion(false);
+                    if (outcome === 'unavailable') Alert.alert(t('completionShare.share'), t('shareCard.unavailable'));
+                    else if (outcome === 'error') Alert.alert(t('completionShare.share'), t('shareCard.shareError'));
+                  }}
+                  disabled={sharingCompletion}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('completionShare.share')}
+                  style={({ pressed }) => [
+                    styles.resultShareBtn,
+                    {
+                      borderColor: colors.primary,
+                      opacity: pressed || sharingCompletion ? 0.6 : 1,
+                    },
+                  ]}
+                >
+                  <Ionicons name="share-social-outline" size={18} color={colors.primary} />
+                  <Text style={[styles.resultShareBtnText, { color: colors.primary }]}>
+                    {t('completionShare.share')}
+                  </Text>
+                </Pressable>
+              )}
               <Pressable
                 onPress={() => {
                   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -885,17 +888,19 @@ export default function DashboardScreen() {
                 resultList 가 살아 있는 동안에만 렌더되면 충분하고, 그래야 제목·수치가
                 지금 보고 있는 완주와 항상 같기 때문이다.
               */}
-              <View style={styles.resultOffscreen} pointerEvents="none">
-                <CompletionShareCard
-                  ref={completionCardRef}
-                  title={resultList.title}
-                  total={cert?.totalWords ?? totalWords}
-                  studyDays={cert?.studyDays ?? 0}
-                  lastTerm={cert?.lastTerm ?? null}
-                  completedAt={cert?.completedAt ?? resultList.planUpdatedAt ?? Date.now()}
-                  localeTag={localeTag(locale)}
-                />
-              </View>
+              {COMPLETION_SHARE_ENABLED && (
+                <View style={styles.resultOffscreen} pointerEvents="none">
+                  <CompletionShareCard
+                    ref={completionCardRef}
+                    title={resultList.title}
+                    total={cert?.totalWords ?? totalWords}
+                    studyDays={cert?.studyDays ?? 0}
+                    lastTerm={cert?.lastTerm ?? null}
+                    completedAt={cert?.completedAt ?? resultList.planUpdatedAt ?? Date.now()}
+                    localeTag={localeTag(locale)}
+                  />
+                </View>
+              )}
               <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
                 {t('home.restartPlanNote')}
               </Text>

@@ -20,6 +20,7 @@ import {
   shareStatsCard,
   saveStatsCard,
   getCompletionSummary,
+  COMPLETION_SHARE_ENABLED,
   type CompletionSummary,
 } from '@/features/stats';
 import { CERT_GOLD } from '@/constants/colors';
@@ -308,8 +309,9 @@ export default function StatsScreen() {
           🔴 달력 위에 두면 안 된다: S22 실측으로 달력이 끝나는 y1844 에 내비바 위 한계가
           ≈2250 이라 여유가 406px뿐이고, 1080×1920 짧은 폰은 지금도 아래가 잘린다.
           완주가 하나도 없으면 줄 자체를 내지 않는다 — 빈 줄은 높이만 먹는다.
+          🚩 공개 시점까지는 플래그로 감춘다 — features/stats/completion.ts.
         */}
-        {!!completions && completions.books > 0 && (
+        {COMPLETION_SHARE_ENABLED && !!completions && completions.books > 0 && (
           <Pressable
             accessibilityRole="button"
             accessibilityLabel={t('completions.title')}

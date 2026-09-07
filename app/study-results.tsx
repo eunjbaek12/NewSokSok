@@ -9,11 +9,12 @@ import { useTheme } from '@/features/theme';
 import { useStudyResultsStore, setStudySelection } from '@/features/study';
 import {
   getStatsSummary,
-  pickMilestone,
+  pickCelebration,
   loadMaxCelebrated,
   saveMaxCelebrated,
   getPendingCompletion,
   markCompletionCelebrated,
+  COMPLETION_SHARE_ENABLED,
   MilestoneCelebration,
   CompletionCelebration,
   type StreakMilestone,
@@ -104,39 +105,51 @@ export default function StudyResultsScreen() {
       //    는 이번 세션이 이미 반영된 값을 읽는다.
       (async () => {
         try {
-          // 🔴 완주가 스트릭 마일스톤을 이긴다. 겹치면 완주만 띄우고 마일스톤은 **판정도
-          //    saveMaxCelebrated 도 하지 않는다** — 그래야 사라지지 않는다. pickMilestone 은
-          //    「지금 스트릭으로 도달한 최고 단계」를 매번 다시 계산하고(마일스톤을 소모하지
-          //    않는다), maxCelebrated 를 올리는 곳은 아래 saveMaxCelebrated 한 줄뿐이라,
-          //    건너뛴 마일스톤은 다음 학습 세션에 그대로 다시 나온다(같은 날 두 번째 세션이면
-          //    몇 분 뒤). 완주는 훨씬 드문 사건이고 축하 팝업을 연달아 두 개 띄우면 그 피로
-          //    위에서 리뷰 요청 기회(OS 연 3회)까지 쓰게 된다.
+          // 완주와 마일스톤의 «순서»는 pickCelebration 이 정한다(features/stats/celebration.ts).
+          // 🔴 그 판단을 여기 두면 테스트가 닿지 못한다 — 겹침 분기는 검증 기기의 스트릭이
+          //    0일이라 실기에서도 실행되지 않았다. 이 자리에는 판단의 «결과를 수행하는» 것만
+          //    남긴다.
           const pending = id ? await getPendingCompletion(id) : null;
-          if (pending) {
-            // 표시 전에 마킹 — 마일스톤과 같은 원칙(도중 종료 시 재축하보다 1회 누락이 낫다).
+          const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
+          const plan = pickCelebration(
+            !!pending,
+            summary.currentStreak,
+            maxCelebrated,
+            COMPLETION_SHARE_ENABLED,
+          );
+
+          // 🚩 표시 여부와 무관하게 찍는다. 플래그가 닫힌 동안의 완주를 안 찍고 넘기면,
+          //    켜는 날 그 사이의 완주가 «지금 막 일어난 일»로 되살아난다.
+          //    표시 전에 마킹하는 것은 마일스톤과 같은 원칙 — 도중 종료 시 재축하보다
+          //    1회 누락이 낫다.
+          if (plan.markCompletion && pending && id) {
             await markCompletionCelebrated(id, pending.startedAt);
+          }
+
+          if (plan.show?.kind === 'completion') {
             setCompletion(pending);
             // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(마일스톤과 같은 값).
             setTimeout(() => setCompletionVisible(true), 600);
             return;
           }
 
-          const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
-          const m = pickMilestone(summary.currentStreak, maxCelebrated);
-          if (!m) {
-            // 마일스톤이 없는 세션 — 충분히 몰입했고(누적 암기 임계 이상) 이번 세션도
-            // 잘 풀린 사용자에게만 리뷰 요청 시도. 스트릭 없이 한 번에 몰아 외운 열정
-            // 신규 사용자를 커버하되, 많이 틀린 직후는 물어볼 순간이 아니다(isGoodMoment).
-            if (isGoodMoment(accuracy, summary.totalMemorized)) {
-              reviewTimerRef.current = setTimeout(maybeRequestReview, REVIEW_PROMPT_DELAY_MS);
-            }
+          if (plan.show?.kind === 'milestone') {
+            const m = plan.show.milestone;
+            // 마일스톤을 소모하는 유일한 자리. 완주가 이긴 세션에서 여기 닿지 않는 것이
+            // 곧 「건너뛴 마일스톤이 다음 세션에 다시 온다」의 구현이다.
+            await saveMaxCelebrated(m);
+            setMilestone({ m, streak: summary.currentStreak, memorized: summary.totalMemorized });
+            // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(진입 전환과 겹침 방지).
+            setTimeout(() => setMilestoneVisible(true), 600);
             return;
           }
-          // 표시 전에 마킹 — 도중 종료 시 재축하보다 1회 누락이 낫다(반복 방지 우선).
-          await saveMaxCelebrated(m);
-          setMilestone({ m, streak: summary.currentStreak, memorized: summary.totalMemorized });
-          // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(진입 전환과 겹침 방지).
-          setTimeout(() => setMilestoneVisible(true), 600);
+
+          // 축하가 없는 세션 — 충분히 몰입했고(누적 암기 임계 이상) 이번 세션도 잘 풀린
+          // 사용자에게만 리뷰 요청 시도. 스트릭 없이 한 번에 몰아 외운 열정 신규 사용자를
+          // 커버하되, 많이 틀린 직후는 물어볼 순간이 아니다(isGoodMoment).
+          if (isGoodMoment(accuracy, summary.totalMemorized)) {
+            reviewTimerRef.current = setTimeout(maybeRequestReview, REVIEW_PROMPT_DELAY_MS);
+          }
         } catch {}
       })();
     }

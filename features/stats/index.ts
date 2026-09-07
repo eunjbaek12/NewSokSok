@@ -4,6 +4,8 @@ export * from './date';
 export * from './streak';
 export * from './quotes';
 export * from './milestones';
+export { pickCelebration, type CelebrationPlan, type CelebrationShow } from './celebration';
+export { COMPLETION_SHARE_ENABLED } from './completion';
 export {
   recordStudySession,
   recordMemorizedWords,

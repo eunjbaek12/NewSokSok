@@ -29,7 +29,7 @@ import { useStudyResultsStore, useStudySelection, applyStudySelection } from '@/
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation, formatPhonetic } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import SpeakerButton from '@/components/ui/SpeakerButton';
@@ -74,7 +74,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
 
       {word.phonetic && (
         <View style={styles.cardInfoRow}>
-          <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{word.phonetic}/</Text>
+          <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>{formatPhonetic(word.phonetic)}</Text>
         </View>
       )}
 
@@ -126,7 +126,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
         <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]} numberOfLines={2} ellipsizeMode="tail">{word.term}</Text>
 
         {showPhonetic && word.phonetic && (
-          <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>/{word.phonetic}/</Text>
+          <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>{formatPhonetic(word.phonetic)}</Text>
         )}
 
         <SpeakerButton

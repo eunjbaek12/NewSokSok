@@ -174,6 +174,24 @@ export function shouldShowExampleTranslation(exampleEn?: string, exampleKr?: str
   return kr !== (exampleEn ?? '').trim();
 }
 
+/**
+ * 발음기호를 슬래시로 감싼 표시용 문자열로 만든다. 표시하지 않을 값이면 빈 문자열.
+ *
+ * 화면들이 각자 `/{word.phonetic}/` 로 감싸고 있었는데, 저장된 값에 이미 슬래시가
+ * 든 단어(수동 입력·옛 데이터)가 있어 **`//wɔːk//` 로 겹쳐 보였다**(실기 확인:
+ * 카드 학습의 walk). AI 가 채운 값은 슬래시가 없어(`suˈsʌrəs`) 같은 코드가 정상으로
+ * 보였고, 그래서 옛 데이터에서만 드러났다.
+ *
+ * ⚠️ 감싸는 규칙을 화면마다 복제하지 말 것 — 이 함수를 쓴다. 같은 규칙이 다섯 곳에
+ * 흩어져 있던 것이 이 결함의 원인이다.
+ */
+export function formatPhonetic(phonetic?: string): string {
+  const raw = (phonetic ?? '').trim();
+  // 앞뒤 슬래시를 몇 개든 걷어낸 뒤 한 번만 다시 감싼다.
+  const bare = raw.replace(/^\/+/, '').replace(/\/+$/, '').trim();
+  return bare ? `/${bare}/` : '';
+}
+
 /** Returns the input placeholder text for the given source language. */
 export function getPlaceholderText(sourceLang: LanguageCode, t: (key: string) => string): string {
   return t(`languages.placeholder.${sourceLang}`) || 'Enter a word';

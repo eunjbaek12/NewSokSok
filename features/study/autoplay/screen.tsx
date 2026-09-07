@@ -22,7 +22,7 @@ import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak, stopSpeaking } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation, formatPhonetic } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
@@ -409,7 +409,7 @@ export default function AutoPlayScreen() {
                             </Text>
                             {settings.showPhonetic && currentWord.phonetic && (
                                 <Text style={[styles.phoneticText, { color: colors.textTertiary }]}>
-                                    /{currentWord.phonetic}/
+                                    {formatPhonetic(currentWord.phonetic)}
                                 </Text>
                             )}
 

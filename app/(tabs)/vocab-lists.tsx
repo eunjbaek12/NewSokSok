@@ -174,7 +174,7 @@ export default function VocabListsScreen() {
 
       {/* Header */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <CharacterSvg size={56} isDark={isDark} />
+        <CharacterSvg size={56} />
         <View style={styles.headerTextArea}>
           <View style={styles.headerTitleRow}>
             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('vocabLists.title')}</Text>

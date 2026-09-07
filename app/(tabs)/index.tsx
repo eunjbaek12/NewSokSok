@@ -294,7 +294,7 @@ export default function DashboardScreen() {
 
       {/* Fixed Header / Greeting */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <CharacterSvg size={56} isDark={isDark} />
+        <CharacterSvg size={56} />
         <View style={styles.headerTextArea}>
           <Text style={[styles.greeting, { color: colors.text, fontFamily: fontFamily.bold }]} numberOfLines={1}>
             {t('home.greeting')}<Text style={{ color: colors.primary, fontFamily: fontFamily.bold }}>{displayName}</Text>
@@ -754,7 +754,7 @@ export default function DashboardScreen() {
               {/* Empty: 플랜 자체가 없음 */}
               {planItems.length === 0 && (
                 <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                  <CharacterSvg size={72} isDark={isDark} wave />
+                  <CharacterSvg size={72} wave />
                   <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>{t('home.emptyTitle')}</Text>
                   <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>{t('home.emptySubtitle')}</Text>
                   <Pressable
@@ -817,7 +817,7 @@ export default function DashboardScreen() {
             <View style={[styles.resultSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
               <View style={styles.resultHeaderRow}>
-                <CharacterSvg size={48} isDark={isDark} wave />
+                <CharacterSvg size={48} wave />
                 <View style={styles.resultTitleRow}>
                   <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
                     {t('home.studyResult')}

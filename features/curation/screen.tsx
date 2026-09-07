@@ -1383,7 +1383,7 @@ export default function CurationScreen() {
             ) : (
                 <>
                     <View style={[styles.header, { paddingTop: topInset + 16 }]}>
-                        <CharacterSvg size={56} isDark={isDark} />
+                        <CharacterSvg size={56} />
                         <View style={styles.headerTextArea}>
                             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={2}>{dailyTip}</Text>
@@ -1751,7 +1751,7 @@ export default function CurationScreen() {
             >
                 {generating ? (
                     <View style={{ paddingHorizontal: 20, paddingVertical: 28, alignItems: 'center', gap: 14 }}>
-                        <CharacterSvg size={72} isDark={isDark} />
+                        <CharacterSvg size={72} />
                         <Text style={{ fontSize: 16, fontFamily: 'Pretendard_700Bold', color: colors.text, textAlign: 'center' }}>
                             {t('curation.aiGeneratingTitle')}
                         </Text>

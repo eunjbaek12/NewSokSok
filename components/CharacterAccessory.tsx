@@ -24,6 +24,7 @@ export function CharacterAccessoryPaths({ accessory }: { accessory: AccessoryTyp
       {accessory === 'ocean-hat' && <OceanHat />}
       {accessory === 'autumn-leaf' && <AutumnLeaf />}
       {accessory === 'hangul-gat' && <HangulGat />}
+      {accessory === 'lab-goggles' && <LabGoggles />}
     </G>
   );
 }
@@ -261,6 +262,44 @@ function OceanHat() {
         fill="#3FBEC5"
         opacity={0.6}
       />
+    </>
+  );
+}
+
+function LabGoggles() {
+  // 보안경을 **이마 위로 올린** 모습. 눈에 씌우면 얼굴이 통째로 가려져 캐릭터가 죽는다 —
+  // 쓰고 있다가 잠깐 올린 자세라야 실험실 사람으로 읽히면서 표정도 산다.
+  //
+  // 🔴 **머리보다 넓어야 한다.** 첫 판은 밴드가 102 단위였는데 그 높이의 머리가 107 이라,
+  //    끈이 머리 윤곽 안에서 끝나 «쓴 물건»이 아니라 «얹힌 장식»으로 보였다(실기 캡처에서
+  //    재서 갈랐다: 화면 60px 대 72px). 지금은 118 로 머리를 넘어간다.
+  //
+  // 🔑 끈은 렌즈와 **같은 높이**에 둔다. 위로 올리면 머리띠가 되고, 렌즈 중심에서 뒤로
+  //    빠져야 고글 끈으로 읽힌다 — 그래서 가운데는 렌즈에 가려지고 좌우 끝만 보인다.
+  return (
+    <>
+      {/* 머리를 감싸는 끈 — 렌즈 뒤로 지나가야 하므로 먼저 그린다 */}
+      <Path
+        d="M66 71 C78 60, 172 60, 184 71 C172 65, 78 65, 66 71 Z"
+        fill="#334155"
+      />
+      <Path
+        d="M66 71 C78 62, 172 62, 184 71 C172 67, 78 67, 66 71 Z"
+        fill="#5A6B80"
+        opacity={0.55}
+      />
+      {/* 코 다리(bridge) */}
+      <Path d="M121 68 L129 68" stroke="#0E7490" strokeWidth={5} strokeLinecap="round" />
+
+      {/* 렌즈 — 유리는 연한 시안, 테는 스킨 secondary */}
+      <Ellipse cx={100} cy={68} rx={21} ry={17} fill="#A5E4F0" />
+      <Ellipse cx={150} cy={68} rx={21} ry={17} fill="#A5E4F0" />
+      <Ellipse cx={100} cy={68} rx={21} ry={17} fill="none" stroke="#0E7490" strokeWidth={3.5} />
+      <Ellipse cx={150} cy={68} rx={21} ry={17} fill="none" stroke="#0E7490" strokeWidth={3.5} />
+
+      {/* 유리 반사 — 이게 없으면 렌즈가 구멍처럼 보인다 */}
+      <Ellipse cx={92} cy={61} rx={7.5} ry={4.5} fill="#FFFFFF" opacity={0.75} transform="rotate(-20 92 61)" />
+      <Ellipse cx={142} cy={61} rx={7.5} ry={4.5} fill="#FFFFFF" opacity={0.75} transform="rotate(-20 142 61)" />
     </>
   );
 }

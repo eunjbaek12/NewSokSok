@@ -39,7 +39,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
       accent: '#06B6D4',
       text: '#111827',
     },
-    characterAccessory: 'none',
+    characterAccessory: 'lab-goggles',
   },
   classic: {
     id: 'classic',

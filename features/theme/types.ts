@@ -7,7 +7,7 @@ export interface FontFamily {
   bold: string;
 }
 
-export type CharacterAccessory = 'none' | 'y2k-ribbon' | 'ocean-hat' | 'autumn-leaf' | 'hangul-gat';
+export type CharacterAccessory = 'none' | 'y2k-ribbon' | 'ocean-hat' | 'autumn-leaf' | 'hangul-gat' | 'lab-goggles';
 
 export interface SkinDefinition {
   id: SkinId;

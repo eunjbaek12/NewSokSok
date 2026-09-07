@@ -138,6 +138,9 @@ const Colors = {
       advancedText: '#E89090',
     },
   },
+  // 실험실 — y2k 와 같이 상태색 0/7 이었다. 차가운 시안 스킨에 주황 warning `#C46B3A` 이
+  // 남아 있었고, 진행막대의 success 가 클래식 청록이라 계획하기의 시안과 두 색이 공존했다.
+  // 에메랄드 success · 순수 빨강 error · 앰버 warning 으로 계열을 맞춘다.
   lab: {
     primary: '#0891B2',
     primaryButton: '#0891B2',
@@ -158,13 +161,13 @@ const Colors = {
     textSecondary: '#4B5563',
     textTertiary: '#9CA3AF',
     onPrimary: '#FFFFFF',
-    success: '#2A7B78',
-    successButton: '#226460',
-    successLight: '#D8EFEE',
-    error: '#C94B2D',
-    errorLight: '#FDEAE4',
-    warning: '#C46B3A',
-    warningLight: '#FAE8DC',
+    success: '#047857',
+    successButton: '#036347',
+    successLight: '#D6EDE5',
+    error: '#CF3128',
+    errorLight: '#FBE3E1',
+    warning: '#B45309',
+    warningLight: '#FBEDDD',
     border: '#CBD2DC',
     borderLight: '#DDE2EA',
     tint: '#0891B2',
@@ -201,6 +204,16 @@ const Colors = {
       advancedText: '#DC2626',
     },
   },
+  // Y2K — 상태색 일곱이 전부 클래식 그대로였다(2026-09-08 실측: 0/7). primary 가 분홍
+  // `#D456B8`(h313)인데 success 가 청록 `#2A7B78`(h178)이라 한 화면에 브랜드색이 둘이었다.
+  // autumn·hangul·halloween 이 한 것과 같은 방식으로 옮긴다 — **초록 계열은 유지하되
+  // 그 스킨의 톤으로**(가을 올리브 · 한글 단청녹 · 할로윈 독초록). 여기서는 차가운 민트다.
+  //
+  // 🔴 잣대는 4.5:1 이 아니다. 이 앱의 상태색은 **원래 4.5 를 안 지킨다** — 클래식조차
+  //    success 4.31 · error 4.00 · warning 3.29 다. 앱 전반이 안 지키는 값을 근거로 삼으면
+  //    셋만 고쳐 놓고 나머지와 어긋난다. 그래서 목표는 대비 개선이 아니라 **톤 일치**이고,
+  //    기존 스킨의 범위(success 4.09~5.36 · error 4.00~5.53 · warning 3.04~4.04) 안에
+  //    들어가는지로만 본다. textTertiary 를 포함한 대비 전반은 별건이다.
   y2k: {
     primary: '#D456B8',
     primaryButton: '#D456B8',
@@ -221,13 +234,13 @@ const Colors = {
     textSecondary: '#7A4578',
     textTertiary: '#B088AE',
     onPrimary: '#FFFFFF',
-    success: '#2A7B78',
-    successButton: '#226460',
-    successLight: '#D8EFEE',
-    error: '#C94B2D',
-    errorLight: '#FDEAE4',
-    warning: '#C46B3A',
-    warningLight: '#FAE8DC',
+    success: '#0E7A63',
+    successButton: '#0A6A55',
+    successLight: '#D6EFE7',
+    error: '#C42B54',
+    errorLight: '#FBE0E8',
+    warning: '#C4761F',
+    warningLight: '#FAEBD8',
     border: '#E8B0DE',
     borderLight: '#EDD4E8',
     tint: '#D456B8',
@@ -268,6 +281,11 @@ const Colors = {
   // 딥 오션 primary #0C7178은 배경 위 5.21:1·흰 글씨 위 5.76:1(둘 다 4.5 여유).
   // 밝은 산호 #FF7F5C는 흰 글씨 대비가 낮아 강조 텍스트/버튼엔 못 쓰고
   // 장식(파도·모자)·아이콘용. 강조 텍스트/뱃지는 진한 코랄 #D94F30.
+  //
+  // 🔧 2026-09-08 — 이 스킨은 상태색을 5/7 만 갈라 뒀고 error 가 클래식 벽돌빛이었다.
+  //    산호빛으로 옮긴다. icons 여섯과 hint 셋은 **하나도 안 갈라져 있었다**(민트·보라·
+  //    핫핑크 아이콘, 노란 포스트잇 힌트) — 바다 톤으로 옮긴다. timing 하나만 코랄을
+  //    쓰는 것은 lab 이 인디고 하나를 쓰는 것과 같은 자리다(여섯이 다 틸이면 구분이 죽는다).
   ocean: {
     primary: '#0C7178',
     primaryButton: '#0C7178',
@@ -289,8 +307,8 @@ const Colors = {
     success: '#0C7178',
     successButton: '#0A6067',
     successLight: '#CDEBED',
-    error: '#C94B2D',
-    errorLight: '#FDEAE4',
+    error: '#C4402A',
+    errorLight: '#FBE5DF',
     warning: '#D98A2B',
     warningLight: '#FBEFD9',
     border: '#B4D6DA',
@@ -304,16 +322,16 @@ const Colors = {
     onPrimary: '#FFFFFF',
     shadow: '#000000',
     starGold: '#FFD700',
-    hintBg: '#FFF9C4',
-    hintBorder: '#FFEE58',
-    hintText: '#856404',
+    hintBg: '#E4F4F5',
+    hintBorder: '#9BD3D8',
+    hintText: '#0A5157',
     icons: {
-      memorization: '#10B981',
-      shuffle: '#9333EA',
-      sound: '#FF5722',
-      timing: '#F59E0B',
-      language: '#14B8A6',
-      chat: '#EC4899',
+      memorization: '#0C7178',
+      shuffle: '#0A5157',
+      sound: '#14A0A8',
+      timing: '#D94F30',
+      language: '#0C7178',
+      chat: '#57C3C9',
     },
     brand: {
       green: '#6AB045',

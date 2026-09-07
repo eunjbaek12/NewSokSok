@@ -1694,6 +1694,14 @@ export default function AddWordScreen() {
                                                     onClear={() => { setMeaningKr(''); dismissSensePicker(); }}
                                                     clearAccessibilityLabel={`${getMeaningLabel(targetLang, t)} ${t('common.delete')}`}
                                                     error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
+                                                    // 한 줄로 두면 뜻이 길 때 **앞부분이 잘린 채** 꼬리만 보인다(실기 확인:
+                                                    // en>en 의 "A soft, indistinct sound, …" 가 "und, like whispering…" 으로
+                                                    // 보였다). 한국어 뜻은 짧아서 다섯 스킨 내내 안 걸렸고, 뜻 언어가
+                                                    // 영어면 정의가 문장이라 항상 넘친다.
+                                                    // minHeight 0 은 Input 의 multilineInput(minHeight 80)을 되돌린다 —
+                                                    // 붙이지 않으면 「걷다」 세 글자짜리 한국어 뜻도 80px 빈 칸을 갖는다.
+                                                    multiline
+                                                    style={{ minHeight: 0 }}
                                                 />
                                                 {fallbackNotice && (() => {
                                                     // 탭 영역은 안내 줄 **전체**다. 액션만 누르게 두면 12px 글자 한 낱말이

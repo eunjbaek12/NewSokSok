@@ -130,25 +130,31 @@ const COMPLETION_SNAPSHOT = `l.id,
           LIMIT 1)`;
 
 const COMPLETION_COLUMNS =
-  `(listId, startedAt, completedAt, title, totalWords, studyDays, lastTerm)`;
+  `(listId, startedAt, completedAt, title, totalWords, studyDays, lastTerm, celebratedAt)`;
 
 /**
  * 단어장 하나가 지금 완주 상태면 기록한다. PK 가 (listId, startedAt) 이라 같은 계획을
  * 여러 번 넣어도 줄은 하나다 — 완주 뒤 더 학습해 planUpdatedAt 이 움직여도 늘지 않는다.
+ *
+ * `celebratedAt = NULL` 인 유일한 경로다 — 이 삽입만이 «지금 막 일어난 완주»이고, 학습 결과
+ * 화면의 축하 팝업은 그 NULL 하나를 보고 뜬다(023).
  */
 export const COMPLETION_RECORD_SQL =
   `INSERT OR IGNORE INTO completions ${COMPLETION_COLUMNS}
-     SELECT ${COMPLETION_SNAPSHOT}
+     SELECT ${COMPLETION_SNAPSHOT}, NULL
        FROM lists l
       WHERE l.id = ? AND ${COMPLETED_WHERE}`;
 
 /**
  * 지금 완주 상태인 단어장 전부를 훑어 빠진 줄을 채운다. 앱 시작마다 돌려도 되는 값이다.
  * 새 기기에서 클라우드로 단어장을 받아 온 경우가 이 경로다 — 022 백필은 그 전에 이미 돌았다.
+ *
+ * 🔴 여기서 채우는 줄은 **이미 지난 완주**라 `celebratedAt` 을 비워 두면 안 된다. 비워 두면
+ * 새 기기에서 그 단어장을 한 번 학습하는 순간 몇 달 전 완주가 축하 팝업으로 튀어나온다.
  */
 export const COMPLETION_BACKFILL_SQL =
   `INSERT OR IGNORE INTO completions ${COMPLETION_COLUMNS}
-     SELECT ${COMPLETION_SNAPSHOT}
+     SELECT ${COMPLETION_SNAPSHOT}, l.planUpdatedAt
        FROM lists l
       WHERE ${COMPLETED_WHERE}`;
 
@@ -175,6 +181,29 @@ export const COMPLETION_LIST_SQL =
 export const COMPLETION_FOR_PLAN_SQL =
   `SELECT totalWords, studyDays, lastTerm, completedAt
      FROM completions WHERE listId = ? AND startedAt = ?`;
+
+/**
+ * 아직 축하하지 않은 완주 — 학습 결과 화면의 축하 팝업이 이걸 보고 뜬다(023).
+ *
+ * 🔴 `WHERE c.listId = ?` 만으로 물으면 안 된다. `clearPlan` 이 안전망으로 넣는 줄은 축하되지
+ * 않은 채 남을 수 있는데(완주 카드의 ✕ 로 계획을 지운 경우), 그 뒤 **새 계획을 세워 아무 Day 나
+ * 학습하면 완주하지도 않았는데 그 옛 줄이 걸려 축하가 뜬다.** JOIN 의 `planStartedAt = startedAt`
+ * 이 조회를 «지금 걸려 있는 계획 인스턴스»에 묶어 그걸 구조적으로 막는다 — 계획을 지우면
+ * planStartedAt 이 NULL 이 되고, 새 계획은 다른 값이 되므로 옛 줄은 영영 걸리지 않는다.
+ */
+export const COMPLETION_PENDING_SQL =
+  `SELECT c.startedAt, c.completedAt, c.totalWords, c.studyDays, c.lastTerm,
+          COALESCE(l.title, c.title) AS title
+     FROM completions c
+     JOIN lists l ON l.id = c.listId AND l.deletedAt IS NULL
+                 AND l.planStartedAt = c.startedAt
+    WHERE c.listId = ? AND c.celebratedAt IS NULL
+    ORDER BY c.completedAt DESC
+    LIMIT 1`;
+
+/** 축하했다고 적는다. 계획 인스턴스 단위라 같은 단어장을 다시 완주하면 새 줄이 새로 축하된다. */
+export const COMPLETION_CELEBRATE_SQL =
+  `UPDATE completions SET celebratedAt = ? WHERE listId = ? AND startedAt = ?`;
 
 /** 내 학습의 진입 줄이 쓰는 한 줄 요약 — 「N권 · N단어」. */
 export const COMPLETION_SUMMARY_SQL =

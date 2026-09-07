@@ -12,8 +12,12 @@ import {
   pickMilestone,
   loadMaxCelebrated,
   saveMaxCelebrated,
+  getPendingCompletion,
+  markCompletionCelebrated,
   MilestoneCelebration,
+  CompletionCelebration,
   type StreakMilestone,
+  type PendingCompletion,
 } from '@/features/stats';
 import { maybeRequestReview, isGoodMoment } from '@/features/reviews';
 
@@ -54,6 +58,9 @@ export default function StudyResultsScreen() {
     memorized: number;
   } | null>(null);
   const [milestoneVisible, setMilestoneVisible] = useState(false);
+  // 단어장 완주 축하(계획당 1회). 판정은 023 celebratedAt — 마일스톤보다 우선한다.
+  const [completion, setCompletion] = useState<PendingCompletion | null>(null);
+  const [completionVisible, setCompletionVisible] = useState(false);
   // 하단 바가 절대배치라 ScrollView가 그 높이만큼 자리를 비워 둬야 내용이 안 가린다.
   // 고정값(160)이었는데 바의 실제 높이는 여백 포함 그보다 컸다 — 버튼 라벨이 두 줄로 감기거나
   // 언어가 바뀌면 더 커지는 값이라 실측해서 쓴다.
@@ -97,6 +104,23 @@ export default function StudyResultsScreen() {
       //    는 이번 세션이 이미 반영된 값을 읽는다.
       (async () => {
         try {
+          // 🔴 완주가 스트릭 마일스톤을 이긴다. 겹치면 완주만 띄우고 마일스톤은 **판정도
+          //    saveMaxCelebrated 도 하지 않는다** — 그래야 사라지지 않는다. pickMilestone 은
+          //    「지금 스트릭으로 도달한 최고 단계」를 매번 다시 계산하고(마일스톤을 소모하지
+          //    않는다), maxCelebrated 를 올리는 곳은 아래 saveMaxCelebrated 한 줄뿐이라,
+          //    건너뛴 마일스톤은 다음 학습 세션에 그대로 다시 나온다(같은 날 두 번째 세션이면
+          //    몇 분 뒤). 완주는 훨씬 드문 사건이고 축하 팝업을 연달아 두 개 띄우면 그 피로
+          //    위에서 리뷰 요청 기회(OS 연 3회)까지 쓰게 된다.
+          const pending = id ? await getPendingCompletion(id) : null;
+          if (pending) {
+            // 표시 전에 마킹 — 마일스톤과 같은 원칙(도중 종료 시 재축하보다 1회 누락이 낫다).
+            await markCompletionCelebrated(id, pending.startedAt);
+            setCompletion(pending);
+            // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(마일스톤과 같은 값).
+            setTimeout(() => setCompletionVisible(true), 600);
+            return;
+          }
+
           const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
           const m = pickMilestone(summary.currentStreak, maxCelebrated);
           if (!m) {
@@ -246,6 +270,23 @@ export default function StudyResultsScreen() {
           <Text style={[styles.doneBtnText, { color: colors.onPrimary }]}>{t('studyResults.endStudy')}</Text>
         </Pressable>
       </View>
+
+      {/*
+        완주 축하와 마일스톤은 위 분기가 서로 배타를 보장한다 — 형제 Modal 두 개가 동시에
+        보이면 iOS 에서 뒤엣것이 안 뜬다(CLAUDE.md). 한쪽이 뜨는 세션에서 다른 쪽은
+        setState 자체가 일어나지 않아 마운트되지 않는다.
+      */}
+      {completion && (
+        <CompletionCelebration
+          visible={completionVisible}
+          completion={completion}
+          onClose={() => {
+            setCompletionVisible(false);
+            // 마일스톤 경로와 같은 이유 — 축하를 닫는 순간이 리뷰를 물어볼 가장 좋은 때다.
+            setTimeout(() => maybeRequestReview(), 500);
+          }}
+        />
+      )}
 
       {milestone && (
         <MilestoneCelebration

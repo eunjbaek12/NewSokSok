@@ -1313,6 +1313,9 @@
     "shareError": "문제가 생겼어요. 잠시 후 다시 시도해 주세요.",
     "unavailable": "이 기기에서는 공유를 사용할 수 없어요."
   },
+  "completionCelebrate": {
+    "title": "완주를 축하해요"
+  },
   "completionShare": {
     "share": "자랑하기",
     "shareMessage": "「{{title}}」 완주! 🥑 {{count}}단어를 끝냈어요",

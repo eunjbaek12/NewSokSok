@@ -1313,6 +1313,9 @@
     "shareError": "Something went wrong. Please try again.",
     "unavailable": "Sharing isn't available on this device."
   },
+  "completionCelebrate": {
+    "title": "You finished it!"
+  },
   "completionShare": {
     "share": "Share",
     "shareMessage": "Finished “{{title}}” with Avocado! 🥑 {{count}} words done",

@@ -12,7 +12,7 @@ import { todayStr, startOfWeekStr } from './date';
 import {
   COMPLETION_DAYS_SQL, COMPLETION_LAST_TERM_SQL, COMPLETION_RECORD_SQL,
   COMPLETION_BACKFILL_SQL, COMPLETION_LIST_SQL, COMPLETION_SUMMARY_SQL,
-  COMPLETION_FOR_PLAN_SQL,
+  COMPLETION_FOR_PLAN_SQL, COMPLETION_PENDING_SQL, COMPLETION_CELEBRATE_SQL,
 } from './completion';
 import { computeStreak, computeLongestStreak, sumMemorized, type StudyDay } from './streak';
 
@@ -268,6 +268,41 @@ export async function getCompletionForPlan(
     lastTerm: row.lastTerm ?? null,
     completedAt: row.completedAt ?? 0,
   };
+}
+
+/** 축하 팝업이 그릴 완주 하나. 상장에 새길 값이 다 들어 있어 추가 조회가 없다. */
+export interface PendingCompletion {
+  /** 계획 인스턴스의 신원. 축하했다고 적을 때 이 값으로 줄을 찍는다. */
+  startedAt: number;
+  completedAt: number;
+  title: string;
+  totalWords: number;
+  studyDays: number;
+  lastTerm: string | null;
+}
+
+/**
+ * 이 단어장에 «아직 축하하지 않은 완주»가 있으면 하나. 없으면 null.
+ * 지금 걸려 있는 계획 인스턴스로 한정된다 — 이유는 COMPLETION_PENDING_SQL 주석 참고.
+ */
+export async function getPendingCompletion(listId: string): Promise<PendingCompletion | null> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<any>(COMPLETION_PENDING_SQL, listId);
+  if (!row) return null;
+  return {
+    startedAt: row.startedAt ?? 0,
+    completedAt: row.completedAt ?? 0,
+    title: row.title ?? '',
+    totalWords: row.totalWords ?? 0,
+    studyDays: row.studyDays ?? 0,
+    lastTerm: row.lastTerm ?? null,
+  };
+}
+
+/** 축하했다고 적는다. 표시 «전»에 부른다 — 도중 종료 시 재축하보다 1회 누락이 낫다. */
+export async function markCompletionCelebrated(listId: string, startedAt: number): Promise<void> {
+  const db = await getDb();
+  await db.runAsync(COMPLETION_CELEBRATE_SQL, Date.now(), listId, startedAt);
 }
 
 /** 완주 기록 한 줄 요약. 내 학습의 진입 줄이 쓴다. */

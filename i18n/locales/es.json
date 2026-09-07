@@ -895,6 +895,9 @@
     "shareError": "Ha ocurrido un problema. Inténtalo de nuevo más tarde.",
     "unavailable": "Compartir no está disponible en este dispositivo."
   },
+  "completionCelebrate": {
+    "title": "¡Lo has completado!"
+  },
   "completionShare": {
     "share": "Compartir",
     "shareMessage": "¡He completado «{{title}}» con Avocado! 🥑 {{count}} palabras",

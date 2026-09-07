@@ -17,16 +17,20 @@ export {
   getCompletions,
   getCompletionSummary,
   getCompletionForPlan,
+  getPendingCompletion,
+  markCompletionCelebrated,
   type StatsSummary,
   type DayDetail,
   type DayWordEntry,
   type CompletionFacts,
   type CompletionRecord,
   type CompletionSummary,
+  type PendingCompletion,
 } from './db';
 export { loadMaxCelebrated, saveMaxCelebrated } from './milestones-storage';
 export { useStatsSummary } from './useStats';
 export { default as StatsStrip } from './StatsStrip';
 export { default as MilestoneCelebration } from './MilestoneCelebration';
+export { default as CompletionCelebration } from './CompletionCelebration';
 export { default as ShareCard } from './ShareCard';
 export { shareStatsCard, saveStatsCard, type ShareOutcome, type SaveOutcome } from './share';

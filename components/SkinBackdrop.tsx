@@ -43,9 +43,23 @@ import type { SkinId } from '@/features/theme';
 const ART: Partial<Record<SkinId, ReturnType<typeof require>>> = {
   autumn: require('@/assets/images/skin-autumn-bg.webp'),
   hangul: require('@/assets/images/skin-hanok-bg.webp'),
+  halloween: require('@/assets/images/skin-halloween-bg.webp'),
 };
 
 const OPACITY = 0.35;
+
+/**
+ * ⚠️ 할로윈(어두운 스킨)은 이 값을 올릴 여지가 있다 — 아직 실기로 안 봤다.
+ *
+ * 0.35 는 **밝은 스킨** 때 정한 값이고 이유는 「그림의 밝은 종이가 카드 테두리를
+ * 지운다」였다. 할로윈은 그림 바탕이 토큰 바탕(#191327)과 같아서 값을 올려도
+ * **바탕은 안 움직이고 무늬만 뜬다.** 대신 0.35 에서는 호박 주황(#E8873A)이
+ * 화면에 #613C2E — 주황이라기보다 구운 벽돌빛으로 나온다. 0.55 면 #8B5331 이다.
+ * (화면에 진짜 #E8873A 를 내는 것은 0.35 에서 원천 불가능하다: RGB 616 이 필요하다.)
+ *
+ * 실기에서 0.35 / 0.5 / 0.65 를 대조해 정할 것. 스킨별로 갈라야 하면 이 상수를
+ * `Partial<Record<SkinId, number>>` 로 바꾸고 기본값 0.35 를 두면 된다.
+ */
 
 export function SkinBackdrop({ skinId }: { skinId: SkinId }) {
   const source = ART[skinId];

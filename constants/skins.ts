@@ -129,14 +129,32 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     },
     characterAccessory: 'hangul-gat',
   },
+  halloween: {
+    id: 'halloween',
+    nameKey: 'skinHalloween',
+    // 여덟 중 두 번째 다크. dark 는 갈색 밤이고 이쪽은 보랏빛 밤이라 안 겹친다.
+    colorScheme: 'dark',
+    fontFamily: pretendard,
+    previewColors: {
+      background: '#191327',
+      primary: '#E8873A',
+      surface: '#241B36',
+      // 선택기에서 독 초록을 보여준다 — 호박 주황 하나만으로는 «어두운 스킨»과
+      // 구별되지 않는다. autumn 이 은행 노랑을 두 번째 색으로 둔 것과 같은 이유다.
+      accent: '#7FC244',
+      text: '#EDE6F2',
+    },
+    // ⏭️ 소품은 아직 미정이다(마녀 모자·호박 바구니). 브리프 §9-5.
+    characterAccessory: 'none',
+  },
 };
 
 // 표시 순서 — 기본(classic)이 맨 앞, 나중에 추가한 스킨이 뒤로 간다.
 //
-// 🚩 autumn·hangul 은 1.7.0(10/1)의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·소품은
+// 🚩 autumn·hangul·halloween 은 1.7.x 의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·소품은
 //    이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도 보이지 않는다.
-//    10/1 빌드에서 이 배열에 둘을 더하기만 하면 된다 — skin-store 의 복원 조건은 이 목록에서
-//    파생하므로 따로 고칠 곳이 없다.
+//    공개 빌드에서 이 배열에 더하기만 하면 된다 — skin-store 의 복원 조건은 이 목록에서
+//    파생하므로 따로 고칠 곳이 없다. 할로윈은 10/1 이 아니라 10월 말이 제자리다.
 //
 //    그림이 완성돼 한 번 걷었다가(2026-09-04, c3e864a) 되돌린다 — 완성 여부가 아니라
 //    **공개 시점**이 기준이기 때문이다(은정님, 2026-09-07). 미리 나가면 10/1 에 보여 줄
@@ -155,5 +173,6 @@ export function getSkinColors(id: SkinId): ThemeColors {
   if (id === 'ocean') return Colors.ocean;
   if (id === 'autumn') return Colors.autumn;
   if (id === 'hangul') return Colors.hangul;
+  if (id === 'halloween') return Colors.halloween;
   return Colors.light;
 }

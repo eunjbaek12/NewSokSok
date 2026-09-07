@@ -468,6 +468,83 @@ const Colors = {
       advancedText: '#DC2626',
     },
   },
+
+  // 할로윈 — 여덟 번째이자 **두 번째 다크 스킨**. 기존 dark 는 갈색 계열(#1C1410)이라
+  // 보랏빛 밤과 겹치지 않는다. 색이 남아 있지 않아 «밤»으로 갔다: 주황은 autumn(단풍
+  // #A8442A·은행 #D9A22B)과 dark 액센트(#D4784A)가, 보라는 y2k 액센트(#8B50D4)가 쓴다.
+  //
+  // 🔴 **onPrimary 가 여덟 중 유일하게 어둡다.** primary 가 밝은 호박 주황이라 흰 글자는
+  //    2.64:1 로 미달이고, 바탕색(#191327)을 얹으면 6.84:1 이다. 다른 스킨을 베껴
+  //    '#FFFFFF' 로 두면 버튼 글자가 읽히지 않는다.
+  halloween: {
+    primary: '#E8873A',
+    primaryButton: '#E8873A',
+    primaryLight: '#3A2410',
+    secondary: '#7FC244',
+    secondaryLight: '#1F2F14',
+    // 독 초록. 호박 주황 옆에 이 색이 있어야 «할로윈»으로 읽힌다 — autumn 의 은행 노랑과
+    // 같은 자리다(빨강만 있으면 그냥 따뜻한 종이이듯, 주황만 있으면 그냥 어두운 스킨이다).
+    accent: '#7FC244',
+    accentLight: '#1F2F14',
+    accentAction: '#A97BE8',
+    accentActionLight: '#2C2044',
+    accentActionGradient: ['#E8873A', '#B95F23'] as readonly [string, string],
+    reviewGradient: REVIEW_GRADIENT,
+    background: '#191327',
+    surface: '#241B36',
+    surfaceSecondary: '#2E2344',
+    text: '#EDE6F2',
+    // 🔴 배경 그림 위에 얹히는 글자라 다른 다크 스킨보다 밝다. 인사말 뒤에 호박이 앉는데,
+    //    그 자리의 가장 밝은 픽셀(#694237)에서도 2차는 4.81:1 로 AA 를 넘긴다.
+    //    3차는 3.38:1 — 바탕 위에서는 7.07:1 이고, 위계를 지키려면 여기가 상한이다.
+    //    (dark 의 #806050 을 그대로 가져오면 호박 위에서 1.6:1 로 사라진다.)
+    textSecondary: '#C9BCDD',
+    textTertiary: '#AA9CC0',
+    success: '#7FC244',
+    successButton: '#5F9A31',
+    successLight: '#1F2F14',
+    error: '#E0645A',
+    errorLight: '#3A1A18',
+    warning: '#E0A23C',
+    warningLight: '#3A2A10',
+    border: '#3A2E52',
+    borderLight: '#2E2344',
+    tint: '#E8873A',
+    tabIconDefault: '#AA9CC0',
+    tabIconSelected: '#E8873A',
+    cardShadow: 'rgba(0,0,0,0.28)',
+    overlay: 'rgba(8,5,15,0.65)',
+    surfaceModal: '#241B36',
+    onPrimary: '#191327',
+    shadow: '#000000',
+    starGold: '#E8C766',
+    hintBg: '#3A2E14',
+    hintBorder: '#A88A2C',
+    hintText: '#FDE68A',
+    icons: {
+      memorization: '#5DBFA0',
+      shuffle: '#B58CE0',
+      sound: '#E8855C',
+      timing: '#E0B070',
+      language: '#5BB5AC',
+      chat: '#D97AAA',
+    },
+    brand: {
+      green: '#A8D585',
+      greenLight: '#1F3818',
+      greenDark: '#C8E8A8',
+      googleBlue: '#5A95F5',
+      naverGreen: '#5BC080',
+    },
+    difficulty: {
+      beginnerBg: 'rgba(22,163,74,0.2)',
+      beginnerText: '#6FD193',
+      intermediateBg: 'rgba(37,99,235,0.2)',
+      intermediateText: '#7AB0F0',
+      advancedBg: 'rgba(220,38,38,0.2)',
+      advancedText: '#E89090',
+    },
+  },
 };
 
 /**

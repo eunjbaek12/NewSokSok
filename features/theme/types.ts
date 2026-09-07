@@ -1,4 +1,4 @@
-export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab' | 'ocean' | 'autumn' | 'hangul';
+export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab' | 'ocean' | 'autumn' | 'hangul' | 'halloween';
 
 export interface FontFamily {
   regular: string;

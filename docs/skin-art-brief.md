@@ -1,7 +1,8 @@
-# 스킨 배경 아트 브리프 — 가을 단풍 · 한글
+# 스킨 배경 아트 브리프 — 가을 단풍 · 한글 · 할로윈
 
-2026-09-03 (2026-09-04 개정) · 1.7.0(10/1)
-**목업 = https://claude.ai/code/artifact/8479887c-d137-4213-8a2f-faf2de47bacb**
+2026-09-03 (2026-09-04 · 2026-09-07 개정) · 1.7.x
+**가을·한글 목업 = https://claude.ai/code/artifact/8479887c-d137-4213-8a2f-faf2de47bacb**
+**할로윈 목업 = https://claude.ai/code/artifact/52d8a795-212e-4caf-be74-4613aa03da20**
 
 두 스킨의 홈 배경 규격서다. 색·구도·무게가 여기서 어긋나면 좋은 그림이라도 앱에서
 안 보이거나 글자를 덮는다.
@@ -591,9 +592,12 @@ night scene, so the shapes read as dim forms catching moonlight, never
 as black on black.
 
 Subject: jack-o'-lanterns and small ghosts drifting down through the
-frame. Keep every shape SMALL and SEPARATE — never a pile, never a
-heap, never a cluster that merges into one mass. Think of autumn
-leaves falling one by one, not a pumpkin patch.
+frame. The lanterns glow from within — a clear warm orange light coming
+out of the dark. The two or three largest lanterns near the top may show
+a simple carved face (triangle eyes, small grin); the small ones lower
+down are plain pumpkin shapes with no face. Keep every shape SMALL and
+SEPARATE — never a pile, never a heap, never a cluster that merges into
+one mass. Think of autumn leaves falling one by one, not a pumpkin patch.
 
 TOP 15% (0 to 15%): three or four larger shapes floating apart from one
 another, tilted at different angles, with clear space between them.
@@ -613,12 +617,31 @@ top edge beginning right at 75% and continuing off the bottom edge.
 Keep it airy — separate shapes with gaps of night between them, not a
 solid bank.
 
-Palette: deep indigo-purple ground; shapes in a slightly lighter dusty
-violet; a warm pumpkin glow on only two or three of the lanterns; one
-or two touches of a cold pale green. Desaturated and quiet throughout.
+Palette: deep indigo-purple ground. The ghosts and most shapes are a dim
+dusty violet, only a little lighter than the ground. The pumpkins are the
+exception and the only warm colour in the picture — paint them a strong,
+saturated pumpkin orange, bright against the night. Do NOT mute, grey or
+desaturate the orange; everything else is quiet and washed out, and the
+lanterns are what the eye lands on. The orange is strongest in the top
+band and fades toward the bottom, where the lanterns are dim embers.
+One or two touches of a cold pale green on a ghost.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles or blocks of different darkness — the
+percentages above describe where to place things, not shapes to paint.
+
 No moon, no landscape, no trees, no houses, no people, no gravestones,
 no letters, no text, no frame or border. The centre must stay empty.
 ```
+
+🔴 **「Desaturated and quiet throughout」를 빼야 호박이 산다.** 첫 판 프롬프트가 그 한 줄로
+주황을 죽였고, 화면 불투명도 0.35 가 한 번 더 깎으면 아무것도 안 남는다. 대신 **호박만
+예외, 나머지는 조용히**로 가른다.
+
+⚠️ **0.35 로는 화면에 «진짜 호박 주황»이 안 나온다.** 그림에 `#E8873A` 를 칠해도 화면은
+`#613C2E`(구운 벽돌빛)다. 역산하면 화면에 `#E8873A` 를 내려면 그림이 **RGB (616, 350, 93)**
+이어야 한다 — 원천 불가능하다. 그러니 **그림은 진하게 받아 둔다**(흐리게 받으면 못 올린다).
+불투명도는 실기에서 정한다 → `components/SkinBackdrop.tsx` 의 주석.
 
 ### §9-4 받은 뒤 확인
 
@@ -638,3 +661,53 @@ no letters, no text, no frame or border. The centre must stay empty.
 - `features/theme/types.ts` 의 `SkinId`·`CharacterAccessory` 유니온
 - `i18n/locales/*.json` 에 `skinHalloween`
 - `__tests__/skin-registry.test.ts` 의 `ALL` 배열
+
+### §9-6 받은 것과 고친 것 (2026-09-07) — ✅ 들어감
+
+`assets/images/skin-halloween-bg.webp` · 1408×3040 → `fit_art2.py` → 1080×2340 · **41KB**.
+구도는 §9-3 대로 왔다(위 15% 큰 것 셋, 좌우 6% 레일, 49~60% 전폭 띠, 아래 드리프트).
+**호박 주황도 제대로 왔다.** 그런데 결함이 둘이었고, **그림을 다시 그리지 않고 후처리로 고쳤다.**
+
+🔴 **① 띠를 «사각형»으로 그렸다.** 프롬프트의 `TOP 15% / 17~48% / 49~60%` 를 구도 지시가
+아니라 **그려야 할 도형**으로 알아들었다. 바탕 휘도가 `43 → 35 → 29 → 23` 네 단으로 끊기고
+좌우 끝에도 더 어두운 레일이 따로 생겼다. 0.35 로 눌러도 경계가 남는다.
+→ 바탕이 전부 **평평한 단색**이라 색으로 골라낼 수 있었다. 바탕으로 쓰인 14색을 하나로
+바꾸고 안티에일리어싱 테두리만 거리에 따라 섞었다(바탕 판정 90.8%). 모양은 안 건드렸다.
+**프롬프트에 「하나로 이어진 바탕」한 줄을 넣었다** — 다음엔 여기서 안 걸린다.
+
+🔴 **② 아래 모임이 85%(`y1990`)에서 시작했다.** 브리프는 75%(`y1755`)라고 적었는데
+`y2006` 아래는 탭바라 **공들인 호박 줄이 통째로 안 보였다.** 가을 첫 판이 진 자리와 같다.
+→ 늘리거나 줄이면 호박이 찌그러지므로 **완전히 빈 밤 구간만 잘라냈다**:
+`y1543~1699`(156px) + `y1782~1857`(75px) = **231px**. 그만큼 아래가 통째로 올라온다.
+
+🔑 **워터마크는 «끌어올림» 때문에 문제가 됐다.** Gemini 워터마크가 `y2100~2200` 에 있었고
+원본에서는 탭바 뒤라 안 보였다 — 그래서 처음에 못 보고 넘어갔다. 그런데 231px 을 당기면
+**`y1869~1969` 로 와서 화면에 뜬다.** 은정님이 지워 다시 저장해 주셔서 해결됐지만,
+🔴 **그림을 위로 당기는 조작은 «안 보이던 자리»를 화면 안으로 끌어들인다.** 당기기 전에
+`y2006` 아래를 한 번 볼 것.
+
+**측정** (§9-4 잣대, 부호 뒤집어서 · 화면 0.35):
+
+| | 값 | 합격 | 가을(통과) |
+|---|---|---|---|
+| 위 `0~592` | 13.6% | 있어야 | — |
+| 가운데 한복판 | 4.3% | 비어야 | 3.4% |
+| 좌우 레일 | 8.6% | 있어야 | 10.7% |
+| **49~60% 띠** | **5.1%** | 있어야 | **0.2%** |
+| 아래 보임 `1800~2006` | 22.5% | 있어야 | 35.9% |
+| 레일 밝아짐 **중앙값** | **+0.00** | 5 이하 | 0.8 |
+
+중앙값 0.00 — **덩어리가 아니라 흩어진 것**이다(§9-2 통과).
+**49~60% 띠는 이번에 처음 채워진 자리**다. 가을·한글은 그 자리가 열려 있는 줄 몰라 비웠다.
+
+🔴 **글자색이 목업에서 걸렸다.** 인사말 뒤에 큰 호박이 앉는데, 그 자리의 가장 밝은
+픽셀(`#694237`)에서 대비를 재면 **dark 스킨의 `textTertiary`(`#806050`)는 1.6:1** 로 사라진다.
+그래서 `Colors.halloween` 은 2차 `#C9BCDD`(4.81:1) · 3차 `#AA9CC0`(3.38:1, 바탕 위 7.07:1)로
+다른 다크 스킨보다 밝다. **밝은 스킨 값을 그대로 가져오면 안 되는 자리다.**
+
+🔴 **`onPrimary` 가 여덟 중 유일하게 어둡다**(`#191327`). primary 가 밝은 호박 주황이라
+흰 글자는 **2.64:1 미달**이다. `__tests__/skin-registry.test.ts` 가 이 한 값을 지킨다.
+
+⏭️ **남은 것**: 소품(`characterAccessory`)은 아직 `none` — 마녀 모자·호박 바구니 미정.
+불투명도는 0.35 로 뒀고 실기에서 0.35 / 0.5 / 0.65 를 대조해 정한다.
+선택기 플래그는 **걸린 채**다(10월 말에 걷는다).

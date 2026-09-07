@@ -63,9 +63,26 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(42, 30, 15, 0.95)" : "rgba(255, 253, 245, 0.95)",
+          // 🔴 여기에 색을 **적지 말 것**. 오래 `isDark ? rgba(42,30,15) : rgba(255,253,245)`
+          //    였는데, 앞의 값은 다크 스킨의 **갈색** 밤이다. 할로윈(보랏빛 밤)이 들어오자
+          //    탭바만 갈색으로 남았다 — 파란 채널이 카드면보다 39 모자랐다.
+          //    밝은 스킨 여섯은 크림색 하나로 얼추 맞아서 그동안 안 보였을 뿐이고,
+          //    실제로는 Y2K·여름 바다도 자기 색을 못 쓰고 있었다.
+          //    카드가 이 밑으로 지나가는 면이므로 **카드와 같은 색**을 쓴다.
+          // 'F2' = 242 = 0.95. 반투명은 그대로 둔다 — 카드가 밑으로 지나가므로 하는 일이 있다.
+          //
+          // ⚠️ **화면에서 이 색을 재면 여기 적은 값이 안 나온다.** 아래 `tabBarBackground` 의
+          //    BlurView(intensity 80)가 이 위에 덮이기 때문이다. 할로윈 실측:
+          //    카드 #241B36 인데 탭바는 #1E1A26 — 흐려지되 «보라»는 남는다
+          //    (고치기 전엔 #201B15 로 R>B, 즉 갈색이었다). 값이 다르다고 이걸 만지지 말 것.
+          backgroundColor: colors.surface + 'F2',
           borderTopWidth: 0.5,
-          borderTopColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(59, 42, 26, 0.08)",
+          // 이쪽 isDark 는 남는다 — 밝은 바탕엔 어두운 실선, 어두운 바탕엔 밝은 실선이라
+          // 스킨 색과 무관하게 옳다. 다만 아래 값은 갈색 먹(59,42,26)이었다. 8% 라
+          // 밝은 스킨 여섯 어디서도 순수 검정과 4/255 밖에 안 달라 눈으로는 같지만,
+          // «유채색 rgba 는 스킨을 안 따른다»는 규칙에 유일하게 남는 예외가 되므로
+          // 중립으로 내렸다(eslint RGBA_GUARD 참고).
+          borderTopColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
           elevation: 8,
           height: 64 + insets.bottom,
           bottom: 0,

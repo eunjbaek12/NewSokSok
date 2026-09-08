@@ -402,16 +402,23 @@ const Colors = {
     onPrimary: '#FFFFFF',
     shadow: '#000000',
     starGold: '#D9A22B',
-    hintBg: '#FFF9C4',
-    hintBorder: '#FFEE58',
-    hintText: '#856404',
+    // 🔧 2026-09-08 — 힌트 셋과 아이콘 여섯이 클래식 그대로였다(노란 포스트잇 · 민트/보라/
+    //    핫핑크 아이콘). 노란 힌트는 이 스킨에서 특히 나쁘다 — 바탕 #FFF9C4 가 카드면
+    //    #FFF8EE 과 **1.02:1** 이라 면이 사실상 안 보이고 점선 테두리로만 읽혔다.
+    //    은행잎 노랑으로 내려 면이 서게 한다(1.14:1, 글자 대비 8.18:1).
+    hintBg: '#F9E9BE',
+    hintBorder: '#D9A22B',
+    hintText: '#5C3D0F',
+    // 학습 설정 모달의 16px 아이콘 여섯. 클래식의 «색상 배치»(초록·보라·주황·호박·틸·핑크)는
+    // 지키되 가을이 실제로 가진 것으로 옮겼다 — 가을 팔레트는 따뜻한 좁은 띠라 여섯을 다
+    // 단풍·은행으로 채우면 구분이 죽는다. 그래서 올리브와 솔이끼 둘을 찬 쪽 균형추로 둔다.
     icons: {
-      memorization: '#10B981',
-      shuffle: '#9333EA',
-      sound: '#FF5722',
-      timing: '#F59E0B',
-      language: '#14B8A6',
-      chat: '#EC4899',
+      memorization: '#5E7A2E', // 올리브 = success. 「외운다」와 뜻이 맞는다
+      shuffle: '#7A3A52',      // 머루 자주 — 보라 자리. 여섯 중 유일한 자주
+      sound: '#A8442A',        // 단풍 = primary
+      timing: '#A06A15',       // 은행
+      language: '#3F6B57',     // 솔이끼 — 틸 자리
+      chat: '#C4703F',         // 홍시. 여섯 중 가장 밝아 단풍과 명도로 갈린다
     },
     brand: {
       green: '#6AB045',
@@ -470,16 +477,22 @@ const Colors = {
     onPrimary: '#FCF9F2',
     shadow: '#000000',
     starGold: '#C89A3C',
-    hintBg: '#FFF9C4',
-    hintBorder: '#FFEE58',
-    hintText: '#856404',
+    // 🔧 2026-09-08 — 여기도 클래식 그대로였다. 노란 포스트잇은 한지면 #FCF9F2 과 1.19:1 로
+    //    묻히고, 무엇보다 이 스킨이 버린 채도를 힌트 하나가 되살려 놓는다.
+    //    단청 청(accentLight/accent/그라디언트 끝)으로 옮긴다 — 새 값을 만들지 않았다.
+    hintBg: '#DCE7F1',
+    hintBorder: '#1F5C8C',
+    hintText: '#164363',
+    // 🔑 아이콘 여섯을 **이 팔레트가 이미 가진 여섯**으로 채운다. 단청의 오방색과 한옥 재료
+    //    넷이 그대로 여섯 자리를 메우므로 새 색을 지어낼 이유가 없었다. 다른 스킨과 달리
+    //    색상이 넓게 벌어지는 것도 이 덕분이다(먹·나무·적·황·청·뇌록).
     icons: {
-      memorization: '#10B981',
-      shuffle: '#9333EA',
-      sound: '#FF5722',
-      timing: '#F59E0B',
-      language: '#14B8A6',
-      chat: '#EC4899',
+      memorization: '#3F6B4A', // 뇌록 = success
+      shuffle: '#8B6A42',      // 나무 = secondary
+      sound: '#9E3B2F',        // 단청 적 = error
+      timing: '#9A6B22',       // 치자 황 = warning
+      language: '#1F5C8C',     // 단청 청 = accent
+      chat: '#333A3F',         // 기와 먹 = primary
     },
     brand: {
       green: '#6AB045',

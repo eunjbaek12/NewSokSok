@@ -48,7 +48,8 @@ const ART: Partial<Record<SkinId, ReturnType<typeof require>>> = {
   halloween: require('@/assets/images/skin-halloween-bg.webp'),
   lab: require('@/assets/images/skin-lab-bg.webp'),
   ocean: require('@/assets/images/skin-ocean-bg.webp'),
-  // ⏭️ y2k(편지지)는 아직 없다 — 목록에 없으면 배경 없이 그려진다(그 전과 같다).
+  // 파일명이 id 와 다른 것은 hangul→hanok 과 같다 — 내용이 이름을 말하는 편이 낫다.
+  y2k: require('@/assets/images/skin-letter-bg.webp'),
 };
 
 const OPACITY = 0.35;

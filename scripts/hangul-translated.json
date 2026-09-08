@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "한글",
+    "pos": "noun",
+    "meaningEn": "Hangul, the Korean alphabet",
+    "romaja": "hangeul",
+    "exampleKo": "외국인이 한글을 배우기 시작했어요.",
+    "exampleEn": "Foreigners started learning Hangul.",
+    "category": "창제"
+  },
+  {
+    "rank": 2,
+    "term": "훈민정음",
+    "pos": "noun",
+    "meaningEn": "Hunminjeongeum",
+    "romaja": "hunminjeongeum",
+    "exampleKo": "훈민정음 해례본이 여기에 있어요.",
+    "exampleEn": "The Hunminjeongeum Haeryebon is here.",
+    "category": "창제"
+  },
+  {
+    "rank": 3,
+    "term": "세종대왕",
+    "pos": "noun",
+    "meaningEn": "King Sejong the Great",
+    "romaja": "sejongdaewang",
+    "exampleKo": "세종대왕께서 백성을 위해 만들었어요.",
+    "exampleEn": "King Sejong created it for the people.",
+    "category": "창제"
+  },
+  {
+    "rank": 4,
+    "term": "창제하다",
+    "pos": "verb",
+    "meaningEn": "to create a writing system",
+    "romaja": "changjehada",
+    "exampleKo": "세종대왕이 우리글을 창제하셨어요.",
+    "exampleEn": "King Sejong the Great invented our writing system.",
+    "category": "창제"
+  },
+  {
+    "rank": 5,
+    "term": "반포하다",
+    "pos": "verb",
+    "meaningEn": "to promulgate a law or script",
+    "romaja": "banpohada",
+    "exampleKo": "조선 시대에 새로운 문자를 반포했어요.",
+    "exampleEn": "A new script was promulgated during the Joseon Dynasty.",
+    "category": "창제"
+  },
+  {
+    "rank": 6,
+    "term": "집현전",
+    "pos": "noun",
+    "meaningEn": "Jiphyeonjeon royal research institute",
+    "romaja": "jiphyeonjeon",
+    "exampleKo": "집현전 학자들이 연구를 도왔어요.",
+    "exampleEn": "The scholars of Jiphyeonjeon helped with the research.",
+    "category": "창제"
+  },
+  {
+    "rank": 7,
+    "term": "언문",
+    "pos": "noun",
+    "meaningEn": "vernacular script",
+    "romaja": "eonmun",
+    "exampleKo": "예전에는 한글을 언문이라고 불렀어요.",
+    "exampleEn": "In the past, Hangul was called eonmun.",
+    "category": "창제"
+  },
+  {
+    "rank": 8,
+    "term": "소리글자",
+    "pos": "noun",
+    "meaningEn": "phonetic script",
+    "romaja": "sorigeulja",
+    "exampleKo": "한글은 과학적인 소리글자예요.",
+    "exampleEn": "Hangul is a scientific phonetic script.",
+    "category": "창제"
+  },
+  {
+    "rank": 9,
+    "term": "한글날",
+    "pos": "noun",
+    "meaningEn": "Hangul Day",
+    "romaja": "hangeullal",
+    "exampleKo": "시월 구일은 한글날이에요.",
+    "exampleEn": "October 9th is Hangul Day.",
+    "category": "창제"
+  },
+  {
+    "rank": 10,
+    "term": "붓",
+    "pos": "noun",
+    "meaningEn": "writing brush",
+    "romaja": "but",
+    "exampleKo": "옛날 사람들은 붓으로 글씨를 썼어요.",
+    "exampleEn": "People in the old days wrote with a brush.",
+    "category": "창제"
+  },
+  {
+    "rank": 11,
+    "term": "먹",
+    "pos": "noun",
+    "meaningEn": "ink stick",
+    "romaja": "meok",
+    "exampleKo": "벼루에 물을 붓고 먹을 갈아요.",
+    "exampleEn": "Pour water on the inkstone and grind the ink stick.",
+    "category": "창제"
+  },
+  {
+    "rank": 12,
+    "term": "한지",
+    "pos": "noun",
+    "meaningEn": "traditional Korean paper",
+    "romaja": "hanji",
+    "exampleKo": "한지는 질기고 오래 가요.",
+    "exampleEn": "Hanji is tough and lasts a long time.",
+    "category": "창제"
+  },
+  {
+    "rank": 13,
+    "term": "자음",
+    "pos": "noun",
+    "meaningEn": "consonant letter",
+    "romaja": "jaeum",
+    "exampleKo": "기역은 첫 번째 자음이에요.",
+    "exampleEn": "Giyeok is the first consonant.",
+    "category": "글자"
+  },
+  {
+    "rank": 14,
+    "term": "모음",
+    "pos": "noun",
+    "meaningEn": "vowel letter",
+    "romaja": "moeum",
+    "exampleKo": "아와 어는 기본 모음이에요.",
+    "exampleEn": "A and eo are basic vowels.",
+    "category": "글자"
+  },
+  {
+    "rank": 15,
+    "term": "받침",
+    "pos": "noun",
+    "meaningEn": "final consonant in a syllable block",
+    "romaja": "batchim",
+    "exampleKo": "이 단어는 받침이 없어요.",
+    "exampleEn": "This word has no batchim.",
+    "category": "글자"
+  },
+  {
+    "rank": 16,
+    "term": "겹받침",
+    "pos": "noun",
+    "meaningEn": "double final consonant",
+    "romaja": "gyeopbatchim",
+    "exampleKo": "겹받침 발음은 조금 어려워요.",
+    "exampleEn": "Double batchim pronunciation is a bit difficult.",
+    "category": "글자"
+  },
+  {
+    "rank": 17,
+    "term": "초성",
+    "pos": "noun",
+    "meaningEn": "initial consonant",
+    "romaja": "choseong",
+    "exampleKo": "음절의 첫소리를 초성이라고 해요.",
+    "exampleEn": "The first sound of a syllable is called choseong.",
+    "category": "글자"
+  },
+  {
+    "rank": 18,
+    "term": "중성",
+    "pos": "noun",
+    "meaningEn": "medial vowel",
+    "romaja": "jungseong",
+    "exampleKo": "중성은 보통 글자의 가운데에 와요.",
+    "exampleEn": "The medial vowel usually comes in the middle of the letter.",
+    "category": "글자"
+  },
+  {
+    "rank": 19,
+    "term": "종성",
+    "pos": "noun",
+    "meaningEn": "final consonant",
+    "romaja": "jongseong",
+    "exampleKo": "종성은 음절의 맨 아래에 적어요.",
+    "exampleEn": "The final consonant is written at the very bottom of the syllable.",
+    "category": "글자"
+  },
+  {
+    "rank": 20,
+    "term": "음절",
+    "pos": "noun",
+    "meaningEn": "syllable",
+    "romaja": "eumjeol",
+    "exampleKo": "한 개의 음절은 블록 형태로 쓰여요.",
+    "exampleEn": "Each syllable is written in a block format.",
+    "category": "글자"
+  },
+  {
+    "rank": 21,
+    "term": "획",
+    "pos": "noun",
+    "meaningEn": "stroke of a letter",
+    "romaja": "hoek",
+    "exampleKo": "이 글자는 획이 모두 세 개예요.",
+    "exampleEn": "This letter has a total of three strokes.",
+    "category": "글자"
+  },
+  {
+    "rank": 22,
+    "term": "된소리",
+    "pos": "noun",
+    "meaningEn": "tense consonant",
+    "romaja": "doensori",
+    "exampleKo": "쌍기역은 된소리 중 하나예요.",
+    "exampleEn": "Ssang-giyeok is one of the tense consonants.",
+    "category": "글자"
+  },
+  {
+    "rank": 23,
+    "term": "거센소리",
+    "pos": "noun",
+    "meaningEn": "aspirated consonant",
+    "romaja": "geosensori",
+    "exampleKo": "키읔은 거센소리로 발음해요.",
+    "exampleEn": "Kieuk is pronounced as an aspirated consonant.",
+    "category": "글자"
+  },
+  {
+    "rank": 24,
+    "term": "가나다순",
+    "pos": "noun",
+    "meaningEn": "Korean alphabetical order",
+    "romaja": "ganadasun",
+    "exampleKo": "단어들을 가나다순으로 찾아보세요.",
+    "exampleEn": "Look up the words in alphabetical order.",
+    "category": "글자"
+  },
+  {
+    "rank": 25,
+    "term": "발음",
+    "pos": "noun",
+    "meaningEn": "pronunciation",
+    "romaja": "bareum",
+    "exampleKo": "선생님의 발음을 따라 해 보세요.",
+    "exampleEn": "Try following the teacher's pronunciation.",
+    "category": "표기"
+  },
+  {
+    "rank": 26,
+    "term": "억양",
+    "pos": "noun",
+    "meaningEn": "intonation",
+    "romaja": "eogyang",
+    "exampleKo": "질문할 때는 문장의 끝 억양을 올려야 해요.",
+    "exampleEn": "When you ask a question, you should raise your intonation at the end.",
+    "category": "표기"
+  },
+  {
+    "rank": 27,
+    "term": "띄어쓰기",
+    "pos": "noun",
+    "meaningEn": "spacing between words",
+    "romaja": "ttuieosseugi",
+    "exampleKo": "한국어는 단어마다 알맞은 띄어쓰기를 해야 해요.",
+    "exampleEn": "In Korean, you need to use correct spacing between words.",
+    "category": "표기"
+  },
+  {
+    "rank": 28,
+    "term": "맞춤법",
+    "pos": "noun",
+    "meaningEn": "spelling rules",
+    "romaja": "matchumbeop",
+    "exampleKo": "받침이 헷갈릴 때는 맞춤법을 꼭 확인해 보세요.",
+    "exampleEn": "When you are confused about batchim, be sure to check the spelling.",
+    "category": "표기"
+  },
+  {
+    "rank": 29,
+    "term": "표준어",
+    "pos": "noun",
+    "meaningEn": "standard language",
+    "romaja": "pyojuneo",
+    "exampleKo": "교과서에 나오는 서울 말은 표준어예요.",
+    "exampleEn": "The Seoul speech that appears in textbooks is the standard form of Korean.",
+    "category": "표기"
+  },
+  {
+    "rank": 30,
+    "term": "사투리",
+    "pos": "noun",
+    "meaningEn": "regional dialect",
+    "romaja": "saturi",
+    "exampleKo": "제주도 사투리는 표준어와 아주 많이 달라요.",
+    "exampleEn": "The Jeju dialect is very different from the standard language.",
+    "category": "표기"
+  },
+  {
+    "rank": 31,
+    "term": "받아쓰기",
+    "pos": "noun",
+    "meaningEn": "dictation exercise",
+    "romaja": "badasseugi",
+    "exampleKo": "선생님이 불러주시는 문장으로 받아쓰기를 할 거예요.",
+    "exampleEn": "We are going to do a dictation exercise with sentences the teacher reads aloud.",
+    "category": "표기"
+  },
+  {
+    "rank": 32,
+    "term": "로마자 표기",
+    "pos": "noun",
+    "meaningEn": "romanization",
+    "romaja": "romaja pyogi",
+    "exampleKo": "길 표지판에는 한글과 함께 로마자 표기가 적혀 있어요.",
+    "exampleEn": "Street signs have romanization written along with Hangul.",
+    "category": "표기"
+  },
+  {
+    "rank": 33,
+    "term": "두벌식",
+    "pos": "noun",
+    "meaningEn": "dubeolsik keyboard layout",
+    "romaja": "dubeolsik",
+    "exampleKo": "요즘 컴퓨터 키보드는 대부분 두벌식을 사용해요.",
+    "exampleEn": "Most computer keyboards nowadays use the dubeolsik layout.",
+    "category": "표기"
+  },
+  {
+    "rank": 34,
+    "term": "손글씨",
+    "pos": "noun",
+    "meaningEn": "handwriting",
+    "romaja": "songeulssi",
+    "exampleKo": "컴퓨터로 타이핑하는 것보다 손글씨가 더 정성스러워 보여요.",
+    "exampleEn": "Handwriting looks more heartfelt than typing on a computer.",
+    "category": "표기"
+  },
+  {
+    "rank": 35,
+    "term": "존댓말",
+    "pos": "noun",
+    "meaningEn": "polite speech",
+    "romaja": "jondaenmal",
+    "exampleKo": "처음 만난 사람에게는 항상 존댓말을 써야 해요.",
+    "exampleEn": "You should always use polite speech with someone you meet for the first time.",
+    "category": "문법"
+  },
+  {
+    "rank": 36,
+    "term": "반말",
+    "pos": "noun",
+    "meaningEn": "casual speech",
+    "romaja": "banmal",
+    "exampleKo": "나이가 같은 친구끼리는 편하게 반말을 해요.",
+    "exampleEn": "Friends of the same age comfortably use casual speech with each other.",
+    "category": "문법"
+  },
+  {
+    "rank": 37,
+    "term": "높임말",
+    "pos": "noun",
+    "meaningEn": "honorific words",
+    "romaja": "nopimmal",
+    "exampleKo": "밥을 진지라고 하는 게 대표적인 높임말이에요.",
+    "exampleEn": "Calling a meal jinji instead of bap is a classic honorific word.",
+    "category": "문법"
+  },
+  {
+    "rank": 38,
+    "term": "조사",
+    "pos": "noun",
+    "meaningEn": "particle",
+    "romaja": "josa",
+    "exampleKo": "체언 뒤에 붙는 은이나 는은 대표적인 조사예요.",
+    "exampleEn": "Eun and neun, which attach after nouns, are representative particles.",
+    "category": "문법"
+  },
+  {
+    "rank": 39,
+    "term": "어미",
+    "pos": "noun",
+    "meaningEn": "verb ending",
+    "romaja": "eomi",
+    "exampleKo": "동사의 어미가 바뀌면서 문장의 시제가 표현돼요.",
+    "exampleEn": "The tense of the sentence is expressed as the verb ending changes.",
+    "category": "문법"
+  },
+  {
+    "rank": 40,
+    "term": "어순",
+    "pos": "noun",
+    "meaningEn": "word order",
+    "romaja": "eosun",
+    "exampleKo": "한국어는 주어, 목적어, 동사 순서로 어순이 이루어져요.",
+    "exampleEn": "The word order of Korean follows the subject, object, and verb sequence.",
+    "category": "문법"
+  },
+  {
+    "rank": 41,
+    "term": "문법",
+    "pos": "noun",
+    "meaningEn": "grammar",
+    "romaja": "munbeop",
+    "exampleKo": "새로운 문법 규칙을 배우고 예문을 만들어 봐요.",
+    "exampleEn": "Let's learn new grammar rules and make example sentences.",
+    "category": "문법"
+  },
+  {
+    "rank": 42,
+    "term": "동사",
+    "pos": "noun",
+    "meaningEn": "verb",
+    "romaja": "dongsa",
+    "exampleKo": "먹다나 가다 같은 단어는 움직임을 나타내는 동사예요.",
+    "exampleEn": "Words like to eat or to go are verbs that indicate action.",
+    "category": "문법"
+  },
+  {
+    "rank": 43,
+    "term": "형용사",
+    "pos": "noun",
+    "meaningEn": "adjective",
+    "romaja": "hyeongyongsa",
+    "exampleKo": "예쁘다나 크다 같은 단어는 상태를 설명하는 형용사예요.",
+    "exampleEn": "Words like pretty or big are adjectives that describe a state.",
+    "category": "문법"
+  },
+  {
+    "rank": 44,
+    "term": "명사",
+    "pos": "noun",
+    "meaningEn": "noun",
+    "romaja": "myeongsa",
+    "exampleKo": "책상이나 연필은 사물의 이름을 나타내는 명사예요.",
+    "exampleEn": "Desk and pencil are nouns that represent the names of objects.",
+    "category": "문법"
+  },
+  {
+    "rank": 45,
+    "term": "번역",
+    "pos": "noun",
+    "meaningEn": "translation",
+    "romaja": "beonyeok",
+    "exampleKo": "외국어 책을 한국어로 자연스럽게 번역하는 연습을 해요.",
+    "exampleEn": "We practice naturally translating foreign language books into Korean.",
+    "category": "문법"
+  },
+  {
+    "rank": 46,
+    "term": "통역",
+    "pos": "noun",
+    "meaningEn": "interpreting",
+    "romaja": "tongyeok",
+    "exampleKo": "외국인 손님과 회사의 대화를 실시간으로 통역하고 있어요.",
+    "exampleEn": "I am interpreting the conversation between the foreign guest and the company in real time.",
+    "category": "문법"
+  },
+  {
+    "rank": 47,
+    "term": "서예",
+    "pos": "noun",
+    "meaningEn": "calligraphy",
+    "romaja": "seoye",
+    "exampleKo": "먹을 갈아서 붓으로 한글을 쓰는 서예를 배워요.",
+    "exampleEn": "I am learning calligraphy, grinding ink and writing Hangul with a brush.",
+    "category": "오늘"
+  },
+  {
+    "rank": 48,
+    "term": "캘리그래피",
+    "pos": "noun",
+    "meaningEn": "modern hand-lettering",
+    "romaja": "kaelligeuraepi",
+    "exampleKo": "예쁜 카페 간판에 적힌 글씨는 캘리그래피로 쓴 거예요.",
+    "exampleEn": "The lettering written on the pretty cafe sign is done in modern hand-lettering.",
+    "category": "오늘"
+  },
+  {
+    "rank": 49,
+    "term": "한자",
+    "pos": "noun",
+    "meaningEn": "Chinese characters",
+    "romaja": "hanja",
+    "exampleKo": "한국어 어휘 중에는 뜻을 돕기 위해 한자를 같이 쓰는 경우가 많아요.",
+    "exampleEn": "Among Korean vocabulary, Chinese characters are often used together to help convey meaning.",
+    "category": "오늘"
+  },
+  {
+    "rank": 50,
+    "term": "간판",
+    "pos": "noun",
+    "meaningEn": "shop sign",
+    "romaja": "ganpan",
+    "exampleKo": "거리에 있는 가게마다 한글로 예쁜 간판이 걸려 있어요.",
+    "exampleEn": "Every shop on the street has a pretty sign written in Hangul hanging up.",
+    "category": "오늘"
+  }
+]

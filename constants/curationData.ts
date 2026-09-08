@@ -2,6 +2,1736 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-horror-ko-1",
+    "title": "Korean Ghosts & Folk Horror 50",
+    "icon": "👻",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "The ghosts Korea actually tells stories about — 귀신, 도깨비, 구미호, 저승사자, 무당, 부적, 폐가, 괴담, 납량특집 and every way to say your hair stood on end. Korean→English; meanings & spoken examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1788881232426,
+    "words": [
+      {
+        "id": "word-horror-0-1788881232426",
+        "term": "귀신",
+        "definition": "a ghost",
+        "meaningKr": "a ghost",
+        "exampleEn": "어젯밤에 우리 집에서 귀신을 봤어.",
+        "exampleKr": "I saw a ghost at my house last night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gwisin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-1-1788881232426",
+        "term": "유령",
+        "definition": "a phantom",
+        "meaningKr": "a phantom",
+        "exampleEn": "여기 유령이 나온다는 소문이 있어.",
+        "exampleKr": "There is a rumor that a phantom appears here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "yuryeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-2-1788881232426",
+        "term": "도깨비",
+        "definition": "a goblin",
+        "meaningKr": "a goblin",
+        "exampleEn": "옛날 옛적에 도깨비가 살았대.",
+        "exampleKr": "They say a goblin used to live here a long time ago.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "dokkaebi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-3-1788881232426",
+        "term": "구미호",
+        "definition": "a nine-tailed fox",
+        "meaningKr": "a nine-tailed fox",
+        "exampleEn": "달빛 아래서 구미호의 꼬리가 보였어.",
+        "exampleKr": "I saw the tails of a nine-tailed fox under the moonlight.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gumiho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-4-1788881232426",
+        "term": "저승사자",
+        "definition": "a grim reaper",
+        "meaningKr": "a grim reaper",
+        "exampleEn": "꿈에 검은 옷을 입은 저승사자가 나타났어.",
+        "exampleKr": "A grim reaper dressed in black appeared in my dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "jeoseungsaja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-5-1788881232426",
+        "term": "처녀귀신",
+        "definition": "the ghost of an unmarried woman",
+        "meaningKr": "the ghost of an unmarried woman",
+        "exampleEn": "머리를 풀어헤친 처녀귀신을 마주쳤어.",
+        "exampleKr": "I ran into the ghost of an unmarried woman with loose hair.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "cheonyeogwisin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-6-1788881232426",
+        "term": "물귀신",
+        "definition": "a water ghost",
+        "meaningKr": "a water ghost",
+        "exampleEn": "깊은 호수에는 물귀신이 산다는 이야기가 있어.",
+        "exampleKr": "There is a story that a water ghost lives in the deep lake.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "mulgwisin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-7-1788881232426",
+        "term": "원귀",
+        "definition": "a vengeful spirit",
+        "meaningKr": "a vengeful spirit",
+        "exampleEn": "한이 맺힌 원귀가 떠돌고 있나 봐.",
+        "exampleKr": "It seems a vengeful spirit full of grudges is wandering around.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "wongwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-8-1788881232426",
+        "term": "소복",
+        "definition": "a white mourning dress",
+        "meaningKr": "a white mourning dress",
+        "exampleEn": "하얀 소복을 입은 형체가 다가왔어.",
+        "exampleKr": "A figure wearing a white mourning dress approached.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "sobok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-9-1788881232426",
+        "term": "무당",
+        "definition": "a shaman",
+        "meaningKr": "a shaman",
+        "exampleEn": "마을 사람들은 무당을 찾아가서 물어봤어.",
+        "exampleKr": "The villagers went to visit a shaman and asked about it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "mudang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-10-1788881232426",
+        "term": "굿",
+        "definition": "a shamanic ritual",
+        "meaningKr": "a shamanic ritual",
+        "exampleEn": "집안의 평안을 위해 큰 굿을 했대.",
+        "exampleKr": "They held a big shamanic ritual for the peace of the family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-11-1788881232426",
+        "term": "부적",
+        "definition": "a paper talisman",
+        "meaningKr": "a paper talisman",
+        "exampleEn": "문 앞에 붉은색 부적을 붙여두었어.",
+        "exampleKr": "I posted a red paper talisman in front of the door.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "bujeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-12-1788881232426",
+        "term": "신내림",
+        "definition": "becoming a shaman through spirit possession",
+        "meaningKr": "becoming a shaman through spirit possession",
+        "exampleEn": "그 친구가 갑자기 신내림을 받았대.",
+        "exampleKr": "I heard that friend suddenly became a shaman through spirit possession.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "sinnaerim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-13-1788881232426",
+        "term": "점집",
+        "definition": "a fortune teller's place",
+        "meaningKr": "a fortune teller's place",
+        "exampleEn": "새해 운세를 보러 점집에 다녀왔어.",
+        "exampleKr": "I went to a fortune teller's place to check my fortune for the new year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "jeomjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-14-1788881232426",
+        "term": "액운",
+        "definition": "bad luck",
+        "meaningKr": "bad luck",
+        "exampleEn": "올해는 액운을 쫓아내고 싶어.",
+        "exampleKr": "I want to ward off bad luck this year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "aegun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-15-1788881232426",
+        "term": "액땜",
+        "definition": "warding off bad luck",
+        "meaningKr": "warding off bad luck",
+        "exampleEn": "액땜 셈치고 좋은 일이라 생각하자.",
+        "exampleKr": "Let's think of it as warding off bad luck and take it positively.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "aekttaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-16-1788881232426",
+        "term": "저주",
+        "definition": "a curse",
+        "meaningKr": "a curse",
+        "exampleEn": "그 오래된 인형에는 무서운 저주가 걸려 있어.",
+        "exampleKr": "A scary curse is placed on that old doll.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "jeoju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-17-1788881232426",
+        "term": "오싹하다",
+        "definition": "to feel a sudden chill",
+        "meaningKr": "to feel a sudden chill",
+        "exampleEn": "그 이야기를 들었을 때 정말 오싹했어.",
+        "exampleKr": "I felt a real sudden chill when I heard that story.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "ossakhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-horror-18-1788881232426",
+        "term": "소름 돋다",
+        "definition": "to get goosebumps",
+        "meaningKr": "to get goosebumps",
+        "exampleEn": "그 얘기를 듣자마자 소름 돋았어.",
+        "exampleKr": "I got goosebumps the moment I heard that story.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "soreum dotda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-19-1788881232426",
+        "term": "으스스하다",
+        "definition": "eerie",
+        "meaningKr": "eerie",
+        "exampleEn": "밤에 찾아간 빈집은 분위기가 으스스했어.",
+        "exampleKr": "The atmosphere of the abandoned house we visited at night was eerie.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "euseuseuhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-horror-20-1788881232426",
+        "term": "등골이 서늘하다",
+        "definition": "to feel a chill down one's spine",
+        "meaningKr": "to feel a chill down one's spine",
+        "exampleEn": "이상한 소리가 들려서 등골이 서늘해졌어.",
+        "exampleKr": "I heard a strange sound and felt a chill run down my spine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "deunggori seoneulhada",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-horror-21-1788881232426",
+        "term": "간담이 서늘하다",
+        "definition": "to be scared out of one's wits",
+        "meaningKr": "to be scared out of one's wits",
+        "exampleEn": "갑자기 튀어나온 형체 때문에 간담이 서늘했어.",
+        "exampleKr": "I was scared out of my wits because of the figure that suddenly popped out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gandami seoneulhada",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-horror-22-1788881232426",
+        "term": "오금이 저리다",
+        "definition": "to be too frightened to move",
+        "meaningKr": "to be too frightened to move",
+        "exampleEn": "너무 무서워서 오금이 저려 움직일 수가 없었어.",
+        "exampleKr": "I was too frightened to move because my knees went weak with fear.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "ogeumi jeorida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-horror-23-1788881232426",
+        "term": "가위눌리다",
+        "definition": "to experience sleep paralysis",
+        "meaningKr": "to experience sleep paralysis",
+        "exampleEn": "어젯밤에 가위눌려서 한참 못 움직였어.",
+        "exampleKr": "I was sleep-paralyzed last night and could not move for a while.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gawinullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-24-1788881232426",
+        "term": "식은땀",
+        "definition": "cold sweat",
+        "meaningKr": "cold sweat",
+        "exampleEn": "무서운 꿈을 꾸고 나서 식은땀을 흘렸어.",
+        "exampleKr": "I broke out in a cold sweat after having a scary dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "sigeunttam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-25-1788881232426",
+        "term": "심장이 철렁하다",
+        "definition": "one's heart drops with fright",
+        "meaningKr": "one's heart drops with fright",
+        "exampleEn": "갑자기 소리가 나서 심장이 철렁했어요.",
+        "exampleKr": "My heart dropped because of the sudden noise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "simjangi cheolleonghada",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-horror-26-1788881232426",
+        "term": "머리카락이 쭈뼛 서다",
+        "definition": "one's hair stands on end",
+        "meaningKr": "one's hair stands on end",
+        "exampleEn": "그 이야기를 들으니 머리카락이 쭈뼛 섰어요.",
+        "exampleKr": "My hair stood on end when I heard that story.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "meorikaragi jjuppyeot seoda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-horror-27-1788881232426",
+        "term": "겁먹다",
+        "definition": "to get scared, to lose one's nerve",
+        "meaningKr": "to get scared, to lose one's nerve",
+        "exampleEn": "동생이 겁먹은 얼굴로 내 손을 잡았어요.",
+        "exampleKr": "My younger sibling grabbed my hand with a frightened face.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "geommeokda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-28-1788881232426",
+        "term": "기겁하다",
+        "definition": "to be startled out of one's skin",
+        "meaningKr": "to be startled out of one's skin",
+        "exampleEn": "창문 밖의 거대한 그림자를 보고 기겁했어요.",
+        "exampleKr": "I jumped in fright seeing the huge shadow outside the window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gigeopada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-29-1788881232426",
+        "term": "폐가",
+        "definition": "an abandoned house",
+        "meaningKr": "an abandoned house",
+        "exampleEn": "마을 끝에 있는 폐가에 불이 켜졌어요.",
+        "exampleKr": "A light turned on in the abandoned house at the edge of the village.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "pye-ga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-30-1788881232426",
+        "term": "흉가",
+        "definition": "a cursed house",
+        "meaningKr": "a cursed house",
+        "exampleEn": "여기는 밤마다 귀신이 나온다는 흉가예요.",
+        "exampleKr": "This is a cursed house where ghosts are said to appear every night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "hyungga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-31-1788881232426",
+        "term": "공동묘지",
+        "definition": "a public graveyard",
+        "meaningKr": "a public graveyard",
+        "exampleEn": "달빛 아래 공동묘지는 정말 으스스했어요.",
+        "exampleKr": "The public graveyard under the moonlight was really spooky.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gongdongmyoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-32-1788881232426",
+        "term": "무덤",
+        "definition": "a grave, a burial mound",
+        "meaningKr": "a grave, a burial mound",
+        "exampleEn": "옛날 무덤 근처를 지나갈 때 조용히 걸었어요.",
+        "exampleKr": "We walked quietly when passing near the old burial mound.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "mudeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-33-1788881232426",
+        "term": "저승",
+        "definition": "the afterlife",
+        "meaningKr": "the afterlife",
+        "exampleEn": "옛날 사람들은 죽으면 저승으로 간다고 믿었어요.",
+        "exampleKr": "People long ago believed that you go to the afterlife when you die.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "jeoseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-34-1788881232426",
+        "term": "이승",
+        "definition": "this world, the world of the living",
+        "meaningKr": "this world, the world of the living",
+        "exampleEn": "귀신이 아직 이승을 떠나지 못했다고 해요.",
+        "exampleKr": "They say the ghost hasn't been able to leave this world yet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "iseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-35-1788881232426",
+        "term": "으슥하다",
+        "definition": "dark and unnerving",
+        "meaningKr": "dark and unnerving",
+        "exampleEn": "골목길이 너무 으슥해서 발걸음을 빨리했어요.",
+        "exampleKr": "The alleyway was so dark and unnerving that I quickened my pace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "euseukhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-horror-36-1788881232426",
+        "term": "보름달",
+        "definition": "a full moon",
+        "meaningKr": "a full moon",
+        "exampleEn": "오늘 밤에는 둥근 보름달이 떠서 더 밝아요.",
+        "exampleKr": "Tonight is even brighter because a round full moon is out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "boreumdal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-37-1788881232426",
+        "term": "귀신의 집",
+        "definition": "a haunted house attraction",
+        "meaningKr": "a haunted house attraction",
+        "exampleEn": "놀이공원에서 귀신의 집에 들어가 소리쳤어요.",
+        "exampleKr": "I screamed after going into the haunted house at the amusement park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gwisinui jip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-38-1788881232426",
+        "term": "괴담",
+        "definition": "a scary story, an urban legend",
+        "meaningKr": "a scary story, an urban legend",
+        "exampleEn": "친구들과 모여서 재미있는 괴담을 나눴어요.",
+        "exampleKr": "We gathered with friends and shared interesting scary stories.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "goedam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-39-1788881232426",
+        "term": "도시전설",
+        "definition": "an urban legend",
+        "meaningKr": "an urban legend",
+        "exampleEn": "엘리베이터 거울에 관한 도시전설을 들었어요.",
+        "exampleKr": "I heard an urban legend about the elevator mirror.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "dosijeonseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-40-1788881232426",
+        "term": "학교괴담",
+        "definition": "a school ghost story",
+        "meaningKr": "a school ghost story",
+        "exampleEn": "늦은 밤 음악실에 얽힌 학교괴담을 속삭였어요.",
+        "exampleKr": "We whispered about the school ghost story tied to the late-night music room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "hakgyogoedam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-41-1788881232426",
+        "term": "납량특집",
+        "definition": "a summer horror special",
+        "meaningKr": "a summer horror special",
+        "exampleEn": "여름 밤마다 TV에서 하는 납량특집을 즐겨 봐요.",
+        "exampleKr": "I enjoy watching the summer horror specials on TV every summer night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "namnyangteukjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-42-1788881232426",
+        "term": "담력 시험",
+        "definition": "a test of courage",
+        "meaningKr": "a test of courage",
+        "exampleEn": "수련회 밤에 어두운 산길로 담력 시험을 갔어요.",
+        "exampleKr": "We went on a test of courage down a dark mountain path on the retreat night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "damnyeok siheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-43-1788881232426",
+        "term": "공포영화",
+        "definition": "a horror film",
+        "meaningKr": "a horror film",
+        "exampleEn": "불을 끄고 무서운 공포영화를 같이 봤어요.",
+        "exampleKr": "We turned off the lights and watched a scary horror film together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gongpoyeonghwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-44-1788881232426",
+        "term": "귀신 들리다",
+        "definition": "to be possessed by a ghost",
+        "meaningKr": "to be possessed by a ghost",
+        "exampleEn": "오래된 인형에 귀신 들렸다는 소문이 돌았어요.",
+        "exampleKr": "Rumors spread that the old doll was possessed by a ghost.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "gwisin deullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-45-1788881232426",
+        "term": "할로윈",
+        "definition": "Halloween",
+        "meaningKr": "Halloween",
+        "exampleEn": "할로윈 축제에 재미있는 옷을 입고 나갔어요.",
+        "exampleKr": "I went out in a fun outfit for the Halloween festival.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "hallowin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-46-1788881232426",
+        "term": "분장하다",
+        "definition": "to dress up in costume and makeup",
+        "meaningKr": "to dress up in costume and makeup",
+        "exampleEn": "파티를 위해서 멋지게 뱀파이어로 분장했어요.",
+        "exampleKr": "I dressed up nicely as a vampire for the party.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "bunjanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-horror-47-1788881232426",
+        "term": "코스튬",
+        "definition": "a costume",
+        "meaningKr": "a costume",
+        "exampleEn": "마녀 코스튬을 입고 거리를 돌아다녔어요.",
+        "exampleKr": "I walked around the streets wearing a witch costume.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "koseutyum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-48-1788881232426",
+        "term": "호박등",
+        "definition": "a jack-o'-lantern",
+        "meaningKr": "a jack-o'-lantern",
+        "exampleEn": "현관 앞에 무서운 표정의 호박등을 켰어요.",
+        "exampleKr": "I turned on a jack-o'-lantern with a scary expression in front of the porch.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "hobakdeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-horror-49-1788881232426",
+        "term": "사탕",
+        "definition": "candy, a sweet",
+        "meaningKr": "candy, a sweet",
+        "exampleEn": "이웃 집에서 달콤한 사탕을 많이 받았어요.",
+        "exampleKr": "I received a lot of sweet candy from the neighbor's house.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Culture",
+          "Halloween"
+        ],
+        "phonetic": "satang",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-hangul-ko-1",
+    "title": "Hangul: King Sejong's Alphabet 50",
+    "icon": "📜",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "The alphabet King Sejong made, and the words a Korean class actually uses — 훈민정음, 집현전, 자음, 모음, 받침, 초성, 띄어쓰기, 존댓말, 조사, 어미 and more, from the story of its creation to the grammar terms in your textbook. Korean→English; meanings & spoken examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1788881083892,
+    "words": [
+      {
+        "id": "word-hangul-0-1788881083892",
+        "term": "한글",
+        "definition": "Hangul, the Korean alphabet",
+        "meaningKr": "Hangul, the Korean alphabet",
+        "exampleEn": "외국인이 한글을 배우기 시작했어요.",
+        "exampleKr": "Foreigners started learning Hangul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hangeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-1-1788881083892",
+        "term": "훈민정음",
+        "definition": "Hunminjeongeum",
+        "meaningKr": "Hunminjeongeum",
+        "exampleEn": "훈민정음 해례본이 여기에 있어요.",
+        "exampleKr": "The Hunminjeongeum Haeryebon is here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hunminjeongeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-2-1788881083892",
+        "term": "세종대왕",
+        "definition": "King Sejong the Great",
+        "meaningKr": "King Sejong the Great",
+        "exampleEn": "세종대왕께서 백성을 위해 만들었어요.",
+        "exampleKr": "King Sejong created it for the people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "sejongdaewang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-3-1788881083892",
+        "term": "창제하다",
+        "definition": "to create a writing system",
+        "meaningKr": "to create a writing system",
+        "exampleEn": "세종대왕이 우리글을 창제하셨어요.",
+        "exampleKr": "King Sejong the Great invented our writing system.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "changjehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-hangul-4-1788881083892",
+        "term": "반포하다",
+        "definition": "to promulgate a law or script",
+        "meaningKr": "to promulgate a law or script",
+        "exampleEn": "조선 시대에 새로운 문자를 반포했어요.",
+        "exampleKr": "A new script was promulgated during the Joseon Dynasty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "banpohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-hangul-5-1788881083892",
+        "term": "집현전",
+        "definition": "Jiphyeonjeon royal research institute",
+        "meaningKr": "Jiphyeonjeon royal research institute",
+        "exampleEn": "집현전 학자들이 연구를 도왔어요.",
+        "exampleKr": "The scholars of Jiphyeonjeon helped with the research.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "jiphyeonjeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-6-1788881083892",
+        "term": "언문",
+        "definition": "vernacular script",
+        "meaningKr": "vernacular script",
+        "exampleEn": "예전에는 한글을 언문이라고 불렀어요.",
+        "exampleKr": "In the past, Hangul was called eonmun.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "eonmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-7-1788881083892",
+        "term": "소리글자",
+        "definition": "phonetic script",
+        "meaningKr": "phonetic script",
+        "exampleEn": "한글은 과학적인 소리글자예요.",
+        "exampleKr": "Hangul is a scientific phonetic script.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "sorigeulja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-8-1788881083892",
+        "term": "한글날",
+        "definition": "Hangul Day",
+        "meaningKr": "Hangul Day",
+        "exampleEn": "시월 구일은 한글날이에요.",
+        "exampleKr": "October 9th is Hangul Day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hangeullal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-9-1788881083892",
+        "term": "붓",
+        "definition": "writing brush",
+        "meaningKr": "writing brush",
+        "exampleEn": "옛날 사람들은 붓으로 글씨를 썼어요.",
+        "exampleKr": "People in the old days wrote with a brush.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "but",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-10-1788881083892",
+        "term": "먹",
+        "definition": "ink stick",
+        "meaningKr": "ink stick",
+        "exampleEn": "벼루에 물을 붓고 먹을 갈아요.",
+        "exampleKr": "Pour water on the inkstone and grind the ink stick.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "meok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-11-1788881083892",
+        "term": "한지",
+        "definition": "traditional Korean paper",
+        "meaningKr": "traditional Korean paper",
+        "exampleEn": "한지는 질기고 오래 가요.",
+        "exampleKr": "Hanji is tough and lasts a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hanji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-12-1788881083892",
+        "term": "자음",
+        "definition": "consonant letter",
+        "meaningKr": "consonant letter",
+        "exampleEn": "기역은 첫 번째 자음이에요.",
+        "exampleKr": "Giyeok is the first consonant.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "jaeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-13-1788881083892",
+        "term": "모음",
+        "definition": "vowel letter",
+        "meaningKr": "vowel letter",
+        "exampleEn": "아와 어는 기본 모음이에요.",
+        "exampleKr": "A and eo are basic vowels.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "moeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-14-1788881083892",
+        "term": "받침",
+        "definition": "final consonant in a syllable block",
+        "meaningKr": "final consonant in a syllable block",
+        "exampleEn": "이 단어는 받침이 없어요.",
+        "exampleKr": "This word has no batchim.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "batchim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-15-1788881083892",
+        "term": "겹받침",
+        "definition": "double final consonant",
+        "meaningKr": "double final consonant",
+        "exampleEn": "겹받침 발음은 조금 어려워요.",
+        "exampleKr": "Double batchim pronunciation is a bit difficult.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "gyeopbatchim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-16-1788881083892",
+        "term": "초성",
+        "definition": "initial consonant",
+        "meaningKr": "initial consonant",
+        "exampleEn": "음절의 첫소리를 초성이라고 해요.",
+        "exampleKr": "The first sound of a syllable is called choseong.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "choseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-17-1788881083892",
+        "term": "중성",
+        "definition": "medial vowel",
+        "meaningKr": "medial vowel",
+        "exampleEn": "중성은 보통 글자의 가운데에 와요.",
+        "exampleKr": "The medial vowel usually comes in the middle of the letter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "jungseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-18-1788881083892",
+        "term": "종성",
+        "definition": "final consonant",
+        "meaningKr": "final consonant",
+        "exampleEn": "종성은 음절의 맨 아래에 적어요.",
+        "exampleKr": "The final consonant is written at the very bottom of the syllable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "jongseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-19-1788881083892",
+        "term": "음절",
+        "definition": "syllable",
+        "meaningKr": "syllable",
+        "exampleEn": "한 개의 음절은 블록 형태로 쓰여요.",
+        "exampleKr": "Each syllable is written in a block format.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "eumjeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-20-1788881083892",
+        "term": "획",
+        "definition": "stroke of a letter",
+        "meaningKr": "stroke of a letter",
+        "exampleEn": "이 글자는 획이 모두 세 개예요.",
+        "exampleKr": "This letter has a total of three strokes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hoek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-21-1788881083892",
+        "term": "된소리",
+        "definition": "tense consonant",
+        "meaningKr": "tense consonant",
+        "exampleEn": "쌍기역은 된소리 중 하나예요.",
+        "exampleKr": "Ssang-giyeok is one of the tense consonants.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "doensori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-22-1788881083892",
+        "term": "거센소리",
+        "definition": "aspirated consonant",
+        "meaningKr": "aspirated consonant",
+        "exampleEn": "키읔은 거센소리로 발음해요.",
+        "exampleKr": "Kieuk is pronounced as an aspirated consonant.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "geosensori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-23-1788881083892",
+        "term": "가나다순",
+        "definition": "Korean alphabetical order",
+        "meaningKr": "Korean alphabetical order",
+        "exampleEn": "단어들을 가나다순으로 찾아보세요.",
+        "exampleKr": "Look up the words in alphabetical order.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "ganadasun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-24-1788881083892",
+        "term": "발음",
+        "definition": "pronunciation",
+        "meaningKr": "pronunciation",
+        "exampleEn": "선생님의 발음을 따라 해 보세요.",
+        "exampleKr": "Try following the teacher's pronunciation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "bareum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-25-1788881083892",
+        "term": "억양",
+        "definition": "intonation",
+        "meaningKr": "intonation",
+        "exampleEn": "질문할 때는 문장의 끝 억양을 올려야 해요.",
+        "exampleKr": "When you ask a question, you should raise your intonation at the end.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "eogyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-26-1788881083892",
+        "term": "띄어쓰기",
+        "definition": "spacing between words",
+        "meaningKr": "spacing between words",
+        "exampleEn": "한국어는 단어마다 알맞은 띄어쓰기를 해야 해요.",
+        "exampleKr": "In Korean, you need to use correct spacing between words.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "ttuieosseugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-27-1788881083892",
+        "term": "맞춤법",
+        "definition": "spelling rules",
+        "meaningKr": "spelling rules",
+        "exampleEn": "받침이 헷갈릴 때는 맞춤법을 꼭 확인해 보세요.",
+        "exampleKr": "When you are confused about batchim, be sure to check the spelling.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "matchumbeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-28-1788881083892",
+        "term": "표준어",
+        "definition": "standard language",
+        "meaningKr": "standard language",
+        "exampleEn": "교과서에 나오는 서울 말은 표준어예요.",
+        "exampleKr": "The Seoul speech that appears in textbooks is the standard form of Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "pyojuneo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-29-1788881083892",
+        "term": "사투리",
+        "definition": "regional dialect",
+        "meaningKr": "regional dialect",
+        "exampleEn": "제주도 사투리는 표준어와 아주 많이 달라요.",
+        "exampleKr": "The Jeju dialect is very different from the standard language.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "saturi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-30-1788881083892",
+        "term": "받아쓰기",
+        "definition": "dictation exercise",
+        "meaningKr": "dictation exercise",
+        "exampleEn": "선생님이 불러주시는 문장으로 받아쓰기를 할 거예요.",
+        "exampleKr": "We are going to do a dictation exercise with sentences the teacher reads aloud.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "badasseugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-31-1788881083892",
+        "term": "로마자 표기",
+        "definition": "romanization",
+        "meaningKr": "romanization",
+        "exampleEn": "길 표지판에는 한글과 함께 로마자 표기가 적혀 있어요.",
+        "exampleKr": "Street signs have romanization written along with Hangul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "romaja pyogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-32-1788881083892",
+        "term": "두벌식",
+        "definition": "dubeolsik keyboard layout",
+        "meaningKr": "dubeolsik keyboard layout",
+        "exampleEn": "요즘 컴퓨터 키보드는 대부분 두벌식을 사용해요.",
+        "exampleKr": "Most computer keyboards nowadays use the dubeolsik layout.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "dubeolsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-33-1788881083892",
+        "term": "손글씨",
+        "definition": "handwriting",
+        "meaningKr": "handwriting",
+        "exampleEn": "컴퓨터로 타이핑하는 것보다 손글씨가 더 정성스러워 보여요.",
+        "exampleKr": "Handwriting looks more heartfelt than typing on a computer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "songeulssi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-34-1788881083892",
+        "term": "존댓말",
+        "definition": "polite speech",
+        "meaningKr": "polite speech",
+        "exampleEn": "처음 만난 사람에게는 항상 존댓말을 써야 해요.",
+        "exampleKr": "You should always use polite speech with someone you meet for the first time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "jondaenmal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-35-1788881083892",
+        "term": "반말",
+        "definition": "casual speech",
+        "meaningKr": "casual speech",
+        "exampleEn": "나이가 같은 친구끼리는 편하게 반말을 해요.",
+        "exampleKr": "Friends of the same age comfortably use casual speech with each other.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "banmal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-36-1788881083892",
+        "term": "높임말",
+        "definition": "honorific words",
+        "meaningKr": "honorific words",
+        "exampleEn": "밥을 진지라고 하는 게 대표적인 높임말이에요.",
+        "exampleKr": "Calling a meal jinji instead of bap is a classic honorific word.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "nopimmal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-37-1788881083892",
+        "term": "조사",
+        "definition": "particle",
+        "meaningKr": "particle",
+        "exampleEn": "체언 뒤에 붙는 은이나 는은 대표적인 조사예요.",
+        "exampleKr": "Eun and neun, which attach after nouns, are representative particles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "josa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-38-1788881083892",
+        "term": "어미",
+        "definition": "verb ending",
+        "meaningKr": "verb ending",
+        "exampleEn": "동사의 어미가 바뀌면서 문장의 시제가 표현돼요.",
+        "exampleKr": "The tense of the sentence is expressed as the verb ending changes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "eomi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-39-1788881083892",
+        "term": "어순",
+        "definition": "word order",
+        "meaningKr": "word order",
+        "exampleEn": "한국어는 주어, 목적어, 동사 순서로 어순이 이루어져요.",
+        "exampleKr": "The word order of Korean follows the subject, object, and verb sequence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "eosun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-40-1788881083892",
+        "term": "문법",
+        "definition": "grammar",
+        "meaningKr": "grammar",
+        "exampleEn": "새로운 문법 규칙을 배우고 예문을 만들어 봐요.",
+        "exampleKr": "Let's learn new grammar rules and make example sentences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "munbeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-41-1788881083892",
+        "term": "동사",
+        "definition": "verb",
+        "meaningKr": "verb",
+        "exampleEn": "먹다나 가다 같은 단어는 움직임을 나타내는 동사예요.",
+        "exampleKr": "Words like to eat or to go are verbs that indicate action.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "dongsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-42-1788881083892",
+        "term": "형용사",
+        "definition": "adjective",
+        "meaningKr": "adjective",
+        "exampleEn": "예쁘다나 크다 같은 단어는 상태를 설명하는 형용사예요.",
+        "exampleKr": "Words like pretty or big are adjectives that describe a state.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hyeongyongsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-43-1788881083892",
+        "term": "명사",
+        "definition": "noun",
+        "meaningKr": "noun",
+        "exampleEn": "책상이나 연필은 사물의 이름을 나타내는 명사예요.",
+        "exampleKr": "Desk and pencil are nouns that represent the names of objects.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "myeongsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-44-1788881083892",
+        "term": "번역",
+        "definition": "translation",
+        "meaningKr": "translation",
+        "exampleEn": "외국어 책을 한국어로 자연스럽게 번역하는 연습을 해요.",
+        "exampleKr": "We practice naturally translating foreign language books into Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "beonyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-45-1788881083892",
+        "term": "통역",
+        "definition": "interpreting",
+        "meaningKr": "interpreting",
+        "exampleEn": "외국인 손님과 회사의 대화를 실시간으로 통역하고 있어요.",
+        "exampleKr": "I am interpreting the conversation between the foreign guest and the company in real time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "tongyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-46-1788881083892",
+        "term": "서예",
+        "definition": "calligraphy",
+        "meaningKr": "calligraphy",
+        "exampleEn": "먹을 갈아서 붓으로 한글을 쓰는 서예를 배워요.",
+        "exampleKr": "I am learning calligraphy, grinding ink and writing Hangul with a brush.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "seoye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-47-1788881083892",
+        "term": "캘리그래피",
+        "definition": "modern hand-lettering",
+        "meaningKr": "modern hand-lettering",
+        "exampleEn": "예쁜 카페 간판에 적힌 글씨는 캘리그래피로 쓴 거예요.",
+        "exampleKr": "The lettering written on the pretty cafe sign is done in modern hand-lettering.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "kaelligeuraepi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-48-1788881083892",
+        "term": "한자",
+        "definition": "Chinese characters",
+        "meaningKr": "Chinese characters",
+        "exampleEn": "한국어 어휘 중에는 뜻을 돕기 위해 한자를 같이 쓰는 경우가 많아요.",
+        "exampleKr": "Among Korean vocabulary, Chinese characters are often used together to help convey meaning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "hanja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hangul-49-1788881083892",
+        "term": "간판",
+        "definition": "shop sign",
+        "meaningKr": "shop sign",
+        "exampleEn": "거리에 있는 가게마다 한글로 예쁜 간판이 걸려 있어요.",
+        "exampleKr": "Every shop on the street has a pretty sign written in Hangul hanging up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hangul",
+          "Culture"
+        ],
+        "phonetic": "ganpan",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-sightseeing-ko-1",
     "title": "Korean Sightseeing & Landmarks 50",
     "icon": "🏛️",

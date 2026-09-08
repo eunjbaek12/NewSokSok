@@ -9,7 +9,7 @@
  * 실행: npx ts-node -P tsconfig.scripts.json scripts/translate-situation-vocab.ts --deck=market
  *       (공용 검사 모듈을 상대 import 하므로 -P 옵션이 필요하다)
  * 옵션:
- *   --deck=market|hiking|clinic|convenience   (필수)
+ *   --deck=market|hiking|clinic|convenience|hangul|horror   (필수)
  *   --limit=N                     상위 N개만 처리 (smoke test용)
  *   --model=NAME                  모델 지정 (기본값·주의사항은 scripts/_shared/model.ts)
  */
@@ -91,6 +91,18 @@ const DECKS: Record<string, DeckConfig> = {
       'Korean family ceremonies and the manners around them — a wedding at a 예식장, a funeral 빈소, the Seollal and Chuseok holidays with their rites, a first-birthday party, and how one speaks and bows to elders',
     voice:
       'lines that would actually be SAID out loud in that moment — a guest speaking to the hosting family, two guests talking on the way in, or family at home before a holiday rite. Polite 해요체/합쇼체 to hosts and elders; 반말 only within a family. 🔴 These are spoken lines, not written narration: never end a sentence with the written -했다/-였다/-갔다 form. 🔴 For the funeral items the register is subdued — short, respectful, never cheerful and never chatty.',
+  },
+  hangul: {
+    setting:
+      'the Korean alphabet and how it came to be — King Sejong and the 훈민정음, how a syllable block is built out of consonants and vowels, and the words a Korean class and its textbook use every day',
+    voice:
+      'lines that would actually be SAID out loud — a teacher explaining something to a learner, two learners talking about what they are studying, or a museum guide telling the story of King Sejong to visitors. Polite 해요체 in the classroom, 반말 between fellow students. 🔴 These are spoken lines, not written narration: never end a sentence with the written -했다/-였다 form. 🔴 For the King Sejong items, tell it the way a guide tells a visitor, never as an encyclopedia entry.',
+  },
+  horror: {
+    setting:
+      'Korean ghosts and folk horror — the 귀신 and 도깨비 of old tales, shamans and talismans, the words for being frightened, abandoned houses and graveyards at night, the summer horror specials on TV, and dressing up at Halloween',
+    voice:
+      'two friends telling each other a scary story at night, or someone recounting what they saw. Casual 반말 between friends, 해요체 to a stranger or an elder. Keep the campfire-story register — spooky and fun, never gruesome. 🔴 These are spoken lines, not written narration: never end a sentence with the written -했다/-였다 form. 🔴 No gore, no injury, no real accident or disaster, no death of a named person, nothing about suicide or self-harm, and no mocking of any religion — folklore and fun only.',
   },
   sightseeing: {
     setting:

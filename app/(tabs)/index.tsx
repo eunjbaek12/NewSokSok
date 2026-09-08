@@ -11,7 +11,6 @@ import {
   Modal,
 } from 'react-native';
 import CharacterSvg from '@/components/CharacterSvg';
-import { OceanBackdrop } from '@/components/OceanBackdrop';
 import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -287,9 +286,7 @@ export default function DashboardScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* 여름 바다 스킨 — 홈 하단 파도 배경(맨 뒤 레이어, 터치 통과) */}
-      {skin.id === 'ocean' && <OceanBackdrop />}
-      {/* 가을·한글 스킨 — 화면 전체 배경 그림. 같은 자리·같은 규칙이다. */}
+      {/* 스킨 배경 그림 — 화면 전체, 맨 뒤 레이어, 터치 통과. 탭 넷 모두 같은 자리다. */}
       <SkinBackdrop skinId={skin.id} />
 
       {/* Fixed Header / Greeting */}

@@ -19,8 +19,10 @@ import type { SkinId } from '@/features/theme';
  *    그림의 무게가 정확히 그 배분(위에 크게 · 좌우 레일에 작게 · 가운데는 비움)
  *    이라 그대로 얹힌다. 설정은 헤더가 가장 넓어 홈보다 잘 보인다.
  *
- * ⚠️ 파도(`OceanBackdrop`)는 홈 전용으로 남겼다. 화면 **하단 210px 띠**에 그린
- *    것이라 다른 탭에서는 탭바 뒤로 들어가 안 보인다. 넓히려면 다시 그려야 한다.
+ * 🗑 파도(`OceanBackdrop`)는 **걷었다**(2026-09-08). 홈 하단 210dp 띠에만 그려져
+ *    다른 탭에서는 탭바 뒤로 들어가 안 보였고, 그대로 두면 「홈에만 있으면 스킨이
+ *    아니다」(`6dc08e9`)와 어긋난다. 새 배경이 **위에서 내려다본** 얕은 바다라
+ *    옆에서 본 물결과는 시점도 충돌했다.
  *
  * 🔴 **배경을 깔면 «안 보이던 중복»이 결함이 된다.** 단어장의 검색 띠가
  *    `backgroundColor: colors.background` 를 칠하고 있었는데, 컨테이너와 같은 색이라
@@ -44,6 +46,9 @@ const ART: Partial<Record<SkinId, ReturnType<typeof require>>> = {
   autumn: require('@/assets/images/skin-autumn-bg.webp'),
   hangul: require('@/assets/images/skin-hanok-bg.webp'),
   halloween: require('@/assets/images/skin-halloween-bg.webp'),
+  lab: require('@/assets/images/skin-lab-bg.webp'),
+  ocean: require('@/assets/images/skin-ocean-bg.webp'),
+  // ⏭️ y2k(편지지)는 아직 없다 — 목록에 없으면 배경 없이 그려진다(그 전과 같다).
 };
 
 const OPACITY = 0.35;

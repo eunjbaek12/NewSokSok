@@ -204,6 +204,17 @@ const Colors = {
       advancedText: '#DC2626',
     },
   },
+  // 🩵 두 번째 축 = 하늘색 (2026-09-08). 그 전까지 이 스킨은 팔레트 일곱 값의 색상이
+  //    267~324도 **한 덩어리**여서(다른 스킨은 둘~셋으로 갈린다: ocean 180/0 · autumn 0/30 ·
+  //    halloween 30/90/270) 「분홍 스킨」으로만 읽히고 시대도 장소도 붙지 않았다.
+  //    autumn 의 은행 노랑, halloween 의 독 초록이 하는 일을 여기서는 하늘색이 한다 —
+  //    2000년대 개인 홈피 스킨에서 분홍과 하늘색은 기본 짝이었다.
+  //
+  // 🔴 **밝은 하늘색은 글자에 못 쓴다.** `#3E9FD0` 은 배경 위 2.68 로 지금 값(보라 4.53)에
+  //    한참 못 미친다. 그래서 ocean 이 이미 한 대로 **둘로 가른다** — 글자·버튼은 진한
+  //    `#1F7FB0`(4.02 · 흰 글자 4.45), 아이콘과 선택기 미리보기는 밝은 `#3E9FD0`.
+  //    (ocean 주석의 「밝은 산호는 강조 텍스트에 못 쓰고 장식·아이콘용」과 같은 자리다.)
+  //
   // Y2K — 상태색 일곱이 전부 클래식 그대로였다(2026-09-08 실측: 0/7). primary 가 분홍
   // `#D456B8`(h313)인데 success 가 청록 `#2A7B78`(h178)이라 한 화면에 브랜드색이 둘이었다.
   // autumn·hangul·halloween 이 한 것과 같은 방식으로 옮긴다 — **초록 계열은 유지하되
@@ -218,13 +229,13 @@ const Colors = {
     primary: '#D456B8',
     primaryButton: '#D456B8',
     primaryLight: '#FAD8F5',
-    secondary: '#8B50D4',
-    secondaryLight: '#EDD9F8',
+    secondary: '#1F7FB0',
+    secondaryLight: '#D8ECF7',
     accent: '#D456B8',
     accentLight: '#FAD8F5',
-    accentAction: '#8B50D4',
-    accentActionLight: '#EDD9F8',
-    accentActionGradient: ['#D456B8', '#9B4DD4'] as readonly [string, string],
+    accentAction: '#1F7FB0',
+    accentActionLight: '#E2F1FA',
+    accentActionGradient: ['#D456B8', '#2A86BC'] as readonly [string, string],
     reviewGradient: REVIEW_GRADIENT,
     background: '#FDF0F8',
     surface: '#FFF5FB',
@@ -255,9 +266,9 @@ const Colors = {
     hintText: '#7A4578',
     icons: {
       memorization: '#D456B8',
-      shuffle: '#8B50D4',
+      shuffle: '#3E9FD0',
       sound: '#E879D8',
-      timing: '#B070D4',
+      timing: '#5AB2DC',
       language: '#C060B8',
       chat: '#E0A0D8',
     },

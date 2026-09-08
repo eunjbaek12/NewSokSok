@@ -69,6 +69,14 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     },
     characterAccessory: 'none',
   },
+  // 📮 «편지지» — 이름을 2026-09-08 에 Y2K 에서 바꿨다. Y2K 는 Year 2000 이고 그 미학의
+  //    본체가 은색·크롬·홀로그램, 곧 **반짝임**인데 이 스킨에는 그런 것이 하나도 없다.
+  //    실제로 들어 있던 것은 분홍 파스텔 · 둥근 글꼴(Jua) · 리본 — 2000년대 팬시 문구다.
+  //    이름만 어긋나 있었고, 배경 그림도 그 어긋난 이름을 좇다 두 번 헛돌았다.
+  //
+  // 🔴 **id 는 'y2k' 로 남긴다.** 사용자의 선택은 이 문자열로 저장돼 있어서(skin-store),
+  //    바꾸면 이 스킨을 쓰던 사람의 화면이 다음 실행에 기본 스킨으로 돌아간다.
+  //    표시 이름은 i18n 의 skinY2k 하나만 갈면 된다.
   y2k: {
     id: 'y2k',
     nameKey: 'skinY2k',
@@ -78,7 +86,9 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
       background: '#FDF0F8',
       primary: '#D456B8',
       surface: '#FFF5FB',
-      accent: '#8B50D4',
+      // 선택기에서 하늘색을 보여준다 — 분홍 하나만으로는 「분홍 스킨」일 뿐이고,
+      // 그 옆의 하늘색이 있어야 2000년대 홈피 스킨으로 읽힌다(autumn 의 은행 노랑과 같은 자리).
+      accent: '#3E9FD0',
       text: '#3A1A3A',
     },
     characterAccessory: 'y2k-ribbon',

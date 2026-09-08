@@ -1,4 +1,4 @@
-# 스킨 배경 아트 브리프 — 가을 단풍 · 한글 · 할로윈
+# 스킨 배경 아트 브리프 — 가을 단풍 · 한글 · 할로윈 · 편지지 · 실험실 · 여름 바다
 
 2026-09-03 (2026-09-04 · 2026-09-07 개정) · 1.7.x
 **가을·한글 목업 = https://claude.ai/code/artifact/8479887c-d137-4213-8a2f-faf2de47bacb**
@@ -711,3 +711,310 @@ no letters, no text, no frame or border. The centre must stay empty.
 ⏭️ **남은 것**: 소품(`characterAccessory`)은 아직 `none` — 마녀 모자·호박 바구니 미정.
 불투명도는 0.35 로 뒀고 실기에서 0.35 / 0.5 / 0.65 를 대조해 정한다.
 선택기 플래그는 **걸린 채**다(10월 말에 걷는다).
+
+---
+
+## §10 편지지 · 실험실 · 여름 바다 — 옛 스킨 셋 [⏭️ 1.6.3]
+
+앞의 셋(가을·한글·할로윈)이 배경 그림을 갖게 되자 **먼저 있던 셋이 그림 없이 남았다.**
+「가을·한글 수준으로 올린다」가 은정님 결정(2026-09-07)이고, 이 절이 그 브리프다.
+
+### §10-1 🔴 전제가 절반 틀렸다 — 축마다 앞선 스킨이 다르다
+
+「옛 스킨이라 뒤처졌다」로 시작했는데, 클래식에서 몇 개나 벗어났는지 세 보니 갈렸다
+(2026-09-08 실측).
+
+| | 상태색(7) | icons(6) | hint(3) | 배경 그림 |
+|---|---|---|---|---|
+| 편지지(y2k) | 0/7 → **7/7** | 6/6 | 3/3 | ❌ |
+| 실험실(lab) | 0/7 → **7/7** | 6/6 | 3/3 | ❌ |
+| 여름바다(ocean) | 5/7 → **7/7** | 0/6 → **6/6** | 0/3 → **3/3** | 🔸파도(홈 전용) |
+| 가을 | 7/7 | **0/6** | **0/3** | ✅ |
+| 한글 | 7/7 | **0/6** | **0/3** | ✅ |
+| 할로윈 | 7/7 | 6/6 | 3/3 | ✅ |
+
+🔑 **icons·hint 는 y2k·lab 이 오히려 앞서 있었고 가을·한글이 꼴찌다.** 세 축을 다 갖춘 것은
+**할로윈 하나**뿐이고, 그것이 기준선이다. ⏭️ 가을·한글의 icons·hint 는 아직 남아 있다.
+
+🔴 **상태색의 잣대는 4.5:1 이 아니다.** 이 앱의 상태색은 원래 4.5 를 안 지킨다 — 클래식조차
+success 4.31 · error 4.00 · warning 3.29 다. 앱 전반이 안 지키는 값을 근거로 삼으면 셋만
+고쳐 놓고 나머지와 어긋난다. 목표는 대비 개선이 아니라 **톤 일치**이고, 기존 스킨의 범위
+(success 4.09~5.36 · error 4.00~5.53 · warning 3.04~4.04) 안에 드는지로만 본다.
+
+### §10-2 📮 y2k 를 «편지지»로 — 이름이 어긋나 있었다
+
+🔴 **두 번 헛돌고 나서야 이름이 원인인 걸 알았다.** 은정님이 「미니홈피와 거리가 있다」고
+하셔서 도토리·음표를 넣었고, 그 다음엔 「도토리랑 반짝이는 느낌이 별로」라고 하셨다.
+그때 «Y2K 가 무슨 뜻인가»로 돌아가니 갈렸다 —
+
+- **Y2K = Year 2000.** 밀레니엄 버그를 가리키던 말이 2020년쯤 «1999~2004 시각 문화»로
+  되살아난 것이고, 그 본체는 **은색·크롬·홀로그램, 곧 반짝임**이다.
+- 그런데 이 스킨에 실제로 들어 있던 것은 **분홍 파스텔 · 둥근 글꼴(Jua) · 리본** —
+  Y2K 도 미니홈피도 아니고 **2000년대 팬시 문구**다. 이름만 어긋나 있었다.
+- 배경 시안이 두 번 빗나간 것은 **어긋난 이름을 좇았기 때문**이다. 스파클은 Y2K 의
+  시그니처라 「빼면 안 되는 하나」로 넣었는데, 스킨의 실체가 Y2K 가 아니었다.
+
+🔑 **배경 주제를 정하기 전에 스킨의 이름이 그 스킨을 맞게 부르고 있는지 볼 것.**
+이름이 틀리면 프롬프트가 통째로 그 방향으로 끌려간다.
+
+이름은 i18n 의 `skinY2k` 값만 갈았다(ko 편지지 · en Stationery · es Papelería).
+🔴 **`SkinId` 는 `'y2k'` 로 남긴다** — 사용자의 선택이 그 문자열로 저장돼 있어서, 바꾸면
+이 스킨을 쓰던 사람의 화면이 다음 실행에 기본으로 돌아간다.
+
+### §10-3 🩵 하늘색 = 편지지의 두 번째 축
+
+팔레트 일곱 값의 색상(hue)을 재면 이 스킨만 **267~324도 한 덩어리**였다.
+
+```
+편지지 전   313 · 267 · 313 · 323 · 324 · 311 · 300     한 덩어리
+편지지 후   313 · 200 · 313 · 323 · 324 · 311 · 300     두 축
+여름바다    184 · 11 · 11 · 185 · 180 · 186 · 188        청록 ↔ 코랄
+가을        12 · 36 · 36 · 34 · 35 · 34 · 19             단풍 ↔ 은행
+할로윈      27 · 92 · 92 · 258 · 260 · 260 · 275         호박 ↔ 독초록 ↔ 밤
+```
+
+가을의 은행 노랑, 할로윈의 독 초록이 하는 일을 여기서는 하늘색이 한다. 분홍 체크에
+하늘색 리본이 그 시절 편지지의 색이다.
+
+🔴 **밝은 하늘색은 글자에 못 쓴다.** `#3E9FD0` 은 분홍 배경 위 2.68 로 그 전 값(보라 4.53)에
+한참 못 미친다. **둘로 가른다** — 글자·버튼은 진한 `#1F7FB0`(4.02 · 흰 글자 4.45), 아이콘과
+선택기 미리보기 원은 밝은 `#3E9FD0`. 여름바다가 「밝은 산호 `#FF7F5C` 는 장식·아이콘용,
+강조 텍스트는 진한 코랄 `#D94F30`」으로 갈라 둔 것과 같은 자리다.
+
+| 토큰 | 전 | 후 | 쓰이는 곳 |
+|---|---|---|---|
+| `secondary` / `secondaryLight` | `#8B50D4` / `#EDD9F8` | `#1F7FB0` / `#D8ECF7` | 큐레이션 배지 |
+| `accentAction` / `~Light` | `#8B50D4` / `#EDD9F8` | `#1F7FB0` / `#E2F1FA` | 단어장 상세·학습 설정의 활성 항목 |
+| `accentActionGradient` 끝 | `#9B4DD4` | `#2A86BC` | 「골라서 학습」 타일 |
+| `icons.shuffle` / `.timing` | `#8B50D4` / `#B070D4` | `#3E9FD0` / `#5AB2DC` | 설정 아이콘 |
+| `previewColors.accent` | `#8B50D4` | `#3E9FD0` | 스킨 선택기의 세 번째 원 |
+
+목업(전/후 나란히): https://claude.ai/code/artifact/c2a50013-5667-4244-bbfa-f46fb331cd0a
+
+### §10-4 색 [고정 — 이 팔레트 밖으로 나가지 말 것]
+
+| | 바탕 | 카드 면 | 주 무늬 | 두 번째 색 | 아주 조금 |
+|---|---|---|---|---|---|
+| 편지지 | `#FDF0F8` | `#FFF5FB` | 분홍 `#D456B8` | 하늘 `#3E9FD0` | 버터 노랑(꽃 중심) |
+| 실험실 | `#F0F2F5` | `#FFFFFF` | 시안 `#0891B2` | 진청록 `#0E7490` | 연한 시안 액체 |
+| 여름바다 | `#EAF6F7` | `#F5FBFB` | 딥 틸 `#0C7178` | 산호 `#FF7F5C` | — |
+
+### §10-5 무엇이 그 스킨으로 읽히게 하나 [프롬프트에서 빼지 말 것]
+
+| | 결정적 요소 | 빠지면 |
+|---|---|---|
+| 편지지 | **희미한 깅엄 체크 바탕** + **우표의 톱니 가장자리** | 그냥 꽃 배경 |
+| 실험실 | **유리 기구의 눈금선** | 그냥 병 |
+| 여름바다 | **수면의 빛그물(caustics)** | 계절 없는 바다 |
+
+🔑 셋 다 **전면을 덮는 옅은 무늬 하나 + 흩어진 작은 것들**이라는 같은 구조다. §9-2 의
+「이어졌냐 흩어졌냐」에서 전면 무늬가 지지 않는 이유는 **아주 옅기 때문**이다 —
+프롬프트에 `barely visible, like a watermark` 를 반드시 넣는다.
+
+### §10-6 프롬프트
+
+구획 지시(TOP 15% · 바깥 6% 레일 · 49~60% 전폭 띠 · 75% 부터 아래 드리프트)는 §9-3 과
+같다. 아래는 그 골격에 주제만 갈아 끼운 것이다.
+
+**편지지** — 2026-09-08. 🔴 금지 목록이 긴 데는 이유가 셋 있다: `sparkles/twinkles/
+stars/glitter/shine` 는 **동의어까지 막은 것**(하나만 쓰면 모델이 다른 이름으로 되살린다),
+`acorns/clouds/oak leaves` 는 접은 시안과 다른 스킨(가을·한글)의 겹침 차단,
+`ruled writing lines/handwriting/letters` 는 **편지지를 주제로 주면 모델이 글씨를 쓰려 들기**
+때문이다. 그리고 **「화면 전체가 한 장의 종이」**를 못 박지 않으면 종이 안에 종이를 그린다.
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+soft, quiet, low contrast. A sheet of stationery.
+
+Ground: pale rose-pink paper with a faint soft grain. Across the whole
+sheet, an extremely faint GINGHAM CHECK — even squares of a slightly
+deeper pink, barely visible, like a watermark. It must never become a
+strong plaid; it is the tint of the paper, not a pattern on top of it.
+This check is what makes the image read as stationery rather than a
+flower background — never drop it, and never let it get bold.
+
+The whole image IS the sheet of paper. Do not draw a sheet of paper, a
+notebook, a letter or a card as an object inside the picture, and do not
+draw a border or a frame around the edges.
+
+Subject: the small printed motifs of early-2000s Korean fancy stationery,
+scattered down through the frame. Each motif is a small flat shape with
+its OWN colour. Five kinds, in this order of quantity:
+
+  1. TINY FIELD FLOWERS — simple five-petal daisies seen face on, with a
+     small round centre. Some ROSE PINK, some SKY BLUE, centres a soft
+     butter yellow. The most numerous shape.
+  2. RIBBON BOWS — a simple two-loop bow with two short tails. SKY BLUE.
+  3. HEARTS — small and plain, MAGENTA PINK, some solid, some outlined.
+  4. POSTAGE STAMPS — small upright rectangles with a PERFORATED SAW-
+     TOOTH EDGE, each holding one tiny flower or heart inside. Outlined
+     in sky blue or pink. Only five or six in the whole image; the
+     perforated edge must be clearly visible, it is what says "letter".
+  5. ENVELOPES — a small rectangle with a triangular flap line across it.
+     SKY BLUE outline. The fewest, three or four in total.
+
+About one motif in three should be sky blue. Keep every motif SMALL and
+SEPARATE — never a bouquet, never a cluster, never a garland or a chain,
+never a band of pattern that merges into one mass. Think of motifs
+printed on writing paper, spaced far apart.
+
+TOP 15% (0 to 15%): three or four larger motifs floating apart from one
+another, tilted at different angles, with clear space between them — one
+stamp, one bow, two flowers. This band is where the picture is seen most
+— spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint check. Place
+a few small motifs only within the OUTER 6% of the left and right edges —
+narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small motifs across it, well apart.
+
+62% to 85%: the outer 6% rails again, small motifs only, centre empty.
+
+BOTTOM: a loose scatter of flowers and hearts across the full width, its
+top edge beginning right at 75% and continuing off the bottom edge. Keep
+it airy — separate motifs with gaps of pink between them, not a solid
+band and not a flower bed.
+
+Palette: pale rose-pink ground with a barely-there deeper pink check.
+Rose pink and sky blue are the two colours that carry the motifs, in
+roughly two to one. A soft butter yellow appears only in flower centres.
+No other hues at all — no green, no purple, no orange, no brown. Draw no
+stems and no leaves on the flowers; they are printed motifs, not plants.
+
+The background is ONE single continuous colour and check from top to
+bottom. Do not draw the bands as visible rectangles or blocks of
+different tone — the percentages above describe where to place things,
+not shapes to paint.
+
+No sparkles, no twinkles, no stars, no glitter, no shine, no metallic or
+holographic effects, no gradients. No acorns, no clouds, no oak leaves,
+no butterflies, no lace, no ruled writing lines, no handwriting, no
+letters, no numbers, no text, no logos, no people, no frame or border.
+The centre must stay empty.
+```
+
+**실험실**
+
+```
+Vertical mobile wallpaper, 1080x2340, flat LINE illustration,
+clean, technical, calm, low contrast. A scientist's notebook page.
+
+Ground: very light cool grey-blue paper. Across the whole sheet, an
+extremely faint square graph-paper grid — barely visible, like a
+watermark, never a strong lattice. The grid is the only thing that covers
+the full page; everything else is drawn sparsely on top of it.
+
+Subject: laboratory glassware and molecule rings, drawn as OUTLINES ONLY,
+thin clean strokes, never filled in. Erlenmeyer flasks, round-bottom
+flasks, beakers, test tubes — each with GRADUATION MARKS on its side, a
+short ladder of measuring lines. Those measuring lines are what make this
+read as a laboratory; a glass shape without them is just a bottle, so
+never drop them. Molecules are flat hexagonal rings joined by straight
+bonds, with small circles at the joints. Keep every object SMALL and
+SEPARATE — never a shelf of glassware, never a row, never a cluster that
+merges into one mass.
+
+TOP 15% (0 to 15%): three or four larger objects floating apart from one
+another, tilted at slightly different angles, with clear space between
+them — one flask, one beaker, one molecule ring. This band is where the
+picture is seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint grid. Place a
+few small objects only within the OUTER 6% of the left and right edges —
+narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small objects across it, well apart.
+
+62% to 85%: the outer 6% rails again, small objects only, centre empty.
+
+BOTTOM: a loose scatter of test tubes and small rings across the full
+width, its top edge beginning right at 75% and continuing off the bottom
+edge. Keep it airy — separate objects with gaps between them, not a rack.
+
+Palette: cool grey-blue ground and grid. All outlines in a clear
+teal-cyan. Two or three vessels may hold a pale cyan liquid — a flat wash
+of colour, no gradient, filling only the lower third of that vessel.
+No other hues at all.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles or blocks of different tone — the
+percentages above describe where to place things, not shapes to paint.
+
+No bubbles, no smoke, no fire, no microscopes, no people, no hands,
+no letters, no numbers, no text, no frame or border. The centre must
+stay empty.
+```
+
+**여름 바다** — 🔴 **위에서 내려다본 구도**다. 지금 홈에 깔린 `OceanBackdrop`(옆에서 본
+물결)과 시점이 충돌하므로 프롬프트에 `no waves seen from the side` 를 넣었고,
+**그림을 얹는 커밋에서 파도를 걷는다**(§10-7).
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+bright, airy, calm, low contrast. Shallow water on a clear summer day,
+seen from directly above.
+
+Ground: very pale aqua, almost white, like sunlit sand under clear
+shallow water. Across the whole sheet, an extremely faint caustic net —
+the wobbling web of light that a water surface casts on the sea floor,
+drawn as thin soft-edged lines. It must be barely visible, like a
+watermark, never a strong pattern. The caustics are what make this read
+as bright shallow water rather than open sea; they are the only thing
+that covers the full page, and everything else is drawn sparsely on top.
+
+Subject: shells, starfish and small coral sprigs scattered on the sand.
+Simple flat shapes seen from above — scallop shells with fan ridges,
+spiral shells, five-armed starfish, short branching coral. Keep every
+object SMALL and SEPARATE — never a heap, never a row along a shoreline,
+never a cluster that merges into one mass. Think of things washed up one
+by one, far apart.
+
+TOP 15% (0 to 15%): three or four larger objects floating apart from one
+another, tilted at different angles, with clear space between them — one
+scallop, one starfish, one coral sprig. This band is where the picture is
+seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint caustics.
+Place a few small objects only within the OUTER 6% of the left and right
+edges — narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small objects across it, well apart.
+
+62% to 85%: the outer 6% rails again, small objects only, centre empty.
+
+BOTTOM: a loose scatter of small shells across the full width, its top
+edge beginning right at 75% and continuing off the bottom edge. Keep it
+airy — separate objects with gaps of sand between them, not a bank.
+
+Palette: pale aqua ground, deep ocean teal for the shell outlines and the
+caustic lines. The starfish and coral are the only warm colour — a clear
+coral orange, saturated, not muted. Do NOT grey down the coral; everything
+else is quiet and washed out, and the starfish are what the eye lands on.
+No other hues at all.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles, no horizon line, no shoreline, no
+strip of darker water — the percentages above describe where to place
+things, not shapes to paint.
+
+No waves seen from the side, no horizon, no sky, no boats, no fish,
+no people, no letters, no text, no frame or border. The centre must
+stay empty.
+```
+
+### §10-7 배경 말고도 필요한 것
+
+- ✅ 상태색 세 스킨 · 여름바다의 icons·hint (`aea8c93`)
+- ✅ 실험실 캐릭터 소품 = **보안경**(`aea8c93`). 🔴 첫 판이 머리보다 좁아 「얹힌 장식」으로
+  보였다 — 끈 102 단위 대 머리 107. 실기 캡처에서 화면 60px 대 72px 로 재서 118 로 넓혔다.
+- ✅ 편지지 팔레트에 하늘색 축 · 이름 3개 언어
+- ⏭️ `components/SkinBackdrop.tsx` 의 `ART` 에 그림 세 장 등록
+- ⏭️ 🔴 **`OceanBackdrop` 을 걷는다** — 그림을 얹는 그 커밋에서. 먼저 걷으면 그림이 올
+  때까지 여름바다만 배경이 통째로 없는 상태가 된다. 홈에만 있는 파도를 남기면
+  「홈에만 있으면 스킨이 아니다」(`6dc08e9`)와 어긋나고, 시점도 충돌한다.
+- ⏭️ 편지지 소품(리본)은 **그대로 둔다** — 리본은 편지지 모티프 그 자체다.
+- ⏭️ 가을·한글의 icons·hint (§10-1 의 남은 자리)

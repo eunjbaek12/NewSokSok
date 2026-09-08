@@ -382,13 +382,15 @@ describe('사람 판정(decision) — 겹침 판정이 틀리는 자리', () => 
 });
 
 describe('판정 목록 자체', () => {
-  it('채움 125 · 비움 71 — 사다리 82건 + 실사용 덱 100건 + 주제·상황 7덱 14건', () => {
+  it('채움 125 · 비움 88 — 사다리 82건 + 실사용 덱 100건 + 주제·상황 7덱 14건 + 문화 2덱 17건', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { decisionCounts, definitionDecision } = require('../scripts/lib/definition-decisions');
     // 2026-09-03: ko>en 주제·상황 7덱을 서버에 심고 되읽어 판정한 14건이 더해졌다
     // (채움 +6 · 비움 +8). 캐시가 맞는 뜻을 가졌는데 표현만 달라 겹침이 실패한 것은
     // 채움, 다른 한자어를 설명하거나 순환 정의인 것은 비움이다 — [[ko-topic-decks]].
-    expect(decisionCounts()).toEqual({ fill: 125, blank: 71 });
+    // 2026-09-09: 한글날·할로윈 문화 2덱에서 비움 17건이 더해졌다. 심기 전에 로컬에서
+    // 합성해 보고 골랐다 — 캐시가 다른 단어를 설명하거나(먹=먹다) 뜻풀이가 깨진 것들이다.
+    expect(decisionCounts()).toEqual({ fill: 125, blank: 88 });
     // 같은 자리의 두 갈래가 실제로 갈리는지 — 증상이 똑같아서(둘 다 definition 에 영어가
     // 남는다) 캐시를 열어 보지 않으면 못 가른다.
     expect(definitionDecision('curated-ceremony-ko-1', '문상')).toBe('fill');   // 캐시가 맞는 뜻
@@ -475,9 +477,10 @@ describe('지어낸 뜻 제외(dropSenses)', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { dropCounts, dropCountsByLang, droppedSenses } = require('../scripts/lib/sense-drops');
     // 2026-09-03: 주제·상황 7덱 시딩 검증에서 ko>en 10항목·12뜻이 더해졌다.
-    expect(dropCounts()).toEqual({ terms: 1370, senses: 1562 });
+    // 2026-09-09: 문화 2덱에서 ko>en 10항목·12뜻이 더 붙었다(굿 ②=영어 good 등).
+    expect(dropCounts()).toEqual({ terms: 1380, senses: 1574 });
     // 여섯 출발어를 모두 덮는다 — ko 만 있던 때로 되돌아가면 여기서 걸린다.
-    expect(dropCountsByLang()).toEqual({ ko: 942, zh: 202, ja: 186, vi: 117, en: 110, es: 5 });
+    expect(dropCountsByLang()).toEqual({ ko: 954, zh: 202, ja: 186, vi: 117, en: 110, es: 5 });
     expect(droppedSenses('ko', 'en', '잘되다')).toEqual([2]);  // "to fail" — 정반대 뜻
     // 🔴 병기는 카드 **앞면**까지 올라간다 — 초급 덱에 실을 수 없는 뜻을 사람이 뺐다.
     expect(droppedSenses('ko', 'en', '고추')).toEqual([2]);   // ② 유아어·속어

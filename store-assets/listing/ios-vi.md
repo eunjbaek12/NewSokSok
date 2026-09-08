@@ -206,7 +206,7 @@ Avocado là ứng dụng học từ vựng gọn gàng — bạn tự tạo bộ
 • Riêng tư và minh bạch
 - Quảng cáo chỉ hiện với người dùng miễn phí (bản Pro không có quảng cáo)
 - Hỗ trợ App Tracking Transparency — bạn tự chọn có cho theo dõi hay không
-- Ứng dụng chỉ xin một quyền: micrô để nhập bằng giọng nói (không bắt buộc)
+- Chỉ xin quyền khi bạn dùng tính năng đó: micrô (nhập giọng nói), máy ảnh và ảnh (quét ảnh, lưu thẻ), thông báo (ôn tập). Tất cả đều tùy chọn
 
 Tạo bộ thẻ bạn muốn theo cách dễ nhất, và ghi nhớ theo cách gọn gàng nhất.
 

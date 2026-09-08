@@ -76,7 +76,10 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 ## 1. 어떤 앱? (Select app)
 
-- **아보카도 (Avocado — Vocabulary Builder)** / SokSok Voca
+- **아보카도: AI 사진 단어장** (KR) / **Avocado: Korean Vocabulary** (US 외) / SokSok Voca
+  - ⚠️ 이름은 **스토어프론트마다 다르다**(2026-08-23 개정). 옛 이름 `Avocado — Vocabulary Builder`
+    를 쓰지 말 것 — 에디터가 보는 이름과 어긋난다. 라이브 확인은 `itunes.apple.com/lookup?id=…&country=kr&lang=ko_kr`
+    (🔴 `lang` 을 빼면 영어 폴백이 와서 «미등록» 으로 오판한다).
 - 플랫폼: **iPhone 전용** (iOS)
   - ⚠️ **iPad를 체크하지 말 것.** `app.json`이 `supportsTablet: false` = 실제로 iPhone 전용이다.
     없는 지원을 주장하면 에디터 검증에서 역효과.
@@ -126,7 +129,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 > 이 텍스트 박스가 지명의 핵심. **제출 ①과 ②가 서로 다른 본문을 쓴다.**
 
-### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, 약 1,110자)
+### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, 1,114자)
 
 ```
 아보카도는 한국 사람이 영어·일본어·중국어를 외우려고 쓰는 어휘 앱입니다. 한국에서 만들었고 한국어 학습자를 기준으로 씁니다 — 일본어에는 후리가나, 중국어에는 병음이 도착어와 독립적으로 붙습니다. 6개 언어를 어느 방향으로든 조합할 수 있어(30개 언어쌍) 언어를 하나 더 시작해도 앱을 갈아탈 필요가 없습니다. 10월은 수능이 40여 일 남은 때라, 이 앱을 쓰는 사람들에게는 어휘를 마무리하는 시즌이기도 합니다.
@@ -139,7 +142,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 AI는 과하지 않게, 쓸모 있게 녹였습니다. 단어 하나만 넣으면 발음·뜻·예문·동의어까지 카드가 완성되고, 사진 한 장이면 단어장이 통째로, 주제만 적으면("카페에서 주문하기", "토익 빈출 동사") AI가 단어장을 만듭니다. 본인 Gemini 키로 AI를 무제한 무료로 쓰는 BYOK 모드는 사용자를 존중하는 흔치 않은 선택입니다.
 
-오프라인 우선, 프라이버시 존중(광고는 비로그인·무료 사용자에게만, ATT 준수, 요청 권한은 마이크 하나), Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
+오프라인 우선, 프라이버시 존중(광고는 비로그인·무료 사용자에게만, ATT 준수, 권한은 그 기능을 쓰는 순간에만), Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
 ```
 
 ### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,820 chars)
@@ -158,7 +161,7 @@ AI is woven in tastefully: type one word and a full card appears; snap a photo a
 Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptions.
 ```
 
-### 짧은 버전 — **제출 ①·② 전용** (글자수 제한이 빡빡할 때, ~280자)
+### 짧은 버전 — **제출 ①·② 전용** (글자수 제한이 빡빡할 때, 260자)
 
 > ⚠️ 마지막 줄이 Apple 전용이다. **Play(제출 ③)에 그대로 쓰지 말 것** → §4-C.
 
@@ -166,7 +169,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(아이콘 전용 버튼 109개 전량에 VoiceOver 이름)과 화면 어디서나 스와이프 뒤로도 함께. 가을·한글·할로윈 스킨 추가로 총 8종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
 ```
 
-### §4-C · 제출 ③ — Google Play (한국어, ~400자)
+### §4-C · 제출 ③ — Google Play (한국어, 561자)
 
 > ①과 같은 앵글(한국인이 외국어를 배운다)을 쓰되, **Apple 고유 항목은 전부 뺀다** —
 > Sign in with Apple · StoreKit · VoiceOver(애플 용어) · App Store 링크.

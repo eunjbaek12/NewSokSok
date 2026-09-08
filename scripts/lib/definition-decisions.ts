@@ -28,7 +28,7 @@
 export type DefinitionDecision = 'fill' | 'blank';
 
 /** 채운다 — 캐시가 같은 단어를 설명하고 있다. */
-const FILL: Record<string, string> = {
+const FILL: Record<string, string | readonly string[]> = {
   // ── 한국어 학습 사다리 4덱 (2026-08-19 · 20 판정) ──
   'curated-ko-basic-1': '물 손 나라 눈물 쓰레기 그릇 교회 셋 일월 댁 여보세요',
   'curated-ko-intermediate-1': '점 대통령 감독 엄청나다 놀이 사물 바닥',
@@ -96,7 +96,7 @@ const FILL: Record<string, string> = {
  * 고친 뒤 fill 로 옮겼다. 뜻풀이 품질 때문에 blank 로 두는 항목이 다시 생기면 **왜
  * 뺐는지와 함께** 적을 것 — 이유가 없으면 캐시가 고쳐져도 아무도 되돌리지 않는다.
  */
-const BLANK: Record<string, string> = {
+const BLANK: Record<string, string | readonly string[]> = {
   // ── 한국어 학습 사다리 4덱 ──
   // `안다`(hug) 캐시는 `알다`(know) 를 설명한다. `공식`(formula) 캐시엔 수학 공식 뜻이
   // 없고, `젓다`(stir) 캐시는 동사가 아니라 **젓가락·숟가락**을 설명한다 — 뒤의 둘은
@@ -157,12 +157,36 @@ const BLANK: Record<string, string> = {
   //    fill 로 적어 두면 아무 일도 일어나지 않고 복사본만 남으므로, 중복이라도
   //    지우려고 blank 로 둔다. 셋 다 캐시 ①② 가 사실상 같은 문장이라 걸린 것이다.
   //    🔑 sense-drops 가 고쳐지면 **fill 로 되돌릴 것** — 안 되돌리면 영영 빈칸이다.
+
+  // ── 문화 2덱 (2026-09-09 시딩) ──
+  // 캐시가 **다른 단어**를 설명한다: 먹=먹다 · 중성=neuter · 어미=어머니·짐승의 꼬리 ·
+  // 언문=캐시는 맞지만 최상위가 ①② 병기본이라 통째로 못 쓴다.
+  // 나머지는 뜻풀이가 **깨졌거나 틀렸다**: 한지="…전통 종이 종이로 만든 물건"(문장 겹침) ·
+  // 음절="소리의 말소리를 한 번에 낼 수 있는 소리의 단위" · 된소리는 예시가 틀렸고
+  // ('아기'의 ㄱ 은 된소리가 아니다) · 거센소리="파찰음과 마찰음 중에서"(파열음이 빠졌다) ·
+  // 초성="**단어**의 첫 음절을 이루는 자음"(단어가 아니라 음절이다) · 소리글자="소리의
+  // **모양**을 본떠 만든 글자"(모양이 아니라 소리를 적는다) · 서예="**한자**를 써서"
+  // (하필 한글 덱에서 한글 서예를 배제한다).
+  'curated-hangul-ko-1': '언문 먹 중성 어미 한지 음절 된소리 거센소리 소리글자 서예 초성',
+  // 저주="악마에게 영혼을 팔아넘기는 행위"는 아예 다른 말이고, 흉가="사람이 살지 않아
+  // 폐가가 된 집"은 흉가의 핵심(흉한 일이 일어난다)이 빠져 폐가와 같은 말이 됐다.
+  // 저승·폐가·호박등은 문장이 겹쳐 깨졌으며("호박 모양으로 만든 등불. 또는 호박처럼
+  // 생긴 등불."), 소름 돋다="몸에 소름이 돋는 것"은 순환 정의다.
+  'curated-horror-ko-1': ['저주', '폐가', '흉가', '저승', '호박등', '소름 돋다'],
 };
 
-function toMap(src: Record<string, string>, value: DefinitionDecision): Map<string, DefinitionDecision> {
+// 값은 공백으로 가른 문자열이거나 **배열**이다. 배열을 받는 이유는 두 어절 표제어
+// 때문이다 — `소름 돋다`·`담력 시험` 처럼 공백이 든 표제어는 문자열로는 적을 수가
+// 없어(둘로 쪼개져 아무 데도 안 맞는다) 판정 자체가 **불가능**했다. ko 출발 덱에만
+// 공백 든 표제어가 68건 있다.
+function toMap(
+  src: Record<string, string | readonly string[]>,
+  value: DefinitionDecision,
+): Map<string, DefinitionDecision> {
   const m = new Map<string, DefinitionDecision>();
   for (const [deckId, terms] of Object.entries(src)) {
-    for (const t of terms.split(' ')) m.set(`${deckId}\t${t}`, value);
+    const list = Array.isArray(terms) ? terms : String(terms).split(' ');
+    for (const t of list) if (t) m.set(`${deckId}\t${t}`, value);
   }
   return m;
 }

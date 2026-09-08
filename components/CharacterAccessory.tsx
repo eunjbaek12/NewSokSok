@@ -1,5 +1,5 @@
 import React from 'react';
-import { G, Path, Ellipse, Circle } from 'react-native-svg';
+import { G, Path, Ellipse, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 import type { CharacterAccessory as AccessoryType } from '@/features/theme';
 
 /**
@@ -51,8 +51,24 @@ export function CharacterAccessoryPaths({ accessory }: { accessory: AccessoryTyp
 function HalloweenCape() {
   return (
     <>
+      {/*
+        천으로 보이게 하는 것은 세 겹이다 — 단색 하나면 평면으로 읽힌다(은정님).
+        ① 세로 그라디언트: 어깨는 빛을 받고 자락 끝으로 갈수록 어둡다. 캐릭터 본체가
+           전부 그라디언트라 망토만 납작하면 더 눈에 띈다.
+        ② 주름: 어깨에서 자락으로 흐르는 «골». 천은 골이 어둡게 보인다.
+        ③ 안쪽 가장자리 그늘: 몸 위에 «얹힌» 두께를 만든다.
+        자락 끝을 뒤집어 주황 안감을 «면»으로 보여주는 안도 그려 봤지만, 접힌 천이 아니라
+        덧댄 띠로 보이고 56px 에서 주황이 과하게 튀어 접었다.
+      */}
+      <Defs>
+        <LinearGradient id="cape_g" x1="0" y1="100" x2="0" y2="212" gradientUnits="userSpaceOnUse">
+          <Stop stopColor="#4E3A73" offset="0" />
+          <Stop stopColor="#3B2A57" offset="0.55" />
+          <Stop stopColor="#281C3F" offset="1" />
+        </LinearGradient>
+      </Defs>
       <CapePanel />
-      {/* 반대쪽 자락 — 중심 125 기준 좌우 대칭 */}
+      {/* 반대쪽 자락 — 중심 125 기준 좌우 대칭. 그라디언트는 세로라 x 반전과 무관하게 공유된다 */}
       <G transform={[{ translateX: 250 }, { scaleX: -1 }]}>
         <CapePanel />
       </G>
@@ -77,8 +93,13 @@ function CapePanel() {
     <>
       <Path
         d="M61 100 C52 104 42 112 38 128 C31 144 27 160 26 176 C24 190 22 199 20 208 Q34 199 48 212 Q64 197 78 213 Q86 201 91 210 C94 172 92 132 78 112 C73 106 67 101 61 100 Z"
-        fill="#3B2A57"
+        fill="url(#cape_g)"
       />
+      {/* 주름 — 어깨에서 자락으로 흐르는 골 */}
+      <Path d="M56 112 C48 140 42 172 38 202" stroke="#241938" strokeWidth={2.4} fill="none" opacity={0.55} strokeLinecap="round" />
+      <Path d="M72 110 C70 142 72 174 74 206" stroke="#241938" strokeWidth={2.4} fill="none" opacity={0.55} strokeLinecap="round" />
+      {/* 안쪽 가장자리 그늘 — 몸 위에 얹힌 두께 */}
+      <Path d="M78 112 C92 132 94 172 91 210" stroke="#1E1531" strokeWidth={3.4} fill="none" opacity={0.5} />
       <Path
         d="M26 176 C24 190 22 199 20 208 Q34 199 48 212 Q64 197 78 213 Q86 201 91 210"
         stroke="#E8873A" strokeWidth={2.6} fill="none" strokeLinejoin="round"

@@ -144,8 +144,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
       accent: '#7FC244',
       text: '#EDE6F2',
     },
-    // ⏭️ 소품은 아직 미정이다(마녀 모자·호박 바구니). 브리프 §9-5.
-    characterAccessory: 'none',
+    characterAccessory: 'halloween-cape',
   },
 };
 

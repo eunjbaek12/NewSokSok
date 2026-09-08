@@ -34,6 +34,13 @@ const ARM_PIVOT_X = 174;
 const ARM_PIVOT_Y = 124;
 
 /**
+ * 팔을 덮는 소품 — 흔들어 봐야 보이지 않으니 애니메이션을 아예 돌리지 않는다.
+ * 「할로윈이면 끈다」가 아니라 「팔을 가리면 끈다」로 두어, 팔을 덮는 소품이 늘어도
+ * 여기 한 줄만 고치면 된다.
+ */
+const ARM_COVERING: readonly AccessoryType[] = ['halloween-cape'];
+
+/**
  * 스킨 액세서리(모자·리본)는 여기서 함께 그린다. 캐릭터가 나오는 자리는 곧 스킨이
  * 드러나야 하는 자리인데, 호출부가 따로 얹는 구조였을 때 홈 세 곳에만 붙어 있었다.
  * 액세서리를 빼고 싶은 자리(온보딩 데모처럼 스킨과 무관한 삽화)만 accessory="none".
@@ -43,6 +50,7 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
   const armRot = useSharedValue(0);
   const [reduceMotion, setReduceMotion] = useState(false);
   const resolvedAccessory = accessory ?? skin.characterAccessory;
+  const armCovered = ARM_COVERING.includes(resolvedAccessory);
 
   useEffect(() => {
     let mounted = true;
@@ -57,7 +65,7 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
   }, []);
 
   useEffect(() => {
-    if (!wave || reduceMotion) return;
+    if (!wave || reduceMotion || armCovered) return;
     armRot.value = withDelay(400, withSequence(
       withTiming(-22, { duration: 200 }),
       withTiming(-6,  { duration: 160 }),
@@ -67,7 +75,7 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
       withTiming(0,   { duration: 220 }),
     ));
     return () => cancelAnimation(armRot);
-  }, [wave, reduceMotion, armRot]);
+  }, [wave, reduceMotion, armCovered, armRot]);
 
   const armProps = useAnimatedProps(() => ({
     transform: [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { G, Path, Ellipse } from 'react-native-svg';
+import { G, Path, Ellipse, Circle } from 'react-native-svg';
 import type { CharacterAccessory as AccessoryType } from '@/features/theme';
 
 /**
@@ -24,8 +24,66 @@ export function CharacterAccessoryPaths({ accessory }: { accessory: AccessoryTyp
       {accessory === 'ocean-hat' && <OceanHat />}
       {accessory === 'autumn-leaf' && <AutumnLeaf />}
       {accessory === 'hangul-gat' && <HangulGat />}
+      {accessory === 'halloween-cape' && <HalloweenCape />}
       {accessory === 'lab-goggles' && <LabGoggles />}
     </G>
+  );
+}
+
+/**
+ * 박쥐 망토 + 박쥐 목걸이 — 할로윈. 치수는 전부 실측에서 왔다.
+ *
+ * 🔴 **팔은 하나도 나오면 안 된다**(은정님). 팔은 몸통 밖으로 24 튀어나온 지느러미라
+ *    (x33~56 · y116~176) 망토가 몸통보다 넓어야 하는데, 여유를 크게 주면 캐릭터가
+ *    옷에 파묻힌다. 팔 끝이 가장 바깥인 지점이 x35 이므로 망토는 **x26 — 팔 끝에서 +9**.
+ *    +29 로 그렸을 땐 «옷이 이상하게 크다», +3~5 면 «망토»가 아니라 «어깨걸이»가 됐다.
+ *    가려졌는지는 눈이 아니라 팔 자리의 초록 픽셀로 판정했다(1683 → 0).
+ *
+ * 🔴 **상단은 몸통 경계에 «접해서» 시작한다**(y100 에서 x61). 그 안쪽에서 시작하면
+ *    몸통이 망토 위로 삐져나와 «안에 받쳐 입은 것»으로 보인다.
+ *    이 캐릭터에는 목이 없고 볼이 얼굴 옆 아래까지 내려와, «어깨 위»로 쓸 수 있는 자리는
+ *    몸통 경계(x61)와 볼(x75~97) 사이 **폭 16 짜리 띠**뿐이다.
+ *
+ * 🔴 **어깨를 가로지르는 여밈 띠는 못 쓴다** — 그 높이(y104~110)가 바로 눈이다.
+ *    목걸이가 아래에서 여밈 역할을 하고, 줄은 **망토 사이에서만** 보인다(망토 위로 길게
+ *    지나가면 가로선이 그어져 «수염»처럼 보였다).
+ */
+function HalloweenCape() {
+  return (
+    <>
+      <CapePanel />
+      {/* 반대쪽 자락 — 중심 125 기준 좌우 대칭 */}
+      <G transform={[{ translateX: 250 }, { scaleX: -1 }]}>
+        <CapePanel />
+      </G>
+
+      {/* 목걸이 줄 */}
+      <Path d="M93 138 Q125 156 157 138" stroke="#6B5A8C" strokeWidth={2.6} fill="none" />
+      {/* 박쥐 펜던트 — y156 위에 머문다. 씨앗 한가운데(y165)를 가로지르면 씨앗이 반 잘려 보인다 */}
+      <Path d="M120.2 147.4 L107.4 141 L110.6 148.2 L100.2 145.8 L105.8 153.8 L114.6 154.6 L120.2 153 Z" fill="#2E2140" />
+      <Path d="M129.8 147.4 L142.6 141 L139.4 148.2 L149.8 145.8 L144.2 153.8 L135.4 154.6 L129.8 153 Z" fill="#2E2140" />
+      <Path d="M122.2 137.8 L123.8 143.8 L120.6 143 Z" fill="#2E2140" />
+      <Path d="M127.8 137.8 L126.2 143.8 L129.4 143 Z" fill="#2E2140" />
+      <Path d="M125 144.2 C121.8 144.2 120.2 147.4 120.2 151.4 C120.2 155.4 122.6 158.6 125 160.2 C127.4 158.6 129.8 155.4 129.8 151.4 C129.8 147.4 128.2 144.2 125 144.2 Z" fill="#2E2140" />
+      <Circle cx={123.24} cy={148.2} r={1.2} fill="#E8873A" />
+      <Circle cx={126.76} cy={148.2} r={1.2} fill="#E8873A" />
+    </>
+  );
+}
+
+/** 망토 자락 하나. 아래 끝은 위로 오목한 호 셋 — 주황 테두리가 박쥐 날개로 읽힌다. */
+function CapePanel() {
+  return (
+    <>
+      <Path
+        d="M61 100 C52 104 42 112 38 128 C31 144 27 160 26 176 C24 190 22 199 20 208 Q34 199 48 212 Q64 197 78 213 Q86 201 91 210 C94 172 92 132 78 112 C73 106 67 101 61 100 Z"
+        fill="#3B2A57"
+      />
+      <Path
+        d="M26 176 C24 190 22 199 20 208 Q34 199 48 212 Q64 197 78 213 Q86 201 91 210"
+        stroke="#E8873A" strokeWidth={2.6} fill="none" strokeLinejoin="round"
+      />
+    </>
   );
 }
 

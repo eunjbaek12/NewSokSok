@@ -211,9 +211,13 @@ export function romanizeCandidates(hangul: string): string[] {
 
   // 표제어는 거의 한 어절이므로 그때는 후보를 전부 쓰고, 여러 어절이면 후보가
   // 곱으로 불어나는 걸 막아 격음화 on/off 두 갈래만 이어 붙인다.
+  // 🔑 이을 때는 **공백을 살린다.** 판정은 normalizeRomaja 가 공백을 지우고 하므로
+  //    검사 결과는 달라지지 않지만, fix-romaja 는 이 값을 카드에 그대로 써 넣는다.
+  //    덱의 관행은 어절을 띄는 쪽이고(공백 있는 표제어 68건 전부: "명복을 빌다" →
+  //    myeongbogeul bilda), 붙여 쓰면 교정이 관행을 깨뜨린다.
   const base = perWord.length === 1
     ? [...new Set(perWord[0]!)]
-    : [...new Set([perWord.map(w => w![0]).join(''), perWord.map(w => w![1]).join('')])];
+    : [...new Set([perWord.map(w => w![0]).join(' '), perWord.map(w => w![1]).join(' ')])];
   // 같은 자음이 셋 이상 겹치는 자리(색깔 saek+kkal = saekkkal)는 표기 관행이 갈린다.
   // 규정 논리로는 겹쳐 적는 쪽이 맞지만 축약형도 흔히 쓰이므로 둘 다 후보로 둔다.
   return [...new Set(base.flatMap(c => [c, c.replace(/([a-z])\1{2,}/g, '$1$1')]))];

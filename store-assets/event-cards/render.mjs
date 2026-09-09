@@ -78,6 +78,34 @@ const EVENTS = {
   },
 };
 
+/**
+ * 이벤트 ① Major Update 는 실체가 **1.7.0 의 새 기능**이라 덱과 다르다. 스킨 3종을
+ * 나란히 세우는 것이 「10월엔 계절을 따라 옷을 갈아입는다」를 그대로 보여 준다.
+ * 🔑 글자가 하나도 없어 **한국·미국을 한 벌로 덮는다** — 덱 이벤트가 한국에서 못 서는
+ *    이유(뜻 언어 필터)가 여기엔 걸리지 않는다.
+ */
+const SKINS_TRIO = [
+  { art: webp('assets/images/skin-autumn-bg.webp'), bg: '#F7E9D7', chip: '#A8442A' },
+  { art: webp('assets/images/skin-hanok-bg.webp'), bg: '#F4EFE3', chip: '#1F5C8C' },
+  { art: webp('assets/images/skin-halloween-bg.webp'), bg: '#191327', chip: '#E8873A' },
+];
+
+const layoutSkins = (w, h) => {
+  const wide = w > h;
+  const panes = SKINS_TRIO.map((sk, i) => `
+    <div style="position:relative;flex:1;background:${sk.bg};overflow:hidden">
+      <div style="position:absolute;inset:0;background-image:url('${sk.art}');
+                  background-size:cover;background-position:center ${i === 2 ? 'top' : '38%'}"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:${wide ? 10 : 14}px;background:${sk.chip}"></div>
+    </div>`).join('');
+  return `
+<div class="stage" style="width:${w}px;height:${h}px">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:${wide ? 'row' : 'column'}">${panes}</div>
+  <img src="${CHARACTER}" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+       width:${wide ? 380 : 460}px;filter:drop-shadow(0 26px 46px rgba(0,0,0,.35))">
+</div>`;
+};
+
 const css = (e) => `
 @font-face { font-family: 'Gowun'; src: url('${FONTS.gowunRegular}'); font-weight: 400; }
 @font-face { font-family: 'Gowun'; src: url('${FONTS.gowunBold}'); font-weight: 700; }
@@ -251,6 +279,7 @@ const LAYOUTS = {
   'D-55': (e, w, h) => layoutD(e, w, h, 0.55),
   'D-100': (e, w, h) => layoutD(e, w, h, 1),
   final: layoutFinal,
+  skins: (e, w, h) => layoutSkins(w, h),
 };
 
 // `--final` 이면 확정본만 뽑고 파일 이름에서 안 표시를 뺀다.
@@ -263,12 +292,18 @@ let made = 0;
 for (const [id, e] of Object.entries(EVENTS)) {
   if (ONLY && ONLY !== id) continue;
   for (const [variant, layout] of Object.entries(LAYOUTS)) {
-    if (FINAL_ONLY !== (variant === 'final')) continue;
+    // 확정본은 둘이다 — 덱 이벤트(final)와 ① Major Update(skins).
+    const isFinalVariant = variant === 'final' || variant === 'skins';
+    if (FINAL_ONLY !== isFinalVariant) continue;
+    // ① 은 이벤트 하나뿐이라 덱마다 다시 그리지 않는다.
+    if (variant === 'skins' && id !== 'hangul') continue;
     for (const [ratio, [w, h]] of Object.entries(SIZES)) {
       const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
       await page.setContent(`<style>${css(e)}</style>${layout(e, w, h)}`, { waitUntil: 'load' });
       await page.evaluate(() => document.fonts.ready);
-      const file = `${OUT}/${id}-${FINAL_ONLY ? ratio : `${variant}-${ratio}`}.png`;
+      const name = !FINAL_ONLY ? `${id}-${variant}-${ratio}`
+        : variant === 'skins' ? `major-${ratio}` : `${id}-${ratio}`;
+      const file = `${OUT}/${name}.png`;
       await page.screenshot({ path: file });
       await page.close();
       console.log(`✅ ${file}`);

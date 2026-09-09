@@ -66,6 +66,15 @@ const CHARACTER = svg('assets/images/Avocado-main character.svg');
  *    300~430px 라 세 겹(그라디언트·주름·안쪽 그늘)이 전부 제 몫을 한다. 같은 그림이 두 크기에서
  *    다르게 읽히는 자리다 — 앱 쪽 값을 여기 보기 좋으라고 바꾸면 56dp 가 망가진다.
  */
+/**
+ * 아보카도는 viewBox 한가운데(125)가 아니라 **x=113.4** 에 서 있다(두 눈 90.09·136.7 의 중점).
+ * 소품은 읽기 쉽게 125 기준으로 그려 두고 그 차이만큼 통째로 민다 — 앱의 `ACCESSORY_CENTER_OFFSET_X`.
+ * 보정이 없으면 소품이 오른쪽으로 튀어나온다.
+ */
+const ACCESSORY_OFFSET_X = 113.4 - 125;
+/** 좌표는 소수 한 자리로 — `113.4 - 125` 는 -11.599999999999994 로 떨어진다(실측). */
+const f1 = (n) => n.toFixed(1);
+
 const capePanel = `
   <path d="M61 100 C52 104 42 112 38 128 C31 144 27 160 26 176 C24 190 22 199 20 208 Q36 191 50 214 Q66 190 80 216 Q88 199 93 212 C96 172 92 132 78 112 C73 106 67 101 61 100 Z" fill="url(#cape_g)"/>
   <path d="M56 112 C48 140 42 172 38 202" stroke="#241938" stroke-width="2.4" fill="none" opacity="0.55" stroke-linecap="round"/>
@@ -82,9 +91,7 @@ const HALLOWEEN_CAPE = `
     <stop stop-color="#281C3F" offset="1"/>
   </linearGradient>
 </defs>
-<!-- 아보카도는 viewBox 한가운데(125)가 아니라 x=113.4 에 서 있다(두 눈 90.09·136.7 의 중점).
-     소품은 읽기 쉽게 125 기준으로 그려 두고 그 차이만큼 통째로 민다 — 앱의 ACCESSORY_CENTER_OFFSET_X. -->
-<g transform="translate(-11.6 0)">
+<g transform="translate(${f1(ACCESSORY_OFFSET_X)} 0)">
   ${capePanel}
   <g transform="translate(250 0) scale(-1 1)">${capePanel}</g>
   <path d="M93 138 Q125 156 157 138" stroke="#6B5A8C" stroke-width="2.6" fill="none"/>
@@ -108,6 +115,92 @@ const wearing = (accessory) =>
   Buffer.from(CHARACTER_SVG.replace('</svg>', `${accessory}\n</svg>`), 'utf8').toString('base64');
 const CHARACTER_CAPED = wearing(HALLOWEEN_CAPE);
 
+/**
+ * 한글 갓(흑립) — `components/CharacterAccessory.tsx` 의 `HangulGat` 에서 옮겼다.
+ * 망토와 달리 경로가 상수가 아니라 `GAT` 표에서 **계산된다.** 값을 미리 풀어 붙이지 않고
+ * 산식째 옮기는 이유: 이 표가 뜻하는 두 비율이 숫자 뭉치 뒤로 사라지면, 나중에 챙만 깎여도
+ * 아무도 눈치채지 못한다(앱에서 두 번 그렇게 «중절모»가 됐다).
+ *
+ *   A = 대우 높이 / 대우 지름 = 0.90   원기둥이 얼마나 높은가
+ *   B = 양태 지름 / 대우 지름 = 2.52   챙이 얼마나 넓은가 ← **갓의 정체는 B 다**
+ *
+ * 🔴 **갓끈은 일부러 뺐다**(은정님 결정, 9/9). 앱에는 있다.
+ *    앱이 서는 56dp 에서 갓끈은 굵기 **1.1dp** 짜리 턱 밑 그늘이라 «선»으로 안 읽힌다.
+ *    이 카드에서는 캐릭터가 430px 라 같은 선이 **8.6px** 로 그어져, 「턱끈」이 아니라 얼굴을
+ *    가로지르는 「가로줄」이 된다.
+ *    ⚠️ **검은 면적 때문이 아니다.** 갓끈은 갓 전체 잉크의 12% 뿐이라 빼도 그 문제는 안 풀린다
+ *    (갓+끈이 카드의 모든 글자보다 1.27배, 끈을 빼도 1.12배). 뺀 이유는 오직 **얼굴**이다.
+ * 🔑 그러므로 이건 «앱과 다르게 그린 것»이 아니라 **앱에서 실제로 보이는 것에 맞춘 것**이다.
+ *    망토와 같은 이야기의 반대쪽 면이다 — 망토는 56dp 에서 죽던 주름 세 겹이 여기서 살아났고,
+ *    갓끈은 56dp 에서 안 보이던 선이 여기서 튀어나온다. 같은 그림을 두 크기로 쓰면 어느
+ *    쪽으로든 갈리므로, **옮길 때마다 두 크기를 다 보고 판단해야 한다.**
+ */
+const GAT = {
+  brimY: 68,    // 양태가 놓이는 줄
+  topY: 2,      // 대우 꼭대기 — 잎(y9~37)을 덮으려면 여기까지
+  baseHW: 37,   // 대우 밑 반폭 = 챙 윗머리(y52.7)의 몸통 반폭
+  topHW: 39.5,  // 대우 위 반폭 — 18세기 후반부터 «대우 밑 둘레가 줄어» 위가 넓다
+  brimR: 93,    // 양태 반지름
+  per: 0.165,   // 원근 — 타원의 ry/rx
+};
+const GAT_BRIM_RY = GAT.brimR * GAT.per;
+const GAT_BASE_RY = GAT.baseHW * GAT.per;
+const GAT_TOP_RY = GAT.topHW * GAT.per * 1.3;   // 내려다보므로 조금 더 열린다
+const GAT_TOP_Y = GAT.topY + GAT_TOP_RY;
+const GAT_K = 1.33;                              // 반타원을 3차 곡선으로 근사
+
+// 대우(총모자). 🔴 밑을 직선으로 끊으면 원기둥이 아니라 사다리꼴 판이 된다 —
+// 원기둥의 밑면은 화면에서 아래로 볼록한 타원 호다.
+const GAT_CROWN =
+  `M${125 - GAT.baseHW} ${GAT.brimY}` +
+  `L${125 - GAT.topHW} ${f1(GAT_TOP_Y)}` +
+  `C${125 - GAT.topHW} ${f1(GAT_TOP_Y - GAT_TOP_RY * GAT_K)},` +
+  ` ${125 + GAT.topHW} ${f1(GAT_TOP_Y - GAT_TOP_RY * GAT_K)},` +
+  ` ${125 + GAT.topHW} ${f1(GAT_TOP_Y)}` +
+  `L${125 + GAT.baseHW} ${GAT.brimY}` +
+  `C${125 + GAT.baseHW} ${f1(GAT.brimY + GAT_BASE_RY * GAT_K)},` +
+  ` ${125 - GAT.baseHW} ${f1(GAT.brimY + GAT_BASE_RY * GAT_K)},` +
+  ` ${125 - GAT.baseHW} ${GAT.brimY}Z`;
+
+// 양태의 죽사 짜임 — 방사형 살. 타원 위의 점을 각도로 구하므로 clip 이 필요 없다.
+const GAT_SPOKES = Array.from({ length: 44 }, (_, i) => {
+  const a = (Math.PI * 2 * i) / 44;
+  const c = Math.cos(a);
+  const s = Math.sin(a);
+  return `M${f1(125 + GAT.baseHW * c)} ${f1(GAT.brimY + GAT_BASE_RY * s)}` +
+         `L${f1(125 + GAT.brimR * c)} ${f1(GAT.brimY + GAT_BRIM_RY * s)}`;
+}).join('');
+
+// 대우의 말총 결 — 세로. 위가 벌어지므로 살도 벌어진다.
+const GAT_MANE = Array.from({ length: 13 }, (_, i) => {
+  const t = (i / 12) * 2 - 1;
+  const yb = GAT.brimY + GAT_BASE_RY * Math.sqrt(Math.max(0, 1 - t * t)) * 0.9;
+  return `M${f1(125 + t * GAT.topHW * 0.97)} ${f1(GAT_TOP_Y)}` +
+         `L${f1(125 + t * GAT.baseHW * 0.97)} ${f1(yb)}`;
+}).join('');
+
+// 양태의 동심원 — 죽사를 둘러 짠 자국
+const GAT_RINGS = [1, 2, 3].map((k) => GAT.baseHW + ((GAT.brimR - GAT.baseHW) * k) / 4);
+
+/**
+ * 🔴 **그리는 순서가 곧 앞뒤 관계다.** 대우가 양태 «위에» 서 있으므로 양태를 먼저 깔고 그
+ *    위에 대우를 얹어야 챙의 먼 쪽이 대우 뒤로 들어간다. 반대로 그리면 원반에 상자를 꽂은 꼴이다.
+ */
+const HANGUL_GAT = `
+<g transform="translate(${f1(ACCESSORY_OFFSET_X)} 0)">
+  <ellipse cx="125" cy="${GAT.brimY + 4}" rx="${GAT.brimR}" ry="${f1(GAT_BRIM_RY)}" fill="#1A1A1E" opacity="0.22"/>
+  <ellipse cx="125" cy="${GAT.brimY}" rx="${GAT.brimR}" ry="${f1(GAT_BRIM_RY)}" fill="#23232B"/>
+  <path d="${GAT_SPOKES}" stroke="#5A5A66" stroke-width="0.8" opacity="0.26" fill="none"/>
+  ${GAT_RINGS.map((r) => `<ellipse cx="125" cy="${GAT.brimY}" rx="${f1(r)}" ry="${f1(r * GAT.per)}" fill="none" stroke="#5A5A66" stroke-width="0.9" opacity="0.3"/>`).join('\n  ')}
+  <ellipse cx="125" cy="${GAT.brimY}" rx="${GAT.brimR}" ry="${f1(GAT_BRIM_RY)}" fill="none" stroke="#43434E" stroke-width="1.5"/>
+  <path d="${GAT_CROWN}" fill="#23232B"/>
+  <path d="${GAT_MANE}" stroke="#5A5A66" stroke-width="0.9" opacity="0.34" fill="none"/>
+  <ellipse cx="125" cy="${f1(GAT_TOP_Y)}" rx="${GAT.topHW}" ry="${f1(GAT_TOP_RY)}" fill="#30303A"/>
+  <ellipse cx="125" cy="${f1(GAT_TOP_Y)}" rx="${GAT.topHW}" ry="${f1(GAT_TOP_RY)}" fill="none" stroke="#43434E" stroke-width="1"/>
+</g>`;
+
+const CHARACTER_GAT = wearing(HANGUL_GAT);
+
 /** 이벤트가 소품을 지정했으면 그 캐릭터를, 아니면 맨몸 기본 캐릭터를 쓴다. */
 const chr = (e) => e.character ?? CHARACTER;
 
@@ -115,6 +208,7 @@ const chr = (e) => e.character ?? CHARACTER;
 const EVENTS = {
   hangul: {
     art: webp('assets/images/skin-hanok-bg.webp'),
+    character: CHARACTER_GAT,
     bg: '#F4EFE3', surface: '#FCF9F2', border: '#DDD2BE',
     surfaceRgb: '252,249,242', borderRgb: '221,210,190',
     text: '#22201C', sub: '#4A443A', accent: '#1F5C8C',

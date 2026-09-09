@@ -3,6 +3,8 @@
 10월 인앱 이벤트 ②(한글날)·③(할로윈)에 올릴 이미지. 규격·일정·이벤트 자체의 판단 근거는
 [`store-assets/featuring-nomination.md`](../featuring-nomination.md) §10 에 있다.
 
+**등록할 문구(이름·짧은 설명·긴 설명)는 [`event-copy.md`](./event-copy.md) 에 붙여넣기용으로 있다.**
+
 ## 왜 필요한가
 
 이벤트 **등록에 필수**다. 이미지 없이는 App Store Connect 에서 이벤트를 만들 수 없다.

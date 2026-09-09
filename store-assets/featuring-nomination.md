@@ -192,10 +192,18 @@ AI는 과하지 않게, 쓸모 있게 녹였습니다. 단어 하나만 넣으�
 오프라인 우선, 프라이버시 존중(광고는 비로그인·무료 사용자에게만, ATT 준수, 권한은 그 기능을 쓰는 순간에만), Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
 ```
 
-### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,820 chars)
+### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,911 chars)
+
+> 🔴 **덱 이름을 고쳐 넣었다(9/9).** 이 문단은 `e556764`(9/3 전면 개정)에서 쓰였고 「순우리말 한정 덱」을
+> 약속했는데, 실제 덱은 그 **뒤에** `curated-hangul-ko-1` 「Hangul: King Sejong's Alphabet 50」 으로
+> 정해졌다(`97372d7`). 서버에 순우리말 덱은 **없다**(공개된 ko>en 덱 23개 전수 조회, 0건).
+> 계획이 바뀌었는데 이 문단만 안 따라온 것이다 — 에디터가 한글날에 앱을 열면 약속된 덱을 못 찾는다.
+> ⚠️ **「goes live for the week」도 함께 뺐다.** 그 덱은 9/9 에 공개해 **상시로 서 있다**(§10 의 10/1
+> 공개 결정과 인앱 이벤트 ② 심사 대응). 「이 주에 새로 생긴다」로 쓰면 에디터가 지금 앱을 열어 보는
+> 순간 반증된다 — §10 이 정해 둔 안전한 틀은 **「한글날에 맞춰 고른 덱」**이다.
 
 ```
-This update lands eight days before Hangul Day (October 9), the Korean national holiday celebrating the invention of the Korean alphabet — and we built for it. A new Hangul skin dresses the app in hanji paper and ink, and a limited-time deck of native Korean words (순우리말 — words with no Chinese roots) goes live for the week.
+This update lands eight days before Hangul Day (October 9), the Korean national holiday celebrating the invention of the Korean alphabet — and we built for it. A new Hangul skin dresses the app in hanji paper and ink, and a Hangul Day deck is already live: the alphabet King Sejong made in 1446, and the grammar words a Korean class actually uses — 훈민정음, 집현전, 받침, 조사, 존댓말. Fifty words, each with a spoken example.
 
 The headline feature is Finish Cards. When you memorize every word in a deck, the app makes a card of that moment and lets you share it. "I finished" is the rarest moment in a vocabulary app, and it always bothered us that ours let it pass in silence.
 
@@ -248,7 +256,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 | ✅ | **Localization** | UI 3개 언어 · 학습 6개 언어 · 스토어 7개 로케일 |
 | ✅ | **Camera / Photo** | 사진 스캔으로 단어 추출 |
 | ✅ | **Haptic Feedback** | 39개 화면·컴포넌트에 촘촘히 적용 |
-| ✅ | **VoiceOver** | 아이콘 전용 버튼 109 개 전체에 이름과 역할. 실기 5 화면 덤프로 "읽을 수 없는 버튼 0" 확인(2026-09-03) |
+| ✅ | **VoiceOver** | 아이콘 전용 버튼 109 개 전체에 이름과 역할. 실기 5 화면 덤프로 "읽을 수 없는 버튼 0" 확인(2026-09-03) · **10/1 부터 라이브**(현재 라이브 1.6.2 에는 없다 — §6) |
 | ❌ | **Dynamic Type** | **체크하지 말 것.** 표준 크기(1.3×)는 통과하나 손쉬운 사용 크기(1.8×)에서 학습 카드·예문 카드가 깨진다. §6 참조 |
 | ❌ | WidgetKit / Lock Screen 위젯 / Live Activities | 미구현(Mac 부재) — 체크하지 말 것 |
 | ❌ | iCloud / CloudKit | 클라우드는 Supabase 사용(iCloud 아님) |

@@ -331,6 +331,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  halloween: {
+    id: 'curated-halloween-en-1',
+    title: '할로윈 영어 50',
+    icon: '🎃',
+    category: '문화',
+    level: 'beginner',
+    description: "할로윈에 쓰는 영어 50 — trick or treat, jack-o'-lantern, costume, spooky, goosebumps, cast a spell 부터 skeleton in the closet 같은 관용구까지. 풍습·괴물·마법·공포·밤·관용 여섯 갈래. 영어→한국어; 뜻·한글 발음·예문 AI 생성.",
+    tags: ['English', 'Halloween', 'Culture'],
+    sourceLanguage: 'en',
+    targetLanguage: 'ko',
+  },
   mzslang: {
     id: 'curated-mzslang-en-1',
     title: '미국 MZ·Z세대 슬랭 100',

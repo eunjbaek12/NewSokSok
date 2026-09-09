@@ -477,10 +477,11 @@ describe('지어낸 뜻 제외(dropSenses)', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { dropCounts, dropCountsByLang, droppedSenses } = require('../scripts/lib/sense-drops');
     // 2026-09-03: 주제·상황 7덱 시딩 검증에서 ko>en 10항목·12뜻이 더해졌다.
-    // 2026-09-09: 문화 2덱에서 ko>en 10항목·12뜻이 더 붙었다(굿 ②=영어 good 등).
-    expect(dropCounts()).toEqual({ terms: 1380, senses: 1574 });
+    // 2026-09-09: 문화 2덱에서 ko>en 10항목·12뜻이 더 붙었고, 한국 스토어용 「할로윈 영어 50」
+    // 에서 en>ko 2항목·3뜻이 더 붙었다(tombstone ②=없는 과자 · witch ①③=뜻 배정 오류와 비하).
+    expect(dropCounts()).toEqual({ terms: 1382, senses: 1577 });
     // 여섯 출발어를 모두 덮는다 — ko 만 있던 때로 되돌아가면 여기서 걸린다.
-    expect(dropCountsByLang()).toEqual({ ko: 954, zh: 202, ja: 186, vi: 117, en: 110, es: 5 });
+    expect(dropCountsByLang()).toEqual({ ko: 954, zh: 202, ja: 186, vi: 117, en: 113, es: 5 });
     expect(droppedSenses('ko', 'en', '잘되다')).toEqual([2]);  // "to fail" — 정반대 뜻
     // 🔴 병기는 카드 **앞면**까지 올라간다 — 초급 덱에 실을 수 없는 뜻을 사람이 뺐다.
     expect(droppedSenses('ko', 'en', '고추')).toEqual([2]);   // ② 유아어·속어

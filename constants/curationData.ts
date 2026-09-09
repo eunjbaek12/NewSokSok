@@ -2,6 +2,871 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-halloween-en-1",
+    "title": "할로윈 영어 50",
+    "icon": "🎃",
+    "isCurated": true,
+    "category": "문화",
+    "level": "beginner",
+    "description": "할로윈에 쓰는 영어 50 — trick or treat, jack-o'-lantern, costume, spooky, goosebumps, cast a spell 부터 skeleton in the closet 같은 관용구까지. 풍습·괴물·마법·공포·밤·관용 여섯 갈래. 영어→한국어; 뜻·한글 발음·예문 AI 생성.",
+    "sourceLanguage": "en",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1788936411379,
+    "words": [
+      {
+        "id": "word-halloween-0-1788936411379",
+        "term": "Halloween",
+        "definition": "the October 31 holiday of costumes, pumpkins and candy",
+        "meaningKr": "할로윈 (10월 31일의 축제)",
+        "exampleEn": "What are you planning to do for Halloween this year?",
+        "exampleKr": "올해 할로윈에 뭐 할 계획이야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "할로윈",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-1-1788936411379",
+        "term": "trick or treat",
+        "definition": "what children shout at a door to ask for candy on Halloween",
+        "meaningKr": "과자 안 주면 장난칠 거예요",
+        "exampleEn": "The kids ran around the neighborhood shouting trick or treat.",
+        "exampleKr": "아이들이 과자 안 주면 장난친다고 외치며 동네를 돌아다녔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "트릭 오어 트릿",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-halloween-2-1788936411379",
+        "term": "costume",
+        "definition": "an outfit worn to look like someone or something else",
+        "meaningKr": "의상, 분장 복장",
+        "exampleEn": "Have you decided what costume to wear to the party?",
+        "exampleKr": "파티에 어떤 코스튬을 입고 갈지 정했어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "코스튬",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-3-1788936411379",
+        "term": "dress up",
+        "definition": "to put on a costume; to dress as a character",
+        "meaningKr": "가장하다, 분장하다",
+        "exampleEn": "All the kids love to dress up as their favorite superheroes.",
+        "exampleKr": "아이들은 모두 좋아하는 슈퍼히어로로 분장하는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "드레스 업",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-4-1788936411379",
+        "term": "jack-o'-lantern",
+        "definition": "a pumpkin with a face cut into it and a light inside",
+        "meaningKr": "호박등",
+        "exampleEn": "We carved a smiling face on our jack-o'-lantern for the porch.",
+        "exampleKr": "현관에 두려고 잭오랜턴에 웃는 얼굴을 새겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "잭오랜턴",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-5-1788936411379",
+        "term": "carve",
+        "definition": "to cut a shape into something, as with a pumpkin",
+        "meaningKr": "새기다, 조각하다",
+        "exampleEn": "My dad helped me carve the pumpkin into a funny face.",
+        "exampleKr": "아빠가 호박에 재미있는 얼굴을 새기는 것을 도와주셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "카브",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-6-1788936411379",
+        "term": "haunted house",
+        "definition": "a house where ghosts are said to appear; also the attraction",
+        "meaningKr": "유령의 집",
+        "exampleEn": "Walking through the haunted house at the fair was so thrilling.",
+        "exampleKr": "축제에서 유령의 집을 통과하는 것은 정말 스릴 넘쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "혼티드 하우스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-7-1788936411379",
+        "term": "prank",
+        "definition": "a playful trick played on someone",
+        "meaningKr": "장난",
+        "exampleEn": "My brother played a funny prank on me by hiding behind the door.",
+        "exampleKr": "남동생이 문 뒤에 숨어서 나에게 재미있는 장난을 쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "프랭크",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-8-1788936411379",
+        "term": "candy",
+        "definition": "sweets handed out to children on Halloween",
+        "meaningKr": "사탕, 과자",
+        "exampleEn": "We bought two big bags of candy to give out to the kids.",
+        "exampleKr": "아이들에게 나눠주려고 사탕 두 큰 봉지를 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "캔디",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-9-1788936411379",
+        "term": "decorate",
+        "definition": "to put up decorations, e.g. for a holiday",
+        "meaningKr": "꾸미다, 장식하다",
+        "exampleEn": "Let us decorate the living room with paper bats and pumpkins.",
+        "exampleKr": "종이 박쥐와 호박으로 거실을 예쁘게 꾸미자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "데코레이트",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-10-1788936411379",
+        "term": "ghost",
+        "definition": "the spirit of a dead person (not the slang 'to ghost someone')",
+        "meaningKr": "유령, 혼령",
+        "exampleEn": "The little boy wore a white sheet to look like a friendly ghost.",
+        "exampleKr": "꼬마 아이가 친근한 유령처럼 보이려고 하얀 시트를 입었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "고스트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-11-1788936411379",
+        "term": "witch",
+        "definition": "a woman with magic powers, in a pointed hat",
+        "meaningKr": "마녀",
+        "exampleEn": "She wore a tall pointed hat and carried a broomstick as a witch.",
+        "exampleKr": "그녀는 뾰족한 모자를 쓰고 빗자루를 든 마녀로 분장했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "위치",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-12-1788936411379",
+        "term": "vampire",
+        "definition": "an undead creature that drinks blood",
+        "meaningKr": "뱀파이어, 흡혈귀",
+        "exampleEn": "He wore a black cape and fake plastic fangs to be a vampire.",
+        "exampleKr": "그는 뱀파이어가 되려고 검은 망토와 가짜 플라스틱 송곳니를 착용했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "뱀파이어",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-13-1788936411379",
+        "term": "zombie",
+        "definition": "a walking corpse",
+        "meaningKr": "좀비",
+        "exampleEn": "Several teenagers walked down the street dressed up as funny zombies.",
+        "exampleKr": "몇몇 청소년들이 재미있는 좀비로 분장하고 거리를 걸어 내려갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "좀비",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-14-1788936411379",
+        "term": "werewolf",
+        "definition": "a person who turns into a wolf under a full moon",
+        "meaningKr": "늑대인간",
+        "exampleEn": "The costume shop had a realistic werewolf mask with gray fur.",
+        "exampleKr": "코스튬 가게에는 회색 털이 달린 사실적인 늑대인간 가면이 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "웨어울프",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-15-1788936411379",
+        "term": "skeleton",
+        "definition": "the bones of a body, a Halloween decoration",
+        "meaningKr": "해골, 뼈대",
+        "exampleEn": "We hung a plastic skeleton on the front porch for decoration.",
+        "exampleKr": "장식용으로 현관 앞에 플라스틱 해골을 걸어두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스켈레톤",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-16-1788936411379",
+        "term": "mummy",
+        "definition": "a preserved body wrapped in cloth",
+        "meaningKr": "미라",
+        "exampleEn": "He wrapped himself in white gauze bandages to look like a mummy.",
+        "exampleKr": "그는 미라처럼 보이려고 하얀 거즈 붕대로 자신을 감쌌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "머미",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-17-1788936411379",
+        "term": "monster",
+        "definition": "a frightening imaginary creature",
+        "meaningKr": "괴물",
+        "exampleEn": "The cartoon featured a fluffy purple monster who loved eating sweets.",
+        "exampleKr": "그 만화에는 단 것을 아주 좋아하는 털이 보송보송한 보라색 괴물이 나왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "몬스터",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-18-1788936411379",
+        "term": "black cat",
+        "definition": "a cat taken as a sign of bad luck in Western superstition",
+        "meaningKr": "검은 고양이",
+        "exampleEn": "A cute paper black cat was taped to the front window.",
+        "exampleKr": "귀여운 종이 검은 고양이가 앞 창문에 테이프로 붙어 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "블랙 캣",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-19-1788936411379",
+        "term": "bat",
+        "definition": "the flying animal of caves and Halloween decorations, not the baseball bat",
+        "meaningKr": "박쥐",
+        "exampleEn": "Paper bats fluttered from the ceiling to set a spooky mood.",
+        "exampleKr": "오싹한 분위기를 내려고 종이 박쥐들이 천장에서 너풀거렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "뱃",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-20-1788936411379",
+        "term": "spell",
+        "definition": "words spoken to work magic",
+        "meaningKr": "마법, 주문",
+        "exampleEn": "The friendly witch read a funny spell from her big book.",
+        "exampleKr": "친근한 마녀가 커다란 책에서 재미있는 주문을 읽었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스펠",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-21-1788936411379",
+        "term": "cast a spell",
+        "definition": "to perform magic on someone or something",
+        "meaningKr": "마법을 걸다, 주문을 외우다",
+        "exampleEn": "The fairy godmother raised her wand to cast a spell on the flowers.",
+        "exampleKr": "요정 대모가 꽃에 마법을 걸려고 요술봉을 들어 올렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "캐스트 어 스펠",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-halloween-22-1788936411379",
+        "term": "curse",
+        "definition": "magic meant to bring harm to someone",
+        "meaningKr": "저주",
+        "exampleEn": "In the story, a silly old curse made the toys come alive.",
+        "exampleKr": "이야기 속에서 엉뚱한 옛날 저주 때문에 장난감들이 살아 움직였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "커스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-23-1788936411379",
+        "term": "potion",
+        "definition": "a magic drink",
+        "meaningKr": "마법의 물약",
+        "exampleEn": "The kids mixed fruit juice in a cup pretending it was a magic potion.",
+        "exampleKr": "아이들은 마법의 물약인 척하며 컵에 과일 주스를 섞었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "포션",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-24-1788936411379",
+        "term": "cauldron",
+        "definition": "the big black pot a witch brews in",
+        "meaningKr": "큰 가마솥",
+        "exampleEn": "The witch stirred a plastic cauldron filled with colorful party treats.",
+        "exampleKr": "마녀가 알록달록한 파티 간식으로 가득 찬 플라스틱 가마솥을 저었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "콜드론",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-25-1788936411379",
+        "term": "broomstick",
+        "definition": "the broom a witch flies on",
+        "meaningKr": "빗자루",
+        "exampleEn": "She forgot her broomstick at home before flying to the party.",
+        "exampleKr": "파티에 날아가기 전에 집에서 빗자루를 깜빡하고 안 가져왔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "브룸스틱",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-26-1788936411379",
+        "term": "wand",
+        "definition": "a thin stick used to cast magic",
+        "meaningKr": "마법 지팡이",
+        "exampleEn": "My little sister is waving her magic wand to cast a spell.",
+        "exampleKr": "여동생이 주문을 외우려고 마법 지팡이를 흔들고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "완드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-27-1788936411379",
+        "term": "superstition",
+        "definition": "a belief that something brings good or bad luck",
+        "meaningKr": "미신",
+        "exampleEn": "Black cats crossing your path is a very common superstition.",
+        "exampleKr": "검은 고양이가 앞을 가로지르는 것은 아주 흔한 미신이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "슈퍼스티션",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-28-1788936411379",
+        "term": "scary",
+        "definition": "frightening",
+        "meaningKr": "무서운",
+        "exampleEn": "That movie was too scary for me to watch alone tonight.",
+        "exampleKr": "오늘 밤에 그 영화는 혼자 보기엔 너무 무서웠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스케어리",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-29-1788936411379",
+        "term": "creepy",
+        "definition": "unsettling in a way that makes your skin crawl",
+        "meaningKr": "오싹한, 으스스한",
+        "exampleEn": "We heard some creepy noises coming from the basement last night.",
+        "exampleKr": "어젯밤 지하실에서 으스스한 소리들이 들렸어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "크리피",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-30-1788936411379",
+        "term": "spooky",
+        "definition": "scary in a fun, Halloween way",
+        "meaningKr": "귀신이 나올 것 같은, 으스스한",
+        "exampleEn": "Let us put some spooky decorations in the front yard.",
+        "exampleKr": "앞마당에 으스스한 장식들을 좀 달아봐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스푸키",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-31-1788936411379",
+        "term": "eerie",
+        "definition": "strange and unsettling, of a place or a sound",
+        "meaningKr": "기묘한, 으스스한",
+        "exampleEn": "An eerie silence fell over the old house after sunset.",
+        "exampleKr": "해가 진 뒤에 오래된 집에 기묘한 적막감이 감돌았어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "이어리",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-32-1788936411379",
+        "term": "terrifying",
+        "definition": "extremely frightening",
+        "meaningKr": "무시무시한, 소름 끼치는",
+        "exampleEn": "Falling down the dark stairs was a truly terrifying experience.",
+        "exampleKr": "어두운 계단에서 굴러떨어진 것은 정말 무시무시한 경험이었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "테리파잉",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-33-1788936411379",
+        "term": "frightened",
+        "definition": "scared; feeling fear",
+        "meaningKr": "겁먹은, 무서워하는",
+        "exampleEn": "The little puppy looked frightened when the loud thunder rolled.",
+        "exampleKr": "천둥이 크게 치자 강아지가 겁먹은 표정을 지었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "프라이튼드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-34-1788936411379",
+        "term": "goosebumps",
+        "definition": "the small bumps on your skin from cold or fear",
+        "meaningKr": "소름",
+        "exampleEn": "Ghost stories around the campfire always give me goosebumps.",
+        "exampleKr": "모닥불가에서 나누는 유령 이야기는 늘 소름을 돋게 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "구스범프스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-35-1788936411379",
+        "term": "scream",
+        "definition": "to cry out loudly in fear",
+        "meaningKr": "비명을 지르다",
+        "exampleEn": "The kids started to scream when the pop-up ghost appeared.",
+        "exampleKr": "갑자기 튀어나오는 유령을 보자 아이들이 비명을 지르기 시작했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스크림",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-36-1788936411379",
+        "term": "freak out",
+        "definition": "to panic or lose control from fear or shock",
+        "meaningKr": "겁을 먹다, 기겁하다",
+        "exampleEn": "Spiders always make my brother freak out instantly.",
+        "exampleKr": "거미만 보면 남동생은 늘 순식간에 기겁을 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "프릭 아웃",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-37-1788936411379",
+        "term": "jump scare",
+        "definition": "a sudden shock in a film meant to make you jump",
+        "meaningKr": "갑자기 놀라게 하는 연출",
+        "exampleEn": "I hate horror movies filled with cheap jump scares.",
+        "exampleKr": "싸구려 깜짝 놀라게 하는 연출이 가득한 공포 영화는 질색이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "점프 스케어",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-38-1788936411379",
+        "term": "spine-chilling",
+        "definition": "so frightening it sends a chill down your spine",
+        "meaningKr": "등이 오싹해지는",
+        "exampleEn": "We listened to a spine-chilling tale by the fireplace.",
+        "exampleKr": "벽난로가에서 등이 오싹해지는 이야기를 들었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스파인 칠링",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-halloween-39-1788936411379",
+        "term": "haunt",
+        "definition": "(of a ghost) to appear repeatedly in a place",
+        "meaningKr": "출몰하다, 맴돌다",
+        "exampleEn": "Legend says a friendly pirate continues to haunt this old hotel.",
+        "exampleKr": "전설에 따르면 친절한 해적 유령이 이 오래된 호텔에 계속 출몰한다고 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "헌트",
+        "pos": "verb"
+      },
+      {
+        "id": "word-halloween-40-1788936411379",
+        "term": "graveyard",
+        "definition": "a place where the dead are buried",
+        "meaningKr": "공동묘지",
+        "exampleEn": "We walked past the old graveyard on our way home.",
+        "exampleKr": "집으로 돌아오는 길에 오래된 공동묘지 앞을 지나갔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "그레이브야드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-41-1788936411379",
+        "term": "tombstone",
+        "definition": "the stone marking a grave",
+        "meaningKr": "묘비",
+        "exampleEn": "Fake cardboard tombstones make great yard decorations for Halloween.",
+        "exampleKr": "가짜 골판지 묘비는 할로윈 마당 장식으로 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "툼스톤",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-42-1788936411379",
+        "term": "full moon",
+        "definition": "the moon when it is completely round",
+        "meaningKr": "보름달",
+        "exampleEn": "A bright full moon lit up the night sky on Halloween.",
+        "exampleKr": "할로윈 밤하늘을 밝은 보름달이 환하게 비추고 있었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "풀 문",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-43-1788936411379",
+        "term": "midnight",
+        "definition": "twelve o'clock at night",
+        "meaningKr": "자정",
+        "exampleEn": "The costume party kept going until well past midnight.",
+        "exampleKr": "코스튬 파티는 자정이 훌쩍 넘어서까지 계속되었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "미드나이트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-44-1788936411379",
+        "term": "fog",
+        "definition": "thick mist that hides what is ahead",
+        "meaningKr": "안개",
+        "exampleEn": "Thick autumn fog rolled over the street as evening fell.",
+        "exampleKr": "저녁이 되자 짙은 가을 안개가 거리 위로 밀려왔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "포그",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-45-1788936411379",
+        "term": "cobweb",
+        "definition": "an old, dusty spider web",
+        "meaningKr": "거미줄",
+        "exampleEn": "Fake cobwebs hung from the ceiling to set a spooky mood.",
+        "exampleKr": "으스스한 분위기를 내려고 천장에 가짜 거미줄을 매달았어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "콥웹",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-46-1788936411379",
+        "term": "skeleton in the closet",
+        "definition": "a shameful secret someone hides",
+        "meaningKr": "남에게 알리고 싶지 않은 비밀",
+        "exampleEn": "Everyone has a funny little skeleton in the closet they hide.",
+        "exampleKr": "누구나 남모르게 숨겨둔 사소한 비밀 하나쯤은 있기 마련이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스켈레톤 인 더 클로젯",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-halloween-47-1788936411379",
+        "term": "scared stiff",
+        "definition": "so frightened you cannot move",
+        "meaningKr": "너무 무서워 꼼짝도 못하는",
+        "exampleEn": "I was scared stiff when the strange shadow moved in the dark.",
+        "exampleKr": "어둠 속에서 이상한 그림자가 움직였을 때 너무 무서워서 꼼짝도 못 했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "스케어드 스티프",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-halloween-48-1788936411379",
+        "term": "witching hour",
+        "definition": "the dead of night when strange things are said to happen",
+        "meaningKr": "마녀가 활개 친다는 한밤중",
+        "exampleEn": "The spooky stories are best told right around the witching hour.",
+        "exampleKr": "으스스한 이야기는 마녀가 활개 친다는 한밤중에 하는 게 제맛이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "위칭 아워",
+        "pos": "noun"
+      },
+      {
+        "id": "word-halloween-49-1788936411379",
+        "term": "pumpkin patch",
+        "definition": "a field where pumpkins are grown, visited as an autumn family outing",
+        "meaningKr": "호박밭 (호박 따러 가는 농장)",
+        "exampleEn": "We took the kids to the pumpkin patch to pick a big one.",
+        "exampleKr": "아이들을 데리고 호박밭에 가서 큰 호박을 하나 골랐어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Halloween",
+          "Culture"
+        ],
+        "phonetic": "펌킨 패치",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-horror-ko-1",
     "title": "Korean Ghosts & Folk Horror 50",
     "icon": "👻",

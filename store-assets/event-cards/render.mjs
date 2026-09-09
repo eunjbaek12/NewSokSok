@@ -76,6 +76,22 @@ const EVENTS = {
       { ko: '저승사자', ro: 'jeoseungsaja', en: 'the reaper who escorts the dead' },
     ],
   },
+  // 한국 스토어용 — 방향이 반대다(en>ko). 표제어가 영어라 크게 세우면 폭을 넘겨서
+  // 글자 크기를 따로 준다. 카드 안의 셋은 여전히 표제어·발음·뜻이다.
+  'halloween-en': {
+    art: webp('assets/images/skin-halloween-bg.webp'),
+    bg: '#191327', surface: '#241B36', border: '#3B2E56',
+    surfaceRgb: '36,27,54', borderRgb: '59,46,86',
+    text: '#EDE6F2', sub: '#B7A9C9', accent: '#E8873A',
+    face: 'Pretendard', scrim: 'rgba(25,19,39,0.42)',
+    title: '할로윈', titleEn: 'Halloween',
+    bigWide: 92, bigTall: 64,
+    words: [
+      { ko: 'trick or treat', ro: '트릭 오어 트릿', en: '과자 안 주면 장난칠 거예요' },
+      { ko: "jack-o'-lantern", ro: '잭오랜턴', en: '호박등' },
+      { ko: 'goosebumps', ro: '구스범프스', en: '소름' },
+    ],
+  },
 };
 
 /**
@@ -255,7 +271,7 @@ const layoutFinal = (e, w, h) => {
 <div class="stage" style="width:${w}px;height:${h}px">
   <div class="art"></div><div class="scrim"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:54px">
-    ${glass(e.words[0], 132)}
+    ${glass(e.words[0], e.bigWide ?? 132)}
     <img src="${CHARACTER}" style="width:430px;display:block">
   </div>
 </div>`;
@@ -266,7 +282,7 @@ const layoutFinal = (e, w, h) => {
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
               justify-content:center;gap:26px">
     <img src="${CHARACTER}" style="width:300px;display:block;margin-bottom:6px">
-    ${e.words.map(x => glass(x, 78)).join('')}
+    ${e.words.map(x => glass(x, e.bigTall ?? 78)).join('')}
   </div>
 </div>`;
 };

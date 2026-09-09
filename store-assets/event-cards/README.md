@@ -32,7 +32,7 @@
 ## 만드는 법
 
 ```bash
-node store-assets/event-cards/render.mjs --final          # 확정본 4장 → final/
+node store-assets/event-cards/render.mjs --final          # 확정본 8장 → final/
 node store-assets/event-cards/render.mjs                  # 후보 A·B·C·D 전량 → out/
 node store-assets/event-cards/render.mjs --only horror     # 한 이벤트만
 ```
@@ -52,8 +52,17 @@ node store-assets/event-cards/render.mjs --only horror     # 한 이벤트만
   않는다). 경로는 `render.mjs` 맨 위 `CHROME`.
 - 🔴 **스킨 배경은 SVG 가 아니라 1080×2340 webp 다.** 9:16 은 원본에서 잘라 쓰면 되지만
   16:9 는 1.78배 확대다 — 문양이 평면이라 견디고, 스토어에서 작게 보여 티가 안 난다.
-- ⏭️ 캐릭터는 기본 아보카도다. **스킨 소품(할로윈 박쥐 망토)은 앱 안에서 그려지는 RN SVG**라
-  HTML 로 옮기려면 경로를 베껴 와야 한다.
+- ✅ **할로윈 카드의 캐릭터는 박쥐 망토를 입는다**(9/9). `components/CharacterAccessory.tsx` 의
+  `HalloweenCape` 를 평범한 SVG 로 옮겨 캐릭터 SVG 의 **마지막 자식**으로 끼운다 — 앱이 `<Svg>`
+  안에 얹는 것과 같은 자리라 겹치는 순서(망토가 몸 위)가 저절로 같아진다. RN → SVG 에서 바뀌는
+  것은 셋뿐이다: 태그 대소문자 · 속성 이름(`strokeWidth`→`stroke-width`) · transform 배열
+  (`[{translateX:250},{scaleX:-1}]`→`translate(250 0) scale(-1 1)`).
+  🔴 **치수는 옮기기만 하고 고치지 않는다.** 팔 끝에서 +9(x26) 같은 값은 앱에서 실측으로 맞춘
+  것이라 여기서 손대면 둘이 갈라진다. 반대로 앱에서 안 보이던 것이 여기선 보인다 — 망토가
+  앱에선 56dp 지만 카드에선 300~430px 라 주름 한 줄이 1px 이 아니라 4px 다. **보기 좋으라고
+  이쪽 값을 바꾸면 56dp 쪽이 망가진다.**
+- 한글날 카드의 캐릭터는 갓을 안 썼다. 같은 방법으로 옮길 수 있지만(`HangulGat`), 갓은 치수가
+  계산식이라 값을 풀어 적어야 한다 — 아직 안 했다.
 
 ## 스토어프론트 — 한국·미국 (은정님, 2026-09-09)
 

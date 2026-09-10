@@ -39,7 +39,7 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
       accent: '#06B6D4',
       text: '#111827',
     },
-    characterAccessory: 'none',
+    characterAccessory: 'lab-goggles',
   },
   classic: {
     id: 'classic',
@@ -69,6 +69,14 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     },
     characterAccessory: 'none',
   },
+  // 📮 «편지지» — 이름을 2026-09-08 에 Y2K 에서 바꿨다. Y2K 는 Year 2000 이고 그 미학의
+  //    본체가 은색·크롬·홀로그램, 곧 **반짝임**인데 이 스킨에는 그런 것이 하나도 없다.
+  //    실제로 들어 있던 것은 분홍 파스텔 · 둥근 글꼴(Jua) · 리본 — 2000년대 팬시 문구다.
+  //    이름만 어긋나 있었고, 배경 그림도 그 어긋난 이름을 좇다 두 번 헛돌았다.
+  //
+  // 🔴 **id 는 'y2k' 로 남긴다.** 사용자의 선택은 이 문자열로 저장돼 있어서(skin-store),
+  //    바꾸면 이 스킨을 쓰던 사람의 화면이 다음 실행에 기본 스킨으로 돌아간다.
+  //    표시 이름은 i18n 의 skinY2k 하나만 갈면 된다.
   y2k: {
     id: 'y2k',
     nameKey: 'skinY2k',
@@ -78,7 +86,9 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
       background: '#FDF0F8',
       primary: '#D456B8',
       surface: '#FFF5FB',
-      accent: '#8B50D4',
+      // 선택기에서 하늘색을 보여준다 — 분홍 하나만으로는 「분홍 스킨」일 뿐이고,
+      // 그 옆의 하늘색이 있어야 2000년대 홈피 스킨으로 읽힌다(autumn 의 은행 노랑과 같은 자리).
+      accent: '#3E9FD0',
       text: '#3A1A3A',
     },
     characterAccessory: 'y2k-ribbon',
@@ -129,15 +139,41 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     },
     characterAccessory: 'hangul-gat',
   },
+  halloween: {
+    id: 'halloween',
+    nameKey: 'skinHalloween',
+    // 여덟 중 두 번째 다크. dark 는 갈색 밤이고 이쪽은 보랏빛 밤이라 안 겹친다.
+    colorScheme: 'dark',
+    fontFamily: pretendard,
+    previewColors: {
+      background: '#191327',
+      primary: '#E8873A',
+      surface: '#241B36',
+      // 선택기에서 독 초록을 보여준다 — 호박 주황 하나만으로는 «어두운 스킨»과
+      // 구별되지 않는다. autumn 이 은행 노랑을 두 번째 색으로 둔 것과 같은 이유다.
+      accent: '#7FC244',
+      text: '#EDE6F2',
+    },
+    characterAccessory: 'halloween-cape',
+  },
 };
 
 // 표시 순서 — 기본(classic)이 맨 앞, 나중에 추가한 스킨이 뒤로 간다.
 //
-// 🚩 autumn·hangul 은 1.7.0(10/1)의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·
-//    소품은 이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도
-//    보이지 않는다. 10/1 빌드에서 이 배열에 둘을 더하기만 하면 된다 —
-//    skin-store 의 복원 조건은 이 목록에서 파생하므로 따로 고칠 곳이 없다.
-//    __tests__/skin-registry.test.ts 가 그때 실패해 "걷었다"는 사실을 커밋에 남긴다.
+// 🚩 autumn·hangul·halloween 은 1.7.x 의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·소품은
+//    이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도 보이지 않는다.
+//    공개 빌드에서 이 배열에 더하기만 하면 된다 — skin-store 의 복원 조건은 이 목록에서
+//    파생하므로 따로 고칠 곳이 없다.
+//
+//    ✅ **셋 다 10/1 에 함께 연다**(은정님, 2026-09-08). 할로윈만 10월 말로 미룰까 했으나,
+//    피처링이 10/1 이고 §4 가 「10월 한 달 계절을 따라 옷을 갈아입는다」로 팔기 때문에
+//    셋이 같은 날 서야 그 문장이 성립한다. 그 대신 10월 말 인앱 이벤트의 실체는 스킨이
+//    아니라 **할로윈 한정 덱**이 맡는다(상시 자산은 「그 주만의 일」이 못 된다) —
+//    store-assets/featuring-nomination.md §10 ③.
+//
+//    그림이 완성돼 한 번 걷었다가(2026-09-04, c3e864a) 되돌린다 — 완성 여부가 아니라
+//    **공개 시점**이 기준이기 때문이다(은정님, 2026-09-07). 미리 나가면 10/1 에 보여 줄
+//    새것이 남지 않는다. __tests__/skin-registry.test.ts 가 이 상태를 지킨다.
 export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab, SKINS.ocean];
 
 export const LEGACY_THEME_TO_SKIN: Record<string, SkinId> = {
@@ -152,5 +188,6 @@ export function getSkinColors(id: SkinId): ThemeColors {
   if (id === 'ocean') return Colors.ocean;
   if (id === 'autumn') return Colors.autumn;
   if (id === 'hangul') return Colors.hangul;
+  if (id === 'halloween') return Colors.halloween;
   return Colors.light;
 }

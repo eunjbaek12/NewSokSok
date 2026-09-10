@@ -456,6 +456,10 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                             />
 
                             <TextInput
+                                // 한 줄로 두면 뜻이 길 때 앞부분이 잘린 채 꼬리만 보인다 — 뜻 언어가
+                                // 영어면 정의가 문장이라 항상 넘친다. add-word.tsx ·
+                                // BatchImportWorkflow.tsx 의 뜻 필드와 같은 이유다.
+                                multiline
                                 style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
                                 value={item.meaningKr}
                                 onChangeText={(val) => updateWord(item.id, 'meaningKr', val)}
@@ -472,14 +476,18 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                 multiline
                             />
 
-                            <TextInput
-                                style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
-                                value={item.exampleKr}
-                                onChangeText={(val) => updateWord(item.id, 'exampleKr', val)}
-                                placeholder={getExampleTranslationLabel(targetLang as LanguageCode, t)}
-                                placeholderTextColor={colors.textTertiary}
-                                multiline
-                            />
+                            {sourceLang !== targetLang && (
+                                // 같은 언어쌍은 예문 번역이 예문과 같은 문장일 수밖에 없어 필드 자체를 숨긴다.
+                                // add-word.tsx · BatchImportWorkflow.tsx 의 같은 가드와 규칙이 같다.
+                                <TextInput
+                                    style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
+                                    value={item.exampleKr}
+                                    onChangeText={(val) => updateWord(item.id, 'exampleKr', val)}
+                                    placeholder={getExampleTranslationLabel(targetLang as LanguageCode, t)}
+                                    placeholderTextColor={colors.textTertiary}
+                                    multiline
+                                />
+                            )}
 
                             {item.enrichStatus === 'failed' && (
                                 <Text style={[styles.failedText, { color: colors.textTertiary }]}>

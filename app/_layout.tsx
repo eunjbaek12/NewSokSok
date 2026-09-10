@@ -227,7 +227,16 @@ function AppStack() {
   }, [authMode, authLoading, segments, isOnboardingDone]);
 
   return (
-    <Stack screenOptions={{ headerBackTitle: "Back" }}>
+    // fullScreenGestureEnabled: 아이폰에서 화면 어느 지점을 잡아도 스와이프로 뒤로 간다.
+    // 끄면 왼쪽 가장자리 몇 px 에서만 먹어서, 큰 화면에서는 한 손으로 닿지 않는다.
+    //
+    // 🔴 아래 gestureEnabled:false 화면들(학습 5종·온보딩·로그인)은 이 전역값에 영향받지
+    //    않는다. RNSScreenStack.mm:1247 이 fullScreenSwipeEnabled 를 보기 **전에**
+    //    gestureEnabled 로 먼저 끊고, 같은 조건이 isModal 도 함께 거르기 때문에
+    //    fullScreenModal 3종(단어추가·CSV·검색)도 그대로다. 화면별로 다시 끌 것이 없다.
+    //    (examples/[id] 의 fullScreenGestureEnabled:false 는 그 사실을 몰랐던 흔적이라
+    //    없어도 되지만, 의도를 남겨 두는 편이 읽기 좋아 그대로 둔다.)
+    <Stack screenOptions={{ headerBackTitle: "Back", fullScreenGestureEnabled: true }}>
       <Stack.Screen name="onboarding" options={{ headerShown: false, gestureEnabled: false, animation: 'none' }} />
       <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -263,6 +272,7 @@ function AppStack() {
       />
       <Stack.Screen name="study-results" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="stats" options={{ headerShown: false }} />
+      <Stack.Screen name="completions" options={{ headerShown: false }} />
       <Stack.Screen name="faq" options={{ headerShown: false }} />
       <Stack.Screen name="plans" options={{ headerShown: false }} />
       <Stack.Screen name="terms" options={{ headerShown: false }} />

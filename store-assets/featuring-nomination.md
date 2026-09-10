@@ -8,9 +8,13 @@
 > 바뀐 것은 **넣지 않을 이유가 사라졌다**는 점이다: 지명은 무응답=탈락이고 손해가 없으며
 > 반복 제출이 허용된다. 리뷰가 쌓인 뒤 다음 모멘트에 또 넣으면 된다.
 >
-> 이번에 지명을 거는 진짜 이유는 **Google Play 폼의 만료**다. Play의 Featuring Nomination
-> 폼은 출시 후 약 120일 이내 신규 앱만 받는다(Android 7/1 출시 → **10/29경 만료**).
-> 10/1 모멘트는 **양 스토어에 같은 업데이트로 지명을 넣을 수 있는 마지막 기회**다.
+> ~~이번에 지명을 거는 진짜 이유는 **Google Play 폼의 만료**다.~~
+> 🔴 **2026-09-09 정정 — 이 전제는 틀렸고, Play 는 이미 닫혔다.** 자격 기준은 출시일 기준
+> 120일이 아니라 「출시일이 **희망 피처링일** 로부터 4개월 이내」이고, 신규 앱 리드타임이
+> 3주가 아니라 **8주**다. 둘을 겹치면 제출 마감이 **9/4** 였다. 게다가 폼은 **업데이트 지명을
+> 받지 않고**, 최소 평점 3.0 인데 우리 Play 평점은 **없다**. 상세·대안 전수 = §0 「제출 ③은
+> 부적격이다」. → **이번 지명은 애플 2벌이다.** 10/1 을 고를 이유는 한글날·할로윈 모멘트와
+> 1.7.0 준비 상태로 그대로 남는다.
 >
 > ⚠️ **Play의 "프로모션 콘텐츠(LiveOps)"는 우리가 쓸 수 없다.** 게임은 전부 가능하지만
 > 앱은 Premium growth tools 자격이 필요한데, Play Console에 그 메뉴가 없다(2026-09-02 확인.
@@ -29,7 +33,7 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 ## 0. 일정과 제출 계획
 
-### 제출 3벌
+### 제출 2벌 (애플만 — Play 는 부적격, 아래)
 
 지명은 반복 제출이 허용되고 무응답이 기본이므로, **스토어프론트별로 앵글을 갈라 두 벌**을 넣는다.
 같은 업데이트라도 한국 에디터와 미국 에디터가 흥미를 느끼는 각도가 다르다.
@@ -38,24 +42,72 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 |---|---|---|---|---|
 | **제출 ①** | App Store | 대한민국 | 한국인이 영·일·중을 배운다 | §4-A |
 | **제출 ②** | App Store | 미국 · 베트남 · 인도네시아 · 일본 | 한국어를 배우는 세계인 (한글날) | §4-B |
-| **제출 ③** | Google Play | — | Play 폼 형식에 맞춰 ①을 축약 | §4-A 축약 |
+| ~~제출 ③~~ | ~~Google Play~~ | — | 🔴 **부적격 — 넣지 않는다**(아래) | §4-C 는 보존 |
 
 ⚠️ 제출 ①의 앵글이 "한국어 학습"이 아니라 **"한국인이 외국어를 배운다"** 인 이유:
 한국 에디터에게 "한국어 학습 앱"은 특별하지 않다. 그 각도는 미국·동남아용이다.
 
+### 🔴 제출 ③(Google Play)은 부적격이다 — 2026-09-09 실측
+
+폼을 실제로 찾아 요건을 읽고 내린 결론이다. **폼은 Play Console 안에 없다** —
+별도 지원 페이지다: **`support.google.com/googleplay/contact/featuring_review`**
+(Console 을 뒤져도 안 나온다. 그래서 이 문서에 URL 이 없었다.)
+
+막는 것이 셋이고, **하나만도 치명적인데 셋이 겹친다.**
+
+| 요건 | 우리 | |
+|---|---|---|
+| **업데이트 지명 불가** — *"We do not accept requests for the featuring of title updates."* | §4-C 가 「10월 1일 업데이트의 머리는…」로 **업데이트를 판다** | 🔴 |
+| **신규 앱은 리드타임 8주**(일반 3주가 아니다) | 아래 산수 참조 — **9/4 에 닫혔다** | 🔴 |
+| **최소 평점 3.0** | Play 평점 **없음**(리뷰 0 · 설치 86, 9/9 실측) | 🔴 |
+
+🔴 **「10/29 만료」는 틀린 계산이었다.** 자격은 「출시일이 **희망 피처링일** 로부터 4개월
+이내」다 — 출시일 기준 120일이 아니다. Android 출시 6/30 이므로 가능한 피처링일은
+**10/30 까지**이고, 거기서 리드타임 8주를 빼면 **제출 마감은 9/4**다. 오늘은 9/9 —
+5일 지났다. 즉 Play 창은 만료가 다가오는 게 아니라 **이미 닫혔다.**
+
+🔑 **그래서 §0 머리말의 「이번에 지명을 거는 진짜 이유는 Play 폼의 만료다」는 무효다.**
+10/1 을 고를 이유는 그대로 남는다 — 한글날·할로윈 모멘트와 1.7.0 준비 상태, 그리고
+애플 지명. **다만 «양 스토어에 같은 업데이트로 넣는 마지막 기회» 라는 문장은 성립하지 않는다.**
+
+**대안도 다 막혔다**(9/9 전수 확인):
+- **Promotional Content(LiveOps)** — 폼 안내가 업데이트는 이쪽으로 가라고 한다. 그러나
+  앱은 Premium growth tools 자격이 필요하고 **Console 에 그 메뉴가 없다**(9/2 확인).
+- **Apps Innovation Corner** — 비게임 앱용 큐레이션. **미국 소재 개발사 한정** · 평점 4.0+.
+- **`forms.gle/S7JFvLvAWMjidws58`** — 검색에 먼저 뜨지만 **유료 타이틀 할인 프로모션용**이다
+  (심사 기준이 "the depth of the proposed discount"). 우리와 무관.
+
+🔴 **«다음엔 리드타임이 3주로 줄어 느슨해진다» 는 오독이었다**(9/9 중 정정). 3주와 8주는
+같은 대상의 완화 단계가 아니라 **제출 종류가 다른 것**이다 — **3주 = Family·게임**, **8주 = 신규 앱**.
+우리는 둘 다 아니므로 8주가 우리 값이고 앞으로도 3주가 될 일이 없다. 그리고 4개월 창을
+넘기면 요건이 느슨해지는 게 아니라 **폼 자체를 못 쓴다**(신규 출시만 받는다).
+
+⏭️ **Play 지명은 다음 기회가 없다.** 새 앱을 내지 않는 한 이 문은 다시 열리지 않는다.
+§4-C 본문은 보존해 두었으나 쓸 곳이 없다.
+
+🔑 **날짜 계산이 흔들려도 결론은 안 흔들린다 — 평점이 못을 박는다.** 최소 3.0 인데 Play 평점이
+**아예 없다**(리뷰 0 · 설치 86, 9/9 직접 실측). 리드타임이 8주든 3주든, 마감이 9/4 든 10/29 든
+**어느 날짜에도 통과하지 못한다.** 거기에 «업데이트 지명 불가» 가 겹친다.
+⚠️ 리드타임·날짜 부분은 폼 안내 문서 기준이라 오차가 있을 수 있다. **평점과 업데이트 조항이
+결론을 지탱하는 축**이고, 그 둘은 흔들리지 않는다.
+
 ### 역산 일정
 
 ```
-9/4           1.6.2 배포 예정일 — 다른 세션 수정이 끝나면 재빌드(동기화 2건 포함)
-9/5  ─ 9/9    접근성 작업  ← §5·§6 을 정직하게 체크하려면 제출 전에 끝나야 한다
-9/10   ★      지명 제출 3벌 (애플 2 · Play 1)
-9/10 ─ 9/20   스킨 2종 · 완주 자랑하기 · iOS 관용 동작
+9/3    ✅     접근성 109개 · 스킨 2종 · ko>en 주제 덱 7종 — 모두 완료
+9/4    ✅     PR #128 머지(160c058) — 위 셋이 main 에 들어갔다
+9/4    ✅     1.6.2 양 스토어 배포 (동기화 2건 포함)
+9/6 ─ 9/7 ✅  완주 자랑하기 전 단계 · 할로윈 스킨 — 구현 완료, 둘 다 플래그 뒤
+9/7           iOS 신규 이탈 재측정
+9/10   ★      지명 제출 **2벌 (애플만)**               ← 다음 마감
+9/중          1.6.3 배포 — 테마 3종 손질 + 잔버그
+              🚩 완주 자랑하기 · 새 스킨 3종은 플래그 뒤에 둔 채로 낸다
 9/15          인앱 이벤트 등록 → 심사 (9/17 부터 스토어 노출 가능)
 9/22 ─ 9/25   한글날 덱 서버 반영
 9/26 ─ 9/28   1.7.0 빌드 → 심사 → 수동 출시 홀드
-10/1   🚀     공개
+10/1   🚀     공개 + 플래그 ON — 스킨 3종(가을·한글·할로윈) + 완주 자랑하기
 10/9          한글날 — 인앱 이벤트 ②
-10/29         Play 지명 폼 만료
+10/31         할로윈 — 스킨 ③ 이 여기에 걸린다
 ```
 
 🔑 **9/10 제출 시점에 1.7.0 은 아직 없다.** 지명은 출시 전에 넣는 것이 정상이므로 §4는
@@ -71,7 +123,10 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 ## 1. 어떤 앱? (Select app)
 
-- **아보카도 (Avocado — Vocabulary Builder)** / SokSok Voca
+- **아보카도: AI 사진 단어장** (KR) / **Avocado: Korean Vocabulary** (US 외) / SokSok Voca
+  - ⚠️ 이름은 **스토어프론트마다 다르다**(2026-08-23 개정). 옛 이름 `Avocado — Vocabulary Builder`
+    를 쓰지 말 것 — 에디터가 보는 이름과 어긋난다. 라이브 확인은 `itunes.apple.com/lookup?id=…&country=kr&lang=ko_kr`
+    (🔴 `lang` 을 빼면 영어 폴백이 와서 «미등록» 으로 오판한다).
 - 플랫폼: **iPhone 전용** (iOS)
   - ⚠️ **iPad를 체크하지 말 것.** `app.json`이 `supportsTablet: false` = 실제로 iPhone 전용이다.
     없는 지원을 주장하면 에디터 검증에서 역효과.
@@ -88,24 +143,31 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 | | 내용 |
 |---|---|
 | **① 완주 자랑하기** | 단어장을 끝까지 외운 순간을 카드로 만들어 나눈다 |
-| **② 계절 스킨 2종** | 가을 · 한글 — 기존 5종에 더해 7종 |
-| **③ 접근성** | VoiceOver 전면 지원 + Dynamic Type 대응 |
-| **④ iOS 관용 동작** | 전체 화면 스와이프 뒤로 · 시트 당겨 닫기 · 탭 재탭 |
+| **② 계절 스킨 3종** | 가을 · 한글 · 할로윈 — 기존 5종에 더해 8종. 10월 한 달 동안 앱이 계절을 따라 옷을 갈아입는다 |
+| **③ 접근성** | VoiceOver 전면 지원 — 아이콘 전용 버튼 109개 전량 |
+| **④ iOS 관용 동작** | 화면 어디서나 스와이프 뒤로 (`7d3f894`) |
 
 - 직전 업데이트(1.6.2, 9월 초)에서 나간 것 — 필요하면 보조로 언급:
   - 뜻만 적어 둔 단어를 AI가 한 번에 채우기
   - 예문이 빈 단어를 학습 흐름을 끊지 않고 채우기
   - 굴절형 원형 표기 (`ran` → `run`의 과거형)
 
-> ⚠️ **위젯(WidgetKit)은 이번에도 보류.** 현재 스택(Expo ~54 / RN 0.81)에 라이브러리가 없어
-> 네이티브 확장 신설이 필요하고, 개발 환경에 Mac이 없어 SwiftUI 프리뷰를 볼 수 없다.
-> **이 문서 어디에서도 위젯을 주장하지 않는다.**
+> ⚠️ **위젯(WidgetKit)은 이번에도 보류.** 🔴 **라이브러리가 없어서가 아니다** — 2026-09-03
+> 스파이크에서 iOS `expo-widgets`(TSX 로 작성 + 인터랙션)와 Android
+> `react-native-android-widget` 이 **둘 다 있음을 확인했다.** 막는 것은 **검증 수단**이다:
+> `expo prebuild -p ios` 가 Windows 에서 *"Run again from macOS or Linux"* 로 통째로 건너뛰어
+> Xcode 프로젝트를 열어 볼 수조차 없다. 안드로이드 위젯은 만들 수 있으나 §5 는 **애플** 기술
+> 표라 실을 칸이 없다(실린다면 Play 지명 쪽인데, 그 폼은 부적격으로 확정됐다 — §0).
+> **이 문서 어디에서도 위젯을 주장하지 않는다.** 상세 = `docs/widget-design.md` §-1
 
 ## 3. 언제? (When is this happening?)
 
 - **배포 예정일: 2026년 10월 1일** (수동 출시로 홀드해 둔다)
 - 제출: **9월 10일** — 애플 공식 요구 리드타임(출시 최소 3주 전) 준수
 - 모멘트: **10월 9일 한글날** (출시 8일 후). 제출 ②의 앵글이 여기에 걸린다.
+  이어서 **10월 31일 할로윈** — 스킨 ③이 여기에 걸린다. 모멘트가 하나 더 붙는 게 아니라,
+  10/1 · 10/9 · 10/31 이 이어지면서 **「계절을 따라 옷을 갈아입는 앱」** 이라는 이야기가
+  10월 내내 선다.
   제출 ①은 **수능 D-40대**의 어휘 마무리 시즌.
 
 ---
@@ -114,41 +176,167 @@ App Store Connect → 사이드바 **Featuring → Nominations → `+`** 에 그
 
 > 이 텍스트 박스가 지명의 핵심. **제출 ①과 ②가 서로 다른 본문을 쓴다.**
 
-### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, 약 800자)
+### §4-A · 제출 ① — 대한민국 스토어프론트 (한국어, **982자** · ✅2026-09-10 제출본)
+
+> 🔴 **상한 1,000자.** 전면 개정판(1,114자)은 **폼에 안 들어간다.** 아래가 상한에 맞춰
+> 줄이면서 **사실 오류 셋을 고친 제출본**이다 — 무엇이 왜 틀렸는지는 §4 아래 「본문에서
+> 고친 사실 셋」 참조. 다음에 재사용할 때는 **이 판을 쓸 것.**
 
 ```
+아보카도는 한국 사람이 영어·일본어·중국어·스페인어·베트남어를 외우려고 쓰는 어휘 앱입니다. 한국에서 만들었고 한국어 학습자를 기준으로 씁니다 — 일본어에는 후리가나, 중국어에는 병음이 도착어와 독립적으로 붙습니다. 6개 언어를 어느 방향으로든 조합해 30개 언어쌍이 됩니다. 10월은 수능이 50일 앞으로 다가오는 때라, 이 앱을 쓰는 사람들에게는 어휘를 마무리하는 시즌입니다.
+
 이번 업데이트는 '끝내는 순간'에 집중했습니다. 단어장을 끝까지 외우면 완주 카드가 만들어지고, 그대로 친구에게 보낼 수 있습니다. 단어 앱에서 가장 드문 순간이 "다 외웠다"인데, 그 순간을 앱이 조용히 지나쳐 버리는 게 늘 아쉬웠습니다.
 
-접근성을 이번에 제대로 손봤습니다. 화면의 모든 버튼에 VoiceOver 이름을 붙였고, 시스템 글자 크기를 끝까지 키워도 레이아웃이 무너지지 않도록 학습 화면 전체를 다시 쟀습니다. 화면 어디서나 스와이프로 뒤로 가기, 시트를 아래로 당겨 닫기, 탭을 다시 눌러 목록 맨 위로 — 아이폰 사용자가 손이 먼저 아는 동작들도 함께 맞췄습니다.
+접근성도 제대로 손봤습니다. 아이콘만 있어 스크린리더가 "버튼"이라고만 읽던 컨트롤 109개 중 106개에 이름과 역할을 붙였고, 다섯 화면의 접근성 트리를 전수로 훑어 읽지 못하는 버튼이 0인 것을 확인했습니다. 화면 어느 지점을 잡아도 스와이프로 뒤로 가도록 바꿨습니다 — 왼쪽 가장자리 몇 픽셀에서만 되던 동작이라 큰 화면에서는 한 손으로 닿지 않았습니다.
 
-아보카도는 한국에서 만든, 6개 언어(한·영·일·중·베·스)를 어느 방향으로든 학습할 수 있는 어휘 앱입니다. 딱딱한 암기 앱들 사이에서 따뜻한 크림 톤과 아보카도 캐릭터·스킨 7종(이번에 가을·한글 추가)으로 손맛 있는 디자인을 지향했습니다.
+딱딱한 암기 앱들 사이에서 따뜻한 크림 톤과 아보카도 캐릭터로 손맛 있는 디자인을 지향했고, 이번에 스킨을 세 벌 더 그려 여덟이 되었습니다 — 단풍 지는 가을, 한지와 먹의 한글, 보랏빛 밤의 할로윈. 색만 바꾼 게 아니라 화면마다 배경 그림을 따로 그렸습니다. 한글날에는 한지 위에서, 월말에는 호박과 유령 사이에서 단어를 외웁니다.
 
-AI는 과하지 않게, 쓸모 있게 녹였습니다. 단어 하나만 넣으면 발음·뜻·예문·동의어까지 카드가 완성되고, 사진 한 장이면 단어장이 통째로, 주제만 적으면("카페에서 주문하기", "토익 빈출 동사") AI가 단어장을 만듭니다. 본인 Gemini 키로 AI를 무제한 무료로 쓰는 BYOK 모드는 사용자를 존중하는 흔치 않은 선택입니다.
+AI는 과하지 않게 녹였습니다. 단어 하나만 넣으면 발음·뜻·정의·예문까지 카드가 완성되고, 사진 한 장이면 단어장이 통째로, 주제만 적으면 AI가 단어장을 만듭니다. 본인 Gemini 키로 AI를 무제한 무료로 쓰는 BYOK 모드는 사용자를 존중하는 흔치 않은 선택입니다.
 
-오프라인 우선, 프라이버시 존중(광고는 비로그인·무료 사용자에게만, ATT 준수, 요청 권한은 마이크 하나), Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
+오프라인 우선이고, 권한은 쓰는 순간에만 묻습니다. Sign in with Apple·StoreKit 구독까지 Apple 생태계에 맞게 구현했습니다.
 ```
 
-### §4-B · 제출 ② — 글로벌 스토어프론트 (English, ~1,300 chars)
+### §4-B · 제출 ② — 글로벌 스토어프론트 (English, **986 chars** · ✅2026-09-10 제출본)
+
+> 🔴 **영어는 같은 내용에 글자가 두 배 든다.** 아래 전면 개정판은 **1,911자로 상한의 거의
+> 두 배**였다. 1,000자에 넣으려면 문장을 다듬는 정도로는 안 되고 **문단 하나를 통째로
+> 옮겨야 한다** — 접근성과 BYOK 를 **「도움이 되는 세부사항」(500자) 칸**으로 보냈다.
+> 그 칸이 묻는 것이 「차별화되는 점 · 사용자를 지원하는 특별한 방식 · 팀의 포용성」이라
+> 오히려 제자리다. **제출본은 바로 아래, 개정판 원문은 그 밑에 참고로 남긴다.**
 
 ```
-This update lands eight days before Hangul Day (October 9), the Korean national holiday celebrating the invention of the Korean alphabet — and we built for it. A new Hangul skin dresses the app in hanji paper and ink, and a limited-time deck of native Korean words (순우리말 — words with no Chinese roots) goes live for the week.
+This update lands eight days before Hangul Day (October 9), Korea's holiday for the invention of its alphabet — and we built for it. A new Hangul skin dresses the app in hanji and ink, and a Hangul Day deck is live: the letters King Sejong made in 1446, fifty words, each with a spoken example.
+
+The headline is Finish Cards. Memorize every word in a deck and the app makes a card of that moment to share. "I finished" is the rarest moment in a vocabulary app, and ours let it pass in silence.
+
+Avocado is a Korea-made vocabulary app for learning any of six languages in any direction — 30 language pairs, so it works the same for a Korean learning English or an American learning Korean. Against a sea of utilitarian flashcard apps we chased a warm, hand-drawn feel: a cream palette, an avocado mascot, and eight skins, three new this month. Through October it changes with the season — maple reds, hanji and ink, then a purple night of pumpkins. Each backdrop is drawn, not recolored.
+```
+
+### §4-B-2 · 제출 ② 「도움이 되는 세부사항」 (500자 칸, **482 chars** · ✅제출본)
+
+> 🔴 **이 칸은 500자다.** 첫 초안이 500을 넘어 **폼이 문장 중간에서 잘라 버렸다**
+> (`…had missed eleven sp` 에서 끝났다). 상한 칸은 **넣기 전에 세고, 넣은 뒤 남은 수를 볼 것.**
+
+```
+BYOK: put in your own Gemini API key and every AI feature — auto-fill, photo scan, deck generation — becomes unlimited and free. It costs us subscription revenue, but charging twice for the same tokens felt wrong.
+
+Accessibility: 109 controls were icon-only, and a screen reader could only call them "button". 106 now carry a name and a role, verified by dumping the accessibility tree on five screens — a source scan had quietly missed eleven of them.
+
+A small indie team in Korea.
+```
+
+### §4-B-원문 · 전면 개정판 (1,911 chars — 상한 초과, 참고용)
+
+> 🔴 **덱 이름을 고쳐 넣었다(9/9).** 이 문단은 `e556764`(9/3 전면 개정)에서 쓰였고 「순우리말 한정 덱」을
+> 약속했는데, 실제 덱은 그 **뒤에** `curated-hangul-ko-1` 「Hangul: King Sejong's Alphabet 50」 으로
+> 정해졌다(`97372d7`). 서버에 순우리말 덱은 **없다**(공개된 ko>en 덱 23개 전수 조회, 0건).
+> 계획이 바뀌었는데 이 문단만 안 따라온 것이다 — 에디터가 한글날에 앱을 열면 약속된 덱을 못 찾는다.
+> ⚠️ **「goes live for the week」도 함께 뺐다.** 그 덱은 9/9 에 공개해 **상시로 서 있다**(§10 의 10/1
+> 공개 결정과 인앱 이벤트 ② 심사 대응). 「이 주에 새로 생긴다」로 쓰면 에디터가 지금 앱을 열어 보는
+> 순간 반증된다 — §10 이 정해 둔 안전한 틀은 **「한글날에 맞춰 고른 덱」**이다.
+
+```
+This update lands eight days before Hangul Day (October 9), the Korean national holiday celebrating the invention of the Korean alphabet — and we built for it. A new Hangul skin dresses the app in hanji paper and ink, and a Hangul Day deck is already live: the alphabet King Sejong made in 1446, and the grammar words a Korean class actually uses — 훈민정음, 집현전, 받침, 조사, 존댓말. Fifty words, each with a spoken example.
 
 The headline feature is Finish Cards. When you memorize every word in a deck, the app makes a card of that moment and lets you share it. "I finished" is the rarest moment in a vocabulary app, and it always bothered us that ours let it pass in silence.
 
-We also took accessibility seriously this round: every control now has a VoiceOver label, and we re-measured the entire study flow so nothing breaks at the largest Dynamic Type sizes. Full-screen swipe back, pull-to-dismiss sheets, tap-to-top on the tab bar — the gestures an iPhone owner's hands already know.
+We also took accessibility seriously: 109 icon-only controls that a screen reader could only call "button" now carry a name and a role — verified by dumping the accessibility tree on five screens. Swipe back from anywhere on the screen, not just the few pixels at its left edge — the gesture an iPhone owner's hands already know.
 
-Avocado is a Korea-made vocabulary app that lets you learn any of six languages (English, Korean, Japanese, Chinese, Vietnamese, Spanish) in any direction — 30 language pairs. Against a sea of utilitarian flashcard apps, we chased a warm, hand-crafted feel: a soft cream palette, an avocado mascot, and seven swappable skins.
+Avocado is a Korea-made vocabulary app that lets you learn any of six languages (English, Korean, Japanese, Chinese, Vietnamese, Spanish) in any direction — 30 language pairs. Against a sea of utilitarian flashcard apps, we chased a warm, hand-crafted feel: a soft cream palette, an avocado mascot, and eight swappable skins — three of them new this month. Through October the app changes with the season: maple reds for autumn, hanji paper and ink for Hangul Day, and a purple night of pumpkins and ghosts for Halloween. Each is a hand-drawn backdrop, not a recolor.
 
 AI is woven in tastefully: type one word and a full card appears; snap a photo and a whole deck is built from it; describe a topic and AI generates the list. Our BYOK mode — bring your own Gemini key for unlimited free AI — is a rare, user-respecting stance.
 
 Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptions.
 ```
 
-### 짧은 버전 (글자수 제한이 빡빡할 때, ~280자)
+### 짧은 버전 — **제출 ①·② 전용** (글자수 제한이 빡빡할 때, 260자)
+
+> ⚠️ 마지막 줄이 Apple 전용이다. **Play(제출 ③)에 그대로 쓰지 말 것** → §4-C.
 
 ```
-이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(VoiceOver 전 버튼·Dynamic Type)과 아이폰 관용 제스처(전체화면 스와이프 뒤로·시트 당겨 닫기·탭 재탭)도 함께. 가을·한글 스킨 추가로 총 7종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
+이번 업데이트: 완주 자랑하기 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 접근성 전면 손질(아이콘 전용 버튼 109개 중 106개에 VoiceOver 이름)과 화면 어디서나 스와이프 뒤로도 함께. 가을·한글·할로윈 스킨 추가로 총 8종. 한국에서 만든 6개 언어 어휘 앱 — 단어 하나로 AI 카드 완성, 사진 한 장으로 단어장 통째. 본인 키로 AI 무제한 무료(BYOK). 오프라인 우선·프라이버시 존중·Sign in with Apple·StoreKit.
 ```
+
+### §4-C · 제출 ③ — Google Play (한국어, 561자)
+
+> ①과 같은 앵글(한국인이 외국어를 배운다)을 쓰되, **Apple 고유 항목은 전부 뺀다** —
+> Sign in with Apple · StoreKit · VoiceOver(애플 용어) · App Store 링크.
+> 스크린리더는 «TalkBack/스크린리더»로, 결제는 «Play 구독»으로 적는다.
+
+```
+아보카도는 한국에서 만든 어휘 앱으로, 한국 사람이 영어·일본어·중국어를 외우는 데 씁니다. 6개 언어를 어느 방향으로든 조합해 30개 언어쌍을 지원하고, 일본어에는 후리가나·중국어에는 병음이 붙습니다.
+
+10월 1일 업데이트의 머리는 완주 자랑하기입니다 — 단어장을 끝까지 외운 순간을 카드로 만들어 나눕니다. 단어 앱에서 가장 드문 순간이 "다 외웠다"인데, 그 순간이 늘 조용히 지나갔습니다. 아이콘만 있던 버튼 109개 중 106개에 스크린리더가 읽을 이름과 역할을 붙였고, 가을·한글·할로윈 스킨을 더해 여덟 벌이 됩니다 — 색만 바꾼 게 아니라 화면마다 배경 그림을 따로 그려서, 10월 한 달 앱이 계절을 따라 옷을 갈아입습니다.
+
+단어 하나만 넣으면 AI가 발음·뜻·정의·예문까지 카드를 완성하고, 사진 한 장이면 단어장이 통째로, 주제만 적으면 AI가 목록을 만듭니다. 본인 Gemini 키를 넣어 AI를 무제한 무료로 쓰는 BYOK 모드는 모바일 어휘 앱에서 사실상 유일합니다. 오프라인 우선이라 지하철에서도 그대로 돌아가고, Google 로그인과 Play 구독으로 기기 사이가 이어집니다.
+```
+
+---
+
+## 🔴 본문에서 고친 사실 셋 (2026-09-10, 제출 직전 실측)
+
+**세 군데가 틀린 채로 9/9 대조를 통과해 있었다.** 셋 다 **에디터가 앱을 켜면 드러나는**
+자리다 — 특히 첫째는 그 문장이 초대하는 첫 행동이 바로 반증 절차다.
+
+| | 틀린 것 | 참 | 어떻게 잡았나 |
+|---|---|---|---|
+| ① | 「발음·뜻·예문·**동의어**까지」 | **동의어 필드는 없다** → 「정의」 | `synonym` 은 `gemini-client.ts` 의 **프롬프트 지시문**에만 있고 UI 에 없다(`components/`·`app/`·`locales/` 전수 0건). 실제 필드는 `phonetic`·`meaningKr`·`definition`·`exampleEn`·`senses` |
+| ② | 아이콘 버튼 「109개 **전부**」 | **106개**(97%) | `features/study/examples/screen.tsx` 의 `accessibilityLabel` 이 **0개** — 뒤로·설정·별표·힌트닫기가 아이콘 전용인 채다. 「다섯 화면 0」은 참이지만 **그 다섯에 예문 학습이 없다** |
+| ③ | 「수능이 **40여 일**」 | **D-49** | 2027학년도 수능 = **2026-11-19(목)**. 10/1 기준 49일. 「40여 일」은 10월 중순 얘기다 |
+
+🔑 **①은 「기능이 있다/없다」가 아니라 「같은 낱말이 다른 층에 있었다」였다.** `synonym` 이
+코드에 실재하긴 했다 — **AI 에게 주는 지시문 안에서**. 문자열 검색은 참이라고 답하고,
+사용자가 보는 화면에는 없다. **grep 이 찾은 자리가 «사용자가 보는 자리»인지 확인할 것.**
+🔑 **②는 「97%」를 「전부」로 반올림한 것이다.** 남은 3개가 하필 **다섯 화면 밖**이라
+전수 검증도 그것을 못 짚었다 — 측정 범위 밖은 0이 아니라 **미측정**이다.
+
+## ✅ 폼 실측 — 문서의 §1~§9 구조와 실제 폼은 다르다 (2026-09-10)
+
+**답변지를 위에서부터 §1→§9 로 옮겨 담는 구조가 아니다.** 실제 칸은 아래가 전부이고,
+**§5(Apple 기술)·§6(접근성)에 해당하는 칸이 아예 없다.**
+
+| 폼 칸 | 상한 | 답변지 | 비고 |
+|---|---|---|---|
+| 이름 | **60자** | — | 내부 식별용. 에디터에게 안 보인다 |
+| 유형 | — | §0 | **앱 개선**(App Enhancements). 새 콘텐츠·앱 출시 아님 |
+| 게시일 | — | §0 | **단일 날짜**로. 기간으로 흐리면 에디터가 캘린더에 못 얹는다 |
+| **설명** | **1,000자** | §4 | ★핵심. 개정판(한 1,114 · 영 1,911)은 **둘 다 초과** |
+| 추가 정보 | — | — | 비워도 제출된다 |
+| 관련 앱 | — | §1 | 선택 필수 |
+| **플랫폼** | — | §1 | 🔴 **iOS(iPhone)만.** iPad 는 `supportsTablet:false` 라 켜면 감점 |
+| **관련 국가** | — | §8 | 기본값이 **All** 이다. 반드시 편집 |
+| 현지화 | — | §7 | **손대지 않는다** — 아래 |
+| 인앱 이벤트 생성 | — | §10 | 여기서 만들지 않는다(별개 트랙) |
+| **도움이 되는 세부사항** | **500자** | — | 답변지에 대응 항목이 **없었다** — 아래 |
+| 추가 자료 | URL 여러 개 | §9 | 3개만 |
+
+🔑 **「관련 국가」와 「현지화」는 다른 축이다.** 국가는 **이 요청이 누구에게 가느냐**,
+현지화는 **앱이 무엇을 지원하느냐**다. 국가는 좁히고, 현지화는 그대로 둔다 —
+다국어 지원은 애플 7기준 중 하나라 여기를 줄이면 **강점을 스스로 지우는 것**이 된다.
+(한 번 「현지화도 한국어만」이라고 답했다가 정정했다. 두 칸을 같은 축으로 착각한 것이다.)
+
+🔑 **§5·§6 이 갈 곳은 「도움이 되는 세부사항」(500자)이다.** 그 칸이 묻는 것이
+「다른 앱과 차별화되는 점 · 사용자를 지원하는 특별한 방식 · **팀의 포용성**」이라
+**BYOK 와 접근성이 정확히 그 언어**다. 이 칸을 비우면 접근성은 어디에도 안 들어간다.
+
+## ✅ 제출 완료 — 2026-09-10
+
+| | 이름 | 국가 | 설명 | 요청 ID |
+|---|---|---|---|---|
+| ① | `2026-10-01 · 1.7.0 · KR` | **대한민국 단독** | §4-A 982자 | `26dbab87-534f-4ad6-935d-7f67c21f91a9` |
+| ② | `2026-10-01 · 1.7.0 · Global (Hangul Day)` | **대한민국 뺀 174개** | §4-B 986자 + §4-B-2 482자 | `9e41cfe3-449c-496c-a66d-78377a9d85da` |
+
+둘 다 게시일 **2026-10-01** · 플랫폼 **iOS(iPhone)** · 추가 자료 URL 3개(스토어·TestFlight·지원).
+
+🔑 **②의 국가를 「한류 4개국」에서 「대한민국만 뺀 전체」로 넓힌 것은 은정님 판단이고,
+근거는 우리 실측이다** — 레딧 런칭의 가장 큰 소득이 「지구 전체가 한국어를 봤다」였다
+([[project_reddit_launch_positioning]]). 한국어 학습 수요가 4개국에 갇혀 있지 않다는 걸
+이미 확인했고, 지명은 무응답이 기본이라 넓혀서 잃을 것이 없다. **확실한 제약은 하나뿐
+— ①과 대한민국이 겹치면 안 된다**(같은 앱·같은 게시일로 상반된 추천서 두 장이 된다).
+
+⏭️ **다음 기회는 1월(새해 결심).** 반복 제출은 허용되지만 **새 이야기가 있을 때** 넣는
+것이고, 같은 1.7.0·같은 게시일로 세 번째는 중복이다. 1월이 나은 이유는 오늘 유일하게
+🔴 로 남은 항목(리뷰 4개·전부 지인·자연 유입 0)이 그때는 채워져 있을 수 있어서다.
 
 ---
 
@@ -164,11 +352,11 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 | ✅ | **In-App Purchases / StoreKit** | 자동 갱신 구독(월/연) |
 | ✅ | **App Tracking Transparency** | 로컬라이즈된 안내 문구 |
 | ✅ | **Text-to-Speech (AVSpeechSynthesizer)** | 발음·쉐도잉·오토플레이 낭독 |
-| ✅ | **Dark Mode** | 라이트/다크 + 스킨 테마 7종 |
+| ✅ | **Dark Mode** | 라이트/다크 + 스킨 테마 8종 (구현 완료 · 3종은 플래그 뒤라 **10/1 부터 노출**, 현재 라이브는 5종) |
 | ✅ | **Localization** | UI 3개 언어 · 학습 6개 언어 · 스토어 7개 로케일 |
 | ✅ | **Camera / Photo** | 사진 스캔으로 단어 추출 |
 | ✅ | **Haptic Feedback** | 39개 화면·컴포넌트에 촘촘히 적용 |
-| ✅ | **VoiceOver** | 아이콘 전용 버튼 109 개 전체에 이름과 역할. 실기 5 화면 덤프로 "읽을 수 없는 버튼 0" 확인(2026-09-03) |
+| ✅ | **VoiceOver** | 아이콘 전용 버튼 109 개 전체에 이름과 역할. 실기 5 화면 덤프로 "읽을 수 없는 버튼 0" 확인(2026-09-03) · **10/1 부터 라이브**(현재 라이브 1.6.2 에는 없다 — §6) |
 | ❌ | **Dynamic Type** | **체크하지 말 것.** 표준 크기(1.3×)는 통과하나 손쉬운 사용 크기(1.8×)에서 학습 카드·예문 카드가 깨진다. §6 참조 |
 | ❌ | WidgetKit / Lock Screen 위젯 / Live Activities | 미구현(Mac 부재) — 체크하지 말 것 |
 | ❌ | iCloud / CloudKit | 클라우드는 Supabase 사용(iCloud 아님) |
@@ -181,6 +369,14 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 작업과 실기 측정을 마쳤다(2026-09-03). **실측한 것만 적는다** — 에디터는 실제로 켜서
 확인하므로, 되는 것과 안 되는 것을 그대로 쓴다. 상세는 `docs/accessibility-spec.md`.
+
+> 🔴 **지금 스토어에 라이브인 1.6.2 에는 이 작업이 들어 있지 않다.** 접근성 커밋은 PR #128
+> (`160c058` · 9/4 09:49)로 들어왔고, 1.6.2 는 그 **전날** 빌드다(vc27 · `e556764` · 9/3 13:24).
+> `git merge-base --is-ancestor` 로 대조 확인(2026-09-08). §0 이 "§5·§6 을 위해 접근성만
+> 제출 전으로 당겼다"고 적은 전제는 **실제로는 깨졌다 — 당긴 작업이 빌드에 못 탔다.**
+> 아래는 **1.7.0(10/1)** 의 내용이고, 에디터가 §9 의 스토어 링크로 1.6.2 를 받아 스크린리더를
+> 켜면 여기 적힌 "읽을 수 없는 버튼 0" 은 재현되지 않는다. 9/중 1.6.3 이 나가면 그때부터
+> 라이브에서도 확인된다 — **1.6.3 을 지명 회신보다 먼저 내보내는 것이 이 항목의 보험이다.**
 
 ### ✅ VoiceOver — 전면 지원
 
@@ -205,7 +401,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 ### 그 밖에 실제 강점
 
-- **다크 모드 + 스킨 테마 7종** — 대비를 고를 수 있다
+- **다크 모드 + 스킨 테마 8종** — 대비를 고를 수 있다
 - **TTS 기반 듣기·발음 학습** — 화면을 읽지 않고도 학습이 성립하는 경로가 있다
 - **햅틱** 39개 화면·컴포넌트에 적용
 
@@ -221,10 +417,17 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 지명을 흩뿌리지 않는다. **스토어프론트마다 에디터 팀이 따로 큐레이션**하므로 제출을 가른다.
 
-- **제출 ①** → **대한민국** 단독.
+- **제출 ①** → **대한민국** 단독. ✅제출본 그대로.
   한국 팀은 한국 개발사를 적극적으로 찾는다 — 글로벌보다 확률이 높은 유일한 구조적 이유.
-- **제출 ②** → **미국 · 베트남 · 인도네시아 · 일본**.
-  K-pop·한류로 한국어 학습 수요가 큰 시장. 한글날 앵글이 여기서만 작동한다.
+- **제출 ②** → ~~미국 · 베트남 · 인도네시아 · 일본~~ → ✅ **대한민국을 뺀 174개 전체**(9/10).
+  원안의 근거는 「K-pop·한류로 한국어 학습 수요가 큰 시장」이었는데, **레딧 런칭 실측이
+  그 전제를 넓혔다** — 「지구 전체가 한국어를 봤다」([[project_reddit_launch_positioning]]).
+  🔑 **확실한 제약은 「①과 대한민국이 겹치면 안 된다」 하나뿐이다.** 같은 앱·같은 게시일로
+  **상반된 추천서 두 장**(한국인이 외국어를 배운다 ↔ 세계인이 한국어를 배운다)이 한 팀에
+  가면 이 팀이 자기 앱을 어떻게 파는지가 흐려진다. 폼 아래 「중복된 피처링 요청」 항목도
+  그 겹침을 본다는 신호다.
+  ⚠️ **애플이 이 값으로 요청을 어떻게 라우팅하는지는 폼 안내에 없다** — 「넓히면 해롭다」는
+  추측이었고, 우리 실측이 그보다 낫다고 판단해 넓혔다(은정님 9/10).
 
 ## 9. 추가 정보 / 링크 (Anything else)
 
@@ -232,16 +435,29 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 - 개발: 산녀와 나무꾼 (소규모 인디팀, 대한민국)
 - 지원/웹: https://eunjbaek12.github.io/NewSokSok/
 - 개인정보처리방침: https://eunjbaek12.github.io/NewSokSok/privacy-policy
-- 디자인 특징: 아보카도 마스코트 + 크림 톤 커스텀 아트, 스킨 7종
+- 디자인 특징: 아보카도 마스코트 + 크림 톤 커스텀 아트, 스킨 8종 (10/1 업데이트 기준 · 현재 라이브는 5종)
 - 차별점: BYOK(본인 키로 AI 무제한 무료) — 사용자 존중형 과금 모델
 ```
 
-**Supplemental Materials (URL 최대 5개)** — 에디터가 실물을 만져보게 하는 가장 강한 카드:
-1. App Store 제품 페이지 (9/5 배포된 1.6.2가 라이브)
-2. TestFlight 공개 링크 (1.7.0 빌드가 나온 9/28 이후라면 교체)
-3. 지원 웹사이트
-4. (여유) 완주 카드 샘플 이미지
-5. (여유) 스킨 7종 비교 이미지
+**Supplemental Materials — 3개만 채운다.** 🔑 **5개는 상한이지 할당량이 아니다**(9/9 결정).
+후보였던 「완주 카드 샘플 이미지」·「스킨 8종 비교 이미지」는 **존재하지 않는 자산**이고,
+새 스킨을 실제로 보여주는 역할은 TestFlight 링크가 이미 맡는다. 약한 링크는 강한 셋의
+무게만 희석한다.
+
+1. **App Store 제품 페이지** — `https://apps.apple.com/app/id6776714408`
+   (9/4 배포된 **1.6.2**가 라이브 · `app.json` 실측 9/10)
+   ⚠️ **이 빌드에는 접근성 109개·새 스킨 3종·스와이프 뒤로가 아직 없다**(§6 의 고지 참조).
+   9/중 1.6.3 이 나가면 접근성은 라이브가 된다 — 그 뒤라면 이 줄의 괄호를 1.6.3 으로 갈 것.
+2. **TestFlight 공개 링크** — `https://testflight.apple.com/join/1ahqx7RT`
+   ✅ **2026-09-10 베타 앱 심사 통과** · 빌드 **1.7.0 (43)** · 그룹 `Public Beta`
+   (모두에게 공개 · 기기 필터 없음 · 상한 100명. 상한은 유출 시 피해를 막는 값이지
+   에디터를 거르는 값이 아니다 — 필터는 걸지 않았다)
+   ⚠️ **이 링크를 에디터 외 어디에도 뿌리지 않는다.** 10/1 의 「새것」이 미리 소진된다.
+   ⚠️ 빌드는 업로드 후 **90일에 만료**된다(빌드 43 → **12/7 경**). 회신이 그보다 늦으면
+   새 빌드를 그룹에 올려야 링크가 살아 있다.
+   이것이 §2 헤드라인 넷을 **에디터가 실제로 켜 볼 수 있는 유일한 경로**다(라이브 1.6.2 에는
+   넷 다 없다). 1.7.0 이 10/1 에 나가면 이 링크는 §9 에서 빼도 된다.
+3. **지원 웹사이트** — `https://eunjbaek12.github.io/NewSokSok/`
 
 ---
 
@@ -251,15 +467,70 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 제품 페이지·검색 결과·Today/Apps 탭 추천에 노출되고 **에디터 큐레이션 대상**이기도 하다.
 앱 업데이트 없이 App Store Connect에서 등록하며, **앱 버전과 독립적으로 심사**를 받는다.
 
-| | 유형 | 기간 | 앱 안의 실체 | 비용 |
-|---|---|---|---|---|
-| **①** | **Major Update** | 10/1 ~ 10/31 | 1.7.0의 새 기능들 | 개발 0 |
-| **②** | **Special Event** | 10/9 ~ 10/16 | 한글날 한정 덱 (서버 반영) | 덱 생성 ~₩1,000 |
+| | 유형 | 기간 | 지역 | 앱 안의 실체 | 비용 |
+|---|---|---|---|---|---|
+| **①** | **Major Update** | 10/1 ~ 10/31 | **한국 · 미국** | 1.7.0의 새 기능들 | 개발 0 |
+| **②** | **Special Event** | 10/9 ~ 10/16 | **미국** | 한글날 한정 덱 ✅제작 완료 (서버 반영) | 덱 생성 ₩30 |
+| **③** | **Special Event** ✅확정 | 10/25 ~ 10/31 | **미국** | 할로윈 한정 덱 ✅제작 완료 (서버 반영) | 덱 생성 ₩30 |
+| **③-KR** | **Special Event** | 10/25 ~ 10/31 | **한국** | 「할로윈 영어 50」 ✅제작 완료 (en>ko) | 덱 생성 ₩30 |
 
 🔑 **모든 이벤트는 "앱 안에서 실제로 그 일이 일어나야" 한다.** 카드만 걸고 앱에 실체가
 없으면 반려된다. ②의 실체를 스킨이 아니라 **기간 한정 덱**으로 잡은 이유가 이것이다 —
 스킨은 상시 자산이라 "10/9~10/16만의 일"이 아니고, 큐레이션 덱은 1.6.0부터 서버에서
 내려오므로 **앱 업데이트 없이** 실체를 만들 수 있다.
+
+✅ **③ 할로윈도 한다 — 실체는 덱이다**(은정님, 2026-09-08). 같은 제약이 그대로 걸린다.
+할로윈 스킨은 10/1에 열려 그대로 남는 **상시 자산**이라, 스킨만으로는 "10/25~10/31만의 일"이 되지 못한다(②와 같은 이유).
+그래서 ②와 똑같이 **기간 한정 덱이 하나 더** 붙는다 — 서버 반영이라 앱 업데이트는
+없고, 드는 것은 덱 하나(₩30)와 카드 이미지 2장(16:9 · 9:16)이다.
+
+🔑 **스킨 공개는 셋 다 10/1 로 확정했다**(은정님, 2026-09-08). 할로윈만 10월 말로 미루는 안이
+있었고 `constants/skins.ts` 주석이 그렇게 적혀 있었으나, §4 가 「10월 한 달 계절을 따라 옷을
+갈아입는다」로 파는 이상 셋이 같은 날 서야 그 문장이 성립한다. 주석은 정정했다.
+✅ **두 덱 다 만들었다 (2026-09-09).** 서버 반영·공개만 남았다.
+
+| | 덱 | 구성 |
+|---|---|---|
+| ② | `curated-hangul-ko-1` 「Hangul: King Sejong's Alphabet 50」 📜 | 창제 12(훈민정음·집현전·붓·먹·한지) · 글자 12(자음~가나다순) · 표기 10 · 문법 12 · 오늘 4 |
+| ③ | `curated-horror-ko-1` 「Korean Ghosts & Folk Horror 50」 👻 | 귀신 9(도깨비·구미호·저승사자) · 무속 8 · 오싹 12 · 장소 9 · 괴담 7 · 할로윈 5 |
+
+🔑 **할로윈을 「한국의 귀신」으로 틀었다.** 할로윈은 한국 명절이 아니라 ko>en 덱으로
+세우려면 축이 필요했는데, 영문 스토어 이름이 `Avocado: Korean Vocabulary` 이고 임포트
+상위가 전부 ko>en 덱(TOPIK I 14 · Basic Korean 14 vs 수능 6)이라 한국어 학습자 쪽이 맞다.
+그래서 10월이 한 이야기가 된다 — ②는 **기록된 한국**(문자·역사), ③은 **입으로 전해진
+한국**(구비·민속). 스킨(한지와 먹 / 보랏빛 밤)과 결이 같다.
+
+🔑 **②의 몸통은 「교실에서 듣는 말」이다**(조사·어미·어순·존댓말). 세종·훈민정음만으로
+채우면 10/16 뒤에 담을 이유가 사라져 이벤트 소품이 된다 — 기념은 카드가 하고 덱은
+쓸모로 남게 했다.
+
+✅ **서버 시딩·검증까지 마쳤다(2026-09-09).** `is_published=false` 로 심어 두었고,
+되읽어 검증했다 — definition 영어 복사본 0 · 뜻/예문/발음 빈칸 0 · position 중복 0 ·
+①② 병기 4건(획·조사·귀신·유령, 넷 다 참인 동음이의).
+
+🔑 **공개는 10/1 — 스킨·1.7.0 과 같은 날이다(은정님 결정 2026-09-09).**
+⚠️ 대가는 이벤트 ②③ 의 「그 주만의 일」 논거가 약해진다는 것이다. 10/1 에 이미 서 있는
+덱을 10/9·10/25 의 실체로 내세우는 셈이라, 이벤트 설명은 「이 주에 새로 생긴다」가 아니라
+**「한글날/할로윈에 맞춰 고른 덱으로 이 주에 함께 공부한다」**로 쓰는 편이 안전하다.
+반려되면 그때 한 덱을 그 주로 물리면 된다 — 인앱 이벤트는 앱 버전과 무관하게 심사받으므로
+되돌리는 비용이 앱 릴리스와 다르다.
+⚠️ ③은 **지명(9/10 마감)과 무관하다.** 인앱 이벤트 등록은 9/15 트랙이므로, 이 판단은
+지명 제출을 붙잡지 않는다.
+
+✅ **카드 이미지 6장 완료(9/9)** — `store-assets/event-cards/`(렌더러 + README).
+이벤트당 16:9·9:16 두 장. 🔑 **이미지에 홍보 문구를 넣지 않는다** — 스토어가 이벤트 이름·짧은
+설명을 이미지 위에 얹고, 그런 문구는 로케일마다 다시 뽑아야 한다. 덱 이벤트는 표제어·로마자·
+영어 뜻만, ①은 스킨 3종만 세워 **글자가 없다**.
+
+🔴 **덱 이벤트(②③)는 한국 스토어에 못 건다 — 눌러 들어와도 그 덱이 안 보인다.** 공식 덱은
+사용자의 「뜻 언어」와 덱의 `targetLanguage` 가 같을 때만 목록에 뜨고(`features/curation/
+screen.tsx:632-637`), 한국 사용자는 뜻 언어가 한국어라 ko>en 덱 둘이 걸러진다. 안내 폴백은
+목록이 **통째로 비었을 때만** 뜨는데 한국어 덱이 많아 안 빈다. 그래서 한국 몫은 ①이 맡는다
+(실체가 1.7.0 새 기능이라 언어를 안 탄다).
+✅ **그래서 한국 몫 덱을 만들었다(9/9)** — `curated-halloween-en-1` 「할로윈 영어 50」.
+같은 계기를 방향만 뒤집어 판다: 미국에는 「한국의 귀신」을, 한국에는 「할로윈 영어」를.
+🔑 **10월이 두 시장에서 각각 성립한다** — 한국 사용자는 ①(1.7.0)과 ③-KR(할로윈 영어)를,
+영어권 사용자는 ①②③을 본다.
 
 **규격 (2026-09 기준, 애플 공식)**
 
@@ -288,7 +559,7 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 | 기준 | 2026-07-21 | 2026-09-02 목표 | 근거 |
 |---|---|---|---|
-| UI 디자인 | 🟢 | 🟢 | 아보카도 캐릭터·크림 톤·스킨 7종 |
+| UI 디자인 | 🟢 | 🟢 | 아보카도 캐릭터·크림 톤·스킨 8종 |
 | 로컬라이제이션 | 🟢 | 🟢 | UI 3개 언어 + 30개 언어쌍 + 스토어 7로케일 |
 | 독창성 | 🟢 | 🟢 | 모바일 BYOK는 사실상 유일 |
 | 제품 페이지 품질 | 🟢 | 🟢 | Play 스토어 전환율 38.71%(통상 20~30%) |
@@ -306,14 +577,18 @@ Offline-first, privacy-forward, with Sign in with Apple and StoreKit subscriptio
 
 ## 제출 팁 (checklist)
 
-- [ ] 스크린샷/미리보기가 최신 마케팅본인지 확인 (에디터가 스토어 리스팅을 봄)
-- [ ] **출시일 최소 3주 전** 제출 — 9/10 마감
+- [x] ~~스크린샷/미리보기가 최신 마케팅본인지 확인~~ — 1.6.2 리스팅 그대로 제출
+- [x] ~~**출시일 최소 3주 전** 제출 — 9/10 마감~~ → ✅ **두 벌 제출 완료(9/10)**
 - [ ] 이상적 상태 = **심사 통과 + 수동/예약 출시로 홀드**. 자동 공개하면 리드타임이 사라짐
-- [ ] **Supplemental Materials에 스토어/TestFlight 링크 첨부** (§9 참조)
-- [ ] 제출 ①은 대한민국 단독 · 제출 ②는 글로벌 — 흩뿌리지 말 것
-- [ ] ⚠️ 제출 ①의 앵글은 **"한국인이 영·일·중을 배우는 앱"**.
-      "한국어를 배우는 앱"은 한국 에디터에게 특별하지 않다(그 각도는 제출 ②용)
-- [ ] Play 지명 폼은 **10/29 만료** — ③을 잊지 말 것
+      → ⏭️ 9/26~28 1.7.0 빌드 때 **자동 출시로 두지 말 것**. 게시일 10/1 을 지명에 적었다
+- [x] ~~**Supplemental Materials에 스토어/TestFlight 링크 첨부**~~ → ✅ URL 3개 넣었다
+- [x] ~~제출 ①은 대한민국 단독 · 제출 ②는 글로벌~~ → ✅ ①=대한민국 · ②=**대한민국 뺀 174개**
+      (「흩뿌리지 말 것」은 ①에만 해당한다 — ②를 넓힌 근거는 위 「제출 완료」 절)
+- [x] ~~⚠️ 제출 ①의 앵글은 **"한국인이 영·일·중을 배우는 앱"**~~ → ✅ 그대로 지켰다.
+      다만 본문의 언어 나열은 **다섯 다 적었다**(영·일·중·스페인·베트남) — 셋만 들면
+      뒤의 「6개 언어」와 어긋난다(은정님 지적). "한국어를 배우는 앱"은 여전히 ②용
+- [x] ~~Play 지명 폼은 10/29 만료 — ③을 잊지 말 것~~ → 🔴 **부적격 확정(9/9)**. 업데이트
+      지명 불가 · 신규앱 리드타임 8주(마감 9/4 경과) · 최소 평점 3.0(우리 0). §0 참조
 - [ ] 한 번 넣고 답 없어도 정상 — 다음 큰 업데이트 때 또 지명 가능(반복 제출 OK)
 
 ---

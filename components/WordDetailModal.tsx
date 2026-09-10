@@ -24,7 +24,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import SpeakerButton from '@/components/ui/SpeakerButton';
-import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, shouldShowExampleTranslation, LanguageCode } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, shouldShowExampleTranslation, formatPhonetic, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -105,7 +105,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLan
                             ) : null}
                             {word.phonetic ? (
                                 <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>
-                                    /{word.phonetic}/
+                                    {formatPhonetic(word.phonetic)}
                                 </Text>
                             ) : null}
                         </View>
@@ -452,7 +452,7 @@ export default function WordDetailModal({
                                                             </View>
                                                         ) : null}
                                                         {phonetic ? (
-                                                            <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{phonetic}/</Text>
+                                                            <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>{formatPhonetic(phonetic)}</Text>
                                                         ) : null}
                                                     </>
                                                 ) : (

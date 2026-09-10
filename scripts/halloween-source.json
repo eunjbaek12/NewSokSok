@@ -1,0 +1,352 @@
+[
+  {
+    "rank": 1,
+    "term": "Halloween",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "the October 31 holiday of costumes, pumpkins and candy"
+  },
+  {
+    "rank": 2,
+    "term": "trick or treat",
+    "pos": "phrase",
+    "category": "풍습",
+    "hint": "what children shout at a door to ask for candy on Halloween"
+  },
+  {
+    "rank": 3,
+    "term": "costume",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "an outfit worn to look like someone or something else"
+  },
+  {
+    "rank": 4,
+    "term": "dress up",
+    "pos": "verb",
+    "category": "풍습",
+    "hint": "to put on a costume; to dress as a character"
+  },
+  {
+    "rank": 5,
+    "term": "jack-o'-lantern",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "a pumpkin with a face cut into it and a light inside"
+  },
+  {
+    "rank": 6,
+    "term": "carve",
+    "pos": "verb",
+    "category": "풍습",
+    "hint": "to cut a shape into something, as with a pumpkin"
+  },
+  {
+    "rank": 7,
+    "term": "haunted house",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "a house where ghosts are said to appear; also the attraction"
+  },
+  {
+    "rank": 8,
+    "term": "prank",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "a playful trick played on someone"
+  },
+  {
+    "rank": 9,
+    "term": "candy",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "sweets handed out to children on Halloween"
+  },
+  {
+    "rank": 10,
+    "term": "decorate",
+    "pos": "verb",
+    "category": "풍습",
+    "hint": "to put up decorations, e.g. for a holiday"
+  },
+  {
+    "rank": 11,
+    "term": "ghost",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "the spirit of a dead person (not the slang 'to ghost someone')"
+  },
+  {
+    "rank": 12,
+    "term": "witch",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a woman with magic powers, in a pointed hat"
+  },
+  {
+    "rank": 13,
+    "term": "vampire",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "an undead creature that drinks blood"
+  },
+  {
+    "rank": 14,
+    "term": "zombie",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a walking corpse"
+  },
+  {
+    "rank": 15,
+    "term": "werewolf",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a person who turns into a wolf under a full moon"
+  },
+  {
+    "rank": 16,
+    "term": "skeleton",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "the bones of a body, a Halloween decoration"
+  },
+  {
+    "rank": 17,
+    "term": "mummy",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a preserved body wrapped in cloth"
+  },
+  {
+    "rank": 18,
+    "term": "monster",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a frightening imaginary creature"
+  },
+  {
+    "rank": 19,
+    "term": "black cat",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "a cat taken as a sign of bad luck in Western superstition"
+  },
+  {
+    "rank": 20,
+    "term": "bat",
+    "pos": "noun",
+    "category": "괴물",
+    "hint": "the flying animal of caves and Halloween decorations, not the baseball bat"
+  },
+  {
+    "rank": 21,
+    "term": "spell",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "words spoken to work magic"
+  },
+  {
+    "rank": 22,
+    "term": "cast a spell",
+    "pos": "phrase",
+    "category": "마법",
+    "hint": "to perform magic on someone or something"
+  },
+  {
+    "rank": 23,
+    "term": "curse",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "magic meant to bring harm to someone"
+  },
+  {
+    "rank": 24,
+    "term": "potion",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "a magic drink"
+  },
+  {
+    "rank": 25,
+    "term": "cauldron",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "the big black pot a witch brews in"
+  },
+  {
+    "rank": 26,
+    "term": "broomstick",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "the broom a witch flies on"
+  },
+  {
+    "rank": 27,
+    "term": "wand",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "a thin stick used to cast magic"
+  },
+  {
+    "rank": 28,
+    "term": "superstition",
+    "pos": "noun",
+    "category": "마법",
+    "hint": "a belief that something brings good or bad luck"
+  },
+  {
+    "rank": 29,
+    "term": "scary",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "frightening"
+  },
+  {
+    "rank": 30,
+    "term": "creepy",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "unsettling in a way that makes your skin crawl"
+  },
+  {
+    "rank": 31,
+    "term": "spooky",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "scary in a fun, Halloween way"
+  },
+  {
+    "rank": 32,
+    "term": "eerie",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "strange and unsettling, of a place or a sound"
+  },
+  {
+    "rank": 33,
+    "term": "terrifying",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "extremely frightening"
+  },
+  {
+    "rank": 34,
+    "term": "frightened",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "scared; feeling fear"
+  },
+  {
+    "rank": 35,
+    "term": "goosebumps",
+    "pos": "noun",
+    "category": "공포",
+    "hint": "the small bumps on your skin from cold or fear"
+  },
+  {
+    "rank": 36,
+    "term": "scream",
+    "pos": "verb",
+    "category": "공포",
+    "hint": "to cry out loudly in fear"
+  },
+  {
+    "rank": 37,
+    "term": "freak out",
+    "pos": "verb",
+    "category": "공포",
+    "hint": "to panic or lose control from fear or shock"
+  },
+  {
+    "rank": 38,
+    "term": "jump scare",
+    "pos": "noun",
+    "category": "공포",
+    "hint": "a sudden shock in a film meant to make you jump"
+  },
+  {
+    "rank": 39,
+    "term": "spine-chilling",
+    "pos": "adjective",
+    "category": "공포",
+    "hint": "so frightening it sends a chill down your spine"
+  },
+  {
+    "rank": 40,
+    "term": "haunt",
+    "pos": "verb",
+    "category": "공포",
+    "hint": "(of a ghost) to appear repeatedly in a place"
+  },
+  {
+    "rank": 41,
+    "term": "graveyard",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "a place where the dead are buried"
+  },
+  {
+    "rank": 42,
+    "term": "tombstone",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "the stone marking a grave"
+  },
+  {
+    "rank": 43,
+    "term": "full moon",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "the moon when it is completely round"
+  },
+  {
+    "rank": 44,
+    "term": "midnight",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "twelve o'clock at night"
+  },
+  {
+    "rank": 45,
+    "term": "fog",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "thick mist that hides what is ahead"
+  },
+  {
+    "rank": 46,
+    "term": "cobweb",
+    "pos": "noun",
+    "category": "밤",
+    "hint": "an old, dusty spider web"
+  },
+  {
+    "rank": 47,
+    "term": "skeleton in the closet",
+    "pos": "phrase",
+    "category": "관용",
+    "hint": "a shameful secret someone hides"
+  },
+  {
+    "rank": 48,
+    "term": "scared stiff",
+    "pos": "phrase",
+    "category": "관용",
+    "hint": "so frightened you cannot move"
+  },
+  {
+    "rank": 49,
+    "term": "witching hour",
+    "pos": "noun",
+    "category": "관용",
+    "hint": "the dead of night when strange things are said to happen"
+  },
+  {
+    "rank": 50,
+    "term": "pumpkin patch",
+    "pos": "noun",
+    "category": "풍습",
+    "hint": "a field where pumpkins are grown, visited as an autumn family outing"
+  }
+]

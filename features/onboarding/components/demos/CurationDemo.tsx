@@ -162,7 +162,7 @@ const themes = (t: TFunction): CardData[] => [
 const chipLabels = (t: TFunction): string[] => t('onboardingDemo.chips').split(',');
 
 export function CurationDemo({ isActive }: { isActive: boolean }) {
-  const { colors, fontFamily, isDark } = useTheme();
+  const { colors, fontFamily } = useTheme();
   const { t } = useTranslation();
   const screenOpacity = useSharedValue(0);
 
@@ -215,7 +215,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         gap: 10 * p,
       }}>
         {/* 온보딩 데모는 화면 축소 모형이라 현재 스킨의 액세서리는 얹지 않는다 */}
-        <CharacterSvg size={Math.round(44 * p)} wave={isActive} isDark={isDark} accessory="none" />
+        <CharacterSvg size={Math.round(44 * p)} wave={isActive} accessory="none" />
 
         <View style={{ flex: 1 }}>
           <Text style={{

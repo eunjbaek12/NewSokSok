@@ -4,6 +4,8 @@ export * from './date';
 export * from './streak';
 export * from './quotes';
 export * from './milestones';
+export { pickCelebration, type CelebrationPlan, type CelebrationShow } from './celebration';
+export { COMPLETION_SHARE_ENABLED } from './completion';
 export {
   recordStudySession,
   recordMemorizedWords,
@@ -11,13 +13,26 @@ export {
   getMemorizedTotal,
   getAllStudyDays,
   getDayDetail,
+  getCompletionFacts,
+  recordCompletion,
+  backfillCompletions,
+  getCompletions,
+  getCompletionSummary,
+  getCompletionForPlan,
+  getPendingCompletion,
+  markCompletionCelebrated,
   type StatsSummary,
   type DayDetail,
   type DayWordEntry,
+  type CompletionFacts,
+  type CompletionRecord,
+  type CompletionSummary,
+  type PendingCompletion,
 } from './db';
 export { loadMaxCelebrated, saveMaxCelebrated } from './milestones-storage';
 export { useStatsSummary } from './useStats';
 export { default as StatsStrip } from './StatsStrip';
 export { default as MilestoneCelebration } from './MilestoneCelebration';
+export { default as CompletionCelebration } from './CompletionCelebration';
 export { default as ShareCard } from './ShareCard';
 export { shareStatsCard, saveStatsCard, type ShareOutcome, type SaveOutcome } from './share';

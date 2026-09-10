@@ -243,7 +243,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 • Privacidad transparente
 - Los anuncios solo se muestran a quien no ha iniciado sesión y a usuarios gratuitos (Pro no tiene)
 - Compatible con App Tracking Transparency: tú decides si permites el seguimiento
-- El único permiso que pedimos es el micrófono, para el dictado
+- Solo pedimos permisos al usar cada función: micrófono (dictado), cámara y fotos (escaneo, guardar tarjetas), notificaciones (repaso). Todos opcionales
 
 Crea la lista que quieres. Memorízala de la forma más cuidada.
 

@@ -1,4 +1,4 @@
-export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab' | 'ocean' | 'autumn' | 'hangul';
+export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab' | 'ocean' | 'autumn' | 'hangul' | 'halloween';
 
 export interface FontFamily {
   regular: string;
@@ -7,7 +7,7 @@ export interface FontFamily {
   bold: string;
 }
 
-export type CharacterAccessory = 'none' | 'y2k-ribbon' | 'ocean-hat' | 'autumn-leaf' | 'hangul-gat';
+export type CharacterAccessory = 'none' | 'y2k-ribbon' | 'ocean-hat' | 'autumn-leaf' | 'hangul-gat' | 'lab-goggles' | 'halloween-cape';
 
 export interface SkinDefinition {
   id: SkinId;

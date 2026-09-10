@@ -1,9 +1,15 @@
-# 스킨 배경 아트 브리프 — 가을 단풍 · 한글 한옥
+# 스킨 배경 아트 브리프 — 가을 단풍 · 한글 · 할로윈 · 편지지 · 실험실 · 여름 바다
 
-2026-09-03 · 1.7.0(10/1) · **목업 = https://claude.ai/code/artifact/8479887c-d137-4213-8a2f-faf2de47bacb**
+2026-09-03 (2026-09-04 · 2026-09-07 개정) · 1.7.x
+**가을·한글 목업 = https://claude.ai/code/artifact/8479887c-d137-4213-8a2f-faf2de47bacb**
+**할로윈 목업 = https://claude.ai/code/artifact/52d8a795-212e-4caf-be74-4613aa03da20**
 
-그림 두 장을 만들어 앱 배경으로 얹는다. 이 문서는 **그림을 만드는 사람이 보는 규격서**다.
-색·구도·무게가 여기서 어긋나면 좋은 그림이라도 앱에서 안 보이거나 글자를 덮는다.
+두 스킨의 홈 배경 규격서다. 색·구도·무게가 여기서 어긋나면 좋은 그림이라도 앱에서
+안 보이거나 글자를 덮는다.
+
+둘 다 AI 로 그린다. 가을은 §4 구도, 한글은 §5 구도, 프롬프트는 §6 에 있다.
+⚠️ **한글은 세 번 접었다**(수정전 그림 · 훈민정음 판식 · 자모). 왜 접었는지가
+§5 에 있고, 그게 다음 시안을 고르는 기준이다.
 
 ---
 
@@ -40,6 +46,26 @@
 
      좌우 여백 60px 은 위아래로 계속 열려 있다 (카드 x 60~1019)
 ```
+
+### 🔴 열린 자리는 **둘**이다 — 위 그림이 아래쪽 하나를 놓치고 있었다
+
+배경 없는 화면(`OPACITY = 0`)을 한 줄씩 훑어 재 보니, 전체 폭으로 열린 띠가 위 말고
+하나 더 있다.
+
+| 자리 | y | 열린 폭 |
+|---|---|---|
+| 인사말·아보카도 | 0~360 | **전체 폭** |
+| 카드 구간 | 400~1130 | 좌우 **60px** + `y 580·830` 카드 틈 |
+| **「나의 학습」 + 칩 줄 + 카드 틈** | **1150~1400** | **전체 폭 250px** |
+| 목록 구간 | 1450~1990 | 좌우 **60px** |
+
+🔴 **좌우 여백은 «10%(108px)»가 아니라 60px 이다.** 카드가 `x 60~1019` 를 덮는다.
+프롬프트에 「outer 10%」라고 적어 두면 모델은 그 안쪽에 요소를 두고, 그 절반은 카드
+뒤로 들어간다. 후보 열 장을 그렇게 날렸다 — **레일에 걸리려면 바깥 6% 안이다.**
+
+🔑 **y 1150~1400 은 흩어진 요소를 둘 수 있는 두 번째 자리다.** 위 그림이 이를 「제목
+170px」로만 적어 두어 아무도 쓰지 않았다. 실제로는 칩 줄과 카드 틈까지 250px 이 열린다.
+(구름 그림은 이 자리가 거의 비어 있다 — 덮임 0.2%. 다음 판에서 채울 여지다.)
 
 🔑 **결론: 그림의 무게를 위쪽에 둔다.** 아래는 카드가 거의 다 덮으므로, 아래쪽 요소는
 "틈으로 언뜻 비치는 것"으로만 설계한다. 아래에 공들인 그림을 그리면 아무도 못 본다.
@@ -101,21 +127,18 @@
 | 은행 노랑 | `#D9A22B` | |
 | 글자 | `#3A241A` | 그림에 쓰지 말 것 |
 
-### 한글 한옥
+### 한글
 
 | 쓰임 | 색 | 비고 |
 |---|---|---|
 | 바탕 | `#F4EFE3` | 한지 |
 | 카드 면 | `#FCF9F2` | 창호지 |
-| 기와 | `#333A3F` | 지붕 — 가장 진한 색 |
-| 나무 | `#8B6A42` | 서까래·마루 널 |
-| 기둥(석간주) | `#9E5A3C` | 궁궐 기둥의 붉은 갈색 |
-| 단청 청 | `#1F5C8C` | 처마 밑 단청 |
-| 단청 녹 | `#3F6B4A` | 처마 밑 단청 |
+| 먹 | `#333A3F` | **구름 윤곽선** — 기본이 되는 색 |
+| 단청 청 | `#1F5C8C` | **구름 두세 점에만** 얹는 악센트 |
 | 글자 | `#22201C` | 그림에 쓰지 말 것 |
+| ~~나무·석간주·단청 녹~~ | ~~`#8B6A42` `#9E5A3C` `#3F6B4A`~~ | 접은 한옥 시안용 |
 
-🏛 **단청 두 색은 처마 밑에서만 쓴다**(§5). 거기서는 아끼지 않되 다른 데로 번지지
-않게 한다 — 그 대비가 「궁궐 처마 + 조용한 나머지」를 만든다.
+🔑 **구름은 선으로만 그린다**(§5). 면을 채우면 덩어리가 되고 화면이 답답해진다.
 
 ⚠️ **진하기 상한** — 가장 진한 색도 **불투명도 25% 를 넘지 않는다.** 배경은 배경이다.
 카드가 그 위에 얹혀도 카드 테두리(`#E3CDB0` / `#C9AC82`)가 보여야 한다.
@@ -124,37 +147,125 @@
 
 ## §4 가을 단풍 — 무엇을 그리나
 
-> **한 문장:** 늦가을 오후, 창으로 든 햇살 아래 단풍잎이 천천히 내려앉는 종이.
+> **한 문장:** 늦가을 오후, 창으로 든 햇살 속을 잎이 **위에서 아래로 천천히 지나가는**
+> 종이. 위에서 떠 있고, 가운데를 지나며, 아래에 쌓인다.
 
-```
-위 (0~360)      오후 햇살. 화면 위쪽 모서리에서 비스듬히 드는 금빛.
-                그 빛 속에 단풍잎 서넛이 크게, 흐리게 떠 있다.
-                ★ 여기가 가장 많이 보이는 곳 — 공을 들인다.
+### 🍂 무엇이 이 스킨을 «가을»로 만드나 [프롬프트에 반드시 넣을 것]
 
-가운데 (360~1300) 빛이 잦아들며 종이 바탕으로. 잎은 작고 성글게 몇 장.
-                카드 틈과 좌우 여백으로만 비치므로 잔잔해야 한다.
+**은행 노랑과 단풍 빨강이 나란히 있는 것.** 빨강만 있으면 그냥 따뜻한 종이고,
+노랑이 옆에 와야 가을로 읽힌다 — 스킨 선택기의 미리보기 색을 은행 노랑으로 정한
+것도 같은 이유다(`constants/skins.ts`에 근거가 적혀 있다).
 
-아래 (1300~2006) 낙엽이 바닥에 쌓인다. 아래로 갈수록 촘촘하고 진하게.
-                거의 가려지지만 새 사용자에게는 다 보인다.
-                🔴 **쌓임의 윗머리를 y 1800 안쪽에 둔다.** 첫 판은 y 1980 에서
-                시작해 26px 만 빼고 탭바에 다 가렸다(§1).
-
-여백 (2006~2340) 잎이 화면 밖으로 이어지는 것처럼만. 여기는 안 보인다.
-```
-
-- **잎은 세 종류**를 섞는다 — 단풍(손바닥 모양) · 은행(부채꼴) · 참나무(길쭉한 타원)
+- **잎은 세 종류**를 섞는다 — 단풍(손바닥) · **은행(부채꼴)** · 참나무(길쭉한 타원)
+- 은행이 빠지면 계절이 흐려진다. 한옥에서 단청이 빠지면 민가가 되는 것과 같다
 - 잎에 **가느다란 잎맥**을 넣으면 종이 위 그림 느낌이 산다
-- 잎은 **떨어지는 중**이다 — 위는 작고 흐리고 기울고, 아래는 크고 진하고 겹친다
+
+### 🔴 첫 그림이 왜 안 됐나 (2026-09-04 실측)
+
+한옥과 **똑같은 두 가지**로 걸렸다.
+
+| | 실측 | |
+|---|---|---|
+| 위쪽 띠 | y 0~552 · x 40~1064 | ✅ 잘 보인다. 살려 간다 |
+| **가운데** | y 552~1976 (**1424px · 전체의 61%**) | 🔴 **최대 색차 7/255** = 완전한 단색. `opacity 0.35` 뒤엔 **2.4** |
+| **아래쪽 띠** | y 1976~2336 (360px) | 🔴 **30px 만 보이고 330px 은 탭바 아래**(§1) |
+
+브리프가 가운데에 "잎은 작고 성글게 몇 장"을 요구했는데 **한 장도 안 왔다.**
+단어장이 없는 새 사용자는 이 61%를 통째로 보게 된다.
+
+```
+위 (0~590)        오후 햇살. 화면 위 모서리에서 비스듬히 드는 금빛.
+                  그 빛 속에 잎 서넛이 크게, 흐리게 떠 있다.
+                  ★ 가장 많이 보이는 곳 — 공을 들인다. 지금 것이 좋다.
+
+가운데 (590~1800) ★ 새로 — 빛이 잦아들며 종이 바탕으로. 작은 잎이 **성글게**.
+    x 0~110       🔑 **좌우 60px 띠에 걸치게 둔다.** 카드(x 60~1019)가 절대
+    x 970~1080       덮지 않는 유일한 자리다. 가운데로 몰면 안 보인다.
+                  ❌ 큰 잎·촘촘한 무늬 금지 — 카드 뒤가 어수선해진다.
+
+아래 (1800~2340)  낙엽이 바닥에 쌓인다. 아래로 갈수록 촘촘하고 진하게.
+                  🔴 **쌓임의 윗머리를 y 1800 에 둔다.** 첫 판은 1976 에서
+                     시작해 30px 만 빼고 다 가렸다.
+                  y 2006 아래는 여백(bleed) — 가로로 이어지므로 잘려도 티가 없다.
+```
+
+- 잎은 **떨어지는 중**이다 — 위는 크고 흐리고 기울고, 아래는 진하고 겹친다.
+  이 «지나가는 중»이 위·가운데·아래를 하나로 잇는다(한옥의 처마→기둥→마루와 같은 몫)
 - ❌ 나무 전체·풍경·사람·건물을 그리지 않는다. 잎과 빛만.
 
 ---
 
-## §5 한글 한옥 — 무엇을 그리나
+## §5 한글 — 무엇을 그리나
 
-> **한 문장:** 경복궁 **수정전** 툇마루에 앉아 밖을 내다본 자리. 머리 위에 처마,
-> 양옆에 기둥, 발밑에 마루. 그 사이는 비어 있다.
+> **한 문장:** 한지 위를 **여의두 구름무늬**가 천천히 흘러가는 결.
+> 위에 크게 떠 있고, 가운데를 지나며, 아래에 모인다.
 
-### 🏛 왜 수정전인가 [고증 — 프롬프트에 반드시 넣을 것]
+### ☁️ 무엇이 이 스킨을 만드나 [프롬프트에 반드시 넣을 것]
+
+**여의두(如意頭) 구름무늬** — 둥근 잎 서넛이 뭉친 머리에 꼬리가 말려 나가는 그 형태다.
+단청·나전칠기·궁중 자수에 두루 쓰인 무늬라 **한 눈에 «우리 것»으로 읽힌다.**
+그냥 뭉게구름을 그리면 어느 나라 하늘도 되므로, **여의두 형태를 지키는 것이 전부다.**
+
+- **선묘(線描)** — 면을 채우지 않고 윤곽선으로 그린다. 채우면 무거워진다
+- 먹 한 색이 기본. 단청 청(`#1F5C8C`)은 **몇 점에만** 얹어 악센트로
+- 구름은 **흘러가는 중**이다 — 위는 크고 성글게, 아래로 갈수록 작고 모인다
+
+### 🔴 왜 글자를 안 쓰나 (2026-09-04)
+
+자모·판식·큰 글자를 다 목업으로 만들어 봤다. **배경에 글자를 두면 UI 의 한글 텍스트와
+싸운다** — 인사말 뒤의 큰 ㄱ·ㅍ 이 잘려 «저게 뭐지»가 된다.
+
+🔴 **훈민정음 판식도 같은 이유로 접었다.** 화면은 가벼워졌지만(중앙값 0.0) 변란이
+그냥 네모 테두리로 읽혀 **«저게 뭔가 할 것 같다»** 는 판정을 받았다. 판식은 목판본을
+아는 사람에게만 판식이다.
+
+🔑 **여기서 얻은 규칙: 배경은 «읽는 것»이 아니라 «보는 것»이어야 한다.**
+UI 가 이미 글자로 가득하다.
+
+⚠️ 이름은 「한글」 그대로 간다(은정님 판단). 무늬는 한글 자체가 아니라 그 시대의 결이다.
+
+### 🔴 왜 한옥 그림을 접었나 (2026-09-04 실기)
+
+수정전 그림(처마+기둥+마루)까지 만들어 얹었는데 **화면이 답답했다.** 값으로 갈렸다:
+
+| 좌우 여백이 원래 바탕보다 어두워진 정도 | 중앙값 | 상위10% |
+|---|---|---|
+| 수정전(기둥) | **54.2** | 58.3 |
+| 선으로 그린 것(판식) | **0.0** | 35.9 |
+| *가을 잎(잘 되는 쪽)* | *0.8* | *46.5* |
+
+🔑 **기둥이 위아래로 이어진 «덩어리»라 띠 전체가 균일하게 어두워진다.** 잎은 흩어져
+있어 대부분이 원래 바탕이고 잎이 있는 곳만 어둡다. 이 차이가 «가볍다/답답하다»를 가른다.
+→ **배경 요소는 덩어리가 아니라 흩어진 것이어야 한다.**
+
+곁가지로 헤더 부제(`textSecondary`) 대비도 **6.20 → 8.46** 으로 올랐다.
+
+🔑 **근거도 약했다.** 수정전은 집현전 자리라는 연결이 있지만 **그 사실을 아는
+사용자가 없다.** 배경 하나에 설명이 필요하면 그 배경은 진 것이다.
+
+### ✅ 구름무늬가 들어왔다 (2026-09-04)
+
+`assets/images/skin-hanok-bg.webp` = §6 프롬프트로 뽑은 여의두 구름. 1408×3040 →
+1080×2340 · 75KB. 자리 표시용이던 수정전 그림을 교체했다.
+
+받은 그림을 재 보니 이렇다(그림의 **실제 종이색** `#FEF8F1` 기준 · 덮인 넓이):
+
+| 띠 | 이 그림 | 가을(통과한 것) | |
+|---|---|---|---|
+| 위 0~592 | 5.5% | — | 인사말 뒤에 큰 구름 서넛 ✅ |
+| 가운데 한복판 | **0.4%** | 3.4% | 비어야 하는 자리 ✅ |
+| 가운데 좌우끝 | 3.7% | 10.7% | 있어야 하는 자리 ✅ |
+| 아래 1800~2006 | 12.8% | 35.9% | 드리프트가 **y 1750** 에서 시작 ✅ |
+
+⚠️ **선묘라 숫자가 낮게 나온다.** 잎은 면이고 구름은 윤곽선이라 같은 잣대로 재면
+절반 이하가 된다 — §7 의 경고 그대로다. **판정은 합성 목업으로 했다.**
+
+🔑 **그림의 종이색이 토큰보다 밝다**(`#FEF8F1` vs `#F4EFE3`). 배경이 `0.35` 합성 뒤
+휘도 239.2 → 242.2 로 **떠오른다.** 확인해 보니 무해했다 — 카드 테두리(y361~363,
+`#DED3BE`)와의 차이가 오히려 **26.8 → 30.0** 으로 커졌다. 배경을 밝히는 그림은
+테두리를 죽이지 않는다. (진하게 만드는 그림이었다면 반대였다.)
+
+### 🏛 수정전 고증 [보류 — 스토어 이미지 등에 쓸 수 있어 남긴다]
 
 **아무 한옥이 아니다.** 경복궁 **수정전(修政殿)** 이다. 한글 스킨이 이 건물을 쓰는
 이유는 하나 — **세종 때 집현전이 있던 자리**이기 때문이다. 지금 건물은 1867년
@@ -184,47 +295,23 @@
 처마 밑 단청이 **건물의 정체 그 자체**다. 진하기는 색을 빼서가 아니라 `opacity 0.35` 로
 잡는다 — 그 값은 이미 실기로 정해져 있다. §3 팔레트도 그에 맞춰 고쳤다(청+녹 두 색).
 
-### 🔴 첫 그림이 왜 안 됐나 (2026-09-04 실기)
+### 옛 시안 이력 [닫힌 건 — 읽을 필요 없다]
 
-「지붕 + 빈 벽 + 담장」으로 나왔는데 **화면에서는 지붕만 떠 있었다.**
+1. **지붕 + 빈 벽 + 담장** — 빈 벽의 색차가 4/255 라 «지붕만 떠 있었다». 담장은
+   y 2028~2336 이라 통째로 탭바 아래였고, 기둥 없이 담장만 있는 것은 구조도 안 맞았다.
+2. **처마 + 기둥 + 마루** — 1번을 고쳐 만들었고 구조는 섰지만, 위의 실측대로
+   **기둥 덩어리가 화면을 가뒀다.**
+3. **훈민정음 판식**(사주쌍변+계선, 코드 생성) — 화면은 가벼웠으나 **변란이 그냥
+   네모 테두리로 읽혔다.** → 구름무늬로.
 
-- 빈 벽 구간(y 700~1900)을 가로로 훑으니 **가장 큰 색차가 4/255** — 사실상 완전한 단색이다.
-  불투명도 0.35 를 거치면 1.4 로 줄어 아무것도 안 보인다. **지붕을 받치는 것이 없다.**
-- 담장은 y 2028~2336 이라 §1 대로 **통째로 탭바 아래**였다.
-- 게다가 **기둥 없이 담장만 있는 것은 구조가 안 맞는다.** 담장은 마당 저편의 경계이지
-  처마 바로 밑에 오는 것이 아니다.
+🔑 **1·2·3 을 하나로 꿰는 교훈: 실기에 얹기 전에 목업을 본다.** 세 번 다 만들어
+얹은 뒤에야 아니라는 걸 알았다. 지금은 합성 목업을 만드는 길이 있다 —
+`OPACITY = 0` 으로 배경 없는 스크린샷을 받고, 바탕색(`background` 토큰)과 같은
+픽셀만 마스크로 잡아 후보를 `0.35` 로 합성하면 **기기에 얹지 않고도 실제 화면을
+볼 수 있다.** 후보 열 개를 한 시트로 만들어 고르는 데 몇 분이면 된다.
 
-🔑 **고치는 방향: 건물이 서 있게 만든다.** 처마 → 기둥 → 마루로 위아래를 잇는다.
-기둥은 **카드가 절대 덮지 않는 좌우 여백 60px**에 세운다.
-
-```
-위 (0~590)        기와 처마 + 그 밑 단청. 지금 지붕은 잘 보이므로 ★ 살려 간다.
-                  기와는 완만한 곡선 한 겹, 그 아래로 단청 띠와 서까래 마구리.
-                  ★ 여기가 «수정전»을 만드는 유일한 자리다 — 공을 들인다.
-
-좌우 (590~1850)   ★ 새로 — 궁궐 기둥 둘(석간주 붉은 갈색). 처마에서 마루까지.
-    x 0~110       카드(x 60~1019)에 안쪽 절반이 가리고 바깥 60px 만 남는다.
-    x 970~1080    그 가려짐이 오히려 "가까이 서서 처마 밑을 올려다본" 깊이를 만든다.
-
-가운데 (590~1800) 빈 한지. 아주 옅은 섬유 결만. ❌ 여기에 기둥·무늬를 넣지 않는다.
-
-아래 (1800~2340)  ★ 새로 — 툇마루. 가로로 이어지는 널 몇 줄.
-                  y 2006 위(1800~2006)가 실제로 보이는 부분이고,
-                  그 아래는 비율 다른 기기를 위한 여백이다.
-                  가로 무늬라 잘려도 티가 안 난다 → §2 의 권장 그대로.
-```
-
-- **한옥은 위에서 덮는 집**이다. 지붕이 위에 있어야 건물로 읽힌다
-- 기둥은 **원기둥**이다 — 한쪽에 옅은 그림자를 넣어야 둥글게 읽힌다
-- 기둥 밑은 **마루에 닿는다.** 허공에서 끊기면 안 된다
-- **단청은 처마 밑에만.** 거기서는 아끼지 않는다(궁궐의 정체다). 대신 기둥·마루·
-  가운데로는 **번지지 않는다** — 진하기는 색을 빼서가 아니라 `opacity 0.35` 로 잡는다
-- 한지 결은 **가는 사선 두 벌**이 겹친 느낌 — 종이를 빛에 비췄을 때의 섬유
-- ❌ **담장·마당·꽃·한복 입은 사람을 그리지 않는다.** 재료와 구조만.
-- ❌ 창호 격자·현판도 넣지 않는다 — 처마·기둥·마루로 이미 수정전이 된다
-
-⚠️ **좌우 잘림 여유** — 20:9 기기에서 좌우가 각 14px 쯤 잘린다. 기둥의 **안쪽 윤곽**을
-x 100 / x 980 근처에 두고 바깥은 화면 끝까지 흘리면, 잘려도 기둥이 상하지 않는다.
+⚠️ 남는 교훈 하나 — **좌우 잘림 여유**: 20:9 기기에서 좌우가 각 14px 쯤 잘린다.
+세로 요소는 바깥 윤곽을 화면 끝까지 흘려야 잘려도 상하지 않는다.
 
 ---
 
@@ -233,56 +320,86 @@ x 100 / x 980 근처에 두고 바깥은 화면 끝까지 흘리면, 잘려도 �
 영어가 잘 먹는다. **만든 뒤 §3 색으로 보정**하는 것을 전제로 한다 — 모델은 지정 색을
 정확히 내지 못한다.
 
-**가을**
+**가을** — 2026-09-04 개정. 첫 판이 §4 의 이유로 안 됐다(가운데 61%가 백지, 아래 띠는 가려짐).
+
+한옥과 같은 규칙: 좌표는 **비율(%)로**, 아래는 **y 2006 위**에, 가운데 요소는 **양 끝으로**.
+
 ```
-Vertical mobile wallpaper, 1080x2340. Soft warm amber paper background.
-Golden late-afternoon light entering from the top-left corner, fading downward.
-A few large translucent autumn leaves floating in the light at the top;
-smaller sparse leaves in the middle; leaves accumulating densely at the bottom.
-Three leaf types: maple, ginkgo, oak. Delicate visible leaf veins.
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+subtle, low contrast, calm.
+Soft warm amber paper background.
+
+Autumn leaves are falling THROUGH the frame from top to bottom — floating in the
+light at the top, drifting past the middle, settled in a pile at the bottom.
+Three leaf types throughout: maple (palmate), ginkgo (fan-shaped), oak (long oval).
+The ginkgo yellow beside the maple red is what makes this read as autumn —
+never drop the ginkgo. Delicate visible leaf veins.
+
+TOP 25%: golden late-afternoon light entering diagonally from the top-left corner
+and fading downward. Three or four large translucent leaves floating in that light,
+tilted at different angles.
+
+MIDDLE (25% to 77%): almost empty warm paper. Only a few SMALL leaves, sparse and
+far apart, and place them ALONG THE LEFT AND RIGHT EDGES of the frame (within about
+the outer 10% on each side), drifting downward. Keep the central area of this band
+completely empty — no large leaves, no dense pattern, nothing busy.
+
+BOTTOM 23%: leaves accumulating in a pile across the full width, getting denser and
+deeper in color toward the bottom edge. The top edge of the pile begins right at the
+77% line, not lower.
+
 Muted palette: deep maple red, oak brown, ginkgo gold on amber cream.
-Flat illustration, subtle, low contrast, lots of empty space in the middle.
-No trees, no people, no landscape. Nothing in the center third.
+No trees, no branches, no people, no landscape, no buildings, no text. Leaves and
+light only. The center of the image must stay quiet.
 ```
 
-**한옥** — 2026-09-04 개정. 첫 판(지붕+빈벽+담장)이 §5 의 이유로 안 됐다.
-
-좌표를 **비율(%)로** 준다. 모델은 픽셀 좌표를 잘 못 지키지만 "위 25%" 같은 말은 지킨다.
+**한글(구름무늬)** — 2026-09-04. 건물·글자·판식을 다 접고 온 자리다(§5).
 
 ```
-Vertical mobile wallpaper, 1080x2340, flat vector illustration,
+Vertical mobile wallpaper, 1080x2340, flat line illustration,
 calm and low contrast, lots of empty space.
 Warm cream hanji paper background with a very faint fiber texture.
 
-Subject: Sujeongjeon Hall at Gyeongbokgung Palace, Seoul — a Joseon royal palace
-building, NOT a common folk house. The viewpoint is sitting on its wooden veranda
-looking outward: the painted eave is overhead, two palace pillars frame the view at
-the far left and right, and the veranda floor is underfoot.
+Subject: yeouidu cloud motifs — the traditional Korean decorative cloud found in
+dancheong painting, mother-of-pearl lacquerware and court embroidery. Each cloud is
+a cluster of three or four rounded lobes with a curling tail trailing off to one
+side. Draw them as OUTLINES ONLY, thin ink strokes, never filled in. This specific
+lobed-and-curling shape is what makes the image read as Korean — plain fluffy
+clouds would not.
 
-TOP 25%: the eave of Sujeongjeon seen from below, spanning the full width —
-grey clay roof tiles above, and beneath them the dancheong: the traditional Korean
-palace beam painting in muted green, blue and deep red, repeating panel by panel,
-with round rafter ends showing in a row. This painted beam is the single most
-important element; it is what makes the building read as a palace.
+The clouds drift slowly down through the frame: large and sparse at the top,
+small along the edges in the middle, gathering at the bottom.
 
-FAR LEFT AND FAR RIGHT EDGES, from the eave down to the floor: two round palace
-pillars in muted iron-oxide reddish brown, each only about 10% of the image width,
-standing at the very edges of the frame. Soft shading on one side so they read as
-round. They rest on the veranda floor and do not stop in mid-air.
+TOP 25%: three or four large clouds floating apart from one another, tilted at
+different angles. Leave clear space between them — they must not overlap into a
+tangle.
 
-CENTER (between the two pillars, from below the eave down to 77%): completely
-empty cream paper. No pattern, no objects, no structure at all.
+MIDDLE (25% to 77%): almost empty paper. A few SMALL clouds placed ALONG THE LEFT
+AND RIGHT EDGES of the frame, within about the outer 10% on each side. Keep the
+central area of this band completely empty — nothing there at all.
 
-BOTTOM 23%: the wooden veranda floor (maru) — simple horizontal plank lines running
-across the full width, warm brown, slightly darker toward the bottom edge.
+BOTTOM 23%: a drift of clouds gathering across the full width, denser toward the
+bottom edge. The top of the drift begins right at the 77% line, not lower.
 
-Muted palette: grey roof tiles, green-blue-red dancheong, iron-oxide red pillars,
-warm brown floor, on warm cream paper. Everything desaturated and calm.
-No boundary wall, no fence, no lattice window, no courtyard, no flowers, no people,
-no furniture, no signboard, no text. The middle of the image must stay empty.
+Muted palette: soft ink grey outlines on warm cream paper, with a single dusty blue
+used on only two or three clouds as an accent. Everything desaturated and quiet.
+No sky, no landscape, no buildings, no people, no letters, no text, no frame or
+border. The middle of the image must stay empty.
 ```
 
-🔑 두 프롬프트 모두 **가운데를 비우라는 지시**가 핵심이다. §1 의 이유다.
+🔴 **«outlines only, never filled» 를 빼지 말 것.** 면을 채우면 덩어리가 되고,
+덩어리는 화면을 가둔다 — 수정전 기둥이 그래서 접혔다(§5).
+
+🔴 **«must not overlap into a tangle» 도 마찬가지다.** 목업에서 구름 셋을 겹쳤더니
+낙서처럼 엉켰다. 서로 떨어뜨려야 무늬로 읽힌다.
+
+🔑 두 프롬프트 모두 **가운데를 조용히 두라는 지시**가 핵심이다. §1 의 이유다.
+
+⚠️ 다만 **"비우라"와 "아무것도 없다"는 다르다.** 첫 판 둘 다 가운데가 통째로 백지로
+왔다(한옥 색차 4/255 · 가을 7/255). 그래서 개정 프롬프트는 **비울 곳과 남길 곳을
+갈라서** 적는다 — 가운데의 *한복판*은 비우되, **좌우 10% 가장자리에는 요소를 둔다**
+(한옥은 기둥, 가을은 작은 잎). 거기가 카드가 절대 안 덮는 자리다.
+
 한옥 쪽은 거기에 더해 둘이 더 있다:
 
 1. **건물 이름을 적는다**(Sujeongjeon · Gyeongbokgung). §5 의 고증이 여기서 걸린다.
@@ -301,13 +418,74 @@ no furniture, no signboard, no text. The middle of the image must stay empty.
 2. **가운데가 조용한가** — 카드를 얹었을 때 무늬가 비쳐 어수선하지 않은가
 3. **카드 테두리가 보이는가** — 배경이 진하면 테두리가 묻힌다
 4. 🔴 **y 2006 아래에 공들인 것이 없는가** — §1. 첫 두 장이 여기서 걸렸다
-5. 🔴 **기둥이 양 끝에 있는가** — 가운데로 모였으면 다시 뽑는다(§6)
-6. 🏛 **궁궐로 읽히는가** — 처마 밑 **단청**과 **붉은 기둥**이 있어야 수정전이다.
-   나무색 그대로면 민가다(§5). 지붕·기단 세부는 수정전 사진과 대조할 것
+5. 🔴 **가운데 좌우 끝에 요소가 있는가** — 한옥은 기둥, 가을은 작은 잎.
+   가운데가 통째로 백지면 다시 뽑는다. **판정은 눈이 아니라 색차로**:
+   가운데 띠를 훑어 **최대 색차가 14/255 미만이면 백지다**(`opacity 0.35` 뒤 5 미만).
+   첫 판이 한옥 4 · 가을 7 이었고 둘 다 "비워 달라"는 지시를 그렇게 알아들었다
+6. 🏛 **정체가 남았는가** — 한옥은 처마 밑 **단청**과 **붉은 기둥**(나무색뿐이면 민가다·§5).
+   가을은 **은행 노랑**(빨강만 있으면 그냥 따뜻한 종이다·§4).
+   수정전의 지붕·기단 세부는 사진과 대조할 것
 7. 🔴 **원본을 화면과 겹쳐 볼 것** — "헤더 뒤가 비었다"만 보고 통과시켰다가
    **3배 확대된 것을 못 잡았다.** 확인은 이렇게 한다:
    `OPACITY` 를 잠깐 `1.0` 으로 올리고 스크린샷 → 원본과 나란히 놓고 대조.
    두 그림의 같은 부분이 같은 높이에 있어야 한다.
+
+### 4·5번을 재는 스크립트
+
+눈으로는 «옅은 무늬»와 «백지»가 안 갈린다. 값으로 잰다.
+
+🔑 **가운데는 한복판과 좌우 끝을 따로 재야 한다.** 설계가 그 둘을 반대로 요구하기
+때문이다 — 한복판은 비우고(카드가 얹힌다), 좌우 끝에는 둔다(카드가 안 덮는다).
+한 덩어리로 재면 기둥이 «어수선»으로 잘못 걸린다.
+
+```python
+from PIL import Image
+ART = 'assets/images/skin-hanok-bg.webp'; BG = (0xF4, 0xEF, 0xE3)
+# 가을이면  'assets/images/skin-autumn-bg.webp',  (0xF7, 0xE9, 0xD7)
+
+art = Image.open(ART).convert('RGB')
+def peak(y0, y1, xs):
+    return max(max(abs(art.getpixel((x, y))[i] - BG[i]) for i in range(3))
+               for y in range(y0, y1, 4) for x in xs)
+
+EDGE = list(range(0, 110, 4)) + list(range(970, 1080, 4))   # 카드가 안 덮는 좌우 띠
+MID  = list(range(110, 970, 6))                             # 카드가 앉는 한복판
+ALL  = list(range(0, 1080, 6))
+
+print('위          ', peak(   0,  592, ALL),  ' 100 이상')
+print('가운데 한복판 ', peak( 700, 1800, MID),  ' 14 미만 (비어야 한다)')
+print('가운데 좌우끝 ', peak( 700, 1800, EDGE), ' 40 이상 (기둥·잎이 있어야 한다)')
+print('아래 보임    ', peak(1800, 2006, ALL),  ' 60 이상')
+print('아래 가려짐  ', peak(2006, 2340, ALL),  ' 얼마든 (안 보인다)')
+```
+
+⚠️ **이 잣대는 «면으로 그린 그림»용이다.** 구름무늬·판식처럼 **선으로 된 배경**은
+한복판에 선이 지나가면 「한복판 14 미만」에 걸린다(판식 실측 74). 그건 결함이 아니다
+— 선은 얇아서 화면을 어둡게 하지 않는다.
+
+🔑 **선·그림을 가리지 않는 더 나은 잣대는 기기 쪽에 있다.** 좌우 여백이 원래 바탕보다
+얼마나 어두워지는지를 재고 **중앙값**을 본다. 덩어리는 중앙값이 올라가고, 흩어진 것은
+0 에 머문다 — 수정전 54.2 vs 가을 0.8 vs 판식 0.0 을 가른 것이 이 값이다(§5).
+
+```python
+# 기기 스크린샷에서. BG 는 그 스킨의 background 토큰.
+xs = list(range(0, 60, 3)) + list(range(1020, 1080, 3))   # 카드가 안 덮는 띠
+ds = sorted(lum(BG) - lum(shot.getpixel((x, y)))
+            for y in range(300, 1950, 5) for x in xs)
+print('중앙값', ds[len(ds)//2], '상위10%', ds[int(len(ds)*0.9)])
+# 합격선: 중앙값 5 이하. 그 위로 올라가면 화면이 답답해진다.
+```
+
+**첫 그림 두 장을 원본 잣대로 재면 이렇게 나왔다** — 새 그림에서 뒤집혀야 할 칸들이다:
+
+| | 위 | 가운데 한복판 | 가운데 좌우끝 | 아래 보임 |
+|---|---|---|---|---|
+| 합격선 | 100↑ | 14↓ | 40↑ | 60↑ |
+| 한옥(첫 판) | 220 ✅ | 10 ✅ | **9 ❌** 기둥 없음 | **10 ❌** 담장이 아래로 빠짐 |
+| 가을(첫 판) | 193 ✅ | 7 ✅ | **7 ❌** 잎 없음 | **56 ❌** 쌓임이 30px만 걸침 |
+
+⚠️ **y 592 는 한옥 지붕이 실제로 끝나는 줄이다**(실측). 가운데를 590 부터 재면 지붕
+끝 2px 이 섞여 184 가 나오고 «어수선»으로 오판한다 — 그래서 700 부터 잰다.
 8. **실기 확인** — 갤럭시 S22 에 얹어 스크린샷. 새 사용자(빈 화면)와 카드가 찬 화면 둘 다
 9. ⚠️ **`preview` 프로필로 한 번** — 릴리스 빌드에서만 나는 UI 문제를 겪은 적이 있다
 
@@ -348,3 +526,552 @@ dpr 2 기기에서 같은 증상이 다시 난다. (감싸는 View 는 `absolute
 
 플래그는 `SKIN_LIST` 에서 두 스킨을 빼는 것으로 건다 — 팔레트와 이미지는 들어가 있되
 선택기에 안 뜬다. 10/1 빌드에서 그 한 줄만 되돌린다.
+
+---
+
+## §9 할로윈 — 보랏빛 밤 [⏭️ 다음, 1.7.x]
+
+> **한 문장:** 보랏빛 밤 속을 호박과 작은 유령이 **흩어져 내려가는** 화면.
+> 위에 크게 떠 있고, 좌우 레일을 지나며, 아래에 성글게 모인다.
+
+은정님 선택(9/6): **바탕 = 보랏빛 밤(어두운 스킨)** · **무늬 = 호박·유령 실루엣**.
+
+### 🎃 왜 «밤»인가 — 색이 남아 있지 않았다
+
+주황은 이미 가을(은행 노랑 `#D9A22B`·단풍 빨강 `#A8442A`)과 다크 액센트(`#D4784A`)가,
+보라는 Y2K 액센트(`#8B50D4`)가 쓰고 있다. **할로윈이 혼자 가질 수 있는 축은 «밤»뿐**이고,
+기존 다크 스킨은 갈색 계열(`#1C1410`)이라 보랏빛 밤과 안 겹친다.
+
+### 🔴 어두운 스킨이라 뒤집히는 것 셋
+
+1. **무늬가 바탕보다 밝아야 한다.** 검정 실루엣은 어두운 바탕에서 안 보인다.
+   달빛을 받아 «희미하게 떠오르는» 형태로 그린다.
+2. **§7 의 잣대가 뒤집힌다.** 「좌우 여백이 얼마나 **어두워졌나**」가 아니라
+   **밝아졌나**를 재고, 합격선은 그대로 중앙값 5 이하다.
+3. **다크 팔레트를 새로 짜야 한다**(`Colors.halloween`). 가을·한글처럼 밝은 팔레트
+   하나를 얹는 것으로 끝나지 않는다 — `constants/colors.ts` 에 `Colors.dark` 급의
+   한 벌이 필요하다.
+
+### §9-1 팔레트 [제안 — 확정 아님]
+
+| 쓰임 | 색 | 비고 |
+|---|---|---|
+| 바탕 | `#191327` | 보랏빛 밤 |
+| 카드 면 | `#241B36` | 한 겹 밝은 보라 |
+| primary | `#E8873A` | 호박 주황 |
+| accent | `#7FC244` | 독 초록 — 유령·연기 몇 점에만 |
+| 글자 | `#EDE6F2` | 그림에 쓰지 말 것 |
+| 무늬(기본) | `#3A2C55` ~ `#4A3768` | 바탕보다 밝은 보라. 실루엣은 여기서 |
+| 호박 불빛 | `#C97A34` | 두세 개에만 |
+
+⚠️ **밝기 상한** — 무늬가 카드 면(`#241B36`)보다 밝아지면 카드가 배경에 묻힌다.
+`#4A3768` 언저리가 상한이다. 밝은 스킨의 「불투명도 25% 상한」에 해당하는 자리다.
+
+### §9-2 🔴 덩어리 금지는 «면 금지»가 아니다
+
+호박·유령은 채운 형태라 §5 의 「덩어리」에 걸릴 것처럼 보이지만, **정확히는 «연속된»
+덩어리가 문제였다.** 수정전 기둥은 위아래로 이어져 좌우 띠 전체를 균일하게 눌렀고
+(중앙값 54.2), **가을 잎은 채운 면인데도 흩어져 있어 0.8** 이었다.
+
+🔑 **가르는 것은 «면이냐 선이냐»가 아니라 «이어졌냐 흩어졌냐»다.**
+호박을 쌓으면 진다. 잎처럼 흩뿌리면 이긴다 — 프롬프트에 그렇게 적었다.
+
+### §9-3 프롬프트
+
+🔴 앞선 두 프롬프트의 **「outer 10%」는 틀렸다**(§1). 카드가 `x 60~1019` 를 덮으므로
+레일은 **바깥 6%** 다. 그리고 **49~60% 띠가 전체 폭으로 열려 있다** — 앞선 둘은
+이 자리를 몰라 비워 뒀다.
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+dark, calm, low contrast. A deep purple night.
+
+Ground: deep indigo-purple night, almost black, with a soft paper-like
+grain. Everything drawn on it is LIGHTER than the ground — this is a
+night scene, so the shapes read as dim forms catching moonlight, never
+as black on black.
+
+Subject: jack-o'-lanterns and small ghosts drifting down through the
+frame. The lanterns glow from within — a clear warm orange light coming
+out of the dark. The two or three largest lanterns near the top may show
+a simple carved face (triangle eyes, small grin); the small ones lower
+down are plain pumpkin shapes with no face. Keep every shape SMALL and
+SEPARATE — never a pile, never a heap, never a cluster that merges into
+one mass. Think of autumn leaves falling one by one, not a pumpkin patch.
+
+TOP 15% (0 to 15%): three or four larger shapes floating apart from one
+another, tilted at different angles, with clear space between them.
+This band is where the picture is seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY. Place a few small shapes only
+within the OUTER 6% of the left and right edges — narrow vertical
+rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small shapes across it, well apart.
+
+62% to 85%: the outer 6% rails again, small shapes only, centre empty.
+
+BOTTOM: a loose drift of shapes gathering across the full width, its
+top edge beginning right at 75% and continuing off the bottom edge.
+Keep it airy — separate shapes with gaps of night between them, not a
+solid bank.
+
+Palette: deep indigo-purple ground. The ghosts and most shapes are a dim
+dusty violet, only a little lighter than the ground. The pumpkins are the
+exception and the only warm colour in the picture — paint them a strong,
+saturated pumpkin orange, bright against the night. Do NOT mute, grey or
+desaturate the orange; everything else is quiet and washed out, and the
+lanterns are what the eye lands on. The orange is strongest in the top
+band and fades toward the bottom, where the lanterns are dim embers.
+One or two touches of a cold pale green on a ghost.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles or blocks of different darkness — the
+percentages above describe where to place things, not shapes to paint.
+
+No moon, no landscape, no trees, no houses, no people, no gravestones,
+no letters, no text, no frame or border. The centre must stay empty.
+```
+
+🔴 **「Desaturated and quiet throughout」를 빼야 호박이 산다.** 첫 판 프롬프트가 그 한 줄로
+주황을 죽였고, 화면 불투명도 0.35 가 한 번 더 깎으면 아무것도 안 남는다. 대신 **호박만
+예외, 나머지는 조용히**로 가른다.
+
+⚠️ **0.35 로는 화면에 «진짜 호박 주황»이 안 나온다.** 그림에 `#E8873A` 를 칠해도 화면은
+`#613C2E`(구운 벽돌빛)다. 역산하면 화면에 `#E8873A` 를 내려면 그림이 **RGB (616, 350, 93)**
+이어야 한다 — 원천 불가능하다. 그러니 **그림은 진하게 받아 둔다**(흐리게 받으면 못 올린다).
+불투명도는 실기에서 정한다 → `components/SkinBackdrop.tsx` 의 주석.
+
+### §9-4 받은 뒤 확인
+
+§7 을 그대로 쓰되 **부호를 뒤집는다**(밝아짐). 더해서:
+
+1. 🔴 **무늬가 카드 면보다 어두운가** — 밝으면 카드가 배경에 묻힌다
+2. 🔴 **호박이 쌓여 있지 않은가** — 좌우 레일의 밝아짐 **중앙값 5 이하**
+3. **49~60% 띠가 비어 있지 않은가** — 앞선 둘이 놓친 자리다
+4. **75% 위에서 아래 모임이 시작하는가** — `y 2006`(85.7%) 아래는 안 보인다
+
+### §9-5 배경 말고도 필요한 것
+
+- `constants/colors.ts` 에 **`Colors.halloween` 한 벌**(다크 팔레트)
+- `constants/skins.ts` 에 정의 + `SKIN_LIST` 등록 + `getSkinColors` 분기
+- `components/SkinBackdrop.tsx` 의 `ART` 에 파일 등록
+- `components/CharacterAccessory.tsx` 에 소품 — 마녀 모자? 호박 바구니? **미정**
+- `features/theme/types.ts` 의 `SkinId`·`CharacterAccessory` 유니온
+- `i18n/locales/*.json` 에 `skinHalloween`
+- `__tests__/skin-registry.test.ts` 의 `ALL` 배열
+
+### §9-6 받은 것과 고친 것 (2026-09-07) — ✅ 들어감
+
+`assets/images/skin-halloween-bg.webp` · 1408×3040 → `fit_art2.py` → 1080×2340 · **41KB**.
+구도는 §9-3 대로 왔다(위 15% 큰 것 셋, 좌우 6% 레일, 49~60% 전폭 띠, 아래 드리프트).
+**호박 주황도 제대로 왔다.** 그런데 결함이 둘이었고, **그림을 다시 그리지 않고 후처리로 고쳤다.**
+
+🔴 **① 띠를 «사각형»으로 그렸다.** 프롬프트의 `TOP 15% / 17~48% / 49~60%` 를 구도 지시가
+아니라 **그려야 할 도형**으로 알아들었다. 바탕 휘도가 `43 → 35 → 29 → 23` 네 단으로 끊기고
+좌우 끝에도 더 어두운 레일이 따로 생겼다. 0.35 로 눌러도 경계가 남는다.
+→ 바탕이 전부 **평평한 단색**이라 색으로 골라낼 수 있었다. 바탕으로 쓰인 14색을 하나로
+바꾸고 안티에일리어싱 테두리만 거리에 따라 섞었다(바탕 판정 90.8%). 모양은 안 건드렸다.
+**프롬프트에 「하나로 이어진 바탕」한 줄을 넣었다** — 다음엔 여기서 안 걸린다.
+
+🔴 **② 아래 모임이 85%(`y1990`)에서 시작했다.** 브리프는 75%(`y1755`)라고 적었는데
+`y2006` 아래는 탭바라 **공들인 호박 줄이 통째로 안 보였다.** 가을 첫 판이 진 자리와 같다.
+→ 늘리거나 줄이면 호박이 찌그러지므로 **완전히 빈 밤 구간만 잘라냈다**:
+`y1543~1699`(156px) + `y1782~1857`(75px) = **231px**. 그만큼 아래가 통째로 올라온다.
+
+🔑 **워터마크는 «끌어올림» 때문에 문제가 됐다.** Gemini 워터마크가 `y2100~2200` 에 있었고
+원본에서는 탭바 뒤라 안 보였다 — 그래서 처음에 못 보고 넘어갔다. 그런데 231px 을 당기면
+**`y1869~1969` 로 와서 화면에 뜬다.** 은정님이 지워 다시 저장해 주셔서 해결됐지만,
+🔴 **그림을 위로 당기는 조작은 «안 보이던 자리»를 화면 안으로 끌어들인다.** 당기기 전에
+`y2006` 아래를 한 번 볼 것.
+
+**측정** (§9-4 잣대, 부호 뒤집어서 · 화면 0.35):
+
+| | 값 | 합격 | 가을(통과) |
+|---|---|---|---|
+| 위 `0~592` | 13.6% | 있어야 | — |
+| 가운데 한복판 | 4.3% | 비어야 | 3.4% |
+| 좌우 레일 | 8.6% | 있어야 | 10.7% |
+| **49~60% 띠** | **5.1%** | 있어야 | **0.2%** |
+| 아래 보임 `1800~2006` | 22.5% | 있어야 | 35.9% |
+| 레일 밝아짐 **중앙값** | **+0.00** | 5 이하 | 0.8 |
+
+중앙값 0.00 — **덩어리가 아니라 흩어진 것**이다(§9-2 통과).
+**49~60% 띠는 이번에 처음 채워진 자리**다. 가을·한글은 그 자리가 열려 있는 줄 몰라 비웠다.
+
+🔴 **글자색이 목업에서 걸렸다.** 인사말 뒤에 큰 호박이 앉는데, 그 자리의 가장 밝은
+픽셀(`#694237`)에서 대비를 재면 **dark 스킨의 `textTertiary`(`#806050`)는 1.6:1** 로 사라진다.
+그래서 `Colors.halloween` 은 2차 `#C9BCDD`(4.81:1) · 3차 `#AA9CC0`(3.38:1, 바탕 위 7.07:1)로
+다른 다크 스킨보다 밝다. **밝은 스킨 값을 그대로 가져오면 안 되는 자리다.**
+
+🔴 **`onPrimary` 가 여덟 중 유일하게 어둡다**(`#191327`). primary 가 밝은 호박 주황이라
+흰 글자는 **2.64:1 미달**이다. `__tests__/skin-registry.test.ts` 가 이 한 값을 지킨다.
+
+⏭️ **남은 것**: 소품(`characterAccessory`)은 아직 `none` — 마녀 모자·호박 바구니 미정.
+불투명도는 0.35 로 뒀고 실기에서 0.35 / 0.5 / 0.65 를 대조해 정한다.
+선택기 플래그는 **걸린 채**다(10월 말에 걷는다).
+
+---
+
+## §10 편지지 · 실험실 · 여름 바다 — 옛 스킨 셋 [⏭️ 1.6.3]
+
+앞의 셋(가을·한글·할로윈)이 배경 그림을 갖게 되자 **먼저 있던 셋이 그림 없이 남았다.**
+「가을·한글 수준으로 올린다」가 은정님 결정(2026-09-07)이고, 이 절이 그 브리프다.
+
+### §10-1 🔴 전제가 절반 틀렸다 — 축마다 앞선 스킨이 다르다
+
+「옛 스킨이라 뒤처졌다」로 시작했는데, 클래식에서 몇 개나 벗어났는지 세 보니 갈렸다
+(2026-09-08 실측).
+
+| | 상태색(7) | icons(6) | hint(3) | 배경 그림 |
+|---|---|---|---|---|
+| 편지지(y2k) | 0/7 → **7/7** | 6/6 | 3/3 | ❌ |
+| 실험실(lab) | 0/7 → **7/7** | 6/6 | 3/3 | ❌ |
+| 여름바다(ocean) | 5/7 → **7/7** | 0/6 → **6/6** | 0/3 → **3/3** | 🔸파도(홈 전용) |
+| 가을 | 7/7 | **0/6** | **0/3** | ✅ |
+| 한글 | 7/7 | **0/6** | **0/3** | ✅ |
+| 할로윈 | 7/7 | 6/6 | 3/3 | ✅ |
+
+🔑 **icons·hint 는 y2k·lab 이 오히려 앞서 있었고 가을·한글이 꼴찌다.** 세 축을 다 갖춘 것은
+**할로윈 하나**뿐이고, 그것이 기준선이다. ⏭️ 가을·한글의 icons·hint 는 아직 남아 있다.
+
+🔴 **상태색의 잣대는 4.5:1 이 아니다.** 이 앱의 상태색은 원래 4.5 를 안 지킨다 — 클래식조차
+success 4.31 · error 4.00 · warning 3.29 다. 앱 전반이 안 지키는 값을 근거로 삼으면 셋만
+고쳐 놓고 나머지와 어긋난다. 목표는 대비 개선이 아니라 **톤 일치**이고, 기존 스킨의 범위
+(success 4.09~5.36 · error 4.00~5.53 · warning 3.04~4.04) 안에 드는지로만 본다.
+
+### §10-2 📮 y2k 를 «편지지»로 — 이름이 어긋나 있었다
+
+🔴 **두 번 헛돌고 나서야 이름이 원인인 걸 알았다.** 은정님이 「미니홈피와 거리가 있다」고
+하셔서 도토리·음표를 넣었고, 그 다음엔 「도토리랑 반짝이는 느낌이 별로」라고 하셨다.
+그때 «Y2K 가 무슨 뜻인가»로 돌아가니 갈렸다 —
+
+- **Y2K = Year 2000.** 밀레니엄 버그를 가리키던 말이 2020년쯤 «1999~2004 시각 문화»로
+  되살아난 것이고, 그 본체는 **은색·크롬·홀로그램, 곧 반짝임**이다.
+- 그런데 이 스킨에 실제로 들어 있던 것은 **분홍 파스텔 · 둥근 글꼴(Jua) · 리본** —
+  Y2K 도 미니홈피도 아니고 **2000년대 팬시 문구**다. 이름만 어긋나 있었다.
+- 배경 시안이 두 번 빗나간 것은 **어긋난 이름을 좇았기 때문**이다. 스파클은 Y2K 의
+  시그니처라 「빼면 안 되는 하나」로 넣었는데, 스킨의 실체가 Y2K 가 아니었다.
+
+🔑 **배경 주제를 정하기 전에 스킨의 이름이 그 스킨을 맞게 부르고 있는지 볼 것.**
+이름이 틀리면 프롬프트가 통째로 그 방향으로 끌려간다.
+
+이름은 i18n 의 `skinY2k` 값만 갈았다(ko 편지지 · en Stationery · es Papelería).
+🔴 **`SkinId` 는 `'y2k'` 로 남긴다** — 사용자의 선택이 그 문자열로 저장돼 있어서, 바꾸면
+이 스킨을 쓰던 사람의 화면이 다음 실행에 기본으로 돌아간다.
+
+### §10-3 🩵 하늘색 = 편지지의 두 번째 축
+
+팔레트 일곱 값의 색상(hue)을 재면 이 스킨만 **267~324도 한 덩어리**였다.
+
+```
+편지지 전   313 · 267 · 313 · 323 · 324 · 311 · 300     한 덩어리
+편지지 후   313 · 200 · 313 · 323 · 324 · 311 · 300     두 축
+여름바다    184 · 11 · 11 · 185 · 180 · 186 · 188        청록 ↔ 코랄
+가을        12 · 36 · 36 · 34 · 35 · 34 · 19             단풍 ↔ 은행
+할로윈      27 · 92 · 92 · 258 · 260 · 260 · 275         호박 ↔ 독초록 ↔ 밤
+```
+
+가을의 은행 노랑, 할로윈의 독 초록이 하는 일을 여기서는 하늘색이 한다. 분홍 체크에
+하늘색 리본이 그 시절 편지지의 색이다.
+
+🔴 **밝은 하늘색은 글자에 못 쓴다.** `#3E9FD0` 은 분홍 배경 위 2.68 로 그 전 값(보라 4.53)에
+한참 못 미친다. **둘로 가른다** — 글자·버튼은 진한 `#1F7FB0`(4.02 · 흰 글자 4.45), 아이콘과
+선택기 미리보기 원은 밝은 `#3E9FD0`. 여름바다가 「밝은 산호 `#FF7F5C` 는 장식·아이콘용,
+강조 텍스트는 진한 코랄 `#D94F30`」으로 갈라 둔 것과 같은 자리다.
+
+| 토큰 | 전 | 후 | 쓰이는 곳 |
+|---|---|---|---|
+| `secondary` / `secondaryLight` | `#8B50D4` / `#EDD9F8` | `#1F7FB0` / `#D8ECF7` | 큐레이션 배지 |
+| `accentAction` / `~Light` | `#8B50D4` / `#EDD9F8` | `#1F7FB0` / `#E2F1FA` | 단어장 상세·학습 설정의 활성 항목 |
+| `accentActionGradient` 끝 | `#9B4DD4` | `#2A86BC` | 「골라서 학습」 타일 |
+| `icons.shuffle` / `.timing` | `#8B50D4` / `#B070D4` | `#3E9FD0` / `#5AB2DC` | 설정 아이콘 |
+| `previewColors.accent` | `#8B50D4` | `#3E9FD0` | 스킨 선택기의 세 번째 원 |
+
+목업(전/후 나란히): https://claude.ai/code/artifact/c2a50013-5667-4244-bbfa-f46fb331cd0a
+
+### §10-4 색 [고정 — 이 팔레트 밖으로 나가지 말 것]
+
+| | 바탕 | 카드 면 | 주 무늬 | 두 번째 색 | 아주 조금 |
+|---|---|---|---|---|---|
+| 편지지 | `#FDF0F8` | `#FFF5FB` | 분홍 `#D456B8` | 하늘 `#3E9FD0` | 버터 노랑(꽃 중심) |
+| 실험실 | `#F0F2F5` | `#FFFFFF` | 시안 `#0891B2` | 진청록 `#0E7490` | 연한 시안 액체 |
+| 여름바다 | `#EAF6F7` | `#F5FBFB` | 딥 틸 `#0C7178` | 산호 `#FF7F5C` | — |
+
+### §10-5 무엇이 그 스킨으로 읽히게 하나 [프롬프트에서 빼지 말 것]
+
+| | 결정적 요소 | 빠지면 |
+|---|---|---|
+| 편지지 | **희미한 깅엄 체크 바탕** + **우표의 톱니 가장자리** | 그냥 꽃 배경 |
+| 실험실 | **유리 기구의 눈금선** | 그냥 병 |
+| 여름바다 | **수면의 빛그물(caustics)** | 계절 없는 바다 |
+
+🔑 셋 다 **전면을 덮는 옅은 무늬 하나 + 흩어진 작은 것들**이라는 같은 구조다. §9-2 의
+「이어졌냐 흩어졌냐」에서 전면 무늬가 지지 않는 이유는 **아주 옅기 때문**이다 —
+프롬프트에 `barely visible, like a watermark` 를 반드시 넣는다.
+
+### §10-6 프롬프트
+
+구획 지시(TOP 15% · 바깥 6% 레일 · 49~60% 전폭 띠 · 75% 부터 아래 드리프트)는 §9-3 과
+같다. 아래는 그 골격에 주제만 갈아 끼운 것이다.
+
+**편지지** — 2026-09-08. 🔴 금지 목록이 긴 데는 이유가 셋 있다: `sparkles/twinkles/
+stars/glitter/shine` 는 **동의어까지 막은 것**(하나만 쓰면 모델이 다른 이름으로 되살린다),
+`acorns/clouds/oak leaves` 는 접은 시안과 다른 스킨(가을·한글)의 겹침 차단,
+`ruled writing lines/handwriting/letters` 는 **편지지를 주제로 주면 모델이 글씨를 쓰려 들기**
+때문이다. 그리고 **「화면 전체가 한 장의 종이」**를 못 박지 않으면 종이 안에 종이를 그린다.
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+soft, quiet, low contrast. A sheet of stationery.
+
+Ground: pale rose-pink paper with a faint soft grain. Across the whole
+sheet, an extremely faint GINGHAM CHECK — even squares of a slightly
+deeper pink, barely visible, like a watermark. It must never become a
+strong plaid; it is the tint of the paper, not a pattern on top of it.
+This check is what makes the image read as stationery rather than a
+flower background — never drop it, and never let it get bold.
+
+The whole image IS the sheet of paper. Do not draw a sheet of paper, a
+notebook, a letter or a card as an object inside the picture, and do not
+draw a border or a frame around the edges.
+
+Subject: the small printed motifs of early-2000s Korean fancy stationery,
+scattered down through the frame. Each motif is a small flat shape with
+its OWN colour. Five kinds, in this order of quantity:
+
+  1. TINY FIELD FLOWERS — simple five-petal daisies seen face on, with a
+     small round centre. Some ROSE PINK, some SKY BLUE, centres a soft
+     butter yellow. The most numerous shape.
+  2. RIBBON BOWS — a simple two-loop bow with two short tails. SKY BLUE.
+  3. HEARTS — small and plain, MAGENTA PINK, some solid, some outlined.
+  4. POSTAGE STAMPS — small upright rectangles with a PERFORATED SAW-
+     TOOTH EDGE, each holding one tiny flower or heart inside. Outlined
+     in sky blue or pink. Only five or six in the whole image; the
+     perforated edge must be clearly visible, it is what says "letter".
+  5. ENVELOPES — a small rectangle with a triangular flap line across it.
+     SKY BLUE outline. The fewest, three or four in total.
+
+About one motif in three should be sky blue. Keep every motif SMALL and
+SEPARATE — never a bouquet, never a cluster, never a garland or a chain,
+never a band of pattern that merges into one mass. Think of motifs
+printed on writing paper, spaced far apart.
+
+TOP 15% (0 to 15%): three or four larger motifs floating apart from one
+another, tilted at different angles, with clear space between them — one
+stamp, one bow, two flowers. This band is where the picture is seen most
+— spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint check. Place
+a few small motifs only within the OUTER 6% of the left and right edges —
+narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small motifs across it, well apart.
+
+62% to 85%: the outer 6% rails again, small motifs only, centre empty.
+
+BOTTOM: a loose scatter of flowers and hearts across the full width, its
+top edge beginning right at 75% and continuing off the bottom edge. Keep
+it airy — separate motifs with gaps of pink between them, not a solid
+band and not a flower bed.
+
+Palette: pale rose-pink ground with a barely-there deeper pink check.
+Rose pink and sky blue are the two colours that carry the motifs, in
+roughly two to one. A soft butter yellow appears only in flower centres.
+No other hues at all — no green, no purple, no orange, no brown. Draw no
+stems and no leaves on the flowers; they are printed motifs, not plants.
+
+The background is ONE single continuous colour and check from top to
+bottom. Do not draw the bands as visible rectangles or blocks of
+different tone — the percentages above describe where to place things,
+not shapes to paint.
+
+No sparkles, no twinkles, no stars, no glitter, no shine, no metallic or
+holographic effects, no gradients. No acorns, no clouds, no oak leaves,
+no butterflies, no lace, no ruled writing lines, no handwriting, no
+letters, no numbers, no text, no logos, no people, no frame or border.
+The centre must stay empty.
+```
+
+**실험실**
+
+```
+Vertical mobile wallpaper, 1080x2340, flat LINE illustration,
+clean, technical, calm, low contrast. A scientist's notebook page.
+
+Ground: very light cool grey-blue paper. Across the whole sheet, an
+extremely faint square graph-paper grid — barely visible, like a
+watermark, never a strong lattice. The grid is the only thing that covers
+the full page; everything else is drawn sparsely on top of it.
+
+Subject: laboratory glassware and molecule rings, drawn as OUTLINES ONLY,
+thin clean strokes, never filled in. Erlenmeyer flasks, round-bottom
+flasks, beakers, test tubes — each with GRADUATION MARKS on its side, a
+short ladder of measuring lines. Those measuring lines are what make this
+read as a laboratory; a glass shape without them is just a bottle, so
+never drop them. Molecules are flat hexagonal rings joined by straight
+bonds, with small circles at the joints. Keep every object SMALL and
+SEPARATE — never a shelf of glassware, never a row, never a cluster that
+merges into one mass.
+
+TOP 15% (0 to 15%): three or four larger objects floating apart from one
+another, tilted at slightly different angles, with clear space between
+them — one flask, one beaker, one molecule ring. This band is where the
+picture is seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint grid. Place a
+few small objects only within the OUTER 6% of the left and right edges —
+narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small objects across it, well apart.
+
+62% to 85%: the outer 6% rails again, small objects only, centre empty.
+
+BOTTOM: a loose scatter of test tubes and small rings across the full
+width, its top edge beginning right at 75% and continuing off the bottom
+edge. Keep it airy — separate objects with gaps between them, not a rack.
+
+Palette: cool grey-blue ground and grid. All outlines in a clear
+teal-cyan. Two or three vessels may hold a pale cyan liquid — a flat wash
+of colour, no gradient, filling only the lower third of that vessel.
+No other hues at all.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles or blocks of different tone — the
+percentages above describe where to place things, not shapes to paint.
+
+No bubbles, no smoke, no fire, no microscopes, no people, no hands,
+no letters, no numbers, no text, no frame or border. The centre must
+stay empty.
+```
+
+**여름 바다** — 🔴 **위에서 내려다본 구도**다. 지금 홈에 깔린 `OceanBackdrop`(옆에서 본
+물결)과 시점이 충돌하므로 프롬프트에 `no waves seen from the side` 를 넣었고,
+**그림을 얹는 커밋에서 파도를 걷는다**(§10-7).
+
+```
+Vertical mobile wallpaper, 1080x2340, flat illustration,
+bright, airy, calm, low contrast. Shallow water on a clear summer day,
+seen from directly above.
+
+Ground: very pale aqua, almost white, like sunlit sand under clear
+shallow water. Across the whole sheet, an extremely faint caustic net —
+the wobbling web of light that a water surface casts on the sea floor,
+drawn as thin soft-edged lines. It must be barely visible, like a
+watermark, never a strong pattern. The caustics are what make this read
+as bright shallow water rather than open sea; they are the only thing
+that covers the full page, and everything else is drawn sparsely on top.
+
+Subject: shells, starfish and small coral sprigs scattered on the sand.
+Simple flat shapes seen from above — scallop shells with fan ridges,
+spiral shells, five-armed starfish, short branching coral. Keep every
+object SMALL and SEPARATE — never a heap, never a row along a shoreline,
+never a cluster that merges into one mass. Think of things washed up one
+by one, far apart.
+
+TOP 15% (0 to 15%): three or four larger objects floating apart from one
+another, tilted at different angles, with clear space between them — one
+scallop, one starfish, one coral sprig. This band is where the picture is
+seen most — spend the effort here.
+
+17% to 48%: the centre must stay EMPTY except for the faint caustics.
+Place a few small objects only within the OUTER 6% of the left and right
+edges — narrow vertical rails. Nothing at all between those rails.
+
+49% to 60%: this band is open across the FULL width — spread three or
+four small objects across it, well apart.
+
+62% to 85%: the outer 6% rails again, small objects only, centre empty.
+
+BOTTOM: a loose scatter of small shells across the full width, its top
+edge beginning right at 75% and continuing off the bottom edge. Keep it
+airy — separate objects with gaps of sand between them, not a bank.
+
+Palette: pale aqua ground, deep ocean teal for the shell outlines and the
+caustic lines. The starfish and coral are the only warm colour — a clear
+coral orange, saturated, not muted. Do NOT grey down the coral; everything
+else is quiet and washed out, and the starfish are what the eye lands on.
+No other hues at all.
+
+The background is ONE single continuous colour from top to bottom. Do not
+draw the bands as visible rectangles, no horizon line, no shoreline, no
+strip of darker water — the percentages above describe where to place
+things, not shapes to paint.
+
+No waves seen from the side, no horizon, no sky, no boats, no fish,
+no people, no letters, no text, no frame or border. The centre must
+stay empty.
+```
+
+### §10-7 배경 말고도 필요한 것
+
+- ✅ 상태색 세 스킨 · 여름바다의 icons·hint (`aea8c93`)
+- ✅ 실험실 캐릭터 소품 = **보안경**(`aea8c93`). 🔴 첫 판이 머리보다 좁아 「얹힌 장식」으로
+  보였다 — 끈 102 단위 대 머리 107. 실기 캡처에서 화면 60px 대 72px 로 재서 118 로 넓혔다.
+- ✅ 편지지 팔레트에 하늘색 축 · 이름 3개 언어
+- ⏭️ `components/SkinBackdrop.tsx` 의 `ART` 에 그림 세 장 등록
+- ⏭️ 🔴 **`OceanBackdrop` 을 걷는다** — 그림을 얹는 그 커밋에서. 먼저 걷으면 그림이 올
+  때까지 여름바다만 배경이 통째로 없는 상태가 된다. 홈에만 있는 파도를 남기면
+  「홈에만 있으면 스킨이 아니다」(`6dc08e9`)와 어긋나고, 시점도 충돌한다.
+- ⏭️ 편지지 소품(리본)은 **그대로 둔다** — 리본은 편지지 모티프 그 자체다.
+- ⏭️ 가을·한글의 icons·hint (§10-1 의 남은 자리)
+
+### §10-8 받은 것과 고친 것 (2026-09-08) — ✅ 셋 다 들어감
+
+| | 파일 | 크기 | 손댄 것 |
+|---|---|---|---|
+| 실험실 | `skin-lab-bg.webp` | 90KB | 없음(축소만) |
+| 여름바다 | `skin-ocean-bg.webp` | 94KB | 없음(축소만) |
+| 편지지 | `skin-letter-bg.webp` | 100KB | **체크를 전면으로 메움** |
+
+1408×3040 → 1080×2340. 가로를 맞추고 세로 초과분을 **위아래로 나눠** 잘랐다(위만 자르면
+TOP 15% 의 큰 것들이 깎이고, 아래만 자르면 드리프트가 잘린다).
+
+#### 🔴 편지지 첫 판이 **가로로** 왔다
+
+2816×1536. 다른 둘은 1408×3040 으로 잘 왔으니 생성 쪽 비율 설정이었다. 가로면 구획
+지시(TOP 15% · 레일 · 드리프트)가 통째로 무너지므로 **잘라 쓸 수 없다** — 다시 받았다.
+🔑 **받자마자 비율부터 잰다.** 눈으로는 「좀 짧다」로만 보이고, 실제로 은정님이 그렇게
+짚어 주셨다.
+
+#### 🔴 「전면을 덮는 옅은 무늬」를 모델이 **사각 블록으로** 그린다 — 두 장 다
+
+실험실의 모눈도, 편지지의 체크도 17~48% 와 62~85% 구간에만 들어갔다. §9-3 이 경고한
+「띠를 사각형으로 그리지 말 것」이 그대로 났다. **프롬프트에 그 문장이 이미 있는데도
+난다** — 구획을 퍼센트로 지시하는 한 모델이 그 경계를 무늬 경계로 읽는 듯하다.
+
+- **실험실은 그대로 뒀다.** 행 중앙값이 2.1~6.7 이고 불투명도 0.35 를 곱하면 0.73~2.36 —
+  블록 간 차이가 **1.6** 이라 실기에서 경계가 안 보인다.
+- **편지지는 메웠다.** 체크가 훨씬 진해(중앙값 7.52 대 3.06) 차이가 **4.61** 이었다.
+  체크는 주기 **46px** 의 규칙 격자(자기상관 0.92)라 타일을 떠서 채울 수 있다:
+  체크가 있고 모티프가 없는 자리(y 700~1000 · x 200~880)에서 **같은 격자 위치끼리 평균**
+  내 46×46 타일을 만들고, 원본과 **위상을 맞춰** 빈 구간에 깔았다. 4.61 → **2.15**.
+  🔴 빈 구간에도 모티프가 있으므로 **바탕에만** 얹는다 — 배경색과의 거리가 타일 진폭의
+  1.6배 안인 픽셀만 칠했다. 경계 12px 은 원본과 섞어 이음매를 지웠다.
+
+#### 🔴 §7 잣대가 이 세대 그림에 두 군데 안 맞는다
+
+1. **「가운데 한복판 14 미만」** — 세 장 다 200 넘게 나온다. 결함이 아니라 잣대가 낡은
+   것이다. **49~60% 전폭 띠는 할로윈 때 새로 연 자리**인데 §7 은 그 자리를 모르던
+   시절(가을·한글)의 기준이고, 거기 요소를 두라고 프롬프트가 시켰으니 최댓값이 큰 것이 맞다.
+2. **「레일 중앙값 5 이하」** — 전면 무늬가 있으면 구조적으로 올라간다.
+   실측: 여름바다 0.9 · 실험실 3.2 · **편지지 11.2**. 셋 다 전면 무늬인데 진하기가 다르다.
+   편지지는 합격선의 두 배가 넘지만 **실기에서 답답하지 않고 카드 테두리도 산다.**
+
+🔑 **전면 무늬 스킨은 값이 아니라 화면으로 판정한다.** 값은 「어디를 볼지」만 알려 준다.
+숫자만 보고 편지지를 다시 받았다면 멀쩡한 그림을 버렸을 것이다.
+
+#### 실기 확인 (S22, 2026-09-08)
+
+- **여름바다** — 상단에 조개·불가사리·산호, 좌우 레일에 작은 것들, 카드 사이로 빛그물.
+  하단에 파도가 사라졌다.
+- **실험실** — 상단에 플라스크·비커·분자 고리, 레일에 유리 기구. 모눈 블록 경계 안 보임.
+  고글 쓴 아보카도가 제자리.
+- **편지지** — 체크가 은은하게 전면에 깔리고, 「골라서 학습」이 분홍→하늘 그라디언트.
+  이름이 「편지지」로 뜬다.
+
+⏭️ **남은 것**: 편지지 소품은 리본 그대로(편지지 모티프 그 자체다) · 가을·한글의
+icons·hint(§10-1) · `preview` 프로필 빌드 확인.

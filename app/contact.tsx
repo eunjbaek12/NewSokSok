@@ -60,7 +60,7 @@ const CATEGORY_ICONS: Record<SupportCategory, IoniconName> = {
 
 // 스토어 리스팅에 이미 공개된 주소다(개발자 연락처는 필수 항목). 전송이 실패했을
 // 때만 쓰는 폴백 경로라, 평소에는 사용자에게 노출되지 않는다.
-const SUPPORT_EMAIL = 'hskimiops@gmail.com';
+const SUPPORT_EMAIL = 'mtgirltreeguy@gmail.com';
 
 export default function ContactScreen() {
   const insets = useSafeAreaInsets();

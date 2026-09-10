@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import CharacterSvg from '@/components/CharacterSvg';
+import { SkinBackdrop } from '@/components/SkinBackdrop';
 import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -422,7 +423,7 @@ export default function CurationScreen() {
     const isDetailTopBtnVisible = useRef(false);
 
     const insets = useSafeAreaInsets();
-    const { colors, isDark, fontFamily } = useTheme();
+    const { colors, isDark, skinId, fontFamily } = useTheme();
     const { t } = useTranslation();
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
@@ -1114,6 +1115,11 @@ export default function CurationScreen() {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={[styles.container, { backgroundColor: colors.background }]}>
+            {/* 스킨 배경 그림 — 홈과 같은 자리·같은 규칙(맨 뒤 레이어, 터치 통과).
+                여기 한 곳에만 단다. 아래 selectedTheme 갈래(덱 상세)는 자체 히어로가
+                있는 드릴다운이라 배경을 덮는 것이 맞고, 목록 갈래는 fragment 라
+                가릴 것이 없다. */}
+            <SkinBackdrop skinId={skinId} />
             {selectedTheme ? (
                 <View style={[styles.container, { backgroundColor: colors.background }]}>
                     <ScrollView
@@ -1377,7 +1383,7 @@ export default function CurationScreen() {
             ) : (
                 <>
                     <View style={[styles.header, { paddingTop: topInset + 16 }]}>
-                        <CharacterSvg size={56} isDark={isDark} />
+                        <CharacterSvg size={56} />
                         <View style={styles.headerTextArea}>
                             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={2}>{dailyTip}</Text>
@@ -1745,7 +1751,7 @@ export default function CurationScreen() {
             >
                 {generating ? (
                     <View style={{ paddingHorizontal: 20, paddingVertical: 28, alignItems: 'center', gap: 14 }}>
-                        <CharacterSvg size={72} isDark={isDark} />
+                        <CharacterSvg size={72} />
                         <Text style={{ fontSize: 16, fontFamily: 'Pretendard_700Bold', color: colors.text, textAlign: 'center' }}>
                             {t('curation.aiGeneratingTitle')}
                         </Text>

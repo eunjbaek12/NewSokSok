@@ -1,0 +1,502 @@
+[
+  {
+    "rank": 1,
+    "term": "귀신",
+    "pos": "noun",
+    "meaningEn": "a ghost",
+    "romaja": "gwisin",
+    "exampleKo": "어젯밤에 우리 집에서 귀신을 봤어.",
+    "exampleEn": "I saw a ghost at my house last night.",
+    "category": "귀신"
+  },
+  {
+    "rank": 2,
+    "term": "유령",
+    "pos": "noun",
+    "meaningEn": "a phantom",
+    "romaja": "yuryeong",
+    "exampleKo": "여기 유령이 나온다는 소문이 있어.",
+    "exampleEn": "There is a rumor that a phantom appears here.",
+    "category": "귀신"
+  },
+  {
+    "rank": 3,
+    "term": "도깨비",
+    "pos": "noun",
+    "meaningEn": "a goblin",
+    "romaja": "dokkaebi",
+    "exampleKo": "옛날 옛적에 도깨비가 살았대.",
+    "exampleEn": "They say a goblin used to live here a long time ago.",
+    "category": "귀신"
+  },
+  {
+    "rank": 4,
+    "term": "구미호",
+    "pos": "noun",
+    "meaningEn": "a nine-tailed fox",
+    "romaja": "gumiho",
+    "exampleKo": "달빛 아래서 구미호의 꼬리가 보였어.",
+    "exampleEn": "I saw the tails of a nine-tailed fox under the moonlight.",
+    "category": "귀신"
+  },
+  {
+    "rank": 5,
+    "term": "저승사자",
+    "pos": "noun",
+    "meaningEn": "a grim reaper",
+    "romaja": "jeoseungsaja",
+    "exampleKo": "꿈에 검은 옷을 입은 저승사자가 나타났어.",
+    "exampleEn": "A grim reaper dressed in black appeared in my dream.",
+    "category": "귀신"
+  },
+  {
+    "rank": 6,
+    "term": "처녀귀신",
+    "pos": "noun",
+    "meaningEn": "the ghost of an unmarried woman",
+    "romaja": "cheonyeogwisin",
+    "exampleKo": "머리를 풀어헤친 처녀귀신을 마주쳤어.",
+    "exampleEn": "I ran into the ghost of an unmarried woman with loose hair.",
+    "category": "귀신"
+  },
+  {
+    "rank": 7,
+    "term": "물귀신",
+    "pos": "noun",
+    "meaningEn": "a water ghost",
+    "romaja": "mulgwisin",
+    "exampleKo": "깊은 호수에는 물귀신이 산다는 이야기가 있어.",
+    "exampleEn": "There is a story that a water ghost lives in the deep lake.",
+    "category": "귀신"
+  },
+  {
+    "rank": 8,
+    "term": "원귀",
+    "pos": "noun",
+    "meaningEn": "a vengeful spirit",
+    "romaja": "wongwi",
+    "exampleKo": "한이 맺힌 원귀가 떠돌고 있나 봐.",
+    "exampleEn": "It seems a vengeful spirit full of grudges is wandering around.",
+    "category": "귀신"
+  },
+  {
+    "rank": 9,
+    "term": "소복",
+    "pos": "noun",
+    "meaningEn": "a white mourning dress",
+    "romaja": "sobok",
+    "exampleKo": "하얀 소복을 입은 형체가 다가왔어.",
+    "exampleEn": "A figure wearing a white mourning dress approached.",
+    "category": "귀신"
+  },
+  {
+    "rank": 10,
+    "term": "무당",
+    "pos": "noun",
+    "meaningEn": "a shaman",
+    "romaja": "mudang",
+    "exampleKo": "마을 사람들은 무당을 찾아가서 물어봤어.",
+    "exampleEn": "The villagers went to visit a shaman and asked about it.",
+    "category": "무속"
+  },
+  {
+    "rank": 11,
+    "term": "굿",
+    "pos": "noun",
+    "meaningEn": "a shamanic ritual",
+    "romaja": "gut",
+    "exampleKo": "집안의 평안을 위해 큰 굿을 했대.",
+    "exampleEn": "They held a big shamanic ritual for the peace of the family.",
+    "category": "무속"
+  },
+  {
+    "rank": 12,
+    "term": "부적",
+    "pos": "noun",
+    "meaningEn": "a paper talisman",
+    "romaja": "bujeok",
+    "exampleKo": "문 앞에 붉은색 부적을 붙여두었어.",
+    "exampleEn": "I posted a red paper talisman in front of the door.",
+    "category": "무속"
+  },
+  {
+    "rank": 13,
+    "term": "신내림",
+    "pos": "noun",
+    "meaningEn": "becoming a shaman through spirit possession",
+    "romaja": "sinnaerim",
+    "exampleKo": "그 친구가 갑자기 신내림을 받았대.",
+    "exampleEn": "I heard that friend suddenly became a shaman through spirit possession.",
+    "category": "무속"
+  },
+  {
+    "rank": 14,
+    "term": "점집",
+    "pos": "noun",
+    "meaningEn": "a fortune teller's place",
+    "romaja": "jeomjip",
+    "exampleKo": "새해 운세를 보러 점집에 다녀왔어.",
+    "exampleEn": "I went to a fortune teller's place to check my fortune for the new year.",
+    "category": "무속"
+  },
+  {
+    "rank": 15,
+    "term": "액운",
+    "pos": "noun",
+    "meaningEn": "bad luck",
+    "romaja": "aegun",
+    "exampleKo": "올해는 액운을 쫓아내고 싶어.",
+    "exampleEn": "I want to ward off bad luck this year.",
+    "category": "무속"
+  },
+  {
+    "rank": 16,
+    "term": "액땜",
+    "pos": "noun",
+    "meaningEn": "warding off bad luck",
+    "romaja": "aekttaem",
+    "exampleKo": "액땜 셈치고 좋은 일이라 생각하자.",
+    "exampleEn": "Let's think of it as warding off bad luck and take it positively.",
+    "category": "무속"
+  },
+  {
+    "rank": 17,
+    "term": "저주",
+    "pos": "noun",
+    "meaningEn": "a curse",
+    "romaja": "jeoju",
+    "exampleKo": "그 오래된 인형에는 무서운 저주가 걸려 있어.",
+    "exampleEn": "A scary curse is placed on that old doll.",
+    "category": "무속"
+  },
+  {
+    "rank": 18,
+    "term": "오싹하다",
+    "pos": "adjective",
+    "meaningEn": "to feel a sudden chill",
+    "romaja": "ossakhada",
+    "exampleKo": "그 이야기를 들었을 때 정말 오싹했어.",
+    "exampleEn": "I felt a real sudden chill when I heard that story.",
+    "category": "오싹"
+  },
+  {
+    "rank": 19,
+    "term": "소름 돋다",
+    "pos": "verb",
+    "meaningEn": "to get goosebumps",
+    "romaja": "soreum dotda",
+    "exampleKo": "그 얘기를 듣자마자 소름 돋았어.",
+    "exampleEn": "I got goosebumps the moment I heard that story.",
+    "category": "오싹"
+  },
+  {
+    "rank": 20,
+    "term": "으스스하다",
+    "pos": "adjective",
+    "meaningEn": "eerie",
+    "romaja": "euseuseuhada",
+    "exampleKo": "밤에 찾아간 빈집은 분위기가 으스스했어.",
+    "exampleEn": "The atmosphere of the abandoned house we visited at night was eerie.",
+    "category": "오싹"
+  },
+  {
+    "rank": 21,
+    "term": "등골이 서늘하다",
+    "pos": "phrase",
+    "meaningEn": "to feel a chill down one's spine",
+    "romaja": "deunggori seoneulhada",
+    "exampleKo": "이상한 소리가 들려서 등골이 서늘해졌어.",
+    "exampleEn": "I heard a strange sound and felt a chill run down my spine.",
+    "category": "오싹"
+  },
+  {
+    "rank": 22,
+    "term": "간담이 서늘하다",
+    "pos": "phrase",
+    "meaningEn": "to be scared out of one's wits",
+    "romaja": "gandami seoneulhada",
+    "exampleKo": "갑자기 튀어나온 형체 때문에 간담이 서늘했어.",
+    "exampleEn": "I was scared out of my wits because of the figure that suddenly popped out.",
+    "category": "오싹"
+  },
+  {
+    "rank": 23,
+    "term": "오금이 저리다",
+    "pos": "phrase",
+    "meaningEn": "to be too frightened to move",
+    "romaja": "ogeumi jeorida",
+    "exampleKo": "너무 무서워서 오금이 저려 움직일 수가 없었어.",
+    "exampleEn": "I was too frightened to move because my knees went weak with fear.",
+    "category": "오싹"
+  },
+  {
+    "rank": 24,
+    "term": "가위눌리다",
+    "pos": "verb",
+    "meaningEn": "to experience sleep paralysis",
+    "romaja": "gawinullida",
+    "exampleKo": "어젯밤에 가위눌려서 한참 못 움직였어.",
+    "exampleEn": "I was sleep-paralyzed last night and could not move for a while.",
+    "category": "오싹"
+  },
+  {
+    "rank": 25,
+    "term": "식은땀",
+    "pos": "noun",
+    "meaningEn": "cold sweat",
+    "romaja": "sigeunttam",
+    "exampleKo": "무서운 꿈을 꾸고 나서 식은땀을 흘렸어.",
+    "exampleEn": "I broke out in a cold sweat after having a scary dream.",
+    "category": "오싹"
+  },
+  {
+    "rank": 26,
+    "term": "심장이 철렁하다",
+    "pos": "phrase",
+    "meaningEn": "one's heart drops with fright",
+    "romaja": "simjangi cheolleonghada",
+    "exampleKo": "갑자기 소리가 나서 심장이 철렁했어요.",
+    "exampleEn": "My heart dropped because of the sudden noise.",
+    "category": "오싹"
+  },
+  {
+    "rank": 27,
+    "term": "머리카락이 쭈뼛 서다",
+    "pos": "phrase",
+    "meaningEn": "one's hair stands on end",
+    "romaja": "meorikaragi jjuppyeot seoda",
+    "exampleKo": "그 이야기를 들으니 머리카락이 쭈뼛 섰어요.",
+    "exampleEn": "My hair stood on end when I heard that story.",
+    "category": "오싹"
+  },
+  {
+    "rank": 28,
+    "term": "겁먹다",
+    "pos": "verb",
+    "meaningEn": "to get scared, to lose one's nerve",
+    "romaja": "geommeokda",
+    "exampleKo": "동생이 겁먹은 얼굴로 내 손을 잡았어요.",
+    "exampleEn": "My younger sibling grabbed my hand with a frightened face.",
+    "category": "오싹"
+  },
+  {
+    "rank": 29,
+    "term": "기겁하다",
+    "pos": "verb",
+    "meaningEn": "to be startled out of one's skin",
+    "romaja": "gigeopada",
+    "exampleKo": "창문 밖의 거대한 그림자를 보고 기겁했어요.",
+    "exampleEn": "I jumped in fright seeing the huge shadow outside the window.",
+    "category": "오싹"
+  },
+  {
+    "rank": 30,
+    "term": "폐가",
+    "pos": "noun",
+    "meaningEn": "an abandoned house",
+    "romaja": "pye-ga",
+    "exampleKo": "마을 끝에 있는 폐가에 불이 켜졌어요.",
+    "exampleEn": "A light turned on in the abandoned house at the edge of the village.",
+    "category": "장소"
+  },
+  {
+    "rank": 31,
+    "term": "흉가",
+    "pos": "noun",
+    "meaningEn": "a cursed house",
+    "romaja": "hyungga",
+    "exampleKo": "여기는 밤마다 귀신이 나온다는 흉가예요.",
+    "exampleEn": "This is a cursed house where ghosts are said to appear every night.",
+    "category": "장소"
+  },
+  {
+    "rank": 32,
+    "term": "공동묘지",
+    "pos": "noun",
+    "meaningEn": "a public graveyard",
+    "romaja": "gongdongmyoji",
+    "exampleKo": "달빛 아래 공동묘지는 정말 으스스했어요.",
+    "exampleEn": "The public graveyard under the moonlight was really spooky.",
+    "category": "장소"
+  },
+  {
+    "rank": 33,
+    "term": "무덤",
+    "pos": "noun",
+    "meaningEn": "a grave, a burial mound",
+    "romaja": "mudeom",
+    "exampleKo": "옛날 무덤 근처를 지나갈 때 조용히 걸었어요.",
+    "exampleEn": "We walked quietly when passing near the old burial mound.",
+    "category": "장소"
+  },
+  {
+    "rank": 34,
+    "term": "저승",
+    "pos": "noun",
+    "meaningEn": "the afterlife",
+    "romaja": "jeoseung",
+    "exampleKo": "옛날 사람들은 죽으면 저승으로 간다고 믿었어요.",
+    "exampleEn": "People long ago believed that you go to the afterlife when you die.",
+    "category": "장소"
+  },
+  {
+    "rank": 35,
+    "term": "이승",
+    "pos": "noun",
+    "meaningEn": "this world, the world of the living",
+    "romaja": "iseung",
+    "exampleKo": "귀신이 아직 이승을 떠나지 못했다고 해요.",
+    "exampleEn": "They say the ghost hasn't been able to leave this world yet.",
+    "category": "장소"
+  },
+  {
+    "rank": 36,
+    "term": "으슥하다",
+    "pos": "adjective",
+    "meaningEn": "dark and unnerving",
+    "romaja": "euseukhada",
+    "exampleKo": "골목길이 너무 으슥해서 발걸음을 빨리했어요.",
+    "exampleEn": "The alleyway was so dark and unnerving that I quickened my pace.",
+    "category": "장소"
+  },
+  {
+    "rank": 37,
+    "term": "보름달",
+    "pos": "noun",
+    "meaningEn": "a full moon",
+    "romaja": "boreumdal",
+    "exampleKo": "오늘 밤에는 둥근 보름달이 떠서 더 밝아요.",
+    "exampleEn": "Tonight is even brighter because a round full moon is out.",
+    "category": "장소"
+  },
+  {
+    "rank": 38,
+    "term": "귀신의 집",
+    "pos": "noun",
+    "meaningEn": "a haunted house attraction",
+    "romaja": "gwisinui jip",
+    "exampleKo": "놀이공원에서 귀신의 집에 들어가 소리쳤어요.",
+    "exampleEn": "I screamed after going into the haunted house at the amusement park.",
+    "category": "장소"
+  },
+  {
+    "rank": 39,
+    "term": "괴담",
+    "pos": "noun",
+    "meaningEn": "a scary story, an urban legend",
+    "romaja": "goedam",
+    "exampleKo": "친구들과 모여서 재미있는 괴담을 나눴어요.",
+    "exampleEn": "We gathered with friends and shared interesting scary stories.",
+    "category": "괴담"
+  },
+  {
+    "rank": 40,
+    "term": "도시전설",
+    "pos": "noun",
+    "meaningEn": "an urban legend",
+    "romaja": "dosijeonseol",
+    "exampleKo": "엘리베이터 거울에 관한 도시전설을 들었어요.",
+    "exampleEn": "I heard an urban legend about the elevator mirror.",
+    "category": "괴담"
+  },
+  {
+    "rank": 41,
+    "term": "학교괴담",
+    "pos": "noun",
+    "meaningEn": "a school ghost story",
+    "romaja": "hakgyogoedam",
+    "exampleKo": "늦은 밤 음악실에 얽힌 학교괴담을 속삭였어요.",
+    "exampleEn": "We whispered about the school ghost story tied to the late-night music room.",
+    "category": "괴담"
+  },
+  {
+    "rank": 42,
+    "term": "납량특집",
+    "pos": "noun",
+    "meaningEn": "a summer horror special",
+    "romaja": "namnyangteukjip",
+    "exampleKo": "여름 밤마다 TV에서 하는 납량특집을 즐겨 봐요.",
+    "exampleEn": "I enjoy watching the summer horror specials on TV every summer night.",
+    "category": "괴담"
+  },
+  {
+    "rank": 43,
+    "term": "담력 시험",
+    "pos": "noun",
+    "meaningEn": "a test of courage",
+    "romaja": "damnyeok siheom",
+    "exampleKo": "수련회 밤에 어두운 산길로 담력 시험을 갔어요.",
+    "exampleEn": "We went on a test of courage down a dark mountain path on the retreat night.",
+    "category": "괴담"
+  },
+  {
+    "rank": 44,
+    "term": "공포영화",
+    "pos": "noun",
+    "meaningEn": "a horror film",
+    "romaja": "gongpoyeonghwa",
+    "exampleKo": "불을 끄고 무서운 공포영화를 같이 봤어요.",
+    "exampleEn": "We turned off the lights and watched a scary horror film together.",
+    "category": "괴담"
+  },
+  {
+    "rank": 45,
+    "term": "귀신 들리다",
+    "pos": "verb",
+    "meaningEn": "to be possessed by a ghost",
+    "romaja": "gwisin deullida",
+    "exampleKo": "오래된 인형에 귀신 들렸다는 소문이 돌았어요.",
+    "exampleEn": "Rumors spread that the old doll was possessed by a ghost.",
+    "category": "괴담"
+  },
+  {
+    "rank": 46,
+    "term": "할로윈",
+    "pos": "noun",
+    "meaningEn": "Halloween",
+    "romaja": "hallowin",
+    "exampleKo": "할로윈 축제에 재미있는 옷을 입고 나갔어요.",
+    "exampleEn": "I went out in a fun outfit for the Halloween festival.",
+    "category": "할로윈"
+  },
+  {
+    "rank": 47,
+    "term": "분장하다",
+    "pos": "verb",
+    "meaningEn": "to dress up in costume and makeup",
+    "romaja": "bunjanghada",
+    "exampleKo": "파티를 위해서 멋지게 뱀파이어로 분장했어요.",
+    "exampleEn": "I dressed up nicely as a vampire for the party.",
+    "category": "할로윈"
+  },
+  {
+    "rank": 48,
+    "term": "코스튬",
+    "pos": "noun",
+    "meaningEn": "a costume",
+    "romaja": "koseutyum",
+    "exampleKo": "마녀 코스튬을 입고 거리를 돌아다녔어요.",
+    "exampleEn": "I walked around the streets wearing a witch costume.",
+    "category": "할로윈"
+  },
+  {
+    "rank": 49,
+    "term": "호박등",
+    "pos": "noun",
+    "meaningEn": "a jack-o'-lantern",
+    "romaja": "hobakdeung",
+    "exampleKo": "현관 앞에 무서운 표정의 호박등을 켰어요.",
+    "exampleEn": "I turned on a jack-o'-lantern with a scary expression in front of the porch.",
+    "category": "할로윈"
+  },
+  {
+    "rank": 50,
+    "term": "사탕",
+    "pos": "noun",
+    "meaningEn": "candy, a sweet",
+    "romaja": "satang",
+    "exampleKo": "이웃 집에서 달콤한 사탕을 많이 받았어요.",
+    "exampleEn": "I received a lot of sweet candy from the neighbor's house.",
+    "category": "할로윈"
+  }
+]

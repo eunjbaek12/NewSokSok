@@ -3,11 +3,32 @@ import { Image, StyleSheet, View } from 'react-native';
 import type { SkinId } from '@/features/theme';
 
 /**
- * 스킨 전용 홈 배경 그림.
+ * 스킨 전용 배경 그림. **탭 넷 모두**에 깐다 — 홈 · 단어장 · 단어 모음 · 설정.
  *
  * `OceanBackdrop`(파도)과 같은 자리·같은 규칙이다 — container의 첫 자식(맨 뒤
  * 레이어)으로 깔고 `pointerEvents="none"`이라 콘텐츠 터치를 막지 않는다. 헤더·
  * 카드가 위를 덮으므로 그림은 배경 여백으로만 비친다.
+ *
+ * 🔑 **홈용으로 그린 구도가 다른 탭에서도 맞는 이유**는 세 탭의 «열린 자리»가
+ *    같기 때문이다. 실측(배경이 드러나는 비율, y<2000):
+ *
+ *        홈    전체 41.8%  헤더띠 89%  좌우레일 99.5%  카드구간 24%
+ *        단어장 전체 31.1%  헤더띠 87%  좌우레일 99.0%  카드구간 20%
+ *        설정   전체 36.3%  헤더띠 97%  좌우레일 99.5%  카드구간 16%
+ *
+ *    그림의 무게가 정확히 그 배분(위에 크게 · 좌우 레일에 작게 · 가운데는 비움)
+ *    이라 그대로 얹힌다. 설정은 헤더가 가장 넓어 홈보다 잘 보인다.
+ *
+ * 🗑 파도(`OceanBackdrop`)는 **걷었다**(2026-09-08). 홈 하단 210dp 띠에만 그려져
+ *    다른 탭에서는 탭바 뒤로 들어가 안 보였고, 그대로 두면 「홈에만 있으면 스킨이
+ *    아니다」(`6dc08e9`)와 어긋난다. 새 배경이 **위에서 내려다본** 얕은 바다라
+ *    옆에서 본 물결과는 시점도 충돌했다.
+ *
+ * 🔴 **배경을 깔면 «안 보이던 중복»이 결함이 된다.** 단어장의 검색 띠가
+ *    `backgroundColor: colors.background` 를 칠하고 있었는데, 컨테이너와 같은 색이라
+ *    원래는 아무 일도 안 했다. 그림이 깔리자 **무늬가 그 줄에서만 끊기는 불투명 띠**가
+ *    됐다. 새 화면에 이 배경을 달 때는 안쪽에서 `colors.background` 를 칠하는 곳이
+ *    있는지 먼저 훑을 것.
  *
  * 다른 점은 둘이다. 파도는 화면 하단 210px 띠에 SVG로 그렸지만 이쪽은
  * **화면 전체를 덮는 이미지 한 장**이고, `opacity`로 눌러 얹는다.
@@ -24,9 +45,27 @@ import type { SkinId } from '@/features/theme';
 const ART: Partial<Record<SkinId, ReturnType<typeof require>>> = {
   autumn: require('@/assets/images/skin-autumn-bg.webp'),
   hangul: require('@/assets/images/skin-hanok-bg.webp'),
+  halloween: require('@/assets/images/skin-halloween-bg.webp'),
+  lab: require('@/assets/images/skin-lab-bg.webp'),
+  ocean: require('@/assets/images/skin-ocean-bg.webp'),
+  // 파일명이 id 와 다른 것은 hangul→hanok 과 같다 — 내용이 이름을 말하는 편이 낫다.
+  y2k: require('@/assets/images/skin-letter-bg.webp'),
 };
 
 const OPACITY = 0.35;
+
+/**
+ * ⚠️ 할로윈(어두운 스킨)은 이 값을 올릴 여지가 있다 — 아직 실기로 안 봤다.
+ *
+ * 0.35 는 **밝은 스킨** 때 정한 값이고 이유는 「그림의 밝은 종이가 카드 테두리를
+ * 지운다」였다. 할로윈은 그림 바탕이 토큰 바탕(#191327)과 같아서 값을 올려도
+ * **바탕은 안 움직이고 무늬만 뜬다.** 대신 0.35 에서는 호박 주황(#E8873A)이
+ * 화면에 #613C2E — 주황이라기보다 구운 벽돌빛으로 나온다. 0.55 면 #8B5331 이다.
+ * (화면에 진짜 #E8873A 를 내는 것은 0.35 에서 원천 불가능하다: RGB 616 이 필요하다.)
+ *
+ * 실기에서 0.35 / 0.5 / 0.65 를 대조해 정할 것. 스킨별로 갈라야 하면 이 상수를
+ * `Partial<Record<SkinId, number>>` 로 바꾸고 기본값 0.35 를 두면 된다.
+ */
 
 export function SkinBackdrop({ skinId }: { skinId: SkinId }) {
   const source = ART[skinId];

@@ -292,7 +292,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)
 - App Tracking Transparency supported — you control whether tracking is allowed
-- The only permission requested is the microphone, for voice input
+- Permissions are asked only when you use the feature: microphone (voice input), camera and photos (photo scan, saving cards), notifications (review). All optional
 
 Build the word list you want. Memorize it the most polished way.
 

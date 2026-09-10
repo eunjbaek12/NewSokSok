@@ -1,21 +1,56 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Animated, AccessibilityInfo } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { AccessibilityInfo } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, RadialGradient, Stop, G } from 'react-native-svg';
+import Animated, {
+  useSharedValue,
+  useAnimatedProps,
+  withDelay,
+  withSequence,
+  withTiming,
+  cancelAnimation,
+} from 'react-native-reanimated';
 import { CharacterAccessoryPaths } from '@/components/CharacterAccessory';
 import { useTheme, type CharacterAccessory as AccessoryType } from '@/features/theme';
 
+/**
+ * 🔴 RN 의 Animated 로는 팔이 움직이지 않는다. New Arch(Fabric)에서 react-native-svg 의
+ * prop 은 그 경로로 갱신되지 않아, armRot 을 팔에 연결해도 화면은 0° 그대로였다
+ * (실측: 홈 캐릭터의 오른쪽 끝 x 가 애니메이션 전후 161 로 동일). 저장소에서 실제로
+ * 도는 SVG 애니메이션은 TimerRing 의 reanimated useAnimatedProps 하나뿐이고,
+ * 그 패턴을 따른다.
+ */
 const AnimatedG = Animated.createAnimatedComponent(G);
+
+/**
+ * 손 흔들기의 회전 축 — 어깨끝(181.5, 117)이 아니라 몸통 쪽으로 들어온 자리다.
+ * 어깨끝을 축으로 잡으면 14°만 돌려도 팔 윗부분이 몸통에서 떨어져 틈이 보인다.
+ *
+ * 🔴 축을 `originX`/`originY` 로 주고 `rotation` 을 애니메이트하면 **화면이 안 움직인다**.
+ * G 의 `rotation` 은 animatedProps 로 갱신되지 않는다 — 무한 반복을 걸고 팔을 빨갛게
+ * 칠해 재도 x 범위가 (148,161) 에 고정이었다. `transform` 배열로 바꾸자 같은 조건에서
+ * (148,163)~(148,171) 로 움직였다. 그래서 축을 translate 로 직접 감싼다.
+ */
+const ARM_PIVOT_X = 174;
+const ARM_PIVOT_Y = 124;
+
+/**
+ * 팔을 덮는 소품 — 흔들어 봐야 보이지 않으니 애니메이션을 아예 돌리지 않는다.
+ * 「할로윈이면 끈다」가 아니라 「팔을 가리면 끈다」로 두어, 팔을 덮는 소품이 늘어도
+ * 여기 한 줄만 고치면 된다.
+ */
+const ARM_COVERING: readonly AccessoryType[] = ['halloween-cape'];
 
 /**
  * 스킨 액세서리(모자·리본)는 여기서 함께 그린다. 캐릭터가 나오는 자리는 곧 스킨이
  * 드러나야 하는 자리인데, 호출부가 따로 얹는 구조였을 때 홈 세 곳에만 붙어 있었다.
  * 액세서리를 빼고 싶은 자리(온보딩 데모처럼 스킨과 무관한 삽화)만 accessory="none".
  */
-export default function CharacterSvg({ size = 56, wave = true, isDark = false, accessory }: { size?: number; wave?: boolean; isDark?: boolean; accessory?: AccessoryType }) {
+export default function CharacterSvg({ size = 56, wave = true, accessory }: { size?: number; wave?: boolean; accessory?: AccessoryType }) {
   const { skin } = useTheme();
-  const armRot = useRef(new Animated.Value(0)).current;
+  const armRot = useSharedValue(0);
   const [reduceMotion, setReduceMotion] = useState(false);
   const resolvedAccessory = accessory ?? skin.characterAccessory;
+  const armCovered = ARM_COVERING.includes(resolvedAccessory);
 
   useEffect(() => {
     let mounted = true;
@@ -30,19 +65,25 @@ export default function CharacterSvg({ size = 56, wave = true, isDark = false, a
   }, []);
 
   useEffect(() => {
-    if (!wave || reduceMotion) return;
-    const timeout = setTimeout(() => {
-      Animated.sequence([
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 10,  duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 10,  duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
-        Animated.timing(armRot, { toValue: 0,   duration: 220, useNativeDriver: false }),
-      ]).start();
-    }, 400);
-    return () => clearTimeout(timeout);
-  }, [wave, reduceMotion]);
+    if (!wave || reduceMotion || armCovered) return;
+    armRot.value = withDelay(400, withSequence(
+      withTiming(-22, { duration: 200 }),
+      withTiming(-6,  { duration: 160 }),
+      withTiming(-22, { duration: 160 }),
+      withTiming(-6,  { duration: 160 }),
+      withTiming(-22, { duration: 160 }),
+      withTiming(0,   { duration: 220 }),
+    ));
+    return () => cancelAnimation(armRot);
+  }, [wave, reduceMotion, armCovered, armRot]);
+
+  const armProps = useAnimatedProps(() => ({
+    transform: [
+      { translateX: ARM_PIVOT_X }, { translateY: ARM_PIVOT_Y },
+      { rotate: `${armRot.value}deg` },
+      { translateX: -ARM_PIVOT_X }, { translateY: -ARM_PIVOT_Y },
+    ],
+  }));
 
   return (
     <Svg width={size} height={size} viewBox="0 0 250 250" fill="none">
@@ -133,15 +174,6 @@ export default function CharacterSvg({ size = 56, wave = true, isDark = false, a
         </LinearGradient>
       </Defs>
 
-      {/* 배경 장식 */}
-      <Path d="m236.8 228.1-1.69 7.05-5.17 1.08 6.85 2.49 1.58 3.32 1.55-4.59 3.91-1.18-4.93-2.44-2.1-5.73z" fill={isDark ? '#2C2C2C' : '#E8E8E8'} />
-      <Path d="m166.8 15.23-9.73 3.45 7.73 0.8 3.69-3.1-1.69-1.15z" fill={isDark ? '#333333' : '#F6F6F6'} />
-      <Path d="m227.8 24.73-5.74-2.63-0.93 4.38 5.34 1.43 1.33-3.18z" fill={isDark ? '#2C2C2C' : '#E8E8E8'} />
-      <Path d="m173.2 8.05-1.68 2.86 2.39 0.51 0.98-1.78-1.69-1.59z" fill={isDark ? '#333333' : '#F6F6F6'} />
-      <Path d="m202 57.19-7.85 1.5-3.99 5.48 2.6 2.09 6.32-5.47 6.17-0.68-3.25-2.92z" fill={isDark ? '#2C2C2C' : '#E8E8E8'} />
-      <Path d="m30.02 59.99 2.4 0.08 1.5 3.99v25.05l-3.38 13.38h5.47l-0.32-35.26-2.92-9.77-2.75 2.53z" fill={isDark ? '#333333' : '#F6F6F6'} />
-      <Path d="m20.43 41.08 3.83 2.65 6.45-6.45h12.97v-4.15l-14.47 0.57-8.78 7.38z" fill={isDark ? '#333333' : '#F6F6F6'} />
-
       {/* 몸통 외곽 (그린) */}
       <Path d="m198 139.9c-5.91-11.11-15.94-21.8-16.91-23.81-7.25-19.09-10.19-52-35.85-68.73-10.91-7.16-19.17-9.47-31.07-9.94 14.56-1.36 30.22-11.63 33.96-26.81 0.61-2.46 0.14-1.95-0.37-2.4-0.75-0.67-13.76-1.22-21.33 3.27-8.46 5.06-12.76 14.35-13.57 22.54-1.7-6.95-8.93-16.07-22.69-16.6-1.8-0.07-0.54 2.54 0.19 4.73 4.21 12.55 15.51 14.86 20.37 15.37-18.25 0.16-30.07 7.54-42.81 21.01-13.3 14.27-19.85 39.08-23.98 58.51-7.58 9.96-19.78 24.13-23.1 41.71-1.93 9.74 2.83 18.21 10.3 18.21 2.44 0 4.52-0.97 4.52-0.97 2.36 9.85 7.91 22.3 20.91 32.75 6.69 5.53 8.12 15.98 17.32 22.96 5.78 4.54 17.82 4.03 22.68-0.27 2.4-2.22 4.09-6.27 5.29-6.27h24.35c2.67 3.78 3.44 8.83 15.12 9.91 12.84 0.58 18.36-9.98 24.11-22.98 3.12-5.64 18.22-14 23.71-35.94 0.61 0.33 1.67 0.81 3.89 0.81 9.07 0 14.38-15.87 4.96-37.06z" fill="url(#c_p0)" />
 
@@ -159,8 +191,12 @@ export default function CharacterSvg({ size = 56, wave = true, isDark = false, a
       {/* 몸통 (노란 배) */}
       <Path d="m113.4 46.2c-23.66 0-41.55 15.87-51.77 47.29-4.3 13.53-5.27 21.26-10.58 35.79-4.12 11.5-4.99 20.33-4.99 28.43 0 30.11 25.27 57.37 66.37 57.37 36.55 0 67.24-26.6 67.24-57.69 0-12.55-5.84-29.64-10.63-44.28-8.2-26-16.11-66.91-55.64-66.91z" fill="url(#c_p8)" />
 
-      {/* 오른쪽 팔 */}
-      <Path d="m181.5 117c6.91 13.11 9.16 37.13 8.97 58.56 10.1 2.98 14.71-8.52 13.2-16.83-3.22-17.89-13.97-31.6-22.17-41.73z" fill="url(#c_p2)" />
+      {/* 오른쪽 팔 — 흔드는 팔. 각도는 음수(바깥)로만 간다: 양수로 돌리면 팔이 몸통
+          위로 겹쳐 묻힌다. 팔이 거의 수직으로 뻗은 그림이라 «번쩍 드는» 손 흔들기는
+          원천 불가능하고, −22° 언저리가 접합이 안 벌어지는 한계다. */}
+      <AnimatedG animatedProps={armProps}>
+        <Path d="m181.5 117c6.91 13.11 9.16 37.13 8.97 58.56 10.1 2.98 14.71-8.52 13.2-16.83-3.22-17.89-13.97-31.6-22.17-41.73z" fill="url(#c_p2)" />
+      </AnimatedG>
 
       {/* 씨앗 (갈색 타원) */}
       <Path d="m113.2 201.6c19.84 0 35.55-16.88 35.55-34.12 0-19.14-15.71-38.15-36.03-38.15-19.99 0-36.05 16.56-36.05 38.09 0 18.3 15.64 34.18 36.53 34.18z" fill="url(#c_p9)" stroke="#6F5635" strokeMiterlimit={10} strokeWidth={1.142} />

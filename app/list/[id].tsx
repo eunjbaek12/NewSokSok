@@ -993,7 +993,11 @@ export default function ListDetailScreen() {
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.95)" : "rgba(255, 255, 255, 0.95)",
+          // 🔴 탭바(app/(tabs)/_layout.tsx)와 **같은 결함**이 여기에도 있었다 —
+          //    `isDark ? rgba(30,31,33) : rgba(255,255,255)` 는 스킨을 안 따른다.
+          //    할로윈(보랏빛 밤)에서 이 막대만 푸른 회색으로 남는다. 탭바와 같은 자리·같은
+          //    역할이므로 같은 값을 쓴다. 'F2' = 242 = 0.95.
+          backgroundColor: colors.surface + 'F2',
           bottom: 0,
           left: 0,
           right: 0,

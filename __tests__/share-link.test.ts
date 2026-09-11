@@ -4,6 +4,7 @@ import {
   rememberPendingShare,
   takePendingShare,
   clearPendingShare,
+  waitForAppReturn,
 } from '@/features/curation/share-link';
 import { redirectSystemPath } from '@/app/+native-intent';
 
@@ -81,5 +82,77 @@ describe('가로막힌 주소 기억', () => {
     rememberPendingShare(ID);
     clearPendingShare(ID);
     expect(takePendingShare()).toBeNull();
+  });
+});
+
+// Android 의 Share.share 는 공유 창이 열리는 순간 돌아온다 — 그때 알리면 안내가 공유 창 뒤에서
+// 떴다 사라진다(2026-09-11 기기 실측). 떠났다 돌아오는 순간을 제대로 잡는지 본다.
+describe('공유 창에서 돌아오기', () => {
+  function fakeAppState(initial = 'active') {
+    const listeners = new Set<(s: string) => void>();
+    const app = {
+      currentState: initial as string | null,
+      addEventListener: (_type: 'change', fn: (s: string) => void) => {
+        listeners.add(fn);
+        return { remove: () => { listeners.delete(fn); } };
+      },
+      emit(s: string) { app.currentState = s; for (const fn of [...listeners]) fn(s); },
+      listenerCount: () => listeners.size,
+    };
+    return app;
+  }
+  const tick = async () => { await Promise.resolve(); await Promise.resolve(); };
+
+  beforeEach(() => { jest.useFakeTimers(); });
+  afterEach(() => { jest.useRealTimers(); });
+
+  it('공유 창이 앱을 덮은 동안은 기다리고, 돌아오는 순간 끝난다', async () => {
+    const app = fakeAppState();
+    let done = false;
+    void waitForAppReturn(app).then(() => { done = true; });
+    app.emit('background');            // 공유 창이 앱을 덮었다
+    jest.advanceTimersByTime(60_000);  // 카톡에서 친구를 고르는 동안
+    await tick();
+    expect(done).toBe(false);
+    app.emit('active');                // 앱으로 돌아왔다
+    await tick();
+    expect(done).toBe(true);
+    expect(app.listenerCount()).toBe(0);
+  });
+
+  it('불린 시점에 이미 떠나 있었어도 돌아올 때 끝난다', async () => {
+    const app = fakeAppState('background');
+    let done = false;
+    void waitForAppReturn(app).then(() => { done = true; });
+    jest.advanceTimersByTime(5_000);   // «떠나지 않았다»로 오판해 먼저 끝나면 안 된다
+    await tick();
+    expect(done).toBe(false);
+    app.emit('active');
+    await tick();
+    expect(done).toBe(true);
+  });
+
+  it('공유 창이 앱을 덮지 않았으면 오래 기다리지 않는다', async () => {
+    const app = fakeAppState();
+    let done = false;
+    void waitForAppReturn(app, { leaveWithinMs: 1500 }).then(() => { done = true; });
+    jest.advanceTimersByTime(1_499);
+    await tick();
+    expect(done).toBe(false);
+    jest.advanceTimersByTime(1);
+    await tick();
+    expect(done).toBe(true);
+    expect(app.listenerCount()).toBe(0);
+  });
+
+  it('끝내 안 돌아와도 구독을 걷는다', async () => {
+    const app = fakeAppState();
+    let done = false;
+    void waitForAppReturn(app, { maxWaitMs: 10_000 }).then(() => { done = true; });
+    app.emit('background');
+    jest.advanceTimersByTime(10_000);
+    await tick();
+    expect(done).toBe(true);
+    expect(app.listenerCount()).toBe(0);
   });
 });

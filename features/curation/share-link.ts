@@ -91,3 +91,46 @@ export function formatExpiryDate(expiresAt: number, localeTag: string): string {
     return when.toISOString().slice(0, 10);
   }
 }
+
+// ─── 공유 창에서 돌아오기 ────────────────────────────────────────────────────
+
+/** RN `AppState` 에서 쓰는 면만. 여기서 react-native 를 import 하지 않아야 이 파일이 node 테스트에서 돈다. */
+export interface AppStateLike {
+  currentState: string | null;
+  addEventListener(type: 'change', listener: (state: string) => void): { remove(): void };
+}
+
+/**
+ * 사용자가 앱 화면으로 돌아올 때까지 기다린다.
+ *
+ * Android 의 `Share.share` 는 공유 창이 **열리는 순간** 돌아온다. 그때 띄운 «공유했어요»는 공유 창
+ * 뒤에서 떴다가 사람이 돌아오기 전에 사라졌다(2026-09-11 기기 실측 — 덤프 어디에도 없었다).
+ * 그래서 앱이 한 번 떠났다가(background) 다시 앞으로 오는(active) 순간을 기다린다.
+ *
+ * - 공유 창이 앱을 덮지 않았으면(떠난 적이 없으면) `leaveWithinMs` 뒤 그냥 끝낸다 — 안 기다린다.
+ * - 끝내 안 돌아와도 `maxWaitMs` 뒤 구독을 걷는다 — 리스너를 남기지 않는다.
+ */
+export function waitForAppReturn(
+  appState: AppStateLike,
+  { leaveWithinMs = 1500, maxWaitMs = 10 * 60 * 1000 }: { leaveWithinMs?: number; maxWaitMs?: number } = {},
+): Promise<void> {
+  return new Promise(resolve => {
+    // 불린 시점에 이미 떠나 있을 수 있다 — 공유 창이 먼저 앱을 덮고 돌아오는 순서가 기기마다 다르다.
+    let left = appState.currentState !== 'active';
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      sub.remove();
+      clearTimeout(leaveTimer);
+      clearTimeout(maxTimer);
+      resolve();
+    };
+    const sub = appState.addEventListener('change', state => {
+      if (state !== 'active') { left = true; return; }
+      if (left) finish();
+    });
+    const leaveTimer = setTimeout(() => { if (!left) finish(); }, leaveWithinMs);
+    const maxTimer = setTimeout(finish, maxWaitMs);
+  });
+}

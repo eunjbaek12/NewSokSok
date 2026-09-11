@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { View, Text, Pressable, TextInput, Alert, ActivityIndicator, Share, StyleSheet } from 'react-native';
+import { View, Text, Pressable, TextInput, Alert, ActivityIndicator, Share, StyleSheet, AppState, Platform } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
@@ -13,7 +13,7 @@ import {
 } from '@/features/vocab';
 import CurationCardView from './CurationCardView';
 import { communityToCard } from './types';
-import { buildShareUrl, formatExpiryDate } from './share-link';
+import { buildShareUrl, formatExpiryDate, waitForAppReturn } from './share-link';
 import type { VocaList } from '@/lib/types';
 import { PopupTokens } from '@/constants/popup';
 import DialogModal from '@/components/ui/DialogModal';
@@ -102,7 +102,12 @@ export default function SendToFriendDialog({ visible, list, onClose, onSent }: P
         onClose();
         // 시트를 닫기만 했으면 «공유했어요»라고 하지 않는다. 사본은 서버에 남아 30일 뒤 스스로
         // 닫히고, 다시 누르면 새 주소가 나가므로 따로 거둘 일은 없다.
-        if (shared) onSent?.(result);
+        if (!shared) return;
+        // 🔴 Android 의 Share.share 는 공유 창이 **열리는 순간** 돌아온다. 그때 알리면 4초짜리
+        //    스낵바가 공유 창 뒤에서 떴다 사라진다(기기 실측). 앱 화면으로 돌아온 뒤에 알린다.
+        //    iOS 는 시트가 닫혀야 돌아오므로 기다릴 것이 없다.
+        if (Platform.OS === 'android') void waitForAppReturn(AppState).then(() => onSent?.(result));
+        else onSent?.(result);
       } catch (e: any) {
         onClose();
         Alert.alert(t('sendToFriend.failedTitle'), e?.message || t('contextMenu.shareError'));

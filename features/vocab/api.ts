@@ -154,6 +154,20 @@ export interface ShareCurationOptions {
   force?: boolean;
 }
 
+/**
+ * 50개 한도에 드는 공유 수. **만료된 친구 공유는 빼고** 센다 — 서버 용량 트리거와 같은
+ * 규칙이다. 안 그러면 몇 달 보낸 뒤 살아 있는 공유가 하나도 없는데 「더 공유할 수 없어요」에
+ * 막힌다. 올리기와 보내기가 같은 한도를 나눠 쓰므로 둘 다 이 함수로 센다.
+ */
+async function countLiveCurations(userId: string, now: number): Promise<number> {
+  const { count } = await supabase
+    .from('curated_themes')
+    .select('id', { count: 'exact', head: true })
+    .eq('creator_id', userId)
+    .or(`expires_at.is.null,expires_at.gt.${now}`);
+  return count ?? 0;
+}
+
 // 태그 정리 규칙(sanitizeShareTags)은 share-preview.ts 에 있다 — 공유 창 미리보기가
 // 같은 규칙을 읽어야 올라갈 모습과 실제가 갈리지 않는다.
 function toCuratedWordRows(list: VocaList, themeId: string) {
@@ -202,22 +216,21 @@ export async function shareCuration(
     target_language: targetLanguage,
     icon: list.icon ?? null,
   };
-  if (!updateId) {
-    const { count } = await supabase
-      .from('curated_themes')
-      .select('id', { count: 'exact', head: true })
-      .eq('creator_id', user.id);
-    if ((count ?? 0) >= MAX_CURATIONS_PER_USER) {
-      throw new CurationCapacityError('CURATIONS_PER_USER', MAX_CURATIONS_PER_USER);
-    }
+  if (!updateId && await countLiveCurations(user.id, Date.now()) >= MAX_CURATIONS_PER_USER) {
+    throw new CurationCapacityError('CURATIONS_PER_USER', MAX_CURATIONS_PER_USER);
   }
 
   if (updateId) {
-    const { error } = await supabase
+    // 갱신은 **게시물에만** 건다. 친구에게 보낸 사본은 보낸 내용 그대로 굳어야 한다(§2-4) —
+    // 여기서 걸리지 않으면 받는 사람이 열기 전에 단어가 바뀐다.
+    const { data: updated, error } = await supabase
       .from('curated_themes')
       .update({ title: list.title, creator_name: creatorName, description: description ?? null, ...themeMeta })
-      .eq('id', updateId);
+      .eq('id', updateId)
+      .eq('visibility', 'public')
+      .select('id');
     if (error) throw error;
+    if (!updated?.length) throw new Error('CURATION_NOT_FOUND');
 
     await supabase.from('curated_words').delete().eq('theme_id', updateId);
     const wordRows = toCuratedWordRows(list, updateId);
@@ -231,14 +244,20 @@ export async function shareCuration(
     return data!;
   }
 
+  // 「이미 올렸어요, 갱신할까요?」 — 게시는 만료가 없어 같은 덱이 목록에 두 번 서지 않게 묻는다.
+  // **게시물끼리만** 비교한다(docs/share-to-friend-spec.md §6.1). 친구 공유까지 보면 같은 제목을
+  // 보낸 적이 있다는 이유로 묻고, [갱신]이 그 사본을 덮는다. `maybeSingle` 도 쓰지 않는다 — 여러
+  // 행이면 오류를 내는데, 그 오류를 삼키면 검사가 조용히 통과된다.
   if (!force) {
-    const { data: existing } = await supabase
+    const { data: existing, error: dupErr } = await supabase
       .from('curated_themes')
       .select('id, title')
       .eq('creator_id', user.id)
+      .eq('visibility', 'public')
       .ilike('title', list.title)
-      .maybeSingle();
-    if (existing) throw new DuplicateCurationError(existing.id, existing.title);
+      .limit(1);
+    if (dupErr) throw dupErr;
+    if (existing?.[0]) throw new DuplicateCurationError(existing[0].id, existing[0].title);
   }
 
   const themeId = generateId();
@@ -301,15 +320,8 @@ export async function sendListToFriend(
   const words = list.words.slice(0, MAX_WORDS_PER_CURATION);
   for (const w of words) WordSaveSchema.parse(w);
 
-  // 50개 한도는 **만료된 것을 빼고** 센다(서버 트리거와 같은 규칙). 안 그러면 몇 달 뒤
-  // 살아 있는 공유가 하나도 없는데 「더 공유할 수 없어요」에 막힌다.
   const now = Date.now();
-  const { count } = await supabase
-    .from('curated_themes')
-    .select('id', { count: 'exact', head: true })
-    .eq('creator_id', user.id)
-    .or(`expires_at.is.null,expires_at.gt.${now}`);
-  if ((count ?? 0) >= MAX_CURATIONS_PER_USER) {
+  if (await countLiveCurations(user.id, now) >= MAX_CURATIONS_PER_USER) {
     throw new CurationCapacityError('CURATIONS_PER_USER', MAX_CURATIONS_PER_USER);
   }
 

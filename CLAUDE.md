@@ -233,18 +233,21 @@ fixing the default over adding a rule here.
 
 3-tier model. Unit displayed to users is **"단어 수" (word count)**, not points.
 
-> ⚠️ **The table below is the target policy, not what the server is running today.**
-> It ships with the next app release. The live server was reverted on 2026-08-14 to the
-> policy the store build (1.4.0) expects: **Free 100/day, Pro 1,000/day with no monthly
-> cap, no guest tier, cache hits not charged, 429 on quota exceeded.**
+> **This table is the live policy.** Switched on 2026-08-16, re-verified 2026-09-11:
+> `ai_effective_plan` returns Free 50/day, first-24h 300, Pro 3,000/month, reward 20 x2,
+> and no guest tier; Edge `enrich-word` (v48) charges cache hits and, on overage, returns
+> basic-200 for `autocomplete` while `photo`/`generate` still get 429.
 >
-> Why: the new policy was applied to the server before its app shipped, which broke
-> rewarded ads for every store user — `grant_rewarded_bonus` lost the 3-arg signature
-> the shipped app calls. See `supabase/migrations/20260814000000_revert_to_shipped_quota_policy.sql`.
+> History — the ordering rule this cost us: on 2026-08-13 the policy was pushed to the
+> server *before* its app shipped, and `grant_rewarded_bonus` lost the 3-arg signature the
+> store build called, so rewarded ads paid out 0 words for two days. It was reverted on
+> 8/14 (`4f76395`) and switched back on 8/16 once 1.5.0 had reached both stores. See
+> `supabase/migrations/20260814000000_revert_to_shipped_quota_policy.sql`.
 >
-> To switch to the table below: ship the app **first**, then push the already-written
-> `20260813020000_pro_3000_monthly_pool.sql` (still unapplied) and revert commit `4f76395`.
-> Keep the 3-arg `grant_rewarded_bonus` alongside the new one — store apps update on a lag.
+> 🔴 **Ship the app before the server** whenever a quota/policy change touches both.
+> 🔴 **Keep the 3-arg `grant_rewarded_bonus` alongside the new one** — store apps update on a lag.
+> 🔴 **`db push` ships every unapplied migration, not just the one you mean.** To apply a
+> single file: `db query --file <migration>`, then `migration repair --status applied <version>`.
 
 | Tier | Price | Ads | AI quota | Key |
 |---|---|---|---|---|

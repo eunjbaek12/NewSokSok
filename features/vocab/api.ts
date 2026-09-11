@@ -327,7 +327,8 @@ export async function sendListToFriend(
     icon: list.icon ?? null,
     visibility: 'link',
     expires_at: expiresAt,
-    // 단어장을 지울 때 이 주소도 함께 닫기 위한 연결(§5.6·§6.3).
+    // 어느 단어장에서 나갔는지 — 측정용으로만 남긴다. 단어장 삭제와 잇지 않기로 했다
+    // (docs/share-to-friend-spec.md §2-7: 거두는 길은 두지 않는다).
     source_list_id: list.id,
   });
   if (themeErr) throw themeErr;

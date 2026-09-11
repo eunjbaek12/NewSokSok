@@ -589,6 +589,7 @@
     "rewardedBenefitBody": "Mira un anuncio para añadir {{amount}} autocompletados con IA y ocultar los banners durante 24 horas.",
     "rewardedExhausted": "Ya usaste todos los beneficios por anuncios disponibles hoy. El contador se reinicia a medianoche (KST).",
     "rewardedExhaustedProCta": "Actualizar a Pro",
+    "rewardedProLink": "Actualizar a Pro ›",
     "rewardedCta": "Ver anuncio para +{{amount}} palabras",
     "rewardedGrantedTitle": "Se añadieron +{{amount}} palabras",
     "rewardedGrantedBody": "Tu cuota de IA aumentó y los banners se ocultarán durante 24 horas.",

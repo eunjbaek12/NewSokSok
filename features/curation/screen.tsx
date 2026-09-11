@@ -15,6 +15,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { useTheme } from '@/features/theme';
+import { FontSize, FontWeight } from '@/constants/tokens';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
   useLists,
@@ -1930,6 +1931,26 @@ export default function CurationScreen() {
                                             </Text>
                                         </>
                                     )}
+                                </Pressable>
+                            )}
+                            {/* 광고 버튼 아래 한 줄 Pro 링크 — 버튼과 같은 판정(canWatch)으로 켠다.
+                                광고를 다 봤으면 위 버튼이 이미 Pro 라 두 번 말하지 않는다. */}
+                            {quotaBlock.kind === 'ad' && rewarded.canWatch && (
+                                <Pressable
+                                    onPress={() => {
+                                        if (rewarded.loading) return;
+                                        setAiModalVisible(false);
+                                        router.push('/plans' as any);
+                                    }}
+                                    hitSlop={8}
+                                    accessibilityRole="link"
+                                >
+                                    <Text style={{
+                                        fontSize: FontSize.label, fontFamily: FontWeight.medium,
+                                        textAlign: 'center', paddingVertical: 2, color: colors.primary,
+                                    }}>
+                                        {t('ads.rewardedProLink')}
+                                    </Text>
                                 </Pressable>
                             )}
                         </View>

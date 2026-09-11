@@ -631,6 +631,7 @@
     "rewardedBenefitBody": "Watch an ad to add {{amount}} AI completions and hide banner ads for 24 hours.",
     "rewardedExhausted": "You've used all rewarded-ad benefits available today. The view count resets at midnight KST.",
     "rewardedExhaustedProCta": "Upgrade to Pro",
+    "rewardedProLink": "Upgrade to Pro ›",
     "rewardedCta": "Watch ad for +{{amount}} words",
     "rewardedGrantedTitle": "+{{amount}} words added",
     "rewardedGrantedBody": "Your AI quota increased and banner ads are hidden for 24 hours.",

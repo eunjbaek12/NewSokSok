@@ -45,7 +45,7 @@ describe('pickRewardedCopy', () => {
     const c = pickRewardedCopy(status({ used: 50, limit: 50, bonus: 0, ...ads(0) }), null);
     expect(c).toEqual({
       titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedBody',
-      cta: 'watch', icon: 'play-circle',
+      cta: 'watch', icon: 'play-circle', proLink: true,
     });
   });
 
@@ -54,7 +54,7 @@ describe('pickRewardedCopy', () => {
     const c = pickRewardedCopy(status({ used: 90, limit: 50, bonus: 40, ...ads(2) }), null);
     expect(c).toEqual({
       titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedExhausted',
-      cta: 'pro', icon: 'sparkles',
+      cta: 'pro', icon: 'sparkles', proLink: false,
     });
   });
 
@@ -63,7 +63,7 @@ describe('pickRewardedCopy', () => {
     const c = pickRewardedCopy(status({ used: 10, limit: 50, bonus: 0, ...ads(0) }), null);
     expect(c).toEqual({
       titleKey: 'ads.rewardedBenefitTitle', bodyKey: 'ads.rewardedBenefitBody',
-      cta: 'watch', icon: 'play-circle',
+      cta: 'watch', icon: 'play-circle', proLink: true,
     });
   });
 
@@ -73,7 +73,7 @@ describe('pickRewardedCopy', () => {
     const c = pickRewardedCopy(status({ used: 85, limit: 50, bonus: 40, ...ads(2) }), null);
     expect(c).toEqual({
       titleKey: 'ads.rewardedShortTitle', bodyKey: 'ads.rewardedExhausted',
-      cta: 'pro', icon: 'sparkles',
+      cta: 'pro', icon: 'sparkles', proLink: false,
     });
     expect(c.titleKey).not.toBe('ads.rewardedBenefitTitle');
   });
@@ -116,6 +116,21 @@ describe('pickRewardedCopy', () => {
     }
   });
 
+  // 🔑 벽에 처음 닿은 순간(광고가 남음)에도 Pro 가 보여야 한다. 예전엔 광고를 다 본 뒤에만
+  //    나와 한도 50 에 닿은 12일 중 Pro 를 본 것이 1명·4일뿐이었다(rewarded-copy.ts 주석).
+  //    반대로 버튼이 이미 Pro 인 자리에 링크까지 붙으면 같은 말을 두 번 한다.
+  it('Pro 링크는 광고를 권하는 자리에서만 켜진다', () => {
+    const combos: [number, number, number | null][] = [
+      [50, 0, null], [90, 2, null], [10, 0, null], [85, 2, null], [85, 1, 20], [85, 2, 20],
+    ];
+    for (const [used, views, granted] of combos) {
+      const c = pickRewardedCopy(status({ used, limit: 50, bonus: 40, ...ads(views) }), granted);
+      expect(`used=${used} views=${views} granted=${granted} proLink=${c.proLink}`)
+        .toBe(`used=${used} views=${views} granted=${granted} proLink=${c.cta === 'watch'}`);
+    }
+    expect(pickRewardedCopy(null, null).proLink).toBe(true);
+  });
+
   it('쓰는 키가 ko/en/es 에 모두 있다', () => {
     const combos: [number, number][] = [[50, 0], [90, 2], [10, 0], [85, 2]];
     const keys = new Set<string>();
@@ -124,6 +139,7 @@ describe('pickRewardedCopy', () => {
       keys.add(c.titleKey); keys.add(c.bodyKey);
     }
     keys.add(pickRewardedCopy(status(), 20).titleKey);
+    keys.add('ads.rewardedProLink');
     const get = (o: unknown, p: string) =>
       p.split('.').reduce<unknown>((a, k) => (a as Record<string, unknown>)?.[k], o);
     for (const key of keys) {

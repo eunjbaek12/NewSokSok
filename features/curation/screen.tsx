@@ -36,7 +36,7 @@ import { officialToCard, communityToCard, type CurationCard } from './types';
 import ReportCurationModal from './ReportCurationModal';
 import CurationCardView, { levelStyleOf } from './CurationCardView';
 import { pickCommunityEmpty } from './community-empty';
-import { isSavedCopyOf, getUniqueName } from './saved-match';
+import { isSavedFrom, getUniqueName } from './saved-match';
 import ShareListDialog, { useShareSignIn } from './ShareListDialog';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
@@ -795,7 +795,7 @@ export default function CurationScreen() {
     );
 
     const isAlreadySaved = useCallback((theme: CurationCard): boolean => {
-        return lists.some(l => l.isCurated && isSavedCopyOf(l.title, theme.title));
+        return lists.some(l => isSavedFrom(l, theme));
     }, [lists]);
 
     // ---- 공유 단어장에 올리기 (공유 탭 끝의 박스) ----
@@ -1141,6 +1141,9 @@ export default function CurationScreen() {
             const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', deduped, {
                 sourceLanguage: selectedTheme.sourceLanguage,
                 targetLanguage: selectedTheme.targetLanguage,
+                // 「저장됨」을 이 id 로 판정한다(isSavedFrom). AI 덱은 공유물이 아니고 id 도 매번 새로
+                // 생겨 남길 출처가 없다.
+                sourceThemeId: selectedTheme.source === 'ai' ? undefined : selectedTheme.id,
             });
             const message = skippedCount > 0
                 ? t('curation.createdWithSkipped', { skipped: skippedCount })

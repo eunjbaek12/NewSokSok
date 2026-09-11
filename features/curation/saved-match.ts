@@ -1,15 +1,27 @@
 // 「저장됨」 배지 — 이 덱을 이미 내 단어장으로 가져왔는가.
 //
-// 가져온 단어장에는 원본 id 가 남지 않아 제목으로 판정한다. 예전에는 `startsWith` 라서
-// 「토익」 덱이 「토익 필수 600」을 가져온 사람에게도 저장됨으로 떴다. 가져올 때 이름이 겹치면
-// `getUniqueName`(screen.tsx)이 「제목-1」「제목-2」를 붙이므로, **같은 제목이거나 그 꼴일 때만**
-// 가져온 것으로 본다.
-//
-// 원본 id 로 판정하는 길(`sourceThemeId`)은 docs/share-to-friend-spec.md §4.3 이 계획해 두었다.
-// 그게 들어오면 이 함수는 그 값이 없는 옛 단어장에만 쓰인다.
+// 담을 때 원본 id 를 남긴다(`sourceThemeId`, 로컬 024 — docs/share-to-friend-spec.md §4.3).
+// 그 값이 없는 옛 단어장만 제목으로 판정한다.
+
+/**
+ * 출처 id 가 있는 단어장은 **id 로만** 판정한다. 제목까지 대 보면 이름을 바꾼 순간 틀리고,
+ * 다른 사람이 올린 같은 제목의 덱에도 걸린다 — 제목 규칙은 그 값이 없는 옛 단어장의 몫이다.
+ */
+export function isSavedFrom(
+  list: { title: string; isCurated?: boolean; sourceThemeId?: string },
+  theme: { id: string; title: string },
+): boolean {
+  if (list.sourceThemeId) return list.sourceThemeId === theme.id;
+  return Boolean(list.isCurated) && isSavedCopyOf(list.title, theme.title);
+}
 
 const normalize = (s: string) => s.trim().toLowerCase();
 
+/**
+ * 옛 단어장(출처 id 없음)의 제목 판정. 예전에는 `startsWith` 라서 「토익」 덱이 「토익 필수 600」을
+ * 가져온 사람에게도 저장됨으로 떴다. 가져올 때 이름이 겹치면 `getUniqueName` 이 「제목-1」「제목-2」를
+ * 붙이므로, **같은 제목이거나 그 꼴일 때만** 가져온 것으로 본다.
+ */
 export function isSavedCopyOf(listTitle: string, themeTitle: string): boolean {
   const list = normalize(listTitle);
   const theme = normalize(themeTitle);

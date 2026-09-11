@@ -2,7 +2,7 @@
 // 판단만 잡는다. 화면(카드 모양·탭 복귀 시 재조회·헤더 버튼)은 기기에서 확인한다.
 
 import { pickCommunityEmpty } from '@/features/curation/community-empty';
-import { isSavedCopyOf } from '@/features/curation/saved-match';
+import { isSavedCopyOf, isSavedFrom } from '@/features/curation/saved-match';
 import { communityToCard } from '@/features/curation/types';
 import { resolveShareCreatorName, toSharedThemePreview, sanitizeShareTags } from '@/features/vocab/share-preview';
 import type { VocaList, Word } from '@/lib/types';
@@ -60,6 +60,28 @@ describe('isSavedCopyOf', () => {
 
   test('빈 제목은 무엇과도 맞지 않는다', () => {
     expect(isSavedCopyOf('아무거나', '')).toBe(false);
+  });
+});
+
+describe('isSavedFrom — 출처 id 가 있으면 id 로만', () => {
+  const deck = { id: 'theme-1', title: '토익' };
+
+  test('출처 id 가 같으면 이름을 바꿨어도 저장됨', () => {
+    expect(isSavedFrom({ title: '내가 고친 이름', isCurated: true, sourceThemeId: 'theme-1' }, deck)).toBe(true);
+  });
+
+  test('출처 id 가 다르면 제목이 같아도 아니다 — 남이 올린 같은 제목의 덱', () => {
+    expect(isSavedFrom({ title: '토익', isCurated: true, sourceThemeId: 'theme-2' }, deck)).toBe(false);
+  });
+
+  test('출처 id 가 없는 옛 단어장은 제목 규칙으로', () => {
+    expect(isSavedFrom({ title: '토익-1', isCurated: true }, deck)).toBe(true);
+    expect(isSavedFrom({ title: '토익 필수 600', isCurated: true }, deck)).toBe(false);
+  });
+
+  test('직접 만든 단어장은 제목이 같아도 아니다', () => {
+    expect(isSavedFrom({ title: '토익', isCurated: false }, deck)).toBe(false);
+    expect(isSavedFrom({ title: '토익' }, deck)).toBe(false);
   });
 });
 

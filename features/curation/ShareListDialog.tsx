@@ -35,7 +35,8 @@ export function useShareSignIn() {
     try {
       await signInWithGoogle();
     } catch (error: any) {
-      if (error?.message !== 'GOOGLE_CLIENT_ID_MISSING') {
+      // 계정 선택 창을 닫은 건 실패가 아니다 — 조용히 돌아간다.
+      if (error?.message !== 'GOOGLE_CLIENT_ID_MISSING' && error?.message !== 'GOOGLE_SIGNIN_CANCELED') {
         Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
       }
     }

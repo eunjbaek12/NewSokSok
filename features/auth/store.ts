@@ -315,7 +315,13 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // then silently reuses the last account instead of prompting. Clearing right
     // before signIn() guarantees a clean slate so the picker always appears.
     try { await GoogleSignin.signOut(); } catch {}
-    await GoogleSignin.signIn();
+    // 🔴 이 라이브러리(16.x)는 계정 선택 창을 닫아도 **던지지 않고** `{ type: 'cancelled' }` 를
+    //    돌려준다. 이걸 보지 않고 getTokens 로 넘어가면 거기서 「로그인된 사용자 없음」으로
+    //    던졌고, 호출부는 그걸 「로그인 실패 — 다시 시도해 주세요」로 알렸다 — 그만둔 사람에게
+    //    실패했다고 말한 것(실기 2026-09-11). Apple 의 APPLE_SIGNIN_CANCELED 와 같은 모양으로
+    //    취소를 따로 던져, 호출부가 조용히 돌아가게 한다.
+    const response = await GoogleSignin.signIn();
+    if (response?.type === 'cancelled') throw new Error('GOOGLE_SIGNIN_CANCELED');
     const tokens = await GoogleSignin.getTokens();
     const idToken = tokens.idToken;
     if (!idToken) throw new Error('NO_ID_TOKEN');

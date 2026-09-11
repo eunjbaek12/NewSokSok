@@ -17,6 +17,7 @@ import { useFonts } from "expo-font";
 import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { GowunBatang_400Regular, GowunBatang_700Bold } from "@expo-google-fonts/gowun-batang";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
+import { takePendingShare } from "@/features/curation/share-link";
 import { useQuotaStore } from "@/features/quota";
 import { reconcileSubscriptionOnLaunch } from "@/features/billing";
 import { useSupportStore } from "@/features/support";
@@ -226,6 +227,17 @@ function AppStack() {
     }
   }, [authMode, authLoading, segments, isOnboardingDone]);
 
+  // 친구가 보낸 주소로 들어왔는데 위 두 이동(온보딩·로그인)에 덮였으면, 그걸 벗어난 뒤에
+  // 그 단어장을 연다. 🔴 이게 없으면 첫 실행·로그아웃 상태에서 누른 주소가 조용히 사라진다
+  // (features/curation/share-link.ts). 담기 화면이 스스로 열렸으면 거기서 이미 지웠다.
+  useEffect(() => {
+    if (isOnboardingDone !== true || authLoading || authMode === 'none') return;
+    const first = segments[0] as string;
+    if (first === 'login' || first === 'onboarding' || first === 'd') return;
+    const pending = takePendingShare();
+    if (pending) router.push(`/d/${pending}` as any);
+  }, [authMode, authLoading, segments, isOnboardingDone]);
+
   return (
     // fullScreenGestureEnabled: 아이폰에서 화면 어느 지점을 잡아도 스와이프로 뒤로 간다.
     // 끄면 왼쪽 가장자리 몇 px 에서만 먹어서, 큰 화면에서는 한 손으로 닿지 않는다.
@@ -241,6 +253,7 @@ function AppStack() {
       <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="list/[id]" options={{ headerShown: false }} />
+      <Stack.Screen name="d/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="fill-bare/[id]" options={{ headerShown: false }} />
       <Stack.Screen
         name="add-word"

@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { exportListToCsv, SharingUnavailableError } from '@/lib/csv-file';
 import { useTheme } from '@/features/theme';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
-import type { ShareListOptions } from '@/features/vocab';
+import type { ShareListOptions, SentShare } from '@/features/vocab';
 import { VocaList } from '@/lib/types';
 import { PopupTokens } from '@/constants/popup';
 import { LIST_TITLE_MAX } from '@shared/contracts';
@@ -24,7 +24,8 @@ import { splitBareWords, loadUnfillable } from '@/features/bare-words';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
-import { ShareListDialog, useShareSignIn } from '@/features/curation';
+import { ShareListDialog, SendToFriendDialog, useShareSignIn, formatExpiryDate } from '@/features/curation';
+import { Snackbar } from './ui/Snackbar';
 
 type MenuPos = { x: number; y: number; width: number; height: number };
 
@@ -59,6 +60,9 @@ export default function ListContextMenu({
 
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [shareTargetList, setShareTargetList] = useState<VocaList | null>(null);
+  const [sendModalOpen, setSendModalOpen] = useState(false);
+  const [sendTargetList, setSendTargetList] = useState<VocaList | null>(null);
+  const [snackbar, setSnackbar] = useState<{ visible: boolean; message: string }>({ visible: false, message: '' });
   // 뜻만 있는 단어 수 — 메뉴가 열려 있을 때만 센다(닫혀 있으면 menuList 가 null).
   //
   // 🔴 **AI 가 못 찾은 단어는 빼고 센다.** 안 빼면 메뉴가 "5"라고 부르고 들어간 화면은
@@ -149,6 +153,31 @@ export default function ListContextMenu({
     setShareModalOpen(false);
     setShareTargetList(null);
   }, []);
+
+  // 친구에게 보내기 — 「공유 단어장에 올리기」와 **메뉴에서 갈라 둔다**(§2-1). 결과도
+  // 수명도 다른 일을 한 항목에 묶으면, 누른 사람은 무엇이 일어날지 알 수 없다.
+  const handleMenuSendToFriend = useCallback(() => {
+    if (!menuList) return;
+    onClose();
+    if (!isCloudAuthMode(authMode)) {
+      setTimeout(promptSignIn, 0);
+      return;
+    }
+    setSendTargetList(menuList);
+    setTimeout(() => setSendModalOpen(true), 100);
+  }, [menuList, onClose, authMode, promptSignIn]);
+
+  const handleSendClose = useCallback(() => {
+    setSendModalOpen(false);
+    setSendTargetList(null);
+  }, []);
+
+  const handleSent = useCallback((result: SentShare) => {
+    setSnackbar({
+      visible: true,
+      message: t('sendToFriend.sentSnackbar', { date: formatExpiryDate(result.expiresAt, i18n.language) }),
+    });
+  }, [t, i18n.language]);
 
   const handleMenuMerge = useCallback(() => {
     if (!menuList) return;
@@ -281,11 +310,21 @@ export default function ListContextMenu({
           <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.sendToList')}</Text>
         </Pressable>
 
+        {/* 📤 친구에게 보내기 / 🌏 공유 단어장에 올리기 — 결과도 수명도 달라 항목이 둘이다.
+            한 시트에 라디오로 묶었다가 «같은 일의 두 설정»으로 읽혀 되돌린 자리다(§2-1). */}
+        <Pressable
+          onPress={handleMenuSendToFriend}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="paper-plane-outline" size={16} color={colors.primary} />
+          <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.sendToFriend')}</Text>
+        </Pressable>
+
         <Pressable
           onPress={handleMenuShare}
           style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
         >
-          <Ionicons name="share-social-outline" size={16} color={colors.primary} />
+          <Ionicons name="earth-outline" size={16} color={colors.primary} />
           <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.share')}</Text>
         </Pressable>
 
@@ -407,6 +446,22 @@ export default function ListContextMenu({
         list={shareTargetList}
         onClose={handleShareClose}
         onShare={onShareList}
+      />
+
+      {/* 친구에게 보내기 — 올리기와 다른 창이다(§2-1). */}
+      <SendToFriendDialog
+        visible={sendModalOpen}
+        list={sendTargetList}
+        onClose={handleSendClose}
+        onSent={handleSent}
+      />
+
+      {/* 보낸 직후 안내. 창이 닫힌 뒤에 뜨므로 이 컴포넌트의 최상위에 둔다 —
+          모달 안에 두면 모달이 닫히는 순간 함께 사라진다. */}
+      <Snackbar
+        visible={snackbar.visible}
+        message={snackbar.message}
+        onDismiss={() => setSnackbar({ visible: false, message: '' })}
       />
 
       {/* Merge Dialog */}

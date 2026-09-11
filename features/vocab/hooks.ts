@@ -11,9 +11,11 @@ import {
 } from './queries';
 import {
   shareCuration,
+  sendListToFriend,
   deleteCloudCuration as apiDeleteCloudCuration,
   fetchCloudCurations as apiFetchCloudCurations,
   DuplicateCurationError,
+  type SentShare,
 } from './api';
 import { resolveShareCreatorName } from './share-preview';
 
@@ -77,6 +79,31 @@ export function useShareList() {
       throw e;
     }
   }, [lists, authMode, profileSettings]);
+}
+
+/**
+ * 친구에게 보내기. 「공유 단어장에 올리기」(useShareList)와 **다른 일**이라 훅도 다르다 —
+ * 결과(목록에 실리지 않는다)도 수명(30일)도 갈리므로, 한 함수에 플래그로 묶으면
+ * 부르는 쪽에서 어느 쪽인지 읽을 수 없게 된다.
+ *
+ * 보내는 이름은 닉네임이 아니라 **보내는 이름**(profileSettings.senderName)이다 —
+ * 기본값만 닉네임에서 온다(docs/share-to-friend-spec.md §2-10).
+ */
+export function useSendListToFriend() {
+  const lists = useLists();
+  const { authMode } = useAuth();
+
+  return useCallback(async (listId: string, senderName: string): Promise<SentShare> => {
+    if (!isCloudAuthMode(authMode)) throw new Error('GUEST_CANNOT_SHARE');
+
+    const list = lists.find(l => l.id === listId);
+    if (!list) throw new Error('List not found');
+
+    const name = resolveShareCreatorName(senderName);
+    if (!name) throw new Error('NICKNAME_REQUIRED');
+
+    return sendListToFriend(list, { senderName: name });
+  }, [lists, authMode]);
 }
 
 export function useDeleteCloudCuration() {

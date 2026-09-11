@@ -72,7 +72,7 @@
  ③  서버에 사본 저장 → OS 공유 창
         메시지: 쏙쏙보카 «토익 빈출 300» 단어장
                 300단어 · 10월 11일까지 열 수 있어요
-                https://eunjbaek12.github.io/NewSokSok/d/<uuid>
+                https://eunjbaek12.github.io/NewSokSok/d/?id=<uuid>
         ▼
  ④  받는 사람이 주소를 누른다
         앱 있음 → 담기 화면 (로그인 안 물음)
@@ -101,6 +101,14 @@
 | `save_count` | `int` default 0 | 담긴 횟수. 같이 서버 전용 |
 
 > `created_at`/`updated_at`이 이미 bigint epoch ms다. `expires_at`도 같은 규약으로 맞춘다.
+>
+> **`curated_words.position int`도 넣었다**(구현 중 실측으로 발견). 서버에는 단어 순서가 아예 없었다 — 한 배치
+> insert라 `created_at`이 전 행 동일하다(100단어 덱의 distinct = 1). 지금까지는 PostgREST의 물리적 순서에 기대 왔고,
+> 청크 insert(§6)를 넣는 순간 경계에서 뒤섞인다.
+>
+> **열림·담김 수가 `updated_at`을 움직이지 않는다.** 그 트리거 함수(`set_updated_at_ms`)는 동기화 5개 테이블
+> 공용이라 손대지 않고, `curated_themes`에만 `set_updated_at_ms_skip_counters()`를 따로 걸었다 — §2-4의
+> «그대로 굳는다»가 시각에도 적용된다.
 
 ### 4.2 서버 (신설 `share_events`) — 만료 후에도 남는 요약
 
@@ -120,6 +128,10 @@ share_events(id uuid, creator_id uuid, word_count int, visibility text,
 | `savedAt` | 담은 시각. «8월 12일에 이미 담았어요» |
 
 두 값은 **비어 있을 수 있다**(이전에 담은 단어장). 값이 없으면 날짜 없이 «이미 담았어요»로 표시한다.
+
+🔴 **두 값은 로컬 전용이라 동기화 pull의 `INSERT OR REPLACE INTO lists`가 지운다**(REPLACE는 행을 통째로
+갈아끼운다 — 굴절형 원형이 별표 한 번에 사라진 `b92e763`과 같은 부류). pull은 옛 행에서 서브쿼리로 되읽어
+보존한다. `__tests__/sync-pull-list-columns.test.ts`가 lists 스키마 전체를 pull 컬럼 목록과 맞대 본다.
 
 ---
 
@@ -198,7 +210,7 @@ $$;
 | `features/curation/screen.tsx` | `isAlreadySaved`를 `sourceThemeId` 기준으로(지금은 제목 `startsWith` — 「기초 영단어」를 담으면 「기초 영단어 심화」까지 담은 것으로 뜬다, :759). `canReportCuration`의 `!user` 조건 완화(:770). 「이미 담음」·「뜻 언어」 안내 |
 | 새 화면 | 주소로 들어온 담기 화면(큐레이션 상세 재사용), «단어장을 열 수 없어요» |
 | `lib/db/` | 마이그레이션 +1 (`sourceThemeId`, `savedAt`) |
-| `docs/` (GitHub Pages) | 랜딩 `d.html` — 제목·단어 수·앞 10단어·[앱에서 담기]/[설치하기]. 개인정보처리방침이 이미 여기 있어 호스팅 비용 0. 설치 후 «다시 눌러 주세요» 같은 안내는 **넣지 않는다** |
+| `docs/` (GitHub Pages) | 랜딩 `docs/d/index.html`(주소는 `/d/?id=<uuid>` — 정적 호스팅은 `/d/<uuid>` 같은 임의 경로를 200으로 못 받는다) — 제목·단어 수·앞 10단어·[앱에서 담기]/[설치하기]. 개인정보처리방침이 이미 여기 있어 호스팅 비용 0. 설치 후 «다시 눌러 주세요» 같은 안내는 **넣지 않는다** |
 
 ### 6.1 걷어낼 것
 
@@ -275,12 +287,20 @@ $$;
 
 ## 10. 순서
 
-1. `curated_words(theme_id)` 인덱스 — 상한과 무관하게 지금 필요
-2. 컬럼 셋 + 정책 교체 + RPC (서버가 준비돼야 앱이 붙는다)
-3. `+native-intent.tsx` 딥링크 복구
-4. 앱 메뉴 두 항목 + OS 공유 창 + 첫 공유 이름 확인
-5. 담기 화면(주소 경로) + 안내 둘(이미 담음·뜻 언어)
+1. ✅ `curated_words(theme_id)` 인덱스 — 상한과 무관하게 지금 필요
+2. ✅ 컬럼 셋 + 정책 교체 + RPC (서버가 준비돼야 앱이 붙는다)
+3. ✅ `+native-intent.tsx` 딥링크 복구
+4. ✅ 앱 메뉴 두 항목 + OS 공유 창 + 보내는 이름 확인
+5. ✅ 담기 화면(주소 경로) + 안내 둘(이미 담음·뜻 언어)
 6. GitHub Pages 랜딩
-7. 로컬 마이그레이션(`sourceThemeId`·`savedAt`) — 5와 함께
+7. ✅ 로컬 마이그레이션(`sourceThemeId`·`savedAt`) — 5와 함께
 8. 만료 정리 + `share_events` 요약
 9. 걷어낼 것(§6.1)
+
+> **2026-09-11 진행.** 1·2는 프로덕션 적용(`a173415`), 3·4·5·7은 앱 구현(기기 검증 전).
+> 남은 것은 6·8·9와 §6.3 — **삭제 확인 문구는 §5.6(단어장 삭제 → 공유본 동반 삭제)이 생긴 뒤에** 넣는다. 그 전에
+> 띄우면 «함께 열리지 않게 됩니다»가 거짓이다. 랜딩(6)이 생기기 전까지 보낸 주소는 웹에서 404다.
+>
+> 구현 중 스펙에 없던 것 하나 더: 루트 레이아웃이 **첫 실행이면 온보딩, 로그아웃 상태면 로그인으로 `replace`**
+> 해서 `/d/<id>`를 덮는다. 그대로면 그 두 경우 주소가 조용히 사라진다(§8이 받아들인 건 «설치 후»뿐).
+> id를 기억해 뒀다가 온보딩·로그인을 벗어난 뒤 연다(`features/curation/share-link.ts`).

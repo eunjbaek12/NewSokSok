@@ -58,6 +58,10 @@ export interface VocaList {
   isAiGenerated?: boolean;
   sourceLanguage?: string;
   targetLanguage?: string;
+  /** 담아온 공유물의 id. 「이미 담았어요」 판정의 근거 — 제목 매칭을 대체한다. */
+  sourceThemeId?: string;
+  /** 담은 시각. 이 열이 없던 시절에 담은 단어장은 비어 있다. */
+  savedAt?: number;
   // 🔴 앱은 이 셋을 더 이상 쓰지 않는다(2026-08-29). 쓰는 곳도 읽는 곳도 없고,
   //    동기화가 서버 컬럼과 주고받기만 한다 — 구버전 앱이 아직 올리기 때문이다.
   //    화면에 붙이려다 여기까지 왔다면 features/vocab/db.ts 의 `saveLastResult`

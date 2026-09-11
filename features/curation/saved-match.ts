@@ -18,3 +18,35 @@ export function isSavedCopyOf(listTitle: string, themeTitle: string): boolean {
   if (!list.startsWith(theme + '-')) return false;
   return /^\d+$/.test(list.slice(theme.length + 1));
 }
+
+/**
+ * 담을 때 붙일 이름. 같은 제목이 있으면 「제목-1」「제목-2」로 비켜 간다.
+ *
+ * 🔑 **`isSavedCopyOf` 와 같은 규칙의 반대쪽이다.** 이름을 만드는 쪽과 「담았는가」를 읽는
+ * 쪽이 떨어져 있으면 규칙이 조용히 갈라진다 — 한쪽이 「제목 (2)」로 바뀌는 순간 저장됨
+ * 배지가 영영 안 뜬다. 그래서 두 함수를 한 파일에 둔다.
+ */
+export function getUniqueName(base: string, existingNames: string[]): string {
+  const lowerNames = existingNames.map(n => n.trim().toLowerCase());
+  let candidate = base;
+  let suffix = 1;
+  while (lowerNames.includes(candidate.trim().toLowerCase())) {
+    candidate = `${base}-${suffix}`;
+    suffix++;
+  }
+  return candidate;
+}
+
+/**
+ * 같은 단어를 한 단어장에 두 번 넣지 않는다. words 테이블의
+ * (listId, LOWER(TRIM(term))) UNIQUE 인덱스에 걸리므로 INSERT 직전에 결정론적으로 거른다.
+ */
+export function dedupeByTerm<T extends { term?: string }>(words: T[]): T[] {
+  const seen = new Set<string>();
+  return words.filter(w => {
+    const key = (w.term ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}

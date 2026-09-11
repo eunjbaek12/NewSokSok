@@ -33,6 +33,7 @@ export {
   useListProgress,
   usePlanStatus,
   useShareList,
+  useSendListToFriend,
   useDeleteCloudCuration,
   useFetchCloudCurations,
   type ShareListOptions,

@@ -112,7 +112,7 @@ export async function createCuratedList(
   title: string,
   icon: string,
   words: Omit<Word, 'id' | 'isMemorized'>[],
-  options?: { sourceLanguage?: string; targetLanguage?: string },
+  options?: { sourceLanguage?: string; targetLanguage?: string; sourceThemeId?: string; savedAt?: number },
 ): Promise<VocaList> {
   assertListTitle(title);
   await assertTitleUnique(title);

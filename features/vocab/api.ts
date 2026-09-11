@@ -20,8 +20,22 @@ export class DuplicateCurationError extends Error {
 
 // Capacity limits enforced both here (UX-friendly) and via Postgres triggers
 // (defense-in-depth). Keep these in sync with the trigger thresholds.
-export const MAX_WORDS_PER_CURATION = 500;
+//
+// 2,000 인 이유: 실측 최대 단어장이 1,730이라 **지금 있는 단어장 전부가 한 번에** 나가고,
+// 「나눠 보내기」 화면이 아예 없다(docs/share-to-friend-spec.md §2-9). 나눠 보내면 주소가
+// 둘이 되어 받는 쪽이 두 번 담고 단어장이 쪼개진다 — 빠뜨림을 막으려던 선택이 받는 쪽에서
+// 빠뜨림을 만든다.
+export const MAX_WORDS_PER_CURATION = 2000;
 export const MAX_CURATIONS_PER_USER = 50;
+
+/** 친구에게 보낸 주소가 사는 기간(§2-3). 담으면 주소는 쓸모없어지니 「전송」으로 다룬다. */
+export const SHARE_LINK_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+/**
+ * 단어를 나눠 넣는 단위. 2,000행을 한 번에 보내면 요청 하나가 900KB 를 넘고, 중간에 끊기면
+ * 무엇이 들어갔는지 알 수 없다. 실패하면 테마를 지워(cascade) 반쪽 덱을 남기지 않는다.
+ */
+const WORD_INSERT_CHUNK = 200;
 
 export class CurationCapacityError extends Error {
   constructor(public readonly kind: 'WORDS_PER_CURATION' | 'CURATIONS_PER_USER', public readonly limit: number) {
@@ -33,7 +47,7 @@ export class CurationCapacityError extends Error {
 // 공유·조회가 공유하는 단어 조인 select. 컬럼을 추가하면 아래 매핑과
 // shareCuration의 wordRows도 함께 갱신할 것.
 const CURATED_WORDS_SELECT =
-  '*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags)';
+  '*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags, position)';
 
 /**
  * 공유 단어장 목록. **실패하면 던진다** — 빈 배열로 삼키지 않는다.
@@ -45,7 +59,11 @@ export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
   const { data, error } = await supabase
     .from('curated_themes')
     .select(CURATED_WORDS_SELECT)
-    .order('created_at', { ascending: false });
+    .eq('visibility', 'public')
+    .order('created_at', { ascending: false })
+    // 단어 순서는 position 이 정한다. 이 열이 생기기 전에 올라간 덱은 전부 null 이라
+    // 뒤로 밀되(nullsFirst:false) 서로의 순서는 예전과 같다.
+    .order('position', { referencedTable: 'words', ascending: true, nullsFirst: false });
   if (error) throw error;
 
   // UI는 camelCase 컨벤션이라 owner 판정(canDeleteCuration)·작성자 표시
@@ -59,18 +77,23 @@ export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
     updatedAt: theme.updated_at,
     sourceLanguage: theme.source_language ?? undefined,
     targetLanguage: theme.target_language ?? undefined,
-    words: (theme.words ?? []).map((w: any) => ({
-      id: w.id,
-      term: w.term,
-      definition: w.definition ?? '',
-      meaningKr: w.meaning_kr ?? '',
-      exampleEn: w.example_en ?? '',
-      exampleKr: w.example_kr ?? undefined,
-      phonetic: w.pronunciation ?? undefined,
-      pos: w.pos ?? undefined,
-      tags: Array.isArray(w.tags) ? w.tags.map(String) : undefined,
-    })),
+    words: (theme.words ?? []).map(mapCuratedWord),
   }));
+}
+
+/** snake_case 단어 행 → 앱이 쓰는 모양. 공유 탭 조회와 주소 조회가 같은 것을 쓴다. */
+function mapCuratedWord(w: any) {
+  return {
+    id: w.id,
+    term: w.term,
+    definition: w.definition ?? '',
+    meaningKr: w.meaning_kr ?? '',
+    exampleEn: w.example_en ?? '',
+    exampleKr: w.example_kr ?? undefined,
+    phonetic: w.pronunciation ?? undefined,
+    pos: w.pos ?? undefined,
+    tags: Array.isArray(w.tags) ? w.tags.map(String) : undefined,
+  };
 }
 
 export async function deleteCloudCuration(curationId: string): Promise<void> {
@@ -134,9 +157,12 @@ export interface ShareCurationOptions {
 // 태그 정리 규칙(sanitizeShareTags)은 share-preview.ts 에 있다 — 공유 창 미리보기가
 // 같은 규칙을 읽어야 올라갈 모습과 실제가 갈리지 않는다.
 function toCuratedWordRows(list: VocaList, themeId: string) {
-  return list.words.map(w => ({
+  return list.words.map((w, index) => ({
     id: generateId(),
     theme_id: themeId,
+    // 순서를 명시해 둔다. 서버는 한 배치 insert 라 created_at 이 전 행 동일해서
+    // (실측: 100단어 덱의 distinct created_at = 1) 여기 없으면 순서 정보가 아예 없다.
+    position: index,
     term: w.term,
     definition: w.definition ?? '',
     meaning_kr: w.meaningKr ?? '',
@@ -237,4 +263,153 @@ export async function shareCuration(
     .eq('id', themeId)
     .single();
   return data!;
+}
+
+// ============================================================================
+// 친구에게 보내기 — 주소로 건네는 1:1 공유 (docs/share-to-friend-spec.md)
+//
+// 「공유 단어장에 올리기」(shareCuration)와는 **결과도 수명도 다르다.** 이쪽은 목록에
+// 실리지 않고(visibility='link') 30일 뒤 스스로 끝나며, 보낸 내용은 그대로 굳는다 —
+// 갱신도, 「다시 보내기」로 이어지는 상태도 없다. 누를 때마다 새 주소가 나간다.
+// ============================================================================
+
+export interface SentShare {
+  themeId: string;
+  /** epoch ms. 공유 메시지와 랜딩이 「{날짜}까지」로 읽는다. */
+  expiresAt: number;
+  /** 실제로 올라간 단어 수. 2,000을 넘겨 잘렸으면 list.words.length 보다 작다. */
+  wordCount: number;
+}
+
+/**
+ * 단어장 사본을 서버에 올리고 주소의 재료(id·만료)를 돌려준다.
+ *
+ * 제목 중복을 검사하지 않는다 — 만료 모델에서는 **다시 보내는 게 정상 흐름**이라,
+ * 「이미 공유되어 있습니다, 갱신할까요?」는 방해가 될 뿐이다(§6.1).
+ */
+export async function sendListToFriend(
+  list: VocaList,
+  options: { senderName: string },
+): Promise<SentShare> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error('NOT_AUTHENTICATED');
+
+  const senderName = options.senderName.trim();
+  CurationShareSchema.parse({ title: list.title, creatorName: senderName });
+
+  // 2,000을 넘으면 앞에서 자른다. 부르는 쪽이 먼저 「앞 2,000단어만 보내기」를 확인받는다.
+  const words = list.words.slice(0, MAX_WORDS_PER_CURATION);
+  for (const w of words) WordSaveSchema.parse(w);
+
+  // 50개 한도는 **만료된 것을 빼고** 센다(서버 트리거와 같은 규칙). 안 그러면 몇 달 뒤
+  // 살아 있는 공유가 하나도 없는데 「더 공유할 수 없어요」에 막힌다.
+  const now = Date.now();
+  const { count } = await supabase
+    .from('curated_themes')
+    .select('id', { count: 'exact', head: true })
+    .eq('creator_id', user.id)
+    .or(`expires_at.is.null,expires_at.gt.${now}`);
+  if ((count ?? 0) >= MAX_CURATIONS_PER_USER) {
+    throw new CurationCapacityError('CURATIONS_PER_USER', MAX_CURATIONS_PER_USER);
+  }
+
+  const { source: sourceLanguage, target: targetLanguage } = deriveDisplayLanguages(words, list);
+  const themeId = generateId();
+  const expiresAt = now + SHARE_LINK_TTL_MS;
+
+  const { error: themeErr } = await supabase.from('curated_themes').insert({
+    id: themeId,
+    creator_name: senderName,
+    title: list.title,
+    description: null,
+    source_language: sourceLanguage,
+    target_language: targetLanguage,
+    icon: list.icon ?? null,
+    visibility: 'link',
+    expires_at: expiresAt,
+    // 단어장을 지울 때 이 주소도 함께 닫기 위한 연결(§5.6·§6.3).
+    source_list_id: list.id,
+  });
+  if (themeErr) throw themeErr;
+
+  const wordRows = toCuratedWordRows({ ...list, words }, themeId);
+  try {
+    for (let i = 0; i < wordRows.length; i += WORD_INSERT_CHUNK) {
+      const chunk = wordRows.slice(i, i + WORD_INSERT_CHUNK);
+      const { error } = await supabase.from('curated_words').insert(chunk);
+      if (error) throw error;
+    }
+  } catch (e) {
+    // 반쪽 덱을 남기지 않는다 — 받는 사람이 빠진 줄 모르고 담는 편이 실패보다 나쁘다.
+    await supabase.from('curated_themes').delete().eq('id', themeId);
+    throw e;
+  }
+
+  return { themeId, expiresAt, wordCount: words.length };
+}
+
+export interface SharedDeck {
+  id: string;
+  title: string;
+  description?: string;
+  creatorName: string;
+  icon?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
+  createdAt: number;
+  expiresAt: number | null;
+  visibility: 'public' | 'link';
+  /** 서버가 가진 전체 단어 수. 미리보기면 words.length 보다 크다. */
+  wordCount: number;
+  preview: boolean;
+  words: ReturnType<typeof mapCuratedWord>[];
+}
+
+/**
+ * 주소로 덱을 연다. 목록 조회로는 보이지 않으므로 **id 를 아는 사람만** 열 수 있다.
+ *
+ * 만료·삭제·오타를 구분하지 않고 전부 `null` 이다. 서버가 셋을 구분하지 못하고,
+ * 구분해서 말하면 틀린 이유를 단정하게 된다(§7 「열 수 없음」).
+ */
+export async function getSharedDeck(
+  id: string,
+  options?: { preview?: boolean },
+): Promise<SharedDeck | null> {
+  const { data, error } = await supabase.rpc('get_shared_deck', {
+    p_id: id,
+    p_preview: options?.preview ?? false,
+  });
+  if (error) throw error;
+  if (!data) return null;
+
+  const row = data as any;
+  return {
+    id: row.id,
+    title: row.title,
+    description: row.description ?? undefined,
+    creatorName: row.creator_name,
+    icon: row.icon ?? undefined,
+    sourceLanguage: row.source_language ?? undefined,
+    targetLanguage: row.target_language ?? undefined,
+    createdAt: row.created_at,
+    expiresAt: row.expires_at ?? null,
+    visibility: row.visibility,
+    wordCount: row.word_count ?? 0,
+    preview: Boolean(row.preview),
+    words: (row.words ?? []).map(mapCuratedWord),
+  };
+}
+
+/**
+ * 담긴 횟수를 센다. 화면에는 띄우지 않는다 — 한 사람에게 보내면 0 아니면 1이라 볼 것이
+ * 없고, 보이면 「왜 안 담았지」가 생긴다(§2-6). 우리가 판정할 근거로만 쓴다.
+ *
+ * 실패해도 삼킨다: 담기는 이미 로컬에서 끝났고, 카운트 때문에 성공을 실패로 보여 줄 수 없다.
+ */
+export async function bumpShareSave(id: string): Promise<void> {
+  try {
+    await supabase.rpc('bump_share_save', { p_id: id });
+  } catch {
+    // 무시 — 부가 집계다.
+  }
 }

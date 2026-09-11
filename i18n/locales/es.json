@@ -1065,7 +1065,7 @@
   "contextMenu": {
     "rename": "Renombrar",
     "sendToList": "Enviar a Lista",
-    "share": "Compartir Lista",
+    "share": "Publicar en listas compartidas",
     "hide": "Ocultar",
     "renameTitle": "Renombrar Lista",
     "listNameLabel": "Nombre de la Lista",
@@ -1087,7 +1087,7 @@
     "updateCompleteMessage": "La lista compartida se ha actualizado.",
     "updateFailed": "Fallo al actualizar",
     "shareError": "Ocurrió un error al compartir la lista.",
-    "shareTitle": "Compartir lista",
+    "shareTitle": "Publicar en listas compartidas",
     "sharePreviewWords": "{{count}} palabras",
     "sharePreviewLang": "{{source}} → {{target}}",
     "shareDescriptionPlaceholder": "Describe esta lista para otros usuarios (opcional)",
@@ -1109,7 +1109,8 @@
     "shareNicknameHint": "Se guarda como tu apodo en Ajustes. También aparece en el saludo de inicio.",
     "shareNicknamePending": "Elige un apodo",
     "shareLoginTitle": "Inicia sesión",
-    "shareLoginMessage": "Conéctate con Google para publicar tus listas en las listas compartidas."
+    "shareLoginMessage": "Conéctate con Google para publicar tus listas en las listas compartidas.",
+    "sendToFriend": "Enviar a un amigo"
   },
   "manage": {
     "show": "Mostrar la lista",
@@ -1473,5 +1474,40 @@
     "notFoundBody": "La IA no las reconoció. Revisa la ortografía.",
     "notFoundGroup": "{{count}} palabras que la IA no reconoció",
     "notFoundRow": "Toca para corregir la ortografía"
+  },
+  "sendToFriend": {
+    "title": "Enviar a un amigo",
+    "previewLabel": "Así lo verá quien lo reciba",
+    "nameLabel": "Tu nombre",
+    "namePending": "Escribe un nombre",
+    "expiryHint": "Tu amigo puede abrirla durante 30 días. Después se cierra sola.",
+    "confirm": "Enviar",
+    "shareMessage": "SokSok Voca — «{{title}}»\n{{count}} palabras · disponible hasta el {{date}}\n{{url}}",
+    "sentSnackbar": "📤 Compartido · disponible hasta el {{date}}",
+    "failedTitle": "No se pudo enviar",
+    "shareSheetFailedTitle": "Envía este enlace",
+    "tooManyTitle": "Puedes enviar hasta {{max}} palabras a la vez",
+    "tooManyMessage": "Esta lista tiene {{count}} palabras.",
+    "tooManyConfirm": "Enviar las primeras {{max}}"
+  },
+  "sharedDeck": {
+    "headerTitle": "Lista compartida",
+    "sentBy": "De {{name}}",
+    "wordCount": "{{count}} palabras",
+    "previewLabel": "Vista previa",
+    "moreWords": "y {{count}} más",
+    "saveButton": "Guardar en mis listas",
+    "alreadySavedOn": "Ya la guardaste el {{date}}",
+    "alreadySaved": "Ya la guardaste",
+    "openMyList": "Abrir mi lista",
+    "saveAnyway": "Guardar otra copia",
+    "langMismatch": "Los significados de esta lista están en {{deckLang}}. Ahora usas {{myLang}}.",
+    "unavailableTitle": "No se puede abrir la lista",
+    "unavailableMessage": "Puede que el periodo para compartir haya terminado o que el enlace haya cambiado. Pide a quien te la envió que la vuelva a enviar.",
+    "errorTitle": "No se pudo cargar la lista",
+    "errorMessage": "Revisa tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "goHome": "Ir al inicio",
+    "saveFailed": "No se pudo guardar"
   }
 }

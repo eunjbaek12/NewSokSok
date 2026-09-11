@@ -36,7 +36,7 @@ import { officialToCard, communityToCard, type CurationCard } from './types';
 import ReportCurationModal from './ReportCurationModal';
 import CurationCardView, { levelStyleOf } from './CurationCardView';
 import { pickCommunityEmpty } from './community-empty';
-import { isSavedCopyOf } from './saved-match';
+import { isSavedCopyOf, getUniqueName } from './saved-match';
 import ShareListDialog, { useShareSignIn } from './ShareListDialog';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
@@ -410,17 +410,6 @@ const generateAIWords = async (
     });
 
     return { words, droppedCount };
-};
-
-const getUniqueName = (base: string, existingNames: string[]): string => {
-    const lowerNames = existingNames.map(n => n.trim().toLowerCase());
-    let candidate = base;
-    let suffix = 1;
-    while (lowerNames.includes(candidate.trim().toLowerCase())) {
-        candidate = `${base}-${suffix}`;
-        suffix++;
-    }
-    return candidate;
 };
 
 export default function CurationScreen() {

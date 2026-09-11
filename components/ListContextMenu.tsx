@@ -6,7 +6,6 @@ import {
   TextInput,
   ScrollView,
   Alert,
-  ActivityIndicator,
   StyleSheet,
   useWindowDimensions,
 } from 'react-native';
@@ -16,14 +15,16 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { exportListToCsv, SharingUnavailableError } from '@/lib/csv-file';
 import { useTheme } from '@/features/theme';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
+import type { ShareListOptions } from '@/features/vocab';
 import { VocaList } from '@/lib/types';
-import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
 import { LIST_TITLE_MAX } from '@shared/contracts';
 import { splitBareWords, loadUnfillable } from '@/features/bare-words';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
+import { ShareListDialog, useShareSignIn } from '@/features/curation';
 
 type MenuPos = { x: number; y: number; width: number; height: number };
 
@@ -36,7 +37,7 @@ interface ListContextMenuProps {
   onDeleteList: (id: string) => Promise<void>;
   onToggleVisibility: (id: string) => Promise<void>;
   onMergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
-  onShareList: (listId: string, options?: { force?: boolean; updateId?: string; description?: string }) => Promise<void>;
+  onShareList: (listId: string, options?: ShareListOptions) => Promise<void>;
 }
 
 export default function ListContextMenu({
@@ -53,11 +54,11 @@ export default function ListContextMenu({
   const { colors } = useTheme();
   const { t, i18n } = useTranslation();
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
+  const { authMode } = useAuth();
+  const { promptSignIn } = useShareSignIn();
 
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [shareTargetList, setShareTargetList] = useState<VocaList | null>(null);
-  const [shareDescription, setShareDescription] = useState('');
-  const [shareSubmitting, setShareSubmitting] = useState(false);
   // 뜻만 있는 단어 수 — 메뉴가 열려 있을 때만 센다(닫혀 있으면 menuList 가 null).
   //
   // 🔴 **AI 가 못 찾은 단어는 빼고 센다.** 안 빼면 메뉴가 "5"라고 부르고 들어간 화면은
@@ -133,66 +134,19 @@ export default function ListContextMenu({
 
   const handleMenuShare = useCallback(() => {
     if (!menuList) return;
-    setShareTargetList(menuList);
-    setShareDescription('');
     onClose();
-    setTimeout(() => setShareModalOpen(true), 100);
-  }, [menuList, onClose]);
-
-  const handleShareSubmit = useCallback(async () => {
-    if (!shareTargetList) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setShareSubmitting(true);
-    const desc = shareDescription.trim() || undefined;
-    try {
-      await onShareList(shareTargetList.id, { description: desc });
-      setShareModalOpen(false);
-      Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.shareSuccessMessage', { name: shareTargetList.title }));
-    } catch (e: any) {
-      setShareModalOpen(false);
-      if (e.message === 'DUPLICATE_SHARE') {
-        const captured = shareTargetList;
-        Alert.alert(
-          t('contextMenu.alreadyShared'),
-          t('contextMenu.alreadySharedMessage', { name: captured.title }),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            {
-              text: t('contextMenu.createNew'),
-              onPress: async () => {
-                try {
-                  await onShareList(captured.id, { force: true, description: desc });
-                  Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.newShareCreated'));
-                } catch (err: any) {
-                  Alert.alert(t('contextMenu.shareFailed'), err.message || t('common.error'));
-                }
-              },
-            },
-            {
-              text: t('common.update'),
-              style: 'default',
-              onPress: async () => {
-                try {
-                  await onShareList(captured.id, { updateId: e.existingId, description: desc });
-                  Alert.alert(t('contextMenu.updateComplete'), t('contextMenu.updateCompleteMessage'));
-                } catch (err: any) {
-                  Alert.alert(t('contextMenu.updateFailed'), err.message || t('common.error'));
-                }
-              },
-            },
-          ],
-        );
-      } else {
-        Alert.alert(t('contextMenu.shareFailed'), e.message || t('contextMenu.shareError'));
-      }
-    } finally {
-      setShareSubmitting(false);
+    // 게스트는 창을 열기 전에 막는다 — 예전에는 창이 열리고 끝에서 코드 원문이 떴다.
+    // 메뉴가 닫힌 다음 틱에 알린다(네이티브 알림이라 RN Modal 핸드오프 레이스는 없다).
+    if (!isCloudAuthMode(authMode)) {
+      setTimeout(promptSignIn, 0);
+      return;
     }
-  }, [shareTargetList, shareDescription, onShareList, t]);
+    setShareTargetList(menuList);
+    setTimeout(() => setShareModalOpen(true), 100);
+  }, [menuList, onClose, authMode, promptSignIn]);
 
   const handleShareClose = useCallback(() => {
     setShareModalOpen(false);
-    setShareDescription('');
     setShareTargetList(null);
   }, []);
 
@@ -447,76 +401,13 @@ export default function ListContextMenu({
         onConfirm={handleDeleteConfirm}
       />
 
-      {/* Share Dialog */}
-      <DialogModal
+      {/* Share Dialog — 단어 모음의 공유 단어장 탭과 같은 창(ShareListDialog). */}
+      <ShareListDialog
         visible={shareModalOpen}
+        list={shareTargetList}
         onClose={handleShareClose}
-        title={t('contextMenu.shareTitle')}
-        scrollable={true}
-        footer={
-          <View style={styles.actions}>
-            <Pressable
-              onPress={handleShareClose}
-              style={[styles.btn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
-            >
-              <Text style={[styles.btnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
-            </Pressable>
-            <Pressable
-              onPress={handleShareSubmit}
-              disabled={shareSubmitting || (shareTargetList?.words.length ?? 0) === 0}
-              style={[styles.btn, {
-                backgroundColor: (shareSubmitting || (shareTargetList?.words.length ?? 0) === 0) ? colors.surfaceSecondary : colors.primaryButton,
-                paddingVertical: btn.paddingVertical,
-                borderRadius: btn.borderRadius,
-              }]}
-            >
-              {shareSubmitting ? (
-                <ActivityIndicator size="small" color={colors.primary} />
-              ) : (
-                <Text style={[styles.btnText, {
-                  color: (shareTargetList?.words.length ?? 0) === 0 ? colors.textTertiary : colors.onPrimary,
-                  fontSize: btn.fontSize,
-                }]}>{t('contextMenu.shareConfirm')}</Text>
-              )}
-            </Pressable>
-          </View>
-        }
-      >
-        <View style={styles.dialogBody}>
-          {/* Info card */}
-          <View style={[styles.shareInfoCard, { backgroundColor: colors.surfaceSecondary }]}>
-            <Text style={[styles.shareInfoTitle, { color: colors.text }]} numberOfLines={1}>
-              {shareTargetList?.icon ?? '✨'} {shareTargetList?.title}
-            </Text>
-            <Text style={[styles.shareInfoMeta, { color: colors.textSecondary }]}>
-              {t('contextMenu.sharePreviewWords', { count: shareTargetList?.words.length ?? 0 })}
-            </Text>
-            <Text style={[styles.shareInfoMeta, { color: colors.textSecondary }]}>
-              {t('contextMenu.sharePreviewLang', {
-                source: `${getLanguageFlag(shareTargetList?.sourceLanguage ?? 'en')} ${getLanguageLabel(shareTargetList?.sourceLanguage ?? 'en', t)}`,
-                target: `${getLanguageFlag(shareTargetList?.targetLanguage ?? 'ko')} ${getLanguageLabel(shareTargetList?.targetLanguage ?? 'ko', t)}`,
-              })}
-            </Text>
-            {(shareTargetList?.words.length ?? 0) === 0 && (
-              <Text style={[styles.shareEmptyWarning, { color: colors.error }]}>
-                {t('contextMenu.shareEmptyList')}
-              </Text>
-            )}
-          </View>
-          {/* Description input */}
-          <TextInput
-            style={[styles.shareDescInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-            value={shareDescription}
-            onChangeText={setShareDescription}
-            placeholder={t('contextMenu.shareDescriptionPlaceholder')}
-            placeholderTextColor={colors.textTertiary}
-            multiline
-            maxLength={300}
-            returnKeyType="done"
-            blurOnSubmit
-          />
-        </View>
-      </DialogModal>
+        onShare={onShareList}
+      />
 
       {/* Merge Dialog */}
       <DialogModal
@@ -671,36 +562,5 @@ const styles = StyleSheet.create({
   mergeHiddenText: {
     fontSize: 10,
     fontFamily: 'Pretendard_500Medium',
-  },
-  shareInfoCard: {
-    borderRadius: 10,
-    padding: 14,
-    gap: 4,
-    marginBottom: 12,
-  },
-  shareInfoTitle: {
-    fontSize: 16,
-    fontFamily: 'Pretendard_600SemiBold',
-    marginBottom: 2,
-  },
-  shareInfoMeta: {
-    fontSize: 13,
-    fontFamily: 'Pretendard_400Regular',
-  },
-  shareEmptyWarning: {
-    fontSize: 13,
-    fontFamily: 'Pretendard_500Medium',
-    marginTop: 6,
-  },
-  shareDescInput: {
-    minHeight: 80,
-    borderRadius: 10,
-    borderWidth: 1,
-    paddingHorizontal: 14,
-    paddingTop: 12,
-    paddingBottom: 12,
-    fontSize: 14,
-    fontFamily: 'Pretendard_400Regular',
-    textAlignVertical: 'top',
   },
 });

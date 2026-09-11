@@ -303,7 +303,17 @@
       "alreadyTitle": "이미 신고하셨어요",
       "alreadyMessage": "이 단어장에 대한 신고가 이미 접수돼 있습니다.",
       "failedMessage": "신고 처리 중 오류가 발생했어요. 잠시 후 다시 시도해주세요."
-    }
+    },
+    "communityLoadFailed": "공유 단어장을 불러오지 못했어요.",
+    "communityNoDeckForLang": "{{lang}}를 배우는 공유 단어장은 아직 없어요",
+    "communityOtherLangs": "다른 언어로는 {{count}}개 있어요.",
+    "showAllLangs": "전체 보기",
+    "shareBoxTitle": "내 단어장도 올려 보세요",
+    "shareBoxBody": "올린 단어장은 다른 학습자가 그대로 가져가 공부할 수 있어요",
+    "shareBoxGuestBody": "구글로 연결하면 공유 단어장에 올릴 수 있어요",
+    "chooseListToShare": "공유할 단어장 선택",
+    "noListToShare": "공유할 단어장이 없어요.",
+    "sharedByA11y": "올린 사람 {{name}}"
   },
   "settings": {
     "title": "설정",
@@ -1511,7 +1521,13 @@
     "exportFailedMessage": "CSV를 내보내는 중 문제가 발생했습니다.",
     "exportUnavailable": "이 기기에서는 파일 공유를 사용할 수 없습니다.",
     "exportSavedTitle": "저장 완료",
-    "exportSavedMessage": "{{name}} 파일을 선택한 폴더에 저장했어요."
+    "exportSavedMessage": "{{name}} 파일을 선택한 폴더에 저장했어요.",
+    "sharePreviewLabel": "올라갈 모습",
+    "shareNicknameLabel": "공유할 때 보일 닉네임",
+    "shareNicknameHint": "설정의 닉네임으로 저장돼요. 홈 인사말에도 쓰여요.",
+    "shareNicknamePending": "닉네임을 정해 주세요",
+    "shareLoginTitle": "로그인이 필요해요",
+    "shareLoginMessage": "구글로 연결하면 공유 단어장에 올릴 수 있어요."
   },
   "manage": {
     "show": "단어장 보이기",

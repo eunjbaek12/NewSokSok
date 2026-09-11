@@ -15,6 +15,7 @@ import {
   fetchCloudCurations as apiFetchCloudCurations,
   DuplicateCurationError,
 } from './api';
+import { resolveShareCreatorName } from './share-preview';
 
 export function useLists(): VocaList[] {
   return useListsQuery().data ?? [];
@@ -35,21 +36,29 @@ export function usePlanStatus(listId: string): PlanStatus {
   return selectPlanStatus(lists, listId);
 }
 
+export type ShareListOptions = {
+  force?: boolean;
+  updateId?: string;
+  description?: string;
+  /** 공유 창에서 방금 입력한 닉네임. 없으면 저장된 닉네임을 쓴다. */
+  creatorName?: string;
+};
+
 export function useShareList() {
   const lists = useLists();
-  const { user, authMode } = useAuth();
+  const { authMode } = useAuth();
   const { profileSettings } = useSettings();
 
-  return useCallback(async (
-    listId: string,
-    options?: { force?: boolean; updateId?: string; description?: string },
-  ): Promise<void> => {
+  return useCallback(async (listId: string, options?: ShareListOptions): Promise<void> => {
     if (!isCloudAuthMode(authMode)) throw new Error('GUEST_CANNOT_SHARE');
 
     const list = lists.find(l => l.id === listId);
     if (!list) throw new Error('List not found');
 
-    const creatorName = profileSettings.nickname.trim() || user?.displayName || 'Anonymous';
+    // 닉네임만 쓴다 — Google 계정 이름(user.displayName)으로 대신하지 않는다.
+    // 비어 있으면 공유 창이 먼저 받는다(share-preview.ts 의 resolveShareCreatorName 주석).
+    const creatorName = resolveShareCreatorName(options?.creatorName ?? profileSettings.nickname);
+    if (!creatorName) throw new Error('NICKNAME_REQUIRED');
 
     try {
       await shareCuration(list, {
@@ -67,7 +76,7 @@ export function useShareList() {
       }
       throw e;
     }
-  }, [lists, user, authMode, profileSettings]);
+  }, [lists, authMode, profileSettings]);
 }
 
 export function useDeleteCloudCuration() {

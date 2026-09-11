@@ -221,7 +221,11 @@ fixing the default over adding a rule here.
 
 ### Community Curation
 
-- Google login required to share. Guests see the share button disabled with a login prompt.
+- Google login required to share. Both entry points (list ⋯ menu, and the box at the end of the
+  공유 단어장 tab) send guests to Google sign-in before the share dialog opens (`useShareSignIn`).
+- The share dialog (`features/curation/ShareListDialog.tsx`) is shared by both entry points. It previews
+  the real card (`toSharedThemePreview` → `CurationCardView`) and requires a nickname — the Google
+  account name is never used as a fallback (it used to publish the full real name).
 - `features/vocab/api.ts` — `fetchCloudCurations`, `shareCuration`, `deleteCloudCuration` (all Supabase SDK calls).
 - Admin accounts in `app_admins` table can delete any curation.
 

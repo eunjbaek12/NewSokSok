@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase';
 import { generateId } from './db';
 import { deriveDisplayLanguages } from '@/constants/languages';
 import { CurationShareSchema, WordSaveSchema, type CuratedThemeWithWords } from '@shared/contracts';
+import { sanitizeShareTags } from './share-preview';
 
 export type { CuratedThemeWithWords };
 
@@ -34,41 +35,42 @@ export class CurationCapacityError extends Error {
 const CURATED_WORDS_SELECT =
   '*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags)';
 
+/**
+ * 공유 단어장 목록. **실패하면 던진다** — 빈 배열로 삼키지 않는다.
+ *
+ * 예전에는 실패를 `[]`로 돌려줘서 화면이 «오프라인»과 «아무도 안 올림»을 구분할 수 없었고,
+ * 둘 다 「검색 결과가 없습니다」가 떴다. 공식 탭은 실패를 따로 그리는데 공유 탭만 못 그렸다.
+ */
 export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
-  try {
-    const { data, error } = await supabase
-      .from('curated_themes')
-      .select(CURATED_WORDS_SELECT)
-      .order('created_at', { ascending: false });
-    if (error) throw error;
+  const { data, error } = await supabase
+    .from('curated_themes')
+    .select(CURATED_WORDS_SELECT)
+    .order('created_at', { ascending: false });
+  if (error) throw error;
 
-    // UI는 camelCase 컨벤션이라 owner 판정(canDeleteCuration)·작성자 표시
-    // (creatorName)·언어쌍(sourceLanguage — 언어 필터·카드 표시·저장 시 단어
-    // 언어 스탬프에 쓰임)이 동작하려면 snake_case 컬럼을 명시적으로 매핑해야 한다.
-    return (data ?? []).map((theme: any) => ({
-      ...theme,
-      creatorId: theme.creator_id,
-      creatorName: theme.creator_name,
-      createdAt: theme.created_at,
-      updatedAt: theme.updated_at,
-      sourceLanguage: theme.source_language ?? undefined,
-      targetLanguage: theme.target_language ?? undefined,
-      words: (theme.words ?? []).map((w: any) => ({
-        id: w.id,
-        term: w.term,
-        definition: w.definition ?? '',
-        meaningKr: w.meaning_kr ?? '',
-        exampleEn: w.example_en ?? '',
-        exampleKr: w.example_kr ?? undefined,
-        phonetic: w.pronunciation ?? undefined,
-        pos: w.pos ?? undefined,
-        tags: Array.isArray(w.tags) ? w.tags.map(String) : undefined,
-      })),
-    }));
-  } catch (e) {
-    console.warn('Failed to fetch curations from cloud:', e);
-    return [];
-  }
+  // UI는 camelCase 컨벤션이라 owner 판정(canDeleteCuration)·작성자 표시
+  // (creatorName)·언어쌍(sourceLanguage — 언어 필터·카드 표시·저장 시 단어
+  // 언어 스탬프에 쓰임)이 동작하려면 snake_case 컬럼을 명시적으로 매핑해야 한다.
+  return (data ?? []).map((theme: any) => ({
+    ...theme,
+    creatorId: theme.creator_id,
+    creatorName: theme.creator_name,
+    createdAt: theme.created_at,
+    updatedAt: theme.updated_at,
+    sourceLanguage: theme.source_language ?? undefined,
+    targetLanguage: theme.target_language ?? undefined,
+    words: (theme.words ?? []).map((w: any) => ({
+      id: w.id,
+      term: w.term,
+      definition: w.definition ?? '',
+      meaningKr: w.meaning_kr ?? '',
+      exampleEn: w.example_en ?? '',
+      exampleKr: w.example_kr ?? undefined,
+      phonetic: w.pronunciation ?? undefined,
+      pos: w.pos ?? undefined,
+      tags: Array.isArray(w.tags) ? w.tags.map(String) : undefined,
+    })),
+  }));
 }
 
 export async function deleteCloudCuration(curationId: string): Promise<void> {
@@ -129,18 +131,8 @@ export interface ShareCurationOptions {
   force?: boolean;
 }
 
-// 공유 경계 태그 정리 — 하드 실패(zod) 대신 조용히 걸러낸다(태그는 부가 정보라
-// 태그 하나 때문에 공유 전체가 막히면 안 됨). 서버 CHECK(jsonb array·2KB)와
-// 같은 계약의 상한.
-function sanitizeShareTags(tags: string[] | undefined): string[] | null {
-  if (!tags?.length) return null;
-  const cleaned = tags
-    .map(t => t.trim())
-    .filter(t => t.length > 0 && t.length <= 60)
-    .slice(0, 20);
-  return cleaned.length > 0 ? cleaned : null;
-}
-
+// 태그 정리 규칙(sanitizeShareTags)은 share-preview.ts 에 있다 — 공유 창 미리보기가
+// 같은 규칙을 읽어야 올라갈 모습과 실제가 갈리지 않는다.
 function toCuratedWordRows(list: VocaList, themeId: string) {
   return list.words.map(w => ({
     id: generateId(),

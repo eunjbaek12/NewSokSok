@@ -48,7 +48,8 @@ describe('배선 — 큐레이션 화면이 이 판정을 쓰는가', () => {
   it('빈 목록의 두 이유를 갈라 그린다', () => {
     // ①뜻 언어에 덱이 없음 ②그 밖(검색어·언어 칩). 하나로 합치면 다시 "결과 없음"이 된다.
     expect(src).toContain('{showMeaningLangEmpty && (');
-    expect(src).toContain('{filteredThemes.length === 0 && !showMeaningLangEmpty && (');
+    // 공유 탭이 자기 사유(community-empty.ts)로 갈라지면서 이 조건은 공식 탭 갈래 안으로 들어갔다.
+    expect(src).toContain('filteredThemes.length === 0 && !showMeaningLangEmpty');
   });
 
   it('공식 탭에서만 쓴다 — 커뮤니티 탭은 뜻 언어로 거르지 않는다', () => {

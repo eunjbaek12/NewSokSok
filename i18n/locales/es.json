@@ -303,7 +303,17 @@
       "alreadyTitle": "Ya reportado",
       "alreadyMessage": "Ya se ha enviado un reporte para esta colección.",
       "failedMessage": "No se pudo enviar tu reporte. Por favor, inténtalo de nuevo más tarde."
-    }
+    },
+    "communityLoadFailed": "No se pudieron cargar las listas compartidas.",
+    "communityNoDeckForLang": "Aún no hay listas compartidas para aprender {{lang}}",
+    "communityOtherLangs": "Otros idiomas: {{count}}",
+    "showAllLangs": "Ver todo",
+    "shareBoxTitle": "Comparte una de tus listas",
+    "shareBoxBody": "Otros estudiantes podrán añadirla y estudiarla al instante.",
+    "shareBoxGuestBody": "Conéctate con Google para publicar tus listas aquí.",
+    "chooseListToShare": "Elige una lista para compartir",
+    "noListToShare": "Todavía no tienes listas para compartir.",
+    "sharedByA11y": "Compartido por {{name}}"
   },
   "settings": {
     "title": "Ajustes",
@@ -1093,7 +1103,13 @@
     "exportFailedMessage": "Algo salió mal al exportar el CSV.",
     "exportUnavailable": "Compartir archivos no está disponible en este dispositivo.",
     "exportSavedTitle": "Guardado",
-    "exportSavedMessage": "Se ha guardado {{name}} en la carpeta que elegiste."
+    "exportSavedMessage": "Se ha guardado {{name}} en la carpeta que elegiste.",
+    "sharePreviewLabel": "Así se verá",
+    "shareNicknameLabel": "Apodo visible al compartir",
+    "shareNicknameHint": "Se guarda como tu apodo en Ajustes. También aparece en el saludo de inicio.",
+    "shareNicknamePending": "Elige un apodo",
+    "shareLoginTitle": "Inicia sesión",
+    "shareLoginMessage": "Conéctate con Google para publicar tus listas en las listas compartidas."
   },
   "manage": {
     "show": "Mostrar la lista",

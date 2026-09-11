@@ -1900,7 +1900,7 @@
     "namePending": "Enter a name",
     "expiryHint": "Your friend can open it for 30 days. After that it closes on its own.",
     "confirm": "Send",
-    "shareMessage": "SokSok Voca — \"{{title}}\"\n{{count}} words · open until {{date}}\n{{url}}",
+    "shareMessage": "Avocado — \"{{title}}\"\n{{count}} words · open until {{date}}\n{{url}}",
     "sentSnackbar": "📤 Shared · open until {{date}}",
     "failedTitle": "Couldn't send",
     "shareSheetFailedTitle": "Send this link",

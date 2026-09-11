@@ -1900,7 +1900,7 @@
     "namePending": "이름을 적어 주세요",
     "expiryHint": "보낸 주소는 30일 동안 열 수 있어요. 그 뒤에는 스스로 닫혀요.",
     "confirm": "보내기",
-    "shareMessage": "쏙쏙보카 «{{title}}» 단어장\n{{count}}단어 · {{date}}까지 열 수 있어요\n{{url}}",
+    "shareMessage": "아보카도 «{{title}}» 단어장\n{{count}}단어 · {{date}}까지 열 수 있어요\n{{url}}",
     "sentSnackbar": "📤 공유했어요 · {{date}}까지 열 수 있어요",
     "failedTitle": "보내지 못했어요",
     "shareSheetFailedTitle": "이 주소를 보내 주세요",

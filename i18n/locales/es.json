@@ -1482,7 +1482,7 @@
     "namePending": "Escribe un nombre",
     "expiryHint": "Tu amigo puede abrirla durante 30 días. Después se cierra sola.",
     "confirm": "Enviar",
-    "shareMessage": "SokSok Voca — «{{title}}»\n{{count}} palabras · disponible hasta el {{date}}\n{{url}}",
+    "shareMessage": "Avocado — «{{title}}»\n{{count}} palabras · disponible hasta el {{date}}\n{{url}}",
     "sentSnackbar": "📤 Compartido · disponible hasta el {{date}}",
     "failedTitle": "No se pudo enviar",
     "shareSheetFailedTitle": "Envía este enlace",

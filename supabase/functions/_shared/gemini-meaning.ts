@@ -23,6 +23,15 @@ Return no examples, pronunciation, part of speech, correction suggestion, or exp
   }) });
   if (!res.ok) throw new Error(`meaning call failed (${res.status})`);
   const json = await res.json();
+  // 이 경로의 원가를 추정하지 않고 재기 위한 로그(docs/basic-fallback-cap-spec.md 0단계).
+  // 프롬프트가 고정이라 몇 건만 봐도 1회 값이 확정된다. 상한 숫자를 정한 뒤에는 지워도 된다.
+  const usage = json?.usageMetadata;
+  if (usage) {
+    console.log('meaning-only usage', {
+      prompt: usage.promptTokenCount, output: usage.candidatesTokenCount,
+      total: usage.totalTokenCount, model,
+    });
+  }
   const text = json?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('meaning call returned no text');
   const parsed = JSON.parse(text) as { meaning?: string; isReal?: boolean };

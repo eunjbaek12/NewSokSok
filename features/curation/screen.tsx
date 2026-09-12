@@ -849,11 +849,15 @@ export default function CurationScreen() {
 
     // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
     // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
+    // 게스트도 신고할 수 있다. 서버 정책(curation_reports_insert_own)은 `to authenticated` +
+    // reporter_id = auth.uid() 인데 게스트의 익명 세션도 같은 역할이라 insert 가 통과한다.
+    // 예전의 `!user` 는 로그인한 사람에게만 신고를 보여 줬다 — 공유 단어장은 게스트도 보는
+    // 화면이라, 신고할 수 있어야 하는 사람의 절반이 버튼 자체를 못 봤다.
+    // (docs/share-to-friend-spec.md §8 — 신고는 «남이 올린 것이 남에게 보이는 자리»에 둔다.)
     const canReportCuration = useCallback((theme: CurationCard): boolean => {
-        if (!user) return false;
         if (canDeleteCuration(theme)) return false;
         return true;
-    }, [user, canDeleteCuration]);
+    }, [canDeleteCuration]);
 
     const [reportModalTheme, setReportModalTheme] = useState<CurationCard | null>(null);
 

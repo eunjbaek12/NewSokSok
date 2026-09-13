@@ -106,9 +106,10 @@ scripts/.mono-review.json
 # 모델당 하루 20요청(=500단어)이라 다시 만들려면 사흘이다. 재생성 가능이 아니다.
 !scripts/.ko-ladder-progress.json
 
-# 운영 쿼리를 굴리는 작업 폴더. 정본은 docs/ops-analytics-queries.md 이고
-# 여기 txt 는 거기서 꺼내 쓰는 사본이라, 추적하면 같은 SQL 이 두 벌이 되어
-# 한쪽만 고쳐진다. 쿼리를 손봤으면 문서 쪽 Q 번호에 반영할 것.
+# 운영 쿼리를 굴리는 작업 폴더 — 정본이 여기 있다(`쿼리/쿼리 모음.md` + 실행용 txt).
+# 🔴 저장소로 올리지 말 것. 원래 docs/ops-analytics-queries.md 에 두었다가, 실행 결과
+# 표본에 실사용자 이름이 들어가는 바람에 공개 저장소 + GitHub Pages(main:/docs 를 그대로
+# 웹에 서빙)로 새어 2026-09-13 에 통째로 이리 옮겼다. 결과 표본은 여기서만 남긴다.
 쿼리/
 
 scripts/_backfill-base-form-backup.jsonl

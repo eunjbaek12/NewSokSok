@@ -65,7 +65,12 @@ begin
 end;
 $function$;
 
+-- 🔴 `revoke ... from public` 만으로는 부족하다. Supabase 의 기본 권한(alter default privileges)이
+--    함수를 만들 때 anon 에게도 EXECUTE 를 주므로, anon 을 명시적으로 걷어내야 한다.
+--    (실측: 이 줄이 없던 첫 적용 뒤 has_function_privilege('anon', …) 가 true 였다.)
+--    함수 안에서 app_admins 를 확인하므로 익명이 실제로 가릴 수는 없지만, 열어 둘 이유도 없다.
 revoke all on function public.moderate_curation(text, boolean) from public;
+revoke all on function public.moderate_curation(text, boolean) from anon;
 grant execute on function public.moderate_curation(text, boolean) to authenticated;
 
 -- ─── 3. 가려진 것은 주소로도 열리지 않는다 ────────────────────────────────────

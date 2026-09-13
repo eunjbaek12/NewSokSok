@@ -79,14 +79,33 @@ Edge 가 basic 을 실제로 내보낸 직후 전용 RPC(`record_basic_serve(p_u
 **시그니처** `consume_ai_quota` 는 Edge 두 곳에서만 불린다(`enrich-word`, `generate-words`; 앱은 안 부른다).
 그래도 이 단계에서는 손대지 않는 편이 안전하다 — 새 RPC 만 추가한다.
 
-**원가** 추정 금지(`env_ai_script_cost_estimate`). Vertex SA 키는 Supabase Secrets 에만 있어
-로컬에서 같은 모델을 부를 수 없으므로, `translateMeaningOnly` 안에서 `usageMetadata` 를
-**로그로 남겨 운영 호출에서 잰다**. 프롬프트가 고정이라 몇 건이면 1회 값이 확정된다.
+**원가** ✅ **실측 완료(2026-09-13)** — Vertex 1회 ≈ **₩0.04~0.06**, full 자동완성(₩0.48)의 **약 1/8**.
 
-```
-Edge Functions → enrich-word → Logs 에서  meaning-only usage  검색
-→ prompt/output 토큰 × gemini-2.5-flash-lite 단가 × basic_miss_count = 이 경로의 월 원가
-```
+로컬 Gemini API 키로 `gemini-meaning.ts` 의 프롬프트를 **소스에서 그대로 뽑아**(측정 스크립트가 템플릿을
+정규식으로 읽는다 — 문구가 갈라질 수 없다) 같은 `generationConfig` 로 7개 단어(en>ko 4 · ko>en · ja>ko ·
+es>ko, 가짜 단어 1 포함)에 1회씩 호출했다.
+
+| 모델 | 입력 | 출력 | thinking | 1M 단가(입/출) | 1회 원가 |
+|---|---|---|---|---|---|
+| `gemini-3.1-flash-lite` (10/2 전환 목표) | 172.6 | 21.1 | 0 | $0.1375 / $0.825 (non-global) | $0.000041 ≈ **₩0.057** |
+| `gemini-2.5-flash-lite` (현행 기본값) | (≈173) | (≈21) | — | $0.10 / $0.40 (Global) | $0.000026 ≈ **₩0.035** |
+
+- 🔴 **2.5 는 이 키로 못 잰다**(신규 프로젝트 404). 입력은 Gemini 토크나이저가 같아 그대로 옮기고, 출력은
+  `{meaning,isReal}` JSON 이라 모델 차이가 작다고 보고 3.1 값을 빌렸다 — **2.5 행의 토큰은 추정**이다.
+- 🔴 **현행 서버 모델은 확인 못 했다.** `VERTEX_MODEL` 시크릿이 없으면 기본값 2.5 다(`_shared/gemini-vertex.ts:11`).
+  운영 로그 `meaning-only usage` 한 줄에 `model` 이 찍히므로 그것으로 확정한다(Edge Functions → enrich-word → Logs).
+- 환율은 `docs/pricing-decision.md` 의 「3.1 단어당 ₩0.48 = 입력 951·출력 265」에서 역산한 **₩1,375/$** 다.
+
+🔑 **이 숫자가 2단계의 근거를 바꾼다 — 상한은 정상 사용의 원가 방어가 아니다.**
+
+| 시나리오 (3.1, 전부 캐시 미스 가정) | 하루 원가 |
+|---|---|
+| 실측 최다 사용자(2026-08-26, basic 192건) | ₩11 |
+| 분당 40회(`_shared/rate-limit.ts`) × 24시간 × 인스턴스 1개 = 57,600건 | **≈ ₩3,300** |
+
+정상 사용은 무시할 수준이고, 돈이 새는 것은 **스크립트로 두드리는 경우**뿐이다. 그러니 2단계 상한은
+「보통 사람이 안 닿는 자리」를 찾는 문제가 아니라 **「자동화가 하루에 태울 수 있는 총액을 끊는 자리」**다 —
+사다리의 약속(뜻 = 기본값)을 지키면서도 넉넉하게 둘 수 있다. 숫자는 여전히 §1단계 분포를 보고 정한다.
 
 ### 1단계 — 2주 관측 후 숫자 결정
 

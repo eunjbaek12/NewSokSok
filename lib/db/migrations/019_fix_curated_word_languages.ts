@@ -16,7 +16,7 @@ import { useSyncStore } from '@/features/sync/store';
  * 왜 서버 UPDATE 가 아니라 로컬 마이그레이션인가:
  *   - 게스트는 서버에 행이 없다. 로컬을 고쳐야 게스트도 고쳐진다.
  *   - 서버에서 직접 UPDATE 하면 `cloud_words.updated_at` 이 인위로 올라가
- *     운영 지표가 왜곡된다(docs/ops-analytics-queries.md Q1 이 그 컬럼으로 "오늘
+ *     운영 지표가 왜곡된다(쿼리/쿼리 모음.md — 저장소 밖 — Q1 이 그 컬럼으로 "오늘
  *     활동한 사람"을 판정한다).
  *
  * ⚠️ 사용자가 직접 만든 리스트(`isCurated = 0`)는 건드리지 않는다. 거기에도 일본어·한자가

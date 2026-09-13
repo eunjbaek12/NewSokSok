@@ -1,17 +1,24 @@
 // POST /functions/v1/notify-support
-// Supabase Database Webhook(support_messages의 insert·update)이 호출한다.
+// Supabase Database Webhook(support_messages의 insert·update, curation_reports의
+// insert)이 호출한다.
 //
 // 왜 앱이 아니라 DB가 메일을 보내나:
 //   앱은 support_messages에 행 하나를 넣는 것으로 끝나야 한다. 메일 발송까지
 //   앱이 책임지면, 전송은 됐는데 알림만 실패한 상태를 사용자에게 "실패"로 보여주게
 //   된다. insert만 성공하면 알림은 반드시 나가는 구조로 분리한다.
 //
-// 두 방향:
-//   INSERT  → 운영자에게 "새 문의". 제목 앞에 카테고리를 붙여 메일함에서 결제 건만
-//             바로 골라낼 수 있게 한다. 회신 주소가 없으면 [회신불가]를 덧붙여
-//             답장을 쓰다 마는 일이 없게 한다.
-//   UPDATE  → reply_body가 새로 채워졌을 때만, 사용자에게 답장 메일. 운영자는
-//             대시보드 한 곳에만 쓰고 앱·메일 양쪽에 닿는다.
+// 세 방향:
+//   support_messages INSERT  → 운영자에게 "새 문의". 제목 앞에 카테고리를 붙여
+//             메일함에서 결제 건만 바로 골라낼 수 있게 한다. 회신 주소가 없으면
+//             [회신불가]를 덧붙여 답장을 쓰다 마는 일이 없게 한다.
+//   support_messages UPDATE  → reply_body가 새로 채워졌을 때만, 사용자에게 답장 메일.
+//             운영자는 대시보드 한 곳에만 쓰고 앱·메일 양쪽에 닿는다.
+//   curation_reports INSERT  → 운영자에게 "새 신고". 신고자에게 가는 메일은 없다.
+//
+// 신고를 왜 여기에 합쳤나:
+//   다른 것은 메일 본문 한 덩어리뿐이다. 함수를 하나 더 내면 배포·시크릿 헤더·
+//   README가 한 벌씩 늘고 Resend 키는 어차피 공유한다. 갈림길은 payload.table 하나다
+//   (webhook 페이로드에 늘 실려 온다. 없으면 옛 호출로 보고 support로 간다).
 //
 // ⚠️ Apple "이메일 가리기"(@privaterelay.appleid.com) 주소는 Apple에 등록된
 //    발신자만 통과시킨다. 도메인 없이 보내는 동안에는 반송될 수 있고, 그래서 앱
@@ -51,6 +58,24 @@ const CATEGORY_LABEL: Record<string, string> = {
   other: '기타',
 };
 
+// 앱의 신고 사유(curation_reports.reason)와 같은 다섯 가지. 읽는 사람이 운영자라
+// 한국어로 둔다(i18n 번들은 Deno에서 못 읽는다 — REPLY_COPY와 같은 이유).
+// 문구는 ko.json `curation.report.reason` 을 줄인 것이다 — 신고자가 고른 말과 어긋나면
+// 운영자가 «무엇으로 신고됐는지»를 다르게 읽는다. 앱 문구를 바꾸면 여기도 볼 것.
+const REASON_LABEL: Record<string, string> = {
+  inappropriate: '부적절한 콘텐츠(욕설·혐오·음란물)',
+  copyright: '저작권 침해',
+  spam: '스팸 또는 광고',
+  misinformation: '잘못된 정보',
+  other: '기타',
+};
+
+const VISIBILITY_LABEL: Record<string, string> = {
+  public: '공유 탭에 공개',
+  link: '주소로만(친구 공유)',
+  removed: '이미 가려짐',
+};
+
 interface SupportRow {
   id: string;
   parent_id: string | null;
@@ -63,10 +88,23 @@ interface SupportRow {
   created_at: string;
 }
 
+/** 공유 단어장 신고 한 건(`curation_reports`). 덱 제목·작성자는 여기 없다 — 따로 읽는다. */
+interface ReportRow {
+  id: string;
+  theme_id: string;
+  reporter_id: string;
+  reason: string;
+  detail: string | null;
+  status: string;
+  created_at: string;
+}
+
 interface WebhookPayload {
   type: 'INSERT' | 'UPDATE' | 'DELETE';
-  record: SupportRow;
-  old_record: SupportRow | null;
+  /** 웹훅이 늘 실려 보낸다. 옛 호출(README의 curl)에는 없어 support로 본다. */
+  table?: string;
+  record: SupportRow | ReportRow;
+  old_record: SupportRow | ReportRow | null;
 }
 
 function summarize(body: string, max = 46): string {
@@ -263,6 +301,105 @@ async function handleReply(row: SupportRow): Promise<SendResult> {
   });
 }
 
+/**
+ * 신고 한 건의 맥락. 신고 행에는 theme_id 밖에 없어 «무엇을 신고했는지»를 모른다 —
+ * 메일만 보고 조치까지 갈 수 있어야 하므로 덱과 누적 신고 수를 함께 읽는다.
+ *
+ * RLS 밖(service role)에서 읽는다. 웹훅은 사용자 세션을 들고 오지 않는다.
+ */
+async function loadReportContext(row: ReportRow) {
+  const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
+  const [theme, words, total, pending] = await Promise.all([
+    admin
+      .from('curated_themes')
+      .select('id, title, creator_id, creator_name, source_language, target_language, visibility')
+      .eq('id', row.theme_id)
+      .maybeSingle(),
+    admin
+      .from('curated_words')
+      .select('id', { count: 'exact', head: true })
+      .eq('theme_id', row.theme_id),
+    admin
+      .from('curation_reports')
+      .select('id', { count: 'exact', head: true })
+      .eq('theme_id', row.theme_id),
+    admin
+      .from('curation_reports')
+      .select('id', { count: 'exact', head: true })
+      .eq('theme_id', row.theme_id)
+      .eq('status', 'pending'),
+  ]);
+
+  return {
+    theme: (theme.data ?? null) as {
+      id: string;
+      title: string | null;
+      creator_id: string | null;
+      creator_name: string | null;
+      source_language: string | null;
+      target_language: string | null;
+      visibility: string | null;
+    } | null,
+    // 조회 실패와 «덱이 없음»을 가른다. 둘을 합치면 일시적인 DB 오류가 메일에
+    // «이미 지워짐»으로 적혀, 운영자가 조치할 것이 없다고 믿고 넘어간다.
+    themeLookupFailed: !!theme.error,
+    wordCount: words.count ?? 0,
+    totalReports: total.count ?? 0,
+    pendingReports: pending.count ?? 0,
+  };
+}
+
+/**
+ * 새 신고 → 운영자 메일. 신고자에게 가는 메일은 없다(답장할 성질의 일이 아니다).
+ *
+ * 신고자는 user_id 까지만 적는다. 반복 신고를 알아보는 데는 id로 충분하고,
+ * 이메일은 조치에 쓰이지 않으면서 열람 흔적만 남는다.
+ *
+ * 자동 조치(N건이면 자동 가리기)는 일부러 없다 — 오작동하면 남의 콘텐츠가 소리 없이
+ * 내려간다. 이 메일이 하는 일은 «사람이 보게 하는 것» 하나다.
+ */
+async function handleNewReport(row: ReportRow): Promise<SendResult> {
+  const { theme, themeLookupFailed, wordCount, totalReports, pendingReports } = await loadReportContext(row);
+  const stateLabel = themeLookupFailed
+    ? '(조회 실패 — 대시보드에서 확인)'
+    : VISIBILITY_LABEL[theme?.visibility ?? ''] ?? theme?.visibility ?? '(덱이 이미 지워짐)';
+  const reason = REASON_LABEL[row.reason] ?? row.reason;
+  const title = theme?.title?.trim() || row.theme_id;
+
+  const subject = `[아보카도·신고] ${reason} — 「${summarize(title, 30)}」`;
+
+  const langPair = theme?.source_language && theme?.target_language
+    ? ` · ${theme.source_language}→${theme.target_language}`
+    : '';
+
+  const lines = [
+    `사유    ${reason}`,
+    `상세    ${row.detail?.trim() || '(없음)'}`,
+    '',
+    '─────────────',
+    '',
+    `단어장  ${title} (단어 ${wordCount}개${langPair})`,
+    `올린이  ${theme?.creator_name ?? '(이름 없음)'} · ${theme?.creator_id ?? '(알 수 없음)'}`,
+    `상태    ${stateLabel}`,
+    `누적    이 단어장 신고 ${totalReports}건째 (처리 대기 ${pendingReports}건)`,
+    `신고자  ${row.reporter_id}`,
+    `접수    ${row.created_at}`,
+    '',
+    '─────────────',
+    '',
+    '조치: 앱(관리자 계정) → 공유 단어장 탭 → 덱 상세의 눈가림',
+    `      또는  select moderate_curation('${row.theme_id}');`,
+    `      되돌리기  select moderate_curation('${row.theme_id}', false);`,
+    '',
+    '가리면 목록·주소에서 빠지고 이 덱의 대기 신고가 처리로 바뀝니다.',
+    '지우지 마세요 — 덱을 지우면 신고 기록이 cascade로 함께 사라집니다.',
+    '',
+    `${SUPABASE_URL.replace('.supabase.co', '')}  ·  report ${row.id}`,
+  ];
+
+  return await sendEmail({ to: NOTIFY_TO, subject, text: lines.join('\n') });
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') {
     return new Response(null, { status: 405 });
@@ -290,14 +427,19 @@ Deno.serve(async (req: Request) => {
   try {
     let result: SendResult;
 
-    if (payload.type === 'INSERT') {
-      result = await handleNewMessage(payload.record);
+    // 신고 테이블은 insert 만 웹훅에 걸려 있다. 상태를 처리로 바꾸는 update(가리기)는
+    // 운영자 자신이 한 일이라 알릴 것이 없다.
+    if (payload.table === 'curation_reports') {
+      if (payload.type !== 'INSERT') return new Response(null, { status: 204 });
+      result = await handleNewReport(payload.record as ReportRow);
+    } else if (payload.type === 'INSERT') {
+      result = await handleNewMessage(payload.record as SupportRow);
     } else if (payload.type === 'UPDATE') {
       // 답장이 "새로" 채워졌을 때만. 상태만 바꾸는 update로 메일이 또 나가면 안 된다.
-      const before = payload.old_record?.reply_body ?? '';
-      const after = payload.record.reply_body ?? '';
+      const before = (payload.old_record as SupportRow | null)?.reply_body ?? '';
+      const after = (payload.record as SupportRow).reply_body ?? '';
       if (after && after !== before) {
-        result = await handleReply(payload.record);
+        result = await handleReply(payload.record as SupportRow);
       } else {
         return new Response(null, { status: 204 });
       }

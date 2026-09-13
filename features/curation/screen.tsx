@@ -1458,6 +1458,47 @@ export default function CurationScreen() {
                                 );
                             })}
                         </View>
+                        {/* 공식 덱에만 둔다. 공유 덱에는 같은 자리에 신고가 있고(남이 올린 것),
+                            AI 덱은 자기가 방금 만든 것이다. 공식 덱에 필요한 말은 «틀렸어요» 하나라
+                            신고 테이블이 아니라 문의하기의 «단어·번역 오류»로 보낸다
+                            (official_themes 라 curation_reports 가 참조하지도 못한다 — 스펙 §8).
+                            자리가 목록 «아래»인 이유: 틀린 뜻은 단어를 훑다 발견하므로 목록 끝이
+                            그 순간과 가장 가깝다. 히어로에 두면 단어를 보기도 전에 경고가 뜬다. */}
+                        {activeTab === 'official' && !officialWordsLoading && !officialWordsFailed && deckWords.length > 0 && (
+                            <View style={{ paddingHorizontal: 24, paddingBottom: 16 }}>
+                                <Pressable
+                                    accessibilityRole="button"
+                                    accessibilityLabel={t('curation.reportErrorAction')}
+                                    onPress={() => {
+                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                        router.push({
+                                            pathname: '/contact',
+                                            params: {
+                                                category: 'content',
+                                                target: selectedTheme.title,
+                                                targetId: selectedTheme.id,
+                                            },
+                                        });
+                                    }}
+                                    style={({ pressed }) => [styles.reportErrorRow, {
+                                        backgroundColor: colors.surface,
+                                        borderColor: colors.borderLight,
+                                        opacity: pressed ? 0.7 : 1,
+                                    }]}
+                                >
+                                    <Ionicons name="alert-circle-outline" size={18} color={colors.textTertiary} />
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={[styles.reportErrorTitle, { color: colors.textSecondary }]}>
+                                            {t('curation.reportErrorTitle')}
+                                        </Text>
+                                        <Text style={[styles.reportErrorAction, { color: colors.primary }]}>
+                                            {t('curation.reportErrorAction')}
+                                        </Text>
+                                    </View>
+                                    <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+                                </Pressable>
+                            </View>
+                        )}
                     </ScrollView>
                     <View
                         style={[styles.masterBar, {
@@ -2260,6 +2301,17 @@ const styles = StyleSheet.create({
     wordDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular' },
     checkboxRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
     checkboxHit: { paddingLeft: 4 },
+    reportErrorRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        paddingHorizontal: 14,
+        paddingVertical: 12,
+        borderRadius: 12,
+        borderWidth: 1,
+    },
+    reportErrorTitle: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
+    reportErrorAction: { fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold', marginTop: 2 },
     selectionBar: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', marginBottom: 6 },
     selectionText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     masterBar: { paddingHorizontal: 24, paddingTop: 10, borderTopWidth: StyleSheet.hairlineWidth },

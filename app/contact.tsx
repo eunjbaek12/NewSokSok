@@ -21,7 +21,7 @@ import {
   KeyboardAvoidingView,
   Linking,
 } from 'react-native';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -44,7 +44,9 @@ import {
   SUPPORT_CATEGORIES,
   SUPPORT_BODY_MIN,
   SUPPORT_BODY_MAX,
+  composeSupportBody,
   type SupportCategory,
+  type SupportTarget,
 } from '@/features/support';
 
 type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
@@ -62,6 +64,11 @@ const CATEGORY_ICONS: Record<SupportCategory, IoniconName> = {
 // 때만 쓰는 폴백 경로라, 평소에는 사용자에게 노출되지 않는다.
 const SUPPORT_EMAIL = 'mtgirltreeguy@gmail.com';
 
+/** 라우트 파라미터를 문자열 하나로. expo-router 는 같은 키가 둘이면 배열을 준다. */
+function firstParam(v: string | string[] | undefined): string {
+  return (Array.isArray(v) ? v[0] : v) ?? '';
+}
+
 export default function ContactScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
@@ -77,7 +84,18 @@ export default function ContactScreen() {
   const refresh = useSupportStore(s => s.refresh);
   const markRead = useSupportStore(s => s.markRead);
 
-  const [category, setCategory] = useState<SupportCategory | null>(null);
+  // 다른 화면에서 대상을 들고 들어올 수 있다(공식 단어장 상세의 «오류 알리기»).
+  // 카테고리도 함께 오지만, 사용자가 바꿀 수 있는 값이라 초기값으로만 쓴다.
+  const params = useLocalSearchParams<{ category?: string; target?: string; targetId?: string }>();
+  const initialCategory = firstParam(params.category) as SupportCategory;
+  const initialTarget = firstParam(params.target);
+
+  const [category, setCategory] = useState<SupportCategory | null>(
+    SUPPORT_CATEGORIES.includes(initialCategory) ? initialCategory : null,
+  );
+  const [target, setTarget] = useState<SupportTarget | null>(
+    initialTarget ? { label: initialTarget, id: firstParam(params.targetId) } : null,
+  );
   const [body, setBody] = useState('');
   const [email, setEmail] = useState(user?.email ?? '');
   const [includeDiagnostics, setIncludeDiagnostics] = useState(true);
@@ -118,13 +136,13 @@ export default function ContactScreen() {
     const url = buildSupportMailto({
       supportEmail: SUPPORT_EMAIL,
       subject: t('contact.mailSubject'),
-      body,
+      body: composeSupportBody(target, body),
       diagnostics: includeDiagnostics ? diagnostics : null,
     });
     Linking.openURL(url).catch(() => {
       Alert.alert(t('contact.mailUnavailableTitle'), SUPPORT_EMAIL);
     });
-  }, [body, diagnostics, includeDiagnostics, t]);
+  }, [body, target, diagnostics, includeDiagnostics, t]);
 
   const handleSubmit = useCallback(async () => {
     if (!canSubmit) return;
@@ -134,7 +152,7 @@ export default function ContactScreen() {
       await sendSupportMessage({
         id: messageIdRef.current,
         category: category ?? 'other',
-        body,
+        body: composeSupportBody(target, body),
         replyEmail: email,
         diagnostics: includeDiagnostics ? diagnostics : null,
         parentId: replied?.id ?? null,
@@ -145,6 +163,8 @@ export default function ContactScreen() {
       messageIdRef.current = Crypto.randomUUID();
       setBody('');
       setCategory(null);
+      // 대상도 함께 비운다 — 다음 문의는 그 단어장 이야기가 아닐 수 있다.
+      setTarget(null);
       void refresh(true);
       Alert.alert(t('contact.successTitle'), t('contact.successMessage'), [
         { text: t('common.confirm'), onPress: () => router.back() },
@@ -163,7 +183,7 @@ export default function ContactScreen() {
       ]);
     }
   }, [
-    canSubmit, category, body, email, includeDiagnostics, diagnostics,
+    canSubmit, category, body, target, email, includeDiagnostics, diagnostics,
     replied, refresh, t, openMailFallback,
   ]);
 
@@ -231,6 +251,29 @@ export default function ContactScreen() {
                 </Text>
                 <Text style={[styles.quotedText, { color: colors.textSecondary }]}>{pending.body}</Text>
               </View>
+            </View>
+          )}
+
+          {/* 다른 화면에서 들고 온 대상. 지울 수 있게 둔다 — 단어장을 보다 들어왔지만
+              전혀 다른 것을 묻고 싶을 수 있고, 그때 엉뚱한 대상이 붙어 나가면 안 된다. */}
+          {target && (
+            <View style={[styles.targetRow, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
+              <Ionicons name="library-outline" size={16} color={colors.textSecondary} />
+              <Text style={[styles.targetLabel, { color: colors.textTertiary }]}>
+                {t('contact.targetLabel')}
+              </Text>
+              <Text style={[styles.targetValue, { color: colors.text }]} numberOfLines={1}>
+                {target.label}
+              </Text>
+              <Pressable
+                onPress={() => { Haptics.selectionAsync(); setTarget(null); }}
+                disabled={submitting}
+                accessibilityRole="button"
+                accessibilityLabel={t('contact.targetClear')}
+                hitSlop={10}
+              >
+                <Ionicons name="close-circle" size={18} color={colors.textTertiary} />
+              </Pressable>
             </View>
           )}
 
@@ -427,6 +470,19 @@ const styles = StyleSheet.create({
 
   label: { fontSize: 14, fontFamily: 'Pretendard_700Bold', marginTop: 18, marginBottom: 10 },
   optional: { fontSize: 12.5, fontFamily: 'Pretendard_400Regular' },
+
+  targetRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 18,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  targetLabel: { fontSize: 12, fontFamily: 'Pretendard_400Regular' },
+  targetValue: { flex: 1, fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold' },
 
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   chip: {

@@ -231,6 +231,8 @@
     "meaningLang": "Idioma del significado",
     "nDecks": "{{count}} mazos",
     "aiGeneratedNote": "Significados y ejemplos (IA)",
+    "reportErrorTitle": "¿Viste un significado o ejemplo incorrecto?",
+    "reportErrorAction": "Avísanos",
     "aiGenerate": "¿Generar palabras con IA?",
     "aiGenerateAction": "Generar",
     "aiGenerating": "Generando...",
@@ -410,6 +412,8 @@
   },
   "contact": {
     "title": "Contáctanos",
+    "targetLabel": "Sobre",
+    "targetClear": "Quitar",
     "categoryLabel": "¿De qué se trata?",
     "moreLabel": "¿Algo más que añadir?",
     "category": {

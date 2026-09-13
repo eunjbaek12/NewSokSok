@@ -231,6 +231,8 @@
     "meaningLang": "Meaning language",
     "nDecks": "{{count}} decks",
     "aiGeneratedNote": "AI-generated meanings & examples",
+    "reportErrorTitle": "Spotted a wrong meaning or example?",
+    "reportErrorAction": "Let us know",
     "aiGenerate": "Let AI generate it for you?",
     "enterSearchFirst": "Please enter a search term first.",
     "aiGenerateError": "An error occurred while generating words.",
@@ -410,6 +412,8 @@
   },
   "contact": {
     "title": "Contact us",
+    "targetLabel": "About",
+    "targetClear": "Clear",
     "categoryLabel": "What's this about?",
     "moreLabel": "Anything else?",
     "category": {

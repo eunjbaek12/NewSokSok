@@ -13,6 +13,8 @@
 //             [회신불가]를 덧붙여 답장을 쓰다 마는 일이 없게 한다.
 //   support_messages UPDATE  → reply_body가 새로 채워졌을 때만, 사용자에게 답장 메일.
 //             운영자는 대시보드 한 곳에만 쓰고 앱·메일 양쪽에 닿는다.
+//             theme_id 가 있는 행은 공식 단어장의 «단어·번역 오류 알리기»라 모양이 다르다
+//             (제목에 덱 이름, [회신불가]·진단 정보 없음 — handleDeckError).
 //   curation_reports INSERT  → 운영자에게 "새 신고". 신고자에게 가는 메일은 없다.
 //
 // 신고를 왜 여기에 합쳤나:
@@ -53,7 +55,8 @@ const CATEGORY_LABEL: Record<string, string> = {
   bug: '버그',
   idea: '제안',
   billing: '결제',
-  content: '단어',
+  // 앱의 칩 이름과 같게. «단어»만으로는 앱 버그 제보와 깊이가 다른 일이라는 게 드러나지 않는다.
+  content: '단어·번역 오류',
   account: '계정',
   other: '기타',
 };
@@ -86,6 +89,9 @@ interface SupportRow {
   diagnostics: Record<string, unknown> | null;
   reply_body: string | null;
   created_at: string;
+  /** «단어·번역 오류 알리기»로 온 행만 채워진다(20260914000000). 둘은 늘 함께 온다. */
+  theme_id?: string | null;
+  theme_title?: string | null;
 }
 
 /** 공유 단어장 신고 한 건(`curation_reports`). 덱 제목·작성자는 여기 없다 — 따로 읽는다. */
@@ -162,13 +168,43 @@ async function loadParent(parentId: string): Promise<SupportRow | null> {
   const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
   const { data } = await admin
     .from('support_messages')
-    .select('id, parent_id, user_id, category, body, reply_email, diagnostics, reply_body, created_at')
+    .select('id, parent_id, user_id, category, body, reply_email, diagnostics, reply_body, created_at, theme_id, theme_title')
     .eq('id', parentId)
     .maybeSingle();
   return (data as SupportRow) ?? null;
 }
 
+/**
+ * 공식 단어장 «단어·번역 오류 알리기»(theme_id 가 있는 행) → 운영자 메일.
+ *
+ * 문의와 같은 표지를 쓰되 모양이 다르다. 사용자는 답장을 약속받지 않았고(화면에 회신 이메일·
+ * 진단 정보 칸이 없다) 운영자가 알아야 할 건 «어느 덱의 무엇이 틀렸나» 둘뿐이다. 그래서 제목에
+ * 덱 이름을 넣고 [회신불가] 표지와 진단 정보 줄은 뺀다. 사용자가 쓴 말을 맨 위에 둔다.
+ */
+async function handleDeckError(row: SupportRow): Promise<SendResult> {
+  const title = row.theme_title ?? row.theme_id ?? '';
+  const subject = `[아보카도·${CATEGORY_LABEL.content}] ${summarize(title, 24)} — ${summarize(row.body, 40)}`;
+
+  const lines = [
+    row.body,
+    '',
+    '─────────────',
+    '',
+    `단어장  ${title} (${row.theme_id})`,
+    `계정ID  ${row.user_id ?? '게스트'}`,
+    `접수    ${row.created_at}`,
+    '',
+    '답장은 필수가 아닙니다. 쓰려면 대시보드의 reply_body에 쓰세요 — 앱의 설정 › 문의하기에 뜹니다.',
+    '(이 화면은 이메일을 받지 않아 메일로는 나가지 않습니다.)',
+    '',
+    `${SUPABASE_URL.replace('.supabase.co', '')}  ·  id ${row.id}`,
+  ];
+
+  return await sendEmail({ to: NOTIFY_TO, subject, text: lines.join('\n') });
+}
+
 async function handleNewMessage(row: SupportRow): Promise<SendResult> {
+  if (row.theme_id) return await handleDeckError(row);
   const label = CATEGORY_LABEL[row.category] ?? '기타';
   const parts = [`아보카도·${label}`];
   if (row.parent_id) parts.push('이어서');
@@ -182,7 +218,7 @@ async function handleNewMessage(row: SupportRow): Promise<SendResult> {
     if (parent) {
       lines.push(
         '',
-        '[이전 문의]',
+        parent.theme_title ? `[이전 제보 · ${parent.theme_title}]` : '[이전 문의]',
         parent.body,
         '',
         '[보낸 답장]',

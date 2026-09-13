@@ -231,8 +231,6 @@
     "meaningLang": "뜻 언어",
     "nDecks": "{{count}}개",
     "aiGeneratedNote": "뜻·예문 AI 생성",
-    "reportErrorTitle": "틀린 뜻이나 예문이 있나요?",
-    "reportErrorAction": "알려주기",
     "aiGenerate": "AI 단어 생성",
     "aiGenerateAction": "생성하기",
     "aiGenerating": "생성 중...",
@@ -410,10 +408,17 @@
     "licenses": "오픈소스 및 데이터 출처",
     "licensesDesc": "사용한 외부 데이터와 오픈소스를 확인하세요"
   },
+  "deckError": {
+    "title": "단어·번역 오류 알리기",
+    "targetLabel": "대상",
+    "question": "어떤 단어가 어떻게 틀렸나요?",
+    "placeholder": "틀린 단어와 어디가 틀렸는지 적어 주세요. 여러 개면 한 번에 모아 주세요.",
+    "successTitle": "알려주셔서 감사합니다",
+    "successMessage": "확인해서 고치겠습니다.",
+    "mailSubject": "아보카도 단어·번역 오류"
+  },
   "contact": {
     "title": "문의하기",
-    "targetLabel": "대상",
-    "targetClear": "대상 지우기",
     "categoryLabel": "어떤 이야기인가요?",
     "moreLabel": "더 하실 말씀이 있나요?",
     "category": {

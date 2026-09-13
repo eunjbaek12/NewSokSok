@@ -297,6 +297,7 @@ function AppStack() {
         보인다 — 새 화면을 추가할 때마다 이 목록에 함께 넣을 것.
       */}
       <Stack.Screen name="contact" options={{ headerShown: false }} />
+      <Stack.Screen name="deck-error" options={{ headerShown: false }} />
       <Stack.Screen name="whats-new" options={{ headerShown: false }} />
     </Stack>
   );

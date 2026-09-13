@@ -231,8 +231,6 @@
     "meaningLang": "Meaning language",
     "nDecks": "{{count}} decks",
     "aiGeneratedNote": "AI-generated meanings & examples",
-    "reportErrorTitle": "Spotted a wrong meaning or example?",
-    "reportErrorAction": "Let us know",
     "aiGenerate": "Let AI generate it for you?",
     "enterSearchFirst": "Please enter a search term first.",
     "aiGenerateError": "An error occurred while generating words.",
@@ -410,10 +408,17 @@
     "licenses": "Open Source & Data Sources",
     "licensesDesc": "External data and open-source libraries used"
   },
+  "deckError": {
+    "title": "Word or translation error",
+    "targetLabel": "About",
+    "question": "Which word is wrong, and how?",
+    "placeholder": "Write the word and what's wrong with it. If there are several, put them all in one message.",
+    "successTitle": "Thank you for letting us know",
+    "successMessage": "We'll check it and fix it.",
+    "mailSubject": "Avocado word or translation error"
+  },
   "contact": {
     "title": "Contact us",
-    "targetLabel": "About",
-    "targetClear": "Clear",
     "categoryLabel": "What's this about?",
     "moreLabel": "Anything else?",
     "category": {

@@ -9,8 +9,8 @@ export {
   SUPPORT_CATEGORIES,
   SUPPORT_BODY_MIN,
   SUPPORT_BODY_MAX,
+  SUPPORT_EMAIL,
 } from './api';
 export type { SupportCategory, SupportMessage, SupportDiagnostics } from './api';
-export { composeSupportBody } from './target-line';
-export type { SupportTarget } from './target-line';
+export type { SupportTheme } from './deck-error';
 export { useSupportStore } from './store';

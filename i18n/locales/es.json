@@ -231,8 +231,6 @@
     "meaningLang": "Idioma del significado",
     "nDecks": "{{count}} mazos",
     "aiGeneratedNote": "Significados y ejemplos (IA)",
-    "reportErrorTitle": "¿Viste un significado o ejemplo incorrecto?",
-    "reportErrorAction": "Avísanos",
     "aiGenerate": "¿Generar palabras con IA?",
     "aiGenerateAction": "Generar",
     "aiGenerating": "Generando...",
@@ -410,10 +408,17 @@
     "licenses": "Código abierto y fuentes de datos",
     "licensesDesc": "Consulta los datos externos y las bibliotecas de código abierto utilizadas"
   },
+  "deckError": {
+    "title": "Error de traducción",
+    "targetLabel": "Sobre",
+    "question": "¿Qué palabra está mal y por qué?",
+    "placeholder": "Escribe la palabra y qué está mal. Si son varias, ponlas todas en un solo mensaje.",
+    "successTitle": "Gracias por avisarnos",
+    "successMessage": "Lo revisaremos y lo corregiremos.",
+    "mailSubject": "Avocado: error de traducción"
+  },
   "contact": {
     "title": "Contáctanos",
-    "targetLabel": "Sobre",
-    "targetClear": "Quitar",
     "categoryLabel": "¿De qué se trata?",
     "moreLabel": "¿Algo más que añadir?",
     "category": {

@@ -124,7 +124,6 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     footer { margin-top: 28px; text-align: center; font-size: 0.8rem; }
     footer a { color: #1B6EF3; text-decoration: none; }
-    footer a.report { display: block; margin-top: 8px; color: #8A857C; font-size: 0.75rem; }
   </style>
   <!--
     공개 키는 config.js 에만 둔다(config.example.js 참고). 이 파일이 없거나 키가 비어 있으면
@@ -184,12 +183,7 @@
       <div class="hint" id="hint"></div>
     </div>
 
-    <!-- 주소가 엉뚱한 곳에 뿌려졌을 때, 앱이 없는 사람이 알릴 수 있는 유일한 자리다.
-         앱 안에는 이 길을 두지 않는다(docs/share-to-friend-spec.md §8). -->
-    <footer>
-      <a href="../" data-t="about"></a>
-      <a class="report" id="report-link" data-t="reportLine"></a>
-    </footer>
+    <footer><a href="../" data-t="about"></a></footer>
   </main>
 
   <script>
@@ -200,8 +194,6 @@
     // 프로젝트 URL 은 비밀이 아니다(앱 번들에 EXPO_PUBLIC_ 로 박힌다). 키만 config.js 로 뺀다.
     var SUPABASE_URL = 'https://ithqbclnwvyeultkyxbn.supabase.co';
     var PACKAGE = 'com.soksokvoca';
-    // 개인정보처리방침·계정 삭제 안내가 이미 쓰는 주소와 같다(docs/index.html).
-    var SUPPORT_EMAIL = 'mtgirltreeguy@gmail.com';
     var PLAY_URL = 'https://play.google.com/store/apps/details?id=' + PACKAGE;
     var APPSTORE_URL = 'https://apps.apple.com/app/id6776714408';
     // 앱의 features/curation/share-link.ts 와 같은 규칙 — 경로·스크립트 문자가 섞인 값은 id 가 아니다.
@@ -226,8 +218,6 @@
         errorTitle: '단어장을 불러오지 못했어요',
         errorBody: '인터넷 연결을 확인하고 다시 시도해 주세요.',
         retry: '다시 시도', about: '아보카도 알아보기',
-        reportLine: '이 단어장의 내용이 문제라면 알려 주세요',
-        reportSubject: '[아보카도] 공유된 단어장 신고',
         lang: { en: '영어', ko: '한국어', ja: '일본어', zh: '중국어', vi: '베트남어', es: '스페인어' }
       },
       en: {
@@ -245,8 +235,6 @@
         errorTitle: "Couldn't load the list",
         errorBody: 'Check your connection and try again.',
         retry: 'Try again', about: 'About Avocado',
-        reportLine: 'Something wrong with this list? Let us know',
-        reportSubject: '[Avocado] Report a shared word list',
         lang: { en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish' }
       },
       es: {
@@ -264,8 +252,6 @@
         errorTitle: 'No se pudo cargar la lista',
         errorBody: 'Revisa tu conexión e inténtalo de nuevo.',
         retry: 'Reintentar', about: 'Conoce Avocado',
-        reportLine: '¿Algo va mal en esta lista? Avísanos',
-        reportSubject: '[Avocado] Reportar una lista compartida',
         lang: { en: 'inglés', ko: 'coreano', ja: 'japonés', zh: 'chino', vi: 'vietnamita', es: 'español' }
       }
     };
@@ -440,11 +426,6 @@
     var id = new URLSearchParams(location.search).get('id');
     if (!id || !ID_RE.test(id)) { show('unavailable'); return; }
     wireButtons(id);
-    // 신고가 아니라 «알려 주기»다 — 이 페이지를 보는 사람에게는 계정도 앱도 없다.
-    // 주소를 본문에 실어 두어야 어느 공유물인지 우리가 찾을 수 있다.
-    $('report-link').href = 'mailto:' + SUPPORT_EMAIL +
-      '?subject=' + encodeURIComponent(T.reportSubject) +
-      '&body=' + encodeURIComponent('\n\n' + location.href);
     $('btn-retry').addEventListener('click', function () { load(id); });
     load(id);
   })();

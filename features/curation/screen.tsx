@@ -24,6 +24,7 @@ import {
   useShareList,
   createCuratedList,
   addBatchWords,
+  moderateCuration,
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useQuotaStore, getQuotaLeft, useRewardedAd, type QuotaBlockInfo } from '@/features/quota';
@@ -842,10 +843,21 @@ export default function CurationScreen() {
         setShareTarget(null);
     };
 
+    const isOwnCuration = useCallback((theme: CurationCard): boolean => {
+        return !!user && theme.creatorId === user.id;
+    }, [user]);
+
     const canDeleteCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
-        return theme.creatorId === user.id || user.isAdmin;
-    }, [user]);
+        return isOwnCuration(theme) || user.isAdmin;
+    }, [user, isOwnCuration]);
+
+    // 남의 덱에 대한 관리자의 조치는 «삭제»가 아니라 «가리기»다. 지우면 curation_reports 가
+    // cascade 로 함께 사라져 무엇을 왜 지웠는지가 남지 않는다(20260913000000).
+    // 자기 덱은 지금처럼 삭제한다 — 내 것을 내리는 데 중재 기록이 필요하지는 않다.
+    const canHideCuration = useCallback((theme: CurationCard): boolean => {
+        return !!user?.isAdmin && !isOwnCuration(theme);
+    }, [user, isOwnCuration]);
 
     // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
     // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
@@ -885,6 +897,48 @@ export default function CurationScreen() {
             ],
         );
     }, [t, deleteCloudCuration, selectedTheme]);
+
+    const handleHideCuration = useCallback((theme: CurationCard) => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        Alert.alert(
+            t('curation.hideConfirmTitle'),
+            t('curation.hideConfirmMessage', { title: theme.title }),
+            [
+                { text: t('common.cancel'), style: 'cancel' },
+                {
+                    text: t('curation.hideAction'),
+                    style: 'destructive',
+                    onPress: async () => {
+                        try {
+                            await moderateCuration(theme.id, true);
+                            setCommunityThemes(prev => prev.filter(c => c.id !== theme.id));
+                            if (selectedTheme?.id === theme.id) setSelectedTheme(null);
+                            // 🔑 가리면 목록에서 사라져 앱에서 다시 찾을 길이 없다. 되돌리기는 이 스낵바
+                            //    한 번뿐이고, 그 뒤로는 대시보드에서 해야 한다.
+                            setSnackbar({
+                                visible: true,
+                                message: t('curation.hideSuccess'),
+                                actionLabel: t('curation.hideUndo'),
+                                onAction: () => {
+                                    void (async () => {
+                                        try {
+                                            await moderateCuration(theme.id, false);
+                                            setSnackbar({ visible: true, message: t('curation.unhideSuccess') });
+                                            void loadCommunity('pull');
+                                        } catch {
+                                            setSnackbar({ visible: true, message: t('curation.hideError') });
+                                        }
+                                    })();
+                                },
+                            });
+                        } catch {
+                            setSnackbar({ visible: true, message: t('curation.hideError') });
+                        }
+                    },
+                },
+            ],
+        );
+    }, [t, selectedTheme, loadCommunity]);
 
     // 덱 상세 헤더에 오른쪽 버튼(삭제·신고)이 있는가 — 있으면 제목을 버튼 줄 아래로 내린다.
     const hasHeroRightBtn = !!selectedTheme && activeTab === 'community'
@@ -1230,7 +1284,7 @@ export default function CurationScreen() {
                             <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
                                 <Ionicons name="arrow-back" size={24} color={colors.text} />
                             </Pressable>
-                            {activeTab === 'community' && canDeleteCuration(selectedTheme) && (
+                            {activeTab === 'community' && isOwnCuration(selectedTheme) && (
                                 <Pressable
                                     accessibilityRole="button"
                                     accessibilityLabel={t('curation.deleteConfirmTitle')}
@@ -1239,6 +1293,17 @@ export default function CurationScreen() {
                                     hitSlop={8}
                                 >
                                     <Ionicons name="trash-outline" size={20} color={colors.error} />
+                                </Pressable>
+                            )}
+                            {activeTab === 'community' && canHideCuration(selectedTheme) && (
+                                <Pressable
+                                    accessibilityRole="button"
+                                    accessibilityLabel={t('curation.hideConfirmTitle')}
+                                    onPress={() => handleHideCuration(selectedTheme)}
+                                    style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
+                                    hitSlop={8}
+                                >
+                                    <Ionicons name="eye-off-outline" size={20} color={colors.text} />
                                 </Pressable>
                             )}
                             {activeTab === 'community' && canReportCuration(selectedTheme) && (
@@ -1611,7 +1676,9 @@ export default function CurationScreen() {
                                 showLangPair={languageFilter === 'all' || activeTab === 'community'}
                                 alreadySaved={isAlreadySaved(theme)}
                                 onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }}
-                                onDelete={activeTab === 'community' && canDeleteCuration(theme) ? () => handleDeleteCuration(theme) : undefined}
+                                // 카드의 🗑 은 «내 것 내리기»다. 관리자의 중재(가리기)는 무엇을 가리는지 본 뒤에
+                                // 누르도록 상세에만 둔다.
+                                onDelete={activeTab === 'community' && isOwnCuration(theme) ? () => handleDeleteCuration(theme) : undefined}
                             />
                         ))}
 

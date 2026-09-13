@@ -284,6 +284,13 @@
     "deleteConfirmMessage": "¿Quieres eliminar la colección \"{{title}}\" de la comunidad? Los usuarios que ya la importaron conservarán su copia.",
     "deleteSuccess": "Colección eliminada.",
     "deleteError": "Ocurrió un error al eliminar.",
+    "hideConfirmTitle": "Ocultar colección",
+    "hideConfirmMessage": "\"{{title}}\" dejará de aparecer en las colecciones compartidas y su enlace no se abrirá. Los reportes sobre ella se marcan como atendidos.",
+    "hideAction": "Ocultar",
+    "hideSuccess": "Colección oculta.",
+    "hideUndo": "Deshacer",
+    "unhideSuccess": "Visible de nuevo.",
+    "hideError": "Ocurrió un error.",
     "report": {
       "title": "Reportar colección",
       "targetPrefix": "Objetivo: ",

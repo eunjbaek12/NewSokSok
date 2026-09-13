@@ -104,6 +104,23 @@ export async function deleteCloudCuration(curationId: string): Promise<void> {
   if (error) throw error;
 }
 
+/**
+ * 중재 — 관리자가 남의 덱을 가리거나 되돌린다(`moderate_curation`, 20260913000000).
+ *
+ * 지우지 않는 이유: 덱을 지우면 `curation_reports` 가 on delete cascade 로 함께 사라져
+ * **무엇을 왜 지웠는지가 아무 데도 남지 않는다.** 가리면 행은 남고 목록·주소에서만
+ * 빠지며, 그 덱의 pending 신고는 같은 트랜잭션에서 처리로 표시된다.
+ *
+ * 권한 판정은 서버가 한다(`app_admins`). 앱은 버튼을 감출 뿐이므로, 여기서 다시 묻지 않는다.
+ */
+export async function moderateCuration(curationId: string, hide: boolean): Promise<void> {
+  const { error } = await supabase.rpc('moderate_curation', {
+    p_theme_id: curationId,
+    p_hide: hide,
+  });
+  if (error) throw error;
+}
+
 export type CurationReportReason =
   | 'inappropriate' | 'copyright' | 'spam' | 'misinformation' | 'other';
 

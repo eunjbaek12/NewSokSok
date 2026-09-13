@@ -284,6 +284,13 @@
     "deleteConfirmMessage": "\"{{title}}\" 단어장을 커뮤니티에서 삭제할까요? 이미 가져간 사용자의 단어장에는 영향이 없습니다.",
     "deleteSuccess": "단어장이 삭제되었습니다.",
     "deleteError": "삭제 중 오류가 발생했습니다.",
+    "hideConfirmTitle": "단어장 가리기",
+    "hideConfirmMessage": "\"{{title}}\"을(를) 공유 단어장 목록과 주소에서 보이지 않게 합니다. 들어온 신고는 처리한 것으로 표시됩니다.",
+    "hideAction": "가리기",
+    "hideSuccess": "가렸어요.",
+    "hideUndo": "되돌리기",
+    "unhideSuccess": "다시 보이게 했어요.",
+    "hideError": "처리 중 오류가 발생했습니다.",
     "report": {
       "title": "단어장 신고",
       "targetPrefix": "대상: ",

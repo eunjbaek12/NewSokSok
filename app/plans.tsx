@@ -114,8 +114,13 @@ export default function PlansScreen() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     try {
       await signInWithGoogle();
-    } catch {
-      // 로그인 실패는 SDK 측 alert에 의존
+    } catch (error: any) {
+      // 🔴 예전 주석은 「로그인 실패는 SDK 측 alert에 의존」이었지만 SDK 는 알림을 띄우지 않는다 —
+      //    진짜 실패도 조용히 사라졌다. 다른 입구(로그인·설정·공유)와 같은 규칙으로: 취소는
+      //    조용히, 실패는 알린다.
+      if (error?.message !== 'GOOGLE_CLIENT_ID_MISSING' && error?.message !== 'GOOGLE_SIGNIN_CANCELED') {
+        Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
+      }
     }
   };
 

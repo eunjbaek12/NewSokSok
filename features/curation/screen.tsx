@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, Keyboard, KeyboardAvoidingView, BackHandler, Animated as RNAnimated, Alert } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, Keyboard, KeyboardAvoidingView, BackHandler, Animated as RNAnimated, Alert, RefreshControl } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -11,15 +11,17 @@ import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { byokGenerateContentUrl } from '@/lib/ai/model';
 import { useTheme } from '@/features/theme';
-import { useAuth } from '@/features/auth';
+import { FontSize, FontWeight } from '@/constants/tokens';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
   useLists,
   useFetchCloudCurations,
   useDeleteCloudCuration,
+  useShareList,
   createCuratedList,
   addBatchWords,
 } from '@/features/vocab';
@@ -33,6 +35,10 @@ import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
 import { useOfficialCatalog, fetchOfficialDeck } from './catalog';
 import { officialToCard, communityToCard, type CurationCard } from './types';
 import ReportCurationModal from './ReportCurationModal';
+import CurationCardView, { levelStyleOf } from './CurationCardView';
+import { pickCommunityEmpty } from './community-empty';
+import { isSavedFrom, getUniqueName } from './saved-match';
+import ShareListDialog, { useShareSignIn } from './ShareListDialog';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
@@ -55,6 +61,14 @@ const DIFFICULTY_TAG = DIFFICULTY_TAGS;
 
 // 참조가 매번 바뀌면 이걸 의존성으로 쓰는 useMemo 가 헛돈다.
 const EMPTY_WORDS: Word[] = [];
+
+// 덱 상세 헤더의 버튼(뒤로·신고·삭제) 자리. styles.backBtn 이 이 값을 쓴다.
+// 🔴 버튼은 헤더 위에서 고정 위치에 떠 있고 제목은 오른쪽 정렬로 바로 그 높이에 온다 —
+//    오른쪽 버튼(신고·삭제)이 있으면 제목 끝 두 글자가 가려졌다(공유 덱에만 있다).
+//    그래서 오른쪽 버튼이 있을 때는 제목을 버튼 줄 아래에서 시작시킨다.
+const HERO_BTN_TOP = 52;
+const HERO_BTN_SIZE = 44;
+const HERO_TEXT_TOP_WITH_BTNS = HERO_BTN_TOP + HERO_BTN_SIZE + 8;
 
 const LANG_LABEL_KO: Record<string, string> = {
     en: '영어',
@@ -399,17 +413,6 @@ const generateAIWords = async (
     return { words, droppedCount };
 };
 
-const getUniqueName = (base: string, existingNames: string[]): string => {
-    const lowerNames = existingNames.map(n => n.trim().toLowerCase());
-    let candidate = base;
-    let suffix = 1;
-    while (lowerNames.includes(candidate.trim().toLowerCase())) {
-        candidate = `${base}-${suffix}`;
-        suffix++;
-    }
-    return candidate;
-};
-
 export default function CurationScreen() {
     const scrollRef = useRef<ScrollView>(null);
     useScrollToTop(scrollRef);
@@ -439,6 +442,14 @@ export default function CurationScreen() {
     const [saving, setSaving] = useState(false);
     const [generating, setGenerating] = useState(false);
     const [isCommunityLoading, setIsCommunityLoading] = useState(true);
+    // 공유 단어장 목록 요청이 실패했는가. 받아 둔 목록이 있으면 화면은 그대로 두고, 빈 손일
+    // 때만 실패 화면을 그린다(community-empty.ts).
+    const [communityFailed, setCommunityFailed] = useState(false);
+    const [communityRefreshing, setCommunityRefreshing] = useState(false);
+    // 공유 단어장 탭 끝의 «내 단어장도 올려 보세요» → 단어장 고르기 → 공유 창.
+    const [sharePickerOpen, setSharePickerOpen] = useState(false);
+    const [shareTarget, setShareTarget] = useState<VocaList | null>(null);
+    const [shareDialogOpen, setShareDialogOpen] = useState(false);
     const [detailWord, setDetailWord] = useState<Word | null>(null);
     const [activeTab, setActiveTab] = useState<'official' | 'community'>('official');
     const [communityThemes, setCommunityThemes] = useState<CurationCard[]>([]);
@@ -460,6 +471,8 @@ export default function CurationScreen() {
     const curationPresets = useMemo(() => officialCatalog.map(officialToCard), [officialCatalog]);
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
+    const shareList = useShareList();
+    const { signIn: shareSignIn } = useShareSignIn();
     const { user, authMode } = useAuth();
     const { apiKey, aiCurationSettings, updateAiCurationSettings } = useSettings();
     const { sourceLang: aiSourceLang, targetLang: aiTargetLang, difficulty: aiDifficulty, wordCount: aiWordCount } = aiCurationSettings;
@@ -526,21 +539,44 @@ export default function CurationScreen() {
         [selectedTheme, officialWords],
     );
 
-    useEffect(() => {
-        let mounted = true;
-        setIsCommunityLoading(true);
-        fetchCloudCurations().then(data => {
-            if (mounted) {
-                // Server curations have a superset of VocaList fields via
-                // `.passthrough()`; the UI reads only what it needs so this
-                // cast is safe. 카드 모양으로 좁혀 공식 덱과 같은 렌더를 태운다
-                // — 커뮤니티는 단어를 다 들고 오므로 태그·개수를 여기서 집계한다.
-                setCommunityThemes((data as unknown as VocaList[]).map(communityToCard));
+    // 공유 단어장 목록. 늦게 도착한 옛 요청이 새 결과를 덮지 않게 요청 번호로 가린다.
+    const communityReqRef = useRef(0);
+    const loadCommunity = useCallback(async (mode: 'silent' | 'pull') => {
+        const req = ++communityReqRef.current;
+        if (mode === 'pull') setCommunityRefreshing(true);
+        try {
+            const data = await fetchCloudCurations();
+            if (req !== communityReqRef.current) return;
+            // Server curations have a superset of VocaList fields via
+            // `.passthrough()`; the UI reads only what it needs so this
+            // cast is safe. 카드 모양으로 좁혀 공식 덱과 같은 렌더를 태운다
+            // — 커뮤니티는 단어를 다 들고 오므로 태그·개수를 여기서 집계한다.
+            setCommunityThemes((data as unknown as VocaList[]).map(communityToCard));
+            setCommunityFailed(false);
+        } catch (e: any) {
+            if (req !== communityReqRef.current) return;
+            console.warn('[curation] 공유 단어장 조회 실패:', e?.message ?? e);
+            setCommunityFailed(true);
+        } finally {
+            if (req === communityReqRef.current) {
                 setIsCommunityLoading(false);
+                setCommunityRefreshing(false);
             }
-        });
-        return () => { mounted = false; };
+        }
     }, [fetchCloudCurations]);
+
+    // 탭에 들어올 때마다 다시 받는다. 예전에는 화면이 처음 열릴 때 한 번만 받았는데, 탭 화면은
+    // 한 번 열리면 계속 떠 있어서 단어장 탭에서 공유하고 돌아와도 내 덱이 안 보였다.
+    // 첫 진입도 이 경로다(isCommunityLoading 의 초기값 true 가 스피너를 맡는다).
+    useFocusEffect(useCallback(() => {
+        void loadCommunity('silent');
+    }, [loadCommunity]));
+
+    const retryCommunity = useCallback(() => {
+        Haptics.selectionAsync();
+        setIsCommunityLoading(true);
+        void loadCommunity('silent');
+    }, [loadCommunity]);
 
     // 생성 중일 때만 안내 문구를 ~4.5초 간격으로 다음 단계로 넘긴다(마지막 단계에서 멈춤).
     const aiGeneratingSteps = useMemo(
@@ -680,14 +716,18 @@ export default function CurationScreen() {
         ...SUPPORTED_LANGUAGES.map(l => ({ code: l.code, label: getLanguageLabel(l.code, t) })),
     ], [t]);
 
-    const getLevelStyle = (level?: string) => {
-        switch (level) {
-            case 'beginner': return { label: t('curation.beginner'), bg: colors.difficulty.beginnerBg, color: colors.difficulty.beginnerText };
-            case 'intermediate': return { label: t('curation.intermediate'), bg: colors.difficulty.intermediateBg, color: colors.difficulty.intermediateText };
-            case 'advanced': return { label: t('curation.advanced'), bg: colors.difficulty.advancedBg, color: colors.difficulty.advancedText };
-            default: return null;
-        }
-    };
+    // 공유 탭이 비어 보이는 이유(실패·0개·칩·검색). 판정은 community-empty.ts 한 곳에서.
+    const communityEmpty = activeTab === 'community'
+        ? pickCommunityEmpty({
+            failed: communityFailed,
+            total: communityThemes.length,
+            visible: filteredThemes.length,
+            searchQuery,
+            languageFilter,
+        })
+        : null;
+    // 공식 탭은 목록 요청 실패를 따로 그린다(catalogFailed). 공유 탭도 같은 화면을 쓴다.
+    const listLoadFailed = activeTab === 'official' ? catalogFailed : communityEmpty === 'failed';
 
     // 태그 칩은 카드 모델이 이미 들고 있다 — 공식은 서버가 집계해 둔 값(목록에
     // 단어를 안 싣기 때문), 커뮤니티·AI 는 communityToCard 가 그 자리에서 집계한다.
@@ -756,8 +796,51 @@ export default function CurationScreen() {
     );
 
     const isAlreadySaved = useCallback((theme: CurationCard): boolean => {
-        return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
+        return lists.some(l => isSavedFrom(l, theme));
     }, [lists]);
+
+    // ---- 공유 단어장에 올리기 (공유 탭 끝의 박스) ----
+    // 단어장 탭 ⋯ 메뉴와 같은 창(ShareListDialog)을 쓴다. 이 화면에서는 어느 단어장을 올릴지를
+    // 먼저 골라야 하므로 고르기 → 창 두 단계다.
+    const canShareToCommunity = isCloudAuthMode(authMode);
+    const shareOptions: PickerOption[] = useMemo(() =>
+        lists.map(l => ({
+            id: l.id,
+            title: l.title,
+            subtitle: t('curation.wordsIncluded', { count: l.words.length }),
+            // 공유 창도 단어 0개면 올리기 버튼을 막는다 — 같은 규칙을 고르기에서 먼저 보여 준다.
+            disabled: l.words.length === 0,
+        })),
+        [lists, t]
+    );
+
+    const handleShareBoxPress = () => {
+        Haptics.selectionAsync();
+        if (!canShareToCommunity) {
+            void shareSignIn();
+            return;
+        }
+        if (lists.length === 0) {
+            setSnackbar({ visible: true, message: t('curation.noListToShare') });
+            return;
+        }
+        setSharePickerOpen(true);
+    };
+
+    const handlePickListToShare = (listId: string) => {
+        const target = lists.find(l => l.id === listId);
+        setSharePickerOpen(false);
+        if (!target) return;
+        setShareTarget(target);
+        // 고르기 창이 닫힌 다음에 연다 — RN Modal 둘을 겹쳐 띄우면 iOS 에서 뒤의 것이 안 보인다
+        // (ListContextMenu 의 메뉴 → 창 전환과 같은 100ms).
+        setTimeout(() => setShareDialogOpen(true), 100);
+    };
+
+    const handleShareDialogClose = () => {
+        setShareDialogOpen(false);
+        setShareTarget(null);
+    };
 
     const canDeleteCuration = useCallback((theme: CurationCard): boolean => {
         if (!user) return false;
@@ -766,11 +849,15 @@ export default function CurationScreen() {
 
     // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
     // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
+    // 게스트도 신고할 수 있다. 서버 정책(curation_reports_insert_own)은 `to authenticated` +
+    // reporter_id = auth.uid() 인데 게스트의 익명 세션도 같은 역할이라 insert 가 통과한다.
+    // 예전의 `!user` 는 로그인한 사람에게만 신고를 보여 줬다 — 공유 단어장은 게스트도 보는
+    // 화면이라, 신고할 수 있어야 하는 사람의 절반이 버튼 자체를 못 봤다.
+    // (docs/share-to-friend-spec.md §8 — 신고는 «남이 올린 것이 남에게 보이는 자리»에 둔다.)
     const canReportCuration = useCallback((theme: CurationCard): boolean => {
-        if (!user) return false;
         if (canDeleteCuration(theme)) return false;
         return true;
-    }, [user, canDeleteCuration]);
+    }, [canDeleteCuration]);
 
     const [reportModalTheme, setReportModalTheme] = useState<CurationCard | null>(null);
 
@@ -798,6 +885,10 @@ export default function CurationScreen() {
             ],
         );
     }, [t, deleteCloudCuration, selectedTheme]);
+
+    // 덱 상세 헤더에 오른쪽 버튼(삭제·신고)이 있는가 — 있으면 제목을 버튼 줄 아래로 내린다.
+    const hasHeroRightBtn = !!selectedTheme && activeTab === 'community'
+        && (canDeleteCuration(selectedTheme) || canReportCuration(selectedTheme));
 
     const hasApiKey = !!apiKey;
     // 게스트도 익명 세션이 있어 Edge를 부를 수 있으므로 자동완성과 같은 기준(세션 존재)을
@@ -1055,6 +1146,9 @@ export default function CurationScreen() {
             const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', deduped, {
                 sourceLanguage: selectedTheme.sourceLanguage,
                 targetLanguage: selectedTheme.targetLanguage,
+                // 「저장됨」을 이 id 로 판정한다(isSavedFrom). AI 덱은 공유물이 아니고 id 도 매번 새로
+                // 생겨 남길 출처가 없다.
+                sourceThemeId: selectedTheme.source === 'ai' ? undefined : selectedTheme.id,
             });
             const message = skippedCount > 0
                 ? t('curation.createdWithSkipped', { skipped: skippedCount })
@@ -1129,7 +1223,10 @@ export default function CurationScreen() {
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: detailScrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
                     >
-                        <View style={[styles.detailHero, { backgroundColor: colors.surfaceSecondary, paddingTop: topInset + 16 }]}>
+                        <View style={[styles.detailHero, {
+                            backgroundColor: colors.surfaceSecondary,
+                            paddingTop: hasHeroRightBtn ? Math.max(topInset + 16, HERO_TEXT_TOP_WITH_BTNS) : topInset + 16,
+                        }]}>
                             <Pressable accessibilityRole="button" accessibilityLabel={t('common.back')} onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
                                 <Ionicons name="arrow-back" size={24} color={colors.text} />
                             </Pressable>
@@ -1162,19 +1259,31 @@ export default function CurationScreen() {
                                 <Text style={[styles.detailTitle, { color: colors.text }]}>{selectedTheme.title}</Text>
                                 <View style={styles.heroMetaRow}>
                                     <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>
-                                        {/* 단어를 아직 받는 중에도 개수는 보여 줄 수 있다 — 목록에서 온 값이다. */}
-                                        {t('curation.nExpertWords', { count: selectedTheme.wordCount })}
+                                        {/* 단어를 아직 받는 중에도 개수는 보여 줄 수 있다 — 목록에서 온 값이다.
+                                            「전문 단어」는 공식 덱에만 — 사람이 올린 덱·AI 덱은 전문가가 고른 게 아니다. */}
+                                        {selectedTheme.source === 'official'
+                                            ? t('curation.nExpertWords', { count: selectedTheme.wordCount })
+                                            : t('curation.nWordsCompact', { count: selectedTheme.wordCount })}
                                     </Text>
                                     {(() => {
-                                        const levelStyle = getLevelStyle(selectedTheme.level);
+                                        const levelStyle = levelStyleOf(selectedTheme.level, colors, t);
                                         return levelStyle ? (
                                             <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
                                                 <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
                                             </View>
                                         ) : null;
                                     })()}
-                                    {selectedTheme.creatorName && (
-                                        <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>• by {selectedTheme.creatorName}</Text>
+                                    {!!selectedTheme.creatorName && (
+                                        // 「by」 대신 사람 아이콘 — 목록 카드(CurationCardView)와 같은 표기.
+                                        <View style={styles.heroCreator}>
+                                            <Ionicons name="person-outline" size={14} color={colors.textSecondary} />
+                                            <Text
+                                                style={[styles.detailDesc, { color: colors.textSecondary }]}
+                                                accessibilityLabel={t('curation.sharedByA11y', { name: selectedTheme.creatorName })}
+                                            >
+                                                {selectedTheme.creatorName}
+                                            </Text>
+                                        </View>
                                     )}
                                 </View>
                                 {selectedTheme.description && (
@@ -1454,19 +1563,20 @@ export default function CurationScreen() {
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <ActivityIndicator size="large" color={colors.primary} />
                         </View>
-                    ) : activeTab === 'official' && catalogFailed ? (
-                        /* 목록을 한 번도 못 받은 상태. 캐시가 있으면 여기 오지 않는다 —
-                           그때는 오프라인이어도 목록이 그대로 보이고, 덱을 열 때 실패가 드러난다. */
+                    ) : listLoadFailed ? (
+                        /* 목록을 한 번도 못 받은 상태. 공식은 캐시가 있으면 여기 오지 않는다 —
+                           그때는 오프라인이어도 목록이 그대로 보이고, 덱을 열 때 실패가 드러난다.
+                           공유 탭도 받아 둔 목록이 있으면 여기 오지 않는다(community-empty.ts). */
                         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 40 }}>
                             <Ionicons name="cloud-offline-outline" size={40} color={colors.textTertiary} />
                             <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' }}>
-                                {t('curation.catalogLoadFailed')}
+                                {activeTab === 'official' ? t('curation.catalogLoadFailed') : t('curation.communityLoadFailed')}
                             </Text>
                             <Text style={{ color: colors.textSecondary, fontSize: 13, textAlign: 'center' }}>
                                 {t('curation.needsConnection')}
                             </Text>
                             <Pressable
-                                onPress={() => { Haptics.selectionAsync(); retryCatalog(); }}
+                                onPress={activeTab === 'official' ? () => { Haptics.selectionAsync(); retryCatalog(); } : retryCommunity}
                                 style={{ marginTop: 4, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: colors.primaryLight }}
                             >
                                 <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>
@@ -1481,105 +1591,29 @@ export default function CurationScreen() {
                         contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: tabContentBottomPadding }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
+                        refreshControl={activeTab === 'community' ? (
+                            <RefreshControl
+                                refreshing={communityRefreshing}
+                                onRefresh={() => { void loadCommunity('pull'); }}
+                                tintColor={colors.primary}
+                                colors={[colors.primary]}
+                            />
+                        ) : undefined}
                     >
-                        {filteredThemes.map(theme => {
-                            const levelStyle = getLevelStyle(theme.level);
-                            const tags = getTopTags(theme);
-                            const srcFlag = getLanguageFlag(theme.sourceLanguage || 'en');
-                            const tgtFlag = getLanguageFlag(theme.targetLanguage || 'ko');
-                            const srcCode = (theme.sourceLanguage || 'en').toUpperCase();
-                            const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
-                            const alreadySaved = isAlreadySaved(theme);
-                            const canDelete = activeTab === 'community' && canDeleteCuration(theme);
-                            // 언어 미상 덱(언어 컬럼 이전의 구버전 앱이 공유한 것)은
-                            // en→ko 폴백이 틀린 정보라 언어쌍 줄 자체를 숨긴다.
-                            const showLangPair = languageFilter === 'all' && !!theme.sourceLanguage;
-
-                            return (
-                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.primary + '1A', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
-                                    <View style={{ flex: 1 }}>
-                                        <View style={styles.cardHeader}>
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
-                                                {theme.icon && <Text style={{ fontSize: 16 }}>{theme.icon}</Text>}
-                                                <Text style={[styles.cardTitle, { color: colors.text, flex: 1 }]} numberOfLines={1}>{theme.title}</Text>
-                                            </View>
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                                                {alreadySaved && (
-                                                    <View style={[styles.savedBadge, { backgroundColor: colors.successLight }]}>
-                                                        <Ionicons name="checkmark" size={10} color={colors.success} />
-                                                        <Text style={[styles.savedBadgeText, { color: colors.success }]}>{t('curation.saved')}</Text>
-                                                    </View>
-                                                )}
-                                                {levelStyle && (
-                                                    <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
-                                                        <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
-                                                    </View>
-                                                )}
-                                                {canDelete && (
-                                                    <Pressable
-                                                        accessibilityRole="button"
-                                                        accessibilityLabel={`${theme.title} ${t('curation.deleteConfirmTitle')}`}
-                                                        onPress={(e) => { e.stopPropagation(); handleDeleteCuration(theme); }}
-                                                        hitSlop={8}
-                                                        style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, padding: 2 })}
-                                                    >
-                                                        <Ionicons name="trash-outline" size={16} color={colors.error} />
-                                                    </Pressable>
-                                                )}
-                                            </View>
-                                        </View>
-                                        {viewMode === 'detailed' && (
-                                            <>
-                                                {tags.length > 0 && (
-                                                    <View style={styles.tagRow}>
-                                                        {tags.map(tag => (
-                                                            <View key={tag} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                                <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{displayTag(tag, t)}</Text>
-                                                            </View>
-                                                        ))}
-                                                    </View>
-                                                )}
-                                                {theme.description && (
-                                                    <Text style={[styles.cardDesc, { color: colors.textSecondary }]} numberOfLines={1}>{theme.description}</Text>
-                                                )}
-                                                {showLangPair && (
-                                                    <Text style={[styles.langPair, { color: colors.textTertiary }]}>
-                                                        {srcFlag} {srcCode} → {tgtFlag} {tgtCode}
-                                                    </Text>
-                                                )}
-                                                <View style={styles.cardFooter}>
-                                                    <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.wordCount })}</Text>
-                                                    </View>
-                                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                                                        {theme.creatorName && (
-                                                            <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
-                                                        )}
-                                                    </View>
-                                                </View>
-                                            </>
-                                        )}
-                                        {viewMode === 'compact' && (
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
-                                                <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
-                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.wordCount })}</Text>
-                                                </View>
-                                                {levelStyle && (
-                                                    <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
-                                                        <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
-                                                    </View>
-                                                )}
-                                                {tags.length > 0 && (
-                                                    <View style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                        <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{displayTag(tags[0], t)}</Text>
-                                                    </View>
-                                                )}
-                                            </View>
-                                        )}
-                                    </View>
-                                </Pressable>
-                            );
-                        })}
+                        {filteredThemes.map(theme => (
+                            <CurationCardView
+                                key={theme.id}
+                                theme={theme}
+                                viewMode={viewMode}
+                                // 공유 탭은 칩과 상관없이 언어쌍을 보여 준다 — 뜻 언어 필터가 없어서
+                                // (위 filteredThemes 주석) 이 줄이 뜻이 무슨 말인지 알 유일한 단서다.
+                                // 공식 탭은 칩을 고르면 배울 언어가 이미 정해지고 뜻 언어도 걸러진다.
+                                showLangPair={languageFilter === 'all' || activeTab === 'community'}
+                                alreadySaved={isAlreadySaved(theme)}
+                                onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }}
+                                onDelete={activeTab === 'community' && canDeleteCuration(theme) ? () => handleDeleteCuration(theme) : undefined}
+                            />
+                        ))}
 
                         {/*
                           * 빈 목록의 이유가 둘이라 안내도 둘이다.
@@ -1619,10 +1653,34 @@ export default function CurationScreen() {
                             </View>
                         )}
 
-                        {filteredThemes.length === 0 && !showMeaningLangEmpty && (
+                        {/* 공유 탭은 이유가 community-empty.ts 에서 온다 — 「검색 결과가 없습니다」는
+                            검색어 때문일 때만. 예전에는 오프라인·0개·칩까지 모두 이 문구였다. */}
+                        {(activeTab === 'official' ? filteredThemes.length === 0 && !showMeaningLangEmpty : communityEmpty === 'search') && (
                             <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>
+                            </View>
+                        )}
+
+                        {/* 배울 언어 칩 때문에 0개 — 공식 탭의 뜻 언어 안내(위)와 같은 모양. */}
+                        {communityEmpty === 'chip' && (
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 8, paddingHorizontal: 32, gap: 8 }}>
+                                <Ionicons name="language-outline" size={48} color={colors.textTertiary} />
+                                <Text style={{ marginTop: 8, color: colors.text, fontFamily: 'Pretendard_600SemiBold', fontSize: 15, textAlign: 'center' }}>
+                                    {t('curation.communityNoDeckForLang', { lang: getLanguageLabel(languageFilter, t) })}
+                                </Text>
+                                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_400Regular', fontSize: 13, lineHeight: 19, textAlign: 'center' }}>
+                                    {t('curation.communityOtherLangs', { count: communityThemes.length })}
+                                </Text>
+                                <Pressable
+                                    onPress={() => { Haptics.selectionAsync(); setLanguageFilter('all'); }}
+                                    style={({ pressed }) => [
+                                        styles.tailAiBtn,
+                                        { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1, marginTop: 4 },
+                                    ]}
+                                >
+                                    <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>{t('curation.showAllLangs')}</Text>
+                                </Pressable>
                             </View>
                         )}
 
@@ -1664,6 +1722,33 @@ export default function CurationScreen() {
                                         <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>{t('curation.createWithAi')}</Text>
                                     </Pressable>
                                 </View>
+                            </View>
+                        )}
+
+                        {/*
+                          * 공유 탭 끝 — 올리는 길. 공식 탭 끝의 AI 박스와 같은 모양·같은 규칙이다:
+                          * 덱이 많으면 끝까지 넘긴 사람만 만나고, 0개면 이 박스가 첫 화면이 된다.
+                          * 예전에는 이 화면에 팁 문구만 있고 버튼이 없었다(공유는 단어장 탭 ⋯ 메뉴 안에만).
+                          * 버튼 문구는 그 메뉴 항목과 같은 낱말이다(contextMenu.share).
+                          */}
+                        {activeTab === 'community' && (
+                            <View style={[styles.tailAiBox, { backgroundColor: colors.surfaceSecondary, borderColor: colors.borderLight }]}>
+                                <Ionicons name="share-social-outline" size={20} color={colors.primary} />
+                                <Text style={[styles.tailAiTitle, { color: colors.text }]}>{t('curation.shareBoxTitle')}</Text>
+                                <Text style={[styles.tailAiBody, { color: colors.textSecondary }]}>
+                                    {canShareToCommunity ? t('curation.shareBoxBody') : t('curation.shareBoxGuestBody')}
+                                </Text>
+                                <Pressable
+                                    onPress={handleShareBoxPress}
+                                    style={({ pressed }) => [
+                                        styles.tailAiBtn,
+                                        { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1 },
+                                    ]}
+                                >
+                                    <Text style={[styles.tailAiBtnText, { color: colors.onPrimary }]}>
+                                        {canShareToCommunity ? t('contextMenu.share') : t('settings.googleUpgrade')}
+                                    </Text>
+                                </Pressable>
                             </View>
                         )}
                     </ScrollView>
@@ -1727,6 +1812,22 @@ export default function CurationScreen() {
                     void updateAiCurationSettings({ targetLang: id as LanguageCode });
                     setMeaningLangPickerOpen(false);
                 }}
+            />
+
+            {/* 공유 단어장에 올리기 — 어느 단어장을 올릴지 고른 뒤 공유 창(ShareListDialog)으로. */}
+            <ModalPicker
+                visible={sharePickerOpen}
+                onClose={() => setSharePickerOpen(false)}
+                title={t('curation.chooseListToShare')}
+                options={shareOptions}
+                onSelect={handlePickListToShare}
+            />
+            <ShareListDialog
+                visible={shareDialogOpen}
+                list={shareTarget}
+                onClose={handleShareDialogClose}
+                onShare={shareList}
+                onShared={() => { void loadCommunity('silent'); }}
             />
 
             <DialogModal
@@ -1834,6 +1935,26 @@ export default function CurationScreen() {
                                             </Text>
                                         </>
                                     )}
+                                </Pressable>
+                            )}
+                            {/* 광고 버튼 아래 한 줄 Pro 링크 — 버튼과 같은 판정(canWatch)으로 켠다.
+                                광고를 다 봤으면 위 버튼이 이미 Pro 라 두 번 말하지 않는다. */}
+                            {quotaBlock.kind === 'ad' && rewarded.canWatch && (
+                                <Pressable
+                                    onPress={() => {
+                                        if (rewarded.loading) return;
+                                        setAiModalVisible(false);
+                                        router.push('/plans' as any);
+                                    }}
+                                    hitSlop={8}
+                                    accessibilityRole="link"
+                                >
+                                    <Text style={{
+                                        fontSize: FontSize.label, fontFamily: FontWeight.medium,
+                                        textAlign: 'center', paddingVertical: 2, color: colors.primary,
+                                    }}>
+                                        {t('ads.rewardedProLink')}
+                                    </Text>
                                 </Pressable>
                             )}
                         </View>
@@ -2048,31 +2169,20 @@ const styles = StyleSheet.create({
     tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1 },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
     tabText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center' },
-    themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 10, elevation: 4 },
-    cardDetailed: { padding: 16 },
-    cardCompact: { padding: 12, marginBottom: 0 },
-    cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
-    cardTitle: { fontSize: 17, fontFamily: 'Pretendard_700Bold' },
     levelBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
     levelBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
-    savedBadge: { flexDirection: 'row', alignItems: 'center', gap: 3, paddingHorizontal: 7, paddingVertical: 3, borderRadius: 10 },
-    savedBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
     aiGeneratedNote: { fontSize: 11, fontFamily: 'Pretendard_400Regular', marginTop: 4, textAlign: 'right', fontStyle: 'italic' },
     tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
     tagChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 4 },
     tagText: { fontSize: 11, fontFamily: 'Pretendard_500Medium' },
-    cardDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6 },
-    langPair: { fontSize: 13, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
-    cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 },
-    wordCountPill: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
-    cardCount: { fontSize: 12, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.3 },
     langChipContainer: { paddingHorizontal: 20, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
     langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
     langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     detailHero: { minHeight: 160, position: 'relative', padding: 20, justifyContent: 'flex-end' },
-    backBtn: { position: 'absolute', top: 52, left: 20, width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
+    backBtn: { position: 'absolute', top: HERO_BTN_TOP, left: 20, width: HERO_BTN_SIZE, height: HERO_BTN_SIZE, borderRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
     heroContent: { position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center', opacity: 0.1 },
     heroTextContainer: { zIndex: 1, alignItems: 'flex-end' },
+    heroCreator: { flexDirection: 'row', alignItems: 'center', gap: 3 },
     heroMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2, flexWrap: 'wrap', justifyContent: 'flex-end' },
     detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4, textAlign: 'right' },
     detailDesc: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },

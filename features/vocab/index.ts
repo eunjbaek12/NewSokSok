@@ -23,6 +23,7 @@ export {
 
 export * from './api';
 export * from './mutations';
+export { toSharedThemePreview, resolveShareCreatorName } from './share-preview';
 
 export { useVocabBootstrap, useBootstrapLoading } from './use-bootstrap';
 
@@ -32,8 +33,10 @@ export {
   useListProgress,
   usePlanStatus,
   useShareList,
+  useSendListToFriend,
   useDeleteCloudCuration,
   useFetchCloudCurations,
+  type ShareListOptions,
 } from './hooks';
 
 export {

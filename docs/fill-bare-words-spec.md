@@ -282,7 +282,7 @@ AI 한도를 넘겨 담은 단어는 **뜻만 채워진 채** 남는다. 지금 
 
 ## 관련
 
-- `docs/ops-analytics-queries.md` — 측정에 쓴 쿼리들
+- `쿼리/쿼리 모음.md` — 측정에 쓴 쿼리들 (**저장소 밖**: 결과 표본에 사용자 이름이 있어 로컬로 뺐다)
 - `lib/enrich-queue-core.ts` 머리 주석 — 2차 패스가 왜 캐시 히트로 회복되는지
 - `features/quota/rewarded-copy.ts` 주석 — 광고 소진 분기를 빠뜨린 사고 이력
 

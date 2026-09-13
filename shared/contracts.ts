@@ -128,6 +128,15 @@ export type StartupTab = z.infer<typeof StartupTabSchema>;
 export const ProfileSettingsSchema = z.object({
   nickname: z.string().default(''),
   startupTab: StartupTabSchema.default('index'),
+  /**
+   * 친구에게 단어장을 보낼 때 받는 사람에게 보이는 이름.
+   *
+   * 🔴 **`nickname` 과 갈라 둔다.** 닉네임은 홈 화면 인사말에도 쓰여서
+   * (`app/(tabs)/index.tsx`), 보내기 창에서 고친 이름이 그대로 저장되면 다음에 앱을 열
+   * 때 홈 인사말이 바뀌어 있다 — 그 사람은 공유와 홈을 잇지 못한다.
+   * 기본값만 닉네임에서 가져온다(docs/share-to-friend-spec.md §2-10).
+   */
+  senderName: z.string().default(''),
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 

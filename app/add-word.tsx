@@ -35,6 +35,7 @@ try {
 import { useTranslation } from 'react-i18next';
 import { displayTag } from '@/lib/tag-display';
 import { useTheme } from '@/features/theme';
+import { FontSize, FontWeight } from '@/constants/tokens';
 import { useLists, selectWordsForList, createList, addWord } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
 import { Button } from '@/components/ui/Button';
@@ -552,6 +553,7 @@ export default function AddWordScreen() {
                     limit: quotaStatus?.month_limit ?? 0,
                 }),
                 cta: null,
+                proLink: false,
             };
         }
         const copy = pickRewardedCopy(quotaStatus, rewarded.grantedAmount);
@@ -568,6 +570,7 @@ export default function AddWordScreen() {
                 : copy.cta === 'pro'
                     ? { label: t('ads.rewardedExhaustedProCta'), icon: 'sparkles' as const, kind: 'pro' as const }
                     : null,
+            proLink: copy.proLink,
         };
     }, [quotaBlock, quotaStatus, rewarded.grantedAmount, rewarded.rewardAmount, t]);
 
@@ -1297,6 +1300,20 @@ export default function AddWordScreen() {
                                         <Text style={[styles.quotaBannerCtaText, { color: colors.onPrimary }]}>{quotaBanner.cta.label}</Text>
                                     </>
                                 )}
+                            </Pressable>
+                        )}
+
+                        {/* 광고 버튼 아래 한 줄 Pro 링크 — 켜는 조건은 pickRewardedCopy 가 정한다. */}
+                        {quotaBanner.proLink && (
+                            <Pressable
+                                onPress={() => {
+                                    if (rewarded.loading) return;
+                                    router.push('/plans');
+                                }}
+                                hitSlop={8}
+                                accessibilityRole="link"
+                            >
+                                <Text style={[styles.quotaBannerProLink, { color: colors.primary }]}>{t('ads.rewardedProLink')}</Text>
                             </Pressable>
                         )}
 
@@ -2243,6 +2260,8 @@ const styles = StyleSheet.create({
     quotaBannerError: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
     quotaBannerCta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 12, borderRadius: 12 },
     quotaBannerCtaText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+    // 채우기 배너(BareWordsBanner)의 Pro 링크와 같은 급 — 배너 안 링크는 12/500.
+    quotaBannerProLink: { fontSize: FontSize.label, fontFamily: FontWeight.medium, textAlign: 'center', paddingVertical: 2 },
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },

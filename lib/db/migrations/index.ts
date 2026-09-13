@@ -34,6 +34,7 @@ import migration_020 from './020_add_word_base_form';
 import migration_021 from './021_push_base_form_to_cloud';
 import migration_022 from './022_add_completions';
 import migration_023 from './023_add_completion_celebrated';
+import migration_024 from './024_add_list_source_theme';
 
 export const MIGRATIONS: readonly Migration[] = [
   migration_001,
@@ -59,6 +60,7 @@ export const MIGRATIONS: readonly Migration[] = [
   migration_021,
   migration_022,
   migration_023,
+  migration_024,
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS.length;

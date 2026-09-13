@@ -19,6 +19,7 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@/features/theme';
+import { FontSize, FontWeight } from '@/constants/tokens';
 import { pickRewardedCopy, useQuotaStore, useRewardedAd } from '@/features/quota';
 
 interface Props {
@@ -51,6 +52,11 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
   const handleWatch = () => {
     if (copy.cta !== 'watch') return;
     watch();
+  };
+
+  const openPlans = () => {
+    onClose();
+    router.push('/plans' as any);
   };
 
   return (
@@ -106,10 +112,7 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
 
             {copy.cta === 'pro' && (
               <Pressable
-                onPress={() => {
-                  onClose();
-                  router.push('/plans' as any);
-                }}
+                onPress={openPlans}
                 style={[styles.btn, styles.btnPrimary, { backgroundColor: colors.primaryButton }]}
               >
                 <Text style={[styles.btnText, { color: colors.onPrimary }]}>
@@ -118,6 +121,16 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
               </Pressable>
             )}
           </View>
+
+          {/* 광고 버튼 아래 한 줄 — 주 경로는 광고라 버튼이 아니라 링크다(rewarded-copy.ts 주석).
+              광고가 뜨는 중에는 취소처럼 막는다: 요금제로 떠난 뒤 광고가 그 위에 뜬다. */}
+          {copy.proLink && (
+            <Pressable onPress={openPlans} disabled={loading} hitSlop={8} accessibilityRole="link">
+              <Text style={[styles.proLink, { color: colors.primary, opacity: loading ? 0.5 : 1 }]}>
+                {t('ads.rewardedProLink')}
+              </Text>
+            </Pressable>
+          )}
         </View>
       </View>
     </Modal>
@@ -177,5 +190,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
     textAlign: 'center',
+  },
+  // 채우기 시트(BareWordsSheet)의 Pro 링크와 같은 급 — 모달 안 링크는 13/500.
+  proLink: {
+    fontSize: FontSize.small,
+    fontFamily: FontWeight.medium,
+    textAlign: 'center',
+    paddingVertical: 4,
   },
 });

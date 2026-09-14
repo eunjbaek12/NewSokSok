@@ -160,21 +160,23 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
 
 // 표시 순서 — 기본(classic)이 맨 앞, 나중에 추가한 스킨이 뒤로 간다.
 //
-// 🚩 autumn·hangul·halloween 은 1.7.x 의 얼굴이라 그때까지 목록에서 뺀다. 팔레트·배경·소품은
-//    이미 들어가 있지만 **고를 수가 없으므로** 중간 릴리스에 딸려 나가도 보이지 않는다.
-//    공개 빌드에서 이 배열에 더하기만 하면 된다 — skin-store 의 복원 조건은 이 목록에서
+// ✅ autumn·hangul·halloween 을 **1.7.0 에서 열었다**(2026-09-14). 셋이 같은 날 서야
+//    피처링 지명 §4 의 「10월 한 달 계절을 따라 옷을 갈아입는다」가 성립한다 —
+//    할로윈만 10월 말로 미루는 안은 그래서 접었다(은정님, 2026-09-08). 10월 말 인앱
+//    이벤트의 실체는 스킨이 아니라 **할로윈 한정 덱**이 맡는다(상시 자산은 「그 주만의
+//    일」이 못 된다) — store-assets/featuring-nomination.md §10 ③.
+//
+//    감춰 둔 동안에도 팔레트·배경·소품은 들어가 있었고 **고를 수만** 없었다. 여는 데
+//    필요한 것은 이 배열에 더하는 것뿐이다 — skin-store 의 복원 조건이 이 목록에서
 //    파생하므로 따로 고칠 곳이 없다.
 //
-//    ✅ **셋 다 10/1 에 함께 연다**(은정님, 2026-09-08). 할로윈만 10월 말로 미룰까 했으나,
-//    피처링이 10/1 이고 §4 가 「10월 한 달 계절을 따라 옷을 갈아입는다」로 팔기 때문에
-//    셋이 같은 날 서야 그 문장이 성립한다. 그 대신 10월 말 인앱 이벤트의 실체는 스킨이
-//    아니라 **할로윈 한정 덱**이 맡는다(상시 자산은 「그 주만의 일」이 못 된다) —
-//    store-assets/featuring-nomination.md §10 ③.
-//
-//    그림이 완성돼 한 번 걷었다가(2026-09-04, c3e864a) 되돌린다 — 완성 여부가 아니라
-//    **공개 시점**이 기준이기 때문이다(은정님, 2026-09-07). 미리 나가면 10/1 에 보여 줄
-//    새것이 남지 않는다. __tests__/skin-registry.test.ts 가 이 상태를 지킨다.
-export const SKIN_LIST: SkinDefinition[] = [SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab, SKINS.ocean];
+//    🔑 한 번 걷었다가(2026-09-04, c3e864a) 되돌린 적이 있다. 기준이 **그림의 완성이
+//    아니라 공개 시점**이기 때문이다(은정님, 2026-09-07) — 미리 나가면 10/1 에 보여 줄
+//    새것이 남지 않는다. 이번에는 그 공개 시점이 와서 여는 것이다.
+export const SKIN_LIST: SkinDefinition[] = [
+  SKINS.classic, SKINS.dark, SKINS.y2k, SKINS.lab, SKINS.ocean,
+  SKINS.autumn, SKINS.hangul, SKINS.halloween,
+];
 
 export const LEGACY_THEME_TO_SKIN: Record<string, SkinId> = {
   light: 'classic',

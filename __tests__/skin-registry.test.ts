@@ -50,15 +50,13 @@ describe('스킨 등록', () => {
 });
 
 /**
- * 🚩 공개 대기 플래그 — autumn·hangul(10/1) 과 halloween(10월 말) 은 그때까지 선택기에 뜨지 않는다.
+ * ✅ 공개 완료 — autumn·hangul·halloween 을 **1.7.0(10/1)에서 열었다**(2026-09-14).
  *
- * 이 테스트는 **켤 때 같이 지우라고** 있는 것이다. 목록에 스킨을 더하면 여기서
- * 실패하므로, 플래그를 걷었다는 사실이 커밋에 드러난다. 가려 둔 코드가 조용히
- * 살아나거나 조용히 죽어 있는 것을 둘 다 막는다.
- *
- * 실제로 한 번 걷혔다가(c3e864a) 되돌아왔다 — 기준은 그림의 완성이 아니라 공개 시점이다.
+ * 이 절은 「아직 선택기에 없다」로 공개를 막고 있었고, **켤 때 같이 걸리라고** 있었다.
+ * 제 일을 했으므로 이제 반대를 지킨다 — 여덟이 다 있고, 셋이 조용히 다시 빠지지
+ * 않는다. 한 번 걷혔다가(c3e864a) 되돌아온 전례가 있어 양방향으로 지킬 값이 있다.
  */
-describe('공개 대기 스킨 플래그', () => {
+describe('스킨 여덟 종', () => {
   it('팔레트와 정의는 들어가 있다', () => {
     expect(SKINS.autumn).toBeDefined();
     expect(SKINS.hangul).toBeDefined();
@@ -68,11 +66,12 @@ describe('공개 대기 스킨 플래그', () => {
     expect(getSkinColors('halloween').primary).toBe('#E8873A');
   });
 
-  it('아직 선택기에는 없다', () => {
+  it('선택기에 셋 다 있다 — 1.7.0 에서 열었다', () => {
     const ids = SKIN_LIST.map(s => s.id);
-    expect(ids).not.toContain('autumn');
-    expect(ids).not.toContain('hangul');
-    expect(ids).not.toContain('halloween');
+    expect(ids).toContain('autumn');
+    expect(ids).toContain('hangul');
+    expect(ids).toContain('halloween');
+    expect(SKIN_LIST).toHaveLength(8);
   });
 
   it('한글 스킨은 명조를 쓴다', () => {

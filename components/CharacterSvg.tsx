@@ -41,6 +41,21 @@ const ARM_PIVOT_Y = 124;
 const ARM_COVERING: readonly AccessoryType[] = ['halloween-cape'];
 
 /**
+ * 🚩 손 흔들기 전체 스위치 — 지금은 끈다(은정님, 2026-09-14: 「지금 켤 상태가 아니다」).
+ *
+ * 🔴 **끄는 자리를 호출부에 두면 안 된다.** 1.6.3 이 그렇게 했다가 절반만 꺼졌다 —
+ * `wave` 의 기본값이 `true` 라 `wave={false}` 를 붙인 세 곳만 멈추고, 홈 인사말 ·
+ * 단어장 탭 머리 · 단어 모음 탭 머리 · AI 생성 중 화면은 그대로 흔들었다. 즉 **가장
+ * 눈에 띄는 자리가 전부 남았다.** 기본값이 「켜짐」인 prop 은 grep 이 `wave={false}` 만
+ * 찾아 주므로, 끈 곳을 세면 다 껐다고 착각하게 된다. 스위치를 여기 하나로 둔 이유다 —
+ * 새로 생기는 호출부도 저절로 꺼진 채 나온다.
+ *
+ * 애니메이션 코드는 지우지 않는다. `b03ac54` 가 Fabric 에서 실제로 도는 형태(reanimated
+ * `transform` 배열)를 찾기까지 값을 치렀고, 다시 켤 때 이 한 줄만 바꾸면 된다.
+ */
+export const WAVE_ENABLED = false;
+
+/**
  * 스킨 액세서리(모자·리본)는 여기서 함께 그린다. 캐릭터가 나오는 자리는 곧 스킨이
  * 드러나야 하는 자리인데, 호출부가 따로 얹는 구조였을 때 홈 세 곳에만 붙어 있었다.
  * 액세서리를 빼고 싶은 자리(온보딩 데모처럼 스킨과 무관한 삽화)만 accessory="none".
@@ -65,7 +80,7 @@ export default function CharacterSvg({ size = 56, wave = true, accessory }: { si
   }, []);
 
   useEffect(() => {
-    if (!wave || reduceMotion || armCovered) return;
+    if (!WAVE_ENABLED || !wave || reduceMotion || armCovered) return;
     armRot.value = withDelay(400, withSequence(
       withTiming(-22, { duration: 200 }),
       withTiming(-6,  { duration: 160 }),

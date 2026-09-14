@@ -393,7 +393,9 @@ export default function BatchImportWorkflow({
             <View style={[styles.footer, {
                 backgroundColor: colors.background,
                 borderTopColor: colors.borderLight,
-                paddingBottom: Math.max(insets.bottom, 16),
+                // 아래 여백은 «안전 영역 + 12»(문의하기·import-csv 와 같은 값). Math.max 로 주면
+                // 내비게이션 바가 있는 기기에서 그 값이 바 밑에 깔려 버튼 위는 16, 아래는 0으로 보인다.
+                paddingBottom: insets.bottom + 12,
             }]}>
                 <Button
                     title={t('common.back')}
@@ -498,7 +500,8 @@ const styles = StyleSheet.create({
     loadMoreText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     footer: {
         flexDirection: 'row',
-        padding: 16,
+        paddingHorizontal: 16,
+        paddingTop: 12,
         borderTopWidth: StyleSheet.hairlineWidth,
         gap: 12,
     },

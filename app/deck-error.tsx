@@ -24,9 +24,10 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
-  KeyboardAvoidingView,
   Linking,
 } from 'react-native';
+import { KeyboardAvoidingView, useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -121,6 +122,13 @@ export default function DeckErrorScreen() {
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
 
+  // 키보드가 떠 있는 동안은 아래 안전 영역(내비게이션 바·홈 인디케이터)을 키보드가 덮는다.
+  // 그 여백을 그대로 두면 버튼과 키보드 사이가 비어 뜬다(Galaxy S22 에서 60dp) — 키보드를 따라 줄인다.
+  const { progress: keyboardProgress } = useReanimatedKeyboardAnimation();
+  const footerInsetStyle = useAnimatedStyle(() => ({
+    paddingBottom: 12 + insets.bottom * (1 - keyboardProgress.value),
+  }));
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 8 }]}>
@@ -141,11 +149,11 @@ export default function DeckErrorScreen() {
         <View style={styles.backBtn} />
       </View>
 
-      <KeyboardAvoidingView
-        style={styles.flex}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={insets.top + 44}
-      >
+      {/* 키보드가 뜨면 이 영역이 줄어 보내기 버튼이 키보드 바로 위에 선다(문의하기와 같다).
+          RN 기본판은 Android 에 behavior 가 없어(undefined) 버튼이 키보드 밑에 깔렸다 — 앱이
+          edge-to-edge 라 창이 키보드만큼 줄지 않는다. keyboard-controller 판은 두 플랫폼이 같은 계산이다.
+          오프셋은 0: 이 뷰의 부모가 화면 맨 위에서 시작하고, 헤더 높이는 이미 이 뷰의 y 에 들어 있다. */}
+      <KeyboardAvoidingView style={styles.flex} behavior="padding">
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
@@ -188,14 +196,11 @@ export default function DeckErrorScreen() {
           </Text>
         </ScrollView>
 
-        <View
+        <Animated.View
           style={[
             styles.footer,
-            {
-              backgroundColor: colors.background,
-              borderTopColor: colors.borderLight,
-              paddingBottom: insets.bottom + 12,
-            },
+            { backgroundColor: colors.background, borderTopColor: colors.borderLight },
+            footerInsetStyle,
           ]}
         >
           <Pressable
@@ -216,7 +221,7 @@ export default function DeckErrorScreen() {
               {submitting ? t('contact.submitting') : t('contact.submit')}
             </Text>
           </Pressable>
-        </View>
+        </Animated.View>
       </KeyboardAvoidingView>
     </View>
   );

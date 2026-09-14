@@ -410,7 +410,7 @@
   },
   "deckError": {
     "title": "Word or translation error",
-    "targetLabel": "About",
+    "targetLabel": "List",
     "question": "Which word is wrong, and how?",
     "placeholder": "Write the word and what's wrong with it. If there are several, put them all in one message.",
     "successTitle": "Thank you for letting us know",

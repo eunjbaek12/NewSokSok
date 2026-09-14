@@ -43,6 +43,11 @@ export default function LoginScreen() {
       await signInWithGoogle();
       router.replace('/');
     } catch (error: any) {
+      // 사용자 취소는 흔한 경로 — alert 띄우지 않고 조용히 복귀(Apple 과 같다).
+      if (error?.message === 'GOOGLE_SIGNIN_CANCELED') {
+        setLoading(null);
+        return;
+      }
       if (error.message !== 'GOOGLE_CLIENT_ID_MISSING') {
         console.error(error);
       }

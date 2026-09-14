@@ -125,7 +125,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - Mix any input and meaning language (EN-KR, KR-JP, ES-EN — any pair)
 
 • Make it yours with skins
-- Classic, Dark, Y2K, Lab, Summer Sea, and more themes to choose from
+- Classic, Dark, Stationery, Lab, Summer Sea, and more themes to choose from
 - Set the mood for how you study
 
 • Offline-first with cloud sync

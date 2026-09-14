@@ -160,7 +160,9 @@ export default function ImportCsvScreen() {
         })}
       </ScrollView>
 
-      <View style={[styles.footer, { backgroundColor: colors.background, borderTopColor: colors.borderLight, paddingBottom: Math.max(insets.bottom, 16) }]}>
+      {/* 아래 여백은 «안전 영역 + 12» 다(문의하기·오류 알리기와 같은 값). Math.max(insets.bottom, 16) 으로
+          주면 내비게이션 바가 있는 기기에서 그 값이 통째로 바 밑에 깔려, 버튼 위는 16인데 아래는 0으로 보인다. */}
+      <View style={[styles.footer, { backgroundColor: colors.background, borderTopColor: colors.borderLight, paddingBottom: insets.bottom + 12 }]}>
         <Button title={t('common.back')} variant="secondary" onPress={() => setStage('pick')} style={{ flex: 1 }} disabled={isSaving} />
         <Button
           title={isSaving ? t('importCsv.saving') : t('importCsv.confirm', { count: rows.length })}
@@ -221,7 +223,8 @@ const styles = StyleSheet.create({
   dupBadgeText: { fontSize: 11, fontFamily: 'Pretendard_500Medium' },
   footer: {
     flexDirection: 'row',
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 12,
     borderTopWidth: StyleSheet.hairlineWidth,
     gap: 12,
   },

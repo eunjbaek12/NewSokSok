@@ -80,6 +80,8 @@ function rowToVocaList(row: any, words: Word[] = []): VocaList {
     lastResultPercent: row.lastResultPercent ?? 0,
     sourceLanguage: row.sourceLanguage ?? undefined,
     targetLanguage: row.targetLanguage ?? undefined,
+    sourceThemeId: row.sourceThemeId ?? undefined,
+    savedAt: row.savedAt ?? undefined,
   };
 }
 
@@ -209,7 +211,7 @@ export async function createCuratedList(
   title: string,
   icon: string,
   words: Omit<Word, 'id' | 'isMemorized'>[],
-  options?: { sourceLanguage?: string; targetLanguage?: string },
+  options?: { sourceLanguage?: string; targetLanguage?: string; sourceThemeId?: string; savedAt?: number },
 ): Promise<VocaList> {
   const db = await getDb();
   const id = generateId();
@@ -220,8 +222,9 @@ export async function createCuratedList(
   await runInTransaction(async () => {
     await db.runAsync(
       // lastStudiedAt=0 — 담기만 한 덱은 "학습 기록 없음"이다(position 은 정렬용이라 now).
-      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [id, title, 1, now, 0, 1, icon, now, now, srcLang, tgtLang]
+      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage, sourceThemeId, savedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [id, title, 1, now, 0, 1, icon, now, now, srcLang, tgtLang,
+       options?.sourceThemeId ?? null, options?.sourceThemeId ? (options.savedAt ?? now) : null]
     );
 
     for (const w of words) {

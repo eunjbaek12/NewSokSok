@@ -751,7 +751,9 @@ export default function DashboardScreen() {
               {/* Empty: 플랜 자체가 없음 */}
               {planItems.length === 0 && (
                 <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                  <CharacterSvg size={72} wave />
+                  {/* 🚩 손 흔들기는 1.6.3 에서 내지 않는다(은정님 2026-09-10). 연결 자체는
+                      `b03ac54` 로 살아 있으므로 `wave` 를 다시 붙이면 그대로 돈다. */}
+                  <CharacterSvg size={72} wave={false} />
                   <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>{t('home.emptyTitle')}</Text>
                   <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>{t('home.emptySubtitle')}</Text>
                   <Pressable
@@ -814,7 +816,8 @@ export default function DashboardScreen() {
             <View style={[styles.resultSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
               <View style={styles.resultHeaderRow}>
-                <CharacterSvg size={48} wave />
+                {/* 🚩 위와 같은 이유로 꺼 둔다 — 학습 결과 시트의 캐릭터. */}
+                <CharacterSvg size={48} wave={false} />
                 <View style={styles.resultTitleRow}>
                   <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
                     {t('home.studyResult')}

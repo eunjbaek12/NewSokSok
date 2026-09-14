@@ -1,0 +1,104 @@
+＊ 버전을 타지 않는 규칙(500자 제한 · 영어가 먼저 넘침 · 스페인어 20~25% ·
+＊ 뜻 언어 필터 확인 · 요금제 이름 · Play 에 iOS 전용 수정 금지)은
+＊ README.md 「출시 노트를 쓸 때」에 있다. 이 파일에는 1.6.3 에만 해당하는 것만 적는다.
+＊
+＊ 🔑 아래 블록은 Play Console 이 주는 템플릿과 같은 형식이다(1.6.2 와 동일).
+＊    로케일 알파벳순이고, 여는 태그부터 닫는 태그까지 그대로 긁어 붙여넣는다.
+＊    한 항목의 설명은 **한 문장**이다 — 1.6.2 때 두 문장짜리 줄에서 글자가 사라졌다.
+＊
+＊ 🔴 **테마 이름을 그 로케일 언어로 옮기지 않는다 — ja · vi · zh 는 영어 이름 그대로.**
+＊    앱 UI 언어는 ko / en / es 셋뿐이라 그 세 로케일 사용자는 앱을 **영어로 본다.**
+＊    「便箋」이라 적으면 사용자가 앱에서 찾을 수 없는 이름을 광고하는 꼴이다.
+＊    (1.6.2 가 "run의 과거형" 인용을 ko/en/es 로 한정한 것과 같은 규칙이다.)
+＊    실제 값: ko 편지지·실험실·여름 바다 / en·ja·vi·zh Stationery·Lab·Summer Sea /
+＊    es Papelería·Laboratorio·Mar de Verano (i18n/locales/*.json 의 skinY2k·skinLab·skinOcean).
+＊
+＊ 🔴 이번 릴리스는 **항목이 둘뿐이다.** 함께 들어간 잔버그 넷(탭바가 테마 색을 안
+＊    따르던 것 · 발음 기호 슬래시 중복 · 영어 뜻 잘림 · ⋯ 메뉴 두 줄)은 앱 소식에서도
+＊    빼기로 했다(은정님 2026-09-10). 대부분의 사용자가 겪은 적 없는 것들이다.
+＊
+＊ 🚩 **10/1 몫은 한 줄도 적지 않는다** — 완주 자랑하기와 가을·한글·할로윈 스킨은
+＊    구현이 끝났지만 플래그 뒤에 있고, 여기 적으면 그날의 「새것」이 미리 소진된다.
+＊    캐릭터 손 흔들기도 이번엔 꺼서 내보낸다.
+＊
+＊ 🔴 Y2K 이름 변경을 넣은 이유: **쓰던 사람이 "내 테마가 사라졌다"고 읽을 수 있는
+＊    유일한 변화**라서다. 선택은 id('y2k')로 저장돼 그대로 유지된다(constants/skins.ts:77)
+＊    — 그 사실을 둘째 문장이 말한다. 신규 사용자에겐 무의미하지만, 이 줄이 필요한
+＊    사람에게는 이것만이 답이다.
+＊
+＊ 자수 실측(코드포인트, 한도 500 · 블록 8개): ko-KR 113 · en-US 214 ·
+＊ es-419·es-ES 각 229 · ja-JP 133 · vi 213 · zh-CN 98 · zh-TW 98.
+＊ 가장 긴 것도 절반이 안 된다 — 항목이 둘뿐인 릴리스라 줄일 일이 없었다.
+
+<en-US>
+1.6.3 update
+
+🎨 Backdrops for three themes
+Stationery, Lab and Summer Sea now have hand-drawn backdrops of their own.
+
+🏷️ Y2K is now called Stationery
+Only the name changed - the theme you are using stays as it is.
+</en-US>
+<es-419>
+Actualización 1.6.3
+
+🎨 Fondos para tres temas
+Papelería, Laboratorio y Mar de Verano ahora tienen sus propios fondos dibujados a mano.
+
+🏷️ Y2K ahora se llama Papelería
+Solo cambió el nombre - el tema que estás usando se mantiene.
+</es-419>
+<es-ES>
+Actualización 1.6.3
+
+🎨 Fondos para tres temas
+Papelería, Laboratorio y Mar de Verano ahora tienen sus propios fondos dibujados a mano.
+
+🏷️ Y2K ahora se llama Papelería
+Solo cambió el nombre - el tema que estás usando se mantiene.
+</es-ES>
+<ja-JP>
+1.6.3 アップデート
+
+🎨 3つのテーマに背景の絵が入りました
+Stationery、Lab、Summer Sea に手描きの背景が入りました。
+
+🏷️ Y2K の名前が Stationery になりました
+名前が変わっただけで、使っているテーマはそのままです。
+</ja-JP>
+<ko-KR>
+1.6.3 업데이트
+
+🎨 테마 셋에 배경 그림이 생겼어요
+편지지, 실험실, 여름 바다에 손으로 그린 배경이 들어왔어요.
+
+🏷️ 「Y2K」는 이제 「편지지」예요
+이름만 바뀌었고, 쓰시던 테마는 그대로예요.
+</ko-KR>
+<vi>
+Cập nhật 1.6.3
+
+🎨 Ba giao diện có hình nền riêng
+Stationery, Lab và Summer Sea nay có hình nền vẽ tay của riêng mình.
+
+🏷️ Y2K nay có tên là Stationery
+Chỉ tên gọi thay đổi - giao diện bạn đang dùng vẫn giữ nguyên.
+</vi>
+<zh-CN>
+1.6.3 更新
+
+🎨 三款主题有了背景插画
+Stationery、Lab、Summer Sea 都有了手绘背景。
+
+🏷️ Y2K 改名为 Stationery
+只是名字变了，你正在用的主题不变。
+</zh-CN>
+<zh-TW>
+1.6.3 更新
+
+🎨 三款主題有了背景插畫
+Stationery、Lab、Summer Sea 都有了手繪背景。
+
+🏷️ Y2K 改名為 Stationery
+只是名字變了，你正在用的主題不變。
+</zh-TW>

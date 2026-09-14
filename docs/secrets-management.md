@@ -16,6 +16,7 @@
 |---|---|---|---|---|
 | `EXPO_PUBLIC_SUPABASE_URL` | 1 공개 클라 | `.env` + EAS secret | `.gitignore: .env` | 불필요(공개값) |
 | `EXPO_PUBLIC_SUPABASE_ANON_KEY` | 1 | `.env` + EAS secret | 〃 | RLS가 보호. 유출 자체는 설계상 허용 |
+| Supabase publishable 키 (`sb_publishable_…`) | 1 | `docs/d/config.js` — **커밋된다**(GitHub Pages 가 서빙하는 친구 공유 랜딩용. 템플릿 `config.example.js`) | 훅 패턴 없음(의도 — 공개용 키) | 대시보드 API Keys 에서 교체. 옛 anon 키와 달리 **앱 번들과 무관**하게 교체된다 |
 | `EXPO_PUBLIC_GOOGLE_CLIENT_ID` / `_IOS` | 1 | `.env` + EAS secret | 〃 | GCP 콘솔에서 재발급 |
 | `EXPO_PUBLIC_ADMOB_*` (앱/배너/리워드 ID) | 1 | `.env` + EAS secret | 〃 | AdMob 콘솔 |
 | `EXPO_PUBLIC_PRO_*_SKU`, `EXPO_PUBLIC_ENRICH_VIA_EDGE` | 1 | `.env` + EAS secret | 〃 | 설정값(시크릿 아님) |

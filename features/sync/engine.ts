@@ -453,14 +453,22 @@ export async function pullChanges(): Promise<void> {
         // Keep the pending local edit; the upcoming push will publish it.
         if (dirtyListIds.has(l.id)) continue;
         const v = dbRowToVocaList(l);
+        // 🔴 REPLACE 는 행을 지우고 다시 넣는다 — 목록에 없는 컬럼은 DEFAULT(NULL)로 초기화된다.
+        //    sourceThemeId·savedAt(024, 담아온 공유물의 출처)은 서버에 없는 **로컬 전용**이라
+        //    받아올 값이 없다. 옛 행이 지워지기 전에 서브쿼리로 되읽어 그대로 넣는다(SQLite 는
+        //    새 행의 값을 먼저 계산한 뒤 옛 행을 지운다). 빠지면 pull 한 번에 「이미 담았어요」가
+        //    영영 사라진다. lists 에 컬럼을 붙이면 이 목록에 넣을 것 —
+        //    __tests__/sync-pull-list-columns.test.ts 가 스키마 전체와 맞대 본다.
         await db.runAsync(
           `INSERT OR REPLACE INTO lists (
             id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
             planTotalDays, planCurrentDay, planWordsPerDay, planStartedAt, planUpdatedAt, planFilter,
             sourceLanguage, targetLanguage,
             lastResultMemorized, lastResultTotal, lastResultPercent,
-            updatedAt, deletedAt
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            updatedAt, deletedAt,
+            sourceThemeId, savedAt
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+            (SELECT sourceThemeId FROM lists WHERE id = ?), (SELECT savedAt FROM lists WHERE id = ?))`,
           [
             v.id, v.title, v.isVisible ? 1 : 0, v.createdAt, v.lastStudiedAt ?? null,
             v.position, v.isCurated ? 1 : 0, v.icon ?? null,
@@ -469,6 +477,7 @@ export async function pullChanges(): Promise<void> {
             v.sourceLanguage, v.targetLanguage,
             v.lastResultMemorized, v.lastResultTotal, v.lastResultPercent,
             l.updated_at, null,
+            v.id, v.id,
           ],
         );
       }

@@ -60,7 +60,17 @@ export default function SharedDeckScreen() {
   useEffect(() => { void load(); }, [load]);
 
   // 이 화면이 열렸으면 레이아웃이 기억해 둔 주소를 다시 열 이유가 없다(share-link.ts).
-  useEffect(() => { if (id) clearPendingShare(id); }, [id]);
+  //
+  // 🔴 **«열리자마자»가 아니라 «답을 받은 뒤»에 지운다.** 로그아웃·온보딩 상태에서도 딥링크는
+  // 이 화면을 한 번 띄우는데, 루트 레이아웃이 곧바로 로그인 화면으로 덮는다. 마운트 시점에
+  // 지우면 그 찰나에 주소가 사라져 **로그인을 마쳐도 열어 줄 것이 남지 않는다**
+  // (2026-09-15 기기 실측: 로그아웃 → 주소 → 구글 로그인 → 홈만 뜸).
+  // 이 효과는 화면이 살아 있는 동안에만 도므로, 덮여 사라진 경우에는 주소가 그대로 남는다.
+  // 'loading' 을 뺀 이유: ready·unavailable·error 중 error 까지 지워야 못 여는 주소를 들고
+  // 홈으로 나갔다가 레이아웃이 다시 띄우는 왕복에 갇히지 않는다.
+  useEffect(() => {
+    if (id && state.kind !== 'loading') clearPendingShare(id);
+  }, [id, state.kind]);
 
   // 이미 담은 적이 있는가. 출처 id 로 판정한다 — 제목으로 세면 이름을 바꾼 순간 틀린다.
   // 값이 없는 옛 단어장은 여기 걸리지 않는다(§4.3: 그때는 안내 없이 그냥 담긴다).

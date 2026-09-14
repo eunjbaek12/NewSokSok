@@ -83,6 +83,10 @@ UPDATE 웹훅은 매 수정마다 호출되지만, 함수가 `reply_body`가 **�
 신고 쪽은 `INSERT` 하나만 건다. 상태가 `pending → reviewed`로 바뀌는 건
 운영자 자신이 가리기를 한 결과라 알릴 것이 없다.
 
+> 2026-09-14: 신고 웹훅은 대시보드가 아니라 **SQL로 `support_new`를 복사해** 만들었다(트리거 이름
+> `curation_report_new`). 주소·헤더가 문의 웹훅과 같은지는 `tgargs` 비교로 확인했다. 정의 문자열에
+> 비밀 헤더가 들어 있으니 `pg_get_triggerdef`를 **출력하지 말고** DB 안에서만 옮길 것.
+
 ## 확인
 
 ```bash

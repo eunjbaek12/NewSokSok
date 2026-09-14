@@ -51,6 +51,38 @@ const NOTIFY_TO = Deno.env.get('SUPPORT_NOTIFY_TO')!;
 const FROM = Deno.env.get('SUPPORT_FROM') ?? 'onboarding@resend.dev';
 const WEBHOOK_SECRET = Deno.env.get('SUPPORT_WEBHOOK_SECRET') ?? '';
 
+// 알림 메일 맨 아래 «대시보드에서 열기» 주소. 예전에는 SUPABASE_URL 에서 «.supabase.co» 만 떼어
+// 붙여(https://<ref>) 눌러도 아무 데도 가지 않았다. 표 편집기는 표를 이름이 아니라 번호(pg_class oid)로
+// 연다 — 표를 지우고 다시 만들면 번호가 바뀌니 그때는 다시 조회해 넣을 것
+// (select 'public.support_messages'::regclass::oid). 번호가 틀려도 표 편집기까지는 열린다.
+const PROJECT_REF = new URL(SUPABASE_URL).hostname.split('.')[0];
+const TABLE_OID = { support_messages: 45827, curation_reports: 44901 } as const;
+
+function dashboardLink(table: keyof typeof TABLE_OID): string {
+  return `https://supabase.com/dashboard/project/${PROJECT_REF}/editor/${TABLE_OID[table]}?schema=public`;
+}
+
+/**
+ * 접수 시각을 한국 시간으로. DB 는 UTC(…+00:00)로 주는데 메일은 한국에서 받으니, 받은 시각과
+ * 9시간이 어긋나 보였다. 읽지 못하는 값이면 받은 그대로 둔다.
+ */
+function kst(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  const p = Object.fromEntries(
+    new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+    }).formatToParts(d).map((x) => [x.type, x.value]),
+  );
+  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute} (한국 시간)`;
+}
+
 const CATEGORY_LABEL: Record<string, string> = {
   bug: '버그',
   idea: '제안',
@@ -192,12 +224,12 @@ async function handleDeckError(row: SupportRow): Promise<SendResult> {
     '',
     `단어장  ${title} (${row.theme_id})`,
     `계정ID  ${row.user_id ?? '게스트'}`,
-    `접수    ${row.created_at}`,
+    `접수    ${kst(row.created_at)}`,
     '',
     '답장은 필수가 아닙니다. 쓰려면 대시보드의 reply_body에 쓰세요 — 앱의 설정 › 문의하기에 뜹니다.',
     '(이 화면은 이메일을 받지 않아 메일로는 나가지 않습니다.)',
     '',
-    `${SUPABASE_URL.replace('.supabase.co', '')}  ·  id ${row.id}`,
+    `${dashboardLink('support_messages')}  ·  id ${row.id}`,
   ];
 
   return await sendEmail({ to: NOTIFY_TO, subject, text: lines.join('\n') });
@@ -234,12 +266,12 @@ async function handleNewMessage(row: SupportRow): Promise<SendResult> {
     formatDiagnostics(row.diagnostics),
     `계정ID  ${row.user_id ?? '게스트'}`,
     `회신    ${row.reply_email ?? '없음 — 앱에서만 답장 가능'}`,
-    `접수    ${row.created_at}`,
+    `접수    ${kst(row.created_at)}`,
     '',
     '답장은 이 메일에 쓰지 말고 대시보드의 reply_body에 쓰세요.',
     '그래야 앱과 메일 양쪽에 닿습니다. 이메일을 안 적은 사용자는 앱이 유일한 경로입니다.',
     '',
-    `${SUPABASE_URL.replace('.supabase.co', '')}  ·  id ${row.id}`,
+    `${dashboardLink('support_messages')}  ·  id ${row.id}`,
   );
 
   return await sendEmail({
@@ -419,7 +451,7 @@ async function handleNewReport(row: ReportRow): Promise<SendResult> {
     `상태    ${stateLabel}`,
     `누적    이 단어장 신고 ${totalReports}건째 (처리 대기 ${pendingReports}건)`,
     `신고자  ${row.reporter_id}`,
-    `접수    ${row.created_at}`,
+    `접수    ${kst(row.created_at)}`,
     '',
     '─────────────',
     '',
@@ -430,7 +462,7 @@ async function handleNewReport(row: ReportRow): Promise<SendResult> {
     '가리면 목록·주소에서 빠지고 이 덱의 대기 신고가 처리로 바뀝니다.',
     '지우지 마세요 — 덱을 지우면 신고 기록이 cascade로 함께 사라집니다.',
     '',
-    `${SUPABASE_URL.replace('.supabase.co', '')}  ·  report ${row.id}`,
+    `${dashboardLink('curation_reports')}  ·  report ${row.id}`,
   ];
 
   return await sendEmail({ to: NOTIFY_TO, subject, text: lines.join('\n') });

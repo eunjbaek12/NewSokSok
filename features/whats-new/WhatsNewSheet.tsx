@@ -7,7 +7,7 @@ import { useTheme } from '@/features/theme';
 import { Radius } from '@/constants/tokens';
 import { PopupTokens } from '@/constants/popup';
 import ModalOverlay from '@/components/ui/ModalOverlay';
-import type { Announcement } from '@/constants/announcements';
+import { visibleItems, type Announcement } from '@/constants/announcements';
 
 /**
  * 업데이트 직후 한 번 뜨는 소식 시트.
@@ -56,7 +56,8 @@ export default function WhatsNewSheet({
         </View>
 
         <View style={styles.items}>
-          {(announcement?.items ?? []).map(item => (
+          {/* 그 언어에서 문구가 빈 줄은 내린다 — visibleItems 주석 참고. */}
+          {visibleItems(announcement, t).map(item => (
             <View key={item.key} style={styles.item}>
               <View style={[styles.bullet, { backgroundColor: colors.primaryLight }]}>
                 <Ionicons name={item.icon} size={13} color={colors.primary} />

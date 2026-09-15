@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLocale } from '@/features/locale';
 import { localeTag } from '@/i18n';
-import { ANNOUNCEMENTS } from '@/constants/announcements';
+import { ANNOUNCEMENTS, visibleItems } from '@/constants/announcements';
 
 export default function WhatsNewScreen() {
   const insets = useSafeAreaInsets();
@@ -50,7 +50,8 @@ export default function WhatsNewScreen() {
               <Text style={[styles.version, { color: colors.text }]}>{a.version}</Text>
               <Text style={[styles.date, { color: colors.textTertiary }]}>{formatDate(a.date)}</Text>
             </View>
-            {a.items.map(item => (
+            {/* 그 언어에서 문구가 빈 줄은 내린다 — visibleItems 주석 참고. */}
+            {visibleItems(a, t).map(item => (
               <View key={item.key} style={styles.item}>
                 <Text style={[styles.bullet, { color: colors.primary }]}>·</Text>
                 <Text style={[styles.itemText, { color: colors.textSecondary }]}>{t(item.key)}</Text>

@@ -1,5 +1,10 @@
 import React, { ReactNode } from 'react';
-import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue, KeyboardAvoidingView, Platform } from 'react-native';
+import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue } from 'react-native';
+// 🔴 RN 기본판이 아니다. iOS 는 **Modal 안에서** 기본판이 키보드를 따라오지 못한다 —
+//    단어장 신고의 「추가 설명」을 누르면 키보드가 입력칸을 덮어 쓰는 글이 안 보였다
+//    (은정님 iPhone 1.7.1 build 46). app/contact.tsx·app/deck-error.tsx 는 ab0c510 에서
+//    이미 이 판으로 옮겨 고쳤는데, 모달만 남아 있었다.
+import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
@@ -127,11 +132,11 @@ export default function ModalOverlay({
     </Pressable>
   );
 
+  // behavior 가 한 값인 이유: keyboard-controller 판은 두 플랫폼이 같은 계산을 쓴다.
+  // 기본판 시절의 ios='padding' / android='height' 갈림은 기본판이 Android 에서 창 높이
+  // 변화에 기대던 흔적이라, 여기서는 오히려 틀린다(ab0c510 과 같은 판단).
   const wrappedContent = avoidKeyboard ? (
-    <KeyboardAvoidingView
-      style={StyleSheet.absoluteFill}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
+    <KeyboardAvoidingView style={StyleSheet.absoluteFill} behavior="padding">
       {overlayContent}
     </KeyboardAvoidingView>
   ) : overlayContent;

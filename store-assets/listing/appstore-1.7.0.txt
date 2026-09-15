@@ -1,0 +1,134 @@
+App Store Connect 1.7.0 제출용 텍스트
+=====================================
+
+형식은 1.6.3 을 그대로 따른다(ios-ko.md 「새로운 기능」):
+  첫 줄에 "1.7.0 업데이트 - 한 줄 요약", 항목 제목은 대괄호로 감싸고,
+  제목은 문제가 아니라 결과를 사용자 말투로 쓴다("~해요" / "~어요").
+
+거부 문자(2026-08-24 실측): 홍보 텍스트와 이 버전의 새로운 기능 두 칸은
+  가운뎃점(U+00B7)과 이모지를 거부한다. em dash 도 쓰지 않는다. ASCII 하이픈만.
+  설명(Description) 칸은 통과하므로 그쪽 원고는 손대지 않는다.
+  Play 노트(release-notes-1.7.0.txt)는 이모지를 쓰므로 그대로 복사하면 안 된다.
+  🔑 낫표(「」)도 이 두 칸에서는 쓰지 않았다 - 1.6.3 이 안 썼고 거부 여부가 미확인이다.
+     Play 노트의 ko 블록에는 그대로 있다(그쪽은 1.6.3 에서 통과했다).
+
+로케일: ASC 등록은 여섯이다 - ko, en, es, ja, vi, zh-Hant. (Play 의 zh-CN 은 여기 없다.)
+
+🔴 **설명 칸을 이번에도 갈아 넣을 것.** 1.6.3 에서 「권한은 마이크 하나」 거짓을 걷어냈고,
+  이번엔 **스킨 이름이 다섯에서 여덟으로 늘었다**(`091fdcf`). 설명문은 버전 메타데이터라
+  **라이브에서 못 고친다** - 놓치면 다음 릴리스까지 다섯 종만 광고하는 문장이 서 있다.
+  → 제출 시 여섯 로케일의 「설명」 칸을 `store-assets/listing/ios-*.md` 최신본으로
+     통째로 갈아 넣을 것. (ios-ko / ios-en / ios-es / ios-ja / ios-vi / ios-zh)
+
+🔴 **테마 이름을 그 로케일 언어로 옮기지 않는다 - ja · vi · zh-Hant 는 영어 이름 그대로.**
+  앱 UI 언어는 ko / en / es 셋뿐이라 그 세 로케일 사용자는 앱을 **영어로 본다.**
+  같은 이유로 **설정 경로도 그 세 로케일에서는 뺐고**, 보관함 이름도 My Learning 그대로 쓴다.
+
+🔴 **덱 항목은 로케일마다 다르고, es 에서는 아예 뺐다.** 단어 모음은 **뜻 언어**로 거른다.
+  ko 는 「할로윈 영어 50」(en>ko), en·ja·vi·zh-Hant 는 Korean Ghosts & Folk Horror 50(ko>en).
+  es 사용자는 뜻 언어가 es 인 덱이 0개라 **둘 다 목록에 안 뜬다** - 적으면 거짓이 된다.
+  한글날 덱은 9/9 에 이미 공개돼 새것이 아니다.
+  🔴 이 줄은 앱이 아니라 서버가 지킨다 - 덱 셋 `--publish` 와 출시는 같은 날 같이.
+
+🔴 홍보 텍스트: **매 버전 다시 넣어야 한다.** ASC 는 새 버전 폼에 설명과 키워드는 채워
+  주면서 홍보 텍스트만 비운 채로 띄운다. 비어 있다고 값이 없는 것이 아니다 - 라이브
+  페이지 설명 맨 앞에 지금도 나가 있다. 비운 채 제출하면 그 문장이 사라진다.
+  값은 맨 아래 절에 여섯 로케일 그대로 옮겨 두었다(1.6.2·1.6.3 과 같은 값, 바꾸지 않는다).
+
+🔴 iOS 전용 수정은 이번에 없다. 항목은 Play 노트와 같다.
+
+🔴 **손 흔들기를 껐다는 것은 적지 않는다** - 그 흔들림을 이상하게 본 사람은 iPhone 1.6.3
+  사용자뿐이고, 나머지에게는 "그런 게 있었구나"만 남는다(앱 소식과 같은 판단).
+
+
+===== 이번 버전의 새로운 기능 / What's New =====
+
+--- ko ---
+1.7.0 업데이트 - 완주 상장과 테마 셋이 생겼어요.
+
+[단어장을 끝까지 외우면 상장을 드려요]
+학습 계획을 마지막 날까지 마치면 완주 상장이 나와요. 이미지로 저장하거나 자랑할 수 있고, 받은 상장은 내 학습의 완주한 단어장에 모여요.
+
+[테마가 셋 늘었어요]
+가을 단풍, 한글, 할로윈이 들어왔어요. 테마는 설정의 화면 항목에서 바꿀 수 있어요.
+
+[할로윈 영어 50 단어장이 새로 열렸어요]
+trick or treat 부터 goosebumps 까지, 풍습과 괴물과 마법과 공포를 여섯 갈래로 골랐어요.
+
+--- en ---
+1.7.0 - A certificate when you finish, and three new themes.
+
+[Finish a deck and earn a certificate]
+Complete a study plan to its last day and a certificate is issued. Save it as an image or share it, and every certificate you earn is kept in My Learning, under Completed decks.
+
+[Three new themes]
+Autumn Leaves, Hangul and Halloween have arrived. You can switch themes in Settings, under Display.
+
+[New deck: Korean Ghosts & Folk Horror 50]
+The ghosts Korea actually tells stories about, from 도깨비 and 구미호 to every way to say your hair stood on end.
+
+--- es ---
+Actualización 1.7.0 - Un certificado al terminar y tres temas nuevos.
+
+[Termina una lista y recibe un certificado]
+Completa un plan de estudio hasta el último día y recibirás un certificado. Puedes guardarlo como imagen o compartirlo, y todos se guardan en Mi aprendizaje, en Listas completadas.
+
+[Tres temas nuevos]
+Hojas de Otoño, Hangul y Halloween ya están aquí. Puedes cambiar de tema en Ajustes, en Pantalla.
+
+--- ja ---
+1.7.0 アップデート - 完走の賞状とテーマ3つが加わりました。
+
+[単語帳をやり切ると賞状がもらえます]
+学習プランを最終日まで終えると完走の賞状が発行されます。画像として保存したり共有したりでき、受け取った賞状は My Learning に貯まります。
+
+[テーマが3つ増えました]
+Autumn Leaves、Hangul、Halloween が加わりました。
+
+[新しい単語帳 Korean Ghosts & Folk Horror 50]
+韓国で実際に語り継がれる幽霊やお化けの話から50語を選びました。
+
+--- vi ---
+Cập nhật 1.7.0 - Chứng nhận khi học xong và ba giao diện mới.
+
+[Học xong cả bộ thẻ, bạn nhận được chứng nhận]
+Hoàn thành kế hoạch học đến ngày cuối cùng và bạn sẽ nhận được chứng nhận. Bạn có thể lưu thành ảnh hoặc chia sẻ, và mọi chứng nhận đều được giữ trong My Learning.
+
+[Thêm ba giao diện mới]
+Autumn Leaves, Hangul và Halloween.
+
+[Bộ thẻ mới: Korean Ghosts & Folk Horror 50]
+50 từ về ma quỷ và truyện kinh dị dân gian mà người Hàn thật sự hay kể.
+
+--- zh-Hant ---
+1.7.0 更新 - 學完會拿到結業證書，還多了三款主題。
+
+[學完整本單字卡會獲得結業證書]
+把學習計畫完成到最後一天就會頒發結業證書。可以存成圖片或分享，拿到的證書都會保存在 My Learning 裡。
+
+[新增三款主題]
+Autumn Leaves、Hangul、Halloween。
+
+[新單字卡 Korean Ghosts & Folk Horror 50]
+精選50個韓國民間真正流傳的鬼怪與恐怖故事用詞。
+
+
+===== 홍보 텍스트 / Promotional Text (버전마다 비어서 뜬다 - 아래 값을 다시 넣을 것) =====
+
+--- ko ---
+사진 찍으면 단어장 완성. 뜻과 예문, 발음은 AI가 채우고, 잊을 때쯤 복습까지 알아서 챙겨요. 가입 첫날 300단어, 이후에도 하루 50단어는 계속 무료예요.
+
+--- en ---
+Korean decks built level by level, or your own words. AI fills in meanings, examples and pronunciation. Your first day comes with 300 words, and 50 a day stays free.
+
+--- es ---
+Haz una foto y tu lista se crea sola: la IA rellena significados, ejemplos y pronunciación. Ya en español. 300 palabras con IA el primer día y 50 al día gratis.
+
+--- ja ---
+韓国語の単語をAIが発音、意味、例文まで自動生成。写真1枚で単語帳を丸ごと。登録初日は300語、そのあとも1日50語はずっと無料です。
+
+--- vi ---
+AI tự động tạo nghĩa, phát âm và câu ví dụ cho từ vựng tiếng Hàn. Quét một tấm ảnh để thêm cả bộ thẻ. Ngày đầu tiên có 300 từ, sau đó mỗi ngày 50 từ vẫn miễn phí.
+
+--- zh-Hant ---
+課本拍一張，整頁單字就變成單字卡。AI自動補上意思、發音和例句。註冊第一天300個單字，之後每天50個也一直免費。

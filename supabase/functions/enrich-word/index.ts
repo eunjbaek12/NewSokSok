@@ -231,14 +231,17 @@ Deno.serve(async (req) => {
 
   // 한도 초과 + 자동완성 → 뜻만(basic).
   if (!quota.allowed) {
+    // 캐시에 뜻이 있으면 Vertex 를 안 부른다 = 이 응답의 원가가 0 이다. 아래 관측에서
+    // 「몇 번 나갔나」와 「그중 돈이 든 것은 몇 번인가」를 가르는 값이라 미리 뽑아 둔다.
+    const basicFromCache = !!cached?.result?.meaningKr;
     try {
       // 캐시에 뜻이 이미 있으면 그것을 깎아 쓴다 — full 캐시라도 뜻만 준다. 한도 초과
       // 사용자가 받는 것이 캐시 유무에 따라 달라지면 안 된다.
-      const basic = cached?.result?.meaningKr
+      const basic = basicFromCache
         ? {
             term: termKey, definition: '', exampleEn: '', exampleKr: '',
-            meaningKr: cached.result.meaningKr, pos: '', phonetic: '',
-            isReal: cached.result.isReal,
+            meaningKr: cached?.result?.meaningKr, pos: '', phonetic: '',
+            isReal: cached?.result?.isReal,
           }
         : await translateMeaningOnly(termKey, sourceLang, targetLang);
       if (!basic.meaningKr || basic.isReal === false) {
@@ -259,6 +262,15 @@ Deno.serve(async (req) => {
         });
         if (cacheErr) console.error('enrich_cache write failed', cacheErr);
       }
+      // 관측만 — 이 경로에는 아직 횟수 상한이 없다(docs/basic-fallback-cap-spec.md 0단계).
+      // consume_ai_quota 는 allowed=false 면 아무 행도 쓰지 않아 여기서 세지 않으면 기록이
+      // 전혀 남지 않는다. 응답을 막지 않도록 fire-and-forget.
+      //
+      // 뜻을 **실제로 내보낸** 자리에서만 센다. 위의 404(모르는 단어)·500(폭주)로 끝난
+      // 호출은 사용자가 아무것도 못 받았으므로 상한의 근거가 아니다 — 대신 그런 호출이
+      // Vertex 를 불렀다면 그 원가는 basic_miss_count 에 안 잡힌다(과소집계, 의도한 것).
+      svc.rpc('record_basic_serve', { p_user_id: userId, p_cached: basicFromCache })
+        .then(() => {}, (e: unknown) => console.error('record_basic_serve failed', e));
       return json(200, { result: basic, quota, cached: !!cached?.result, enrichment_level: 'basic' });
     } catch (e) {
       console.error('basic meaning failed', e);

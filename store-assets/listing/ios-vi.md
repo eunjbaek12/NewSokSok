@@ -187,7 +187,7 @@ Avocado là ứng dụng học từ vựng gọn gàng — bạn tự tạo bộ
 - Ngôn ngữ nhập và ngôn ngữ nghĩa ghép tự do (Hàn - Việt, Hàn - Anh, Anh - Trung...)
 
 • Giao diện theo ý bạn
-- Cổ điển, tối, Y2K, phòng thí nghiệm, biển mùa hè và nhiều chủ đề khác
+- Classic, Dark, Stationery, Lab, Summer Sea và nhiều chủ đề khác
 
 • Đồng bộ đám mây và ưu tiên ngoại tuyến
 - Dữ liệu được lưu vào máy trước, nên không có mạng vẫn học được

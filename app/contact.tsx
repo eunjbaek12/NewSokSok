@@ -18,9 +18,10 @@ import {
   Alert,
   ActivityIndicator,
   Switch,
-  KeyboardAvoidingView,
   Linking,
 } from 'react-native';
+import { KeyboardAvoidingView, useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -44,6 +45,7 @@ import {
   SUPPORT_CATEGORIES,
   SUPPORT_BODY_MIN,
   SUPPORT_BODY_MAX,
+  SUPPORT_EMAIL,
   type SupportCategory,
 } from '@/features/support';
 
@@ -57,10 +59,6 @@ const CATEGORY_ICONS: Record<SupportCategory, IoniconName> = {
   account: 'person-circle-outline',
   other: 'ellipsis-horizontal-circle-outline',
 };
-
-// 스토어 리스팅에 이미 공개된 주소다(개발자 연락처는 필수 항목). 전송이 실패했을
-// 때만 쓰는 폴백 경로라, 평소에는 사용자에게 노출되지 않는다.
-const SUPPORT_EMAIL = 'mtgirltreeguy@gmail.com';
 
 export default function ContactScreen() {
   const insets = useSafeAreaInsets();
@@ -175,6 +173,13 @@ export default function ContactScreen() {
     [locale],
   );
 
+  // 키보드가 떠 있는 동안은 아래 안전 영역(내비게이션 바·홈 인디케이터)을 키보드가 덮는다.
+  // 그 여백을 그대로 두면 버튼과 키보드 사이가 비어 뜬다(Galaxy S22 에서 60dp) — 키보드를 따라 줄인다.
+  const { progress: keyboardProgress } = useReanimatedKeyboardAnimation();
+  const footerInsetStyle = useAnimatedStyle(() => ({
+    paddingBottom: 12 + insets.bottom * (1 - keyboardProgress.value),
+  }));
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 8 }]}>
@@ -185,11 +190,11 @@ export default function ContactScreen() {
         <View style={styles.backBtn} />
       </View>
 
-      <KeyboardAvoidingView
-        style={styles.flex}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={insets.top + 44}
-      >
+      {/* 키보드가 뜨면 이 영역이 줄어 입력칸과 보내기 버튼이 키보드 위에 남는다.
+          RN 기본판은 Android 에 behavior 가 없어(undefined) 둘 다 키보드 밑에 깔렸다 — 앱이
+          edge-to-edge 라 창이 키보드만큼 줄지 않는다. keyboard-controller 판은 두 플랫폼이 같은 계산이다.
+          오프셋은 0: 이 뷰의 부모가 화면 맨 위에서 시작하고, 헤더 높이는 이미 이 뷰의 y 에 들어 있다. */}
+      <KeyboardAvoidingView style={styles.flex} behavior="padding">
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
@@ -212,6 +217,9 @@ export default function ContactScreen() {
                   {t('contact.myMessageLabel', { date: formatDate(replied.created_at) })}
                   {' · '}
                   {t(`contact.category.${replied.category}`)}
+                  {/* «단어·번역 오류 알리기»로 보낸 제보에 답장이 온 경우 — 어느 단어장 이야기였는지.
+                      답장 없는 제보는 조회 RPC 가 주지 않아 여기(와 «읽고 답장드릴게요» 카드)에 오지 않는다. */}
+                  {replied.theme_title ? ` · ${replied.theme_title}` : ''}
                 </Text>
                 <Text style={[styles.quotedText, { color: colors.textSecondary }]}>{replied.body}</Text>
               </View>
@@ -360,14 +368,11 @@ export default function ContactScreen() {
           <Text style={[styles.hint, { color: colors.textTertiary }]}>{t('contact.diagnosticsHint')}</Text>
         </ScrollView>
 
-        <View
+        <Animated.View
           style={[
             styles.footer,
-            {
-              backgroundColor: colors.background,
-              borderTopColor: colors.borderLight,
-              paddingBottom: insets.bottom + 12,
-            },
+            { backgroundColor: colors.background, borderTopColor: colors.borderLight },
+            footerInsetStyle,
           ]}
         >
           <Pressable
@@ -387,7 +392,7 @@ export default function ContactScreen() {
               {submitting ? t('contact.submitting') : t('contact.submit')}
             </Text>
           </Pressable>
-        </View>
+        </Animated.View>
       </KeyboardAvoidingView>
     </View>
   );

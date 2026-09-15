@@ -14,6 +14,11 @@ import * as Crypto from 'expo-crypto';
 import Constants from 'expo-constants';
 import { supabase } from '@/lib/supabase/client';
 import { getSecureString, setSecureString } from '@/lib/storage/secure-string';
+import { themeColumns, themeMailLines, type SupportTheme } from './deck-error';
+
+// 스토어 리스팅에 이미 공개된 주소다(개발자 연락처는 필수 항목). 전송이 실패했을
+// 때만 쓰는 폴백 경로라, 평소에는 사용자에게 노출되지 않는다.
+export const SUPPORT_EMAIL = 'mtgirltreeguy@gmail.com';
 
 const TICKET_KEY_STORE = 'soksok_support_ticket';
 const DEVICE_ID_STORE = 'soksok_support_device';
@@ -48,6 +53,12 @@ export interface SupportMessage {
   replied_at: string | null;
   read_at: string | null;
   created_at: string;
+  /**
+   * «단어·번역 오류 알리기»로 보낸 제보만 채워진다. 조회 RPC 는 답장이 온 제보만 주므로,
+   * 화면에 보이는 제보는 늘 답장이 달린 것이다. 칸이 생기기 전 서버는 이 키를 안 준다.
+   */
+  theme_id?: string | null;
+  theme_title?: string | null;
 }
 
 /** 하루 5건을 넘겼을 때. 화면이 "오늘은 여기까지 보낼 수 있어요"를 띄운다. */
@@ -116,6 +127,8 @@ export interface SendSupportInput {
    * 들어가 23505로 튕기므로 중복 문의가 생기지 않는다.
    */
   id?: string;
+  /** 공식 단어장 «단어·번역 오류 알리기»에서만 넘긴다. 본문이 아니라 따로 된 칸에 들어간다. */
+  theme?: SupportTheme | null;
 }
 
 /**
@@ -140,6 +153,8 @@ export async function sendSupportMessage(input: SendSupportInput): Promise<strin
     body: input.body.trim().slice(0, SUPPORT_BODY_MAX),
     reply_email: email ? email.slice(0, 254) : null,
     diagnostics: input.diagnostics ?? null,
+    // 제보일 때만 키가 생긴다 — 칸이 없는 서버에서도 평소 문의는 그대로 나간다.
+    ...themeColumns(input.theme),
   });
 
   if (error) {
@@ -179,8 +194,9 @@ export function buildSupportMailto(input: {
   subject: string;
   body: string;
   diagnostics?: SupportDiagnostics | null;
+  theme?: SupportTheme | null;
 }): string {
-  const lines = [input.body, ''];
+  const lines = [...themeMailLines(input.theme), input.body, ''];
   if (input.diagnostics) {
     const d = input.diagnostics;
     lines.push(

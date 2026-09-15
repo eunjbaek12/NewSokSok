@@ -259,6 +259,13 @@
     "deleteConfirmMessage": "Remove \"{{title}}\" from the community? Users who already imported it will keep their copy.",
     "deleteSuccess": "Collection deleted.",
     "deleteError": "An error occurred while deleting.",
+    "hideConfirmTitle": "Hide collection",
+    "hideConfirmMessage": "\"{{title}}\" will stop appearing in shared collections and its link will no longer open. Reports on it are marked as handled.",
+    "hideAction": "Hide",
+    "hideSuccess": "Hidden.",
+    "hideUndo": "Undo",
+    "unhideSuccess": "Visible again.",
+    "hideError": "Something went wrong.",
     "aiGenerateAction": "Generate",
     "aiGenerating": "Generating...",
     "aiGeneratingTitle": "Creating your words",
@@ -303,7 +310,17 @@
       "alreadyTitle": "Already reported",
       "alreadyMessage": "You've already reported this collection.",
       "failedMessage": "Couldn't submit your report. Please try again later."
-    }
+    },
+    "communityLoadFailed": "Couldn't load shared lists.",
+    "communityNoDeckForLang": "No shared lists for learning {{lang}} yet",
+    "communityOtherLangs": "Other languages: {{count}}",
+    "showAllLangs": "Show all",
+    "shareBoxTitle": "Share one of your lists",
+    "shareBoxBody": "Other learners can add it and start studying right away.",
+    "shareBoxGuestBody": "Connect with Google to post your lists here.",
+    "chooseListToShare": "Choose a list to share",
+    "noListToShare": "You don't have a list to share yet.",
+    "sharedByA11y": "Shared by {{name}}"
   },
   "settings": {
     "title": "Settings",
@@ -390,6 +407,15 @@
     "privacyDesc": "How we collect, use, and store your data",
     "licenses": "Open Source & Data Sources",
     "licensesDesc": "External data and open-source libraries used"
+  },
+  "deckError": {
+    "title": "Word or translation error",
+    "targetLabel": "List",
+    "question": "Which word is wrong, and how?",
+    "placeholder": "Write the word and what's wrong with it. If there are several, put them all in one message.",
+    "successTitle": "Thank you for letting us know",
+    "successMessage": "We'll check it and fix it.",
+    "mailSubject": "Avocado word or translation error"
   },
   "contact": {
     "title": "Contact us",
@@ -562,7 +588,7 @@
     "monthlyEquivalentSavings": "{{monthly}}/mo · save ~{{percent}}%",
     "proFeat1": "3,000 AI words/month · no daily limit",
     "proFeat2": "No ads",
-    "proFeat3": "All features",
+    "proFeat3": "No daily wall on photo scan or AI word generation",
     "subscribeCta": "Subscribe to Pro",
     "subscribeSubCta": "Coming soon",
     "subscribeYearlyCta": "Yearly · {{price}}",
@@ -621,6 +647,7 @@
     "rewardedBenefitBody": "Watch an ad to add {{amount}} AI completions and hide banner ads for 24 hours.",
     "rewardedExhausted": "You've used all rewarded-ad benefits available today. The view count resets at midnight KST.",
     "rewardedExhaustedProCta": "Upgrade to Pro",
+    "rewardedProLink": "Upgrade to Pro ›",
     "rewardedCta": "Watch ad for +{{amount}} words",
     "rewardedGrantedTitle": "+{{amount}} words added",
     "rewardedGrantedBody": "Your AI quota increased and banner ads are hidden for 24 hours.",
@@ -1473,7 +1500,7 @@
   "contextMenu": {
     "rename": "Rename",
     "sendToList": "Send to List",
-    "share": "Share List",
+    "share": "Post to Shared Lists",
     "hide": "Hide",
     "renameTitle": "Rename List",
     "listNameLabel": "List Name",
@@ -1495,7 +1522,7 @@
     "updateCompleteMessage": "The shared list has been updated.",
     "updateFailed": "Update Failed",
     "shareError": "An error occurred while sharing the list.",
-    "shareTitle": "Share List",
+    "shareTitle": "Post to Shared Lists",
     "sharePreviewWords": "{{count}} words",
     "sharePreviewLang": "{{source}} → {{target}}",
     "shareDescriptionPlaceholder": "Describe this list for other users (optional)",
@@ -1511,7 +1538,14 @@
     "exportFailedMessage": "Something went wrong while exporting the CSV.",
     "exportUnavailable": "File sharing is not available on this device.",
     "exportSavedTitle": "Saved",
-    "exportSavedMessage": "Saved {{name}} to the folder you chose."
+    "exportSavedMessage": "Saved {{name}} to the folder you chose.",
+    "sharePreviewLabel": "How it will appear",
+    "shareNicknameLabel": "Nickname shown when sharing",
+    "shareNicknameHint": "Saved as your nickname in Settings. Also used in the home greeting.",
+    "shareNicknamePending": "Set a nickname",
+    "shareLoginTitle": "Sign-in required",
+    "shareLoginMessage": "Connect with Google to post your lists to Shared Lists.",
+    "sendToFriend": "Send to a friend"
   },
   "manage": {
     "show": "Show list",
@@ -1875,5 +1909,40 @@
     "notFoundBody": "The AI didn't recognize these. Check the spelling.",
     "notFoundGroup": "{{count}} words the AI didn't recognize",
     "notFoundRow": "Tap to fix the spelling"
+  },
+  "sendToFriend": {
+    "title": "Send to a friend",
+    "previewLabel": "Here's what they'll see",
+    "nameLabel": "Your name",
+    "namePending": "Enter a name",
+    "expiryHint": "Your friend can open it for 30 days. After that it closes on its own.",
+    "confirm": "Send",
+    "shareMessage": "Avocado — \"{{title}}\"\n{{count}} words · open until {{date}}\n{{url}}",
+    "sentSnackbar": "📤 Shared · open until {{date}}",
+    "failedTitle": "Couldn't send",
+    "shareSheetFailedTitle": "Send this link",
+    "tooManyTitle": "You can send up to {{max}} words at once",
+    "tooManyMessage": "This list has {{count}} words.",
+    "tooManyConfirm": "Send first {{max}}"
+  },
+  "sharedDeck": {
+    "headerTitle": "Shared list",
+    "sentBy": "From {{name}}",
+    "wordCount": "{{count}} words",
+    "previewLabel": "Preview",
+    "moreWords": "+ {{count}} more",
+    "saveButton": "Save to my lists",
+    "alreadySavedOn": "You already saved this on {{date}}",
+    "alreadySaved": "You already saved this",
+    "openMyList": "Open my list",
+    "saveAnyway": "Save a new copy",
+    "langMismatch": "Meanings in this list are in {{deckLang}}. You're currently using {{myLang}}.",
+    "unavailableTitle": "Can't open this list",
+    "unavailableMessage": "The sharing period may have ended, or the link may have changed. Ask the sender to send it again.",
+    "errorTitle": "Couldn't load the list",
+    "errorMessage": "Check your connection and try again.",
+    "retry": "Try again",
+    "goHome": "Go home",
+    "saveFailed": "Couldn't save"
   }
 }

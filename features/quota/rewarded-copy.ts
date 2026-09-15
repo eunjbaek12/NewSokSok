@@ -20,6 +20,15 @@ export type RewardedCopy = {
   bodyKey: string;
   cta: 'watch' | 'pro' | 'none';
   icon: 'play-circle' | 'sparkles';
+  /**
+   * 광고 버튼 아래 한 줄 Pro 링크. 광고를 권하는 자리(`cta === 'watch'`)에서만 켠다.
+   *
+   * 🔑 예전에는 Pro 가 광고 2회를 다 본 뒤(`cta === 'pro'`)에만 나왔다. 2026-08-16~09-11
+   * 실측으로 한도 50 에 닿은 날이 12일인데 광고까지 다 쓴 날은 4일·1명이라, 벽에 있던
+   * Pro 버튼을 실제로 본 사람은 사실상 한 명이었다. 버튼이 아니라 링크인 것은 "뜻만 남은
+   * 단어 채우기" 배너의 선례를 따른다 — 주 경로는 여전히 광고다.
+   */
+  proLink: boolean;
 };
 
 export function pickRewardedCopy(
@@ -40,6 +49,7 @@ export function pickRewardedCopy(
       bodyKey: left != null && left >= 1 ? 'ads.rewardedGrantedBodyMore' : 'ads.rewardedGrantedBody',
       cta: 'none',
       icon: 'play-circle',
+      proLink: false,
     };
   }
 
@@ -50,13 +60,13 @@ export function pickRewardedCopy(
 
   if (quotaExhausted) {
     return exhausted
-      ? { titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedExhausted', cta: 'pro', icon: 'sparkles' }
-      : { titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedBody', cta: 'watch', icon: 'play-circle' };
+      ? { titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedExhausted', cta: 'pro', icon: 'sparkles', proLink: false }
+      : { titleKey: 'ads.rewardedTitle', bodyKey: 'ads.rewardedBody', cta: 'watch', icon: 'play-circle', proLink: true };
   }
 
   // 잔량이 0은 아니지만 요청한 개수에는 모자란 자리. 광고 보너스(+20×2)가 붙은 뒤
   // 20단어 생성을 시도하면 여기로 온다 — 제목이 "모두 사용했어요"면 거짓이 된다.
   return exhausted
-    ? { titleKey: 'ads.rewardedShortTitle', bodyKey: 'ads.rewardedExhausted', cta: 'pro', icon: 'sparkles' }
-    : { titleKey: 'ads.rewardedBenefitTitle', bodyKey: 'ads.rewardedBenefitBody', cta: 'watch', icon: 'play-circle' };
+    ? { titleKey: 'ads.rewardedShortTitle', bodyKey: 'ads.rewardedExhausted', cta: 'pro', icon: 'sparkles', proLink: false }
+    : { titleKey: 'ads.rewardedBenefitTitle', bodyKey: 'ads.rewardedBenefitBody', cta: 'watch', icon: 'play-circle', proLink: true };
 }

@@ -224,7 +224,7 @@ Avocado es una herramienta personal de vocabulario pensada para que cada rato li
 - Comparte las tuyas para echar una mano
 
 • Ponle tu estilo con los temas
-- Clásico, Oscuro, Y2K, Laboratorio, Mar de Verano y más
+- Clásico, Oscuro, Papelería, Laboratorio, Mar de Verano y más
 
 • Sin conexión primero, con copia en la nube
 - Tus datos viven en tu dispositivo: estudia sin internet

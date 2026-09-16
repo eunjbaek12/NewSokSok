@@ -75,7 +75,6 @@ export default function ReportCurationModal({ visible, onClose, themeId, themeTi
       visible={visible}
       onClose={handleClose}
       title={t('curation.report.title')}
-      avoidKeyboard
       // 🍎 iOS 는 포커스된 입력칸을 스스로 데려오지 않는다 — 창이 줄어든 뒤에도 스크롤은
       //    맨 위라 아래쪽 «추가 설명» 칸이 보이는 범위 밖에 남았다(실기 2026-09-16, iPhone).
       //    Android 는 ReactScrollView 가 이미 해 주므로 이 프로퍼티는 iOS 에서만 돈다.

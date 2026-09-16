@@ -19,6 +19,18 @@ interface DialogModalProps {
   maxWidth?: number;
   maxHeight?: string;
   variant?: Extract<ModalVariant, 'dialog' | 'settingsPanel' | 'formDialog'>;
+  /**
+   * 키보드가 뜨면 창을 그 위로 올린다. **기본은 켜짐.**
+   *
+   * 원래는 꺼짐이었고 호출부가 기억해서 켜야 했다. 입력칸이 있는 창 일곱 중 **넷**이
+   * 빠져 있었다 — 친구에게 보내기·설정 닉네임·단어장 이름 바꾸기·AI 단어 생성. 증상은
+   * 「누르면 키보드가 입력칸도 버튼도 덮는다」로 같았고, 빠뜨렸다는 사실은 화면을 직접
+   * 눌러보기 전엔 보이지 않았다(공유 창 2026-09-11, 신고 창 09-15, 친구에게 보내기 09-16
+   * — 전부 따로 제보됐다). 기억에 맡길 일이 아니라 기본값이 틀렸던 것이다.
+   *
+   * 입력칸이 없는 창은 키보드가 뜰 일이 없어 켜 두어도 아무 일도 하지 않는다. scrollable
+   * 이 같은 이유로 이미 기본 켜짐이다.
+   */
   avoidKeyboard?: boolean;
   /**
    * 본문 좌우 패딩. 헤더·푸터는 항상 이 패딩을 쓰므로 기본값이 true다 — 호출부가
@@ -61,7 +73,7 @@ export default function DialogModal({
   maxWidth,
   maxHeight,
   variant = 'dialog',
-  avoidKeyboard = false,
+  avoidKeyboard = true,
   bodyPadding = true,
   scrollBodyToEndOnKeyboard = false,
 }: DialogModalProps) {

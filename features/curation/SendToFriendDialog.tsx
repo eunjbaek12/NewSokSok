@@ -145,6 +145,9 @@ export default function SendToFriendDialog({ visible, list, onClose, onSent }: P
       onClose={onClose}
       title={t('sendToFriend.title')}
       scrollable={true}
+      // 🍎 미리보기 카드가 커서 키보드가 뜨면 본문이 넘친다 — 창이 올라와도 스크롤은 맨
+      //    위라 아래쪽 「보내는 이름」 칸이 보이는 범위 밖에 남는다. 공유 창과 같은 모양이다.
+      scrollBodyToEndOnKeyboard
       footer={
         <View style={styles.actions}>
           <Pressable

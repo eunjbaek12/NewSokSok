@@ -155,10 +155,6 @@ export default function ShareListDialog({ visible, list, onClose, onShare, onSha
       onClose={onClose}
       title={t('contextMenu.shareTitle')}
       scrollable={true}
-      // 🔴 없으면 설명 칸이 키보드에 통째로 가린다(실기 2026-09-11). 창이 화면 가운데
-      //    고정이라, 아래쪽 입력칸을 누르면 무엇을 쓰는지 안 보인 채로 입력하게 된다.
-      //    같은 폴더의 신고 창(ReportCurationModal)이 같은 이유로 이미 켜 두었다.
-      avoidKeyboard
       // 🍎 위 avoidKeyboard 로 창은 키보드 위로 올라오지만, 스크롤이 맨 위에 남아 아래쪽
       //    입력칸이 보이는 범위 밖에 있다. 신고 창(ReportCurationModal)과 같은 이유로 켠다.
       scrollBodyToEndOnKeyboard

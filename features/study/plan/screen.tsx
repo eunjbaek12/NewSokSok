@@ -10,7 +10,8 @@ import {
   ActivityIndicator,
   Platform,
 } from 'react-native';
-import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
+import { KeyboardAvoidingView, useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -149,6 +150,17 @@ export default function PlanScreen() {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
+
+  // 계획 시트의 아래 여백은 내비게이션 바·홈 인디케이터를 비키려고 insets.bottom 을 더한다. 키보드가
+  // 뜨면 그 자리를 키보드가 덮는데 여백은 그대로 남아, 시트가 그만큼 더 올라갔다 — Galaxy S22 에서
+  // 「계획 시작」과 키보드 사이가 72dp(= 48 + 24) 떴고, 원래 키가 큰 시트라 제목이 화면 위로 잘렸다.
+  // 1.6.3 부터 있던 결함이다. 문의하기 화면(ab0c510)과 같은 처방으로 키보드 진행도에 맞춰 줄인다.
+  // 🔴 조기 return(목록 없음) 앞에 둬야 한다 — 훅 순서.
+  const { progress: keyboardProgress } = useReanimatedKeyboardAnimation();
+  const sheetRestPadding = Math.max(40, insets.bottom + 24);
+  const sheetInsetStyle = useAnimatedStyle(() => ({
+    paddingBottom: sheetRestPadding + (24 - sheetRestPadding) * keyboardProgress.value,
+  }));
   const lists = useLists();
 
   const [setupModalVisible, setSetupModalVisible] = useState(false);
@@ -636,7 +648,7 @@ export default function PlanScreen() {
             style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]}
             onPress={handleCancelSetup}
           />
-          <View style={[styles.modalSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
+          <Animated.View style={[styles.modalSheet, { backgroundColor: colors.surface }, sheetInsetStyle]}>
             <View style={[styles.modalHandle, { backgroundColor: colors.border }]} />
 
             <Text style={[styles.modalTitle, { color: colors.text }]}>
@@ -754,7 +766,7 @@ export default function PlanScreen() {
                 )}
               </Pressable>
             </View>
-          </View>
+          </Animated.View>
         </KeyboardAvoidingView>
       </Modal>
     </View>

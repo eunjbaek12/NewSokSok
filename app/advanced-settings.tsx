@@ -150,7 +150,6 @@ export default function AdvancedSettingsScreen() {
         onClose={() => setApiKeyModalOpen(false)}
         title={t('settings.geminiApiKeyTitle')}
         scrollable={true}
-        avoidKeyboard
         footer={
           <View style={styles.modalActions}>
             <Pressable

@@ -893,6 +893,11 @@ export async function savePlan(
   filter: 'all' | 'unmemorized' | 'memorized' = 'all'
 ): Promise<void> {
   const db = await getDb();
+  // 덮어쓰기 전에 적어 둔다 — clearPlan 과 같은 이유다. 완주한 단어장에 새 계획을 세우면
+  // planStartedAt 이 바뀌어 그 완주의 근거가 사라진다. 평소엔 완주한 순간(updatePlanProgress)에
+  // 이미 적혀 PK 로 무시되지만, 다른 기기의 완주가 동기화로 들어온 줄은 다음 앱 시작의 백필
+  // 전까지 없다. 완주 상태가 아니면 SQL 의 WHERE 가 걸러 아무 일도 없다.
+  await recordCompletion(listId);
   const now = Date.now();
   await runInTransaction(async () => {
     await db.runAsync(

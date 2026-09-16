@@ -198,9 +198,12 @@ export default function PlanScreen() {
     }
   }, [planStatus, words.length, suggested]);
 
-  // Open setup modal when navigated with openSetup param (e.g., from 학습결과 modal)
+  // 설정 창을 바로 열고 들어오는 경로 둘. 값은 «취소했을 때 어디로 가는가»만 다르다(handleCancelSetup).
+  //   '1'    — 홈 학습결과 시트의 「새 계획 세우기」. 이 화면을 보려고 온 게 아니므로 취소하면 홈으로.
+  //   'stay' — 단어장 헤더의 「계획하기」(완주한 계획). 취소하면 이 화면에 남는다 — 완료 화면의
+  //            「전체 랜덤 복습」이 여기 말고는 닿을 곳이 없다.
   useEffect(() => {
-    if (openSetup === '1' && planStatus !== 'none' && !setupModalVisible) {
+    if (openSetup && planStatus !== 'none' && !setupModalVisible) {
       setWordsPerDayInput(String(suggested));
       setFilterMode('all');
       setSetupModalVisible(true);

@@ -99,7 +99,11 @@ export default function ListDetailScreen() {
     () => list ? computePlanStatus(list, allWords, Date.now()) : 'none',
     [list, allWords]
   );
-  const hasPlan = planStatus !== 'none';
+  // 완주한 계획은 «볼» 것이 없다 — 계획 화면이 Day 목록 대신 트로피만 그린다. 사용자에게 완주는
+  // 「끝났다」이므로 계획이 없는 단어장과 같은 말(계획하기)을 하고, 누르면 설정 창을 바로 연다.
+  // 헤더는 제목과 한 줄을 나눠 쓰므로 «새 계획 세우기» 같은 긴 문구는 제목을 깎는다 — 이미 모든
+  // 언어에서 들어간다고 검증된 planCreate 를 그대로 쓴다.
+  const showPlanCreate = planStatus === 'none' || planStatus === 'completed';
 
   // FAB 애니메이션 제어 (트리거 방식)
   const fabAnim = useRef(new Animated.Value(0)).current;
@@ -831,12 +835,16 @@ export default function ListDetailScreen() {
           )}
           {!editMode && (
             <Pressable
-              onPress={() => router.push({ pathname: '/plan/[id]', params: { id: id! } })}
+              onPress={() => router.push({
+                pathname: '/plan/[id]',
+                // 'none' 은 계획 화면이 스스로 설정 창을 연다. 완주는 파라미터로 열어 준다.
+                params: planStatus === 'completed' ? { id: id!, openSetup: 'stay' } : { id: id! },
+              })}
               hitSlop={12}
               style={{ marginLeft: 'auto' }}
             >
               <Text style={[styles.planHeaderBtn, { color: colors.primary }]}>
-                {hasPlan ? t('list.planView') : t('list.planCreate')}
+                {showPlanCreate ? t('list.planCreate') : t('list.planView')}
               </Text>
             </Pressable>
           )}

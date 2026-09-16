@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet, Keyboard, Platform } from 'react-native';
 import { ScrollView as GHScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@/features/theme';
@@ -32,6 +32,21 @@ interface DialogModalProps {
    * 하이라이트·구분선 등). 그때는 호출부가 안쪽 요소에 직접 패딩을 준다.
    */
   bodyPadding?: boolean;
+  /**
+   * 키보드가 올라오면 본문을 맨 아래로 굴린다. 기본은 꺼짐 — 켠 모달만 영향을 받는다.
+   *
+   * 🍎 iOS 에서만 돈다. Android 의 ReactScrollView 는 requestChildFocus 에서
+   *    scrollToChild(focused) 를 그대로 부르므로(ReactScrollView.java:427) 포커스가 간
+   *    입력칸을 이미 스스로 데려온다. iOS 의 RCTScrollView 엔 그에 해당하는 것이 없어서
+   *    같은 코드가 한쪽에서만 결함으로 보였다. Android 에서 또 굴리면 잘 되던 쪽을
+   *    더 거친 동작으로 덮어쓰게 된다.
+   *
+   * ⚠️ 켜도 되는 조건: 입력칸 **아래**에 남은 내용이 한 화면보다 짧을 것. 그래야 "맨
+   *    아래로"가 곧 "그 입력칸이 보이게"가 된다. 입력칸이 본문 맨 끝일 필요는 없다 —
+   *    공유 창의 닉네임 칸은 중간에 있지만 뒤가 짧아 같이 들어온다. 조건이 깨지면
+   *    조금 더 내려갈 뿐, 입력칸이 화면 밖으로 나가진 않는다.
+   */
+  scrollBodyToEndOnKeyboard?: boolean;
 }
 
 export default function DialogModal({
@@ -48,6 +63,7 @@ export default function DialogModal({
   variant = 'dialog',
   avoidKeyboard = false,
   bodyPadding = true,
+  scrollBodyToEndOnKeyboard = false,
 }: DialogModalProps) {
   const { colors } = useTheme();
   // 닫기 버튼에 스크린리더가 읽을 이름을 주려고 들여왔다. 이 컴포넌트가 화면에
@@ -56,9 +72,30 @@ export default function DialogModal({
   const h = compact ? PopupTokens.header.compact : PopupTokens.header.standard;
 
   const Body = scrollable ? (compact ? GHScrollView : ScrollView) : View;
+  const bodyRef = useRef<ScrollView>(null);
   const bodyProps = scrollable
-    ? { showsVerticalScrollIndicator: false, keyboardShouldPersistTaps: 'handled' as const }
+    ? { showsVerticalScrollIndicator: false, keyboardShouldPersistTaps: 'handled' as const, ref: bodyRef }
     : {};
+
+  // 키보드가 올라온 뒤 본문을 맨 아래로 굴린다(scrollBodyToEndOnKeyboard 를 켠 모달만).
+  //
+  // avoidKeyboard 는 키보드가 뜨면 창을 줄인다. 줄어드는 건 이 본문 스크롤 영역인데
+  // 스크롤 위치는 맨 위 그대로라, 아래쪽 입력칸이 보이는 범위 밖으로 밀려난다. 사용자가
+  // 손으로 내리면 되지만, 방금 누른 칸이 안 보이는 상태로 타이핑이 시작된다.
+  //
+  // 🔴 시점은 keyboardDidShow 여야 한다. 입력칸의 onFocus 시점엔 창이 아직 안 줄어서
+  //    본문이 넘치지 않고, 그때 부른 scrollToEnd 는 굴릴 데가 없어 아무 일도 안 한다.
+  //    한 프레임 더 미루는 것은 줄어든 크기가 네이티브에 반영된 뒤에 재도록 하기 위함이다
+  //    (scrollToEnd 는 호출 시점의 contentSize - frame 으로 계산한다).
+  //
+  // iOS 한정인 이유는 위 프로퍼티 주석 참고.
+  useEffect(() => {
+    if (!visible || !scrollable || !scrollBodyToEndOnKeyboard || Platform.OS !== 'ios') return;
+    const sub = Keyboard.addListener('keyboardDidShow', () => {
+      requestAnimationFrame(() => bodyRef.current?.scrollToEnd({ animated: true }));
+    });
+    return () => sub.remove();
+  }, [visible, scrollable, scrollBodyToEndOnKeyboard]);
 
   // 본문 스타일은 배열이 아니라 flatten한 단일 객체로 넘긴다.
   //

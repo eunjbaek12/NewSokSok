@@ -17,6 +17,7 @@ import { shuffleArray } from '../choices';
 import { useSettings } from '@/features/settings';
 import StudySettingsModal, { StudySettings } from '../components/StudySettingsModal';
 import { FontSize, FontWeight, Radius } from '@/constants/tokens';
+import { getStudySourceLang } from '@/constants/languages';
 import type { StudyResult, Word } from '@/lib/types';
 import {
   sheetReducer,
@@ -35,12 +36,12 @@ import {
   type SheetQuizType,
   type SheetRow,
 } from './sheet';
-import { AnswerKey, MarkIcon, type SheetColors as Colors } from './parts';
+import { AnswerKey, MarkIcon, fitWordProps, type SheetColors as Colors } from './parts';
 
 const QUIZ_TYPES: readonly SheetQuizType[] = ['meaning-to-term', 'term-to-meaning', 'mixed'];
 
 // 풀 때 줄을 옮겨 가며 적으므로 자동 고침·추천이 철자를 대신 알려 주면 안 된다(D10).
-// 🔴 안드로이드 추천 줄은 키보드 앱마다 달라 이것만으로 안 꺼질 수 있다 — 실기로 확인(스펙 §5).
+// 🔴 안드로이드에서는 이것만으로 추천 줄이 안 꺼진다 — 아래 noSuggestionKeyboard 참고.
 const ANSWER_INPUT_PROPS = {
   autoCorrect: false,
   spellCheck: false,
@@ -54,6 +55,20 @@ const ANSWER_INPUT_PROPS = {
  * FlatList 로 가상화하되, 스크롤 뷰만 keyboard-controller 판으로 바꾼다 — 포커스가 옮겨 가면
  * 그 줄이 키보드 위로 오도록 알아서 굴린다.
  */
+/**
+ * 🔴 삼성 키보드는 autoCorrect={false}(= TYPE_TEXT_FLAG_NO_SUGGESTIONS)를 무시하고 추천 줄을 띄운다.
+ *    실기(Galaxy S22, 9/17): «무의미한 의료» 줄에 futil 까지 치자 추천 줄에 **futility — 정답**이 떴다.
+ *    추천을 확실히 끄는 건 비밀번호 칸(visible-password)뿐인데, 그 키보드는 한글·가나 입력을 막는다.
+ *    그래서 **영어 단어를 적는 줄(뜻→단어 · 출발어 en)에만** 쓴다. 단어→뜻 줄과 다른 언어는 추천이
+ *    남는다 — 입력을 막는 것보다 낫다. iOS 는 autoCorrect·spellCheck 로 꺼진다.
+ * ⚠️ «섞기»에서는 비밀번호형 칸과 보통 칸이 한 화면에 섞여, 삼성 키보드가 보통 칸(단어→뜻)에
+ *    «삼성 패스로 더 빠르게 로그인하세요»를 띄운다. 글자를 치면 사라지고 입력은 막지 않는다.
+ *    importantForAutofill="noExcludeDescendants" 로는 안 꺼졌다(키보드 쪽 판단) — 답이 새는 것보다 낫다고 두었다.
+ */
+function noSuggestionKeyboard(direction: SheetRow['direction'], sourceLang: string | undefined): boolean {
+  return Platform.OS === 'android' && direction === 'meaning-to-term' && sourceLang === 'en';
+}
+
 const renderKeyboardAwareScroll = (props: ScrollViewProps) => (
   <KeyboardAwareScrollView {...props} bottomOffset={24} />
 );
@@ -356,6 +371,7 @@ export default function TestSheetScreen() {
             number={numberOf(item, index)}
             graded={graded}
             showPos={!!settings.showPos}
+            noSuggestions={noSuggestionKeyboard(item.direction, getStudySourceLang(item.word, list))}
             focused={focusedIndex === index}
             isLast={index === session.rows.length - 1}
             defaultTyped={typedRef.current[index] ?? ''}
@@ -417,6 +433,7 @@ interface SheetRowViewProps {
   number: number;
   graded: boolean;
   showPos: boolean;
+  noSuggestions: boolean;
   focused: boolean;
   isLast: boolean;
   defaultTyped: string;
@@ -432,7 +449,7 @@ interface SheetRowViewProps {
 }
 
 function SheetRowView({
-  row, number, graded, showPos, focused, isLast, defaultTyped, colors, t,
+  row, number, graded, showPos, noSuggestions, focused, isLast, defaultTyped, colors, t,
   inputRef, onChangeText, onFocus, onBlur, onSubmit, onMark, onFix,
 }: SheetRowViewProps) {
   const prompt = promptOf(row);
@@ -445,7 +462,7 @@ function SheetRowView({
       <Text style={[styles.num, styles.numCol, { color: colors.textTertiary }]}>{number}</Text>
 
       <View style={styles.promptCol}>
-        <Text style={[isTermPrompt ? styles.promptTerm : styles.promptMeaning, { color: colors.text }]}>{prompt}</Text>
+        <Text {...fitWordProps(prompt)} style={[isTermPrompt ? styles.promptTerm : styles.promptMeaning, { color: colors.text }]}>{prompt}</Text>
         {showPos && !!row.word.pos && (
           <Text style={[styles.pos, { color: colors.textTertiary }]}>{row.word.pos}</Text>
         )}
@@ -456,6 +473,7 @@ function SheetRowView({
           <TextInput
             ref={inputRef}
             {...ANSWER_INPUT_PROPS}
+            keyboardType={noSuggestions ? 'visible-password' : 'default'}
             defaultValue={defaultTyped}
             onChangeText={onChangeText}
             onFocus={onFocus}
@@ -507,7 +525,7 @@ function GradedAnswer({ row, answer, colors, t, onMark, onFix }: {
     return (
       <View style={styles.answerStack}>
         <Text style={[styles.blank, { color: colors.textTertiary }]}>{t('testSheet.notWritten')}</Text>
-        <Text style={[styles.rightAnswer, { color: colors.text }]}>{answer}</Text>
+        <Text {...fitWordProps(answer)} style={[styles.rightAnswer, { color: colors.text }]}>{answer}</Text>
         <MarkChoice mark={row.mark} colors={colors} t={t} onMark={onMark} />
       </View>
     );
@@ -516,13 +534,13 @@ function GradedAnswer({ row, answer, colors, t, onMark, onFix }: {
   // 뜻→단어, 앱이 매긴 줄
   if (row.method === 'auto' || row.method === 'fixed') {
     if (row.method === 'auto' && row.mark === 'ok') {
-      return <Text style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>;
+      return <Text {...fitWordProps(row.typed)} style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>;
     }
     if (row.method === 'auto') {
       return (
         <View style={styles.answerStack}>
-          <Text style={[styles.wrongTyped, { color: colors.warning }]}>{row.typed}</Text>
-          <Text style={[styles.rightAnswer, { color: colors.text }]}>{answer}</Text>
+          <Text {...fitWordProps(row.typed)} style={[styles.wrongTyped, { color: colors.warning }]}>{row.typed}</Text>
+          <Text {...fitWordProps(answer)} style={[styles.rightAnswer, { color: colors.text }]}>{answer}</Text>
           <Pressable accessibilityRole="button" onPress={onFix} hitSlop={12} style={styles.fixBtn}>
             <Text style={[styles.fixText, { color: colors.primary }]}>{t('testSheet.fixCorrect')}</Text>
           </Pressable>
@@ -531,7 +549,7 @@ function GradedAnswer({ row, answer, colors, t, onMark, onFix }: {
     }
     return (
       <View style={styles.answerStack}>
-        <Text style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>
+        <Text {...fitWordProps(row.typed)} style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>
         <AnswerKey answer={answer} colors={colors} t={t} />
         <Pressable accessibilityRole="button" onPress={onFix} hitSlop={12} style={styles.fixBtn}>
           <Text style={[styles.fixText, { color: colors.textSecondary }]}>{t('testSheet.undoFix')}</Text>
@@ -544,7 +562,7 @@ function GradedAnswer({ row, answer, colors, t, onMark, onFix }: {
   const sameAsAnswer = normalizeAnswer(row.typed) === normalizeAnswer(answer);
   return (
     <View style={styles.answerStack}>
-      <Text style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>
+      <Text {...fitWordProps(row.typed)} style={[typedStyle, { color: colors.text }]}>{row.typed}</Text>
       {!sameAsAnswer && <AnswerKey answer={answer} colors={colors} t={t} />}
       {row.method === 'self' && <MarkChoice mark={row.mark} colors={colors} t={t} onMark={onMark} />}
     </View>

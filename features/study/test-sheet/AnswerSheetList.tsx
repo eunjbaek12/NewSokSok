@@ -8,7 +8,7 @@ import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getSpeakableText, getStudySourceLang, getTtsLang } from '@/constants/languages';
 import { FontSize, FontWeight, Radius } from '@/constants/tokens';
 import { buildAnswerSheet, answerOf, promptOf, normalizeAnswer, wrongCount, type SheetRow, type AnswerSheetItem } from './sheet';
-import { AnswerKey, MarkIcon } from './parts';
+import { AnswerKey, MarkIcon, fitWordProps } from './parts';
 
 interface Summary {
   accuracy: number;
@@ -131,13 +131,13 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
     return (
       <View style={[styles.row, { borderBottomColor: colors.borderLight }]}>
         <Text style={[styles.num, { color: colors.textTertiary }]}>{n}</Text>
-        <Text style={[styles.prompt, isTermPrompt ? styles.promptTerm : styles.promptMeaning, { color: colors.text }]}>
+        <Text {...fitWordProps(promptOf(row))} style={[styles.prompt, isTermPrompt ? styles.promptTerm : styles.promptMeaning, { color: colors.text }]}>
           {promptOf(row)}
         </Text>
         <View style={styles.answer}>
           {row.mark === 'ok' ? (
             <>
-              <Text style={[blank ? styles.blank : styles.typed, { color: blank ? colors.textTertiary : colors.text }]}>
+              <Text {...(blank ? {} : fitWordProps(row.typed))} style={[blank ? styles.blank : styles.typed, { color: blank ? colors.textTertiary : colors.text }]}>
                 {blank ? t('testSheet.notWritten') : row.typed}
               </Text>
               {!exact && <AnswerKey answer={answer} colors={colors} t={t} />}
@@ -147,9 +147,9 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
               {blank ? (
                 <Text style={[styles.blank, { color: colors.textTertiary }]}>{t('testSheet.notWritten')}</Text>
               ) : (
-                <Text style={[styles.wrongTyped, { color: colors.warning }]}>{row.typed}</Text>
+                <Text {...fitWordProps(row.typed)} style={[styles.wrongTyped, { color: colors.warning }]}>{row.typed}</Text>
               )}
-              <Text style={[styles.typed, { color: colors.text }]}>{answer}</Text>
+              <Text {...fitWordProps(answer)} style={[styles.typed, { color: colors.text }]}>{answer}</Text>
             </>
           )}
         </View>
@@ -177,7 +177,10 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
       renderItem={renderItem}
       stickyHeaderIndices={showFilter ? [1] : undefined}
       initialNumToRender={20}
-      contentContainerStyle={{ paddingTop, paddingBottom }}
+      // 위 여백은 목록 «바깥»에 둔다. contentContainer 에 주면 목록이 화면 맨 위에서 시작해,
+      // 위에 붙는 전환 줄이 상태 표시줄(시계) 밑까지 올라가 겹친다(실기 9/17).
+      style={{ marginTop: paddingTop }}
+      contentContainerStyle={{ paddingBottom }}
     />
   );
 }

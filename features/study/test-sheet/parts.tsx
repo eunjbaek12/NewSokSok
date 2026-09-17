@@ -11,6 +11,19 @@ import type { SheetMark } from './sheet';
 
 export type SheetColors = ReturnType<typeof useTheme>['colors'];
 
+/**
+ * 띄어쓰기 없는 한 낱말은 한 줄에 두고 글자를 줄여 맞춘다.
+ *
+ * 🔴 실기(Galaxy S22, 9/17): 답 칸이 약 111dp 라 «prognostication» 이 «prognosticatio / n» 으로
+ *    **낱말 한가운데서** 끊겼다. 띄어쓰기가 없으면 줄을 바꿀 자리가 없어 글자 단위로 자르기 때문이다.
+ *    띄어쓰기가 있는 구(«palliative care»)는 그 자리에서 줄을 바꾸는 게 자연스러우니 그대로 둔다.
+ */
+export function fitWordProps(text: string) {
+  return /\s/.test(text.trim())
+    ? {}
+    : { numberOfLines: 1, adjustsFontSizeToFit: true, minimumFontScale: 0.6 } as const;
+}
+
 /** «정답  빌리다» — 적은 답이 맞았지만 정답과 글자가 다를 때 옆에 적어 준다. */
 export function AnswerKey({ answer, colors, t }: { answer: string; colors: SheetColors; t: TFunction }) {
   return (

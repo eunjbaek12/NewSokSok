@@ -42,6 +42,9 @@ export default function WordNotificationSourceScreen() {
   const { list: current, auto } = resolveSourceList(lists, settings.listId);
   // 고른 단어장이 숨김·삭제돼 «자동»으로 떨어졌으면 라디오도 «자동»에 둔다.
   const selectedId = auto ? null : current?.id ?? null;
+  // «자동» 줄의 «지금: …»은 지금 고른 값과 무관하게 «자동이면 무엇이 나올지»를 말한다 —
+  // 다른 단어장을 고른 동안 이 줄이 비면 «자동»이 무엇을 뜻하는지 알 길이 없다.
+  const autoPick = auto ? current : resolveSourceList(lists, null).list;
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
 
@@ -101,7 +104,7 @@ export default function WordNotificationSourceScreen() {
           {radioRow(
             'auto',
             t('wordNotif.auto'),
-            auto && current ? t('wordNotif.autoSub', { name: current.title }) : t('wordNotif.autoSubNone'),
+            autoPick ? t('wordNotif.autoSub', { name: autoPick.title }) : t('wordNotif.autoSubNone'),
             selectedId === null,
             false,
             () => { void updateWordNotificationSettings({ listId: null }); },

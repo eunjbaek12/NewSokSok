@@ -35,6 +35,10 @@ const REVIEW_PROMPT_DELAY_MS = 1500;
 // 맞췄다(배너를 보는 사용자 기준으론 10dp 높은데 눈에 띄는 차이는 아니다).
 // 예전 값 20은 학습 화면보다 60dp 넘게 낮아, 학습을 마치는 순간 버튼이 뚝 떨어져 보였다.
 const BOTTOM_BAR_OFFSET = 88;
+// 시험지 결과는 같은 원칙으로 **시험지 화면**의 [결과 보기]에 맞춘다 — 그 버튼 아래 끝이
+// insets.bottom + (adsBottomInset || 36) 이다(features/study/test-sheet/screen.tsx).
+// 88 을 그대로 쓰면 버튼 묶음 밑이 비어 답안지가 첫 화면에 네 줄뿐이었다(실기 9/17, 시험지 스펙 D18).
+const TEST_SHEET_BOTTOM_BAR_OFFSET = 36;
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
@@ -276,7 +280,7 @@ export default function StudyResultsScreen() {
 
       <View
         onLayout={e => setBottomBarHeight(e.nativeEvent.layout.height)}
-        style={[styles.bottomBar, { paddingBottom: insets.bottom + BOTTOM_BAR_OFFSET, backgroundColor: colors.background }]}
+        style={[styles.bottomBar, { paddingBottom: insets.bottom + (showAnswerSheet ? TEST_SHEET_BOTTOM_BAR_OFFSET : BOTTOM_BAR_OFFSET), backgroundColor: colors.background }]}
       >
         <View style={styles.retryGroup}>
           <Pressable

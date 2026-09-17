@@ -11,6 +11,7 @@ import {
   canRetryWrong,
   collectResults,
   buildAnswerSheet,
+  noSuggestionKeyboard,
   EMPTY_SESSION,
   type SheetRow,
   type SheetSession,
@@ -144,6 +145,27 @@ describe('assignDirections', () => {
     // random 이 늘 0 이면 Fisher–Yates 는 매번 0번과 바꾼다 — 첫 줄이 뒤쪽 방향으로 온다.
     const dirs = assignDirections(4, 'mixed', () => 0);
     expect(dirs).not.toEqual(['term-to-meaning', 'term-to-meaning', 'meaning-to-term', 'meaning-to-term']);
+  });
+});
+
+// ─── 키보드 (D10 · §5.3) ──────────────────────────────────────────────────────
+
+describe('noSuggestionKeyboard', () => {
+  it('안드로이드 뜻→단어 줄, 출발어 en·es 에만 추천 줄을 끄는 키보드', () => {
+    expect(noSuggestionKeyboard('android', 'meaning-to-term', 'en')).toBe(true);
+    expect(noSuggestionKeyboard('android', 'meaning-to-term', 'es')).toBe(true);
+  });
+
+  it('ko 는 넣지 않는다 — Gboard 비밀번호형 칸은 한글을 못 친다', () => {
+    expect(noSuggestionKeyboard('android', 'meaning-to-term', 'ko')).toBe(false);
+  });
+
+  it('조합해 치는 언어·출발어 모름·단어→뜻 줄·iOS 는 보통 키보드', () => {
+    for (const lang of ['vi', 'ja', 'zh', undefined]) {
+      expect(noSuggestionKeyboard('android', 'meaning-to-term', lang)).toBe(false);
+    }
+    expect(noSuggestionKeyboard('android', 'term-to-meaning', 'en')).toBe(false);
+    expect(noSuggestionKeyboard('ios', 'meaning-to-term', 'en')).toBe(false);
   });
 });
 

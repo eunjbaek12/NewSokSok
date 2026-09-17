@@ -102,6 +102,33 @@ export const pendingCount = (rows: readonly SheetRow[]) => rows.filter(r => r.ma
 export const wrongCount = (rows: readonly SheetRow[]) => rows.filter(isWrong).length;
 export const okCount = (rows: readonly SheetRow[]) => rows.filter(isOk).length;
 
+// ─── 키보드 ───────────────────────────────────────────────────────────────────
+
+/**
+ * 답 칸에 추천 줄을 끄는 키보드(비밀번호형 `visible-password`)를 쓸까(D10 · §5.3).
+ *
+ * 🔴 안드로이드 키보드는 autoCorrect={false}(= TYPE_TEXT_FLAG_NO_SUGGESTIONS)를 무시하고 추천을 띄운다.
+ *    실기(Galaxy S22 삼성 키보드, 9/17): «무의미한 의료»에 futil 까지 치자 추천 줄에 **futility — 정답**.
+ *    확실히 끄는 건 비밀번호형 칸뿐이다. iOS 는 autoCorrect·spellCheck 로 꺼져 쓰지 않는다.
+ *
+ * 쓰는 곳은 **뜻→단어 줄 중 출발어가 en·es** 뿐이다. 기준은 «막혔을 때도 답을 적을 수 있는가»:
+ * - en·es — 로마자라 조합 없이 친다. 악센트(ó·ñ)도 길게 누르기로 삼성·Gboard 둘 다 된다(실기).
+ *   막혀도 악센트 없이 적고 «맞게 썼어요»로 넘어갈 길이 있다.
+ * - ko — 🔴 추천 줄에 정답이 그대로 뜨지만(«교사로»→«교사로서») 넣지 않는다. 삼성 키보드는 비밀번호형
+ *   칸에서도 한글이 쳐지는데, **Gboard 는 영어 자판으로 고정돼 한국어로 못 바꾼다**(실기) — 답을 적을 수가 없다.
+ * - vi·ja·zh — 키보드가 성조·가나·한자를 조합해 치는 언어라 막힐 위험이 크다(실기 못 함).
+ * - 단어→뜻 줄 — 뜻은 대개 한국어라 위 ko 와 같다.
+ *
+ * ⚠️ «섞기»에서는 비밀번호형 칸과 보통 칸이 한 화면에 섞여, 삼성 키보드가 보통 칸에
+ *    «삼성 패스로 더 빠르게 로그인하세요»를 띄운다. 글자를 치면 사라지고 입력은 막지 않는다.
+ *    importantForAutofill="noExcludeDescendants" 로는 안 꺼졌다(키보드 쪽 판단) — 답이 새는 것보다 낫다고 두었다.
+ */
+const NO_SUGGESTION_SOURCE_LANGS: ReadonlySet<string> = new Set(['en', 'es']);
+
+export function noSuggestionKeyboard(os: string, direction: SheetDirection, sourceLang: string | undefined): boolean {
+  return os === 'android' && direction === 'meaning-to-term' && !!sourceLang && NO_SUGGESTION_SOURCE_LANGS.has(sourceLang);
+}
+
 // ─── 방향 ─────────────────────────────────────────────────────────────────────
 
 /**

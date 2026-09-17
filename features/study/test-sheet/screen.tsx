@@ -32,6 +32,7 @@ import {
   promptOf,
   answerOf,
   normalizeAnswer,
+  noSuggestionKeyboard,
   type SheetMark,
   type SheetQuizType,
   type SheetRow,
@@ -41,7 +42,7 @@ import { AnswerKey, MarkIcon, fitWordProps, type SheetColors as Colors } from '.
 const QUIZ_TYPES: readonly SheetQuizType[] = ['meaning-to-term', 'term-to-meaning', 'mixed'];
 
 // 풀 때 줄을 옮겨 가며 적으므로 자동 고침·추천이 철자를 대신 알려 주면 안 된다(D10).
-// 🔴 안드로이드에서는 이것만으로 추천 줄이 안 꺼진다 — 아래 noSuggestionKeyboard 참고.
+// 🔴 안드로이드에서는 이것만으로 추천 줄이 안 꺼진다 — sheet.ts 의 noSuggestionKeyboard 참고.
 const ANSWER_INPUT_PROPS = {
   autoCorrect: false,
   spellCheck: false,
@@ -55,19 +56,6 @@ const ANSWER_INPUT_PROPS = {
  * FlatList 로 가상화하되, 스크롤 뷰만 keyboard-controller 판으로 바꾼다 — 포커스가 옮겨 가면
  * 그 줄이 키보드 위로 오도록 알아서 굴린다.
  */
-/**
- * 🔴 삼성 키보드는 autoCorrect={false}(= TYPE_TEXT_FLAG_NO_SUGGESTIONS)를 무시하고 추천 줄을 띄운다.
- *    실기(Galaxy S22, 9/17): «무의미한 의료» 줄에 futil 까지 치자 추천 줄에 **futility — 정답**이 떴다.
- *    추천을 확실히 끄는 건 비밀번호 칸(visible-password)뿐인데, 그 키보드는 한글·가나 입력을 막는다.
- *    그래서 **영어 단어를 적는 줄(뜻→단어 · 출발어 en)에만** 쓴다. 단어→뜻 줄과 다른 언어는 추천이
- *    남는다 — 입력을 막는 것보다 낫다. iOS 는 autoCorrect·spellCheck 로 꺼진다.
- * ⚠️ «섞기»에서는 비밀번호형 칸과 보통 칸이 한 화면에 섞여, 삼성 키보드가 보통 칸(단어→뜻)에
- *    «삼성 패스로 더 빠르게 로그인하세요»를 띄운다. 글자를 치면 사라지고 입력은 막지 않는다.
- *    importantForAutofill="noExcludeDescendants" 로는 안 꺼졌다(키보드 쪽 판단) — 답이 새는 것보다 낫다고 두었다.
- */
-function noSuggestionKeyboard(direction: SheetRow['direction'], sourceLang: string | undefined): boolean {
-  return Platform.OS === 'android' && direction === 'meaning-to-term' && sourceLang === 'en';
-}
 
 const renderKeyboardAwareScroll = (props: ScrollViewProps) => (
   <KeyboardAwareScrollView {...props} bottomOffset={24} />
@@ -371,7 +359,7 @@ export default function TestSheetScreen() {
             number={numberOf(item, index)}
             graded={graded}
             showPos={!!settings.showPos}
-            noSuggestions={noSuggestionKeyboard(item.direction, getStudySourceLang(item.word, list))}
+            noSuggestions={noSuggestionKeyboard(Platform.OS, item.direction, getStudySourceLang(item.word, list))}
             focused={focusedIndex === index}
             isLast={index === session.rows.length - 1}
             defaultTyped={typedRef.current[index] ?? ''}

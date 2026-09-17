@@ -37,9 +37,9 @@ headerTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', letterSpacing: -0
 - **골라서 학습(`app/search-modal.tsx`)이 이 계열이다.** 아래에서 올라오지만 제목이 이미
   18 Bold라 변경이 가장 작고, 닫기라서 아이콘만 `close`를 쓴다
 
-### 1.2 학습 · 상세 계열 (6곳)
+### 1.2 학습 · 상세 계열 (7곳)
 
-`flashcards` · `quiz` · `examples` · `autoplay` · `plan` · `list/[id]`
+`flashcards` · `quiz` · `test-sheet` · `examples` · `autoplay` · `plan` · `list/[id]`
 
 ```
 const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -157,8 +157,12 @@ filterChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' }
 **아이콘 + 제목 버튼 행**을 쓴다. 누르면 곧바로 시작한다.
 
 ```
-[ 🃏 카드 학습 ]  [ ❓ 퀴즈 ]  [ 💬 예문 ]  [ ▶ 오토플레이 ]
+[ 🃏 카드 학습 ]  [ ❓ 퀴즈 ]  [ 📄 시험지 ]  [ 💬 예문 ]  [ ▶ 오토플레이 ]
 ```
+
+- **시험지는 퀴즈 바로 뒤**다 — 고르는 시험과 쓰는 시험이 나란히 있어야 차이가 보인다
+  (`docs/test-sheet-spec.md` D3). 퀴즈 아이콘은 세 곳 모두 **물음표**다. 연필은 «쓰기»로
+  읽혀 시험지(`document-text-outline`)와 헷갈린다
 
 - 아이콘 22 + 제목만. **부가 설명을 붙이지 않는다**
 - 색은 조용하게(`colors.textTertiary` 계열). 이건 목적지 선택이지 강조 대상이 아니다
@@ -169,14 +173,15 @@ filterChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' }
 세그먼트 + 시작 버튼 조합은 쓰지 않는다.
 
 > **`sel` 지원 현황** — 골라낸 단어 목록을 넘기려면 라우트가 `sel`을 받아야 한다.
-> `flashcards` · `quiz` · `examples`는 받고, **`autoplay`는 받지 않는다**
+> `flashcards` · `quiz` · `test-sheet` · `examples`는 받고, **`autoplay`는 받지 않는다**
 > (`features/study/autoplay/screen.tsx:35`). 오토플레이를 붙이려면 그 지원이 먼저다.
 
 ---
 
 ## 4. 단어를 그리는 행
 
-**세 종**만 둔다. 지금 여덟 곳에서 여섯 종이 쓰이지만 실제 역할은 셋뿐이다.
+**네 종**만 둔다. 여덟 곳에서 여섯 종이 쓰이던 것을 역할대로 셋으로 묶었고, 시험지가
+«답을 적는 행»이라는 네 번째 역할을 더했다.
 
 ### 4.1 인터랙티브 행 — 단어장 상세 · 골라서 학습
 
@@ -200,6 +205,21 @@ filterChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' }
 ### 4.3 편집 행 — 일괄추가 · 사진 스캔
 
 `TextInput` 두 칸 + 제거 버튼.
+
+### 4.4 답 적는 행 — 시험지
+
+```
+ 1   빌리다                 borrow__________
+ 2   곧, 얼마 안 있어       ________________
+```
+
+- 번호(폭 18) · 문제(`flex: 1.3`) · 답 칸(`flex: 1`) · 채점 표시(폭 24). 줄 높이 최소 58
+- 답 칸은 **밑줄**(`borderBottomWidth: 1.5` `colors.border`, 포커스면 2 `colors.primary`). 상자로
+  두르면 열 줄이 칸으로 가득 찬다
+- 문제가 뜻이면 15 medium, 단어면 16 semibold — «섞기»에서 줄마다 무엇을 적을지가 모양으로 보인다
+- 채점 뒤 같은 자리에: 맞음 청록 ○(`primary`) · 틀림 주황 ✕(`warning`) · 적은 답에 취소선 +
+  정답. ○·✕를 기다리는 줄은 `colors.surface` 면
+- 결과 화면 답안지는 같은 행에 스피커를 더한다. 풀 때는 스피커를 두지 않는다 — 발음이 답을 흘린다
 
 ---
 

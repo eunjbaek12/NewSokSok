@@ -195,7 +195,7 @@ describe('sheetReducer', () => {
     expect(sheetReducer(s, { type: 'fix', index: 2 })).toBe(s);
   });
 
-  it('틀린 것만 다시 풀기는 기록에 들어가지 않는다', () => {
+  it('다시 풀어 맞힌 줄은 «외웠어요»로 기록된다 — 처음 적은 답과 ✕는 답안지용으로 남고', () => {
     let s = sheetReducer(start(), { type: 'grade', typed: ['borow', 'decide', 'atend'] });
     expect(canRetryWrong(s)).toBe(true);
 
@@ -203,12 +203,55 @@ describe('sheetReducer', () => {
     expect(s).toMatchObject({ phase: 'solving', retry: true });
     expect(s.rows.map(r => r.word.term)).toEqual(['borrow', 'attend']);
     expect(s.rows.every(r => r.typed === '' && r.mark === null)).toBe(true);
+    // 채점 전에는 아직 아무것도 안 바뀐다
+    expect(s.records[0].some(r => r.retriedOk)).toBe(false);
 
-    // 이번엔 다 맞혀도 처음 채점이 남는다
-    s = sheetReducer(s, { type: 'grade', typed: ['borrow', 'attend'] });
-    expect(s.rows.map(r => r.mark)).toEqual(['ok', 'ok']);
-    expect(s.records[0].map(r => r.mark)).toEqual(['no', 'ok', 'no']);
-    expect(collectResults(s.records).map(r => r.gotIt)).toEqual([false, true, false]);
+    s = sheetReducer(s, { type: 'grade', typed: ['borrow', 'atend'] });
+    expect(s.rows.map(r => r.mark)).toEqual(['ok', 'no']);
+    expect(s.records[0].map(r => [r.typed, r.mark, !!r.retriedOk])).toEqual([
+      ['borow', 'no', true],
+      ['decide', 'ok', false],
+      ['atend', 'no', false],
+    ]);
+    const results = collectResults(s.records);
+    expect(results.map(r => [r.word.term, r.gotIt, !!r.lapsed])).toEqual([
+      ['borrow', true, true],
+      ['decide', true, false],
+      ['attend', false, false],
+    ]);
+  });
+
+  it('다시 풀기에서 ○를 ✕로 바꾸면 기록도 틀림으로 돌아간다', () => {
+    let s = sheetReducer(start(), { type: 'grade', typed: ['borow', 'decide', 'attend'] });
+    s = sheetReducer(s, { type: 'retryWrong' });
+    s = sheetReducer(s, { type: 'grade', typed: ['borrow'] });
+    expect(s.records[0][0].retriedOk).toBe(true);
+
+    s = sheetReducer(s, { type: 'mark', index: 0, mark: 'no' });
+    expect(s.records[0][0]).toMatchObject({ mark: 'no', typed: 'borow' });
+    expect(s.records[0][0].retriedOk).toBeUndefined();
+    expect(collectResults(s.records)[0]).toEqual({ word: s.records[0][0].word, gotIt: false });
+  });
+
+  it('두 번째 다시 풀기에서 맞혀도 기록된다 — 첫 번째에서 맞힌 줄은 그대로', () => {
+    let s = sheetReducer(start(), { type: 'grade', typed: ['borow', 'decide', 'atend'] });
+    s = sheetReducer(s, { type: 'retryWrong' });
+    s = sheetReducer(s, { type: 'grade', typed: ['borrow', 'atend'] });
+    s = sheetReducer(s, { type: 'retryWrong' });
+    expect(s.rows.map(r => r.word.term)).toEqual(['attend']);
+    s = sheetReducer(s, { type: 'grade', typed: ['attend'] });
+    expect(s.records[0].map(r => !!r.retriedOk)).toEqual([true, false, true]);
+    expect(collectResults(s.records).every(r => r.gotIt)).toBe(true);
+  });
+
+  it('다시 풀어도 틀리거나 안 누른 줄은 처음 채점대로 틀림', () => {
+    let s = sheetReducer(start(), { type: 'grade', typed: ['borow', 'decide', 'atend'] });
+    s = sheetReducer(s, { type: 'retryWrong' });
+    s = sheetReducer(s, { type: 'grade', typed: ['borrrow', ''] });
+    expect(s.rows.map(r => r.mark)).toEqual(['no', null]);
+    expect(collectResults(s.records).map(r => [r.gotIt, !!r.lapsed])).toEqual([
+      [false, false], [true, false], [false, false],
+    ]);
   });
 
   it('다시 풀기에서는 빈칸이 남아도 다음 세트로 갈 수 있다', () => {
@@ -256,6 +299,14 @@ describe('buildAnswerSheet', () => {
     expect(items.map(i => (i.kind === 'set' ? `set${i.setNumber}:${i.ok}/${i.total}` : i.n))).toEqual([
       'set1:1/2', 1, 2, 'set2:2/2', 3, 4, 'set3:1/2', 5, 6,
     ]);
+  });
+
+  it('다시 풀어 맞힌 줄은 세트 점수에서 맞은 것, «틀린 것»에서는 빠진다', () => {
+    const retried = [[graded('a', 'ok'), { ...graded('b', 'no'), retriedOk: true }], [graded('c', 'no')]];
+    const label = (items: ReturnType<typeof buildAnswerSheet>) =>
+      items.map(i => (i.kind === 'set' ? `set${i.setNumber}:${i.ok}/${i.total}` : i.n));
+    expect(label(buildAnswerSheet(retried))).toEqual(['set1:2/2', 1, 2, 'set2:0/1', 3]);
+    expect(label(buildAnswerSheet(retried, true))).toEqual(['set2:0/1', 3]);
   });
 
   it('틀린 것만: 원래 번호를 지키고, 틀린 줄이 없는 세트는 구분 줄째 뺀다', () => {

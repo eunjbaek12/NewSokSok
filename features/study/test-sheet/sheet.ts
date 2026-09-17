@@ -23,6 +23,11 @@ export interface SheetRow {
   /** null = 아직 안 매김(채점 전이거나, 채점 뒤 ○·✕를 기다리는 줄) */
   mark: SheetMark | null;
   method: GradeMethod | null;
+  /**
+   * 처음 채점에서 ✕였고 «틀린 N개만 다시 풀기»에서 ○ — 처음 채점 기록(records)의 줄에만 붙는다.
+   * mark·typed 는 처음 것 그대로 두고(답안지가 처음 답을 보여 준다) 기록은 «외웠어요»로 친다(§3).
+   */
+  retriedOk?: boolean;
 }
 
 // ─── 채점 ─────────────────────────────────────────────────────────────────────
@@ -89,9 +94,13 @@ export function gradeRow(row: SheetRow, typed: string): SheetRow {
     : { ...base, mark: null, method: 'self' };
 }
 
+/** 기록 기준의 ○·✕ — 다시 풀어 맞힌 줄은 ○다(§3). 다시 풀기 화면의 줄에는 retriedOk 가 없어 mark 그대로. */
+export const isOk = (r: SheetRow) => r.mark === 'ok' || (r.mark === 'no' && !!r.retriedOk);
+export const isWrong = (r: SheetRow) => r.mark === 'no' && !r.retriedOk;
+
 export const pendingCount = (rows: readonly SheetRow[]) => rows.filter(r => r.mark === null).length;
-export const wrongCount = (rows: readonly SheetRow[]) => rows.filter(r => r.mark === 'no').length;
-export const okCount = (rows: readonly SheetRow[]) => rows.filter(r => r.mark === 'ok').length;
+export const wrongCount = (rows: readonly SheetRow[]) => rows.filter(isWrong).length;
+export const okCount = (rows: readonly SheetRow[]) => rows.filter(isOk).length;
 
 // ─── 방향 ─────────────────────────────────────────────────────────────────────
 
@@ -129,12 +138,12 @@ export function newRows(
 export interface SheetSession {
   setIndex: number;
   phase: 'solving' | 'graded';
-  /** «틀린 N개만 다시 풀기» 중 — 기록하지 않는다(§3) */
+  /** «틀린 N개만 다시 풀기» 중 — 여기서 ○인 줄은 records 의 그 줄에 retriedOk 로 남는다(§3) */
   retry: boolean;
   /** 지금 화면에 있는 줄 */
   rows: SheetRow[];
   /**
-   * 세트별 **처음 채점** 결과. 기록(§3)과 결과 화면 답안지(D21)가 여기서만 읽는다.
+   * 세트별 **처음 채점** 결과 + 다시 풀어 맞힘(retriedOk). 기록(§3)과 결과 화면 답안지(D21)가 여기서만 읽는다.
    * 채점한 세트만 들어 있다 — 채점 전인 세트는 나가도 기록되지 않는다.
    */
   records: SheetRow[][];
@@ -153,7 +162,7 @@ export const EMPTY_SESSION: SheetSession = { setIndex: 0, phase: 'solving', retr
 /**
  * 다음 세트(또는 결과 화면)로 갈 수 있나.
  * 처음 채점한 세트는 ○·✕가 다 눌려야 한다(D12) — 안 누른 줄을 틀림으로 넘기면 아는 단어가
- * «복습 필요»에 섞인다. 다시 풀기는 기록되지 않으니 막을 이유가 없다.
+ * «복습 필요»에 섞인다. 다시 풀기의 줄은 이미 틀림으로 정해졌고 안 누르면 그대로 남을 뿐이라 막지 않는다(D24).
  */
 export function canAdvance(s: SheetSession): boolean {
   return s.phase === 'graded' && (s.retry || pendingCount(s.rows) === 0);
@@ -165,9 +174,18 @@ export function canRetryWrong(s: SheetSession): boolean {
 }
 
 function withRows(s: SheetSession, rows: SheetRow[]): SheetSession {
-  if (s.retry) return { ...s, rows };
   const records = s.records.slice();
-  records[s.setIndex] = rows;
+  if (s.retry) {
+    // 다시 풀기의 ○·✕는 처음 채점 줄의 retriedOk 로만 옮긴다 — ○를 ✕로 되돌리면 지운다.
+    const okNow = new Map(rows.map(r => [r.word.id, r.mark === 'ok']));
+    records[s.setIndex] = (records[s.setIndex] ?? []).map(r => {
+      if (!okNow.has(r.word.id)) return r;
+      const { retriedOk: _, ...rest } = r;
+      return okNow.get(r.word.id) ? { ...rest, retriedOk: true } : rest;
+    });
+  } else {
+    records[s.setIndex] = rows;
+  }
   return { ...s, rows, records };
 }
 
@@ -219,12 +237,17 @@ export function sheetReducer(s: SheetSession, a: SheetAction): SheetSession {
 
 // ─── 기록 · 답안지 ────────────────────────────────────────────────────────────
 
-/** 기록할 결과 — 처음 채점에서 ○·✕가 정해진 줄만. 다시 풀기는 records 에 들어가지 않는다. */
+/**
+ * 기록할 결과 — 처음 채점에서 ○·✕가 정해진 줄만. 다시 풀어 맞힌 줄은 «외웠어요»이되 lapsed —
+ * 오답 +1 은 남기고 복습 사다리는 첫 칸부터(§3 · session-results.ts).
+ */
 export function collectResults(records: readonly (readonly SheetRow[] | undefined)[]): StudyResult[] {
   return records
     .flatMap(rows => rows ?? [])
     .filter(r => r.mark !== null)
-    .map(r => ({ word: r.word, gotIt: r.mark === 'ok' }));
+    .map(r => (r.mark === 'no' && r.retriedOk
+      ? { word: r.word, gotIt: true, lapsed: true }
+      : { word: r.word, gotIt: r.mark === 'ok' }));
 }
 
 export type AnswerSheetItem =
@@ -242,7 +265,7 @@ export function buildAnswerSheet(records: readonly SheetRow[][], onlyWrong = fal
     const shown: AnswerSheetItem[] = [];
     for (const row of rows) {
       n += 1;
-      if (onlyWrong && row.mark !== 'no') continue;
+      if (onlyWrong && !isWrong(row)) continue;
       shown.push({ kind: 'row', n, row });
     }
     if (shown.length === 0) return;

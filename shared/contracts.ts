@@ -66,6 +66,10 @@ export type InputSettings = z.infer<typeof InputSettingsSchema>;
 export const StudySettingsSchema = z.object({
   studyBatchSize: z.union([z.number().int().positive(), z.literal('all')]).default('all'),
   sentenceBatchSize: z.union([z.number().int().positive(), z.literal('all')]).default('all'),
+  // 시험지의 한 세트 크기 — 위 studyBatchSize 와 따로 둔다(docs/test-sheet-spec.md D6).
+  // 시험지는 다 풀어야 채점되므로 세트 크기가 곧 «채점 전까지 한 번에 풀 양»이다. 처음 값이
+  // 'all' 인 학습 단위를 같이 쓰면 단어 100개짜리 단어장이 100줄짜리 시험지 한 장으로 열린다.
+  testSheetBatchSize: z.union([z.number().int().positive(), z.literal('all')]).default(10),
   shuffle: z.boolean().default(false),
   autoPlaySound: z.boolean().default(true),
 });

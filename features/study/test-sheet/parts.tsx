@@ -7,7 +7,7 @@ import { FontSize, FontWeight } from '@/constants/tokens';
 import type { SheetMark } from './sheet';
 
 // 시험지 화면과 결과 화면 답안지가 같이 쓰는 조각. 채점한 줄과 답안지의 줄이 같은 모양이어야
-// «처음 채점 결과가 그대로 남았다»(D21)가 눈으로 확인된다.
+// «채점한 그대로 남았다»(D21)가 눈으로 확인된다.
 
 export type SheetColors = ReturnType<typeof useTheme>['colors'];
 

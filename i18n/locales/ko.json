@@ -1420,6 +1420,7 @@
     "undoFix": "되돌리기",
     "markOk": "맞음",
     "markNo": "틀림",
+    "retriedOk": "다시 풀어 맞힘",
     "answerInputLabel": "{{n}}번 답",
     "filterAll": "전체 {{count}}",
     "filterWrong": "틀린 것 {{count}}",

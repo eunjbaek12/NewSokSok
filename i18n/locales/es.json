@@ -1002,6 +1002,7 @@
     "undoFix": "Deshacer",
     "markOk": "Correcta",
     "markNo": "Incorrecta",
+    "retriedOk": "Acertada al repetir",
     "answerInputLabel": "Respuesta {{n}}",
     "filterAll": "Todas {{count}}",
     "filterWrong": "Falladas {{count}}",

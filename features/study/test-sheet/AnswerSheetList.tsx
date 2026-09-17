@@ -7,7 +7,7 @@ import { useLists } from '@/features/vocab';
 import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getSpeakableText, getStudySourceLang, getTtsLang } from '@/constants/languages';
 import { FontSize, FontWeight, Radius } from '@/constants/tokens';
-import { buildAnswerSheet, answerOf, promptOf, normalizeAnswer, wrongCount, type SheetRow, type AnswerSheetItem } from './sheet';
+import { buildAnswerSheet, answerOf, promptOf, normalizeAnswer, wrongCount, isOk, type SheetRow, type AnswerSheetItem } from './sheet';
 import { AnswerKey, MarkIcon, fitWordProps } from './parts';
 
 interface Summary {
@@ -34,7 +34,8 @@ type Item = { kind: 'summary' } | { kind: 'filter' } | AnswerSheetItem;
  *
  * 요약·전환 줄·답안을 **한 목록의 항목**으로 둔다. 전환 줄을 스크롤해도 위에 붙여야 해서(D20)
  * stickyHeaderIndices 를 쓰는데, ListHeaderComponent 에 넣으면 붙일 수가 없다.
- * 답안지는 **처음 채점 결과**다(D21) — 다시 풀기 결과는 records 에 들어오지 않는다.
+ * 내 답은 **처음 적은 답**, ○✕는 **기록된 결과**다(D21) — «틀린 N개만 다시 풀기»에서 맞힌 줄은
+ * 처음 답을 줄 긋고 정답을 보인 채 ○ + «↻ 다시 풀어 맞힘». 바탕을 칠하지 않는다(D31).
  */
 export default function AnswerSheetList({ records, listId, summary, paddingTop, paddingBottom }: Props) {
   const { colors, fontFamily } = useTheme();
@@ -127,6 +128,8 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
     const exact = !blank && normalizeAnswer(row.typed) === normalizeAnswer(answer);
     const isTermPrompt = row.direction === 'term-to-meaning';
     const sourceLang = getStudySourceLang(row.word, list);
+    const retriedOk = row.mark === 'no' && !!row.retriedOk;
+    const finalMark = row.mark && (isOk(row) ? 'ok' : 'no');
 
     return (
       <View style={[styles.row, { borderBottomColor: colors.borderLight }]}>
@@ -150,6 +153,12 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
                 <Text {...fitWordProps(row.typed)} style={[styles.wrongTyped, { color: colors.warning }]}>{row.typed}</Text>
               )}
               <Text {...fitWordProps(answer)} style={[styles.typed, { color: colors.text }]}>{answer}</Text>
+              {retriedOk && (
+                <View style={styles.retried}>
+                  <Ionicons name="refresh" size={12} color={colors.primary} />
+                  <Text style={[styles.retriedText, { color: colors.primary }]} numberOfLines={1}>{t('testSheet.retriedOk')}</Text>
+                </View>
+              )}
             </>
           )}
         </View>
@@ -160,8 +169,8 @@ export default function AnswerSheetList({ records, listId, summary, paddingTop, 
           style={styles.speaker}
         />
         <View style={styles.mark}>
-          {row.mark && (
-            <MarkIcon mark={row.mark} colors={colors} label={t(row.mark === 'ok' ? 'testSheet.markOk' : 'testSheet.markNo')} />
+          {finalMark && (
+            <MarkIcon mark={finalMark} colors={colors} label={t(finalMark === 'ok' ? 'testSheet.markOk' : 'testSheet.markNo')} />
           )}
         </View>
       </View>
@@ -342,6 +351,16 @@ const styles = StyleSheet.create({
   blank: {
     fontSize: FontSize.small,
     fontFamily: FontWeight.regular,
+  },
+  retried: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
+    marginTop: 1,
+  },
+  retriedText: {
+    fontSize: FontSize.label,
+    fontFamily: FontWeight.semibold,
   },
   speaker: {
     width: 22,

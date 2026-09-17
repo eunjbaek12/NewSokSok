@@ -1420,6 +1420,7 @@
     "undoFix": "Undo",
     "markOk": "Correct",
     "markNo": "Wrong",
+    "retriedOk": "Right on retry",
     "answerInputLabel": "Answer {{n}}",
     "filterAll": "All {{count}}",
     "filterWrong": "Missed {{count}}",

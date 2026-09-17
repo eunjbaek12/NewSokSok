@@ -9,17 +9,25 @@
  */
 import { create } from 'zustand';
 import type { StudyResult } from '@/lib/types';
+import type { SheetRow } from './test-sheet/sheet';
 
 interface StudyResultsState {
   results: StudyResult[];
-  setResults: (results: StudyResult[]) => void;
+  /**
+   * 시험지의 세트별 답안(적은 답·채점 방식). `StudyResult` 에는 적은 답이 없어서 따로 넘긴다.
+   * 다른 학습은 넘기지 않으므로 setResults 가 매번 null 로 덮는다 — 앞 시험지의 답안지가
+   * 다음 퀴즈 결과에 남지 않게.
+   */
+  answerSheet: SheetRow[][] | null;
+  setResults: (results: StudyResult[], answerSheet?: SheetRow[][] | null) => void;
   clear: () => void;
 }
 
 export const useStudyResultsStore = create<StudyResultsState>((set) => ({
   results: [],
-  setResults: (results) => set({ results }),
-  clear: () => set({ results: [] }),
+  answerSheet: null,
+  setResults: (results, answerSheet = null) => set({ results, answerSheet }),
+  clear: () => set({ results: [], answerSheet: null }),
 }));
 
 /**

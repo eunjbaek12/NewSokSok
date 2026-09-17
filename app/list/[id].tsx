@@ -688,6 +688,24 @@ export default function ListDetailScreen() {
           <Text style={[styles.studyLabel, { color: iconColor }]}>{t('studySelect.quizTitle')}</Text>
         </Pressable>
 
+        {/* 시험지 — 고르는 시험(퀴즈) 바로 뒤에 쓰는 시험(docs/test-sheet-spec.md D3) */}
+        <Pressable
+          onPress={() => {
+            if (studyDisabled) return;
+            router.push({ pathname: '/test-sheet/[id]', params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
+          }}
+          style={({ pressed }) => [
+            styles.studyBtn,
+            studyDisabled && styles.studyBtnDisabled,
+            pressed && { opacity: 0.7 }
+          ]}
+        >
+          <View style={styles.iconBox}>
+            <Ionicons name="document-text-outline" size={22} color={iconColor} />
+          </View>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('studySelect.testSheetTitle')}</Text>
+        </Pressable>
+
         <Pressable
           onPress={() => {
             if (studyDisabled) return;

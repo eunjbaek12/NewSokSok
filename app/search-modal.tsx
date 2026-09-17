@@ -60,6 +60,8 @@ import {
 const STATUS_KEYS: WordFilter[] = ['all', 'learning', 'memorized'];
 const PRESET_KEYS: WordFilter[] = ['wrongCount', 'recent'];
 
+type StudyModeKey = 'flashcard' | 'quiz' | 'test-sheet' | 'examples';
+
 /**
  * 학습 시작 버튼. 오토플레이는 없다 — 그 라우트만 sel을 받지 않는다(DESIGN.md §3).
  * 아이콘은 단어장 상세의 학습 버튼 행과 같은 것을 쓴다.
@@ -67,9 +69,10 @@ const PRESET_KEYS: WordFilter[] = ['wrongCount', 'recent'];
 const STUDY_MODES = [
     { key: 'flashcard', icon: 'card-outline', label: 'studySelect.flashcardsTitle' },
     { key: 'quiz', icon: 'help-circle-outline', label: 'studySelect.quizTitle' },
+    { key: 'test-sheet', icon: 'document-text-outline', label: 'studySelect.testSheetTitle' },
     { key: 'examples', icon: 'chatbubbles-outline', label: 'studySelect.examplesTitle' },
 ] as const satisfies readonly {
-    key: 'flashcard' | 'quiz' | 'examples';
+    key: StudyModeKey;
     icon: React.ComponentProps<typeof Ionicons>['name'];
     label: string;
 }[];
@@ -216,7 +219,7 @@ export default function SearchModalScreen() {
      * 이미 내린 판단이다(app/(tabs)/index.tsx:195). 탭 수도 늘지 않는다: 기억된
      * 모드로 시작하면 예전에도 1탭, 바꾸려면 2탭이었고 지금은 늘 1탭이다.
      */
-    const handleStart = useCallback((mode: 'flashcard' | 'quiz' | 'examples') => {
+    const handleStart = useCallback((mode: StudyModeKey) => {
         if (results.length === 0) return;
         Keyboard.dismiss();
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -229,6 +232,7 @@ export default function SearchModalScreen() {
         // 이 화면을 스택에 남기면 결과에서 뒤로 눌렀을 때 방금 외운 단어가 빠진
         // 목록으로 돌아오고, 홈까지 두 번 눌러야 한다.
         if (mode === 'quiz') router.replace({ pathname: '/quiz/[id]', params });
+        else if (mode === 'test-sheet') router.replace({ pathname: '/test-sheet/[id]', params });
         else if (mode === 'examples') router.replace({ pathname: '/examples/[id]', params });
         else router.replace({ pathname: '/flashcards/[id]', params });
     }, [results, filters, rememberCondition, router]);

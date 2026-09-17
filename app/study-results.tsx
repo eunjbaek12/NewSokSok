@@ -21,6 +21,7 @@ import {
   type PendingCompletion,
 } from '@/features/stats';
 import { maybeRequestReview, isGoodMoment } from '@/features/reviews';
+import AnswerSheetList from '@/features/study/test-sheet/AnswerSheetList';
 
 // 마일스톤 없는 세션에서 리뷰 팝업을 띄우기까지의 대기(ms). 사용자가 자기 정답률·
 // 외운 단어 수를 먼저 읽어야 "뿌듯한 순간"이 된다 — 진입 즉시 띄우면 결과를 시스템
@@ -40,6 +41,7 @@ export default function StudyResultsScreen() {
   const insets = useSafeAreaInsets();
   const { colors, fontFamily } = useTheme();
   const studyResults = useStudyResultsStore(s => s.results);
+  const answerSheet = useStudyResultsStore(s => s.answerSheet);
   const clearStudyResults = useStudyResultsStore(s => s.clear);
   const { id, mode, duration, isStarred, sessionFilter, quizType } = useLocalSearchParams<{
     id: string;
@@ -193,6 +195,9 @@ export default function StudyResultsScreen() {
     });
   };
 
+  // 시험지는 요약을 줄이고 그 아래 전체 답안지를 붙인다(시험지 스펙 D16·D18). 퀴즈 등은 그대로.
+  const showAnswerSheet = mode === 'test-sheet' && !!answerSheet && answerSheet.length > 0;
+
   if (studyResults.length === 0) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
@@ -207,6 +212,22 @@ export default function StudyResultsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {showAnswerSheet ? (
+        <AnswerSheetList
+          records={answerSheet}
+          listId={id}
+          paddingTop={topInset}
+          paddingBottom={bottomBarHeight + 24}
+          summary={{
+            accuracy,
+            duration: formatDuration(duration),
+            memorized: gotItResults.length,
+            needsReview: reviewResults.length,
+            allCorrect,
+            subtitle: t(subtitleKey),
+          }}
+        />
+      ) : (
       <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: bottomBarHeight + 24 }]}>
         <View style={styles.header}>
           <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight, shadowColor: colors.shadow }]}>
@@ -251,6 +272,7 @@ export default function StudyResultsScreen() {
           </View>
         </View>
       </ScrollView>
+      )}
 
       <View
         onLayout={e => setBottomBarHeight(e.nativeEvent.layout.height)}

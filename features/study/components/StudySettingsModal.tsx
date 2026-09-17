@@ -59,8 +59,8 @@ export interface StudySettings {
     showPhonetic?: boolean;
     showExample?: boolean;
     showExampleKr?: boolean;
-    // Quiz specific
-    quizType?: 'meaning-to-term' | 'term-to-meaning';
+    // Quiz specific — 'mixed' 는 시험지만(한 세트 안에서 줄마다 방향이 반반)
+    quizType?: 'meaning-to-term' | 'term-to-meaning' | 'mixed';
     // Examples specific
     showTerm?: boolean;
     // Autoplay specific
@@ -70,7 +70,7 @@ export interface StudySettings {
 
 interface StudySettingsModalProps {
     visible: boolean;
-    mode: 'flashcard' | 'quiz' | 'examples' | 'autoplay';
+    mode: 'flashcard' | 'quiz' | 'test-sheet' | 'examples' | 'autoplay';
     initialSettings: StudySettings;
     initialBatchSize: number | 'all';
     onClose: () => void;
@@ -118,7 +118,7 @@ export default function StudySettingsModal({
         >
                         <View style={styles.settingsHeader}>
                             <Text style={[styles.settingsTitle, { color: colors.text }]}>
-                                {mode === 'flashcard' ? t('studySettings.flashcardsSettings') : mode === 'quiz' ? t('studySettings.quizSettings') : mode === 'examples' ? t('studySettings.examplesSettings') : t('studySettings.autoplaySettings')}
+                                {mode === 'flashcard' ? t('studySettings.flashcardsSettings') : mode === 'quiz' ? t('studySettings.quizSettings') : mode === 'test-sheet' ? t('studySettings.testSheetSettings') : mode === 'examples' ? t('studySettings.examplesSettings') : t('studySettings.autoplaySettings')}
                             </Text>
                             <Pressable accessibilityRole="button" accessibilityLabel={t('common.close')} onPress={onClose} hitSlop={8} style={styles.closeBtn}>
                                 <Ionicons name="close" size={20} color={colors.textSecondary} />
@@ -173,7 +173,7 @@ export default function StudySettingsModal({
                                 </View>
 
                                 {/* 품사 표시는 플래시카드는 카드 뒷면에, 퀴즈는 여기에? 플래시카드/퀴즈 구조상 퀴즈는 공통 출제 대상 쪽에 있었음. 플래시카드처럼 퀴즈도 여기서 처리. */}
-                                {mode === 'quiz' && (
+                                {(mode === 'quiz' || mode === 'test-sheet') && (
                                     <>
                                         <View style={[styles.divider, { backgroundColor: colors.border }]} />
                                         <View style={styles.settingRow}>
@@ -437,6 +437,46 @@ export default function StudySettingsModal({
                                                 ]}>{t('studySettings.wordToMeaning')}</Text>
                                             </Pressable>
                                         </View>
+                                    </View>
+                                </View>
+                            )}
+
+                            {/* 시험지 전용: 문제 유형. 보기가 셋이라 퀴즈처럼 라벨 옆에 두면 칸이 좁아
+                                긴 언어에서 두 줄로 감긴다 — 라벨 아래 한 줄로 내린다. */}
+                            {mode === 'test-sheet' && (
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.questionOptions')}</Text>
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="swap-horizontal-outline" size={16} color={colors.icons.shuffle} />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.questionType')}</Text>
+                                        </View>
+                                    </View>
+                                    <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary, marginBottom: 6 }]}>
+                                        {([
+                                            ['meaning-to-term', t('studySettings.meaningToWord')],
+                                            ['term-to-meaning', t('studySettings.wordToMeaning')],
+                                            ['mixed', t('studySettings.mixed')],
+                                        ] as const).map(([value, label]) => {
+                                            const isActive = tempSettings.quizType === value;
+                                            return (
+                                                <Pressable
+                                                    key={value}
+                                                    onPress={() => updateSetting('quizType', value)}
+                                                    style={[
+                                                        styles.segmentedTab,
+                                                        isActive && [styles.segmentedTabActive, { backgroundColor: colors.surface, shadowColor: colors.shadow }]
+                                                    ]}
+                                                >
+                                                    <Text style={[
+                                                        isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                        { color: isActive ? colors.accentAction : colors.textSecondary }
+                                                    ]}>{label}</Text>
+                                                </Pressable>
+                                            );
+                                        })}
                                     </View>
                                 </View>
                             )}

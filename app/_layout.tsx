@@ -27,6 +27,8 @@ import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
 import "@/i18n";
 import { useReviewNotificationRouting } from '@/features/study/review/use-review-notification-routing';
 import { useReviewNotificationScheduler } from '@/features/study/review/use-review-notifications';
+import { useWordNotificationScheduler } from '@/features/study/word-notifications/use-word-notifications';
+import { useWordNotificationRouting } from '@/features/study/word-notifications/use-word-notification-routing';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -156,7 +158,10 @@ function VocabBootstrapper({ children }: { children: React.ReactNode }) {
 // null만 반환하는 얇은 컴포넌트라 lists 구독의 리렌더가 이 컴포넌트에만 갇힌다
 // (AppStack의 네비게이터가 lists 변화마다 리렌더되는 것을 피한다).
 function ReviewNotificationScheduler() {
-  useReviewNotificationScheduler(useLists());
+  const lists = useLists();
+  useReviewNotificationScheduler(lists);
+  // 시간마다 단어 알림도 같은 자리에서 — 같은 이유(설정 탭에서 바꿔도, 시작 탭이 어디여도).
+  useWordNotificationScheduler(lists);
   return null;
 }
 
@@ -196,6 +201,8 @@ function GlobalProLimitReachedModal() {
 function AppStack() {
   // 복습 알림을 탭하면 홈으로(§8.1). 콜드 스타트로 실행된 경우도 포함한다.
   useReviewNotificationRouting();
+  // 단어 알림을 누르면 그 단어가 든 단어장 화면으로(N10).
+  useWordNotificationRouting();
   const { inputSettings } = useSettings();
   const { isOnboardingDone } = useOnboarding();
   const { authMode, loading: authLoading } = useAuth();
@@ -291,6 +298,7 @@ function AppStack() {
       <Stack.Screen name="terms" options={{ headerShown: false }} />
       <Stack.Screen name="licenses" options={{ headerShown: false }} />
       <Stack.Screen name="advanced-settings" options={{ headerShown: false }} />
+      <Stack.Screen name="word-notification-source" options={{ headerShown: false }} />
       {/*
         아래 두 화면은 자기 헤더를 직접 그린다. 여기 등록을 빠뜨리면 expo-router가
         기본 네이티브 헤더에 라우트 이름("Contact", "Whats-new")을 얹어 헤더가 두 개로

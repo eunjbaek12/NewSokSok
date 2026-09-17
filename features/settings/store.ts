@@ -9,6 +9,7 @@ import {
   AiCurationSettingsSchema,
   LanguageCodeSchema,
   ReviewNotificationSettingsSchema,
+  WordNotificationSettingsSchema,
   type InputSettings,
   type StudySettings,
   type AutoPlaySettings,
@@ -17,6 +18,7 @@ import {
   type AiCurationSettings,
   type LanguageCode,
   type ReviewNotificationSettings,
+  type WordNotificationSettings,
 } from '@shared/contracts';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persisted, type PersistedEntry } from '@/lib/storage/persisted';
@@ -47,6 +49,7 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = AutoPlaySettingsSchema.parse
 const DEFAULT_PROFILE_SETTINGS: ProfileSettings = ProfileSettingsSchema.parse({}) as ProfileSettings;
 const DEFAULT_AI_CURATION_SETTINGS: AiCurationSettings = AiCurationSettingsSchema.parse({}) as AiCurationSettings;
 const DEFAULT_REVIEW_NOTIFICATION_SETTINGS: ReviewNotificationSettings = ReviewNotificationSettingsSchema.parse({}) as ReviewNotificationSettings;
+const DEFAULT_WORD_NOTIFICATION_SETTINGS: WordNotificationSettings = WordNotificationSettingsSchema.parse({}) as WordNotificationSettings;
 const DEFAULT_DASHBOARD_FILTER: DashboardFilter = 'all';
 
 /**
@@ -95,6 +98,8 @@ const autoplayStore = persisted('@soksok_user_autoplay_settings', AutoPlaySettin
 const aiCurationStore = persisted('@soksok_ai_curation_settings', AiCurationSettingsSchema, DEFAULT_AI_CURATION_SETTINGS);
 // 기기 설정(알림 시각·권한 의사)이라 계정 전환 시 지우지 않는다 — clearAccountScopedSettings 참조.
 const reviewNotifStore = persisted('@soksok_review_notification_settings', ReviewNotificationSettingsSchema, DEFAULT_REVIEW_NOTIFICATION_SETTINGS);
+// 단어 알림도 기기 설정이다(고른 단어장 id 는 계정 전환 뒤 없으면 «자동»으로 떨어진다 — plan.ts resolveSourceList).
+const wordNotifStore = persisted('@soksok_word_notification_settings', WordNotificationSettingsSchema, DEFAULT_WORD_NOTIFICATION_SETTINGS);
 const profileStore  = persisted('@soksok_profile_settings',       ProfileSettingsSchema,     DEFAULT_PROFILE_SETTINGS, {
   // Legacy nicknames written before the 20-char limit was introduced get
   // silently truncated on load so the user keeps a usable display name.
@@ -127,6 +132,7 @@ interface SettingsState {
   profileSettings: ProfileSettings;
   aiCurationSettings: AiCurationSettings;
   reviewNotificationSettings: ReviewNotificationSettings;
+  wordNotificationSettings: WordNotificationSettings;
   apiKey: string;
   dashboardFilterMode: DashboardFilter;
   isLoading: boolean;
@@ -138,6 +144,7 @@ interface SettingsState {
   updateProfileSettings: (updates: Partial<ProfileSettings>) => Promise<void>;
   updateAiCurationSettings: (updates: Partial<AiCurationSettings>) => Promise<void>;
   updateReviewNotificationSettings: (updates: Partial<ReviewNotificationSettings>) => Promise<void>;
+  updateWordNotificationSettings: (updates: Partial<WordNotificationSettings>) => Promise<void>;
   updateApiKey: (key: string) => Promise<void>;
   updateDashboardFilter: (mode: DashboardFilter) => Promise<void>;
   /**
@@ -156,12 +163,13 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   profileSettings: DEFAULT_PROFILE_SETTINGS,
   aiCurationSettings: DEFAULT_AI_CURATION_SETTINGS,
   reviewNotificationSettings: DEFAULT_REVIEW_NOTIFICATION_SETTINGS,
+  wordNotificationSettings: DEFAULT_WORD_NOTIFICATION_SETTINGS,
   apiKey: '',
   dashboardFilterMode: DEFAULT_DASHBOARD_FILTER,
   isLoading: true,
 
   hydrate: async () => {
-    const [inputSettings, studySettings, autoPlaySettings, profileSettings, aiCurationSettings, reviewNotificationSettings, dashboardFilterMode, apiKey] =
+    const [inputSettings, studySettings, autoPlaySettings, profileSettings, aiCurationSettings, reviewNotificationSettings, wordNotificationSettings, dashboardFilterMode, apiKey] =
       await Promise.all([
         inputStore.load(),
         studyStore.load(),
@@ -169,6 +177,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
         profileStore.load(),
         aiCurationStore.load(),
         reviewNotifStore.load(),
+        wordNotifStore.load(),
         loadDashboardFilter(),
         loadAndMigrateApiKey(),
       ]);
@@ -183,6 +192,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       profileSettings,
       aiCurationSettings: derivedCuration,
       reviewNotificationSettings,
+      wordNotificationSettings,
       apiKey,
       dashboardFilterMode,
       isLoading: false,
@@ -225,6 +235,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     const next = { ...get().reviewNotificationSettings, ...updates };
     set({ reviewNotificationSettings: next });
     await reviewNotifStore.save(next);
+  },
+
+  updateWordNotificationSettings: async (updates) => {
+    const next = { ...get().wordNotificationSettings, ...updates };
+    set({ wordNotificationSettings: next });
+    await wordNotifStore.save(next);
   },
 
   updateApiKey: async (key) => {

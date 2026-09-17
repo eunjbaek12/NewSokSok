@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useLastNotificationResponse } from "expo-notifications";
 import type { StartupTab } from "@/features/settings";
 import { REVIEW_NOTIFICATION_KIND } from "@/features/study/review/notifications";
+import { WORD_NOTIFICATION_KIND, WORD_NOTIFICATION_STOP_KIND } from "@/features/study/word-notifications/notifications";
 
 function AddWordTabButton() {
   const { colors } = useTheme();
@@ -189,19 +190,22 @@ export default function TabLayout() {
   // 않은 것처럼 보인다. 알림 없이 실행하면 lastResponse가 비어 있어 시작 탭이 그대로 동작하고,
   // 백그라운드 복귀는 startupHandled가 이미 true라 이 분기를 타지 않는다.
   const lastResponse = useLastNotificationResponse();
-  const fromReviewNotification =
-    (lastResponse?.notification.request.content.data as { kind?: string } | undefined)?.kind ===
-    REVIEW_NOTIFICATION_KIND;
+  const notificationKind =
+    (lastResponse?.notification.request.content.data as { kind?: string } | undefined)?.kind;
+  const fromReviewNotification = notificationKind === REVIEW_NOTIFICATION_KIND;
+  // 단어 알림은 그 단어장 화면을 탭 위에 연다 — 시작 탭 replace 가 뒤따르면 방금 연 화면을 덮는다.
+  const fromWordNotification =
+    notificationKind === WORD_NOTIFICATION_KIND || notificationKind === WORD_NOTIFICATION_STOP_KIND;
 
   useEffect(() => {
     if (!settingsLoading && !loading && !startupHandled) {
       const tab = profileSettings.startupTab ?? 'index';
-      if (tab !== 'index' && !fromReviewNotification) {
+      if (tab !== 'index' && !fromReviewNotification && !fromWordNotification) {
         router.replace(`/(tabs)/${tab}` as any);
       }
       setStartupHandled(true);
     }
-  }, [settingsLoading, loading, startupHandled, fromReviewNotification]);
+  }, [settingsLoading, loading, startupHandled, fromReviewNotification, fromWordNotification]);
 
   if (loading || settingsLoading || isOnboardingDone === null) return <View style={{ flex: 1 }} />;
 

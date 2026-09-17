@@ -27,7 +27,7 @@ import { useLocale } from '@/features/locale';
 import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
-import { useSettings } from '@/features/settings';
+import { useSettings, useSettingsStore } from '@/features/settings';
 import { useQuota, useQuotaStore, getProMode, getTrialDaysLeft, pickAdBenefitCopy, rewardAmountOf } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
@@ -40,6 +40,9 @@ import {
   parseReviewTimeId,
 } from '@/features/study/review/notify-time';
 import { hasNotificationPermission, requestNotificationPermission, syncReviewNotifications } from '@/features/study/review/notifications';
+import { syncWordNotifications } from '@/features/study/word-notifications/notifications';
+import { wordNotifSourceLabel, wordNotifTimeLabel } from '@/features/study/word-notifications/labels';
+import { SendTimeDialog } from '@/features/study/word-notifications/SendTimeDialog';
 import { useLists } from '@/features/vocab';
 import { useSupportStore } from '@/features/support';
 import { resetWhatsNewSeen } from '@/features/whats-new';
@@ -59,7 +62,11 @@ export default function SettingsScreen() {
   // 빼면 게스트로 오인돼 동기화 배지·tier 칩·계정삭제가 사라진다.
   const isCloud = isCloudAuthMode(authMode);
   const { locale, setLocale } = useLocale();
-  const { profileSettings, updateProfileSettings, apiKey, reviewNotificationSettings, updateReviewNotificationSettings } = useSettings();
+  const {
+    profileSettings, updateProfileSettings, apiKey,
+    reviewNotificationSettings, updateReviewNotificationSettings,
+    wordNotificationSettings, updateWordNotificationSettings,
+  } = useSettings();
   // 재예약을 위해 현재 단어장 스냅샷을 읽는다 — 상시 스케줄러(app/_layout.tsx)의 1.5초
   // 디바운스를 기다리지 않고, 설정 변경을 바로 반영하기 위한 명시적 재예약에 쓴다.
   const lists = useLists();
@@ -71,6 +78,7 @@ export default function SettingsScreen() {
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
   const [showReviewTimePicker, setShowReviewTimePicker] = useState(false);
+  const [showWordTimeDialog, setShowWordTimeDialog] = useState(false);
 
   /**
    * 토글을 켜는 행위가 곧 OS 권한 요청의 방아쇠다(§8.4). 권한이 없으면 켜도 알림이
@@ -104,6 +112,34 @@ export default function SettingsScreen() {
     await updateReviewNotificationSettings({ enabled: true, softAsked: true });
     // 켜자마자 바로 예약한다(상시 스케줄러의 디바운스를 기다리지 않고).
     void syncReviewNotifications(lists, { ...reviewNotificationSettings, enabled: true, softAsked: true });
+  };
+
+  /**
+   * 단어 알림 스위치 — 복습 알림 스위치와 같은 흐름(docs/word-notifications-design.md §6.1).
+   * 사용자가 직접 켠 것이라 soft ask 는 없다. 권한을 받은 경우에만 켠다 — «켜져 있는데 안 오는» 상태를 만들지 않는다.
+   */
+  const handleToggleWordNotif = async (next: boolean) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    if (!next) {
+      await updateWordNotificationSettings({ enabled: false });
+      void syncWordNotifications(lists, { ...wordNotificationSettings, enabled: false });
+      return;
+    }
+    const already = await hasNotificationPermission();
+    const granted = already || (await requestNotificationPermission());
+    if (!granted) {
+      Alert.alert(
+        t('reviewNotif.blockedTitle'),
+        t('reviewNotif.blockedBody'),
+        [
+          { text: t('reviewNotif.cancel'), style: 'cancel' },
+          { text: t('reviewNotif.blockedOpen'), onPress: () => { Linking.openSettings().catch(() => {}); } },
+        ],
+      );
+      return;
+    }
+    await updateWordNotificationSettings({ enabled: true });
+    void syncWordNotifications(lists, { ...wordNotificationSettings, enabled: true });
   };
 
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
@@ -495,6 +531,77 @@ export default function SettingsScreen() {
           {t('reviewNotif.footnote')}
         </Text>
 
+        {/*
+          시간마다 단어 알림(docs/word-notifications-design.md §6) — 받기 → 나올 단어 → 보내는 시간.
+          «나올 단어» 값은 단어장 이름이 길 수 있어 오른쪽 값 칸이 아니라 아랫줄에 둔다(360 폭에서 밀림).
+        */}
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('wordNotif.settingsSection')}</Text>
+        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="chatbox-ellipses-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('wordNotif.enableLabel')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>{t('wordNotif.enableSub')}</Text>
+              </View>
+            </View>
+            <Switch
+              value={wordNotificationSettings.enabled}
+              onValueChange={handleToggleWordNotif}
+              trackColor={{ false: colors.borderLight, true: colors.primary }}
+              thumbColor={colors.onPrimary}
+            />
+          </View>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/word-notification-source' as any);
+            }}
+            disabled={!wordNotificationSettings.enabled}
+          >
+            <View style={[styles.rowLeft, { opacity: wordNotificationSettings.enabled ? 1 : 0.4 }]}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="book-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('wordNotif.sourceLabel')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={2}>
+                  {wordNotifSourceLabel(lists, wordNotificationSettings, t)}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} style={{ opacity: wordNotificationSettings.enabled ? 1 : 0.4 }} />
+          </Pressable>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              setShowWordTimeDialog(true);
+            }}
+            disabled={!wordNotificationSettings.enabled}
+          >
+            <View style={[styles.rowLeft, { opacity: wordNotificationSettings.enabled ? 1 : 0.4 }]}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="time-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('wordNotif.timeLabel')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
+                  {wordNotifTimeLabel(wordNotificationSettings, locale, t)}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} style={{ opacity: wordNotificationSettings.enabled ? 1 : 0.4 }} />
+          </Pressable>
+        </View>
+        {/* 멈출 수 있다는 것을 미리 말한다 — 복습 알림처럼 지킬 수 있는 것만 약속한다. */}
+        <Text style={[styles.sectionFootnote, { color: colors.textTertiary }]}>
+          {t('wordNotif.footnote')}
+        </Text>
+
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.plansAndMore')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <Pressable
@@ -834,6 +941,18 @@ export default function SettingsScreen() {
           void syncReviewNotifications(lists, { ...reviewNotificationSettings, hour, minute });
           setShowReviewTimePicker(false);
         }}
+      />
+
+      <SendTimeDialog
+        visible={showWordTimeDialog}
+        onClose={() => {
+          setShowWordTimeDialog(false);
+          // 바뀐 시간을 지금 바로 반영한다(상시 스케줄러의 1.5초 디바운스를 기다리지 않고).
+          void syncWordNotifications(lists, useSettingsStore.getState().wordNotificationSettings);
+        }}
+        settings={wordNotificationSettings}
+        locale={locale}
+        onChange={(updates) => { void updateWordNotificationSettings(updates); }}
       />
 
       <DialogModal

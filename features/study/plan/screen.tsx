@@ -594,7 +594,9 @@ export default function PlanScreen() {
           <View style={styles.modeButtonsRow}>
             {[
               { icon: 'layers-outline', labelKey: 'studySelect.flashcardsTitle', pathname: '/flashcards/[id]' },
-              { icon: 'create-outline', labelKey: 'studySelect.quizTitle', pathname: '/quiz/[id]' },
+              // 퀴즈는 물음표다 — 연필은 «쓰기»로 읽혀 시험지와 헷갈린다(시험지 스펙 D4).
+              { icon: 'help-circle-outline', labelKey: 'studySelect.quizTitle', pathname: '/quiz/[id]' },
+              { icon: 'document-text-outline', labelKey: 'studySelect.testSheetTitle', pathname: '/test-sheet/[id]' },
               { icon: 'chatbubbles-outline', labelKey: 'studySelect.examplesTitle', pathname: '/examples/[id]' },
             ].map(({ icon, labelKey, pathname }) => {
               const isSelected = selectedMode === pathname;

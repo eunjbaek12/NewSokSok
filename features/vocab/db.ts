@@ -833,7 +833,7 @@ export async function resetWrongCount(wordIds: string[]): Promise<void> {
 export interface ReviewOutcomes {
   /** 답한 전부 → lastReviewedAt = now. "볼 때마다 자동 갱신"(§4.1) */
   seenIds: string[];
-  /** 처음 외운 단어 → 사다리 첫 칸. 증가가 아니라 **대입**이다(아래 주석) */
+  /** 처음 외운 단어(또는 한 번 틀렸다가 다시 외운 단어) → 사다리 첫 칸. 증가가 아니라 **대입**이다(아래 주석) */
   startIds: string[];
   /** due였던 단어를 맞힘 → 사다리 한 칸 전진 */
   advanceIds: string[];

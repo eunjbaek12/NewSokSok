@@ -74,6 +74,11 @@ export interface VocaList {
 export interface StudyResult {
   word: Word;
   gotIt: boolean;
+  /**
+   * 처음엔 틀렸다가 같은 세션에서 맞힘 — 시험지 «틀린 N개만 다시 풀기»만 쓴다(docs/test-sheet-spec.md §3).
+   * gotIt 과 함께: 외웠어요로 치되 오답 +1 은 남기고 복습 사다리는 첫 칸부터.
+   */
+  lapsed?: boolean;
 }
 
 export type StudyMode = 'flashcards' | 'quiz' | 'examples';

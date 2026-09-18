@@ -5,17 +5,22 @@ import { isWordDue } from './review/engine';
 // 쓰도록 한 곳으로 모았다(이탈 시 암기 상태가 유실되던 버그의 재발 방지).
 // 순수 함수 — RN/expo import 없음(jest 테스트 가능 조건).
 export interface SessionCommitPlan {
-  // 미암기 → 암기 전환 (gotIt인데 아직 미암기). 복습 사다리는 여기서 첫 칸(1)으로 시작한다.
+  // 미암기 → 암기 전환 (gotIt인데 아직 미암기)
   memorizedIds: string[];
   // 암기 → 미암기 강등 (틀렸는데 암기 상태)
   failedIds: string[];
-  // 오답 카운트 +1. 복습 사다리 리셋(§4.5) 대상도 같은 집합 — "다시 볼게요" = !gotIt.
+  // 오답 카운트 +1 — 틀린 단어, 그리고 처음에 틀렸다가 같은 세션에서 맞힌 단어(lapsed)
   wrongIds: string[];
-  // 오답 카운트 리셋 (기존 오답 이력이 있는 단어를 맞힘)
+  // 오답 카운트 리셋 (기존 오답 이력이 있는 단어를 맞힘). lapsed 는 제외 — 방금 틀렸다.
   correctIds: string[];
+  // 복습 사다리 첫 칸(1)에서 시작 — 새로 외운 단어, 그리고 lapsed(원래 외운 단어였어도
+  // 한 번 잊었던 것이라 처음부터. 카드에서 «다시 볼게요» 뒤 다시 외운 것과 같은 끝 상태).
+  reviewStartIds: string[];
   // 복습 사다리 한 칸 전진 — 이미 암기 상태였고 **due였던** 단어를 맞힌 경우만(§4.2).
   // 아래 reviewSuccessGate 주석 참조.
   reviewAdvanceIds: string[];
+  // 복습 사다리 리셋(§4.5) — "다시 볼게요" = !gotIt.
+  reviewResetIds: string[];
   // 답한 전부(정답·오답 무관) → lastReviewedAt = now. "볼 때마다 자동 갱신"(§4.1).
   seenIds: string[];
 }
@@ -46,14 +51,18 @@ export function partitionSessionResults(
 ): SessionCommitPlan {
   // 퀴즈는 인덱스 대입이라 배열이 희소할 수 있다 — 실제 답한 칸만 취급.
   const answered = results.filter((r): r is StudyResult => !!r);
+  // lapsed = 처음엔 틀리고 같은 세션에서 맞힘(시험지 «틀린 N개만 다시 풀기»). gotIt 과 함께만 뜻이 있다.
+  const lapsed = (r: StudyResult) => r.gotIt && !!r.lapsed;
   return {
     memorizedIds: answered.filter(r => r.gotIt && !r.word.isMemorized).map(r => r.word.id),
     failedIds: answered.filter(r => !r.gotIt && r.word.isMemorized).map(r => r.word.id),
-    wrongIds: answered.filter(r => !r.gotIt).map(r => r.word.id),
-    correctIds: answered.filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0).map(r => r.word.id),
+    wrongIds: answered.filter(r => !r.gotIt || lapsed(r)).map(r => r.word.id),
+    correctIds: answered.filter(r => r.gotIt && !lapsed(r) && (r.word.wrongCount ?? 0) > 0).map(r => r.word.id),
+    reviewStartIds: answered.filter(r => r.gotIt && (!r.word.isMemorized || lapsed(r))).map(r => r.word.id),
     reviewAdvanceIds: answered
-      .filter(r => r.gotIt && r.word.isMemorized && isWordDue(r.word, now))
+      .filter(r => r.gotIt && !lapsed(r) && r.word.isMemorized && isWordDue(r.word, now))
       .map(r => r.word.id),
+    reviewResetIds: answered.filter(r => !r.gotIt).map(r => r.word.id),
     seenIds: answered.map(r => r.word.id),
   };
 }

@@ -24,13 +24,15 @@ const memorized = (id: string, over: Partial<Word> = {}): Word =>
   word(id, { isMemorized: true, reviewSuccessCount: 1, lastReviewedAt: daysAgo(1), ...over });
 
 const r = (w: Word, gotIt: boolean): StudyResult => ({ word: w, gotIt });
+/** 처음엔 틀렸다가 같은 세션에서 맞힘 — 시험지 «틀린 N개만 다시 풀기» */
+const lapsed = (w: Word): StudyResult => ({ word: w, gotIt: true, lapsed: true });
 
 describe('partitionSessionResults', () => {
   it('빈 결과 → 전부 빈 배열', () => {
     const plan = partitionSessionResults([], NOW);
     expect(plan).toEqual({
       memorizedIds: [], failedIds: [], wrongIds: [], correctIds: [],
-      reviewAdvanceIds: [], seenIds: [],
+      reviewStartIds: [], reviewAdvanceIds: [], reviewResetIds: [], seenIds: [],
     });
   });
 
@@ -124,6 +126,43 @@ describe('partitionSessionResults', () => {
     });
   });
 
+  // ─── 다시 풀어 맞힘(lapsed) — 시험지 §3 ────────────────────────────────────
+
+  describe('lapsed — 외웠어요로 치되 오답 +1, 사다리는 첫 칸부터', () => {
+    it('미암기 단어 → 암기 전환 + 오답 +1 + 사다리 시작, 오답 리셋은 없다', () => {
+      const plan = partitionSessionResults([lapsed(word('a', { wrongCount: 1 }))], NOW);
+      expect(plan.memorizedIds).toEqual(['a']);
+      expect(plan.wrongIds).toEqual(['a']);
+      expect(plan.correctIds).toEqual([]);
+      expect(plan.reviewStartIds).toEqual(['a']);
+      expect(plan.reviewResetIds).toEqual([]);
+      expect(plan.failedIds).toEqual([]);
+    });
+
+    it('외운 단어(due) → 강등 없이 오답 +1, 전진이 아니라 첫 칸에서 다시', () => {
+      const plan = partitionSessionResults(
+        [lapsed(memorized('a', { reviewSuccessCount: 3, lastReviewedAt: daysAgo(30), wrongCount: 2 }))],
+        NOW,
+      );
+      expect(plan.memorizedIds).toEqual([]);
+      expect(plan.failedIds).toEqual([]);
+      expect(plan.wrongIds).toEqual(['a']);
+      expect(plan.correctIds).toEqual([]);
+      expect(plan.reviewAdvanceIds).toEqual([]);
+      expect(plan.reviewStartIds).toEqual(['a']);
+      expect(plan.reviewResetIds).toEqual([]);
+      expect(plan.seenIds).toEqual(['a']);
+    });
+
+    it('gotIt 이 아니면 lapsed 표시는 뜻이 없다 — 보통 오답과 같다', () => {
+      const plan = partitionSessionResults([{ word: memorized('a'), gotIt: false, lapsed: true }], NOW);
+      expect(plan.failedIds).toEqual(['a']);
+      expect(plan.wrongIds).toEqual(['a']);
+      expect(plan.reviewStartIds).toEqual([]);
+      expect(plan.reviewResetIds).toEqual(['a']);
+    });
+  });
+
   it('혼합 세션 — finishSession과 동일한 분류', () => {
     const plan = partitionSessionResults([
       r(word('new-got'), true),                                        // 암기 전환(사다리 시작)
@@ -137,7 +176,9 @@ describe('partitionSessionResults', () => {
     expect(plan.failedIds).toEqual(['memo-miss']);
     expect(plan.wrongIds).toEqual(['memo-miss', 'new-miss']);
     expect(plan.correctIds).toEqual(['redeemed']);
+    expect(plan.reviewStartIds).toEqual(['new-got', 'redeemed']);
     expect(plan.reviewAdvanceIds).toEqual(['due-got']);
+    expect(plan.reviewResetIds).toEqual(['memo-miss', 'new-miss']);
     expect(plan.seenIds).toEqual(['new-got', 'due-got', 'early-got', 'memo-miss', 'new-miss', 'redeemed']);
   });
 });

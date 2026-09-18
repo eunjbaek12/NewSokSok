@@ -18,7 +18,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Pressable,
   TextInput,
   Platform,
@@ -26,7 +25,7 @@ import {
   ActivityIndicator,
   Linking,
 } from 'react-native';
-import { KeyboardAvoidingView, useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
+import { KeyboardAvoidingView, KeyboardAwareScrollView, useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -50,6 +49,13 @@ import {
 function firstParam(v: string | string[] | undefined): string {
   return (Array.isArray(v) ? v[0] : v) ?? '';
 }
+
+// 키보드가 떠 있을 때 글자 치는 위치(캐럿)를 이만큼 키보드 위에 둔다 — 그 사이에 [보내기] 줄이 있다
+// (위 12 + 버튼 52 + 아래 12 + 테두리 1) + 여유 16.
+// 🔴 아이폰은 여러 줄 입력칸이 길어져도 캐럿을 따라 굴려 주지 않는다(안드로이드는 스스로 굴린다).
+//    실기(TestFlight 55, 9/17): 문의 내용이 세 줄을 넘자 그 아래가 키보드에 가려 안 보였다.
+//    KeyboardAwareScrollView 가 캐럿 위치를 보고 굴린다 — 시험지 화면이 먼저 쓴 방식이다.
+const CARET_CLEARANCE = 12 + 52 + 12 + 1 + 16;
 
 export default function DeckErrorScreen() {
   const insets = useSafeAreaInsets();
@@ -154,7 +160,8 @@ export default function DeckErrorScreen() {
           edge-to-edge 라 창이 키보드만큼 줄지 않는다. keyboard-controller 판은 두 플랫폼이 같은 계산이다.
           오프셋은 0: 이 뷰의 부모가 화면 맨 위에서 시작하고, 헤더 높이는 이미 이 뷰의 y 에 들어 있다. */}
       <KeyboardAvoidingView style={styles.flex} behavior="padding">
-        <ScrollView
+        <KeyboardAwareScrollView
+          bottomOffset={CARET_CLEARANCE}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
           // 멀티라인 입력이라 키보드에 "완료"가 없다. 스크롤로 내릴 수 있게 한다.
@@ -194,7 +201,7 @@ export default function DeckErrorScreen() {
           >
             {body.length} / {SUPPORT_BODY_MAX}
           </Text>
-        </ScrollView>
+        </KeyboardAwareScrollView>
 
         <Animated.View
           style={[

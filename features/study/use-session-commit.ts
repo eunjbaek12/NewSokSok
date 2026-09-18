@@ -85,9 +85,9 @@ export async function commitSessionResults(
   if (plan.correctIds.length > 0) await resetWrongCount(plan.correctIds);
   await recordReviewOutcomes({
     seenIds: plan.seenIds,
-    startIds: plan.memorizedIds,
+    startIds: plan.reviewStartIds,
     advanceIds: plan.reviewAdvanceIds,
-    resetIds: plan.wrongIds,
+    resetIds: plan.reviewResetIds,
   });
   // "마지막 학습" 시각 — 갱신 지점은 여기 하나뿐이다(features/vocab/db.ts의
   // updateStudyTime 주석 참조). 단어를 만지는 동작(편집·별표·복사·목록의 암기

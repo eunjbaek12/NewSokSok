@@ -21,6 +21,7 @@ import {
   type PendingCompletion,
 } from '@/features/stats';
 import { maybeRequestReview, isGoodMoment } from '@/features/reviews';
+import AnswerSheetList from '@/features/study/test-sheet/AnswerSheetList';
 
 // 마일스톤 없는 세션에서 리뷰 팝업을 띄우기까지의 대기(ms). 사용자가 자기 정답률·
 // 외운 단어 수를 먼저 읽어야 "뿌듯한 순간"이 된다 — 진입 즉시 띄우면 결과를 시스템
@@ -34,12 +35,17 @@ const REVIEW_PROMPT_DELAY_MS = 1500;
 // 맞췄다(배너를 보는 사용자 기준으론 10dp 높은데 눈에 띄는 차이는 아니다).
 // 예전 값 20은 학습 화면보다 60dp 넘게 낮아, 학습을 마치는 순간 버튼이 뚝 떨어져 보였다.
 const BOTTOM_BAR_OFFSET = 88;
+// 시험지 결과는 같은 원칙으로 **시험지 화면**의 [결과 보기]에 맞춘다 — 그 버튼 아래 끝이
+// insets.bottom + (adsBottomInset || 36) 이다(features/study/test-sheet/screen.tsx).
+// 88 을 그대로 쓰면 버튼 묶음 밑이 비어 답안지가 첫 화면에 네 줄뿐이었다(실기 9/17, 시험지 스펙 D18).
+const TEST_SHEET_BOTTOM_BAR_OFFSET = 36;
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors, fontFamily } = useTheme();
   const studyResults = useStudyResultsStore(s => s.results);
+  const answerSheet = useStudyResultsStore(s => s.answerSheet);
   const clearStudyResults = useStudyResultsStore(s => s.clear);
   const { id, mode, duration, isStarred, sessionFilter, quizType } = useLocalSearchParams<{
     id: string;
@@ -193,6 +199,9 @@ export default function StudyResultsScreen() {
     });
   };
 
+  // 시험지는 요약을 줄이고 그 아래 전체 답안지를 붙인다(시험지 스펙 D16·D18). 퀴즈 등은 그대로.
+  const showAnswerSheet = mode === 'test-sheet' && !!answerSheet && answerSheet.length > 0;
+
   if (studyResults.length === 0) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
@@ -207,6 +216,22 @@ export default function StudyResultsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {showAnswerSheet ? (
+        <AnswerSheetList
+          records={answerSheet}
+          listId={id}
+          paddingTop={topInset}
+          paddingBottom={bottomBarHeight + 24}
+          summary={{
+            accuracy,
+            duration: formatDuration(duration),
+            memorized: gotItResults.length,
+            needsReview: reviewResults.length,
+            allCorrect,
+            subtitle: t(subtitleKey),
+          }}
+        />
+      ) : (
       <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: bottomBarHeight + 24 }]}>
         <View style={styles.header}>
           <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight, shadowColor: colors.shadow }]}>
@@ -251,10 +276,11 @@ export default function StudyResultsScreen() {
           </View>
         </View>
       </ScrollView>
+      )}
 
       <View
         onLayout={e => setBottomBarHeight(e.nativeEvent.layout.height)}
-        style={[styles.bottomBar, { paddingBottom: insets.bottom + BOTTOM_BAR_OFFSET, backgroundColor: colors.background }]}
+        style={[styles.bottomBar, { paddingBottom: insets.bottom + (showAnswerSheet ? TEST_SHEET_BOTTOM_BAR_OFFSET : BOTTOM_BAR_OFFSET), backgroundColor: colors.background }]}
       >
         <View style={styles.retryGroup}>
           <Pressable

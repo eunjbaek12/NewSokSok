@@ -1,0 +1,128 @@
+＊ 버전을 타지 않는 규칙(500자 제한 · 영어가 먼저 넘침 · 스페인어 20~25% ·
+＊ 뜻 언어 필터 확인 · 요금제 이름 · Play 에 iOS 전용 수정 금지)은
+＊ README.md 「출시 노트를 쓸 때」에 있다. 이 파일에는 1.7.0 에만 해당하는 것만 적는다.
+＊
+＊ 🔑 아래 블록은 Play Console 이 주는 템플릿과 같은 형식이다(1.6.2·1.6.3 과 동일).
+＊    로케일 알파벳순이고, 여는 태그부터 닫는 태그까지 그대로 긁어 붙여넣는다.
+＊    한 항목의 설명은 **한 문장**이다 — 1.6.2 때 두 문장짜리 줄에서 글자가 사라졌다.
+＊
+＊ 🔴 **테마 이름을 그 로케일 언어로 옮기지 않는다 — ja · vi · zh 는 영어 이름 그대로.**
+＊    앱 UI 언어는 ko / en / es 셋뿐이라 그 세 로케일 사용자는 앱을 **영어로 본다.**
+＊    실제 값: ko 가을 단풍·한글·할로윈 / en·ja·vi·zh Autumn Leaves·Hangul·Halloween /
+＊    es Hojas de Otoño·Hangul·Halloween (i18n/locales/*.json 의 skinAutumn·skinHangul·skinHalloween).
+＊    같은 이유로 **설정 경로도 ja·vi·zh 에서는 뺐다** — 「設定 > 表示」라고 적으면 실제
+＊    화면의 Settings > Display 와 안 맞는다. 보관함 이름(My Learning)도 영어 그대로 쓴다.
+＊
+＊ 🔴 **덱 항목은 로케일마다 다르고, es 에서는 아예 뺐다.** 단어 모음은 **뜻 언어**로
+＊    거른다(README 「출시 노트를 쓸 때」의 뜻 언어 필터 항목, 1.3.1·1.5.0 에서 두 번 겪었다).
+＊    | 로케일 | 그 사람이 10/1 에 실제로 보는 새 덱 |
+＊    | ko-KR | 「할로윈 영어 50」(en>ko) |
+＊    | en-US · ja-JP · vi · zh-CN · zh-TW | Korean Ghosts & Folk Horror 50(ko>en) |
+＊    |   ↑ 이 넷은 앱을 영어로 보므로 뜻 언어가 en 이고, 그래서 ko>en 덱이 목록에 뜬다 |
+＊    | es-419 · es-ES | **없다** — 뜻 언어가 es 인 덱이 0개라 둘 다 목록에 안 뜬다 |
+＊    한글날 덱(curated-hangul-ko-1)은 **9/9 에 이미 공개됐다** — 새것이 아니라 안 적는다.
+＊
+＊ 🔴 **이 노트의 덱 줄은 앱이 아니라 서버가 지킨다.** 덱 셋 `--publish` 와 1.7.0 출시는
+＊    **같은 날 같이** 나가야 한다(store-assets/event-cards/README.md). 노트는 빌드마다
+＊    고정이라 나중에 못 고친다.
+＊
+＊ 🔴 **손 흔들기를 껐다는 것은 적지 않는다.** 그 흔들림을 이상하게 본 사람은 iPhone
+＊    1.6.3 사용자뿐이고, 나머지에게는 "그런 게 있었구나"만 남는다(앱 소식과 같은 판단).
+＊
+＊ 🔑 완주는 앱 소식에서는 **두 줄**이지만 여기서는 **한 항목**이다 — 한 항목 = 한 문장
+＊    규칙이라, 상장이 나온다는 것과 어디에 쌓이는지를 한 문장에 담았다.
+＊
+＊ 자수 실측(코드포인트, 한도 500 · 블록 8개): en-US 386 · es-419·es-ES 각 246 ·
+＊ ja-JP 209 · ko-KR 219 · vi 330 · zh-CN 174 · zh-TW 174.
+＊ 가장 긴 en-US 도 500 의 77% 다 — 덱 항목이 없는 es 가 가장 짧다.
+
+<en-US>
+1.7.0 update
+
+🎖️ Finish a deck and earn a certificate
+Complete a study plan to its last day and a certificate is issued, then kept in My Learning.
+
+🎨 Three new themes
+Autumn Leaves, Hangul and Halloween are in Settings, under Display.
+
+📚 New deck: Korean Ghosts & Folk Horror 50
+The ghosts Korea actually tells stories about, from 도깨비 and 구미호 to every way to say your hair stood on end.
+</en-US>
+<es-419>
+Actualización 1.7.0
+
+🎖️ Termina una lista y recibe un certificado
+Completa un plan de estudio hasta el último día y el certificado se guarda en Mi aprendizaje.
+
+🎨 Tres temas nuevos
+Hojas de Otoño, Hangul y Halloween están en Ajustes, en Pantalla.
+</es-419>
+<es-ES>
+Actualización 1.7.0
+
+🎖️ Termina una lista y recibe un certificado
+Completa un plan de estudio hasta el último día y el certificado se guarda en Mi aprendizaje.
+
+🎨 Tres temas nuevos
+Hojas de Otoño, Hangul y Halloween están en Ajustes, en Pantalla.
+</es-ES>
+<ja-JP>
+1.7.0 アップデート
+
+🎖️ 単語帳をやり切ると賞状がもらえます
+学習プランを最終日まで終えると完走の賞状が発行され、My Learning に貯まります。
+
+🎨 テーマが3つ増えました
+Autumn Leaves、Hangul、Halloween が加わりました。
+
+📚 新しい単語帳 Korean Ghosts & Folk Horror 50
+韓国で実際に語り継がれる幽霊やお化けの話から50語を選びました。
+</ja-JP>
+<ko-KR>
+1.7.0 업데이트
+
+🎖️ 단어장을 끝까지 외우면 상장을 드려요
+학습 계획을 마지막 날까지 마치면 완주 상장이 나오고, 내 학습에 차곡차곡 쌓여요.
+
+🎨 테마가 셋 늘었어요
+가을 단풍, 한글, 할로윈을 설정의 화면 항목에서 고를 수 있어요.
+
+📚 「할로윈 영어 50」 단어장이 새로 열렸어요
+trick or treat 부터 goosebumps 까지 풍습과 괴물과 마법을 여섯 갈래로 골랐어요.
+</ko-KR>
+<vi>
+Cập nhật 1.7.0
+
+🎖️ Học xong cả bộ thẻ, bạn nhận được chứng nhận
+Hoàn thành kế hoạch học đến ngày cuối cùng và chứng nhận sẽ được lưu trong My Learning.
+
+🎨 Thêm ba giao diện mới
+Autumn Leaves, Hangul và Halloween.
+
+📚 Bộ thẻ mới: Korean Ghosts & Folk Horror 50
+50 từ về ma quỷ và truyện kinh dị dân gian mà người Hàn thật sự hay kể.
+</vi>
+<zh-CN>
+1.7.0 更新
+
+🎖️ 学完整本单词本会获得结业证书
+把学习计划完成到最后一天就会颁发结业证书，并保存在 My Learning 里。
+
+🎨 新增三款主题
+Autumn Leaves、Hangul、Halloween。
+
+📚 新单词本 Korean Ghosts & Folk Horror 50
+精选50个韩国民间真正流传的鬼怪与恐怖故事用词。
+</zh-CN>
+<zh-TW>
+1.7.0 更新
+
+🎖️ 學完整本單字卡會獲得結業證書
+把學習計畫完成到最後一天就會頒發結業證書，並保存在 My Learning 裡。
+
+🎨 新增三款主題
+Autumn Leaves、Hangul、Halloween。
+
+📚 新單字卡 Korean Ghosts & Folk Horror 50
+精選50個韓國民間真正流傳的鬼怪與恐怖故事用詞。
+</zh-TW>

@@ -273,7 +273,7 @@ Avocado is a personal vocabulary learning tool built to make every spare minute 
 - The app itself speaks English, Korean, and Spanish
 
 • Make it yours with skins
-- Classic, Dark, Stationery, Lab, Summer Sea, and more themes
+- Eight themes, from Classic and Dark to Autumn Leaves, Hangul and Halloween
 
 • Offline-first with cloud sync
 - Data lives on your device first — study without internet

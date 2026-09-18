@@ -37,6 +37,8 @@ import type { PlanStatus, VocaList } from '@/lib/types';
 import ReviewBanner from '@/features/study/review/ReviewBanner';
 import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
 import { useReviewSoftAsk } from '@/features/study/review/use-review-notifications';
+import WordNotifyPromoCard from '@/features/study/word-notifications/WordNotifyPromoCard';
+import { useWordNotifyPromo } from '@/features/study/word-notifications/use-word-notify-promo';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -208,6 +210,9 @@ export default function DashboardScreen() {
   // 첫 복습이 생긴 날의 권한 soft ask(§8.4). 일정 유지(재예약)는 앱 루트의
   // ReviewNotificationScheduler가 상시 담당한다 — 홈 마운트와 무관하게 돌게 하기 위해서.
   const { softAskVisible, handleSoftAskDecided } = useReviewSoftAsk(reviewWords.length);
+
+  // 단어 알림을 알리는 카드(§10). 조건 판정은 features/study/word-notifications/promo.ts.
+  const wordNotifyPromo = useWordNotifyPromo(lists);
 
   // 버전이 올라간 첫 실행에만 값이 들어온다(신규 설치·같은 버전은 null).
   const { announcement: whatsNew, dismiss: dismissWhatsNew } = useWhatsNew();
@@ -398,6 +403,11 @@ export default function DashboardScreen() {
               <Text style={[styles.quickCardLabel, { color: colors.text }]}>{t('home.starredWords')}</Text>
             </Pressable>
           </View>
+
+          {/* 단어 알림이 있다는 걸 알리는 자리(§10). 조건에 안 맞으면 스스로 null을 돌려줘
+              홈이 지금과 똑같아진다. 퀵액션 아래인 건 의도 — 위는 "학습 액션" 묶음이고
+              이건 소개라, 그 묶음을 가르지 않는다. */}
+          <WordNotifyPromoCard promo={wordNotifyPromo} style={styles.wordNotifyPromo} />
 
           {/* Plans Section */}
           <View style={styles.section}>
@@ -972,6 +982,10 @@ const styles = StyleSheet.create({
   quickActionRow: {
     flexDirection: 'row',
     gap: 10,
+    marginBottom: 24,
+  },
+  /* 퀵액션이 이미 아래로 24를 주므로 위는 비우고, 아래로만 학습 계획과의 간격을 준다. */
+  wordNotifyPromo: {
     marginBottom: 24,
   },
   quickCard: {

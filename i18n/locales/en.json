@@ -491,6 +491,7 @@
     "v163_1": "The Stationery, Lab and Summer Sea themes now have backdrops of their own. Settings › Display › Theme",
     "v163_2": "The Y2K theme is now called Stationery — the theme you are using stays as it is",
     "v163_3": "Keep your ideas coming from Settings › Contact us",
+    "v180_1": "Turn on Settings › Word notifications and words with their meanings arrive at the times you pick — no need to open the app",
     "v160_1": "We rebuilt all four Korean learning decks so the levels actually match. Thanks for the report!",
     "v160_2": "Example questions now have sharper choices — words that would also fit the blank no longer show up together",
     "v160_3": "A new Intermediate Korean II deck is here. Set your meaning language to English to see it",
@@ -1768,7 +1769,13 @@
     "timePerDay": "Per day",
     "timesPerDay": "{{count}}",
     "perDayFewer": "Fewer times",
-    "perDayMore": "More times"
+    "perDayMore": "More times",
+    "promoTitle": "See words without opening the app",
+    "promoBody": "Words and meanings arrive as notifications at the times you pick — {{count}} a day from {{time}}.",
+    "promoEnable": "Turn on",
+    "promoDoneTitle": "Word notifications are on",
+    "promoDoneBody": "{{count}} a day from {{time}}, sent from “{{list}}”.",
+    "promoChange": "Change"
   },
   "scanError": {
     "quotaTitle": "Usage limit reached",

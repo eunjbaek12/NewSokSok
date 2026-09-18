@@ -123,6 +123,11 @@ export const WordNotificationSettingsSchema = z.object({
   /** «골라서 학습» 칩의 부분집합 — 알림은 복습할 단어를 보내지 않아 «전체»가 없다(N2). */
   wordFilter: z.enum(['learning', 'memorized', 'wrongCount', 'recent']).default('learning'),
   starredOnly: z.boolean().default(false),
+  /**
+   * 홈 권유 카드를 닫았는가(§10). 복습 알림의 `softAsked`와 같은 역할 — 한 번 닫으면 다시 안 띄운다.
+   * 켜기를 눌렀다가 시스템 창에서 거절당한 경우에도 true가 된다(줄 수 있는 게 없어 조르기가 되므로).
+   */
+  promoDismissed: z.boolean().default(false),
 });
 export type WordNotificationSettings = z.infer<typeof WordNotificationSettingsSchema>;
 

@@ -491,6 +491,7 @@
     "v163_1": "Los temas Papelería, Laboratorio y Mar de Verano ahora tienen sus propios fondos. Ajustes › Pantalla › Tema",
     "v163_2": "El tema Y2K ahora se llama Papelería — el tema que estás usando se mantiene",
     "v163_3": "Seguid escribiéndonos en Ajustes › Contacto",
+    "v180_1": "Activa Ajustes › Notificaciones de palabras y recibirás palabras con su significado a la hora que elijas, sin abrir la app",
     "v160_1": "Reconstruimos las cuatro colecciones de coreano para que los niveles coincidan de verdad. ¡Gracias por avisarnos!",
     "v160_2": "Las preguntas de ejemplos ahora tienen mejores opciones: las palabras que también encajan en el hueco ya no aparecen juntas.",
     "v160_3": "Llegó la nueva colección Intermediate Korean II. Cambia el idioma de significado a inglés para verla.",
@@ -1350,7 +1351,13 @@
     "timePerDay": "Al día",
     "timesPerDay": "{{count}}",
     "perDayFewer": "Menos veces",
-    "perDayMore": "Más veces"
+    "perDayMore": "Más veces",
+    "promoTitle": "Ve palabras sin abrir la app",
+    "promoBody": "Las palabras y sus significados llegan como notificaciones a la hora que elijas: {{count}} al día desde las {{time}}.",
+    "promoEnable": "Activar",
+    "promoDoneTitle": "Notificaciones de palabras activadas",
+    "promoDoneBody": "{{count}} al día desde las {{time}}, desde «{{list}}».",
+    "promoChange": "Cambiar"
   },
   "scanError": {
     "quotaTitle": "Límite de uso alcanzado",

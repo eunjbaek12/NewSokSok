@@ -52,7 +52,8 @@ type SortOrder = 'newest' | 'az' | 'za';
 
 export default function ListDetailScreen() {
   const { t } = useTranslation();
-  const { id } = useLocalSearchParams<{ id: string }>();
+  // focusWordId — 단어 알림을 눌러 들어왔을 때 그 단어까지 내려가 잠깐 칠한다(docs/word-notifications-design.md §5).
+  const { id, focusWordId } = useLocalSearchParams<{ id: string; focusWordId?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const lists = useLists();
@@ -76,6 +77,7 @@ export default function ListDetailScreen() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [flashId, setFlashId] = useState<string | null>(null);
 
 
   // Modal State
@@ -396,7 +398,9 @@ export default function ListDetailScreen() {
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
     const isSelected = editMode && selectedIds.has(item.id);
     const borderColor = item.isStarred ? colors.starGold : (item.isMemorized ? colors.border : colors.primary);
-    const cardBg = isSelected ? colors.primaryLight : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
+    const cardBg = isSelected || item.id === flashId
+      ? colors.primaryLight
+      : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
 
     return (
       <Pressable
@@ -506,7 +510,35 @@ export default function ListDetailScreen() {
         </View>
       </Pressable>
     );
-  }, [colors, editMode, selectedIds, handleCardPress, handleCardLongPress, toggleMemorized, toggleStarred, id, list]);
+  }, [colors, editMode, selectedIds, handleCardPress, handleCardLongPress, toggleMemorized, toggleStarred, id, list, flashId]);
+
+  /**
+   * 알림에서 온 단어로 내려간다. 새로 연 화면이라 필터·정렬은 처음 값(전체·최신순)이고, 그래서
+   * 단어가 필터에 가려질 일이 없다. 한 번만 — 처리한 뒤 파라미터를 지워 목록이 바뀔 때마다 다시
+   * 내려가지 않게 한다. 카드 높이가 뜻 줄 수에 따라 달라 scrollToIndex 가 실패할 수 있어,
+   * 실패하면 평균 높이로 먼저 옮긴 뒤 다시 시도한다(onScrollToIndexFailed).
+   */
+  //
+  // 🔴 타이머를 이 effect 의 cleanup 으로 치우면 안 된다 — 바로 아래 setParams 가 focusWordId 를
+  //    지우면서 effect 가 다시 돌고, 그 cleanup 이 아직 안 돈 스크롤·칠 지우기를 취소한다
+  //    (칠한 채로 남고 내려가지도 않는다). 그래서 화면이 사라질 때만 치운다.
+  const focusHandled = useRef<string | null>(null);
+  const focusTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  useEffect(() => () => focusTimers.current.forEach(clearTimeout), []);
+  useEffect(() => {
+    if (!focusWordId || focusHandled.current === focusWordId) return;
+    const index = filteredWords.findIndex(w => w.id === focusWordId);
+    if (index < 0) return;
+    focusHandled.current = focusWordId;
+    setFlashId(focusWordId);
+    focusTimers.current.push(
+      setTimeout(() => {
+        flatListRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.25 });
+      }, 300),
+      setTimeout(() => setFlashId(null), 1800),
+    );
+    router.setParams({ focusWordId: undefined } as any);
+  }, [focusWordId, filteredWords]);
 
   const renderFilterHeader = () => {
     if (editMode) {
@@ -897,6 +929,12 @@ export default function ListDetailScreen() {
           scrollEventThrottle={16}
           onContentSizeChange={(_, h) => setListContentHeight(h)}
           onLayout={(e) => setListVisibleHeight(e.nativeEvent.layout.height)}
+          onScrollToIndexFailed={(info) => {
+            flatListRef.current?.scrollToOffset({ offset: info.averageItemLength * info.index, animated: false });
+            setTimeout(() => {
+              flatListRef.current?.scrollToIndex({ index: info.index, animated: true, viewPosition: 0.25 });
+            }, 120);
+          }}
         />
         <FastScrollHandle
           scrollY={scrollY}

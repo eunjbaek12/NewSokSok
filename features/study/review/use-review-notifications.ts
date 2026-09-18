@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { VocaList } from '@/lib/types';
 import { useSettingsStore } from '@/features/settings';
+import { useForegroundCount } from '@/hooks/useForegroundCount';
 import { ensureReviewChannel, syncReviewNotifications } from './notifications';
 
 /**
@@ -21,6 +22,9 @@ export function useReviewNotificationScheduler(lists: VocaList[]) {
   // 트리거로 넣는다(lists·settings가 우연히 바뀌기 전까지 안 고쳐지던 상태였다).
   const { i18n } = useTranslation();
   const language = i18n.language;
+  // 앱을 다시 열 때도 다시 예약한다 — 공부 없이 열기만 하면 lists 가 안 바뀌어 14일 끝에서
+  // 끊기던 것, 시간대가 바뀐 뒤 옛 시간대로 울리던 것을 함께 고친다.
+  const foreground = useForegroundCount();
 
   useEffect(() => {
     void ensureReviewChannel();
@@ -48,7 +52,7 @@ export function useReviewNotificationScheduler(lists: VocaList[]) {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [isLoading, lists, settings, language]);
+  }, [isLoading, lists, settings, language, foreground]);
 }
 
 /**

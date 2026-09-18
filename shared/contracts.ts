@@ -107,6 +107,30 @@ export const ReviewNotificationSettingsSchema = z.object({
 });
 export type ReviewNotificationSettings = z.infer<typeof ReviewNotificationSettingsSchema>;
 
+/**
+ * 시간마다 단어 알림(docs/word-notifications-design.md). 기기 설정이라 계정 전환 시 지우지 않는다.
+ *
+ * 시각은 자정 기준 분이다(30분 단위로 고른다). `startMinute < endMinute` 는 스키마가 아니라
+ * 고르기 창이 지킨다 — 어긋난 값이 저장돼 있으면 계획 모듈이 기본값으로 떨어뜨린다.
+ */
+export const WordNotificationSettingsSchema = z.object({
+  enabled: z.boolean().default(false),
+  startMinute: z.number().int().min(0).max(1439).default(9 * 60),
+  endMinute: z.number().int().min(0).max(1439).default(21 * 60),
+  perDay: z.number().int().min(1).max(12).default(5),
+  /** null = 자동(마지막으로 공부한 단어장). */
+  listId: z.string().nullable().default(null),
+  /** «골라서 학습» 칩의 부분집합 — 알림은 복습할 단어를 보내지 않아 «전체»가 없다(N2). */
+  wordFilter: z.enum(['learning', 'memorized', 'wrongCount', 'recent']).default('learning'),
+  starredOnly: z.boolean().default(false),
+  /**
+   * 홈 권유 카드를 닫았는가(§10). 복습 알림의 `softAsked`와 같은 역할 — 한 번 닫으면 다시 안 띄운다.
+   * 켜기를 눌렀다가 시스템 창에서 거절당한 경우에도 true가 된다(줄 수 있는 게 없어 조르기가 되므로).
+   */
+  promoDismissed: z.boolean().default(false),
+});
+export type WordNotificationSettings = z.infer<typeof WordNotificationSettingsSchema>;
+
 export const AutoPlaySettingsSchema = z.object({
   filter: z.enum(['all', 'learning', 'memorized']).default('all'),
   isStarred: z.boolean().default(false),

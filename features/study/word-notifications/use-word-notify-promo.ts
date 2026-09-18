@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next';
 import type { VocaList } from '@/lib/types';
 import { useSettingsStore } from '@/features/settings';
 import { hasNotificationPermission, requestNotificationPermission } from '../review/notifications';
-import { resolveSourceList, selectCandidates } from './plan';
+import { resolveSourceList } from './plan';
 import { syncWordNotifications } from './notifications';
-import { shouldShowWordNotifyPromo } from './promo';
+import { countSendableWords, shouldShowWordNotifyPromo } from './promo';
 
 export interface WordNotifyPromo {
   visible: boolean;
@@ -39,11 +39,10 @@ export function useWordNotifyPromo(lists: VocaList[]): WordNotifyPromo {
     }, []),
   );
 
+  // 이름은 «켰어요»에서만 쓴다 — 켜기 전 카드는 단어장을 말하지 않는다.
   const list = useMemo(() => resolveSourceList(lists, wordNotif.listId).list, [lists, wordNotif.listId]);
-  const sendableCount = useMemo(
-    () => (list ? selectCandidates(list, wordNotif).length : 0),
-    [list, wordNotif],
-  );
+  // 띄울지 말지는 **앱 전체** 기준이다(promo.ts countSendableWords 주석 참조).
+  const sendableCount = useMemo(() => countSendableWords(lists, wordNotif), [lists, wordNotif]);
 
   const visible =
     !isLoading &&

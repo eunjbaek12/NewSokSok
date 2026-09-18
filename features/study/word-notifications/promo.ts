@@ -15,6 +15,8 @@
  * 창이 아니라 «이런 게 있어요» 소개라 화면을 덮을 일도 아니다.
  */
 import type { ReviewNotificationSettings, WordNotificationSettings } from '@shared/contracts';
+import type { VocaList } from '@/lib/types';
+import { selectCandidates } from './plan';
 
 /**
  * 카드를 띄울 최소 «보낼 수 있는 단어» 수.
@@ -23,6 +25,33 @@ import type { ReviewNotificationSettings, WordNotificationSettings } from '@shar
  * «곧 멈춰요» 안내가 따라붙어, 카드가 약속한 것과 실제가 어긋난다.
  */
 export const WORD_NOTIF_PROMO_MIN_WORDS = 20;
+
+/**
+ * **앱 전체**에서 지금 조건으로 보낼 수 있는 단어 수.
+ *
+ * 처음에는 «자동으로 고른 단어장 하나»에서 셌는데, 실기(2026-09-18)에서 그게 틀렸다는 게
+ * 드러났다 — 단어 44개·안 외운 것 17개를 가진 기기에서 카드가 **영영 뜨지 않았다**.
+ * 자동 선택은 «마지막에 공부한 단어장»인데 그게 안 외운 단어 1개짜리 샘플 단어장이었고,
+ * 나머지 43개는 세지 않았기 때문이다.
+ *
+ * 문턱의 근거인 8/19 실측(«단어 20개 이상 가진 44명 중 22명이 학습을 한 번도 안 열었다»)도
+ * **앱 전체** 기준이다. 단어장 하나로 세면 근거와 구현이 어긋난다.
+ *
+ * 앱 전체로 세어도 카드가 약속을 넘기지 않는 이유: 카드는 켜기 전에 **단어장 이름을 말하지
+ * 않는다**. 이름은 켠 뒤 «켰어요»에서만 나오고, 그때는 실제로 보낼 단어장이 정해져 있다.
+ * (자동 단어장이 작으면 며칠 뒤 «곧 멈춰요»가 오는데, 그건 눌러서 단어장을 바꾸는 자리다 — N11.)
+ *
+ * 숨긴 단어장은 빼고 센다 — 알림이 애초에 거기서 보내지 않는다(§2.1).
+ */
+export function countSendableWords(
+  lists: VocaList[],
+  settings: Pick<WordNotificationSettings, 'wordFilter' | 'starredOnly'>,
+): number {
+  return lists.reduce(
+    (total, list) => (list.isVisible ? total + selectCandidates(list, settings).length : total),
+    0,
+  );
+}
 
 /**
  * 복습 알림 권유에 «아니»라고 답한 적이 있는가.
@@ -45,12 +74,12 @@ export function declinedReviewPrompt(
 export interface WordNotifyPromoInput {
   wordNotif: Pick<WordNotificationSettings, 'enabled' | 'promoDismissed'>;
   review: Pick<ReviewNotificationSettings, 'softAsked' | 'enabled'>;
-  /** 지금 설정으로 실제로 보낼 수 있는 단어 수 — «단어를 몇 개 가졌나»가 아니다. */
+  /** `countSendableWords`의 결과 — «단어를 몇 개 가졌나»가 아니라 «조건에 맞는 게 몇 개인가». */
   sendableCount: number;
 }
 
 /**
- * 셋 다 맞아야 띄운다: 아직 안 켰고 · 닫은 적 없고 · 복습 권유를 거절한 적 없고 · 보낼 단어가 넉넉하다.
+ * 넷 다 맞아야 띄운다: 아직 안 켰고 · 닫은 적 없고 · 복습 권유를 거절한 적 없고 · 보낼 단어가 넉넉하다.
  *
  * `sendableCount`가 «가진 단어»가 아닌 이유: 500개를 다 외운 사람은 보낼 단어가 0이라
  * 켜자마자 멈춘다. 카드는 실제로 올 알림만 약속해야 한다.

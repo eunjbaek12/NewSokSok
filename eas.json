@@ -13,6 +13,15 @@
     },
     "production": {
       "autoIncrement": true
+    },
+    "widget-dev": {
+      "extends": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "WIDGET_DEV": "1"
+      }
     }
   },
   "submit": {

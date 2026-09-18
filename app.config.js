@@ -68,6 +68,37 @@ if (process.env.EAS_BUILD_PROFILE === 'production') {
   }
 }
 
+/**
+ * 휴대폰 홈 화면 위젯 — Android 전용(iOS 는 SDK 업그레이드 뒤). 2×2 한 종류만.
+ *
+ * `name` 은 생성되는 위젯 클래스 이름이라 **바꾸면 이미 놓인 위젯이 사라진다.**
+ * 갱신 주기는 안드로이드가 30분 미만을 받아 주지 않는다 — 학습을 마칠 때 앱이
+ * 갱신을 요청하고, 자정 넘김만 이 주기에 맡긴다(docs/widget-design.md §6-2).
+ */
+/**
+ * 위젯을 만드는 동안 쓰는 별개 앱 — `WIDGET_DEV=1` 로 빌드하면 패키지와 이름이 달라져
+ * **폰에 깔린 앱 옆에 나란히** 설치된다. 같은 패키지로 덮으면 서명이 달라 기존 앱을
+ * 지우고 깔아야 하고, 그 앱의 단어장이 함께 사라진다.
+ * 데이터 디렉터리가 갈리므로 진단이 읽는 DB 도 이 앱만의 것이다.
+ */
+const isWidgetDev = process.env.WIDGET_DEV === '1';
+
+const widgetConfig = {
+  widgets: [
+    {
+      name: 'Avocado',
+      label: 'Avocado',
+      minWidth: '160dp',
+      minHeight: '160dp',
+      targetCellWidth: 2,
+      targetCellHeight: 2,
+      description: 'Words on your phone home screen',
+      previewImage: './assets/images/icon.png',
+      updatePeriodMillis: 1800000,
+    },
+  ],
+};
+
 /** @type {import('@expo/config').ExpoConfig} */
 module.exports = {
   ...expo,
@@ -87,9 +118,16 @@ module.exports = {
         : {}),
     },
   },
+  name: isWidgetDev ? 'Avocado dev' : expo.name,
   android: {
     ...expo.android,
-    googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
+    ...(isWidgetDev ? { package: 'com.soksokvoca.dev' } : {}),
+    // dev 갈래는 패키지가 달라 Firebase 파일도 다른 것을 쓴다(그 패키지 항목이 없으면
+    // Google Services Gradle 플러그인이 빌드를 멈춘다). EAS 에서는 파일 시크릿
+    // GOOGLE_SERVICES_JSON_DEV 로 들어온다 — 프로덕션 시크릿은 그대로 둔다.
+    googleServicesFile: isWidgetDev
+      ? process.env.GOOGLE_SERVICES_JSON_DEV ?? './google-services.json'
+      : process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
   },
   plugins: [
     // expo-notifications가 주입하는 aps-environment(원격 푸시 전용) entitlement를 제거한다.
@@ -105,6 +143,9 @@ module.exports = {
     // 실제 제거는 Gradle manifest merger가 하므로 배열 위치는 무관하다.
     './plugins/withNoAudioForegroundServices',
     ...expo.plugins,
+    // 위젯은 config plugin 으로만 남긴다 — `android/` 는 prebuild 가 다시 만들어
+    // 커밋하지 않기로 했다(docs/widget-design.md §-1).
+    ['react-native-android-widget', widgetConfig],
     [
       'react-native-google-mobile-ads',
       {

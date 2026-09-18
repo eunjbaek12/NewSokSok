@@ -1771,7 +1771,7 @@
     "perDayFewer": "횟수 줄이기",
     "perDayMore": "횟수 늘리기",
     "promoTitle": "앱을 안 열어도 단어를 봐요",
-    "promoBody": "정한 시간에 단어와 뜻이 알림으로 와요. {{time}}부터 하루 {{count}}번.",
+    "promoBody": "정한 시간에 단어와 뜻이 알림으로 와요.\n{{time}}부터 하루 {{count}}번.",
     "promoEnable": "켜기",
     "promoDoneTitle": "단어 알림을 켰어요",
     "promoDoneBody": "{{time}}부터 하루 {{count}}번, 「{{list}}」에서 보내요.",

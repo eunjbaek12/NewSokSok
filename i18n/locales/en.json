@@ -1771,7 +1771,7 @@
     "perDayFewer": "Fewer times",
     "perDayMore": "More times",
     "promoTitle": "See words without opening the app",
-    "promoBody": "Words and meanings arrive as notifications at the times you pick — {{count}} a day from {{time}}.",
+    "promoBody": "Words and meanings arrive as notifications at the times you pick.\n{{count}} a day from {{time}}.",
     "promoEnable": "Turn on",
     "promoDoneTitle": "Word notifications are on",
     "promoDoneBody": "{{count}} a day from {{time}}, sent from “{{list}}”.",

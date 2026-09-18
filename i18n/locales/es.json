@@ -1353,7 +1353,7 @@
     "perDayFewer": "Menos veces",
     "perDayMore": "Más veces",
     "promoTitle": "Ve palabras sin abrir la app",
-    "promoBody": "Las palabras y sus significados llegan como notificaciones a la hora que elijas: {{count}} al día desde las {{time}}.",
+    "promoBody": "Las palabras y sus significados llegan como notificaciones a la hora que elijas.\n{{count}} al día desde las {{time}}.",
     "promoEnable": "Activar",
     "promoDoneTitle": "Notificaciones de palabras activadas",
     "promoDoneBody": "{{count}} al día desde las {{time}}, desde «{{list}}».",

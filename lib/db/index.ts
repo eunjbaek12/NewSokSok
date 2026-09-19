@@ -44,6 +44,10 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
 
             assertContiguous();
 
+            // 🔴 이 DB 를 다른 곳에서 한 번 더 열 때는 `{ useNewConnection: true }` 를 줄 것.
+            //    안 주면 expo-sqlite 가 **이 연결을 그대로 돌려주고**, 그 핸들이 정리될 때 이
+            //    연결까지 닫는다 — 앱을 다시 켤 때까지 읽기·쓰기가 조용히 실패한다
+            //    (features/widget/task-handler.tsx 의 isSchemaReady, 9/19 실기).
             dbInstance = await SQLite.openDatabaseAsync('soksok_voca.db');
 
             await dbInstance.execAsync('PRAGMA journal_mode = WAL;');

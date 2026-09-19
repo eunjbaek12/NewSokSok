@@ -26,11 +26,19 @@ import { loadWidgetState, saveWidgetState, clearWidgetState, type WidgetState } 
  * 앱이 이미 만들어 둔 DB 인가. 마이그레이션을 돌리지 않고 번호만 읽는다.
  * 🔑 `openDatabaseAsync` 는 파일이 없으면 **빈 파일을 만들어 준다** — 그래서 «열기»는 늘
  * 성공하고 «읽기»에서 죽는다. 번호가 0 이면 앱이 한 번도 안 열린 것이다.
+ *
+ * 🔴 **반드시 `useNewConnection: true`.** expo-sqlite 는 같은 이름·같은 옵션으로 다시 열면
+ * 새 연결을 만들지 않고 **앱이 쓰던 연결을 그대로 돌려준다**(SQLiteModule 의 캐시). 그리고 그
+ * 두 번째 JS 핸들이 가비지 컬렉션될 때 `sharedObjectDidRelease` 가 참조 카운트를 보지 않고
+ * **연결을 닫는다**(NativeDatabase.kt). 앱이 살아 있으면 위젯도 같은 JS 런타임에서 돌기 때문에,
+ * 이 확인 한 번이 **앱의 DB 를 죽인다** — 앱을 다시 켤 때까지 읽기·쓰기가 전부 조용히 실패한다.
+ * 9/19 실기: 위젯으로 외운 뒤 앱의 통계 화면이 전부 0 으로 나왔고, 재시작하자 정상이었다.
+ * 별도 연결이면 닫히든 정리되든 그 연결만 닫힌다.
  */
 async function isSchemaReady(): Promise<boolean> {
   let db: SQLite.SQLiteDatabase | null = null;
   try {
-    db = await SQLite.openDatabaseAsync('soksok_voca.db');
+    db = await SQLite.openDatabaseAsync('soksok_voca.db', { useNewConnection: true });
     const row = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
     return (row?.user_version ?? 0) >= SCHEMA_VERSION;
   } catch {

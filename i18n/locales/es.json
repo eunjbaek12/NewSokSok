@@ -1566,5 +1566,17 @@
     "retry": "Reintentar",
     "goHome": "Ir al inicio",
     "saveFailed": "No se pudo guardar"
+  },
+  "widget": {
+    "reveal": "Ver significado",
+    "doneTitle": "¡Listo por hoy!",
+    "doneSub": "Hasta mañana",
+    "emptyListTitle": "Esta lista está vacía",
+    "emptyListSub": "Añade palabras en la app",
+    "noListsTitle": "Aún no tienes listas",
+    "noListsSub": "Crea una en la app",
+    "needAppTitle": "Abre la app una vez",
+    "needAppSub": "Las palabras aparecen cuando esté lista",
+    "openApp": "Abrir app"
   }
 }

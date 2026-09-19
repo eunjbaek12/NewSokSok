@@ -1984,5 +1984,17 @@
     "retry": "다시 시도",
     "goHome": "홈으로",
     "saveFailed": "담지 못했어요"
+  },
+  "widget": {
+    "reveal": "뜻 보기",
+    "doneTitle": "오늘 끝!",
+    "doneSub": "내일 또 만나요",
+    "emptyListTitle": "단어장이 비었어요",
+    "emptyListSub": "앱에서 단어를 넣어 주세요",
+    "noListsTitle": "단어장이 없어요",
+    "noListsSub": "앱에서 만들어 보세요",
+    "needAppTitle": "앱을 한 번 열어 주세요",
+    "needAppSub": "준비가 끝나면 단어가 나와요",
+    "openApp": "앱 열기"
   }
 }

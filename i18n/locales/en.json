@@ -1984,5 +1984,17 @@
     "retry": "Try again",
     "goHome": "Go home",
     "saveFailed": "Couldn't save"
+  },
+  "widget": {
+    "reveal": "Show meaning",
+    "doneTitle": "Done for today!",
+    "doneSub": "See you tomorrow",
+    "emptyListTitle": "This list is empty",
+    "emptyListSub": "Add words in the app",
+    "noListsTitle": "No word lists yet",
+    "noListsSub": "Create one in the app",
+    "needAppTitle": "Open the app once",
+    "needAppSub": "Words show up once it's ready",
+    "openApp": "Open app"
   }
 }

@@ -22,6 +22,15 @@
       "env": {
         "WIDGET_DEV": "1"
       }
+    },
+    "widget-dev-client": {
+      "extends": "development",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "WIDGET_DEV": "1"
+      }
     }
   },
   "submit": {

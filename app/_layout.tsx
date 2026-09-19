@@ -29,6 +29,7 @@ import { useReviewNotificationRouting } from '@/features/study/review/use-review
 import { useReviewNotificationScheduler } from '@/features/study/review/use-review-notifications';
 import { useWordNotificationScheduler } from '@/features/study/word-notifications/use-word-notifications';
 import { useWordNotificationRouting } from '@/features/study/word-notifications/use-word-notification-routing';
+import { useWidgetRefreshOnLeave } from '@/features/widget';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -203,6 +204,9 @@ function AppStack() {
   useReviewNotificationRouting();
   // 단어 알림을 누르면 그 단어가 든 단어장 화면으로(N10).
   useWordNotificationRouting();
+  // 앱을 나갈 때 휴대폰 홈 화면 위젯을 다시 그린다 — 앱에서 외운 단어가 위젯에 남지 않게,
+  // 업데이트 뒤 빈 칸이 된 위젯도 복구되게(features/widget/refresh.ts). Android 만.
+  useWidgetRefreshOnLeave();
   const { inputSettings } = useSettings();
   const { isOnboardingDone } = useOnboarding();
   const { authMode, loading: authLoading } = useAuth();

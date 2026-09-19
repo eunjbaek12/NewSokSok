@@ -12,7 +12,7 @@
  */
 import React from 'react';
 import * as SQLite from 'expo-sqlite';
-import type { WidgetTaskHandlerProps } from 'react-native-android-widget';
+import type { WidgetInfo, WidgetTaskHandlerProps } from 'react-native-android-widget';
 import i18n from '@/i18n';
 import { fetchAllLists } from '@/features/vocab';
 import { selectReviewWords } from '@/features/study';
@@ -60,25 +60,29 @@ async function judge(list: VocaList, wordId: string, gotIt: boolean): Promise<vo
   await commitWidgetJudgement({ list, word, gotIt });
 }
 
-export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<void> {
-  const widgetId = props.widgetInfo.widgetId;
+/** 위젯을 누른 것. 없으면 그냥 다시 그리기(추가·갱신·크기 변경·앱이 요청한 갱신). */
+export interface WidgetClick {
+  action?: string;
+  data?: Record<string, unknown>;
+}
 
-  if (props.widgetAction === 'WIDGET_DELETED') {
-    await clearWidgetState(widgetId);
-    return;
-  }
-
+/**
+ * 위젯 하나를 그린다 — **위젯이 부를 때와 앱이 다시 그리라고 할 때 같은 함수**를 쓴다.
+ * 두 곳에 따로 두면 한쪽만 고쳐져 «앱을 나갔다 오니 위젯 모양이 바뀌었다»가 된다.
+ * 누른 것(`click`)이 있으면 그 판정·공개를 먼저 반영한다.
+ */
+export async function buildWidget(info: WidgetInfo, click?: WidgetClick) {
+  const widgetId = info.widgetId;
   const now = Date.now();
 
   if (!(await isSchemaReady())) {
-    props.renderWidget(
+    return (
       <MessageWidget
         title={i18n.t('widget.needAppTitle')}
         sub={i18n.t('widget.needAppSub')}
         action={i18n.t('widget.openApp')}
-      />,
+      />
     );
-    return;
   }
 
   let state = await loadWidgetState(widgetId, now);
@@ -86,15 +90,14 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
 
   // 판정 탭 — 지금 띄워 둔 단어일 때만 받는다. 연타하거나 늦게 도착한 탭이
   // **다음 단어의 판정이 되는 것**을 막는 유일한 방법이다(§-2 «누른 직후»).
-  const tappedWordId = String(props.clickActionData?.wordId ?? '');
+  const tappedWordId = String(click?.data?.wordId ?? '');
   const isJudgement =
-    props.widgetAction === 'WIDGET_CLICK' &&
-    (props.clickAction === WIDGET_ACTION.gotIt || props.clickAction === WIDGET_ACTION.again);
+    click?.action === WIDGET_ACTION.gotIt || click?.action === WIDGET_ACTION.again;
 
   if (isJudgement && tappedWordId && tappedWordId === state.wordId && state.listId) {
     const list = lists.find(l => l.id === state.listId);
     if (list) {
-      await judge(list, tappedWordId, props.clickAction === WIDGET_ACTION.gotIt);
+      await judge(list, tappedWordId, click?.action === WIDGET_ACTION.gotIt);
       // 방금 쓴 결과를 반영한 목록으로 다음 단어를 고른다.
       lists = await fetchAllLists();
     }
@@ -107,12 +110,7 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
     };
   }
 
-  if (
-    props.widgetAction === 'WIDGET_CLICK' &&
-    props.clickAction === WIDGET_ACTION.reveal &&
-    tappedWordId &&
-    tappedWordId === state.wordId
-  ) {
+  if (click?.action === WIDGET_ACTION.reveal && tappedWordId && tappedWordId === state.wordId) {
     state = { ...state, revealed: true };
   }
 
@@ -129,20 +127,16 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
     await saveWidgetState(widgetId, next);
 
     if (content.reason === 'done-today') {
-      props.renderWidget(
-        <MessageWidget title={i18n.t('widget.doneTitle')} sub={i18n.t('widget.doneSub')} />,
-      );
-      return;
+      return <MessageWidget title={i18n.t('widget.doneTitle')} sub={i18n.t('widget.doneSub')} />;
     }
     const isEmptyList = content.reason === 'empty-list';
-    props.renderWidget(
+    return (
       <MessageWidget
         title={i18n.t(isEmptyList ? 'widget.emptyListTitle' : 'widget.noListsTitle')}
         sub={i18n.t(isEmptyList ? 'widget.emptyListSub' : 'widget.noListsSub')}
         action={i18n.t('widget.openApp')}
-      />,
+      />
     );
-    return;
   }
 
   // 단어가 바뀌었으면 뜻은 다시 가린다 — 앞 단어에서 열어 둔 상태가 따라오면 안 된다.
@@ -156,7 +150,7 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
   };
   await saveWidgetState(widgetId, next);
 
-  props.renderWidget(
+  return (
     <WordWidget
       mode={content.mode}
       term={content.word.term}
@@ -166,7 +160,19 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
       done={content.done}
       cap={content.mode === 'review' ? WIDGET_REVIEW_DAILY_CAP : WIDGET_NEW_DAILY_CAP}
       wordId={content.word.id}
-      height={props.widgetInfo.height}
-    />,
+      height={info.height}
+    />
   );
+}
+
+export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<void> {
+  if (props.widgetAction === 'WIDGET_DELETED') {
+    await clearWidgetState(props.widgetInfo.widgetId);
+    return;
+  }
+  const click =
+    props.widgetAction === 'WIDGET_CLICK'
+      ? { action: props.clickAction, data: props.clickActionData }
+      : undefined;
+  props.renderWidget(await buildWidget(props.widgetInfo, click));
 }

@@ -88,10 +88,15 @@ const widgetConfig = {
     {
       name: 'Avocado',
       label: 'Avocado',
-      minWidth: '160dp',
-      minHeight: '160dp',
+      // 런처는 칸 수를 (dp + 30) / 70 으로 센다 — 160dp 로 적었더니 삼성 런처가 **2×3 만** 내줬다
+      // (9/19 실기). 110dp 가 딱 2칸이다.
+      minWidth: '110dp',
+      minHeight: '110dp',
       targetCellWidth: 2,
       targetCellHeight: 2,
+      // 놓은 뒤 늘릴 수 있게(9/19 은정님 결정). 화면이 실제 높이로 뜻 줄 수를 세므로 세로로
+      // 늘리면 뜻이 더 보인다. 가로 전용 모양(3×2)은 아직 없다 — 늘리면 지금 모양이 넓어진다.
+      resizeMode: 'horizontal|vertical',
       description: 'Words on your phone home screen',
       previewImage: './assets/images/icon.png',
       updatePeriodMillis: 1800000,

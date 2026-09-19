@@ -117,6 +117,19 @@ codegen 산출물 이름이 **351자**라(라이브러리 이름이 경로에 �
 **옆에 나란히** 깔린다. 같은 패키지로 덮으면 서명이 달라 기존 앱을 지워야 하고 단어장이 함께 사라진다.
 빌드: `eas build -p android --profile widget-dev` → APK 를 받아 `adb install -r`.
 
+### ✅ 9/19 밤 — 실기에서 나온 셋과 크기 조절
+
+| 무엇 | 원인 | 처리 |
+|---|---|---|
+| **앱을 켜 둔 채 위젯을 쓰면 앱 DB 가 죽음** | 위젯의 «DB 준비됐나» 확인이 같은 이름으로 DB 를 다시 열었다 → expo-sqlite 가 앱 연결을 돌려주고, 그 핸들이 GC 될 때 연결을 닫았다 | 확인용은 `useNewConnection: true`(`310cbc1`). ✅ 실기: 같은 상황에서 3분 뒤 통계 정상 |
+| **앱을 업데이트하면 위젯이 빈 칸** | 업데이트 직후 위젯 갱신이 앱 프로세스를 새로 띄우는데, 라이브러리가 React 인스턴스가 **돌기 전에** 헤드리스 작업을 시작해 실패(`CatalystInstance not available`)하고 다시 시도하지 않는다 | 라이브러리 패치(`patches/react-native-android-widget+0.22.1.patch`, `hasActiveReactInstance` 를 기다림) + **앱을 나갈 때마다 위젯을 다시 그림**(`features/widget/refresh.ts` — §6-2 «학습을 마칠 때 갱신 요청»도 이걸로 채운다) |
+| **위젯 목록에 2×3 만** | 런처는 칸 수를 (dp+30)/70 으로 센다 — 160dp 가 3칸 | 최소 110dp(2칸) |
+| **크기 조절** | `resizeMode: none` 이라 놓은 뒤 못 바꿨다 | ✅ 9/19 은정님 결정: **2×2 부터, 늘릴 수 있게**. 세로로 늘리면 뜻이 더 보이고(2×3 에서 다섯 줄 실측), 가로로 늘리면 지금 모양이 넓어진다(3×2 전용 모양은 나중) |
+
+🔑 위젯 그리기는 한 함수(`buildWidget`)다 — 위젯이 부를 때와 앱이 다시 그리라고 할 때 같은 함수를 써야 «앱을 나갔다 오니 위젯이 바뀌었다»가 안 생긴다.
+🔴 위젯 배럴(`features/widget/index.ts`)은 네이티브 위젯 모듈을 정적으로 내보내지 않는다 — iOS 에서 import 만으로 죽을 수 있다.
+⏳ 위젯 목록의 설명이 영어 한 줄뿐이고 미리보기가 앱 아이콘이다 — `appName`·ko/en/es·실제 위젯 그림으로 바꿀 것.
+
 ### ✅ 9/19 뜻 두 줄 (은정님 «2줄 정도는 보여야 하는 거 아냐? … 으로 가리니 별로다»)
 
 목업 https://claude.ai/artifact/SEFfZyY6qYVQLbYRk6s7aZ · 로컬 `C:/Users/kimos/dev/mockups/widget-meaning-lines-2026-09-19-v1.html`

@@ -1,32 +1,39 @@
 'use no memo';
 
 /**
- * 휴대폰 홈 화면 위젯 2×2 — `docs/widget-design.md` §-2 와 목업 v13 이 정본이다.
+ * 휴대폰 홈 화면 위젯 — `docs/widget-design.md` §-2 와 목업이 정본이다.
  *
- * 굵기·자간은 목업에서 그대로 옮겼다(`dev/mockups/widget-notification-mockup-2026-09-17-v13.html`):
- * 단어 22/700 자간 -0.3 · 뜻 14/500 · 판정 버튼 48/600 · 칩 11/600.
+ * 굵기·자간은 목업 v13 에서 그대로 옮겼다: 단어 22/700 자간 -0.3 · 뜻 14/500 · 판정 버튼 48/600 · 칩 11/600.
  * 🔴 굵기를 빼면 치수가 다 맞아도 **다른 화면으로 보인다** — 1차 구현이 그랬다(9/19 실기).
  *
- * ## 높이 예산 (2×2 = 170dp, 안쪽 여백을 빼면 146dp)
+ * ## 모양 (9/19 «뜻 두 줄» 확정 — https://claude.ai/artifact/SEFfZyY6qYVQLbYRk6s7aZ)
  *
- * `20`(칩) + `26`(단어) + `30`(뜻·개수 한 줄) + `48`(버튼) + 간격 `6×3` = **142dp**.
- * 🔴 9/19 에 «개수를 뜻 아래 오른쪽»으로 정할 때 이 예산을 보지 않았다 — 줄을 하나 더 쓰면
- * 뜻에 남는 높이가 26dp 에서 3dp 로 줄어 **2×2 에서는 뜻이 사라진다**. 그래서 개수를 뜻과
- * 같은 줄 오른쪽에 둔다(의도였던 «매 순간 볼 값이 아니다»는 그대로 지켜진다).
- *
- * 🔴 **런처는 선언한 크기를 주지 않는다.** 160×160dp 를 요청했는데 삼성 런처는 143×253dp 를
- * 줬다(9/19 실기). 사용자가 늘릴 수도 있다. 그래서 남는 높이는 어느 한 요소가 먹지 않고
- * `justifyContent: 'center'` 로 **위아래에 나눠 준다** — 뜻 자리에 `flex: 1` 을 줬더니 큰
- * 위젯에서 회색 박스가 화면 절반을 차지했다.
- *
- * 🔑 뜻은 **가렸다가 탭으로 공개**한다(W5). 가린 동안에는 판정 버튼을 그리지 않는다 —
- * 뜻을 안 보고 누르는 «외웠어요»는 판정이 아니라 오조작이다.
+ * - **칩·단어는 위에 고정, 판정 버튼은 아래에 고정.** 가운데 정렬로 두었더니 뜻을 열 때 단어가 27dp 튀었다.
+ * - **뜻은 남는 높이를 다 쓴다.** 2×2 에서 두 줄, 크게 놓으면 들어가는 만큼(줄 수는 `./layout`).
+ * - **«1 / 10»은 뜻을 가린 동안만 보인다.** 뜻 줄 오른쪽에 두면 폭 40dp 를 가져가 한 줄에 여섯 글자만
+ *   남았다. 위젯은 거의 늘 가린 채로 놓여 있고 개수는 그때 보는 값이라, 판정하는 몇 초 동안 빠져도 잃는 게 없다.
+ *   판정하면 다음 단어가 가린 채로 새 개수와 함께 돌아온다.
+ * - 가린 동안에는 판정 버튼을 그리지 않는다 — 뜻을 안 보고 누르는 «외웠어요»는 판정이 아니라 오조작이다.
+ *   «눌러서 뜻 보기»가 그 자리까지 차지한다(누를 곳이 클수록 좋다).
  */
 import React from 'react';
+import { PixelRatio } from 'react-native';
 import { FlexWidget, TextWidget } from 'react-native-android-widget';
 import Colors from '@/constants/colors';
 import i18n from '@/i18n';
 import type { WidgetMode } from './next-word';
+import {
+  BUTTON_H,
+  CHIP_ROW_H,
+  COUNT_ROW_H,
+  GAP,
+  GAP_WORD_MEANING,
+  MEANING_LINE_H,
+  WIDGET_PAD_H,
+  WIDGET_PAD_V,
+  WORD_H,
+  meaningLines,
+} from './layout';
 
 /** 위젯 스타일의 색 타입이 `#${string}` 템플릿이라, 팔레트 값(string)을 좁혀 준다. */
 const hex = (v: string) => v as `#${string}`;
@@ -73,6 +80,8 @@ export interface WordWidgetProps {
   cap: number;
   /** 판정 탭에 실어 보내는 단어 id. 늦게 도착한 탭이 **다음 단어를 판정하는 것**을 막는다. */
   wordId: string;
+  /** 위젯의 실제 높이(dp). 뜻을 몇 줄 보여 줄지 센다. */
+  height: number;
 }
 
 /**
@@ -84,8 +93,17 @@ function chipLabel(mode: WidgetMode): string {
   return mode === 'review' ? i18n.t('flashcards.review') : i18n.t('search.filterLearning');
 }
 
+/** 폰의 글자 크기 설정. 헤드리스에서 못 읽으면 기본값으로 본다. */
+function fontScale(): number {
+  try {
+    return PixelRatio.getFontScale();
+  } catch {
+    return 1;
+  }
+}
+
 export function WordWidget(props: WordWidgetProps) {
-  const { mode, term, meaning, listTitle, revealed, done, cap, wordId } = props;
+  const { mode, term, meaning, listTitle, revealed, done, cap, wordId, height } = props;
 
   return (
     <FlexWidget
@@ -94,10 +112,9 @@ export function WordWidget(props: WordWidgetProps) {
         width: 'match_parent',
         backgroundColor: C.surface,
         borderRadius: 22,
-        padding: 12,
+        paddingVertical: WIDGET_PAD_V,
+        paddingHorizontal: WIDGET_PAD_H,
         flexDirection: 'column',
-        justifyContent: 'center',
-        flexGap: 6,
       }}
       accessibilityLabel={`${chipLabel(mode)} ${term}`}
     >
@@ -105,7 +122,7 @@ export function WordWidget(props: WordWidgetProps) {
       <FlexWidget
         style={{
           width: 'match_parent',
-          height: 20,
+          height: CHIP_ROW_H,
           flexDirection: 'row',
           alignItems: 'center',
           flexGap: 6,
@@ -113,7 +130,7 @@ export function WordWidget(props: WordWidgetProps) {
       >
         <FlexWidget
           style={{
-            height: 20,
+            height: CHIP_ROW_H,
             backgroundColor: CHIP_COLOR[mode],
             borderRadius: 10,
             paddingHorizontal: 8,
@@ -140,70 +157,62 @@ export function WordWidget(props: WordWidgetProps) {
           fontSize: 22,
           fontWeight: '700',
           letterSpacing: -0.3,
-          lineHeight: 26,
+          lineHeight: WORD_H,
           color: C.text,
+          marginTop: GAP,
         }}
         maxLines={1}
         truncate="END"
       />
 
-      {/*
-        뜻과 오늘 몫을 **한 줄에** 둔다.
-        🔴 9/19 에 개수를 «뜻 아래 오른쪽»으로 정할 때 높이 예산을 안 봤다 — 줄을 하나 더
-        쓰면 2×2(안쪽 146dp)에서 뜻에 남는 높이가 26dp → 3dp 가 된다. 같은 줄 오른쪽에
-        두면 «뜻 아래»라는 의도(매 순간 볼 값이 아니다)는 지키면서 줄은 아끼게 된다.
-      */}
-      <FlexWidget
-        style={{
-          width: 'match_parent',
-          height: 30,
-          flexDirection: 'row',
-          alignItems: 'center',
-          flexGap: 6,
-        }}
-      >
-        {revealed ? (
-          <FlexWidget style={{ flex: 1, height: 30, justifyContent: 'center' }}>
-            <TextWidget
-              text={meaning}
-              style={{ fontSize: 14, fontWeight: '500', lineHeight: 18, color: C.text }}
-              maxLines={1}
-              truncate="END"
-            />
-          </FlexWidget>
-        ) : (
-          <FlexWidget
-            style={{
-              flex: 1,
-              height: 30,
-              backgroundColor: C.soft,
-              borderRadius: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            clickAction={WIDGET_ACTION.reveal}
-            clickActionData={{ wordId }}
-          >
-            <TextWidget
-              text={i18n.t('widget.reveal')}
-              style={{ fontSize: 12, fontWeight: '500', color: C.sub }}
-              maxLines={1}
-            />
-          </FlexWidget>
-        )}
-        <TextWidget
-          text={`${done} / ${cap}`}
-          style={{ fontSize: 11, fontWeight: '600', color: C.faint }}
-          maxLines={1}
-        />
-      </FlexWidget>
+      {revealed ? (
+        // 뜻 — 남는 높이를 다 쓰고, 넘칠 때만 마지막 줄에서 «…».
+        <FlexWidget
+          style={{
+            flex: 1,
+            width: 'match_parent',
+            marginTop: GAP_WORD_MEANING,
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <TextWidget
+            text={meaning}
+            style={{ fontSize: 14, fontWeight: '500', lineHeight: MEANING_LINE_H, color: C.text }}
+            maxLines={meaningLines(height, fontScale())}
+            truncate="END"
+          />
+        </FlexWidget>
+      ) : (
+        <FlexWidget
+          style={{
+            flex: 1,
+            width: 'match_parent',
+            marginTop: GAP,
+            backgroundColor: C.soft,
+            borderRadius: 12,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          clickAction={WIDGET_ACTION.reveal}
+          clickActionData={{ wordId }}
+        >
+          <TextWidget
+            text={i18n.t('widget.reveal')}
+            style={{ fontSize: 12, fontWeight: '500', color: C.sub }}
+            maxLines={1}
+          />
+        </FlexWidget>
+      )}
 
       {revealed ? (
-        <FlexWidget style={{ width: 'match_parent', flexDirection: 'row', flexGap: 6 }}>
+        <FlexWidget
+          style={{ width: 'match_parent', flexDirection: 'row', flexGap: 6, marginTop: GAP }}
+        >
           <FlexWidget
             style={{
               flex: 1,
-              height: 48,
+              height: BUTTON_H,
               backgroundColor: C.soft,
               borderRadius: 12,
               justifyContent: 'center',
@@ -221,7 +230,7 @@ export function WordWidget(props: WordWidgetProps) {
           <FlexWidget
             style={{
               flex: 1,
-              height: 48,
+              height: BUTTON_H,
               backgroundColor: CHIP_COLOR[mode],
               borderRadius: 12,
               justifyContent: 'center',
@@ -237,7 +246,25 @@ export function WordWidget(props: WordWidgetProps) {
             />
           </FlexWidget>
         </FlexWidget>
-      ) : null}
+      ) : (
+        // 오늘 몫 — 가린 동안만. 뜻을 열면 이 자리를 판정 버튼이 쓴다.
+        <FlexWidget
+          style={{
+            width: 'match_parent',
+            height: COUNT_ROW_H,
+            marginTop: GAP,
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          }}
+        >
+          <TextWidget
+            text={`${done} / ${cap}`}
+            style={{ fontSize: 11, fontWeight: '600', color: C.faint }}
+            maxLines={1}
+          />
+        </FlexWidget>
+      )}
     </FlexWidget>
   );
 }
@@ -255,7 +282,8 @@ export function MessageWidget(props: { title: string; sub: string; action?: stri
         width: 'match_parent',
         backgroundColor: C.surface,
         borderRadius: 22,
-        padding: 12,
+        paddingVertical: WIDGET_PAD_V,
+        paddingHorizontal: WIDGET_PAD_H,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',

@@ -158,6 +158,7 @@ export async function widgetTaskHandler(props: WidgetTaskHandlerProps): Promise<
       done={content.done}
       cap={content.mode === 'review' ? WIDGET_REVIEW_DAILY_CAP : WIDGET_NEW_DAILY_CAP}
       wordId={content.word.id}
+      height={props.widgetInfo.height}
     />,
   );
 }

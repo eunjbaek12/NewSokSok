@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>친구가 보낸 단어장 · 아보카도</title>
+  <meta name="description" content="아보카도 앱에서 담아 바로 학습하세요." />
+  <meta property="og:title" content="친구가 보낸 단어장 · 아보카도" />
+  <meta property="og:description" content="아보카도 앱에서 담아 바로 학습하세요." />
+  <meta property="og:type" content="website" />
+  <!-- 주소로만 건넨 단어장이다. 검색에 걸리면 안 되고, 스토어로 넘어갈 때 ?id= 가 새면 안 된다. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: #f9fafb;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    [hidden] { display: none !important; }
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    .brand {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #6CB573;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .icon { font-size: 2.6rem; line-height: 1.2; }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+    .meta { font-size: 0.9rem; color: #555; margin-top: 6px; }
+    .meta.soft { color: #888; font-size: 0.85rem; margin-top: 2px; }
+    .until {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #eef7ef;
+      color: #3d7f44;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #888;
+      margin: 22px 0 8px;
+    }
+    .words {
+      list-style: none;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .words li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      font-size: 0.93rem;
+    }
+    .words li + li { border-top: 1px solid #f1f1f1; }
+    .term {
+      font-weight: 700;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .meaning {
+      color: #555;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: right;
+    }
+    .more { text-align: center; color: #888; font-size: 0.85rem; padding: 10px 0 0; }
+    .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn.primary { background: #1B6EF3; color: #fff; }
+    .btn.secondary { background: #fff; color: #1a1a2e; border-color: #e3e5e8; }
+    .btn:active { opacity: 0.85; }
+    .hint { font-size: 0.8rem; color: #888; text-align: center; margin-top: 12px; line-height: 1.5; }
+    .state-title { font-size: 1.15rem; font-weight: 800; margin-top: 10px; }
+    .state-body { font-size: 0.92rem; color: #555; margin-top: 8px; }
+    .spinner {
+      width: 28px; height: 28px; margin: 8px auto 12px;
+      border: 3px solid #e3e5e8; border-top-color: #6CB573; border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    footer { margin-top: 28px; text-align: center; font-size: 0.8rem; }
+    footer a { color: #1B6EF3; text-decoration: none; }
+  </style>
+  <!--
+    공개 키는 config.js 에만 둔다(config.example.js 참고). 이 파일이 없거나 키가 비어 있으면
+    미리보기 없이 [앱에서 담기]·[설치하기]만 보인다 — 키가 없어도 페이지는 쓸모가 있어야 한다.
+  -->
+  <script src="config.js"></script>
+</head>
+<body>
+  <main class="container">
+    <div class="brand" id="brand">🥑 아보카도</div>
+
+    <div class="card" id="state-loading">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="state-body" data-t="loading"></div>
+    </div>
+
+    <!-- 미리보기가 된 경우 -->
+    <div id="state-ready" hidden>
+      <div class="card">
+        <div class="icon" id="deck-icon"></div>
+        <h1 id="deck-title"></h1>
+        <div class="meta" id="deck-meta"></div>
+        <div class="meta soft" id="deck-langs"></div>
+        <div class="until" id="deck-until" hidden></div>
+      </div>
+      <div class="section-label" id="preview-label"></div>
+      <ul class="words" id="deck-words"></ul>
+      <div class="more" id="deck-more" hidden></div>
+    </div>
+
+    <!-- 키가 없거나 미리보기를 못 받았을 때 — 버튼은 그대로 쓸 수 있다 -->
+    <div class="card" id="state-generic" hidden>
+      <div class="icon">📬</div>
+      <div class="state-title" data-t="genericTitle"></div>
+      <div class="state-body" data-t="genericBody"></div>
+    </div>
+
+    <!-- 만료·삭제·오타 — 서버가 셋을 구분하지 못하므로 이유를 단정하지 않는다 -->
+    <div class="card" id="state-unavailable" hidden>
+      <div class="icon">📭</div>
+      <div class="state-title" data-t="unavailableTitle"></div>
+      <div class="state-body" data-t="unavailableBody"></div>
+    </div>
+
+    <div class="card" id="state-error" hidden>
+      <div class="icon">📶</div>
+      <div class="state-title" data-t="errorTitle"></div>
+      <div class="state-body" data-t="errorBody"></div>
+      <div class="actions"><button class="btn secondary" id="btn-retry" data-t="retry"></button></div>
+    </div>
+
+    <div class="actions" id="actions" hidden>
+      <a class="btn primary" id="btn-open" data-t="openApp"></a>
+      <a class="btn secondary" id="btn-install" data-t="install" rel="noopener"></a>
+      <a class="btn secondary" id="btn-play" data-t="getPlay" rel="noopener" hidden></a>
+      <a class="btn secondary" id="btn-appstore" data-t="getAppStore" rel="noopener" hidden></a>
+      <div class="hint" id="hint"></div>
+    </div>
+
+    <footer><a href="../" data-t="about"></a></footer>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ─── 고정값 ──────────────────────────────────────────────────────────────
+    // 프로젝트 URL 은 비밀이 아니다(앱 번들에 EXPO_PUBLIC_ 로 박힌다). 키만 config.js 로 뺀다.
+    var SUPABASE_URL = 'https://ithqbclnwvyeultkyxbn.supabase.co';
+    var PACKAGE = 'com.soksokvoca';
+    var PLAY_URL = 'https://play.google.com/store/apps/details?id=' + PACKAGE;
+    var APPSTORE_URL = 'https://apps.apple.com/app/id6776714408';
+    // 앱의 features/curation/share-link.ts 와 같은 규칙 — 경로·스크립트 문자가 섞인 값은 id 가 아니다.
+    var ID_RE = /^[A-Za-z0-9_-]{8,64}$/;
+    var PREVIEW_ROWS = 10;
+    var FETCH_TIMEOUT_MS = 8000;
+
+    // ─── 문구 (앱의 sharedDeck.* 와 같은 말) ─────────────────────────────────
+    var STRINGS = {
+      ko: {
+        loading: '단어장을 불러오는 중…',
+        sentBy: '{name} 님이 보낸 단어장', words: '{n}단어', until: '{date}까지 열 수 있어요',
+        previewLabel: '앞 {n}단어 미리 보기', more: '외 {n}단어',
+        openApp: '아보카도 앱에서 담기', install: '앱 설치하기',
+        getPlay: 'Google Play에서 받기', getAppStore: 'App Store에서 받기',
+        oldAppHint: '앱이 열렸는데 단어장이 보이지 않으면 앱을 최신 버전으로 업데이트해 주세요.',
+        desktopHint: '휴대폰에서 이 주소를 열면 앱에 바로 담을 수 있어요.',
+        genericTitle: '친구가 단어장을 보냈어요',
+        genericBody: '아보카도 앱에서 열어 내 단어장에 담을 수 있어요.',
+        unavailableTitle: '단어장을 열 수 없어요',
+        unavailableBody: '공유 기간이 지났거나 주소가 바뀐 것 같아요. 보낸 사람에게 다시 보내 달라고 해 주세요.',
+        errorTitle: '단어장을 불러오지 못했어요',
+        errorBody: '인터넷 연결을 확인하고 다시 시도해 주세요.',
+        retry: '다시 시도', about: '아보카도 알아보기',
+        lang: { en: '영어', ko: '한국어', ja: '일본어', zh: '중국어', vi: '베트남어', es: '스페인어' }
+      },
+      en: {
+        loading: 'Loading the list…',
+        sentBy: 'From {name}', words: '{n} words', until: 'Open until {date}',
+        previewLabel: 'First {n} words', more: '+ {n} more',
+        openApp: 'Save in the Avocado app', install: 'Install the app',
+        getPlay: 'Get it on Google Play', getAppStore: 'Download on the App Store',
+        oldAppHint: "If the app opens but the list doesn't appear, please update the app.",
+        desktopHint: 'Open this address on your phone to save it straight into the app.',
+        genericTitle: 'A friend sent you a word list',
+        genericBody: 'Open it in the Avocado app to save it to your lists.',
+        unavailableTitle: "Can't open this list",
+        unavailableBody: 'The sharing period may have ended, or the link may have changed. Ask the sender to send it again.',
+        errorTitle: "Couldn't load the list",
+        errorBody: 'Check your connection and try again.',
+        retry: 'Try again', about: 'About Avocado',
+        lang: { en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish' }
+      },
+      es: {
+        loading: 'Cargando la lista…',
+        sentBy: 'De {name}', words: '{n} palabras', until: 'Disponible hasta el {date}',
+        previewLabel: 'Primeras {n} palabras', more: 'y {n} más',
+        openApp: 'Guardar en la app Avocado', install: 'Instalar la app',
+        getPlay: 'Disponible en Google Play', getAppStore: 'Descárgala en el App Store',
+        oldAppHint: 'Si la app se abre pero no aparece la lista, actualiza la app.',
+        desktopHint: 'Abre esta dirección en tu teléfono para guardarla directamente en la app.',
+        genericTitle: 'Un amigo te envió una lista de palabras',
+        genericBody: 'Ábrela en la app Avocado para guardarla en tus listas.',
+        unavailableTitle: 'No se puede abrir la lista',
+        unavailableBody: 'Puede que el periodo para compartir haya terminado o que el enlace haya cambiado. Pide a quien te la envió que la vuelva a enviar.',
+        errorTitle: 'No se pudo cargar la lista',
+        errorBody: 'Revisa tu conexión e inténtalo de nuevo.',
+        retry: 'Reintentar', about: 'Conoce Avocado',
+        lang: { en: 'inglés', ko: 'coreano', ja: 'japonés', zh: 'chino', vi: 'vietnamita', es: 'español' }
+      }
+    };
+
+    function pickLang() {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'ko'];
+      for (var i = 0; i < list.length; i++) {
+        var code = String(list[i]).slice(0, 2).toLowerCase();
+        if (STRINGS[code]) return code;
+      }
+      return 'en';
+    }
+
+    var lang = pickLang();
+    var T = STRINGS[lang];
+    document.documentElement.lang = lang;
+
+    function fmt(s, vars) {
+      return s.replace(/\{(\w+)\}/g, function (_, k) { return vars[k] != null ? String(vars[k]) : ''; });
+    }
+    function $(id) { return document.getElementById(id); }
+
+    // 정적 문구 채우기 — 사용자 데이터는 전부 textContent 로만 넣는다(제목·단어는 남이 쓴 글이다).
+    var nodes = document.querySelectorAll('[data-t]');
+    for (var i = 0; i < nodes.length; i++) nodes[i].textContent = T[nodes[i].getAttribute('data-t')] || '';
+    $('brand').textContent = lang === 'ko' ? '🥑 아보카도' : '🥑 Avocado';
+
+    var STATES = ['state-loading', 'state-ready', 'state-generic', 'state-unavailable', 'state-error'];
+    function show(name) {
+      for (var j = 0; j < STATES.length; j++) $(STATES[j]).hidden = STATES[j] !== 'state-' + name;
+      // 못 여는 주소에는 담기 버튼을 두지 않는다 — 눌러도 앱에서 같은 안내를 한 번 더 볼 뿐이다.
+      $('actions').hidden = name === 'unavailable' || name === 'loading';
+    }
+
+    // ─── 플랫폼별 버튼 ───────────────────────────────────────────────────────
+    var ua = navigator.userAgent || '';
+    var isAndroid = /Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    function wireButtons(id) {
+      var open = $('btn-open');
+      var install = $('btn-install');
+      var hint = $('hint');
+
+      if (isAndroid) {
+        // intent:// 는 앱이 없으면 브라우저가 스스로 Play 로 넘긴다(S.browser_fallback_url).
+        open.href = 'intent://d/' + id + '#Intent;scheme=soksokvoca;package=' + PACKAGE +
+          ';S.browser_fallback_url=' + encodeURIComponent(PLAY_URL) + ';end';
+        install.href = PLAY_URL;
+        hint.textContent = T.oldAppHint;
+      } else if (isIOS) {
+        // iOS 는 스킴이 안 열려도 알려 주지 않는다 — 잠시 뒤 페이지가 그대로면 App Store 로 보낸다.
+        open.href = 'soksokvoca://d/' + id;
+        open.addEventListener('click', function () {
+          var timer = setTimeout(function () {
+            if (!document.hidden) location.href = APPSTORE_URL;
+          }, 1600);
+          var cancel = function () { clearTimeout(timer); };
+          document.addEventListener('visibilitychange', cancel, { once: true });
+          window.addEventListener('pagehide', cancel, { once: true });
+        });
+        install.href = APPSTORE_URL;
+        hint.textContent = T.oldAppHint;
+      } else {
+        // 컴퓨터에서는 담을 앱이 없다. 두 스토어를 모두 보여 주고 휴대폰에서 열라고 한다.
+        open.hidden = true;
+        install.hidden = true;
+        $('btn-play').href = PLAY_URL;
+        $('btn-play').hidden = false;
+        $('btn-appstore').href = APPSTORE_URL;
+        $('btn-appstore').hidden = false;
+        hint.textContent = T.desktopHint;
+      }
+    }
+
+    // ─── 미리보기 ────────────────────────────────────────────────────────────
+    function langName(code) { return (code && T.lang[code]) || (code ? String(code).toUpperCase() : ''); }
+
+    function formatDate(ms) {
+      try {
+        return new Date(ms).toLocaleDateString(lang, { month: 'long', day: 'numeric' });
+      } catch (e) {
+        return new Date(ms).toISOString().slice(0, 10);
+      }
+    }
+
+    function render(deck) {
+      $('deck-icon').textContent = deck.icon || '📖';
+      $('deck-title').textContent = deck.title || '';
+      $('deck-meta').textContent =
+        fmt(T.sentBy, { name: deck.creator_name || '' }) + ' · ' + fmt(T.words, { n: deck.word_count || 0 });
+      $('deck-langs').textContent = deck.source_language && deck.target_language
+        ? langName(deck.source_language) + ' → ' + langName(deck.target_language)
+        : '';
+      if (deck.expires_at) {
+        $('deck-until').textContent = fmt(T.until, { date: formatDate(deck.expires_at) });
+        $('deck-until').hidden = false;
+      }
+
+      var words = (deck.words || []).slice(0, PREVIEW_ROWS);
+      $('preview-label').textContent = fmt(T.previewLabel, { n: words.length });
+      var ul = $('deck-words');
+      ul.textContent = '';
+      for (var k = 0; k < words.length; k++) {
+        var li = document.createElement('li');
+        var term = document.createElement('span');
+        term.className = 'term';
+        term.textContent = words[k].term || '';
+        var meaning = document.createElement('span');
+        meaning.className = 'meaning';
+        meaning.textContent = words[k].meaning_kr || words[k].definition || '';
+        li.appendChild(term);
+        li.appendChild(meaning);
+        ul.appendChild(li);
+      }
+      var rest = (deck.word_count || 0) - words.length;
+      $('deck-more').hidden = rest <= 0;
+      if (rest > 0) $('deck-more').textContent = fmt(T.more, { n: rest });
+      document.title = (deck.title || '') + ' · ' + (lang === 'ko' ? '아보카도' : 'Avocado');
+      show('ready');
+    }
+
+    function publicKey() {
+      var cfg = window.AVOCADO_SHARE_CONFIG || {};
+      var key = typeof cfg.publishableKey === 'string' ? cfg.publishableKey.trim() : '';
+      // secret 키는 RLS 를 통째로 우회한다. 실수로 들어왔으면 쓰지 않는다.
+      if (/^sb_secret_/.test(key)) {
+        console.error('[share] config.js 에 secret 키가 들어 있다 — 쓰지 않는다. publishable 키로 바꿀 것.');
+        return '';
+      }
+      return key;
+    }
+
+    function load(id) {
+      var key = publicKey();
+      if (!key) { show('generic'); return; }
+      show('loading');
+
+      var headers = { apikey: key, 'Content-Type': 'application/json' };
+      // 옛 anon 키(JWT)만 Authorization 에 싣는다. 새 publishable 키는 JWT 가 아니라 거기 넣으면 거부된다.
+      if (/^eyJ/.test(key)) headers.Authorization = 'Bearer ' + key;
+
+      var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, FETCH_TIMEOUT_MS);
+
+      // p_preview=true 면 서버가 앞 10단어만 돌려준다 — 2,000단어를 통째로 받지 않는다.
+      fetch(SUPABASE_URL + '/rest/v1/rpc/get_shared_deck', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ p_id: id, p_preview: true }),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (res) {
+        clearTimeout(timer);
+        // 키가 틀렸거나 막혔으면 받는 사람이 할 수 있는 게 없다. 버튼만 보여 준다.
+        if (res.status === 401 || res.status === 403) {
+          console.warn('[share] 키가 거부됐다(' + res.status + ') — config.js 를 확인할 것.');
+          return 'generic';
+        }
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function (deck) {
+        if (deck === 'generic') show('generic');
+        else if (!deck) show('unavailable');
+        else render(deck);
+      }).catch(function () {
+        clearTimeout(timer);
+        show('error');
+      });
+    }
+
+    // ─── 시작 ────────────────────────────────────────────────────────────────
+    var id = new URLSearchParams(location.search).get('id');
+    if (!id || !ID_RE.test(id)) { show('unavailable'); return; }
+    wireButtons(id);
+    $('btn-retry').addEventListener('click', function () { load(id); });
+    load(id);
+  })();
+  </script>
+</body>
+</html>

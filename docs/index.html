@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아보카도 · Avocado — AI 단어장 학습</title>
+  <meta name="description" content="AI가 만드는 나만의 단어장. 한·영·일·중·베·스 6개 언어, 사진·엑셀로 빠르게." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: #f9fafb;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .lang-switch button {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 1px solid #c7d9ff;
+      background: #fff;
+      color: #1B6EF3;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lang-switch button:hover { background: #f0f5ff; }
+    .lang-switch button.active {
+      background: #1B6EF3;
+      color: #fff;
+      border-color: #1B6EF3;
+    }
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #6CB573;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .hero-emoji {
+      font-size: 4rem;
+      margin-bottom: 8px;
+    }
+    section {
+      margin-bottom: 36px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+      padding-left: 10px;
+      border-left: 4px solid #6CB573;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #eee;
+    }
+    .feature-card .ic {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .feature-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1a2e;
+    }
+    .feature-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .contact-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #eee;
+      margin-top: 8px;
+    }
+    .contact-box p { margin-bottom: 10px; font-size: 0.95rem; }
+    .contact-box p:last-child { margin-bottom: 0; }
+    .contact-box strong { color: #1a1a2e; }
+    .contact-box a {
+      color: #1B6EF3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+    .stores {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .stores a {
+      flex: 1 1 auto;
+      min-width: 160px;
+      padding: 12px 18px;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.15s ease;
+    }
+    .stores a:hover { opacity: 0.85; }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    footer a {
+      color: #1B6EF3;
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switch">
+      <button id="btn-ko" class="active" onclick="setLang('ko')">한국어</button>
+      <button id="btn-en" onclick="setLang('en')">English</button>
+    </div>
+
+    <!-- ============================= KO ============================= -->
+    <div id="content-ko">
+      <header>
+        <div class="hero-emoji">🥑</div>
+        <h1>아보카도 · Avocado</h1>
+        <p>AI가 만드는 나만의 단어장 · 한·영·일·중·베·스 6개 언어</p>
+      </header>
+
+      <section>
+        <h2>아보카도가 뭔가요?</h2>
+        <p>아보카도는 한국어·영어·일본어·중국어·베트남어·스페인어 6개 언어를 자유롭게 조합해 학습할 수 있는 어휘 학습 앱입니다. 사진 한 장으로 단어를 통째로 가져오고, AI가 발음·뜻·예문·동의어를 자동 분석합니다.</p>
+      </section>
+
+      <section>
+        <h2>주요 기능</h2>
+        <div class="features">
+          <div class="feature-card">
+            <div class="ic">🧠</div>
+            <h3>AI 단어 자동 분석</h3>
+            <p>단어 1개를 추가하면 발음·뜻·예문·동의어까지 AI가 자동 생성</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">📷</div>
+            <h3>사진으로 단어 추출</h3>
+            <p>교과서·웹툰·기사 사진 1장으로 단어를 통째로 가져오기</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">🎴</div>
+            <h3>4가지 학습 모드</h3>
+            <p>플래시카드 · 퀴즈 · 예문 학습 · 오토플레이/쉐도잉</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">🌍</div>
+            <h3>다국어 큐레이션</h3>
+            <p>NGSL · JLPT · HSK · TOPIK · 베트남어 기초 등 검증된 단어장</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>지원·문의</h2>
+        <div class="contact-box">
+          <p><strong>이메일</strong>: <a href="mailto:mtgirltreeguy@gmail.com">mtgirltreeguy@gmail.com</a></p>
+          <p>버그 신고, 기능 제안, 결제·계정 문의 모두 이메일로 받습니다. 보통 1~2영업일 내에 답변드립니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>자주 묻는 질문</h2>
+        <div class="contact-box">
+          <p><strong>Q. 무료로 어디까지 쓸 수 있나요?</strong></p>
+          <p>하루 100단어 AI 분석 + 광고 보기로 최대 +200단어(총 300단어/일). 큐레이션·플래시카드·퀴즈 등 학습 기능은 전부 무료입니다.</p>
+          <br />
+          <p><strong>Q. Pro 구독은 어떻게 해지하나요?</strong></p>
+          <p>iOS: 설정 → Apple ID → 구독 → 아보카도 → 구독 취소<br />Android: Google Play 앱 → 프로필 → 결제 및 구독 → 구독 → 아보카도 → 취소</p>
+          <br />
+          <p><strong>Q. BYOK는 뭔가요?</strong></p>
+          <p>본인이 Google AI Studio에서 무료로 발급받은 Gemini API 키를 직접 등록해 무제한으로 AI 기능을 사용하는 모드입니다. 본인 키로 호출되므로 Pro 구독 없이도 무제한 사용 가능합니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>다운로드</h2>
+        <div class="stores">
+          <a href="https://play.google.com/store/apps/details?id=com.soksokvoca" target="_blank" rel="noopener">Google Play에서 받기</a>
+          <a href="#" target="_blank" rel="noopener" onclick="alert('App Store 출시 준비 중입니다.'); return false;">App Store (준비 중)</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================= EN ============================= -->
+    <div id="content-en" class="hidden">
+      <header>
+        <div class="hero-emoji">🥑</div>
+        <h1>Avocado</h1>
+        <p>AI-built vocabulary flashcards · 6 languages</p>
+      </header>
+
+      <section>
+        <h2>What is Avocado?</h2>
+        <p>Avocado is a vocabulary learning app for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — in any direction. Snap a photo, let AI auto-generate flashcards with pronunciation, meaning, examples, and synonyms.</p>
+      </section>
+
+      <section>
+        <h2>Key Features</h2>
+        <div class="features">
+          <div class="feature-card">
+            <div class="ic">🧠</div>
+            <h3>AI Word Auto-Analysis</h3>
+            <p>Type one word and AI fills pronunciation, meaning, examples, and synonyms</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">📷</div>
+            <h3>Photo to Flashcards</h3>
+            <p>Snap a photo of any text and get a deck instantly</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">🎴</div>
+            <h3>Four Study Modes</h3>
+            <p>Flashcards · Quiz · Example sentences · Autoplay/Shadowing</p>
+          </div>
+          <div class="feature-card">
+            <div class="ic">🌍</div>
+            <h3>Curated Decks</h3>
+            <p>NGSL · JLPT · HSK · TOPIK · Vietnamese — verified lists</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Support &amp; Contact</h2>
+        <div class="contact-box">
+          <p><strong>Email</strong>: <a href="mailto:mtgirltreeguy@gmail.com">mtgirltreeguy@gmail.com</a></p>
+          <p>Bug reports, feature suggestions, and billing or account questions — all by email. Typical response within 1–2 business days.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>FAQ</h2>
+        <div class="contact-box">
+          <p><strong>Q. What can I use for free?</strong></p>
+          <p>100 AI word lookups per day, plus up to +200 from rewarded ads (300/day max). All study modes — flashcards, quiz, curations — are fully free.</p>
+          <br />
+          <p><strong>Q. How do I cancel my Pro subscription?</strong></p>
+          <p>iOS: Settings → Apple ID → Subscriptions → Avocado → Cancel<br />Android: Play Store app → Profile → Payments &amp; subscriptions → Subscriptions → Avocado → Cancel</p>
+          <br />
+          <p><strong>Q. What is BYOK?</strong></p>
+          <p>Bring Your Own Key — register your own free Gemini API key from Google AI Studio for unlimited AI use without a Pro subscription. All calls go through your own key.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Download</h2>
+        <div class="stores">
+          <a href="https://play.google.com/store/apps/details?id=com.soksokvoca" target="_blank" rel="noopener">Get it on Google Play</a>
+          <a href="#" target="_blank" rel="noopener" onclick="alert('Coming soon to the App Store.'); return false;">App Store (Coming Soon)</a>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2026 SokSok Voca (산녀와 나무꾼) · <a href="privacy-policy.html">개인정보 처리방침 / Privacy Policy</a> · <a href="account-deletion.html">계정 삭제 / Account Deletion</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const isKo = lang === 'ko';
+      document.getElementById('content-ko').classList.toggle('hidden', !isKo);
+      document.getElementById('content-en').classList.toggle('hidden', isKo);
+      document.getElementById('btn-ko').classList.toggle('active', isKo);
+      document.getElementById('btn-en').classList.toggle('active', !isKo);
+      document.documentElement.lang = lang;
+    }
+    // Default lang by URL ?lang=en
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang === 'en') setLang('en');
+  </script>
+</body>
+</html>

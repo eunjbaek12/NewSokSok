@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · 개인정보 처리방침 - Avocado</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: #f9fafb;
+      color: #1a1a2e;
+      line-height: 1.8;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .lang-switch button {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 1px solid #c7d9ff;
+      background: #fff;
+      color: #1B6EF3;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lang-switch button:hover { background: #f0f5ff; }
+    .lang-switch button.active {
+      background: #1B6EF3;
+      color: #fff;
+      border-color: #1B6EF3;
+    }
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #1B6EF3;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1B6EF3;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    section {
+      margin-bottom: 36px;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+      padding-left: 10px;
+      border-left: 3px solid #1B6EF3;
+    }
+    p, li {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #1B6EF3;
+      color: #fff;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f3f6ff; }
+    .contact-box {
+      background: #f0f5ff;
+      border: 1px solid #c7d9ff;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 10px;
+    }
+    .contact-box p { margin-bottom: 4px; }
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.85rem;
+      color: #999;
+      text-align: center;
+    }
+    [data-lang]:not(.show) { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button type="button" data-set-lang="ko" class="active">한국어</button>
+      <button type="button" data-set-lang="en">English</button>
+    </div>
+
+    <!-- ===================== KOREAN ===================== -->
+    <div data-lang="ko" class="show">
+    <header>
+      <h1>개인정보 처리방침</h1>
+      <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 5월 18일</p>
+    </header>
+
+    <section>
+      <p>
+        아보카도(이하 "앱")는 이용자의 개인정보를 소중히 여기며,
+        「개인정보 보호법」 및 관련 법령을 준수합니다.
+        본 방침은 앱이 수집하는 정보와 그 활용 방식을 명확히 안내합니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. 수집하는 개인정보 항목</h2>
+      <table>
+        <thead>
+          <tr><th>구분</th><th>항목</th><th>수집 시점</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google 로그인</td>
+            <td>이메일 주소, 이름, 프로필 사진 URL, Google 계정 식별자</td>
+            <td>Google 로그인 시</td>
+          </tr>
+          <tr>
+            <td>앱 사용 데이터</td>
+            <td>직접 입력한 단어·예문·단어장, 학습 결과</td>
+            <td>앱 사용 중</td>
+          </tr>
+          <tr>
+            <td>AI 사용량 통계</td>
+            <td>일일 단어 카운트, 보상형 광고 시청 횟수, 호출 횟수 (사용자 ID와 연결, 한국 표준시 자정 초기화)</td>
+            <td>AI 기능 사용 시 (로그인 사용자, 운영자 키 경로 한정)</td>
+          </tr>
+          <tr>
+            <td>Pro 구독 정보</td>
+            <td>구매 토큰(Android · Google Play) 또는 거래 식별자(iOS · App Store), 구독 상품 ID, 구독 만료일</td>
+            <td>Pro 구독 결제 시</td>
+          </tr>
+          <tr>
+            <td>광고 ID (Android Advertising ID)</td>
+            <td>Google AdMob 광고 표시 목적. 다른 식별자와 결합하지 않음</td>
+            <td>Free 사용자가 광고 노출되는 동안</td>
+          </tr>
+          <tr>
+            <td>고객 문의</td>
+            <td>문의 내용, 회신용 이메일 주소(입력하지 않아도 문의할 수 있으며, 이 경우 답장은 앱에서만 확인합니다), 진단 정보(앱 버전·기기 OS·언어 설정·요금제·보유 단어장/단어 수 — 보내기 전에 끌 수 있습니다), 중복 문의 방지용 기기 식별자</td>
+            <td>앱의 설정 → 개발자에게 메시지로 문의를 보낼 때</td>
+          </tr>
+          <tr>
+            <td>게스트 모드</td>
+            <td>개인정보 수집 없음 (기기 내 로컬 저장만)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. 개인정보 수집 및 이용 목적</h2>
+      <ul>
+        <li>회원 식별 및 로그인 처리</li>
+        <li>여러 기기 간 학습 데이터 클라우드 동기화</li>
+        <li>AI 기반 단어·예문 생성 서비스 제공 (Google Gemini / Vertex AI)</li>
+        <li>AI 일일 한도 관리 및 보상형 광고 시청 보너스 누적</li>
+        <li>Pro 구독 상태 확인 및 결제 영수증 검증 (Google Play Developer API · Apple App Store Server API)</li>
+        <li>광고 표시 (Free 사용자 한정, Google AdMob)</li>
+        <li>고객 문의 접수 및 답변 (앱 내 답장, 이메일을 남긴 경우 메일 회신)</li>
+        <li>서비스 오류 분석 및 품질 개선</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. 개인정보 보유 및 파기</h2>
+      <ul>
+        <li><strong>보유 기간:</strong> 회원 탈퇴 또는 서비스 이용 종료 시까지</li>
+        <li><strong>파기 방법:</strong> 탈퇴 즉시 데이터베이스에서 완전 삭제</li>
+        <li><strong>법령 의무 보관:</strong> 관련 법령에서 보존 기간을 정한 경우 해당 기간 동안 보관 후 삭제</li>
+        <li><strong>고객 문의:</strong> 문의 내용과 답장은 접수일로부터 1년간 보관 후 삭제합니다. 탈퇴하면 문의와 계정의 연결(사용자 식별자)은 끊어지지만, 결제·환불 분쟁에 대비해 문의 내용 자체는 위 기간 동안 남습니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. 제3자 제공 및 위탁</h2>
+      <table>
+        <thead>
+          <tr><th>업체</th><th>목적</th><th>제공 항목</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google LLC</td>
+            <td>Google 로그인 인증</td>
+            <td>Google 계정 토큰</td>
+          </tr>
+          <tr>
+            <td>Google Gemini / Vertex AI</td>
+            <td>AI 단어·예문·이미지 텍스트 인식</td>
+            <td>사용자가 입력한 단어 또는 사진 텍스트 (개인 식별 정보 미포함)</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Free 사용자에게 배너·보상형 광고 노출</td>
+            <td>광고 ID (Android Advertising ID), 기기 정보</td>
+          </tr>
+          <tr>
+            <td>Google Play Billing / Developer API (Android)</td>
+            <td>Pro 구독 결제 및 영수증 검증</td>
+            <td>구매 토큰, 구독 상품 ID</td>
+          </tr>
+          <tr>
+            <td>Apple App Store / App Store Server API (iOS)</td>
+            <td>Pro 구독 결제 및 영수증 검증</td>
+            <td>거래 식별자(transaction ID), 구독 상품 ID</td>
+          </tr>
+          <tr>
+            <td>Supabase (AWS)</td>
+            <td>클라우드 데이터베이스 저장, Edge Function 실행</td>
+            <td>학습 데이터, 계정 정보, AI 사용량 통계, 구독 상태, 문의 내용</td>
+          </tr>
+          <tr>
+            <td>Resend (Resend, Inc.)</td>
+            <td>문의 알림 및 답장 이메일 발송</td>
+            <td>문의 내용, 회신용 이메일 주소(입력한 경우), 진단 정보</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px; font-size:0.85rem; color:#666;">
+        위 업체들은 서비스 제공에 필요한 최소한의 정보만 처리하며, 수탁 목적 외 이용을 금지합니다.
+        결제 수단 정보(카드 번호 등)는 각 스토어(Google Play·App Store)가 전적으로 처리하며 본 앱 또는 우리 서버에 저장되지 않습니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. 앱 권한 사용 목적</h2>
+      <ul>
+        <li><strong>마이크 / 음성인식:</strong> 단어 음성 입력 기능에만 사용. 음성 데이터는 기기 내에서 처리되며 서버로 전송되지 않습니다.</li>
+        <li><strong>카메라:</strong> 사진 스캔으로 단어를 추가할 때만 사용. 촬영된 이미지는 텍스트 인식 후 즉시 폐기되며 저장되지 않습니다.</li>
+        <li><strong>사진 라이브러리 (선택):</strong> 갤러리에서 단어장 사진을 불러올 때만 사용. 선택한 사진만 텍스트 인식에 활용됩니다.</li>
+        <li><strong>광고 ID (com.google.android.gms.permission.AD_ID):</strong> Free 사용자에게 광고를 노출하는 데만 사용. Pro 사용자에게는 광고가 표시되지 않습니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5-1. Pro 구독 결제 및 환불</h2>
+      <ul>
+        <li><strong>결제 처리:</strong> Pro 구독 결제는 전적으로 앱을 설치한 스토어(Android는 Google Play, iOS는 App Store)를 통해 진행되며, 카드 정보 등 결제 수단은 각 스토어가 처리합니다.</li>
+        <li><strong>저장 항목:</strong> 본 앱은 구독 활성화에 필요한 구매 토큰(Android) 또는 거래 식별자(iOS)와 상품 ID, 만료일만 저장합니다.</li>
+        <li><strong>해지:</strong> <em>Android</em> — Google Play 앱 → 메뉴 → 결제 및 정기 결제 → 정기 결제. <em>iOS</em> — 설정 앱 → 사용자 이름 → 구독. 어느 쪽이든 언제든 해지할 수 있습니다.</li>
+        <li><strong>환불:</strong> 결제한 스토어(Google Play 또는 App Store)의 환불 정책을 따르며, 환불 요청도 해당 스토어를 통해 진행됩니다.</li>
+        <li><strong>해지 후 데이터:</strong> 구독 해지·만료 후에도 단어장·학습 데이터는 그대로 유지됩니다 (Free 한도로 자동 전환).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. 이용자의 권리</h2>
+      <p>이용자는 언제든지 다음 권리를 행사할 수 있습니다.</p>
+      <ul>
+        <li>개인정보 열람 요청</li>
+        <li>개인정보 수정·삭제 요청</li>
+        <li>처리 정지 및 동의 철회</li>
+        <li>계정 탈퇴 (앱 설정 → 계정 → 탈퇴)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. 이용 대상 연령 및 아동 개인정보 보호</h2>
+      <p>
+        본 서비스는 만 14세 이상을 대상으로 합니다. 앱은 만 14세 미만 아동의
+        개인정보(생년월일·연령 포함)를 수집하지 않습니다.
+      </p>
+      <p style="margin-top:8px;">
+        만 14세 미만 아동이 가입한 사실을 인지할 경우 즉시 계정 및 관련 정보를
+        삭제하며, 의심 신고는 앱의 설정 → 개발자에게 메시지를 통해 접수합니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. 국외 이전 안내</h2>
+      <p>
+        본 서비스는 Supabase(AWS) 클라우드를 통해 사용자의 학습 데이터·계정 정보를
+        저장하며, 일부 데이터는 한국 외 지역(예: 싱가포르, 미국)에 위치한 서버에서
+        처리될 수 있습니다. 또한 Google Gemini / Vertex AI·Google AdMob·Google Play
+        Billing은 글로벌 인프라를 통해 운영됩니다. 모든 국외 이전은 서비스 제공
+        목적에 한정되며, 관련 법령과 각 사업자의 데이터 보호 기준을 준수합니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. 개인정보 보호책임자</h2>
+      <div class="contact-box">
+        <p><strong>서비스명:</strong> 아보카도 (Avocado)</p>
+        <p><strong>문의:</strong> 앱의 <strong>설정 → 개발자에게 메시지</strong>로 보내주시면 앱에서 답장을 확인하실 수 있습니다. 스토어의 개발자 페이지를 통해서도 연락하실 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>10. 방침 변경 안내</h2>
+      <p>
+        본 방침이 변경될 경우, 변경 7일 전부터 앱 내 공지 또는 이 페이지를 통해 안내합니다.
+      </p>
+    </section>
+
+    <footer>
+      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 8월 2일</p>
+    </footer>
+    </div>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div data-lang="en">
+    <header>
+      <h1>Privacy Policy</h1>
+      <p>Avocado &nbsp;·&nbsp; Effective: May 18, 2026 &nbsp;·&nbsp; Last updated: August 2, 2026</p>
+    </header>
+
+    <section>
+      <p>
+        Avocado ("the App") respects your privacy. This Policy explains what
+        information we collect, how we use it, who we share it with, and the
+        rights you have. We process personal data in accordance with the Korean
+        Personal Information Protection Act (PIPA), and we follow the principles
+        of the EU GDPR and California CCPA where they apply to you.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Items</th><th>When collected</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Sign-In</td>
+            <td>Email address, name, profile picture URL, Google account identifier</td>
+            <td>When you sign in with Google</td>
+          </tr>
+          <tr>
+            <td>App usage data</td>
+            <td>Words, example sentences, vocabulary lists you create, and study results</td>
+            <td>While you use the App</td>
+          </tr>
+          <tr>
+            <td>AI usage stats</td>
+            <td>Daily word count, rewarded-ad views, request counts (linked to user ID, reset at midnight Korea Standard Time)</td>
+            <td>When using AI features (signed-in users, operator-key path only)</td>
+          </tr>
+          <tr>
+            <td>Pro subscription</td>
+            <td>Purchase token (Android · Google Play) or transaction identifier (iOS · App Store), product ID, expiry date</td>
+            <td>When you purchase a Pro subscription</td>
+          </tr>
+          <tr>
+            <td>Advertising ID (Android Advertising ID)</td>
+            <td>Used only for Google AdMob ad delivery. Not combined with other identifiers.</td>
+            <td>While ads are shown to Free users</td>
+          </tr>
+          <tr>
+            <td>Support enquiries</td>
+            <td>Your message, a reply email address (optional — you can send without one, in which case replies appear only in the App), diagnostic details (app version, device OS, language setting, plan, number of lists/words you have — you can turn this off before sending), and a device identifier used to prevent duplicate submissions</td>
+            <td>When you send a message via Settings → Message the developer</td>
+          </tr>
+          <tr>
+            <td>Guest mode</td>
+            <td>No personal information collected (data stored locally on your device only)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. Purposes of Collection and Use</h2>
+      <ul>
+        <li>Account identification and sign-in</li>
+        <li>Cloud sync of learning data across devices</li>
+        <li>Providing AI-based word and example generation (Google Gemini / Vertex AI)</li>
+        <li>Managing daily AI quotas and accruing rewarded-ad bonuses</li>
+        <li>Verifying Pro subscription status and payment receipts (Google Play Developer API · Apple App Store Server API)</li>
+        <li>Showing advertising (Free users only, Google AdMob)</li>
+        <li>Receiving and answering support enquiries (in-app replies, plus email replies if you provide an address)</li>
+        <li>Diagnosing service errors and improving quality</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Retention and Deletion</h2>
+      <ul>
+        <li><strong>Retention period:</strong> Until you delete your account or stop using the service.</li>
+        <li><strong>Deletion method:</strong> Complete removal from the database immediately upon account deletion.</li>
+        <li><strong>Legal retention:</strong> Where applicable laws require longer retention, we retain only for the period required and then delete.</li>
+        <li><strong>Support enquiries:</strong> Messages and replies are kept for one year from the date received, then deleted. If you delete your account, the link between the enquiry and your account (user identifier) is severed, but the message itself remains for that period in case of a billing or refund dispute.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third Parties and Processors</h2>
+      <table>
+        <thead>
+          <tr><th>Provider</th><th>Purpose</th><th>Data shared</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google LLC</td>
+            <td>Google Sign-In authentication</td>
+            <td>Google account tokens</td>
+          </tr>
+          <tr>
+            <td>Google Gemini / Vertex AI</td>
+            <td>AI word generation, example sentences, image text recognition</td>
+            <td>Words or photo text you submit (no personal identifiers)</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Showing banner and rewarded ads to Free users</td>
+            <td>Advertising ID, device information</td>
+          </tr>
+          <tr>
+            <td>Google Play Billing / Developer API (Android)</td>
+            <td>Pro subscription payment and receipt verification</td>
+            <td>Purchase token, subscription product ID</td>
+          </tr>
+          <tr>
+            <td>Apple App Store / App Store Server API (iOS)</td>
+            <td>Pro subscription payment and receipt verification</td>
+            <td>Transaction identifier, subscription product ID</td>
+          </tr>
+          <tr>
+            <td>Supabase (AWS)</td>
+            <td>Cloud database storage, Edge Function execution</td>
+            <td>Learning data, account info, AI usage stats, subscription state, support messages</td>
+          </tr>
+          <tr>
+            <td>Resend (Resend, Inc.)</td>
+            <td>Sending support notification and reply emails</td>
+            <td>Message content, reply email address (if provided), diagnostic details</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px; font-size:0.85rem; color:#666;">
+        These providers process only the minimum data necessary to deliver the service and are prohibited from using it for other purposes.
+        Payment instrument details (such as card numbers) are handled solely by the app stores (Google Play, App Store) and are never stored by the App or our servers.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. App Permissions</h2>
+      <ul>
+        <li><strong>Microphone / Speech recognition:</strong> Used only for voice word entry. Audio is processed on-device and is not sent to our servers.</li>
+        <li><strong>Camera:</strong> Used only when scanning photos to add words. Captured images are discarded immediately after text recognition and are not stored.</li>
+        <li><strong>Photo library (optional):</strong> Used only when you import a photo for word extraction. Only the photo you select is processed.</li>
+        <li><strong>Advertising ID (com.google.android.gms.permission.AD_ID):</strong> Used only to show ads to Free users. Pro users see no ads.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5-1. Pro Subscription Billing and Refunds</h2>
+      <ul>
+        <li><strong>Payment processing:</strong> Pro subscriptions are billed exclusively through the store you installed from (Google Play on Android, the App Store on iOS). Payment instruments (cards, etc.) are handled by that store.</li>
+        <li><strong>What we store:</strong> Only the purchase token (Android) or transaction identifier (iOS), the product ID, and the expiry date needed to activate your subscription.</li>
+        <li><strong>Cancellation:</strong> <em>Android</em> — Google Play app → Menu → Payments &amp; subscriptions → Subscriptions. <em>iOS</em> — Settings app → your name → Subscriptions. You can cancel at any time.</li>
+        <li><strong>Refunds:</strong> Refunds follow the policy of the store you purchased from (Google Play or the App Store) and are requested through that store.</li>
+        <li><strong>After cancellation:</strong> Your vocabulary lists and study data remain intact (automatically reverting to Free tier limits).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Your Rights</h2>
+      <p>You may exercise the following rights at any time:</p>
+      <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Request correction or deletion of your information</li>
+        <li>Restrict processing or withdraw your consent</li>
+        <li>Delete your account (App Settings → Account → Delete account)</li>
+        <li>If you are in the EEA/UK: rights under GDPR, including data portability and the right to lodge a complaint with your local supervisory authority</li>
+        <li>If you are in California: rights under CCPA, including the right to know, delete, and not be discriminated against for exercising these rights. We do not "sell" personal information as defined by CCPA.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Age of Users and Children's Privacy</h2>
+      <p>
+        This service is intended for users aged 14 and older. The App does not
+        knowingly collect personal information (including date of birth or age)
+        from children under 14.
+      </p>
+      <p style="margin-top:8px;">
+        If we learn that a child under 14 has created an account, we will delete
+        that account and related information promptly. You can report suspected
+        cases via Settings → Message the developer in the App.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. International Data Transfers</h2>
+      <p>
+        We store learning data and account information using Supabase (AWS),
+        and some data may be processed on servers located outside your country
+        of residence (for example, Singapore or the United States). Google
+        Gemini / Vertex AI, Google AdMob, and Google Play Billing also operate
+        on global infrastructure. All international transfers are limited to
+        what is necessary to provide the service and are subject to applicable
+        laws and the data protection standards of each provider.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Privacy Contact</h2>
+      <div class="contact-box">
+        <p><strong>Service:</strong> Avocado</p>
+        <p><strong>Contact:</strong> Use <strong>Settings → Message the developer</strong> in the App and you can read our reply there. You can also reach us through the store's developer page.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>10. Changes to This Policy</h2>
+      <p>
+        If we change this Policy, we will give at least 7 days' notice in the
+        App or on this page before the changes take effect.
+      </p>
+    </section>
+
+    <footer>
+      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: August 2, 2026</p>
+    </footer>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      var sections = document.querySelectorAll('[data-lang]');
+      var html = document.documentElement;
+
+      function setLang(lang) {
+        sections.forEach(function (el) {
+          el.classList.toggle('show', el.getAttribute('data-lang') === lang);
+        });
+        buttons.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+        html.setAttribute('lang', lang);
+        try { localStorage.setItem('avocado-pp-lang', lang); } catch (e) {}
+      }
+
+      // 1. URL ?lang=en (?lang=ko)  2. localStorage  3. browser preference  4. ko default
+      var params = new URLSearchParams(window.location.search);
+      var fromUrl = params.get('lang');
+      var fromStore = null;
+      try { fromStore = localStorage.getItem('avocado-pp-lang'); } catch (e) {}
+      var browser = (navigator.language || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
+      var initial = (fromUrl === 'ko' || fromUrl === 'en') ? fromUrl
+                  : (fromStore === 'ko' || fromStore === 'en') ? fromStore
+                  : browser;
+      setLang(initial);
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

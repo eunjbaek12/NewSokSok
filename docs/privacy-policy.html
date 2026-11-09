@@ -113,6 +113,14 @@
       color: #999;
       text-align: center;
     }
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fcd9a8;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+    }
+    .notice p, .notice li { font-size: 0.9rem; color: #78350f; }
     [data-lang]:not(.show) { display: none; }
   </style>
 </head>
@@ -127,8 +135,17 @@
     <div data-lang="ko" class="show">
     <header>
       <h1>개인정보 처리방침</h1>
-      <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 5월 18일</p>
+      <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 11월 16일 &nbsp;·&nbsp; 최종 수정일: 2026년 11월 9일</p>
     </header>
+
+    <div class="notice">
+      <p><strong>개정 안내</strong> (2026년 11월 9일 공개 · 11월 16일 시행)</p>
+      <ul>
+        <li>«기능 사용 횟수»를 새로 기록합니다. 어떤 기능을 하루에 몇 번 썼는지만 남기며, 찾거나 입력한 단어는 포함하지 않습니다. (앱 1.9.1 이상, 시행일부터)</li>
+        <li>게스트 모드 항목을 추가했습니다: 앱이 만든 임의의 사용자 ID로 AI 사용량 등을 처리하며(이름·이메일은 받지 않음), 마지막 사용 후 13개월이 지나면 삭제합니다. 그 전에도 문의로 삭제를 요청할 수 있습니다.</li>
+        <li>Apple 로그인, 사진 스캔 때 보내는 정보 등 몇 항목의 설명을 보완했습니다.</li>
+      </ul>
+    </div>
 
     <section>
       <p>
@@ -146,9 +163,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>Google 로그인</td>
-            <td>이메일 주소, 이름, 프로필 사진 URL, Google 계정 식별자</td>
-            <td>Google 로그인 시</td>
+            <td>Google·Apple 로그인</td>
+            <td>이메일 주소, 이름, 프로필 사진 URL, Google·Apple 계정 식별자</td>
+            <td>Google·Apple 로그인 시</td>
           </tr>
           <tr>
             <td>앱 사용 데이터</td>
@@ -158,7 +175,12 @@
           <tr>
             <td>AI 사용량 통계</td>
             <td>일일 단어 카운트, 보상형 광고 시청 횟수, 호출 횟수 (사용자 ID와 연결, 한국 표준시 자정 초기화)</td>
-            <td>AI 기능 사용 시 (로그인 사용자, 운영자 키 경로 한정)</td>
+            <td>AI 기능 사용 시</td>
+          </tr>
+          <tr>
+            <td>기능 사용 횟수</td>
+            <td>주요 기능(예: 사진 스캔, AI 단어 생성, 자동재생, 요금제 화면)을 날짜별로 몇 번 썼는지 (사용자 ID와 연결). 찾거나 입력한 단어는 포함하지 않음</td>
+            <td>기능 사용 시 (앱 1.9.1 이상, 시행일부터)</td>
           </tr>
           <tr>
             <td>Pro 구독 정보</td>
@@ -168,17 +190,27 @@
           <tr>
             <td>광고 ID (Android Advertising ID)</td>
             <td>Google AdMob 광고 표시 목적. 다른 식별자와 결합하지 않음</td>
-            <td>Free 사용자가 광고 노출되는 동안</td>
+            <td>Pro가 아닌 사용자에게 광고가 표시되는 동안</td>
           </tr>
           <tr>
             <td>고객 문의</td>
-            <td>문의 내용, 회신용 이메일 주소(입력하지 않아도 문의할 수 있으며, 이 경우 답장은 앱에서만 확인합니다), 진단 정보(앱 버전·기기 OS·언어 설정·요금제·보유 단어장/단어 수 — 보내기 전에 끌 수 있습니다), 중복 문의 방지용 기기 식별자</td>
+            <td>문의 내용(답장은 앱에서 확인합니다), 진단 정보(앱 버전·기기 OS·언어 설정·요금제·보유 단어장/단어 수 — 보내기 전에 끌 수 있습니다), 중복 문의 방지용 기기 식별자</td>
             <td>앱의 설정 → 개발자에게 메시지로 문의를 보낼 때</td>
           </tr>
           <tr>
+            <td>신고</td>
+            <td>틀린 뜻 알리기(단어, AI가 만든 결과, 사유, 메모, 앱 버전·기기 종류), 공유 단어장 신고(사유·상세)</td>
+            <td>직접 보낼 때</td>
+          </tr>
+          <tr>
+            <td>공유 단어장</td>
+            <td>직접 정한 닉네임, 공유한 단어장(다른 사용자에게 공개)</td>
+            <td>공유할 때(로그인 필요)</td>
+          </tr>
+          <tr>
             <td>게스트 모드</td>
-            <td>개인정보 수집 없음 (기기 내 로컬 저장만)</td>
-            <td>—</td>
+            <td>이름·이메일은 받지 않습니다. 앱이 만든 임의의 사용자 ID로 AI 사용량, 기능 사용 횟수, 보낸 문의·신고를 처리합니다. 광고가 표시됩니다. 단어장·학습 기록은 기기에만 저장됩니다.</td>
+            <td>게스트로 시작할 때, 이후 기능 사용 시</td>
           </tr>
         </tbody>
       </table>
@@ -192,9 +224,10 @@
         <li>AI 기반 단어·예문 생성 서비스 제공 (Google Gemini / Vertex AI)</li>
         <li>AI 일일 한도 관리 및 보상형 광고 시청 보너스 누적</li>
         <li>Pro 구독 상태 확인 및 결제 영수증 검증 (Google Play Developer API · Apple App Store Server API)</li>
-        <li>광고 표시 (Free 사용자 한정, Google AdMob)</li>
-        <li>고객 문의 접수 및 답변 (앱 내 답장, 이메일을 남긴 경우 메일 회신)</li>
+        <li>광고 표시 (Pro가 아닌 사용자, Google AdMob)</li>
+        <li>고객 문의·신고 접수 및 답변 (앱 내 답장)</li>
         <li>서비스 오류 분석 및 품질 개선</li>
+        <li>기능별 이용 현황 파악(기능 개선). 기능 사용 횟수는 광고나 외부 제공에 쓰지 않습니다.</li>
       </ul>
     </section>
 
@@ -205,6 +238,9 @@
         <li><strong>파기 방법:</strong> 탈퇴 즉시 데이터베이스에서 완전 삭제</li>
         <li><strong>법령 의무 보관:</strong> 관련 법령에서 보존 기간을 정한 경우 해당 기간 동안 보관 후 삭제</li>
         <li><strong>고객 문의:</strong> 문의 내용과 답장은 접수일로부터 1년간 보관 후 삭제합니다. 탈퇴하면 문의와 계정의 연결(사용자 식별자)은 끊어지지만, 결제·환불 분쟁에 대비해 문의 내용 자체는 위 기간 동안 남습니다.</li>
+        <li><strong>신고:</strong> 탈퇴하면 계정 연결은 끊고, 내용은 품질 개선을 위해 남깁니다.</li>
+        <li><strong>기능 사용 횟수:</strong> 로그인 사용자는 탈퇴 시 삭제합니다.</li>
+        <li><strong>게스트 모드:</strong> 게스트 사용자 ID의 정보는 마지막 사용 후 13개월이 지나면 삭제합니다. 그 전에 지우려면 설정 → 개발자에게 메시지로 요청하세요. 문의·신고 내용은 ID 연결만 끊고 보관합니다. 게스트로 쓰다 로그인해도 게스트 정보는 합쳐지지 않고 같은 규칙으로 삭제됩니다.</li>
       </ul>
     </section>
 
@@ -221,13 +257,18 @@
             <td>Google 계정 토큰</td>
           </tr>
           <tr>
+            <td>Apple Inc.</td>
+            <td>Apple 로그인 인증</td>
+            <td>Apple 계정 토큰</td>
+          </tr>
+          <tr>
             <td>Google Gemini / Vertex AI</td>
             <td>AI 단어·예문·이미지 텍스트 인식</td>
-            <td>사용자가 입력한 단어 또는 사진 텍스트 (개인 식별 정보 미포함)</td>
+            <td>입력한 단어 또는 스캔한 사진 (사용자 ID는 보내지 않음)</td>
           </tr>
           <tr>
             <td>Google AdMob</td>
-            <td>Free 사용자에게 배너·보상형 광고 노출</td>
+            <td>Pro가 아닌 사용자에게 배너·보상형 광고 노출</td>
             <td>광고 ID (Android Advertising ID), 기기 정보</td>
           </tr>
           <tr>
@@ -243,12 +284,17 @@
           <tr>
             <td>Supabase (AWS)</td>
             <td>클라우드 데이터베이스 저장, Edge Function 실행</td>
-            <td>학습 데이터, 계정 정보, AI 사용량 통계, 구독 상태, 문의 내용</td>
+            <td>학습 데이터, 계정 정보, AI 사용량 통계, 기능 사용 횟수, 구독 상태, 문의·신고 내용</td>
           </tr>
           <tr>
             <td>Resend (Resend, Inc.)</td>
-            <td>문의 알림 및 답장 이메일 발송</td>
-            <td>문의 내용, 회신용 이메일 주소(입력한 경우), 진단 정보</td>
+            <td>문의·신고 알림 발송</td>
+            <td>문의·신고 내용, 진단 정보, 사용자 ID</td>
+          </tr>
+          <tr>
+            <td>Datamuse · Wikimedia(Wiktionary)</td>
+            <td>단어 입력 중 추천 단어</td>
+            <td>입력 중인 글자 (계정 정보 없음)</td>
           </tr>
         </tbody>
       </table>
@@ -261,10 +307,11 @@
     <section>
       <h2>5. 앱 권한 사용 목적</h2>
       <ul>
-        <li><strong>마이크 / 음성인식:</strong> 단어 음성 입력 기능에만 사용. 음성 데이터는 기기 내에서 처리되며 서버로 전송되지 않습니다.</li>
+        <li><strong>마이크 / 음성인식:</strong> 단어 음성 입력 기능에만 사용. 음성은 기기의 음성 인식 기능으로 글자로 바뀝니다. 앱은 음성을 저장하거나 우리 서버로 보내지 않습니다.</li>
         <li><strong>카메라:</strong> 사진 스캔으로 단어를 추가할 때만 사용. 촬영된 이미지는 텍스트 인식 후 즉시 폐기되며 저장되지 않습니다.</li>
         <li><strong>사진 라이브러리 (선택):</strong> 갤러리에서 단어장 사진을 불러올 때만 사용. 선택한 사진만 텍스트 인식에 활용됩니다.</li>
-        <li><strong>광고 ID (com.google.android.gms.permission.AD_ID):</strong> Free 사용자에게 광고를 노출하는 데만 사용. Pro 사용자에게는 광고가 표시되지 않습니다.</li>
+        <li><strong>광고 ID (com.google.android.gms.permission.AD_ID):</strong> Pro가 아닌 사용자에게 광고를 노출하는 데만 사용. Pro 사용자에게는 광고가 표시되지 않습니다.</li>
+        <li><strong>iOS 광고 식별자(IDFA):</strong> 앱 추적 허용을 요청합니다.</li>
       </ul>
     </section>
 
@@ -286,7 +333,7 @@
         <li>개인정보 열람 요청</li>
         <li>개인정보 수정·삭제 요청</li>
         <li>처리 정지 및 동의 철회</li>
-        <li>계정 탈퇴 (앱 설정 → 계정 → 탈퇴)</li>
+        <li>계정 탈퇴 (설정 → 계정 → 탈퇴. 게스트는 설정 → 개발자에게 메시지로 요청)</li>
       </ul>
     </section>
 
@@ -308,7 +355,7 @@
         본 서비스는 Supabase(AWS) 클라우드를 통해 사용자의 학습 데이터·계정 정보를
         저장하며, 일부 데이터는 한국 외 지역(예: 싱가포르, 미국)에 위치한 서버에서
         처리될 수 있습니다. 또한 Google Gemini / Vertex AI·Google AdMob·Google Play
-        Billing은 글로벌 인프라를 통해 운영됩니다. 모든 국외 이전은 서비스 제공
+        Billing·Apple·Resend·Datamuse·Wikimedia는 글로벌 인프라를 통해 운영됩니다. 모든 국외 이전은 서비스 제공
         목적에 한정되며, 관련 법령과 각 사업자의 데이터 보호 기준을 준수합니다.
       </p>
     </section>
@@ -328,8 +375,17 @@
       </p>
     </section>
 
+    <section>
+      <h2>11. 개정 이력</h2>
+      <ul>
+        <li>2026년 11월 16일 시행(11월 9일 공개): 기능 사용 횟수 항목 추가(앱 1.9.1 이상, 시행일부터 기록). 게스트 모드 항목 추가. 일부 항목 설명 보완</li>
+        <li>2026년 8월 2일: 개정</li>
+        <li>2026년 5월 18일: 최초 시행</li>
+      </ul>
+    </section>
+
     <footer>
-      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 8월 2일</p>
+      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 11월 9일</p>
     </footer>
     </div>
 
@@ -337,8 +393,17 @@
     <div data-lang="en">
     <header>
       <h1>Privacy Policy</h1>
-      <p>Avocado &nbsp;·&nbsp; Effective: May 18, 2026 &nbsp;·&nbsp; Last updated: August 2, 2026</p>
+      <p>Avocado &nbsp;·&nbsp; Effective: November 16, 2026 &nbsp;·&nbsp; Last updated: November 9, 2026</p>
     </header>
+
+    <div class="notice">
+      <p><strong>Notice of changes</strong> (published November 9, 2026 · effective November 16, 2026)</p>
+      <ul>
+        <li>We will start recording "feature usage counts": only how many times a feature is used per day, not the words you look up or enter. (App version 1.9.1 or later, from the effective date)</li>
+        <li>We added a guest mode section: guests are assigned a random user ID by the App, under which things like AI usage are processed (we do not ask for a name or email). This information is deleted 13 months after last use, and you can request deletion earlier through Contact.</li>
+        <li>We expanded the descriptions of a few items, such as Apple Sign-In and what is sent during photo scan.</li>
+      </ul>
+    </div>
 
     <section>
       <p>
@@ -358,9 +423,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>Google Sign-In</td>
-            <td>Email address, name, profile picture URL, Google account identifier</td>
-            <td>When you sign in with Google</td>
+            <td>Google or Apple Sign-In</td>
+            <td>Email address, name, profile picture URL, Google or Apple account identifier</td>
+            <td>When you sign in with Google or Apple</td>
           </tr>
           <tr>
             <td>App usage data</td>
@@ -370,7 +435,12 @@
           <tr>
             <td>AI usage stats</td>
             <td>Daily word count, rewarded-ad views, request counts (linked to user ID, reset at midnight Korea Standard Time)</td>
-            <td>When using AI features (signed-in users, operator-key path only)</td>
+            <td>When using AI features</td>
+          </tr>
+          <tr>
+            <td>Feature usage counts</td>
+            <td>How many times per day you use main features (e.g., photo scan, AI word generation, auto-play, plans screen), linked to your user ID. Does not include words you look up or enter</td>
+            <td>When you use those features (app 1.9.1 or later, from the effective date)</td>
           </tr>
           <tr>
             <td>Pro subscription</td>
@@ -380,17 +450,27 @@
           <tr>
             <td>Advertising ID (Android Advertising ID)</td>
             <td>Used only for Google AdMob ad delivery. Not combined with other identifiers.</td>
-            <td>While ads are shown to Free users</td>
+            <td>While ads are shown to users without Pro</td>
           </tr>
           <tr>
             <td>Support enquiries</td>
-            <td>Your message, a reply email address (optional — you can send without one, in which case replies appear only in the App), diagnostic details (app version, device OS, language setting, plan, number of lists/words you have — you can turn this off before sending), and a device identifier used to prevent duplicate submissions</td>
+            <td>Your message (replies appear in the App), diagnostic details (app version, device OS, language setting, plan, number of lists/words you have — you can turn this off before sending), and a device identifier used to prevent duplicate submissions</td>
             <td>When you send a message via Settings → Message the developer</td>
           </tr>
           <tr>
+            <td>Reports</td>
+            <td>Wrong-meaning reports (the word, the AI result, reason, note, app version, device type) and shared-list reports (reason, details)</td>
+            <td>When you send one</td>
+          </tr>
+          <tr>
+            <td>Shared lists</td>
+            <td>The nickname you choose and the list you share (visible to other users)</td>
+            <td>When you share (sign-in required)</td>
+          </tr>
+          <tr>
             <td>Guest mode</td>
-            <td>No personal information collected (data stored locally on your device only)</td>
-            <td>—</td>
+            <td>We do not collect your name or email. A random user ID created by the App is used for AI usage, feature usage counts, and messages or reports you send. Ads are shown. Your lists and study records stay on your device.</td>
+            <td>When you start as a guest, and afterwards when you use those features</td>
           </tr>
         </tbody>
       </table>
@@ -404,9 +484,10 @@
         <li>Providing AI-based word and example generation (Google Gemini / Vertex AI)</li>
         <li>Managing daily AI quotas and accruing rewarded-ad bonuses</li>
         <li>Verifying Pro subscription status and payment receipts (Google Play Developer API · Apple App Store Server API)</li>
-        <li>Showing advertising (Free users only, Google AdMob)</li>
-        <li>Receiving and answering support enquiries (in-app replies, plus email replies if you provide an address)</li>
+        <li>Showing advertising (users without Pro, Google AdMob)</li>
+        <li>Receiving and answering support enquiries and reports (in-app replies)</li>
         <li>Diagnosing service errors and improving quality</li>
+        <li>Understanding feature usage (to improve features). Feature usage counts are not used for ads or shared with third parties.</li>
       </ul>
     </section>
 
@@ -417,6 +498,9 @@
         <li><strong>Deletion method:</strong> Complete removal from the database immediately upon account deletion.</li>
         <li><strong>Legal retention:</strong> Where applicable laws require longer retention, we retain only for the period required and then delete.</li>
         <li><strong>Support enquiries:</strong> Messages and replies are kept for one year from the date received, then deleted. If you delete your account, the link between the enquiry and your account (user identifier) is severed, but the message itself remains for that period in case of a billing or refund dispute.</li>
+        <li><strong>Reports:</strong> If you delete your account, the link to your account is removed and the report content is kept to improve quality.</li>
+        <li><strong>Feature usage counts:</strong> Deleted when a signed-in user deletes their account.</li>
+        <li><strong>Guest mode:</strong> Information linked to a guest user ID is deleted 13 months after last use. To delete it sooner, send a request via Settings → Message the developer. Messages and reports are kept with the ID link removed. If you sign in later, guest information is not merged and is deleted under the same rule.</li>
       </ul>
     </section>
 
@@ -433,13 +517,18 @@
             <td>Google account tokens</td>
           </tr>
           <tr>
+            <td>Apple Inc.</td>
+            <td>Apple Sign-In authentication</td>
+            <td>Apple account tokens</td>
+          </tr>
+          <tr>
             <td>Google Gemini / Vertex AI</td>
             <td>AI word generation, example sentences, image text recognition</td>
-            <td>Words or photo text you submit (no personal identifiers)</td>
+            <td>Words you enter or the photo you scan (no user ID sent)</td>
           </tr>
           <tr>
             <td>Google AdMob</td>
-            <td>Showing banner and rewarded ads to Free users</td>
+            <td>Showing banner and rewarded ads to users without Pro</td>
             <td>Advertising ID, device information</td>
           </tr>
           <tr>
@@ -455,12 +544,17 @@
           <tr>
             <td>Supabase (AWS)</td>
             <td>Cloud database storage, Edge Function execution</td>
-            <td>Learning data, account info, AI usage stats, subscription state, support messages</td>
+            <td>Learning data, account info, AI usage stats, feature usage counts, subscription state, support messages and reports</td>
           </tr>
           <tr>
             <td>Resend (Resend, Inc.)</td>
-            <td>Sending support notification and reply emails</td>
-            <td>Message content, reply email address (if provided), diagnostic details</td>
+            <td>Sending support and report notifications</td>
+            <td>Message and report content, diagnostic details, user ID</td>
+          </tr>
+          <tr>
+            <td>Datamuse · Wikimedia (Wiktionary)</td>
+            <td>Word suggestions while typing</td>
+            <td>The letters being typed (no account information)</td>
           </tr>
         </tbody>
       </table>
@@ -473,10 +567,11 @@
     <section>
       <h2>5. App Permissions</h2>
       <ul>
-        <li><strong>Microphone / Speech recognition:</strong> Used only for voice word entry. Audio is processed on-device and is not sent to our servers.</li>
+        <li><strong>Microphone / Speech recognition:</strong> Used only for voice word entry. Speech is converted to text by your device's speech recognition. The App does not store speech or send it to our servers.</li>
         <li><strong>Camera:</strong> Used only when scanning photos to add words. Captured images are discarded immediately after text recognition and are not stored.</li>
         <li><strong>Photo library (optional):</strong> Used only when you import a photo for word extraction. Only the photo you select is processed.</li>
-        <li><strong>Advertising ID (com.google.android.gms.permission.AD_ID):</strong> Used only to show ads to Free users. Pro users see no ads.</li>
+        <li><strong>Advertising ID (com.google.android.gms.permission.AD_ID):</strong> Used only to show ads to users without Pro. Pro users see no ads.</li>
+        <li><strong>iOS Advertising Identifier (IDFA):</strong> The App asks for tracking permission.</li>
       </ul>
     </section>
 
@@ -498,7 +593,7 @@
         <li>Access the personal information we hold about you</li>
         <li>Request correction or deletion of your information</li>
         <li>Restrict processing or withdraw your consent</li>
-        <li>Delete your account (App Settings → Account → Delete account)</li>
+        <li>Delete your account (Settings → Account → Delete account; guests: request via Settings → Message the developer)</li>
         <li>If you are in the EEA/UK: rights under GDPR, including data portability and the right to lodge a complaint with your local supervisory authority</li>
         <li>If you are in California: rights under CCPA, including the right to know, delete, and not be discriminated against for exercising these rights. We do not "sell" personal information as defined by CCPA.</li>
       </ul>
@@ -524,8 +619,8 @@
         We store learning data and account information using Supabase (AWS),
         and some data may be processed on servers located outside your country
         of residence (for example, Singapore or the United States). Google
-        Gemini / Vertex AI, Google AdMob, and Google Play Billing also operate
-        on global infrastructure. All international transfers are limited to
+        Gemini / Vertex AI, Google AdMob, Google Play Billing, Apple, Resend,
+        Datamuse, and Wikimedia also operate on global infrastructure. All international transfers are limited to
         what is necessary to provide the service and are subject to applicable
         laws and the data protection standards of each provider.
       </p>
@@ -547,8 +642,17 @@
       </p>
     </section>
 
+    <section>
+      <h2>11. Revision History</h2>
+      <ul>
+        <li>Effective November 16, 2026 (published November 9): Added feature usage counts (app 1.9.1 or later, recorded from the effective date). Added a guest mode section. Expanded some descriptions</li>
+        <li>August 2, 2026: Revised</li>
+        <li>May 18, 2026: First effective</li>
+      </ul>
+    </section>
+
     <footer>
-      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: August 2, 2026</p>
+      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: November 9, 2026</p>
     </footer>
     </div>
   </div>
